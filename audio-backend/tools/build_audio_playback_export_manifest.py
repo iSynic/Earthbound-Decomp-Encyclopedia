@@ -17,6 +17,7 @@ DEFAULT_SUMMARY = (
     / "c0ab06-change-music-fusion-render-jobs-all"
     / "snes_spc-result-summary.json"
 )
+DEFAULT_DURATION_POLICY = ROOT / "manifests" / "audio-export-duration-policy.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -29,6 +30,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         help="Manifest JSON path. Defaults to playback-export-manifest.json beside the summary.",
+    )
+    parser.add_argument(
+        "--duration-policy",
+        default=str(DEFAULT_DURATION_POLICY),
+        help="Duration/loop policy JSON path to embed per-track export metadata.",
     )
     parser.add_argument(
         "--source-state",
@@ -49,12 +55,106 @@ def output_by_kind(result: dict[str, Any], kind: str) -> dict[str, Any] | None:
     return None
 
 
-def build_manifest(summary_path: Path, metrics_path: Path, source_state: str) -> dict[str, Any]:
+def policy_by_track(policy_path: Path) -> dict[int, dict[str, Any]]:
+    if not policy_path.exists():
+        return {}
+    policy = load_json(policy_path)
+    return {int(track["track_id"]): track for track in policy.get("tracks", [])}
+
+
+def export_metadata(policy_track: dict[str, Any] | None) -> dict[str, Any]:
+    if not policy_track:
+        return {
+            "duration_class": "unknown_candidate",
+            "metadata_status": "missing_duration_policy",
+            "release_ready": False,
+            "preview": {
+                "mode": "diagnostic_preview",
+                "seconds": 30.0,
+                "fade_seconds": 5.0,
+            },
+            "loop": None,
+            "finite": None,
+        }
+
+    duration_class = str(policy_track["duration_class"])
+    target = dict(policy_track.get("target_metadata", {}))
+    metadata = {
+        "duration_class": duration_class,
+        "exact_duration_status": policy_track.get("exact_duration_status"),
+        "policy": policy_track.get("export_policy"),
+        "confidence": policy_track.get("confidence"),
+        "release_ready": False,
+        "target_metadata": target,
+    }
+    if duration_class == "looping_candidate":
+        metadata.update(
+            {
+                "metadata_status": "loop_points_pending",
+                "preview": {
+                    "mode": "loop_count_plus_fade_preview",
+                    "loop_count": 2,
+                    "fade_seconds": 5.0,
+                    "requires_measured_loop_points": True,
+                },
+                "loop": {
+                    "intro_samples": target.get("intro_samples"),
+                    "loop_start_sample": target.get("loop_start_sample"),
+                    "loop_end_sample": target.get("loop_end_sample"),
+                    "measured_by": target.get("measured_by"),
+                },
+                "finite": None,
+            }
+        )
+    elif duration_class == "finite_candidate":
+        metadata.update(
+            {
+                "metadata_status": "finite_end_pending",
+                "preview": {
+                    "mode": "diagnostic_or_trim_candidate",
+                    "seconds": policy_track.get("current_preview_seconds", 30.0),
+                    "fade_seconds": 0.0,
+                },
+                "loop": None,
+                "finite": {
+                    "finite_end_sample": target.get("finite_end_sample"),
+                    "measured_by": target.get("measured_by"),
+                },
+            }
+        )
+    elif duration_class == "no_audio_no_key_on":
+        metadata.update(
+            {
+                "metadata_status": "not_applicable",
+                "release_ready": True,
+                "preview": {"mode": "skip", "seconds": 0.0, "fade_seconds": 0.0},
+                "loop": None,
+                "finite": None,
+            }
+        )
+    else:
+        metadata.update(
+            {
+                "metadata_status": "needs_sequence_or_runtime_analysis",
+                "preview": {
+                    "mode": "diagnostic_preview",
+                    "seconds": policy_track.get("current_preview_seconds", 30.0),
+                    "fade_seconds": 5.0,
+                },
+                "loop": None,
+                "finite": None,
+            }
+        )
+    return metadata
+
+
+def build_manifest(summary_path: Path, metrics_path: Path, source_state: str, duration_policy_path: Path) -> dict[str, Any]:
     summary = load_json(summary_path)
     metrics = load_json(metrics_path)
     job_index_path = Path(str(summary.get("job_index", "")))
     job_index = load_json(job_index_path) if job_index_path.exists() else {}
     metrics_by_job = {record["job_id"]: record for record in metrics.get("records", [])}
+    duration_policy_by_track = policy_by_track(duration_policy_path)
     tracks: list[dict[str, Any]] = []
 
     for record in summary.get("results", []):
@@ -78,6 +178,7 @@ def build_manifest(summary_path: Path, metrics_path: Path, source_state: str) ->
                 "source_spc": spc,
                 "rendered_wav": wav,
                 "render_hash": render_hash,
+                "export_metadata": export_metadata(duration_policy_by_track.get(int(record["track_id"]))),
                 "metrics": {
                     "peak_abs_sample": metric.get("peak_abs_sample"),
                     "rms_sample": metric.get("rms_sample"),
@@ -107,6 +208,7 @@ def build_manifest(summary_path: Path, metrics_path: Path, source_state: str) ->
         "schema": "earthbound-decomp.audio-playback-export-manifest.v1",
         "summary_path": str(summary_path),
         "metrics_path": str(metrics_path),
+        "duration_policy_path": str(duration_policy_path),
         "backend_id": summary.get("backend_id"),
         "job_index": summary.get("job_index"),
         "track_count": len(tracks),
@@ -134,11 +236,13 @@ def build_manifest(summary_path: Path, metrics_path: Path, source_state: str) ->
 
 def render_markdown(manifest: dict[str, Any]) -> str:
     rows = [
-        "| `{track_id:03d}` | `{track_name}` | `{status}` | `{classification}` | {peak} | `{wav}` |".format(
+        "| `{track_id:03d}` | `{track_name}` | `{status}` | `{classification}` | `{duration_class}` | `{metadata_status}` | {peak} | `{wav}` |".format(
             track_id=track["track_id"],
             track_name=track["track_name"],
             status=track["status"],
             classification=track["classification"],
+            duration_class=track["export_metadata"]["duration_class"],
+            metadata_status=track["export_metadata"]["metadata_status"],
             peak=track["metrics"].get("peak_abs_sample", ""),
             wav=Path(track["rendered_wav"]["path"]).name if track.get("rendered_wav") else "",
         )
@@ -156,13 +260,15 @@ def render_markdown(manifest: dict[str, Any]) -> str:
             f"- status counts: `{manifest['status_counts']}`",
             f"- classification counts: `{manifest['classification_counts']}`",
             f"- quality gate: `{manifest['quality_gate']['passed_count']}` passed, `{manifest['quality_gate']['failed_count']}` failed",
+            f"- duration policy: `{manifest['duration_policy_path']}`",
             "",
             "The WAV/SPC outputs referenced here are ROM-derived local artifacts. They are for local playback/export only and must not be distributed.",
+            "Looping tracks carry explicit preview metadata now; exact loop start/end samples remain pending until sequence/runtime measurement fills them.",
             "",
             "## Tracks",
             "",
-            "| Track | Name | Status | Class | Peak | WAV |",
-            "| ---: | --- | --- | --- | ---: | --- |",
+            "| Track | Name | Status | Class | Duration Class | Metadata | Peak | WAV |",
+            "| ---: | --- | --- | --- | --- | --- | ---: | --- |",
             *rows,
             "",
         ]
@@ -174,7 +280,7 @@ def main() -> int:
     summary_path = Path(args.summary)
     metrics_path = Path(args.metrics) if args.metrics else summary_path.parent / "libgme-render-metrics.json"
     output_path = Path(args.output) if args.output else summary_path.parent / "playback-export-manifest.json"
-    manifest = build_manifest(summary_path, metrics_path, args.source_state)
+    manifest = build_manifest(summary_path, metrics_path, args.source_state, Path(args.duration_policy))
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     markdown_path = output_path.with_suffix(".md")

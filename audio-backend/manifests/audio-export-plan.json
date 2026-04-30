@@ -68,6 +68,8 @@
       "duration_seconds": null,
       "fade_seconds": null,
       "loop_count": null,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": false
     },
     {
@@ -82,6 +84,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -96,6 +100,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -110,6 +116,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -124,6 +132,8 @@
       "duration_seconds": 0.0,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": false
     },
     {
@@ -138,6 +148,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -152,6 +175,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -166,6 +202,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -180,6 +229,13 @@
       "duration_seconds": 4.036187,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 129158,
+        "finite_end_seconds": 4.036187,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -194,6 +250,13 @@
       "duration_seconds": 4.094594,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 131027,
+        "finite_end_seconds": 4.094594,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -208,6 +271,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -222,6 +287,13 @@
       "duration_seconds": 7.910188,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 253126,
+        "finite_end_seconds": 7.910188,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -236,6 +308,13 @@
       "duration_seconds": 3.390938,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 108510,
+        "finite_end_seconds": 3.390938,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 108510,
@@ -255,6 +334,13 @@
       "duration_seconds": 10.202156,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 326469,
+        "finite_end_seconds": 10.202156,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 326469,
@@ -274,6 +360,13 @@
       "duration_seconds": 0.667156,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 21349,
+        "finite_end_seconds": 0.667156,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 21349,
@@ -293,6 +386,13 @@
       "duration_seconds": 6.393813,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 204602,
+        "finite_end_seconds": 6.393813,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 204602,
@@ -312,6 +412,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -326,6 +428,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -340,6 +444,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -354,6 +460,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -368,6 +476,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -382,6 +492,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -396,6 +508,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -410,6 +524,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -424,6 +540,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -438,6 +556,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -452,6 +572,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -466,6 +588,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -480,6 +604,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -494,6 +620,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -508,6 +647,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -522,6 +674,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -536,6 +701,13 @@
       "duration_seconds": 21.003219,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672103,
+        "finite_end_seconds": 21.003219,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -550,6 +722,13 @@
       "duration_seconds": 21.004906,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672157,
+        "finite_end_seconds": 21.004906,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -564,6 +743,13 @@
       "duration_seconds": 21.002375,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672076,
+        "finite_end_seconds": 21.002375,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -578,6 +764,13 @@
       "duration_seconds": 21.001938,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672062,
+        "finite_end_seconds": 21.001938,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -592,6 +785,13 @@
       "duration_seconds": 21.000875,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672028,
+        "finite_end_seconds": 21.000875,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -606,6 +806,13 @@
       "duration_seconds": 21.005312,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672170,
+        "finite_end_seconds": 21.005312,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -620,6 +827,13 @@
       "duration_seconds": 19.2455,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 615856,
+        "finite_end_seconds": 19.2455,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -634,6 +848,13 @@
       "duration_seconds": 21.005406,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 672173,
+        "finite_end_seconds": 21.005406,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -648,6 +869,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -662,6 +885,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -676,6 +901,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -690,6 +917,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -704,6 +933,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -718,6 +949,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -732,6 +965,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -746,6 +992,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -760,6 +1019,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -774,6 +1046,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -788,6 +1062,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -802,6 +1089,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -816,6 +1105,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -830,6 +1121,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -844,6 +1137,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -858,6 +1164,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -872,6 +1180,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -886,6 +1207,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -900,6 +1223,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -914,6 +1250,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -928,6 +1277,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -942,6 +1293,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -956,6 +1309,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -970,6 +1336,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -984,6 +1352,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -998,6 +1379,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1012,6 +1406,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1026,6 +1422,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1040,6 +1438,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1054,6 +1454,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1068,6 +1470,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1082,6 +1486,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1096,6 +1502,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1110,6 +1529,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1124,6 +1556,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1138,6 +1583,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1152,6 +1610,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1166,6 +1637,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1180,6 +1664,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1194,6 +1691,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1208,6 +1707,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1222,6 +1723,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1236,6 +1739,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1250,6 +1755,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1264,6 +1771,13 @@
       "duration_seconds": 7.594875,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 243036,
+        "finite_end_seconds": 7.594875,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1278,6 +1792,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1292,6 +1808,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1306,6 +1824,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1320,6 +1840,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1334,6 +1856,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1348,6 +1872,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1362,6 +1888,13 @@
       "duration_seconds": 16.832563,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 538642,
+        "finite_end_seconds": 16.832563,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1376,6 +1909,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1390,6 +1925,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1404,6 +1941,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1418,6 +1957,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1432,6 +1973,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1446,6 +2000,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1460,6 +2027,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1474,6 +2054,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1488,6 +2081,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1502,6 +2108,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1516,6 +2135,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1530,6 +2162,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1544,6 +2189,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1558,6 +2216,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1572,6 +2232,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1586,6 +2248,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1600,6 +2264,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1614,6 +2280,13 @@
       "duration_seconds": 6.852594,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 219283,
+        "finite_end_seconds": 6.852594,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 219283,
@@ -1633,6 +2306,13 @@
       "duration_seconds": 6.014469,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 192463,
+        "finite_end_seconds": 6.014469,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 192463,
@@ -1652,6 +2332,13 @@
       "duration_seconds": 5.790375,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 185292,
+        "finite_end_seconds": 5.790375,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1666,6 +2353,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1680,6 +2369,13 @@
       "duration_seconds": 2.246594,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 71891,
+        "finite_end_seconds": 2.246594,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 71891,
@@ -1699,6 +2395,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1713,6 +2422,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1727,6 +2449,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1741,6 +2476,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1755,6 +2492,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1769,6 +2519,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1783,6 +2535,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1797,6 +2551,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1811,6 +2578,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1825,6 +2605,13 @@
       "duration_seconds": 2.624125,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 83972,
+        "finite_end_seconds": 2.624125,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1839,6 +2626,13 @@
       "duration_seconds": 3.406875,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 109020,
+        "finite_end_seconds": 3.406875,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1853,6 +2647,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1867,6 +2663,13 @@
       "duration_seconds": 3.56725,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 114152,
+        "finite_end_seconds": 3.56725,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1881,6 +2684,13 @@
       "duration_seconds": 3.553031,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 113697,
+        "finite_end_seconds": 3.553031,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -1895,6 +2705,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1909,6 +2721,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1923,6 +2737,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1937,6 +2764,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1951,6 +2780,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1965,6 +2807,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1979,6 +2823,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -1993,6 +2850,13 @@
       "duration_seconds": 4.744781,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 151833,
+        "finite_end_seconds": 4.744781,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 151833,
@@ -2012,6 +2876,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2026,6 +2903,13 @@
       "duration_seconds": 22.0855,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 706736,
+        "finite_end_seconds": 22.0855,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 706736,
@@ -2045,6 +2929,13 @@
       "duration_seconds": 22.081906,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 706621,
+        "finite_end_seconds": 22.081906,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 706621,
@@ -2064,6 +2955,13 @@
       "duration_seconds": 22.082031,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 706625,
+        "finite_end_seconds": 22.082031,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 706625,
@@ -2083,6 +2981,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2097,6 +2997,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2111,6 +3024,13 @@
       "duration_seconds": 11.8845,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 380304,
+        "finite_end_seconds": 11.8845,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2125,6 +3045,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2139,6 +3061,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2153,6 +3077,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2167,6 +3093,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2181,6 +3109,13 @@
       "duration_seconds": 18.651344,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 596843,
+        "finite_end_seconds": 18.651344,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 596843,
@@ -2200,6 +3135,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2214,6 +3162,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2228,6 +3189,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2242,6 +3216,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2256,6 +3243,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2270,6 +3270,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2284,6 +3286,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2298,6 +3313,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2312,6 +3340,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2326,6 +3367,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2340,6 +3383,13 @@
       "duration_seconds": 6.951906,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 222461,
+        "finite_end_seconds": 6.951906,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2354,6 +3404,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2368,6 +3420,13 @@
       "duration_seconds": 5.1565,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 165008,
+        "finite_end_seconds": 5.1565,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 165008,
@@ -2387,6 +3446,13 @@
       "duration_seconds": 3.840281,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122889,
+        "finite_end_seconds": 3.840281,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122889,
@@ -2406,6 +3472,13 @@
       "duration_seconds": 3.839344,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122859,
+        "finite_end_seconds": 3.839344,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122859,
@@ -2425,6 +3498,13 @@
       "duration_seconds": 3.842312,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122954,
+        "finite_end_seconds": 3.842312,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122954,
@@ -2444,6 +3524,13 @@
       "duration_seconds": 3.842375,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122956,
+        "finite_end_seconds": 3.842375,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122956,
@@ -2463,6 +3550,13 @@
       "duration_seconds": 3.837813,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122810,
+        "finite_end_seconds": 3.837813,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122810,
@@ -2482,6 +3576,13 @@
       "duration_seconds": 3.839313,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 122858,
+        "finite_end_seconds": 3.839313,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 122858,
@@ -2501,6 +3602,13 @@
       "duration_seconds": 3.467531,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 110961,
+        "finite_end_seconds": 3.467531,
+        "evidence": "sustained_tail_pcm_silence",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": false,
       "evidence": {
         "end_frame": 110961,
@@ -2520,6 +3628,13 @@
       "duration_seconds": 7.255187,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 232166,
+        "finite_end_seconds": 7.255187,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2534,6 +3649,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2548,6 +3665,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2562,6 +3692,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2576,6 +3719,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2590,6 +3735,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2604,6 +3762,13 @@
       "duration_seconds": 13.578563,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 434514,
+        "finite_end_seconds": 13.578563,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2618,6 +3783,13 @@
       "duration_seconds": 13.774594,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 440787,
+        "finite_end_seconds": 13.774594,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2632,6 +3804,13 @@
       "duration_seconds": 5.327125,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 170468,
+        "finite_end_seconds": 5.327125,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2646,6 +3825,13 @@
       "duration_seconds": 3.760531,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 120337,
+        "finite_end_seconds": 3.760531,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2660,6 +3846,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2674,6 +3873,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2688,6 +3889,13 @@
       "duration_seconds": 7.385187,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 236326,
+        "finite_end_seconds": 7.385187,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2702,6 +3910,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2716,6 +3926,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2730,6 +3953,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2744,6 +3980,19 @@
       "duration_seconds": 120.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2758,6 +4007,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2772,6 +4034,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2786,6 +4061,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2800,6 +4077,8 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2814,6 +4093,13 @@
       "duration_seconds": 7.255187,
       "fade_seconds": 0.0,
       "loop_count": 0,
+      "loop_metadata": null,
+      "finite_metadata": {
+        "finite_end_sample": 232166,
+        "finite_end_seconds": 7.255187,
+        "evidence": "trailing_pcm_silence_review_needed",
+        "measured_by": "audio_export_duration_measurement"
+      },
       "needs_sequence_semantics": true
     },
     {
@@ -2828,6 +4114,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     },
     {
@@ -2842,6 +4141,19 @@
       "duration_seconds": 30.0,
       "fade_seconds": 5.0,
       "loop_count": 2,
+      "loop_metadata": {
+        "intro_samples": null,
+        "loop_start_sample": null,
+        "loop_end_sample": null,
+        "measured_by": null,
+        "status": "loop_points_pending",
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "finite_metadata": null,
       "needs_sequence_semantics": true
     }
   ]

@@ -1,13 +1,19 @@
 const { app, BrowserWindow, dialog, ipcMain, shell } = require("electron");
+const { spawnSync } = require("node:child_process");
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
+const { pathToFileURL } = require("node:url");
 const zlib = require("node:zlib");
 
 const EXPECTED_HEADERLESS_SIZE = 3145728;
 const EXPECTED_HEADERED_SIZE = EXPECTED_HEADERLESS_SIZE + 512;
 const EXPECTED_HEADERLESS_SHA1 = "d67a8ef36ef616bc39306aa1b486e1bd3047815a";
 const BANK_SIZE = 0x10000;
+const C0AB06_LOADER_OFFSET = 0x00ab06;
+const C0AB06_LOADER_LENGTH = 162;
+const SPC_SIGNATURE = Buffer.from("SNES-SPC700 Sound File Data v0.30", "ascii");
+const AUDIO_BOOTSTRAP_PACK_ID = 1;
 const FAMILY_DEFINITIONS = [
   {
     id: "source",
@@ -226,6 +232,34 @@ function decodeSnes4bppTile(tile) {
   return rows;
 }
 
+function fillRgba(rgba, color) {
+  for (let index = 0; index < rgba.length; index += 4) {
+    rgba[index] = color[0];
+    rgba[index + 1] = color[1];
+    rgba[index + 2] = color[2];
+    rgba[index + 3] = color[3];
+  }
+}
+
+function drawSnes4bppTile(rgba, width, tile, tileLeft, tileTop, scale, palette) {
+  for (let y = 0; y < 8; y += 1) {
+    for (let x = 0; x < 8; x += 1) {
+      const color = palette[tile[y][x]] || [0, 0, 0, 255];
+      for (let sy = 0; sy < scale; sy += 1) {
+        for (let sx = 0; sx < scale; sx += 1) {
+          const outX = tileLeft + x * scale + sx;
+          const outY = tileTop + y * scale + sy;
+          const offset = (outY * width + outX) * 4;
+          rgba[offset] = color[0];
+          rgba[offset + 1] = color[1];
+          rgba[offset + 2] = color[2];
+          rgba[offset + 3] = color[3];
+        }
+      }
+    }
+  }
+}
+
 function writeSnes4bppPreview(filePath, data, options = {}) {
   const tilesPerRow = options.tilesPerRow || 16;
   const scale = options.scale || 2;
@@ -235,35 +269,59 @@ function writeSnes4bppPreview(filePath, data, options = {}) {
   const width = tilesPerRow * 8 * scale;
   const height = tileRows * 8 * scale;
   const rgba = Buffer.alloc(width * height * 4);
-  for (let index = 0; index < rgba.length; index += 4) {
-    rgba[index] = 15;
-    rgba[index + 1] = 15;
-    rgba[index + 2] = 14;
-    rgba[index + 3] = 255;
-  }
+  fillRgba(rgba, [15, 15, 14, 255]);
   for (let tileIndex = 0; tileIndex < tileCount; tileIndex += 1) {
     const tile = decodeSnes4bppTile(data.subarray(tileIndex * 32, tileIndex * 32 + 32));
     const tileLeft = (tileIndex % tilesPerRow) * 8 * scale;
     const tileTop = Math.floor(tileIndex / tilesPerRow) * 8 * scale;
-    for (let y = 0; y < 8; y += 1) {
-      for (let x = 0; x < 8; x += 1) {
-        const color = palette[tile[y][x]] || [0, 0, 0, 255];
-        for (let sy = 0; sy < scale; sy += 1) {
-          for (let sx = 0; sx < scale; sx += 1) {
-            const outX = tileLeft + x * scale + sx;
-            const outY = tileTop + y * scale + sy;
-            const offset = (outY * width + outX) * 4;
-            rgba[offset] = color[0];
-            rgba[offset + 1] = color[1];
-            rgba[offset + 2] = color[2];
-            rgba[offset + 3] = color[3];
-          }
-        }
-      }
-    }
+    drawSnes4bppTile(rgba, width, tile, tileLeft, tileTop, scale, palette);
   }
   writePngRgba(filePath, width, height, rgba);
   return { width, height, tileCount };
+}
+
+function writeSnes4bppFrameSheet(filePath, data, options = {}) {
+  const frameTileColumns = options.frameTileColumns || 2;
+  const frameTileRows = options.frameTileRows || 3;
+  const framesPerRow = options.framesPerRow || 2;
+  const scale = options.scale || 4;
+  const palette = options.palette || snesPaletteFromBytes(Buffer.alloc(0));
+  const tileCount = Math.floor(data.length / 32);
+  const tilesPerFrame = frameTileColumns * frameTileRows;
+  const frameCount = Math.max(1, Math.floor(tileCount / tilesPerFrame));
+  const frameRows = Math.max(1, Math.ceil(frameCount / framesPerRow));
+  const frameWidth = frameTileColumns * 8 * scale;
+  const frameHeight = frameTileRows * 8 * scale;
+  const gutter = options.gutter ?? 4;
+  const width = framesPerRow * frameWidth + (framesPerRow - 1) * gutter;
+  const height = frameRows * frameHeight + (frameRows - 1) * gutter;
+  const rgba = Buffer.alloc(width * height * 4);
+  fillRgba(rgba, [15, 15, 14, 255]);
+  for (let frameIndex = 0; frameIndex < frameCount; frameIndex += 1) {
+    const frameLeft = (frameIndex % framesPerRow) * (frameWidth + gutter);
+    const frameTop = Math.floor(frameIndex / framesPerRow) * (frameHeight + gutter);
+    for (let frameTileIndex = 0; frameTileIndex < tilesPerFrame; frameTileIndex += 1) {
+      const tileIndex = frameIndex * tilesPerFrame + frameTileIndex;
+      if (tileIndex >= tileCount) {
+        continue;
+      }
+      const tile = decodeSnes4bppTile(data.subarray(tileIndex * 32, tileIndex * 32 + 32));
+      const tileLeft = frameLeft + (frameTileIndex % frameTileColumns) * 8 * scale;
+      const tileTop = frameTop + Math.floor(frameTileIndex / frameTileColumns) * 8 * scale;
+      drawSnes4bppTile(rgba, width, tile, tileLeft, tileTop, scale, palette);
+    }
+  }
+  writePngRgba(filePath, width, height, rgba);
+  return {
+    width,
+    height,
+    tileCount,
+    frameCount,
+    frameTileColumns,
+    frameTileRows,
+    framesPerRow,
+    layout: "candidate_2x3_tiles_per_frame_row_major"
+  };
 }
 
 function appAssetManifestPath(bank) {
@@ -357,6 +415,17 @@ function generateOverworldSpritePreviews(outputDir, payload) {
   const spriteDir = path.join(outputDir, "overworld-sprites");
   const palette = snesPaletteFromBytes(payload.subarray(fileOffsetFromSnesRange("C3:0000"), fileOffsetFromSnesRange("C3:0020")));
   const previewEntries = [];
+  writeJson(path.join(spriteDir, "palette-00.json"), {
+    schema: "earthbound-decomp.generated-snes-palette.v1",
+    generatedAt: new Date().toISOString(),
+    sourceRange: "C3:0000..C3:0020",
+    colorCount: palette.length,
+    colors: palette.map(([r, g, b, a], index) => ({
+      index,
+      rgba: [r, g, b, a],
+      hex: `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("").toUpperCase()}`
+    }))
+  });
   for (const bank of ["d1", "d2", "d3", "d4", "d5"]) {
     const assetManifest = loadAppAssetManifest(bank);
     for (const asset of assetManifest.assets || []) {
@@ -369,11 +438,25 @@ function generateOverworldSpritePreviews(outputDir, payload) {
         continue;
       }
       const spriteId = String(asset.title || asset.id || previewEntries.length).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      const relativePath = `overworld-sprites/${bank}/${spriteId}_palette_00_preview.png`;
-      const filePath = path.join(outputDir, relativePath);
-      const image = writeSnes4bppPreview(filePath, payload.subarray(range.startOffset, range.endOffset), {
-        tilesPerRow: 8,
+      const spriteBytes = payload.subarray(range.startOffset, range.endOffset);
+      const rawOutput = (asset.outputs || []).find((entry) => entry.kind === "raw" && String(entry.path || "").endsWith(".gfx"));
+      const paletteOutput = (asset.outputs || []).find((entry) => entry.kind === "snes_4bpp_tiles_palette_png");
+      const rawRelativePath = rawOutput?.path ? `raw/${rawOutput.path}` : `raw/${bank}/overworld_sprites/gfx/${spriteId}.gfx`;
+      const tileRelativePath = paletteOutput?.path ? `tiles/${paletteOutput.path}` : `tiles/${bank}/${spriteId}_palette_00_preview.png`;
+      const frameRelativePath = `overworld-sprites/frames/${bank}/${spriteId}_palette_00_frames_2x3.png`;
+      const rawPath = path.join(outputDir, rawRelativePath);
+      ensureDir(path.dirname(rawPath));
+      fs.writeFileSync(rawPath, spriteBytes);
+      const tileImage = writeSnes4bppPreview(path.join(outputDir, tileRelativePath), spriteBytes, {
+        tilesPerRow: paletteOutput?.columns || 8,
         scale: 3,
+        palette
+      });
+      const frameImage = writeSnes4bppFrameSheet(path.join(outputDir, frameRelativePath), spriteBytes, {
+        frameTileColumns: 2,
+        frameTileRows: 3,
+        framesPerRow: 2,
+        scale: 4,
         palette
       });
       previewEntries.push({
@@ -382,11 +465,17 @@ function generateOverworldSpritePreviews(outputDir, payload) {
         bank: bank.toUpperCase(),
         sourceRange: source.range,
         bytes: range.length,
-        path: relativePath,
+        rawPath: rawRelativePath,
+        tileAtlasPath: tileRelativePath,
+        frameSheetPath: frameRelativePath,
+        path: frameRelativePath,
         palette: "C3:0000..C3:0020",
-        width: image.width,
-        height: image.height,
-        tileCount: image.tileCount
+        tileAtlas: tileImage,
+        frameSheet: frameImage,
+        width: frameImage.width,
+        height: frameImage.height,
+        tileCount: frameImage.tileCount,
+        layoutConfidence: "candidate_overworld_sprite_frame_sheet_from_24_tile_payload"
       });
     }
   }
@@ -395,6 +484,11 @@ function generateOverworldSpritePreviews(outputDir, payload) {
     generatedAt: new Date().toISOString(),
     palette: "C3:0000..C3:0020",
     previewCount: previewEntries.length,
+    generatedFiles: {
+      rawGfx: previewEntries.length,
+      tileAtlases: previewEntries.length,
+      candidateFrameSheets: previewEntries.length
+    },
     previews: previewEntries
   });
   return previewEntries;
@@ -438,6 +532,384 @@ function extractAudioPacks(outputDir, payload) {
     packs: packEntries
   });
   return packEntries;
+}
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function bundledAudioBackendManifestPath(name) {
+  return path.join(bundledAudioBackendRoot(), "manifests", name);
+}
+
+function safeFileStem(value) {
+  return String(value || "unnamed").toLowerCase().replace(/[^a-z0-9_-]+/g, "_").replace(/^_+|_+$/g, "") || "unnamed";
+}
+
+function parseHexAddress(value) {
+  return Number.parseInt(String(value || "0").replace(/^0x/i, ""), 16);
+}
+
+function audioPackPointerMap(packContract) {
+  const map = new Map();
+  for (const pack of packContract.audio_packs || []) {
+    const pointer = pack.pointer || {};
+    if (!pointer.bank || !pointer.address) {
+      continue;
+    }
+    map.set(Number(pack.pack_id), {
+      packId: Number(pack.pack_id),
+      bank: parseHexAddress(pointer.bank),
+      address: parseHexAddress(pointer.address),
+      range: pack.range
+    });
+  }
+  return map;
+}
+
+function runNativeTool(executable, args, options = {}) {
+  const completed = spawnSync(executable, args, {
+    cwd: options.cwd || path.dirname(executable),
+    encoding: "utf8",
+    maxBuffer: options.maxBuffer || 16 * 1024 * 1024,
+    windowsHide: true
+  });
+  return {
+    status: completed.status,
+    signal: completed.signal,
+    stdout: completed.stdout || "",
+    stderr: completed.stderr || "",
+    ok: completed.status === 0
+  };
+}
+
+function parseJsonOutput(text) {
+  try {
+    return JSON.parse(text);
+  } catch {
+    const start = String(text || "").indexOf("{");
+    const end = String(text || "").lastIndexOf("}");
+    if (start >= 0 && end > start) {
+      return JSON.parse(text.slice(start, end + 1));
+    }
+    throw new Error("Native tool did not emit JSON.");
+  }
+}
+
+function snapshotMetadata(filePath) {
+  const data = fs.readFileSync(filePath);
+  const ram = data.length >= 0x10100 ? data.subarray(0x100, 0x10100) : Buffer.alloc(0);
+  const dsp = data.length >= 0x10180 ? data.subarray(0x10100, 0x10180) : Buffer.alloc(0);
+  return {
+    path: filePath,
+    bytes: data.length,
+    sha1: sha1Buffer(data),
+    signature_ok: data.subarray(0, SPC_SIGNATURE.length).equals(SPC_SIGNATURE),
+    pc: data.length > 0x26 ? hexWord(data[0x25] | (data[0x26] << 8)) : null,
+    ram_sha1: ram.length === 0x10000 ? sha1Buffer(ram) : null,
+    dsp_register_sha1: dsp.length === 128 ? sha1Buffer(dsp) : null,
+    dsp_nonzero_count: dsp.length === 128 ? Array.from(dsp).filter(Boolean).length : null,
+    kon: data.length > 0x1014c ? hexByte(data[0x1014c]) : null
+  };
+}
+
+function buildAudioLoaderFixture(outputDir, payload) {
+  const loaderPath = path.join(outputDir, "fixtures", "c0-ab06-load-spc700-data-stream.bin");
+  ensureDir(path.dirname(loaderPath));
+  fs.writeFileSync(loaderPath, payload.subarray(C0AB06_LOADER_OFFSET, C0AB06_LOADER_OFFSET + C0AB06_LOADER_LENGTH));
+  return {
+    path: loaderPath,
+    bytes: C0AB06_LOADER_LENGTH,
+    sha1: sha1Buffer(fs.readFileSync(loaderPath)),
+    source: {
+      type: "verified-rom-slice",
+      fileOffset: hexLong(C0AB06_LOADER_OFFSET),
+      cpuAddress: "C0:AB06"
+    }
+  };
+}
+
+function expectedAudioOutputsForBackend() {
+  return ["complete_spc_snapshot", "rendered_wav", "render_hash_json"];
+}
+
+function buildAudioBackendJob(job, outputRoot, snapshotIndexPath) {
+  const outputDir = path.join(outputRoot, job.job_id);
+  return {
+    job_id: job.job_id,
+    backend_id: "snes_spc",
+    fixture_path: snapshotIndexPath,
+    output_dir: outputDir,
+    render_options: {
+      seconds: 30,
+      fade_seconds: 5,
+      sample_rate: 32000,
+      channels: 2,
+      output_format: "wav"
+    },
+    expected_outputs: expectedAudioOutputsForBackend(),
+    track_id: job.track_id,
+    track_name: job.track_name,
+    input_apu_ram_sha1: job.snapshot?.ram_sha1 || "",
+    input_load_mode: "app_owned_c0ab06_fusion_snapshot",
+    source_snapshot_index: snapshotIndexPath,
+    source_snapshot_path: job.snapshot?.path || null,
+    source_snapshot_sha1: job.snapshot?.sha1 || null,
+    source_snapshot_kind: "complete_spc_snapshot",
+    status: "planned_waiting_for_backend_harness",
+    result_schema: "earthbound-decomp.audio-backend-result.v1",
+    result_path: path.join(outputDir, "result.json"),
+    job_path: path.join(outputDir, "job.json")
+  };
+}
+
+function collectAudioPlaybackManifest(summaryPath, jobIndexPath, jobs, skippedRecords = []) {
+  const tracks = [];
+  for (const job of jobs) {
+    if (!fs.existsSync(job.result_path)) {
+      continue;
+    }
+    const result = readJson(job.result_path);
+    const outputByKind = new Map((result.outputs || []).map((output) => [output.kind, output]));
+    const renderHash = outputByKind.get("render_hash_json")?.path && fs.existsSync(outputByKind.get("render_hash_json").path)
+      ? readJson(outputByKind.get("render_hash_json").path)
+      : {};
+    const peak = Number(renderHash.peak_abs_sample || 0);
+    const nonzero = Number(renderHash.nonzero_sample_count || 0);
+    tracks.push({
+      job_id: job.job_id,
+      track_id: Number(job.track_id),
+      track_name: job.track_name,
+      backend_id: job.backend_id,
+      backend_version: result.backend_version,
+      status: result.status,
+      valid: result.status === "ok",
+      classification: peak > 0 && nonzero > 0 ? "audible" : "silent",
+      source_state: "app_owned_full_change_music_c0ab06_snapshot",
+      source_spc: outputByKind.get("complete_spc_snapshot") || null,
+      rendered_wav: outputByKind.get("rendered_wav") || null,
+      render_hash: outputByKind.get("render_hash_json") || null,
+      metrics: {
+        peak_abs_sample: renderHash.peak_abs_sample ?? null,
+        rms_sample: renderHash.rms_sample ?? null,
+        nonzero_sample_count: renderHash.nonzero_sample_count ?? null,
+        first_nonzero_sample_index: renderHash.first_nonzero_sample_index ?? null,
+        last_nonzero_sample_index: renderHash.last_nonzero_sample_index ?? null,
+        voice_count: renderHash.voice_count ?? null,
+        rendered_samples: renderHash.rendered_samples ?? null,
+        warning: renderHash.warning || ""
+      }
+    });
+  }
+  tracks.sort((a, b) => a.track_id - b.track_id);
+  const statusCounts = {};
+  const classificationCounts = {};
+  for (const track of tracks) {
+    statusCounts[track.status] = (statusCounts[track.status] || 0) + 1;
+    classificationCounts[track.classification] = (classificationCounts[track.classification] || 0) + 1;
+  }
+  const passedCount = tracks.filter((track) => track.status === "ok" && track.valid && track.classification === "audible").length;
+  return {
+    schema: "earthbound-decomp.audio-playback-export-manifest.v1",
+    summary_path: summaryPath,
+    backend_id: "snes_spc",
+    job_index: jobIndexPath,
+    track_count: tracks.length,
+    table_entry_count: tracks.length + skippedRecords.length,
+    skipped_count: skippedRecords.length,
+    skipped_records: skippedRecords,
+    status_counts: statusCounts,
+    classification_counts: classificationCounts,
+    quality_gate: {
+      required_status: "ok",
+      required_validation: true,
+      required_classification: "audible",
+      passed_count: passedCount,
+      failed_count: tracks.length - passedCount
+    },
+    source_policy: {
+      generated_locally: true,
+      contains_rom_derived_payloads: true,
+      distribution: "never_distribute_generated_audio_or_spc_outputs",
+      consumer: "local_app_playback_and_user_export_only"
+    },
+    tracks
+  };
+}
+
+function generatePlayableAudio(outputDir, payload, manifest, audioPacks) {
+  const backend = bundledAudioBackendStatus();
+  const contractPath = bundledAudioBackendManifestPath("audio-pack-contracts.json");
+  if (!backend.c0ab06Harness.present || !backend.libgmeHarness.present || !fs.existsSync(contractPath)) {
+    return {
+      status: "native_backend_missing",
+      generatedWavs: 0,
+      generatedSnapshots: 0,
+      skipped: [],
+      errors: ["Packaged C0:AB06 and libgme harnesses plus audio-pack-contracts.json are required."]
+    };
+  }
+  const packContract = readJson(contractPath);
+  const pointerByPack = audioPackPointerMap(packContract);
+  const bootstrap = pointerByPack.get(AUDIO_BOOTSTRAP_PACK_ID);
+  if (!bootstrap) {
+    throw new Error("Audio pack contract does not contain bootstrap pack 1.");
+  }
+  const loaderFixture = buildAudioLoaderFixture(outputDir, payload);
+  const snapshotDir = path.join(outputDir, "spc-snapshots");
+  const renderRoot = path.join(outputDir, "render-jobs");
+  ensureDir(snapshotDir);
+  ensureDir(renderRoot);
+  const snapshotRecords = [];
+  const skippedRecords = [];
+  for (const track of packContract.tracks || []) {
+    const trackId = Number(track.track_id);
+    const loadOrder = Array.isArray(track.load_order) ? track.load_order : [];
+    if (trackId === 0) {
+      continue;
+    }
+    if (loadOrder.length === 0) {
+      skippedRecords.push({ track_id: trackId, track_name: track.name || `TRACK_${trackId}`, reason: "no_audio_or_missing_load_order" });
+      continue;
+    }
+    const firstPackId = Number(loadOrder[0].pack_id);
+    const firstPointer = pointerByPack.get(firstPackId);
+    if (!firstPointer) {
+      skippedRecords.push({ track_id: trackId, track_name: track.name || `TRACK_${trackId}`, reason: `missing_pointer_for_pack_${firstPackId}` });
+      continue;
+    }
+    const trackName = track.name || `TRACK_${trackId}`;
+    const jobId = `fusion-track-${trackId.toString().padStart(3, "0")}-${safeFileStem(trackName)}`;
+    const snapshotPath = path.join(snapshotDir, `${jobId}-change-music-fusion-last-keyon.spc`);
+    const apuRamPath = path.join(snapshotDir, `${jobId}-change-music-fusion-apu-ram.bin`);
+    const run = runNativeTool(backend.c0ab06Harness.path, [
+      "--receiver", "ares_smp_builtin_ipl",
+      "--loader-file", loaderFixture.path,
+      "--rom-file", manifest.rom.path,
+      "--stream-bank", hexByte(firstPointer.bank),
+      "--stream-address", hexWord(firstPointer.address),
+      "--bootstrap-bank", hexByte(bootstrap.bank),
+      "--bootstrap-address", hexWord(bootstrap.address),
+      "--change-music-track", hexByte(trackId),
+      "--apu-ram-out", apuRamPath,
+      "--snapshot-out", snapshotPath,
+      "--command-write-smp-burst", "0"
+    ], { cwd: outputDir, maxBuffer: 64 * 1024 * 1024 });
+    if (!run.ok && /receiver must be|requires --ipl-file|SFC IPL ROM/i.test(run.stderr + run.stdout)) {
+      throw new Error("The bundled C0:AB06 harness does not yet support the no-external-IPL receiver required for standalone app WAV generation.");
+    }
+    const parsed = run.stdout.trim() ? parseJsonOutput(run.stdout) : {};
+    const snapshot = fs.existsSync(snapshotPath) ? snapshotMetadata(snapshotPath) : null;
+    if (!run.ok || !snapshot?.signature_ok) {
+      skippedRecords.push({
+        track_id: trackId,
+        track_name: trackName,
+        reason: run.ok ? "missing_snapshot" : "snapshot_harness_failed",
+        stderr: run.stderr.trim()
+      });
+      continue;
+    }
+    snapshotRecords.push({
+      job_id: jobId,
+      track_id: trackId,
+      track_name: trackName,
+      capture_path: path.join(snapshotDir, "c0ab06-change-music-fusion-spc-snapshots.json"),
+      capture_exists: true,
+      snapshot,
+      smoke: {
+        reached_key_on_after_ack: Boolean(parsed.change_music?.reached_key_on_after_ack),
+        source_frontier_status: "app_owned_c0ab06_fusion_snapshot"
+      }
+    });
+  }
+  const snapshotIndexPath = path.join(snapshotDir, "c0ab06-change-music-fusion-spc-snapshots.json");
+  writeJson(snapshotIndexPath, {
+    schema: "earthbound-decomp.audio-ares-smp-mailbox-spc-index.v1",
+    snapshot_kind: "c0ab06_change_music_fusion_last_keyon_spc_snapshot",
+    faithfulness: "app_owned_full_change_music_invokes_c0ab06_against_selected_rom",
+    source_summary: "generated inside Electron local workspace",
+    job_count: snapshotRecords.length + skippedRecords.length,
+    snapshot_count: snapshotRecords.length,
+    missing_snapshot_count: skippedRecords.length,
+    invalid_signature_count: 0,
+    records: snapshotRecords,
+    skipped_records: skippedRecords
+  });
+  const jobs = snapshotRecords.map((record) => buildAudioBackendJob(record, renderRoot, snapshotIndexPath));
+  const jobIndexPath = path.join(renderRoot, "snes_spc-jobs.json");
+  writeJson(jobIndexPath, {
+    schema: "earthbound-decomp.audio-backend-job-index.v1",
+    fixture_index: snapshotIndexPath,
+    snapshot_index: snapshotIndexPath,
+    backend_id: "snes_spc",
+    job_count: jobs.length,
+    skipped_count: skippedRecords.length,
+    skipped_records: skippedRecords,
+    jobs,
+    status: "planned_waiting_for_backend_harness",
+    source_policy: {
+      requires_user_supplied_rom: true,
+      do_not_commit_generated_outputs: true,
+      generated_audio_output_root: "local Electron workspace"
+    }
+  });
+  const renderErrors = [];
+  for (const job of jobs) {
+    writeJson(job.job_path, job);
+    const run = runNativeTool(backend.libgmeHarness.path, [
+      "--job", job.job_path,
+      "--result", job.result_path,
+      "--snapshot-index", snapshotIndexPath
+    ], { cwd: outputDir, maxBuffer: 64 * 1024 * 1024 });
+    if (!run.ok) {
+      renderErrors.push({ job_id: job.job_id, stderr: run.stderr.trim(), stdout: run.stdout.trim() });
+    }
+  }
+  const summaryPath = path.join(renderRoot, "snes_spc-result-summary.json");
+  const completedJobs = jobs.filter((job) => fs.existsSync(job.result_path));
+  writeJson(summaryPath, {
+    schema: "earthbound-decomp.audio-backend-result-summary.v1",
+    backend_id: "snes_spc",
+    job_index: jobIndexPath,
+    job_count: jobs.length,
+    result_count: completedJobs.length,
+    failed_count: renderErrors.length,
+    results: completedJobs.map((job) => {
+      const result = readJson(job.result_path);
+      return {
+        job_id: job.job_id,
+        track_id: job.track_id,
+        track_name: job.track_name,
+        backend_id: job.backend_id,
+        status: result.status,
+        valid: result.status === "ok",
+        result_path: job.result_path
+      };
+    }),
+    errors: renderErrors
+  });
+  const playbackManifest = collectAudioPlaybackManifest(summaryPath, jobIndexPath, jobs, skippedRecords);
+  writeJson(path.join(outputDir, "audio-playback-export-manifest.json"), playbackManifest);
+  writeJson(path.join(outputDir, "audio-render-summary.json"), {
+    schema: "earthbound-decomp.encyclopedia-audio-render-summary.v1",
+    generatedAt: new Date().toISOString(),
+    loaderFixture,
+    extractedPackCount: audioPacks.length,
+    snapshotIndex: path.relative(outputDir, snapshotIndexPath).replaceAll("\\", "/"),
+    jobIndex: path.relative(outputDir, jobIndexPath).replaceAll("\\", "/"),
+    playbackManifest: "audio-playback-export-manifest.json",
+    generatedSnapshots: snapshotRecords.length,
+    generatedWavs: playbackManifest.tracks.filter((track) => track.rendered_wav).length,
+    skippedRecords,
+    renderErrors
+  });
+  return {
+    status: renderErrors.length ? "rendered_with_errors" : "ready",
+    generatedWavs: playbackManifest.tracks.filter((track) => track.rendered_wav).length,
+    generatedSnapshots: snapshotRecords.length,
+    skipped: skippedRecords,
+    errors: renderErrors
+  };
 }
 
 function buildWorkspaceManifest(rom) {
@@ -701,22 +1173,24 @@ function generateGraphicsFamily(manifest, family, payload) {
   const overworldSpritePreviews = generateOverworldSpritePreviews(outputDir, payload);
   writeJson(path.join(outputDir, "graphics-manifest.json"), {
     ...makeFamilyBaseManifest(manifest, family, payload),
-    status: "rendered-preview",
-    decoderStatus: "Generated palette-applied overworld sprite tile previews from D1-D5 sprite payload ranges. Battle graphics and composed/object-aware previews remain later renderer stages.",
+    status: "rendered-local-assets",
+    decoderStatus: "Generated raw .gfx payloads, palette metadata, tile atlas PNGs, and candidate 2x3 overworld sprite frame sheets from D1-D5 sprite payload ranges.",
     assetBankRange: "0xCA..0xEE",
     banks: assetBanks,
     generatedPreviews: {
-      overworldSpritePalette00Png: overworldSpritePreviews.length
+      rawGfx: overworldSpritePreviews.length,
+      overworldSpritePalette00TileAtlases: overworldSpritePreviews.length,
+      overworldSpriteCandidateFrameSheets: overworldSpritePreviews.length
     },
     previewIndex: "overworld-sprites/index.json"
   });
   writeText(path.join(outputDir, "README.md"), [
     "# Generated Graphics And Sprite Previews",
     "",
-    "This local workspace contains palette-applied overworld sprite tile preview PNGs generated from the verified ROM.",
+    "This local workspace contains raw `.gfx` payloads, palette metadata, tile atlas PNGs, and candidate 2x3 frame-sheet PNGs generated from the verified ROM.",
     "The current built-in renderer uses the source-safe D1-D5 sprite payload ranges and the ROM-backed palette-00 source at C3:0000..C3:0020.",
     "",
-    "These are tile previews, not final object-aware composed animation sheets. Battle graphics and richer composed sprite views remain separate renderer stages."
+    "The frame sheets are candidate overworld sprite compositions from 24-tile payloads. Battle graphics and exact object-aware animation metadata remain later renderer stages."
   ].join("\n") + "\n");
 }
 
@@ -750,17 +1224,28 @@ function generateAudioFamily(manifest, family, payload) {
   ensureDir(outputDir);
   const audioPacks = extractAudioPacks(outputDir, payload);
   const backendStatus = bundledAudioBackendStatus();
+  const playableAudio = generatePlayableAudio(outputDir, payload, manifest, audioPacks);
+  const packIndexPath = path.join(outputDir, "audio-pack-index.json");
+  if (fs.existsSync(packIndexPath)) {
+    const packIndex = readJson(packIndexPath);
+    writeJson(packIndexPath, {
+      ...packIndex,
+      playableWavCount: playableAudio.generatedWavs,
+      generatedSnapshotCount: playableAudio.generatedSnapshots,
+      rendererStatus: playableAudio.status
+    });
+  }
   writeJson(path.join(outputDir, "bundled-audio-backend.json"), {
     schema: "earthbound-decomp.encyclopedia-bundled-audio-backend.v1",
     generatedAt: new Date().toISOString(),
     backend: backendStatus,
     generationBoundary: {
       audioPacks: "generated directly from the verified ROM by the Encyclopedia app",
-      wavExports: "requires C0:AB06 fusion SPC snapshots plus bundled libgme render jobs",
-      currentPackagedState: backendStatus.libgmeHarness.present && backendStatus.c0ab06Harness.present
-        ? "native_harnesses_bundled_snapshot_orchestration_not_yet_ported_to_node"
-        : "native_harnesses_missing"
+      loaderFixture: "generated directly from C0:AB06 bytes in the verified ROM",
+      wavExports: "generated from app-owned C0:AB06 fusion SPC snapshots through the bundled libgme renderer",
+      currentPackagedState: playableAudio.status
     },
+    playableAudio,
     docs: [
       "audio-backend/manifests/audio-backend-contract.json",
       "audio-backend/manifests/audio-export-plan.json",
@@ -768,16 +1253,18 @@ function generateAudioFamily(manifest, family, payload) {
       "audio-backend/notes/audio-spc-state-frontier.md"
     ]
   });
-  writeJson(path.join(outputDir, "audio-playback-export-manifest.json"), {
+  const playbackManifestPath = path.join(outputDir, "audio-playback-export-manifest.json");
+  if (!fs.existsSync(playbackManifestPath)) {
+    writeJson(playbackManifestPath, {
     ...makeFamilyBaseManifest(manifest, family, payload),
-    status: "packs-extracted",
+    status: playableAudio.generatedWavs ? "wav-rendered" : "packs-extracted",
     backendStatus: {
       audioPackExtraction: "ready",
       aresSnapshotCore: backendStatus.aresHarness.present ? "ares-audio-harness-packaged" : "not-packaged",
       playbackCore: backendStatus.libgmeHarness.present ? "libgme-harness-packaged" : "not-packaged",
       c0ab06SnapshotCore: backendStatus.c0ab06Harness.present ? "ares-c0ab06-loader-harness-packaged" : "not-packaged",
-      spcExport: "requires-c0ab06-fusion-snapshot-generation",
-      wavExport: "native-renderer-packaged-orchestration-pending",
+      spcExport: playableAudio.generatedSnapshots ? "generated" : "not-generated",
+      wavExport: playableAudio.generatedWavs ? "generated" : "not-generated",
       validationCorpus: "20/20 CHANGE_MUSIC load-apply render corpus validated in the reference workspace"
     },
     knownEntryPoints: [
@@ -786,18 +1273,23 @@ function generateAudioFamily(manifest, family, payload) {
       { label: "Stop music and latch no track", address: "C0:ABC6" }
     ],
     generatedPacks: audioPacks.length,
+    generatedWavs: playableAudio.generatedWavs,
+    generatedSnapshots: playableAudio.generatedSnapshots,
     packIndex: "audio-pack-index.json",
     bundledBackend: "bundled-audio-backend.json",
-    exportFamilies: ["ebm", "json", "manifest", "wav-after-snapshot-orchestration"]
-  });
+    exportFamilies: ["ebm", "json", "manifest", "spc", "wav"]
+    });
+  }
   writeText(path.join(outputDir, "README.md"), [
     "# Generated Music And Audio Workspace",
     "",
     "This local workspace extracts EarthBound audio pack payloads (`.ebm`) from the verified ROM.",
-    "These packs are real ROM-derived audio assets, but they are not directly playable WAV files.",
+    "It also generates C0:AB06 fusion SPC snapshots and playable WAV previews through the packaged native audio backend.",
     "",
-    "The packaged app now includes the native C0:AB06 snapshot harness, libgme WAV renderer harness, audio backend contracts, export plan, notes, and orchestration scripts.",
-    "The remaining gap is wiring C0:AB06 fusion snapshot generation into Electron/Node so the bundled renderer can produce WAVs from the selected ROM without an external decomp checkout."
+    "Generated `.spc`, `.wav`, `.ebm`, and `.bin` files are ROM-derived local artifacts. Do not commit or redistribute them.",
+    "",
+    `Generated WAVs: ${playableAudio.generatedWavs}`,
+    `Generated SPC snapshots: ${playableAudio.generatedSnapshots}`
   ].join("\n") + "\n");
 }
 
@@ -914,9 +1406,6 @@ function readGeneratedWorkspaceFile(manifest, familyId, relativePath) {
 function readGeneratedWorkspaceMedia(manifest, familyId, relativePath) {
   const { filePath, relativePath: cleanRelativePath } = workspaceFilePath(manifest, familyId, relativePath);
   const stat = fs.statSync(filePath);
-  if (stat.size > 8 * 1024 * 1024) {
-    throw new Error("Generated media is too large for inline preview. Open the family folder instead.");
-  }
   const extension = path.extname(filePath).toLowerCase();
   const mimeTypes = new Map([
     [".png", "image/png"],
@@ -933,12 +1422,17 @@ function readGeneratedWorkspaceMedia(manifest, familyId, relativePath) {
   if (!mimeType) {
     throw new Error("This generated media type cannot be previewed inline yet.");
   }
+  const isAudio = [".wav", ".mp3", ".ogg", ".flac"].includes(extension);
+  if (!isAudio && stat.size > 8 * 1024 * 1024) {
+    throw new Error("Generated image is too large for inline preview. Open the family folder instead.");
+  }
   return {
     path: cleanRelativePath,
     size: stat.size,
     modifiedAt: stat.mtime.toISOString(),
     mimeType,
-    dataUrl: `data:${mimeType};base64,${fs.readFileSync(filePath).toString("base64")}`
+    dataUrl: isAudio ? null : `data:${mimeType};base64,${fs.readFileSync(filePath).toString("base64")}`,
+    fileUrl: isAudio ? pathToFileURL(filePath).toString() : null
   };
 }
 

@@ -7,6 +7,7 @@ Status: export policy ready; exact loop points and some sequence-level duration 
 - export statuses: `{'blocked_or_skip_until_measured': 1, 'preview_only': 80, 'ready': 1, 'preview_policy_ready_exact_loop_pending': 63, 'review_needed_before_public_exact_export': 27, 'usable_with_pcm_silence_evidence': 20}`
 - recommended modes: `{'do_not_public_export': 1, 'diagnostic_preview': 80, 'skip': 1, 'loop_count_plus_fade_preview': 63, 'trim_candidate_after_manual_or_sequence_review': 27, 'trim_to_observed_end': 20}`
 - tracks needing sequence semantics: `170`
+- tracks with loop metadata placeholders: `63`
 
 ## Playback Confidence
 

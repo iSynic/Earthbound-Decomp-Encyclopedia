@@ -166,6 +166,45 @@ def validate(manifest: dict[str, Any], *, allow_nonaudible: bool) -> list[str]:
         errors.extend(validate_output(label, "source_spc", track.get("source_spc")))
         errors.extend(validate_output(label, "rendered_wav", track.get("rendered_wav"), metrics=track.get("metrics")))
         errors.extend(validate_output(label, "render_hash", track.get("render_hash")))
+        metadata = track.get("export_metadata")
+        if not isinstance(metadata, dict):
+            errors.append(f"{label}: missing export_metadata")
+            continue
+        duration_class = str(metadata.get("duration_class", ""))
+        metadata_status = str(metadata.get("metadata_status", ""))
+        preview = metadata.get("preview", {})
+        if duration_class == "looping_candidate":
+            loop = metadata.get("loop")
+            if metadata_status != "loop_points_pending":
+                errors.append(f"{label}: looping metadata must be loop_points_pending until exact samples are measured")
+            if not isinstance(loop, dict):
+                errors.append(f"{label}: looping metadata must include loop object")
+            else:
+                for key in ("intro_samples", "loop_start_sample", "loop_end_sample", "measured_by"):
+                    if key not in loop:
+                        errors.append(f"{label}: looping metadata missing {key}")
+            if preview.get("mode") != "loop_count_plus_fade_preview":
+                errors.append(f"{label}: looping preview must use loop_count_plus_fade_preview")
+            if int(preview.get("loop_count", 0)) <= 0:
+                errors.append(f"{label}: looping preview must declare a positive loop_count")
+            if float(preview.get("fade_seconds", 0.0)) <= 0:
+                errors.append(f"{label}: looping preview must declare positive fade_seconds")
+        elif duration_class == "finite_candidate":
+            finite = metadata.get("finite")
+            if metadata_status != "finite_end_pending":
+                errors.append(f"{label}: finite candidate metadata must be finite_end_pending")
+            if not isinstance(finite, dict) or "finite_end_sample" not in finite:
+                errors.append(f"{label}: finite candidate metadata must include finite_end_sample")
+        elif duration_class == "no_audio_no_key_on":
+            if metadata_status != "not_applicable":
+                errors.append(f"{label}: no-audio metadata must be not_applicable")
+            if preview.get("mode") != "skip":
+                errors.append(f"{label}: no-audio preview mode must be skip")
+        elif duration_class == "unknown_candidate":
+            if metadata_status not in ("needs_sequence_or_runtime_analysis", "missing_duration_policy"):
+                errors.append(f"{label}: unknown metadata status is unexpected: {metadata_status}")
+        else:
+            errors.append(f"{label}: unexpected duration class {duration_class}")
 
     gate = manifest.get("quality_gate", {})
     if int(gate.get("passed_count", -1)) != passed:

@@ -1,0 +1,1233 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-driver-dispatch-frontier.v1",
+  "status": "static_dispatch_table_candidates_recorded_ff_target_effect_pending",
+  "references": [
+    "manifests/audio-pack-contracts.json",
+    "manifests/audio-sequence-semantics-frontier.json",
+    "manifests/audio-ff-terminator-review.json",
+    "tools/ares_audio_harness/main.cpp"
+  ],
+  "driver": {
+    "pack_id": 1,
+    "asset_id": "asset.e6.audio_pack_1_custom_inline",
+    "range": "E6:0000..E6:45D8",
+    "block_index": 2,
+    "destination": "0x0500",
+    "count": 16779,
+    "sha1": "86dd8a4ed492ba7522557b56a8400b883ab276ce",
+    "role_guess": "main_spc700_driver_or_driver_overlay"
+  },
+  "summary": {
+    "driver_base": "0x0500",
+    "driver_bytes": 16779,
+    "indirect_jump_opcode": "0x1F",
+    "indirect_jump_operand_count": 50,
+    "unique_indirect_operands": 42,
+    "first_32_inside_table_candidates": 2,
+    "high_command_table_base": "0x16C7",
+    "high_command_entry_count": 32,
+    "ff_dispatch_target": "0x1A81",
+    "semantic_status": "ff_driver_target_identified_but_effect_unconfirmed"
+  },
+  "high_command_dispatch_candidate": {
+    "status": "likely_table_static_target_identified_runtime_effect_pending",
+    "table_base": "0x16C7",
+    "source_indirect_jump_addresses": [
+      "0x12FD"
+    ],
+    "opcode_hypothesis": "0x1F operand is treated as the SPC700 absolute indexed indirect jump shape for static triage.",
+    "command_range": "0xE0..0xFF",
+    "entry_count": 32,
+    "entries": [
+      {
+        "command": "0xE0",
+        "hypothesis": "set_instrument_candidate",
+        "confidence": "medium",
+        "target": "0x1833",
+        "target_profile": {
+          "target": "0x1833",
+          "inside_driver": true,
+          "target_offset": "0x1333",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE1",
+        "hypothesis": "set_pan_candidate",
+        "confidence": "medium",
+        "target": "0x182B",
+        "target_profile": {
+          "target": "0x182B",
+          "inside_driver": true,
+          "target_offset": "0x132B",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE2",
+        "hypothesis": "pan_fade_candidate",
+        "confidence": "low",
+        "target": "0x183B",
+        "target_profile": {
+          "target": "0x183B",
+          "inside_driver": true,
+          "target_offset": "0x133B",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE3",
+        "hypothesis": "vibrato_on_candidate",
+        "confidence": "low",
+        "target": "0x1843",
+        "target_profile": {
+          "target": "0x1843",
+          "inside_driver": true,
+          "target_offset": "0x1343",
+          "first_byte": "0x13",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE4",
+        "hypothesis": "vibrato_off_candidate",
+        "confidence": "low",
+        "target": "0x184C",
+        "target_profile": {
+          "target": "0x184C",
+          "inside_driver": true,
+          "target_offset": "0x134C",
+          "first_byte": "0x0E",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE5",
+        "hypothesis": "master_volume_or_channel_state_candidate",
+        "confidence": "low",
+        "target": "0x1858",
+        "target_profile": {
+          "target": "0x1858",
+          "inside_driver": true,
+          "target_offset": "0x1358",
+          "first_byte": "0x1C",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE6",
+        "hypothesis": "volume_or_master_fade_candidate",
+        "confidence": "low",
+        "target": "0x1862",
+        "target_profile": {
+          "target": "0x1862",
+          "inside_driver": true,
+          "target_offset": "0x1362",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE7",
+        "hypothesis": "tempo_or_tuning_candidate",
+        "confidence": "low",
+        "target": "0x186A",
+        "target_profile": {
+          "target": "0x186A",
+          "inside_driver": true,
+          "target_offset": "0x136A",
+          "first_byte": "0x16",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE8",
+        "hypothesis": "tempo_fade_candidate",
+        "confidence": "low",
+        "target": "0x1872",
+        "target_profile": {
+          "target": "0x1872",
+          "inside_driver": true,
+          "target_offset": "0x1372",
+          "first_byte": "0x19",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE9",
+        "hypothesis": "global_transpose_candidate",
+        "confidence": "low",
+        "target": "0x187A",
+        "target_profile": {
+          "target": "0x187A",
+          "inside_driver": true,
+          "target_offset": "0x137A",
+          "first_byte": "0x11",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEA",
+        "hypothesis": "channel_transpose_candidate",
+        "confidence": "low",
+        "target": "0x1882",
+        "target_profile": {
+          "target": "0x1882",
+          "inside_driver": true,
+          "target_offset": "0x1382",
+          "first_byte": "0x0D",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEB",
+        "hypothesis": "tremolo_or_modulation_on_candidate",
+        "confidence": "low",
+        "target": "0x1890",
+        "target_profile": {
+          "target": "0x1890",
+          "inside_driver": true,
+          "target_offset": "0x1390",
+          "first_byte": "0x1F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEC",
+        "hypothesis": "tremolo_or_modulation_off_candidate",
+        "confidence": "low",
+        "target": "0x1898",
+        "target_profile": {
+          "target": "0x1898",
+          "inside_driver": true,
+          "target_offset": "0x1398",
+          "first_byte": "0x22",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xED",
+        "hypothesis": "set_channel_volume_candidate",
+        "confidence": "medium",
+        "target": "0x18A0",
+        "target_profile": {
+          "target": "0x18A0",
+          "inside_driver": true,
+          "target_offset": "0x13A0",
+          "first_byte": "0x08",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEE",
+        "hypothesis": "channel_volume_fade_candidate",
+        "confidence": "low",
+        "target": "0x18B7",
+        "target_profile": {
+          "target": "0x18B7",
+          "inside_driver": true,
+          "target_offset": "0x13B7",
+          "first_byte": "0x14",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEF",
+        "hypothesis": "subroutine_call_candidate",
+        "confidence": "medium",
+        "target": "0x18BF",
+        "target_profile": {
+          "target": "0x18BF",
+          "inside_driver": true,
+          "target_offset": "0x13BF",
+          "first_byte": "0x12",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF0",
+        "hypothesis": "modulation_fade_candidate",
+        "confidence": "low",
+        "target": "0x18CA",
+        "target_profile": {
+          "target": "0x18CA",
+          "inside_driver": true,
+          "target_offset": "0x13CA",
+          "first_byte": "0x08",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF1",
+        "hypothesis": "pitch_envelope_or_portamento_candidate",
+        "confidence": "low",
+        "target": "0x18DE",
+        "target_profile": {
+          "target": "0x18DE",
+          "inside_driver": true,
+          "target_offset": "0x13DE",
+          "first_byte": "0x1D",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF2",
+        "hypothesis": "pitch_envelope_off_candidate",
+        "confidence": "low",
+        "target": "0x18E9",
+        "target_profile": {
+          "target": "0x18E9",
+          "inside_driver": true,
+          "target_offset": "0x13E9",
+          "first_byte": "0x16",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF3",
+        "hypothesis": "tuning_or_detune_candidate",
+        "confidence": "low",
+        "target": "0x18F1",
+        "target_profile": {
+          "target": "0x18F1",
+          "inside_driver": true,
+          "target_offset": "0x13F1",
+          "first_byte": "0x18",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF4",
+        "hypothesis": "driver_toggle_or_extended_control_candidate",
+        "confidence": "low",
+        "target": "0x18F9",
+        "target_profile": {
+          "target": "0x18F9",
+          "inside_driver": true,
+          "target_offset": "0x13F9",
+          "first_byte": "0x0C",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF5",
+        "hypothesis": "echo_or_voice_param_candidate",
+        "confidence": "low",
+        "target": "0x1903",
+        "target_profile": {
+          "target": "0x1903",
+          "inside_driver": true,
+          "target_offset": "0x1403",
+          "first_byte": "0x02",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF6",
+        "hypothesis": "echo_off_or_effect_disable_candidate",
+        "confidence": "low",
+        "target": "0x1937",
+        "target_profile": {
+          "target": "0x1937",
+          "inside_driver": true,
+          "target_offset": "0x1437",
+          "first_byte": "0x23",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF7",
+        "hypothesis": "echo_or_effect_setup_candidate",
+        "confidence": "low",
+        "target": "0x193F",
+        "target_profile": {
+          "target": "0x193F",
+          "inside_driver": true,
+          "target_offset": "0x143F",
+          "first_byte": "0x0D",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF8",
+        "hypothesis": "echo_or_effect_fade_candidate",
+        "confidence": "low",
+        "target": "0x1949",
+        "target_profile": {
+          "target": "0x1949",
+          "inside_driver": true,
+          "target_offset": "0x1449",
+          "first_byte": "0x0E",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF9",
+        "hypothesis": "pitch_slide_candidate",
+        "confidence": "low",
+        "target": "0x1954",
+        "target_profile": {
+          "target": "0x1954",
+          "inside_driver": true,
+          "target_offset": "0x1454",
+          "first_byte": "0x18",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFA",
+        "hypothesis": "earthbound_extended_command_candidate",
+        "confidence": "medium",
+        "target": "0x1967",
+        "target_profile": {
+          "target": "0x1967",
+          "inside_driver": true,
+          "target_offset": "0x1467",
+          "first_byte": "0x18",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFB",
+        "hypothesis": "loop_start_or_control_candidate",
+        "confidence": "low",
+        "target": "0x197F",
+        "target_profile": {
+          "target": "0x197F",
+          "inside_driver": true,
+          "target_offset": "0x147F",
+          "first_byte": "0x08",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFC",
+        "hypothesis": "loop_end_or_control_candidate",
+        "confidence": "low",
+        "target": "0x19B4",
+        "target_profile": {
+          "target": "0x19B4",
+          "inside_driver": true,
+          "target_offset": "0x14B4",
+          "first_byte": "0x08",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFD",
+        "hypothesis": "loop_or_jump_control_candidate",
+        "confidence": "low",
+        "target": "0x19FB",
+        "target_profile": {
+          "target": "0x19FB",
+          "inside_driver": true,
+          "target_offset": "0x14FB",
+          "first_byte": "0x14",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFE",
+        "hypothesis": "jump_or_long_control_candidate",
+        "confidence": "low",
+        "target": "0x1A32",
+        "target_profile": {
+          "target": "0x1A32",
+          "inside_driver": true,
+          "target_offset": "0x1532",
+          "first_byte": "0x14",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFF",
+        "hypothesis": "end_or_sentinel_candidate",
+        "confidence": "medium",
+        "target": "0x1A81",
+        "target_profile": {
+          "target": "0x1A81",
+          "inside_driver": true,
+          "target_offset": "0x1581",
+          "first_byte": "0x0E",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      }
+    ],
+    "ff_dispatch_candidate": {
+      "command": "0xFF",
+      "hypothesis": "end_or_sentinel_candidate",
+      "target": "0x1A81",
+      "semantic_status": "driver_target_known_effect_unconfirmed",
+      "why_not_promoted": "Static table evidence identifies the target, but exact duration semantics still need an execution/disassembly pass at the target to distinguish end, return, channel stop, hold, or loop behavior."
+    }
+  },
+  "indirect_jump_candidates": [
+    {
+      "operand": "0x16C7",
+      "referencing_addresses": [
+        "0x12FD"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 164,
+      "first_32_words_all_inside_driver": true,
+      "first_32_unique_targets": 32,
+      "first_32_target_range": "0x182B..0x1A81",
+      "first_8_target_profiles": [
+        {
+          "target": "0x1833",
+          "inside_driver": true,
+          "target_offset": "0x1333",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x182B",
+          "inside_driver": true,
+          "target_offset": "0x132B",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x183B",
+          "inside_driver": true,
+          "target_offset": "0x133B",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1843",
+          "inside_driver": true,
+          "target_offset": "0x1343",
+          "first_byte": "0x13",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x184C",
+          "inside_driver": true,
+          "target_offset": "0x134C",
+          "first_byte": "0x0E",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1858",
+          "inside_driver": true,
+          "target_offset": "0x1358",
+          "first_byte": "0x1C",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1862",
+          "inside_driver": true,
+          "target_offset": "0x1362",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x186A",
+          "inside_driver": true,
+          "target_offset": "0x136A",
+          "first_byte": "0x16",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "likely_e0_ff_high_command_dispatch_table"
+    },
+    {
+      "operand": "0x17C5",
+      "referencing_addresses": [
+        "0x130A"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 37,
+      "first_32_words_all_inside_driver": true,
+      "first_32_unique_targets": 21,
+      "first_32_target_range": "0x148A..0x2E0B",
+      "first_8_target_profiles": [
+        {
+          "target": "0x1810",
+          "inside_driver": true,
+          "target_offset": "0x1310",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1823",
+          "inside_driver": true,
+          "target_offset": "0x1323",
+          "first_byte": "0xF9",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "pointer_table_candidate_effect_unknown"
+    },
+    {
+      "operand": "0x17D5",
+      "referencing_addresses": [
+        "0x1317"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 29,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 23,
+      "first_32_target_range": "0x148A..0x2E0B",
+      "first_8_target_profiles": [
+        {
+          "target": "0x15DB",
+          "inside_driver": true,
+          "target_offset": "0x10DB",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x15F6",
+          "inside_driver": true,
+          "target_offset": "0x10F6",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x15E7",
+          "inside_driver": true,
+          "target_offset": "0x10E7",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x2DC6",
+          "inside_driver": true,
+          "target_offset": "0x28C6",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x2DED",
+          "inside_driver": true,
+          "target_offset": "0x28ED",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x2E0B",
+          "inside_driver": true,
+          "target_offset": "0x290B",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x125B",
+      "referencing_addresses": [
+        "0x1258"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 10,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 8,
+      "first_32_target_range": "0x1170..0x1A5F",
+      "first_8_target_profiles": [
+        {
+          "target": "0x1280",
+          "inside_driver": true,
+          "target_offset": "0x0D80",
+          "first_byte": "0xCE",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1280",
+          "inside_driver": true,
+          "target_offset": "0x0D80",
+          "first_byte": "0xCE",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1270",
+          "inside_driver": true,
+          "target_offset": "0x0D70",
+          "first_byte": "0xCE",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1278",
+          "inside_driver": true,
+          "target_offset": "0x0D78",
+          "first_byte": "0xCE",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x12C7",
+          "inside_driver": true,
+          "target_offset": "0x0DC7",
+          "first_byte": "0xCD",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1176",
+          "inside_driver": true,
+          "target_offset": "0x0C76",
+          "first_byte": "0x3F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1170",
+          "inside_driver": true,
+          "target_offset": "0x0C70",
+          "first_byte": "0x3F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1288",
+          "inside_driver": true,
+          "target_offset": "0x0D88",
+          "first_byte": "0xCE",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x132E",
+      "referencing_addresses": [
+        "0x132A"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 9,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 4,
+      "first_32_target_range": "0x1340..0x134B",
+      "first_8_target_profiles": [
+        {
+          "target": "0x1348",
+          "inside_driver": true,
+          "target_offset": "0x0E48",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1348",
+          "inside_driver": true,
+          "target_offset": "0x0E48",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x134B",
+          "inside_driver": true,
+          "target_offset": "0x0E4B",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x134B",
+          "inside_driver": true,
+          "target_offset": "0x0E4B",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1343",
+          "inside_driver": true,
+          "target_offset": "0x0E43",
+          "first_byte": "0xF8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x134B",
+          "inside_driver": true,
+          "target_offset": "0x0E4B",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x134B",
+          "inside_driver": true,
+          "target_offset": "0x0E4B",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x1340",
+          "inside_driver": true,
+          "target_offset": "0x0E40",
+          "first_byte": "0x5F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x0D0A",
+      "referencing_addresses": [
+        "0x1F8E"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 2,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 2,
+      "first_32_target_range": "0x14DA..0x31FB",
+      "first_8_target_profiles": [
+        {
+          "target": "0x31FB",
+          "inside_driver": true,
+          "target_offset": "0x2CFB",
+          "first_byte": "0x32",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        },
+        {
+          "target": "0x14DA",
+          "inside_driver": true,
+          "target_offset": "0x0FDA",
+          "first_byte": "0xD7",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x0BB2",
+      "referencing_addresses": [
+        "0x1910",
+        "0x192B"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 1,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 1,
+      "first_32_target_range": "0x0BC7..0x0BC7",
+      "first_8_target_profiles": [
+        {
+          "target": "0x0BC7",
+          "inside_driver": true,
+          "target_offset": "0x06C7",
+          "first_byte": "0xED",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x180D",
+      "referencing_addresses": [
+        "0x12F0"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 1,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 1,
+      "first_32_target_range": "0x148A..0x148A",
+      "first_8_target_profiles": [
+        {
+          "target": "0x148A",
+          "inside_driver": true,
+          "target_offset": "0x0F8A",
+          "first_byte": "0x6F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x1F90",
+      "referencing_addresses": [
+        "0x1726"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 1,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 1,
+      "first_32_target_range": "0x140D..0x140D",
+      "first_8_target_profiles": [
+        {
+          "target": "0x140D",
+          "inside_driver": true,
+          "target_offset": "0x0F0D",
+          "first_byte": "0x04",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x25DC",
+      "referencing_addresses": [
+        "0x1766"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 1,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 1,
+      "first_32_target_range": "0x1418..0x1418",
+      "first_8_target_profiles": [
+        {
+          "target": "0x1418",
+          "inside_driver": true,
+          "target_offset": "0x0F18",
+          "first_byte": "0xD4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      ],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x008D",
+      "referencing_addresses": [
+        "0x289C",
+        "0x28B0"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": false,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "operand_outside_driver_or_data_false_positive_candidate"
+    },
+    {
+      "operand": "0x00A8",
+      "referencing_addresses": [
+        "0x25D0",
+        "0x25D8"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": false,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "operand_outside_driver_or_data_false_positive_candidate"
+    },
+    {
+      "operand": "0x0440",
+      "referencing_addresses": [
+        "0x1345"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": false,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "operand_outside_driver_or_data_false_positive_candidate"
+    },
+    {
+      "operand": "0x06A4",
+      "referencing_addresses": [
+        "0x3E92"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x06B0",
+      "referencing_addresses": [
+        "0x3E55",
+        "0x3E78"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x07E1",
+      "referencing_addresses": [
+        "0x4098"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x080A",
+      "referencing_addresses": [
+        "0x1FD8"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x0BB4",
+      "referencing_addresses": [
+        "0x190A",
+        "0x1925"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x0BB7",
+      "referencing_addresses": [
+        "0x1914",
+        "0x192F"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x190A",
+      "referencing_addresses": [
+        "0x1F00",
+        "0x1F62"
+      ],
+      "reference_count": 2,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x1A04",
+      "referencing_addresses": [
+        "0x27FA"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x1B1C",
+      "referencing_addresses": [
+        "0x1890"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x1F42",
+      "referencing_addresses": [
+        "0x1722"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    },
+    {
+      "operand": "0x1F64",
+      "referencing_addresses": [
+        "0x1724"
+      ],
+      "reference_count": 1,
+      "operand_points_into_driver": true,
+      "inside_pointer_run_words": 0,
+      "first_32_words_all_inside_driver": false,
+      "first_32_unique_targets": 0,
+      "first_32_target_range": null,
+      "first_8_target_profiles": [],
+      "candidate_role": "short_or_mixed_indirect_target_candidate"
+    }
+  ],
+  "findings": [
+    "The pack-1 driver block contains a strong 0x1F indirect table candidate at $16C7 that cleanly maps 32 entries onto the E0..FF high-command byte range used by sequence payloads.",
+    "Under that mapping, FF points at driver target $1A81, giving the FF terminator review lane a concrete address for the next SPC700 disassembly or execution trace.",
+    "This artifact does not promote FF to an end command yet; it only names the static dispatch target and keeps the runtime effect pending.",
+    "Several other 0x1F operands also point at driver-local tables, so the driver likely uses multiple indirect dispatch tables for lower-level music/runtime control."
+  ],
+  "next_work": [
+    "disassemble or trace execution at $1A81 with live channel state to determine whether FF ends a sequence, returns from EF, stops a channel, or falls into another control path",
+    "capture a short runtime trace around the 0x1F $16C7 dispatch for at least one sequence that reaches FF",
+    "after FF effect is confirmed, feed the result back into the FF terminator review and finite/loop metadata lanes"
+  ]
+}

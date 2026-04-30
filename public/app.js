@@ -850,18 +850,32 @@ function filePreviewKind(filePath) {
   return "text";
 }
 
+function prioritizeGeneratedMedia(files, familyId) {
+  if (familyId === "graphics") {
+    return [...files].sort((a, b) => {
+      const aFrame = /frames/i.test(a) || /frames_2x3/i.test(a);
+      const bFrame = /frames/i.test(b) || /frames_2x3/i.test(b);
+      if (aFrame !== bFrame) {
+        return aFrame ? -1 : 1;
+      }
+      return a.localeCompare(b);
+    });
+  }
+  return [...files].sort((a, b) => a.localeCompare(b));
+}
+
 function renderGeneratedAssetSurface(family) {
   const files = Array.isArray(family.files) ? family.files : [];
-  const imageFiles = files.filter((filePath) => filePreviewKind(filePath) === "image");
-  const audioFiles = files.filter((filePath) => filePreviewKind(filePath) === "audio");
+  const imageFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "image"), family.id);
+  const audioFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "audio"), family.id);
   if (family.id === "graphics") {
-    return renderMediaFamilySurface(family, imageFiles, "Sprite And Graphics Previews", "Generated PNG/WebP/GIF previews will appear here when the renderer stage emits them. The current first-stage generator records graphics bank manifests and handoff files.");
+    return renderMediaFamilySurface(family, imageFiles, "Sprite And Graphics Previews", "Generated frame-sheet and tile-atlas PNGs will appear here after Graphics And Sprites generation.");
   }
   if (family.id === "maps") {
     return renderMediaFamilySurface(family, imageFiles, "Map And Tileset Previews", "Generated map, tileset, palette, and collision preview images will appear here when those renderer stages emit them. The current first-stage generator records map handoff manifests.");
   }
   if (family.id === "audio") {
-    return renderMediaFamilySurface(family, audioFiles, "Audio Playback", "Generated WAV/MP3/OGG/FLAC exports will appear here when the audio renderer emits playable files. The current first-stage generator records playback/export manifests.");
+    return renderMediaFamilySurface(family, audioFiles, "Audio Playback", "Generated WAV previews will appear here after Music And Audio generation.");
   }
   return "";
 }
@@ -885,12 +899,16 @@ function renderMediaFamilySurface(family, mediaFiles, title, emptyMessage) {
 function renderMediaPreviewTile(familyId, filePath) {
   const preview = state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)];
   const kind = filePreviewKind(filePath);
+  const audioSource = preview?.fileUrl || preview?.dataUrl || "";
   return `
     <div class="mediaPreviewTile">
       <button type="button" class="generatedFileButton" data-workspace-media="true" data-family-id="${escapeHtml(familyId)}" data-file-path="${escapeHtml(filePath)}">${escapeHtml(filePath)}</button>
       ${preview?.error ? `<p class="workspaceNotice">${escapeHtml(preview.error)}</p>` : ""}
       ${preview?.dataUrl && kind === "image" ? `<img src="${escapeHtml(preview.dataUrl)}" alt="${escapeHtml(filePath)}">` : ""}
-      ${preview?.dataUrl && kind === "audio" ? `<audio controls src="${escapeHtml(preview.dataUrl)}"></audio>` : ""}
+      ${audioSource && kind === "audio" ? `
+        <div class="audioPreviewMeta">${Number(preview.size || 0).toLocaleString("en-US")} bytes - local generated WAV</div>
+        <audio controls preload="metadata" src="${escapeHtml(audioSource)}"></audio>
+      ` : ""}
     </div>
   `;
 }
@@ -2470,12 +2488,32 @@ function renderCodeBlock(source, language) {
   const renderedLines = String(source || "").split("\n").map((line, index) => {
     const highlighted = normalizedLanguage === "asm" || normalizedLanguage === "asar"
       ? highlightAsmLine(line)
+      : normalizedLanguage === "json"
+        ? highlightJsonLine(line)
       : escapeHtml(line);
     return `<span class="codeLine"><span class="lineText">${highlighted || " "}</span></span>`;
   }).join("");
   const languageClass = normalizedLanguage ? ` codeBlock-${escapeHtml(normalizedLanguage)}` : "";
   const languageAttribute = normalizedLanguage ? ` data-language="${escapeHtml(normalizedLanguage)}"` : "";
   return `<pre class="codeBlock codeBlockLines${languageClass}"><code${languageAttribute}>${renderedLines}</code></pre>`;
+}
+
+function highlightJsonLine(line) {
+  return escapeHtml(line).replace(/(&quot;(?:\\.|[^&])*?&quot;)(\s*:)?|(-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b)|\b(true|false|null)\b/g, (match, stringValue, keyColon, numberValue, literalValue) => {
+    if (stringValue && keyColon) {
+      return `<span class="jsonKey">${stringValue}</span>${keyColon}`;
+    }
+    if (stringValue) {
+      return `<span class="jsonString">${stringValue}</span>`;
+    }
+    if (numberValue) {
+      return `<span class="jsonNumber">${numberValue}</span>`;
+    }
+    if (literalValue) {
+      return `<span class="jsonLiteral">${literalValue}</span>`;
+    }
+    return match;
+  });
 }
 
 function highlightAsmLine(line) {
