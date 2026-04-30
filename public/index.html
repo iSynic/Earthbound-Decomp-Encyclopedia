@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EarthBound Decomp Encyclopedia</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar" aria-label="Table of contents">
+        <div class="sidebarHeader">
+          <div class="productMark">EB</div>
+          <div>
+            <div class="productTitle">Decomp Encyclopedia</div>
+            <div class="productSubtitle">Local knowledge base</div>
+          </div>
+        </div>
+        <nav id="toc" class="toc"></nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="navButtons" aria-label="Navigation">
+            <button id="backButton" class="iconButton" type="button" title="Back">&lt;</button>
+            <button id="forwardButton" class="iconButton" type="button" title="Forward">&gt;</button>
+          </div>
+          <div class="searchWrap">
+            <input id="globalSearch" class="searchInput" type="search" autocomplete="off" placeholder="Search banks, commands, routines, workflows">
+            <div id="searchResults" class="searchResults" hidden></div>
+          </div>
+          <button id="workspaceButton" class="workspaceButton" type="button" title="Open local ROM workspace"></button>
+          <button id="buildStatusButton" class="buildStatusButton" type="button" title="Open build and release status"></button>
+        </header>
+
+        <section class="tabsRow" aria-label="Open documents">
+          <div id="tabs" class="tabs"></div>
+        </section>
+
+        <section class="documentShell">
+          <article id="documentView" class="documentView"></article>
+          <aside id="detailsRail" class="detailsRail"></aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="generated/catalog.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2467 @@
+{
+  "chapters": [
+    {
+      "id": "chapter-public-status-truthfulness",
+      "title": "Public Status Truthfulness",
+      "summary": "How to read the project status honestly: scaffold closure, semantic confidence, known limits, and what should not be overclaimed.",
+      "aliases": ["public status", "truthfulness", "status claims", "project status", "completion claims"],
+      "maturity": "draft-narrative",
+      "keywords": ["public status", "truthfulness", "project status", "known limits", "status", "confidence", "completion"],
+      "related": ["overview", "terminology", "semantic-frontiers", "topic-validation-workflows", "chapter-c3-script-semantics", "chapter-text-vm-localization-semantics", "chapter-table-contracts", "chapter-asset-data-contracts", "chapter-known-limits"],
+      "noteRefs": [
+        "notes/project-status.md",
+        "notes/source-scaffold-status.md",
+        "notes/source-readiness-triage.md",
+        "notes/readable-source-bank-closure.md"
+      ],
+      "sections": [
+        {
+          "title": "Status Boundary",
+          "paragraphs": [
+            "The decomp can be structurally closed while still being semantically incomplete. Byte-equivalent source scaffolding, readable source coverage, recovered data contracts, table contracts, asset contracts, and human-editable semantics are separate claims.",
+            "Each page states the strongest proven layer and stops there."
+          ]
+        },
+        {
+          "title": "Status Rules",
+          "bullets": [
+            "Say `scaffold-backed` when bytes are represented and validation can reproduce them.",
+            "Say `decoded source` when routines or data have readable source forms.",
+            "Say `semantically understood` only when names, comments, side effects, call/data evidence, and editing constraints are documented.",
+            "Keep known limits near the top-level reading path so users see uncertainty before using generated references as authority.",
+            "Treat C3 scripts, text/localization commands, runtime tables, and asset manifests as separate maturity layers even when they reference the same feature."
+          ]
+        },
+        {
+          "title": "Practical Use",
+          "paragraphs": [
+            "Promotion from generated evidence to curated explanation requires a clear claim, evidence link, and limit. Uncertainty is acceptable when it is named precisely."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-script-semantics",
+      "title": "C3 Script Semantics",
+      "summary": "How C3 event/actionscript evidence is organized, what is known about opcode behavior, and where callback contracts remain active work.",
+      "aliases": ["C3 scripts", "actionscript semantics", "event scripts", "C3 semantics"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "actionscript", "script semantics", "opcode", "event", "callback", "payload"],
+      "banks": ["C3"],
+      "related": ["chapter-c3-callback-contracts", "chapter-c3-callback-argument-semantics", "chapter-c3-movement-value-semantics", "chapter-c3-direction-facing-values", "chapter-c3-animation-template-semantics", "chapter-c3-source-emission-model", "chapter-overworld-object-asset-model", "chapter-battle-visual-contracts", "topic-actionscript-events", "script-and-text-vms", "bank-c3"],
+      "noteRefs": [
+        "notes/c3-actionscript-semantics-audit.md",
+        "notes/c3-actionscript-semantics-roadmap.md",
+        "notes/script-payloads-c3.md",
+        "notes/c3-actionscript-callback-contracts.md",
+        "notes/c3-source-data-map.md",
+        "notes/c3-source-emission-plan.md",
+        "notes/c3-source-pilot-frontier.md",
+        "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+        "notes/localization-movement-evidence.md"
+      ],
+      "sections": [
+        {
+          "title": "Milestone Boundary",
+          "paragraphs": [
+            "C3 is no longer best described as an unknown byte frontier. The current scaffold is byte-equivalent across the full bank, the residual range tracker is closed, and the event/actionscript byte layer has a stable first-pass semantic model. The open work has moved from finding bytes to explaining what edits mean.",
+            "That distinction matters for readers. A generated C3 payload entry identifies where a script lives; the curated contract explains VM opcode shape, callback handoff, entity-slot side effects, map or battle runtime dependencies, and the confidence boundary for changing values."
+          ]
+        },
+        {
+          "title": "What Is Proven",
+          "paragraphs": [
+            "The current audit covers `181` script rows. All `181` are syntactically complete, all have stable non-UNKNOWN names, and the current audit records no unknown callback, opcode, or name frontier. The callback layer is also seeded: `86` native `EVENT_CALLROUTINE` targets and `17` installed callback targets are tracked as explicit contracts.",
+            "The source-pilot layer is strong enough to guide authoring work. It covers `140` event/actionscript families and validates `56518` bytes, with the source-pilot candidate frontier recorded as zero remaining candidate bytes. That does not make every literal symbolic, but it does mean the project has enough structure to write editing rules instead of just catalog entries."
+          ]
+        },
+        {
+          "title": "Reader Model",
+          "bullets": [
+            "Script payload row: the generated entry that names the bank range, extraction class, and decode status.",
+            "VM opcode: the C3 bytecode operation that advances the event/actionscript interpreter.",
+            "Native callback bridge: an `EVENT_CALLROUTINE` target that consumes inline arguments and returns a condition or result to the VM.",
+            "Installed callback: a tick, position, physics, or related routine that keeps acting after the current instruction finishes.",
+            "Source pilot or source module: the human-readable assembly boundary that proves bytes can be emitted without changing behavior."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A safe C3 edit keeps the VM stream, callback target, inline argument shape, and downstream runtime state together. Do not rename a literal as a semantic enum just because it repeats. Promote a value only when local evidence ties it to a family, callback, runtime table, animation preset, direction class, or source-pilot validation.",
+            "The useful editing unit is often larger than one payload. A movement script may depend on object-slot state, collision behavior, text presentation, and a map object record. A battle visual script may depend on C2/C4 runtime selectors and CA-CE visual assets. The entry relationship graph exposes those neighbors instead of treating the C3 byte stream as self-contained."
+          ]
+        },
+        {
+          "title": "Open Work",
+          "paragraphs": [
+            "The remaining work is value semantics and source/editing rules: family-specific variables, animation IDs, direction classes, callback return meanings, and source-emission hardening. Those are refinement tasks over a closed byte layer, not blockers to writing the narrative model."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-callback-contracts",
+      "title": "C3 Callback Contracts",
+      "summary": "How C3 event/actionscript bytecode crosses into native runtime helpers and long-lived installed callbacks.",
+      "aliases": ["C3 callbacks", "event callback contracts", "actionscript callbacks", "native callroutine"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "callback", "callroutine", "event", "actionscript", "native", "runtime"],
+      "banks": ["C0", "C1", "C3", "C4", "EF"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-callback-argument-semantics", "chapter-c3-movement-value-semantics", "chapter-c3-direction-facing-values", "chapter-c3-animation-template-semantics", "chapter-overworld-object-asset-model", "chapter-battle-visual-contracts", "topic-actionscript-events", "bank-c3"],
+      "noteRefs": [
+        "notes/c3-actionscript-callback-contracts.md",
+        "notes/c3-actionscript-semantics-audit.md",
+        "notes/c3-actionscript-semantics-roadmap.md",
+        "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+        "notes/localization-movement-evidence.md",
+        "notes/map-object-layer-closure.md"
+      ],
+      "sections": [
+        {
+          "title": "Two Bridges",
+          "paragraphs": [
+            "C3 scripts enter native behavior through two different bridges. `EVENT_CALLROUTINE` is immediate: the VM reads inline arguments, calls a native helper, and continues with a returned condition or result. Callback installers are durable: they bind per-frame or stateful native behavior to an object slot after the current bytecode instruction is done.",
+            "That is why callback notes are not optional background. They define what the script can safely express. The same opcode stream can have very different editing risk depending on whether it merely waits, calls a helper once, or installs a movement, physics, collision, presentation, or text callback that keeps owning runtime behavior."
+          ]
+        },
+        {
+          "title": "Semantic Groups",
+          "paragraphs": [
+            "The current callback audit groups targets into practical editing families: current-slot state, movement, visual profile, timed delivery, overworld runtime, presentation rendering, text presentation, collision, entity spawn, neighbor cache, party-facing behavior, world-state restore, battle runtime, and intro-integrity checks.",
+            "These groups are intentionally more useful than raw addresses. The editing constraint is whether a value chooses a movement pulse, controls a visual profile, tests party state, or dispatches a presentation effect. The raw bank address remains provenance; the group is the first reader-facing contract."
+          ]
+        },
+        {
+          "title": "Good Enough Boundary",
+          "paragraphs": [
+            "The callback layer is good enough when generated reports are truthful and useful. It is not necessary to give every literal a perfect symbolic story before the encyclopedia can teach the system. The safer rule is to keep animation IDs, direction classes, family variables, and helper arguments literal until local evidence proves a stronger name.",
+            "When a callback is only known as a native target plus observed family, the entry says exactly that. Overclaiming makes editing less safe; precise uncertainty is part of the contract."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-callback-argument-semantics",
+      "title": "C3 Callback Argument Semantics",
+      "summary": "How inline callroutine arguments, callback installers, and literal value names should be promoted without laundering guesses into C3 scripts.",
+      "aliases": ["C3 callback arguments", "callroutine arguments", "C3 operand semantics", "callback value semantics"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "callback", "arguments", "callroutine", "operand", "value semantics", "decoder"],
+      "banks": ["C0", "C1", "C2", "C3", "C4", "EF"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-callback-contracts", "chapter-c3-movement-value-semantics", "chapter-c3-direction-facing-values", "chapter-known-limits"],
+      "noteRefs": [
+        "notes/c3-actionscript-callback-contracts.md",
+        "notes/c3-actionscript-semantics-audit.md",
+        "notes/c3-c0-callback-binding-correction.md",
+        "notes/c3-actionscript-semantics-roadmap.md",
+        "notes/movement-vector-script-runtime-c0c83b-c0d195.md",
+        "notes/movement-target-bounds-and-vector-refresh-c46ef8-c47369.md"
+      ],
+      "sections": [
+        {
+          "title": "Operand Boundary",
+          "paragraphs": [
+            "The C3 decoder now knows enough about callback byte shapes to be useful: it distinguishes bank-local short calls from low-word callback installers, prints named callback targets, labels common operands such as frames, script variables, animation IDs, and event-flag words, and keeps raw bytes visible on every decoded line.",
+            "That is a readability layer, not a license to name every literal. Inline arguments become semantics only when the target callback, local script family, or downstream runtime helper proves what the value controls."
+          ]
+        },
+        {
+          "title": "Two Argument Classes",
+          "paragraphs": [
+            "`EVENT_CALLROUTINE` arguments are consumed immediately by the native helper and usually belong to that helper's contract. Callback installer operands are different: opcodes such as `EVENT_SET_POSITION_CHANGE_CALLBACK` and `EVENT_SET_PHYSICS_CALLBACK` store low-word targets that bind long-lived C0 or C4 behavior to the active entity.",
+            "The earlier decoder bug is a good warning sign. Callback installers looked like C3-local pointers until the binding correction proved they commonly point back to C0 callback routines. The durable lesson is that operand shape is not the same as operand meaning."
+          ]
+        },
+        {
+          "title": "Current Strong Labels",
+          "bullets": [
+            "Mutation operation bytes can use the C0 interpreter names `AND`, `OR`, `ADD`, and `EOR` because the interpreter table proves them.",
+            "Event flag words can be labeled where the callback argument schema already ties them to flag checks.",
+            "Velocity and relative-position words can show signed decimal meaning beside raw hex values.",
+            "`$5D9A` can be called a queue-pending or transient special-state flag where the C0/EF queue notes support that read.",
+            "Callback pointers for movement, projection, velocity integration, passive no-op behavior, and screen-position callbacks can use their C0/C4 names once the installer opcode class is known."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A C3 editor should show raw operand bytes, friendly labels, and evidence level together. Strong labels can become controls. Medium labels should stay descriptive. Weak labels should remain literal until a local family note or native callback contract proves the field.",
+            "The safest UI is not a screen full of raw hex or a screen full of overconfident names. It is a joined view: opcode, operand bytes, target helper, known argument schema, installed callback lifetime, and the notes that prove the interpretation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-movement-value-semantics",
+      "title": "C3 Movement Value Semantics",
+      "summary": "How movement presets, vectors, timers, bounds, and staged movement parameters turn C3 script bytes into entity motion.",
+      "aliases": ["C3 movement values", "movement pulse presets", "movement vectors", "script movement"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "movement", "vector", "timer", "preset", "bounds", "velocity", "script"],
+      "banks": ["C0", "C3", "C4"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-callback-contracts", "chapter-c3-callback-argument-semantics", "chapter-c3-direction-facing-values", "chapter-c3-animation-template-semantics", "chapter-map-object-table-contracts", "topic-actionscript-events"],
+      "noteRefs": [
+        "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+        "notes/movement-vector-script-runtime-c0c83b-c0d195.md",
+        "notes/movement-target-bounds-and-vector-refresh-c46ef8-c47369.md",
+        "notes/c3-map-movement-parameter-table-e1d8-e240.md",
+        "notes/c3-event-222-224-movement-helper-cluster.md",
+        "notes/c3-temporary-actor-movement-and-release-scripts.md",
+        "notes/map-movement-usage-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "Movement Stack",
+          "paragraphs": [
+            "C3 movement values only make sense as a stack. C3 scripts choose directions, presets, waits, tasks, and inline parameters. C0 turns direction and speed into per-slot velocity words and task timers. C4 projects angles, checks cached targets, classifies area bounds, and refreshes facing when movement crosses a coarse visual bucket.",
+            "The editor-facing meaning of a movement value is therefore rarely local to C3. A literal may be a direction class, timer count, radius, target coordinate, speed-like field, or preset parameter depending on which native helper consumes it."
+          ]
+        },
+        {
+          "title": "Pulse Presets",
+          "paragraphs": [
+            "The movement pulse preset family around `C3:A0B2..AB26` is one of the best C3 value-semantics anchors. The task loops alternate animation `1` and `0`, call current-slot visual refresh helpers, and vary their pauses: 24-frame, 12-frame, 9-frame, 6-frame, 2-frame, and `V4`-gated variants.",
+            "The AAxx and ABxx setup helpers install those tasks after setting physics callbacks, zeroing velocities, setting animation `0`, and passing literal pairs to `C0:A685`. The byte shape is firm, while the exact field-level meaning of some `C0:A685` pairs remains intentionally literal."
+          ]
+        },
+        {
+          "title": "Vectors And Timers",
+          "paragraphs": [
+            "`C0:C83B` is the movement-vector bridge. It takes a direction or mode value, uses the current slot's speed-like field, and writes signed X/Y velocity component pairs. Modes `0,2,4,6` are axial; modes `1,3,5,7` are diagonal and use a fixed-point diagonal scale.",
+            "Timer helpers such as `C0:CA4E`, `C0:CBD3`, and `C0:CC11` translate active vectors, speed scale, or cached target distance into task timers. This explains the common script idiom: set direction, install vector, compute timer, wait or loop until the movement helper reports completion."
+          ]
+        },
+        {
+          "title": "Bounds And Parameter Tables",
+          "paragraphs": [
+            "`C4:7225` and `C4:7269` give random-wander and area-bound scripts a concrete model: set a rectangle around the current slot, then classify the slot as inside or outside by side. C3 scripts can then choose a fresh cardinal direction or continue a wandering loop.",
+            "The C3 map movement parameter table at `C3:E1D8..E240` is part of the same value family. It contains placement direction parameters, staged movement direction parameters, subtile offset sets, and door-candidate direction offsets. Some blocks have direct consumer proof; the `E1D8..E1FF` prefix still needs tighter C0-side struct names before it receives a stronger label."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A movement editor should not expose one generic `value` field for C3 scripts. It should expose the value in the context of its consumer: pulse frame count, script variable gate, movement direction mode, area-bound radius, target coordinate, subtile offset, door-probe offset, or native-helper literal.",
+            "If the consumer is known but the field name is not, keep the literal visible and attach the native helper. That is still useful, and it avoids turning repeated movement bytes into false enums."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-direction-facing-values",
+      "title": "C3 Direction And Facing Values",
+      "summary": "How C3 scripts, C0 movement helpers, and C4 octant normalizers interpret direction classes, facing buckets, and sprite refresh decisions.",
+      "aliases": ["direction values", "facing values", "direction classes", "octant values", "sprite facing"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "direction", "facing", "octant", "sprite", "movement", "visual profile"],
+      "banks": ["C0", "C3", "C4"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-movement-value-semantics", "chapter-c3-animation-template-semantics", "chapter-overworld-object-asset-model"],
+      "noteRefs": [
+        "notes/direction-octant-normalizers-c46a5e-c46b51.md",
+        "notes/movement-vector-script-runtime-c0c83b-c0d195.md",
+        "notes/movement-target-bounds-and-vector-refresh-c46ef8-c47369.md",
+        "notes/c3-event-222-224-movement-helper-cluster.md",
+        "notes/c3-live-area-facing-movement-paths-source-pilot.md",
+        "notes/c3-facing-pulse-helpers-source-pilot.md",
+        "notes/c3-anim-port-direction-tasks-source-pilot.md"
+      ],
+      "sections": [
+        {
+          "title": "Direction Is Layered",
+          "paragraphs": [
+            "C3 direction values are not just north/east/south/west labels. C4 uses a 16-bit angle circle, octants of `0x2000`, rounded and floored octant helpers, alternate facing tables, sprite-facing buckets, and walk-direction encodings. C0 movement helpers then cache or compare those values while installing vectors and refreshing visual profiles.",
+            "That means the same small numeric range can mean different things depending on the helper: script-facing direction mode, rounded angle octant, coarse sprite-facing quadrant, walk/step direction encoding, or player/current facing remap."
+          ]
+        },
+        {
+          "title": "Proven Conversions",
+          "bullets": [
+            "`C4:6B0A` rounds an angle to the nearest octant and caches it in the current slot.",
+            "`C4:6B2D` floors an angle to an octant.",
+            "`C4:6B37` rotates an octant by half a turn.",
+            "`C4:6AA3` maps octants to coarse sprite-facing buckets used to decide whether `C0:A48F` should refresh the current slot.",
+            "`C4:6B51` maps rounded angles through a walk-direction table used by movement-target callers.",
+            "`C4:6B65` and `C4:6B79` set current-slot targets from player or staged coordinates."
+          ]
+        },
+        {
+          "title": "C3 Facing Patterns",
+          "paragraphs": [
+            "The C3 source pilots show several repeated direction/facing idioms. Facing-pulse helpers alternate visual countdown states before returning. Live-area facing scripts choose random facing-cycle steps and mix fast/slow timing with longer movement paths. Animation-port direction tasks use `V4` or animation-port state to drive direction loops.",
+            "These patterns are useful because byte validation is already passing, but they are not yet all wired into the main C3 source scaffold. They are proved source-pilot patterns, not broad final names for every direction byte."
+          ]
+        },
+        {
+          "title": "Open Boundary",
+          "paragraphs": [
+            "The locally proved part is the conversion behavior. The exact player-visible names for direction values `0..7`, and the reason two octant-to-facing tables use different boundary bias, remain open. Those should stay in the known-limits family until caller-side gameplay labels prove them.",
+            "The useful presentation shows the direction value, the conversion helper, the resulting coarse bucket or vector, and whether the value is known to refresh the sprite profile."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-animation-template-semantics",
+      "title": "C3 Animation And Temporary Actor Templates",
+      "summary": "How animation IDs, V0/V4 gates, temporary actors, wandering loops, release tails, and source-pilot templates should be read.",
+      "aliases": ["C3 animation templates", "temporary actor scripts", "animation pulse templates", "late movement templates"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "animation", "temporary actor", "template", "V0", "V4", "wander", "release"],
+      "banks": ["C0", "C3", "C4", "EF"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-movement-value-semantics", "chapter-c3-direction-facing-values", "chapter-c3-source-emission-model", "chapter-overworld-object-asset-model"],
+      "noteRefs": [
+        "notes/c3-temporary-actor-movement-and-release-scripts.md",
+        "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+        "notes/c3-event-222-224-movement-helper-cluster.md",
+        "notes/c3-facing-pulse-helpers-source-pilot.md",
+        "notes/c3-anim-port-direction-tasks-source-pilot.md",
+        "notes/c3-live-area-facing-movement-paths-source-pilot.md",
+        "notes/c3-var0-animation-collision-probe-source-pilot.md",
+        "notes/c3-service-animation-source-pilot.md"
+      ],
+      "sections": [
+        {
+          "title": "Template Model",
+          "paragraphs": [
+            "Many C3 scripts are better read as templates than as one-off scene scripts. They install a callback, start a recurring animation task, seed a few script variables, wait on a native predicate, and then release or hand off the current visual entity.",
+            "The key values in these templates are often animation IDs, `V0` or `V4` gates, wait timers, random-choice lists, target coordinates, and release-tail addresses. Their meaning depends on the template, not on a global enum."
+          ]
+        },
+        {
+          "title": "Temporary Actor Family",
+          "paragraphs": [
+            "The temporary actor movement notes split several useful families: timed-delivery cleanup pulses, `C4:0015`-gated pulse-and-release loops, a `V0`-selected animation phase loop, random wandering setup, NPC attention or neighbor-cache loops, and shared current-entity release tails.",
+            "For example, `C3:A3B7` clears `V4`, classifies the current slot against area bounds, chooses a cardinal direction or adjusts the current direction, installs the direction through C0 helpers, derives a movement timer, then chooses a random wait from `30,60,90,120` before looping."
+          ]
+        },
+        {
+          "title": "V0 And V4",
+          "paragraphs": [
+            "`V4` is a strong local gate in movement pulse families: some loops only show animation `1` while `V4` is true, or count down before restoring animation `0`. `V0` appears as an animation phase selector in temporary actor and attention paths, where several short cases choose different pulse/wait shapes.",
+            "Those are family-local meanings. `V0` and `V4` are script variables with known roles in specific templates, not universal variable names across all of C3."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A template editor should show the whole shape: installed callbacks, started tasks, animation IDs, script variables, wait timers, random lists, native predicates, and release tail. Editing just the animation byte without the task and predicate context is too narrow.",
+            "Animation IDs `0`, `1`, and `FF` are common in these templates, but their authoring meaning should stay tied to the visual-profile helpers and script family that use them. Repetition alone is not enough to make a global animation enum."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-c3-source-emission-model",
+      "title": "C3 Source Emission Model",
+      "summary": "The bridge from decoded C3 script/data evidence to source-ready assembly modules and byte-equivalent rebuilds.",
+      "aliases": ["C3 source emission", "C3 source pilots", "C3 source modules", "C3 assembly emission"],
+      "maturity": "draft-narrative",
+      "keywords": ["c3", "source emission", "assembly", "byte equivalent", "source pilot", "module", "rebuild"],
+      "banks": ["C3"],
+      "related": ["chapter-c3-script-semantics", "chapter-c3-callback-contracts", "source-browser", "source-bank-c3", "bank-c3"],
+      "noteRefs": [
+        "notes/c3-source-emission-plan.md",
+        "notes/c3-source-data-map.md",
+        "notes/c3-source-pilot-frontier.md",
+        "notes/c3-source-signature-validation.md",
+        "notes/c3-source-prototype-validation.md",
+        "notes/c3-actionscript-semantics-roadmap.md"
+      ],
+      "sections": [
+        {
+          "title": "Purpose",
+          "paragraphs": [
+            "C3 source emission is the step between knowing what bytes are and making them maintainable. The goal is not to dump assembly for its own sake. The goal is to carve the bank into source units whose labels, local data, external symbols, and adjacent tables can rebuild without changing bytes.",
+            "The source plan currently tracks `6` modules and `26` source units. All queued units are source-ready, all prototype modules are present, and the remaining work is build-candidate hardening: assembler syntax, external symbol naming, byte matching, and preserving adjacent visual/script data as data rather than accidental code."
+          ]
+        },
+        {
+          "title": "Module Shape",
+          "bullets": [
+            "`src/c3/window_text_helpers.asm` covers window and text helper code around `C3:E450..C3:E84E`.",
+            "`src/c3/inventory_equipment_tracked_items.asm` covers inventory, equipment, and tracked-item helpers around `C3:E977..C3:EC1F`.",
+            "`src/c3/hp_pp_adjustment_helpers.asm` covers HP/PP adjustment helpers around `C3:EC1F..C3:EE14`.",
+            "`src/c3/equipment_battle_selector_helpers.asm` covers equipment and battle selector helpers around `C3:EE14..C3:EF23`.",
+            "`src/c3/jeff_repair_psi_helpers.asm` covers Jeff repair and PSI helper code around `C3:F1EC..C3:F2B1`.",
+            "`src/c3/battle_visual_effect_helpers.asm` covers battle visual effect helpers around `C3:F5F9..C3:FB1F`."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Promote C3 source in pieces that preserve their byte neighbors. Script tables, visual tables, callback argument data, and helper routines often touch the same conceptual feature but cannot always share the same source unit. The emission plan keeps those boundaries explicit so edits do not accidentally turn data into code or code into a guessed table.",
+            "A C3 source unit is ready to teach when it has a named range, a reason for the boundary, validation evidence, and a statement about what remains literal. It is ready to edit only when assembler output, symbol dependencies, and adjacent data ownership are all stable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-text-vm-localization-semantics",
+      "title": "Text VM And Localization Semantics",
+      "summary": "The text-command VM, recovered localization authoring syntax, macro lowering, and how text banks should be edited safely.",
+      "aliases": ["text vm", "localization semantics", "text commands", "EB text", "localization authoring"],
+      "maturity": "draft-narrative",
+      "keywords": ["text vm", "text command", "localization", "authoring", "ebtext", "macro", "lowering"],
+      "banks": ["C1", "C5", "C6", "C7", "C8", "C9", "EF"],
+      "related": ["chapter-text-command-family-model", "chapter-localization-authoring-model", "chapter-localization-control-macro-lowering", "topic-localization-authoring", "text-command-vm", "script-and-text-vms"],
+      "noteRefs": [
+        "notes/text-command-semantics-manifest.md",
+        "notes/localization-authoring-command-frontier.md",
+        "notes/earthbound-localization-script-authoring-format.md",
+        "notes/localization-control-macro-expansion-model.md",
+        "notes/localization-control-macro-patterns.md",
+        "notes/localization-macro-expansion-frontier.md",
+        "notes/text-script-assets-frontier.md",
+        "notes/bank01-text-command-map-00-1f.md"
+      ],
+      "sections": [
+        {
+          "title": "System Shape",
+          "paragraphs": [
+            "The text system has two overlapping layers: the runtime command VM that the game executes, and the recovered localization authoring language that lowered source-like `.MSG` records into that runtime format. Treating them as one thing hides important safety rules. Treating them as unrelated misses the best evidence bridge in the project.",
+            "The current manifest decodes `61` text segments and tracks `32` top-level runtime commands. `29` top-level commands are covered by semantic notes, while `3` entries are parser-only compressed-bank pseudo-opcodes. The structured family layer covers `8` command families and `203` tracked subcommands."
+          ]
+        },
+        {
+          "title": "Evidence Layers",
+          "bullets": [
+            "Runtime opcode layer: command IDs such as `0x18` through `0x1F`, their argument shapes, and their parser behavior.",
+            "Family leaf layer: subcommands under structured families such as window management, data substitution, menu selection, inventory checks, recovery, and deferred callbacks.",
+            "Authoring syntax layer: recovered `.MSG` commands, metadata records, labels, and comments from the localization source archive.",
+            "Macro lowering layer: hypotheses that connect source-level control, register, menu, and branch macros to runtime VM bytes.",
+            "Artifact boundary layer: parser-only pseudo-opcodes, source formatting commands, and locally ignored recovered material that should not be treated as runtime semantics."
+          ]
+        },
+        {
+          "title": "Editing Rules",
+          "bullets": [
+            "Do not assume every `0xNN xx` spread is a command family; top-level opcodes, family subcommands, parser artifacts, and authoring macros have different meanings.",
+            "Use runtime command entries for exact byte lookup, this chapter for the system model, and localization chapters for source-authoring syntax.",
+            "Use macro lowering notes when recovered authoring commands and runtime bytes disagree, especially for branches, loops, registers, inventory display, and menu selection.",
+            "Keep `.MSG` source metadata public-safe: structural counts, labels, command inventories, and semantic summaries are useful; recovered copyrighted source text stays local and ignored.",
+            "Promote a text edit only when the affected runtime command, family leaf, macro lowering profile, and bank-local payload ownership are all clear."
+          ]
+        },
+        {
+          "title": "Where The Evidence Lives",
+          "paragraphs": [
+            "The evidence is spread across top-level command manifests, localization authoring frontiers, macro lowering profiles, and individual command notes. This chapter is the stable reading path through those pieces, while the related chapters split out the command-family model, recovered authoring format, and control-macro lowering story."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-text-command-family-model",
+      "title": "Text Command Family Model",
+      "summary": "How top-level text commands, structured subcommand families, and parser-only pseudo-opcodes should be read.",
+      "aliases": ["text command families", "text opcode families", "bank 01 text commands", "text subcommands"],
+      "maturity": "draft-narrative",
+      "keywords": ["text command", "opcode", "subcommand", "family", "parser", "vm", "bank 01"],
+      "banks": ["C1", "C5", "C6", "C7", "C8", "C9"],
+      "related": ["chapter-text-vm-localization-semantics", "text-command-vm", "script-and-text-vms"],
+      "noteRefs": [
+        "notes/text-command-semantics-manifest.md",
+        "notes/bank01-text-command-map-00-1f.md",
+        "notes/text-command-family-18-window-management.md",
+        "notes/text-command-family-19-data-and-substitution.md",
+        "notes/text-command-family-1a-menu-and-selection.md",
+        "notes/text-command-family-1d-inventory-money-checks.md",
+        "notes/text-command-family-1e-stat-recovery.md",
+        "notes/text-command-family-1f-deferred-callbacks-and-events.md"
+      ],
+      "sections": [
+        {
+          "title": "Top Level",
+          "paragraphs": [
+            "The text VM manifest tracks `32` top-level command IDs. Most are runtime commands with direct parser behavior. Three `0x15..0x17` entries are parser-only pseudo-opcodes for compressed-bank handling and should not be taught as ordinary text authoring commands.",
+            "This is the first sorting rule for a reader: a command entry can be a runtime operation, a gateway into a subcommand family, or a parser artifact. The same numeric style does not guarantee the same kind of edit."
+          ]
+        },
+        {
+          "title": "Structured Families",
+          "paragraphs": [
+            "The dense part of the system lives under `0x18..0x1F`. The current family model tracks window management, data and substitution, menu and selection, memory context, print/display, inventory and money checks, stat recovery, and deferred callbacks/events. Across those families the manifest tracks `203` subcommands.",
+            "Coverage varies by family. Some leaves are fully explained, some are runtime-only, and a few are artifact candidates where the parser evidence exists but the authoring story is not stable. That variation should stay visible in the generated entry rather than being flattened into a single confidence value."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "When a text command starts a family, edit the family leaf, not just the parent opcode. The parent tells the parser where to dispatch. The leaf often decides the actual behavior: window state, actor display, inventory check, status recovery, event callback, branch, substitution, or menu handling.",
+            "A safe command-family entry names the parent, leaf ID, argument shape, runtime behavior, authoring aliases if known, coverage status, and any macro-lowering relationship. Unknown fields stay directly labeled as unknown."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-localization-authoring-model",
+      "title": "Localization Authoring Model",
+      "summary": "What the recovered `.MSG` source records prove about labels, metadata, command syntax, and script-to-object links.",
+      "aliases": ["MSG authoring", "localization source format", "EarthBound script source", "message authoring"],
+      "maturity": "draft-narrative",
+      "keywords": ["localization", "authoring", "msg", "metadata", "label", "source archive", "message"],
+      "banks": ["C5", "C6", "C7", "C8", "C9", "EF"],
+      "related": ["chapter-text-vm-localization-semantics", "chapter-localization-control-macro-lowering", "topic-localization-authoring", "chapter-overworld-object-asset-model"],
+      "noteRefs": [
+        "notes/earthbound-localization-script-authoring-format.md",
+        "notes/localization-authoring-command-frontier.md",
+        "notes/localization-control-macro-expansion-model.md",
+        "notes/localization-control-macro-patterns.md",
+        "notes/text-script-assets-frontier.md"
+      ],
+      "sections": [
+        {
+          "title": "Source-Safe Boundary",
+          "paragraphs": [
+            "The recovered localization archive is local evidence, not checked-in content. The project can safely publish structural facts: file counts, hashes, labels, metadata fields, command inventories, cross-reference shapes, and semantic conclusions. It should not publish recovered message prose or copyrighted source text.",
+            "Within that boundary, the archive is extremely useful. It supplies `57` `.MSG` files, `6049` labels including `3257` `MSG_*` labels, `202` unique authoring commands, and `45921` command occurrences. It also supplies `653` recovered metadata records that connect messages to object-like authoring context."
+          ]
+        },
+        {
+          "title": "Record Shape",
+          "paragraphs": [
+            "The recurring record shape is the bridge from text to overworld behavior. Records include fields such as `;@Habitat`, `;@Person`, `;@Figure`, `;@AppearanceKey`, `;@ActionScript`, `;@GoodsMessage`, `;@CheckMessage`, and `;@Message`. Those fields can connect symbolic message labels to figures, appearance keys, object behavior, goods/check text, and action/event script selectors.",
+            "That makes localization evidence relevant outside the text VM. It helps explain why an NPC is placed, what figure it uses, which message label it owns, and which action script or check/goods path belongs to the same authoring object."
+          ]
+        },
+        {
+          "title": "Authoring Commands",
+          "paragraphs": [
+            "The authoring command frontier classifies all known `.MSG` commands. Some lower directly to runtime VM commands. Some are source formatting conveniences. Others are display, movement, inventory, query, status, battle, or control macros that need expansion evidence before they become editor-facing controls.",
+            "The current frontier records no still-unclassified commands. That does not mean all commands are fully lowered. It means each command has a responsible bucket, which is the necessary first step for safer authoring tools."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-localization-control-macro-lowering",
+      "title": "Localization Control Macro Lowering",
+      "summary": "How recovered `.MSG` control macros likely lower into existing text VM control, memory, register, menu, and branch commands.",
+      "aliases": ["macro lowering", "localization macros", "control macro expansion", "MSG branch macros"],
+      "maturity": "draft-narrative",
+      "keywords": ["localization", "macro", "lowering", "branch", "register", "control", "msg"],
+      "banks": ["C5", "C6", "C7", "C8", "C9", "EF"],
+      "related": ["chapter-text-vm-localization-semantics", "chapter-localization-authoring-model", "chapter-text-command-family-model", "topic-localization-authoring"],
+      "noteRefs": [
+        "notes/localization-control-macro-expansion-model.md",
+        "notes/localization-control-macro-patterns.md",
+        "notes/localization-macro-expansion-frontier.md",
+        "notes/localization-authoring-command-frontier.md",
+        "notes/text-command-semantics-manifest.md"
+      ],
+      "sections": [
+        {
+          "title": "Model",
+          "paragraphs": [
+            "Recovered control macros are source-level conveniences over the existing bank-01 text VM. They are not evidence for a separate runtime VM. Direct controls such as `@GOSUB`, `@GOTO`, `@TRUE_GOTO`, `@FALSE_GOTO`, and `@CHKFGOTO` map naturally to runtime control behavior. Register, comparison, loop, and multi-way branch helpers require lowering hypotheses.",
+            "This model keeps the authoring language useful without inventing runtime machinery. The source macro is what a local author wrote; the lowered command sequence is what the game executes."
+          ]
+        },
+        {
+          "title": "Strong Motifs",
+          "paragraphs": [
+            "The strongest evidence comes from repeated adjacent motifs. `@CMP > @ONGOSUB` appears `254` times and has the inverse pairing count recorded in the same debug corpus. `@SET_LOOPREG > @GOSUB` appears `191` times across `31` files. `@DSP_ITEM > @SELGOTO` appears `188` times across `35` files.",
+            "These motifs are stronger than one-off command guesses because they show how source commands are composed. They should be taught as lowering patterns with confidence notes, not as isolated aliases."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Text editing preserves the difference between direct runtime commands and recovered authoring macros. If a command has a direct runtime equivalent, it can be shown as a command. If it expands through register setup, comparison, menu display, or branch table selection, it remains a macro with a visible lowering profile.",
+            "Where a lowering hypothesis is plausible but not final, keep the source macro name, runtime bytes, motif evidence, and uncertainty together. That gives users a useful editing model without silently baking in a guess."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-table-contracts",
+      "title": "Table Contract Model",
+      "summary": "How runtime tables become source-safe, editor-facing contracts: row shape, selectors, consumers, provenance, and edit boundaries.",
+      "aliases": ["table contracts", "runtime table contracts", "data table model", "row contracts"],
+      "maturity": "draft-narrative",
+      "keywords": ["table", "contract", "row", "pointer", "selector", "runtime", "data", "editor"],
+      "banks": ["C0", "C1", "C2", "C3", "C4", "D5", "D7", "D8", "DA", "EF"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-battle-enemy-table-contracts", "chapter-d5-battle-action-field-families", "chapter-d5-enemy-configuration-field-families", "chapter-item-equipment-table-contracts", "chapter-d5-item-action-field-families", "chapter-d5-service-destination-field-families", "chapter-d5-commerce-shop-table-contracts", "chapter-d5-character-growth-table-contracts", "chapter-d5-route-support-table-contracts", "chapter-d5-condiment-table-contracts", "chapter-d5-psi-name-display-contracts", "chapter-map-object-table-contracts", "chapter-asset-data-contracts", "topic-validation-workflows"],
+      "noteRefs": [
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/d5-table-splits.md",
+        "notes/c3-late-interaction-table-contracts.md",
+        "notes/map-object-layer-closure.md",
+        "notes/map-palette-pointer-table-contract.md",
+        "notes/class2-d57b68-battle-action-table-match.md",
+        "notes/class2-d59589-enemy-data-crosswalk.md",
+        "notes/item-byte-19-packed-class-and-slot.md"
+      ],
+      "sections": [
+        {
+          "title": "Contract Shape",
+          "paragraphs": [
+            "A table contract is the durable explanation for a repeated data family. It records where the table lives, how wide each row is, how many rows are live, which code selects a row, what each proven field means, and what can be safely changed without breaking adjacent data.",
+            "This is different from naming a blob. A blob can be source-safe and still be semantically thin. A contract needs row shape, selector evidence, runtime consumers, pointer ownership, validation status, and an explicit uncertainty boundary."
+          ]
+        },
+        {
+          "title": "Evidence Ladder",
+          "bullets": [
+            "Byte budget: the table range reconciles with bank padding, neighbors, and source-order splits.",
+            "Row shape: stride, live row count, and tail bytes are stable.",
+            "Selector path: callers index the table through a known ID, pointer, row number, or runtime slot.",
+            "Consumer path: fields are read by named code paths, not just guessed from repeated values.",
+            "Crosswalk: reference-source or local extraction evidence can strengthen names, but should be labeled as such.",
+            "Editor boundary: the contract says which fields are safe, which are literal, and which remain reserved or unresolved."
+          ]
+        },
+        {
+          "title": "Current Strong Families",
+          "paragraphs": [
+            "The strongest current table families are clustered around D5 gameplay data, map object bundles, map palette pointers, C3 late interaction tables, battle action and PSI ability records, enemy configuration records, item/equipment classification fields, shop inventories, character growth/start state, route/support tables, condiment rows, and PSI name/display rows.",
+            "D5 is especially important because its `D5:5000..D5:FFFF` post-pad region is now fully reconciled: `45056` bytes accounted, `20` table or tail rows in the split report, a named zero island, and a zero tail. That turns the bank from a broad unresolved region into a set of table families that can be promoted one by one."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "The safe edit unit for a table is usually a row plus its selector and consumer context. Changing an enemy field is not just changing a byte in D5; it can affect name formatting, battle text pointers, music, actions, row placement, and mirror or call-for-help behavior. Changing an item field can affect text VM checks, equipment slot selection, menu display, and C3 inventory helpers.",
+            "Promote table fields conservatively. A field with one local consumer can receive a local behavior name. A field with local consumers plus a clean reference crosswalk can receive a stronger authoring name. Fields that are only positionally plausible should stay literal until the next consumer is proven."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-battle-enemy-table-contracts",
+      "title": "Battle And Enemy Table Contracts",
+      "summary": "How D5 battle actions, PSI abilities, enemy configuration rows, and battle text/action consumers fit together.",
+      "aliases": ["battle table contracts", "enemy table", "battle action table", "PSI ability table"],
+      "maturity": "draft-narrative",
+      "keywords": ["battle", "enemy", "psi", "action table", "D5", "row", "table", "contract"],
+      "banks": ["C1", "C2", "C3", "C4", "D5", "EF"],
+      "related": ["chapter-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-d5-battle-action-field-families", "chapter-d5-enemy-configuration-field-families", "chapter-psi-menu-table-contracts", "chapter-battle-visual-contracts", "chapter-text-vm-localization-semantics", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/d5-table-splits.md",
+        "notes/class2-d57b68-battle-action-table-match.md",
+        "notes/battle-psi-ability-table-d58a50.md",
+        "notes/class2-psi-action-wrapper-local-verification.md",
+        "notes/class2-late-stat-and-resource-family-c28e42-c29e38.md",
+        "notes/class2-late-physical-special-family-c28f97-c2900b.md",
+        "notes/class2-d59589-enemy-data-crosswalk.md",
+        "notes/class2-enemy-text-pointer-consumers.md",
+        "notes/class2-local-enemy-id-to-battler-init-chain.md",
+        "notes/class2-battlers-table-layout-9f8a-9fac.md"
+      ],
+      "sections": [
+        {
+          "title": "D5 Gameplay Spine",
+          "paragraphs": [
+            "D5 now has a practical gameplay-table spine. The split plan reconciles the post-pad region exactly and identifies the source-order families that matter for battle, items, shops, teleport, phone, growth, map destinations, timed delivery, initial stats, and enemies.",
+            "For battle editing, three D5 families are the current anchors: the battle action descriptor table at `D5:7B68`, the battle PSI ability table at `D5:8A50`, and the enemy configuration table at `D5:9589`."
+          ]
+        },
+        {
+          "title": "Action Rows",
+          "paragraphs": [
+            "The `D5:7B68` action table is no longer merely battle-action-like. The strongest current read is a 12-byte row: direction, target, action type, PP or cost byte, message pointer, and action handler pointer. Early entries line up cleanly with no-effect, bash, shoot, spy, pray, and the PSI quartet runs.",
+            "The confidence is strongest where table metadata, reference layout, local wrapper quartets, shared helper signatures, and C2 action bodies all agree. Later rows now have status, stat/resource, physical/special, and flavor-tail anchors, but the table should still label tail outliers and reference-assisted names honestly."
+          ]
+        },
+        {
+          "title": "Battle Action Confidence",
+          "paragraphs": [
+            "The early table is the cleanest slice: PSI Rockin, Fire, Freeze, and Thunder rows line up by direction, target, type, cost, message pointer, and C2 handler pointer. Later rows have improved local anchors too: status-action bodies, stat/resource mutation bodies, physical/special wrappers, and flavor-tail no-op rows.",
+            "That gives the editor model a tiered confidence map. Early action rows can be presented with strong names and fields. Later rows should show their current local body evidence, but keep reference-assisted names and unresolved tail outliers visibly qualified."
+          ],
+          "bullets": [
+            "Strong: row stride, first four metadata bytes, message pointer, handler pointer, early PSI quartets, and several late C2 body families.",
+            "Medium: reference-backed row names where local handler behavior is compatible but not fully followed end to end.",
+            "Open: tail entries whose table position is clear but whose gameplay role is still presentation-heavy or caller-thin."
+          ]
+        },
+        {
+          "title": "Enemy Rows",
+          "paragraphs": [
+            "`D5:9589` is the strongest current local crosswalk to the enemy configuration table. The record stride is `0x5E`, local text extraction from `D5:9589 + 1 + n * 0x5E` yields enemy names, and local code reaches the family through a selector with stride `#$005E`.",
+            "The safest field names are the ones backed by both local consumers and the reference struct shape: article flag, enemy name, encounter text pointer, death text pointer, music, final action, final action argument, row, max-called behavior, and mirror success. These rows are not just stats; they connect battle presentation, text, audio, and action selection."
+          ]
+        },
+        {
+          "title": "Cross Table Joins",
+          "paragraphs": [
+            "The most useful battle model is not a single table. Enemy rows can select final actions, action rows point at text and handlers, PSI ability rows point back into action rows, and C1/C2/C3 helpers turn those fields into menu choices, target prompts, row formatting, and battle text.",
+            "That is the reason battle and enemy chapters should be read with the PSI/menu chapter rather than as a competing explanation. `D5:7B68`, `D5:8A50`, and `D5:9589` are separate storage families, but the runtime presents them as one battle-facing authoring surface."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A battle table edit should follow the row to its consumers before making a name stronger. If a field points at EF text, C2 action code, C1 menu text, or C3 formatting helpers, that downstream behavior is part of the contract.",
+            "The table is joined data: enemy row, selected action row, action message pointer, action handler pointer, PSI ability row when applicable, and battle visual/text neighbors. Raw D5 offsets are provenance, not the primary authoring model."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-psi-menu-table-contracts",
+      "title": "PSI Menu And Ability Table Contracts",
+      "summary": "How D5 PSI ability rows, C1 menu helpers, C3 PSI menu data tables, and battle action rows form a joined PSI editing model.",
+      "aliases": ["PSI table contracts", "PSI menu table", "battle PSI ability table", "PSI ability rows"],
+      "maturity": "draft-narrative",
+      "keywords": ["psi", "battle", "menu", "ability", "table", "D5", "C1", "C3"],
+      "banks": ["C1", "C3", "D5", "E0", "EF"],
+      "related": ["chapter-battle-enemy-table-contracts", "chapter-item-equipment-table-contracts", "chapter-d5-psi-name-display-contracts", "chapter-table-contracts", "topic-battle-runtime", "topic-ui-rendering"],
+      "noteRefs": [
+        "notes/battle-psi-ability-table-d58a50.md",
+        "notes/c3-battle-psi-menu-data-contracts.md",
+        "notes/battle-psi-menu-metadata-family-c1c853-c1c8bc.md",
+        "notes/battle-psi-menu-controller-c1cc39-ce73.md",
+        "notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md",
+        "notes/battle-psi-category-list-family-c1caf5-c1cb7f.md",
+        "notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md",
+        "notes/battle-psi-menu-table-helpers-c1c046-c1c165.md",
+        "notes/battle-psi-selection-refresh-c1ca72.md",
+        "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+        "notes/class2-d57b68-battle-action-table-match.md"
+      ],
+      "sections": [
+        {
+          "title": "Ability Row",
+          "paragraphs": [
+            "`D5:8A50` is best read as the battle PSI ability table with 15-byte rows. Row `0` is a zeroed dummy and rows `1..52` behave as live PSI abilities. The strongest fields are PSI ID, PSI level, category, target, associated battle action ID, Ness/Paula/Poo learn levels, menu X/Y placement, and description pointer.",
+            "The row is both menu metadata and battle behavior glue. It names and places a PSI ability in menus, but it also points to a `D5:7B68` battle action row that supplies action metadata such as targeting behavior, PP/cost, message pointer, and handler pointer."
+          ]
+        },
+        {
+          "title": "Menu Data Corridor",
+          "paragraphs": [
+            "The C3 corridor `C3:EF26..F1EC` is now table-shaped rather than raw decorative data. It contains selector group tables, group slice counts, a softer render-metadata-and-label block, a seven-by-seven known-state gate table, rank suffix data, a fixed menu-entry tail, and the PSI menu-entry row table.",
+            "The strongest C3 tables are directly indexed by C1 helpers: `C1:C046` reads the selector group table, `C1:C0B6` reads group slice counts, and `C1:C165` scans known PSI state through the gate table. `C3:F054..F0B0` remains a block contract because its exact field split is still softer than the byte and word tables around it."
+          ]
+        },
+        {
+          "title": "C1 Helper Path",
+          "paragraphs": [
+            "The C1 menu path is now source-backed enough to teach. `C1:C8BC` formats PSI menu entry rows over `D5:8A50`, usually deriving display shape through the associated `D5:7B68` action row. `C1:C853` resolves deeper PSI targeting metadata and may also hand off into ordinary action-row behavior.",
+            "The Thunder special case is an important example of why this is a contract rather than a simple table dump. The ordinary action-row-derived selector appears too coarse for Thunder's intended menu-entry row, so the formatter bypasses by PSI ID in that case."
+          ]
+        },
+        {
+          "title": "Display And Prompt Boundary",
+          "paragraphs": [
+            "PSI names, small dynamic labels, and target prompts share display helpers with item and battle targeting paths. `C1:931B` prints PSI or small dynamic labels, while `C1:93E7` and `C1:9437` wrap the ally-target prompt setup and cleanup used by targeting resolution.",
+            "This makes PSI editing a UI/data/runtime problem at the same time. The useful view connects ability rows, action rows, C3 menu-row data, C1 display helpers, and targeting prompt behavior."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Do not edit PSI menu text, learn levels, target class, PP behavior, and action handler as separate isolated things. The safe PSI editing unit is the joined row: D5 ability metadata, associated D5 action row, C3 menu display data, C1 menu helper behavior, and EF/E0 text payload references.",
+            "The remaining soft edge is mostly the C3 render-metadata-and-label block and any places where action-row-derived display behavior is coarser than the PSI family name a user expects."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-item-equipment-table-contracts",
+      "title": "Item And Equipment Table Contracts",
+      "summary": "How item records, packed class fields, battle item actions, equipment slots, menu helpers, and C3 inventory source units form an editing boundary.",
+      "aliases": ["item table contracts", "equipment table contracts", "item records", "equipment records", "battle item selection"],
+      "maturity": "draft-narrative",
+      "keywords": ["item", "equipment", "inventory", "table", "D5", "C1", "C3", "menu", "battle item"],
+      "banks": ["C1", "C2", "C3", "C4", "D5"],
+      "related": ["chapter-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-d5-item-action-field-families", "chapter-d5-commerce-shop-table-contracts", "chapter-d5-condiment-table-contracts", "chapter-psi-menu-table-contracts", "chapter-c3-source-emission-model", "chapter-text-command-family-model", "topic-ui-rendering"],
+      "noteRefs": [
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/d5-table-splits.md",
+        "notes/item-byte-19-packed-class-and-slot.md",
+        "notes/item-category-classifier-c19ee6.md",
+        "notes/battle-item-action-selection-c1ce85-c1cfc6.md",
+        "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+        "notes/offensive-defensive-item-check-c17708.md",
+        "notes/party-item-possession-search-c45637-c45683.md",
+        "notes/item-slot-helper-pair-c3e977-c3ee14.md",
+        "notes/c3-tracked-item-sync-source-contract-ebca.md",
+        "notes/c3-equipment-selector-source-contract-ee14-ef22.md",
+        "notes/equipment-preview-and-derived-state-cluster.md",
+        "notes/equipment-slot-subtype-dispatch-c19066-c4577d.md",
+        "notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md"
+      ],
+      "sections": [
+        {
+          "title": "Item Record Anchor",
+          "paragraphs": [
+            "The D5 split plan promotes the item table from a blocked bank region into a concrete table family. The key correction is that `ITEM_CONFIGURATION_TABLE` has `254` rows, not `256`; with `0x27` bytes per row it ends at `D5:76B1`, and the store table starts immediately at `D5:76B2`.",
+            "That gives item work a stable row boundary. The next layer is field meaning, and the strongest current field is byte `+0x19`."
+          ]
+        },
+        {
+          "title": "Packed Class Field",
+          "paragraphs": [
+            "Item byte `+0x19` is best read as a packed class-and-slot field. Bits `4..5` feed `C1:9EE6` as broad item classes, and bits `2..3` feed equipment-slot selection when the broad class says the item is equippable.",
+            "The local behavior is strong: `C1:9EE6` masks `0x30` and converts the value into compact classes `1..4`, while `C1:9B79` requires class `2`, masks `0x0C`, and chooses one of four equipped-reference bytes in the selected character record. Bits `0..1` and `6..7` remain intentionally open."
+          ]
+        },
+        {
+          "title": "Battle Item Boundary",
+          "paragraphs": [
+            "Battle item selection is the item-table counterpart to the PSI menu path. `C1:CFC6` opens the battle item-inventory selection loop, renders the acting character's inventory, stores the chosen slot, and calls `C1:CE85` to resolve the selected item.",
+            "`C1:CE85` resolves the selected slot through C3 inventory helpers, indexes `ITEM_CONFIGURATION_TABLE` at `D5:5000`, reads byte `+0x19`, and then uses item action word `+0x1D` with the shared battle targeting resolver. This ties item records directly to battle action/target semantics rather than leaving them as inventory-only rows."
+          ]
+        },
+        {
+          "title": "Equipment UI Boundary",
+          "paragraphs": [
+            "The item table does not stand alone. C1 equipment menu flows build comparison markers, render selected-character equipment lists, prepare equipment status displays, and run slot-selection loops. C2 and C4 helpers build preview rows and party equipment comparison visuals. C3 source units cover inventory, equipment, tracked items, and selector helpers.",
+            "That means an equipment edit has a UI contract as well as a data contract. Changing class or slot fields can change whether a text command test succeeds, which equipped reference byte is read, which menu row appears, and which C3 helper path updates derived state."
+          ]
+        },
+        {
+          "title": "Name And Prompt Display",
+          "paragraphs": [
+            "The C1 display helpers show why item, PSI, and targeting evidence belong near each other. `C1:9216` prints item names from `ITEM_CONFIGURATION_TABLE`. `C1:931B` prints PSI or small dynamic labels. `C1:93E7` and `C1:9437` open and close the target-selection prompt used by ally-targeting battle actions.",
+            "For the encyclopedia, this means item table fields should link to display and target-prompt behavior when those paths are known. The row is storage; the display helper is evidence that a field is player-facing."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A safe item editor should treat item row, packed class bits, item action word, equipment slot subtype, text/menu command leaves, battle targeting resolver, equipment compatibility helpers, and derived preview state as one joined surface. The table row is the storage layer; the menu and C3 helper paths are the proof that a field is authoring-facing.",
+            "Do not give unresolved bits a friendly name. Keep them visible as preserved fields until callers prove their meaning."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-gameplay-table-split-model",
+      "title": "D5 Gameplay Table Split Model",
+      "summary": "How the D5 post-pad gameplay region is reconciled into exact table spans, row counts, strides, and promotion candidates.",
+      "aliases": ["D5 table splits", "D5 gameplay tables", "D5 source split", "D5 row model"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "table split", "gameplay table", "row", "stride", "source order", "data contract"],
+      "banks": ["D5"],
+      "related": ["chapter-table-contracts", "chapter-d5-battle-action-field-families", "chapter-d5-enemy-configuration-field-families", "chapter-d5-item-action-field-families", "chapter-d5-service-destination-field-families", "chapter-d5-commerce-shop-table-contracts", "chapter-d5-character-growth-table-contracts", "chapter-d5-route-support-table-contracts", "chapter-d5-condiment-table-contracts", "chapter-d5-psi-name-display-contracts", "chapter-battle-enemy-table-contracts", "chapter-item-equipment-table-contracts"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/bank-d5-source-scaffold-handoff.md",
+        "notes/d5-source-residual-map.md",
+        "notes/d5-byte-equivalence-validation.md",
+        "notes/d5-build-candidate-ranges.md"
+      ],
+      "sections": [
+        {
+          "title": "Main Result",
+          "paragraphs": [
+            "The D5 post-pad gameplay/table region `D5:5000..D5:FFFF` now reconciles exactly. The split report accounts for all `45056` bytes, with `21` split rows, a `62`-byte bounded unknown island at `D5:7A70`, and a `2287`-byte zero tail after the timed delivery table.",
+            "That changes the editorial posture. D5 is no longer a broad blocked bank. It is a source-order table bank whose individual families can be promoted when their row shape, selector path, and runtime consumers are strong enough.",
+            "That list is now broad enough to split the learning path. Battle and item rows have their own chapters; the smaller support families are promoted through shop, character-growth, and route/support chapters rather than remaining as a footnote in the split report."
+          ]
+        },
+        {
+          "title": "Core Split Rows",
+          "bullets": [
+            "`ITEM_CONFIGURATION_TABLE`: `254` rows, stride `0x27`, span `D5:5000..D5:76B1`.",
+            "`STORE_TABLE`: `66` rows, stride `0x7`, span `D5:76B2..D5:787F`.",
+            "`PSI_TELEPORT_DEST_TABLE`: `16` rows, stride `0x1F`, span `D5:7880..D5:7A6F`.",
+            "`BATTLE_ACTION_TABLE`: `318` rows, stride `0x0C`, span `D5:7B68..D5:8A4F`.",
+            "`PSI_ABILITY_TABLE`: `54` rows, stride `0x0F`, span `D5:8A50..D5:8D79`.",
+            "`ENEMY_CONFIGURATION_TABLE`: `231` rows, stride `0x5E`, span `D5:9589..D5:EA5A`.",
+            "`TIMED_DELIVERY_TABLE`: `10` rows, stride `0x14`, span `D5:F649..D5:F710`."
+          ]
+        },
+        {
+          "title": "Important Correction",
+          "paragraphs": [
+            "The item table has `254` rows, not `256`. At `0x27` bytes per row it ends at `D5:76B1`, and `STORE_TABLE` starts immediately at `D5:76B2`. This matters because every downstream item-field note should use the corrected table length and boundary.",
+            "The split model also keeps `UNKNOWN_D57A70` as a bounded exact-boundary unknown instead of letting it pollute the surrounding teleport/contact/action families. Preserving small unknown islands is part of making the rest of the bank safer to teach."
+          ]
+        },
+        {
+          "title": "Promotion Rule",
+          "paragraphs": [
+            "Use this chapter as the first stop for D5 field-family work. A family can be promoted when the split row gives exact range and stride, and another note proves who selects the row and what at least one field does.",
+            "Do not promote all fields just because the row is reconciled. The split model proves storage. Consumer notes prove semantics."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-battle-action-field-families",
+      "title": "D5 Battle Action Field Families",
+      "summary": "How late battle action rows split into numeric effects, physical/special wrappers, status writers, PSI links, and flavor-only tails.",
+      "aliases": ["battle action field families", "D5 action rows", "battle action tail rows", "D5 7B68 fields"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "battle action", "action row", "C2", "handler", "message pointer", "tail", "field family"],
+      "banks": ["C1", "C2", "D5", "EF"],
+      "related": ["chapter-battle-enemy-table-contracts", "chapter-psi-menu-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-table-contracts", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/class2-d57b68-battle-action-table-match.md",
+        "notes/class2-d57b68-early-entry-name-crosswalk.md",
+        "notes/class2-concentration-seal-family-c28d5a-c2a3d1.md",
+        "notes/class2-late-stat-and-resource-family-c28e42-c29e38.md",
+        "notes/class2-late-physical-special-family-c28f97-c2900b.md",
+        "notes/class2-late-flavor-tail-c2902c-c2904e.md",
+        "notes/class2-second-pointer-consumer-40a4.md",
+        "notes/class2-battle-text-cluster-overview.md"
+      ],
+      "sections": [
+        {
+          "title": "Row Contract",
+          "paragraphs": [
+            "`D5:7B68` is the battle action descriptor table. The strongest current row model is `12` bytes: direction, target, action type, PP or cost byte, message pointer, and action handler pointer.",
+            "The first four bytes are metadata. The first pointer is battle text or presentation. The second pointer is live C2 action behavior consumed by the battle action dispatch path. Most useful field-family work happens by following that second pointer."
+          ]
+        },
+        {
+          "title": "Strong Families",
+          "bullets": [
+            "Early PSI quartets: Rockin, Fire, Freeze, and Thunder rows line up by action metadata, cost progression, shared message pointer, and wrapper/helper families.",
+            "Concentration or PSI-seal writers: `C2:8D5A` and `C2:A3D1` both write battler affliction byte `+0x21 = 4` and display the same success/failure text family.",
+            "Stat/resource mutators: `C2:8E42`, `C2:8EAE`, `C2:8F21`, `C2:9E38`, and `C2:9E7F` mutate PP, guts, offense, or defense and display amount-bearing messages.",
+            "Physical/special late actions: `C2:8F97` is a poison-on-hit physical action, `C2:8FF9` is a double-bash wrapper, and `C2:900B` is a fire-damage or flaming-fireball wrapper.",
+            "Flavor tails: `C2:9033` and neighboring no-op tails carry little or no gameplay behavior; their visible effect is mostly message-side or upstream controller-side."
+          ]
+        },
+        {
+          "title": "Confidence Map",
+          "paragraphs": [
+            "Some rows are strong enough for editor-facing names. `C2:8FF9` is an exact double-bash wrapper over the anchored bash family. `C2:8F21` is a paired offense/defense reducer with direct battler-field mutation. `C2:9033` is best taught as a flavor-only no-op tail rather than unresolved mechanics.",
+            "Other rows should remain strongest-fit names. `C2:8E42` is clearly PP-reduction or PP-sapping, but the final symbolic export name still depends partly on field naming and reference crosswalk. `C2:900B` is clearly fire-damage-like, but the target byte `+0x3A` remains a field-level follow-up."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A battle action row should be edited as metadata plus behavior: direction, target, type, cost, message pointer, and C2 handler pointer. Changing the handler without its message pointer can make the table lie to the player; changing the metadata without the handler can make targeting or PP behavior lie to the runtime.",
+            "For flavor-only rows, the correct editor control may be text selection rather than mechanics. No-op handlers are not necessarily unknown; sometimes they are the contract."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-enemy-configuration-field-families",
+      "title": "D5 Enemy Configuration Field Families",
+      "summary": "How enemy configuration rows connect names, article flags, battle text pointers, music, final actions, rows, and battler initialization.",
+      "aliases": ["enemy configuration fields", "enemy data fields", "D5 enemy rows", "enemy table field families"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "enemy", "enemy data", "battler", "text pointer", "row", "battle"],
+      "banks": ["C1", "C2", "C3", "D5", "EF"],
+      "related": ["chapter-battle-enemy-table-contracts", "chapter-d5-battle-action-field-families", "chapter-table-contracts", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/class2-d59589-enemy-data-crosswalk.md",
+        "notes/class2-enemy-text-pointer-consumers.md",
+        "notes/class2-local-enemy-id-to-battler-init-chain.md",
+        "notes/class2-battlers-table-layout-9f8a-9fac.md",
+        "notes/class2-battle-text-dispatch-stack.md",
+        "notes/class2-reflected-hit-side-token-consumers.md",
+        "notes/class2-reflected-hit-text-context.md"
+      ],
+      "sections": [
+        {
+          "title": "Row Identity",
+          "paragraphs": [
+            "`D5:9589` is the enemy configuration table. The row stride is `0x5E`, the table has `231` rows, local text extraction from `D5:9589 + 1 + n * 0x5E` yields enemy names, and local code indexes the family through a `#$005E` selector.",
+            "The identity is now stronger than a reference-name match. Local battle setup maps enemy IDs through this table and initializes `0x4E`-byte battler rows at `9FAC + 0x4E * n`."
+          ]
+        },
+        {
+          "title": "Battle Text Fields",
+          "paragraphs": [
+            "The two strongest pointer fields are `+0x2D` and `+0x31`. The current safest reads are encounter or battle-start text pointer for `+0x2D`, and KO or death text pointer for `+0x31`.",
+            "Those names are reinforced by both local consumers and reference battle-flow order. The battle-start path prepares attacker-name context before displaying encounter text. The KO path displays death text before clearing enemy consciousness. That makes these fields part of the battle text pipeline, not generic script pointers."
+          ]
+        },
+        {
+          "title": "Initializer Fields",
+          "paragraphs": [
+            "`C2:B6EB` is the local bridge from enemy ID to battler initialization. It builds `D5:9589 + enemy_id * 0x5E`, clears a `0x4E` battler struct, and copies enemy-data fields into battler fields such as sprite, article flag, row, HP, PP, and enemy ID copies.",
+            "This upgrades the field names because they are consumed by live battler initialization, not just dumped from a reference struct. Enemy record fields now explain both storage and battle runtime state."
+          ]
+        },
+        {
+          "title": "Strong Field Set",
+          "bullets": [
+            "`+0x00`: article or `the_flag` behavior, strengthened by name/article formatter paths.",
+            "`+0x01..`: enemy name text field, locally extracted as readable enemy names.",
+            "`+0x2D`: encounter or battle-start text pointer.",
+            "`+0x31`: KO or death text pointer.",
+            "`+0x37`: music or audio cue field.",
+            "`+0x4E`: final action selector into the battle action descriptor family.",
+            "`+0x54`: final action argument paired with the final action selector.",
+            "`+0x5B`: row field used by row-aware battle text and battler initialization.",
+            "`+0x5C`: max-called or call-for-help compatible limit.",
+            "`+0x5D`: mirror-success threshold-like byte."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Enemy rows should be edited as battle actors, not isolated stat blobs. A safe editor should show name/article fields, encounter/death text, battler initialization effects, battle action links, music, row placement, and any call/mirror behavior together.",
+            "Fields without local consumers should remain positional or reference-assisted. The row identity is strong; that does not make every byte semantically final."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-item-action-field-families",
+      "title": "D5 Item Action Field Families",
+      "summary": "How item configuration fields drive broad classes, equipment slots, battle item actions, names, prompts, and targeting behavior.",
+      "aliases": ["item action fields", "item configuration fields", "D5 item fields", "item class bits"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "item", "item action", "equipment", "battle item", "targeting", "field"],
+      "banks": ["C1", "C3", "C4", "D5"],
+      "related": ["chapter-item-equipment-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-psi-menu-table-contracts", "chapter-table-contracts", "topic-ui-rendering"],
+      "noteRefs": [
+        "notes/item-byte-19-packed-class-and-slot.md",
+        "notes/item-category-classifier-c19ee6.md",
+        "notes/battle-item-action-selection-c1ce85-c1cfc6.md",
+        "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+        "notes/offensive-defensive-item-check-c17708.md",
+        "notes/party-item-possession-search-c45637-c45683.md",
+        "notes/item-slot-helper-pair-c3e977-c3ee14.md",
+        "notes/c3-tracked-item-sync-source-contract-ebca.md",
+        "notes/try-fix-item-callback-d0.md"
+      ],
+      "sections": [
+        {
+          "title": "Row Boundary",
+          "paragraphs": [
+            "`ITEM_CONFIGURATION_TABLE` starts at `D5:5000`, has `254` rows, and uses stride `0x27`. Item name display, inventory helpers, equipment helpers, text command checks, and battle item selection all depend on this boundary.",
+            "The corrected row count matters because many item features are row-relative. A wrong end boundary would shift the store table and make every later D5 family harder to trust."
+          ]
+        },
+        {
+          "title": "Packed Class Byte",
+          "paragraphs": [
+            "Byte `+0x19` is the strongest current item field. Bits `4..5` are broad item class, exposed through `C1:9EE6` as compact classes `1..4`. Bits `2..3` are the equipment slot subtype when the broad class indicates equippable gear.",
+            "The unresolved parts are just as important: bits `0..1` and `6..7` should stay literal until caller-side evidence names them. The field is packed, but not every bit is known."
+          ]
+        },
+        {
+          "title": "Battle Item Action Word",
+          "paragraphs": [
+            "The battle item resolver at `C1:CE85` indexes the item row, reads byte `+0x19`, and on the ordinary target-resolution path reads the item action word at `+0x1D`. That word is passed to the shared battle targeting resolver.",
+            "This makes item action editing part of the same battle-facing model as PSI and action rows. An item row can choose inventory display behavior, equipment slot behavior, and battle targeting/action behavior through different fields."
+          ]
+        },
+        {
+          "title": "Display Fields",
+          "paragraphs": [
+            "`C1:9216` prints item names from `ITEM_CONFIGURATION_TABLE`, using `0x19` bytes from the selected row. Nearby display helpers print PSI labels and wrap target prompts, which shows that item and PSI display share UI infrastructure even when their storage tables differ.",
+            "For editor design, this is the bridge from storage to user-facing names. Name fields should be shown with their row provenance and text-display helper evidence, not as anonymous byte strings."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A safe item editor should show item name, packed class byte, equipment slot subtype, item action word, target resolver result, equipment compatibility, and relevant C3 inventory helper links together. Editing a battle item as if it were only an inventory name is too narrow.",
+            "Keep unresolved class-byte bits as preserved bitfields. They are not junk; they are future field-family candidates."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-service-destination-field-families",
+      "title": "D5 Service And Destination Field Families",
+      "summary": "How landing destinations, timed delivery rows, row selectors, countdown/retry policy, success/failure pointers, and service latches fit together.",
+      "aliases": ["timed delivery fields", "landing destination fields", "D5 service fields", "teleport destination table"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "timed delivery", "landing", "destination", "service", "timer", "row selector", "teleport"],
+      "banks": ["C0", "C1", "C3", "D5", "EF"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-d5-route-support-table-contracts", "chapter-c3-animation-template-semantics", "chapter-text-command-family-model", "chapter-table-contracts", "chapter-map-scene-contracts"],
+      "noteRefs": [
+        "notes/landing-destination-table-d57880.md",
+        "notes/timed-delivery-controller-499-500-common.md",
+        "notes/timed-delivery-row-index-command-1f-d3.md",
+        "notes/timed-delivery-state-helpers-ef0f60-fdb-ff6.md",
+        "notes/timed-delivery-system-flags-754-779.md",
+        "notes/timed-delivery-warning-text-gates.md",
+        "notes/c3-timed-delivery-source-pilot.md",
+        "notes/c3-timed-delivery-controller-working-names.md"
+      ],
+      "sections": [
+        {
+          "title": "Landing Destinations",
+          "paragraphs": [
+            "`D5:7880` is best read as a fixed-stride landing-destination table. The stride is `0x1F`; the first `0x19` bytes are a padded destination name; words at `+0x1B` and `+0x1D` are destination-specific coarse coordinate words.",
+            "Two local consumers prove the split. The text command path `0x1C 06 -> C1:46DE` prints the destination name. The landing-side consumer at `C0:DD79` reads the coordinate words, installs them into `$438A/$438C`, invalidates landing/profile caches, and drives world-side placement logic."
+          ]
+        },
+        {
+          "title": "Timed Delivery Rows",
+          "paragraphs": [
+            "The timed delivery table is the D5 service row family at the end of the bank. It has `10` rows, stride `0x14`, and is now explained by a shared C3/EF controller rather than by table shape alone.",
+            "The best current row sketch is: sprite or object descriptor, event-flag gate, retry threshold, retry wait in seconds, delivery countdown, immediate success pointer, deferred failure pointer, enter speed, and exit speed."
+          ]
+        },
+        {
+          "title": "Row Selector Command",
+          "paragraphs": [
+            "Text command `[1F D3 xx]` is the script-side row selector for timed delivery. The byte `xx` behaves as a 1-based row number, so `[1F D3 01]` selects row `0`, `[1F D3 02]` selects row `1`, and so on through the ten known rows.",
+            "The local handler now has a real path: the `0x1F D3` leaf returns callback low word `C1:7440`, and `C1:7440` forwards the selected row through `EF:0EAD`. That ties text-command selection to the EF delivery-row helper family."
+          ]
+        },
+        {
+          "title": "Controller State",
+          "paragraphs": [
+            "The shared timed-delivery controller waits for the row-specific countdown, tests readiness through `EF:0F60`, retries using the row-specific threshold and wait policy, queues success pointer `1` on success, or queues failure pointer `2` after teardown.",
+            "`EF:0FDB` begins success-side arrival state and sets both `$5D98` and `$5D9A`; `EF:0FF6` clears the transient arrival state and restores or resets the broader controller latch. `$5D98` is broader and more persistent, while `$5D9A` behaves more like an active-arrival or transient special-state flag."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Landing destinations and timed-delivery rows should be edited as service records, not text-only labels. A destination row owns a printed name and world coordinates. A timed-delivery row owns policy, state, pointers, movement speeds, and text-command row selection.",
+            "Row selector commands and D5 row fields belong together so a script's `[1F D3 xx]` command cannot drift away from the row it arms."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-commerce-shop-table-contracts",
+      "title": "D5 Commerce And Shop Table Contracts",
+      "summary": "How the D5 store inventory rows sit between item records, shop scripts, zero-terminated item slots, and unresolved shop-selector evidence.",
+      "aliases": ["store table", "shop inventories", "commerce tables", "D5 store inventories"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "store", "shop", "inventory", "item", "commerce", "table", "row"],
+      "banks": ["C1", "C3", "D5"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-item-equipment-table-contracts", "chapter-d5-item-action-field-families", "chapter-table-contracts", "chapter-text-command-family-model"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/item-byte-19-packed-class-and-slot.md",
+        "notes/class2-cc19-20-eshop2-single-use.md",
+        "notes/text-command-family-1d-inventory-money.md"
+      ],
+      "sections": [
+        {
+          "title": "Store Row Boundary",
+          "paragraphs": [
+            "`STORE_TABLE` is the first support table unlocked by the corrected item-table count. It starts immediately after the `254` item records at `D5:76B2`, has `66` rows, uses stride `0x07`, and ends at `D5:787F`.",
+            "Each row is best treated as seven item-ID slots. Zero values act as empty slots in the reference-side inventory dump, while nonzero values point back into the corrected `ITEM_CONFIGURATION_TABLE` range. That makes a store row a compact list of sellable item IDs, not a standalone item definition."
+          ]
+        },
+        {
+          "title": "Why The Item Boundary Matters",
+          "paragraphs": [
+            "The store table only becomes trustworthy after the item table boundary is corrected. If item rows were wrongly counted as `256`, the store table would be shifted and every shop inventory row would inherit a false address.",
+            "That is why shop editing belongs near the item/equipment chapters. A shop row chooses item IDs; the item row supplies names, class bits, equipment slot behavior, battle item action fields, price-like fields, and menu behavior."
+          ]
+        },
+        {
+          "title": "Selector Evidence Boundary",
+          "bullets": [
+            "The row range, row count, stride, and item-slot shape are strong from the D5 split and reference table shape.",
+            "The consumer-side script selector is still thinner than the item and battle table families.",
+            "The `ESHOP2` `0x19 0x20` note should not be overread as a broad shop-selector proof; it is a single mushroom-girl clinic helper that exposes a `$98A4` controller byte.",
+            "Shop coverage becomes stronger when ordinary shop scripts are joined to concrete store row IDs and item-price/menu behavior."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A store row is seven item references plus the shop script or menu path that selects it. Item metadata stays in the item row, not duplicated inside the store row.",
+            "Zero slots should be preserved as intentional empty inventory positions. Reordering item IDs is a shop inventory change; changing what an item does belongs to the item row contract."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-character-growth-table-contracts",
+      "title": "D5 Character Growth Table Contracts",
+      "summary": "How EXP thresholds, stat growth variables, initial stats, level-up helpers, and statistic selectors fit into the character-growth contract.",
+      "aliases": ["EXP table", "stats growth vars", "initial stats", "character growth tables", "level-up tables"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "experience", "growth", "level", "stats", "initial stats", "character", "table"],
+      "banks": ["C1", "C2", "C3", "C4", "D5", "EF"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-table-contracts", "chapter-text-command-family-model", "chapter-d5-battle-action-field-families", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/level-up-stat-growth-helper-c1d08b.md",
+        "notes/level-up-stat-gain-text-family-c1d15b-d76d.md",
+        "notes/statistic-selector-family-c4550f-c3ee7a.md",
+        "notes/class2-late-stat-and-resource-family-c28e42-c29e38.md"
+      ],
+      "sections": [
+        {
+          "title": "Storage Families",
+          "paragraphs": [
+            "D5 has three character-growth support tables that now have exact spans. `EXP_TABLE` lives at `D5:8F49..D5:9588`, has `4` rows, and uses stride `0x190`. `STATS_GROWTH_VARS` lives at `D5:EA5B..D5:EA76`, has `4` rows, and uses stride `0x07`. `INITIAL_STATS` lives at `D5:F5F5..D5:F648`, has `4` rows, and uses stride `0x15`.",
+            "The reference-shaped rows line up with the four playable character lanes. The EXP table is threshold-like, the growth-vars table is a seven-stat parameter row, and the initial-stats table carries startup experience, ten item slots, starting level, money, and a still-unresolved four-byte tail."
+          ]
+        },
+        {
+          "title": "Level-Up Runtime",
+          "paragraphs": [
+            "`C1:D08B` is now the reusable `ComputeLevelUpStatGrowthDelta` helper. It is called seven times from `C1:D109`, once for each level-up stat lane, using the current base stat byte plus the per-character, per-stat growth-table byte.",
+            "After each positive delta, `C1:D109` writes the stat increase back to the character record, calls the matching derived-stat refresh helper in bank C2, and optionally prints the corresponding level-up message."
+          ]
+        },
+        {
+          "title": "Text And Selector Bridges",
+          "paragraphs": [
+            "The level-up narration path is strong because each stat-gain leaf dispatches a fixed EF message through the normal battle-text context machinery. Offense, defense, speed, guts, vitality, IQ, luck, max HP, and max PP all have distinct message anchors in the `EF:7A66..7B46` ladder.",
+            "The statistic selector family at `C4:550F`, `C3:EE7A`, and `C1:9249` gives another bridge from character storage to text/display behavior. Selectors for level, current experience, HP/PP, and displayed stats now line up with concrete WRAM fields."
+          ]
+        },
+        {
+          "title": "Open Edges",
+          "bullets": [
+            "The exact RNG/probability formula inside `C1:D08B` is still softer than the table role.",
+            "The four unknown bytes at the end of each initial-stats row should remain literal until their startup consumer is followed.",
+            "EXP threshold shape is strong, but the table should be presented as threshold data rather than as a complete level-up formula.",
+            "Statistic-selector names are strongest for the late displayed-stat block; early fixed-width naming buffers still carry softer identities."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A growth editor should keep thresholds, growth variables, initial character state, derived-stat refresh, and level-up text together. Changing a growth byte is not just a data tweak; it affects the random delta helper, displayed derived stats, and visible narration.",
+            "For now, expose the unresolved initial-stats tail and soft selector identities as preserved fields instead of inventing final names."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-route-support-table-contracts",
+      "title": "D5 Route And Support Table Contracts",
+      "summary": "How telephone contacts, teleport routes, hotspots, timed item transformations, and default names occupy exact support-table spans without all having final field semantics.",
+      "aliases": ["D5 route tables", "telephone contacts", "teleport destinations", "map hotspots", "timed item transformations", "default names"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "teleport", "telephone", "hotspot", "timed item", "default names", "route", "support table"],
+      "banks": ["C0", "C1", "C3", "C4", "D5"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-d5-service-destination-field-families", "chapter-map-scene-contracts", "chapter-table-contracts", "chapter-text-command-family-model"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/teleport-mainloop-state-machines-c0e214-c0ebdf.md",
+        "notes/teleport-freeze-vector-frontier-c0dd0f-c0e196.md",
+        "notes/c3-teleport-destination-paths-source-pilot.md",
+        "notes/statistic-selector-family-c4550f-c3ee7a.md"
+      ],
+      "sections": [
+        {
+          "title": "Exact Support Spans",
+          "bullets": [
+            "`TELEPHONE_CONTACTS_TABLE`: `6` rows, stride `0x1F`, span `D5:7AAE..D5:7B67`.",
+            "`TELEPORT_DESTINATION_TABLE`: `234` rows, stride `0x08`, span `D5:EBAB..D5:F2FA`.",
+            "`MAP_HOTSPOTS`: `56` rows, stride `0x08`, span `D5:F2FB..D5:F4BA`.",
+            "`TIMED_ITEM_TRANSFORMATION_TABLE`: `4` rows, stride `0x05`, span `D5:F4BB..D5:F4CE`.",
+            "`DONT_CARE_NAMES`: `7` rows, stride `0x2A`, span `D5:F4CF..D5:F5F4`."
+          ]
+        },
+        {
+          "title": "Route Versus Scene",
+          "paragraphs": [
+            "These tables are route/support data, not full map scenes. Teleport destination rows and hotspot rows need to be read beside the C0 teleport state machines, map-sector scene contracts, and script paths that select a destination.",
+            "The storage spans are exact, but final field names should come from consumers. For example, a teleport row with eight bytes is not automatically a user-facing destination object until its selector path, coordinates, map-state changes, and arrival behavior are joined."
+          ]
+        },
+        {
+          "title": "Name And Contact Data",
+          "paragraphs": [
+            "Telephone contacts and default names are text-adjacent support rows. Their row widths are reconciled, but their safest editor presentation should still preserve padding and fixed-width fields until the caller paths are fully joined to text rendering.",
+            "The statistic-selector and naming-buffer notes are a useful caution here: fixed-width strings can be user-visible names, backing buffers, or dynamic text sources depending on the caller. The D5 support tables should keep storage width and display identity separate."
+          ]
+        },
+        {
+          "title": "Timed Item Transformations",
+          "paragraphs": [
+            "The four-row timed item transformation table is structurally tiny but semantically important. It belongs near timed delivery and inventory work because its rows describe item-state changes over time rather than immediate item actions.",
+            "Until a consumer note follows the transformation row fields end to end, the exact table span and likely inventory-service role are stronger than byte-by-byte field names."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Route and support tables should be edited through the feature that selects them: teleport routing, phone menu/contact display, hotspot/map triggers, timed item changes, or naming defaults. Raw D5 rows are provenance, not the primary authoring interface.",
+            "Route/support rows keep row IDs and fixed-width storage visible, while final field labels are reserved for values whose C0/C1/C3/C4 consumers have been followed."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-condiment-table-contracts",
+      "title": "D5 Condiment Table Contracts",
+      "summary": "How food, condiment pairings, recovery amounts, effect classes, and the `APPLY_CONDIMENT` runtime path form a compact item-service contract.",
+      "aliases": ["condiment table", "food condiment rows", "APPLY_CONDIMENT", "food recovery table"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "condiment", "food", "item", "recovery", "battle", "table"],
+      "banks": ["C2", "D5"],
+      "related": ["chapter-d5-gameplay-table-split-model", "chapter-item-equipment-table-contracts", "chapter-d5-item-action-field-families", "chapter-table-contracts", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/item-byte-19-packed-class-and-slot.md",
+        "notes/text-command-family-1e-stat-recovery.md"
+      ],
+      "sections": [
+        {
+          "title": "Row Boundary",
+          "paragraphs": [
+            "`CONDIMENT_TABLE` is a compact D5 support table at `D5:EA77..D5:EBAA`. It has `44` rows, stride `0x07`, and sits after `STATS_GROWTH_VARS` and before the large map teleport destination table.",
+            "The safest row model is a food item id, two compatible condiment item ids, an effect class byte, a good recovery amount, a bad recovery amount, and a runtime or timing byte. The reference-shaped rows label effect classes such as HP restore, PP restore, HP/PP restore, and random stat increase."
+          ]
+        },
+        {
+          "title": "Runtime Path",
+          "paragraphs": [
+            "`APPLY_CONDIMENT` gives this table a stronger consumer story than many small support tables. The battle action argument supplies the food item id. The routine searches for a condiment in the current attacker's inventory, removes the matching condiment when found, and then walks the condiment rows until the food id matches.",
+            "When the held condiment matches one of the row's two compatible condiment fields, the routine displays the successful seasoning text and returns a pointer into the row's effect/recovery fields. If the condiment is missing or mismatched, it displays the miss text and falls back to the ordinary item parameters for the food."
+          ]
+        },
+        {
+          "title": "Contract Meaning",
+          "bullets": [
+            "Food and condiment item IDs are references into `ITEM_CONFIGURATION_TABLE`, not embedded item definitions.",
+            "The two condiment fields are an either-or compatibility pair.",
+            "The good and bad recovery bytes are behavior parameters selected by the condiment match outcome.",
+            "The effect byte is stronger than a raw literal, but final user-facing names should stay tied to consumer behavior.",
+            "The last byte is structurally part of the row; rows with nonzero values suggest timing/runtime policy and should remain cautiously labeled until followed locally."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A condiment editor should treat each row as a food-service rule: food item, compatible condiment options, effect class, good result, bad result, and preserved runtime byte. It should not edit food names, prices, inventory class bits, or battle item action words inside the condiment row.",
+            "Because the runtime removes the matched condiment from the attacker before applying the row, the recovery behavior and inventory side effect belong together."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-d5-psi-name-display-contracts",
+      "title": "D5 PSI Name And Display Contracts",
+      "summary": "How PSI name rows, encoded C3 menu-entry rows, dynamic labels, and target prompt helpers connect PSI storage to visible battle/menu text.",
+      "aliases": ["PSI name table", "PSI display names", "battle PSI labels", "PSI menu-entry rows"],
+      "maturity": "draft-narrative",
+      "keywords": ["D5", "PSI", "name", "display", "menu", "label", "target prompt", "table"],
+      "banks": ["C1", "C3", "D5", "EF"],
+      "related": ["chapter-psi-menu-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-d5-route-support-table-contracts", "chapter-table-contracts", "topic-ui-rendering", "topic-battle-runtime"],
+      "noteRefs": [
+        "notes/d5-table-splits.md",
+        "notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md",
+        "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+        "notes/battle-psi-ability-table-d58a50.md",
+        "notes/c3-battle-psi-menu-data-contracts.md"
+      ],
+      "sections": [
+        {
+          "title": "D5 Name Rows",
+          "paragraphs": [
+            "`PSI_NAME_TABLE` lives at `D5:8D7A..D5:8F22`, has `17` rows, and uses stride `0x19`. It is a fixed-width name table containing labels such as `PSI Fire`, `PSI Freeze`, `PSI Thunder`, `Lifeup`, `Healing`, `Shield`, `PSI Magnet`, and `Teleport`.",
+            "These rows are display labels, not PSI ability definitions. The ability definition rows live separately at `D5:8A50`; the name rows become useful when C1 display helpers resolve a selector into a printable label."
+          ]
+        },
+        {
+          "title": "Display Helper Split",
+          "paragraphs": [
+            "`C1:931B` is the general PSI or small dynamic label printer. Some selectors read fixed-width character-name buffers or the `$9819` dynamic buffer, while the ordinary PSI-label path uses the D5 PSI name table and fixed-length printing.",
+            "`C1:CA06` is the cleaner PSI-id-plus-rank label builder. It reads `PSI_ID` and `PSI_LEVEL` from the `D5:8A50` ability row, maps the PSI id through the display path, and routes the rank through the adjacent C3 suffix-selection table."
+          ]
+        },
+        {
+          "title": "Encoded Menu Entry Rows",
+          "paragraphs": [
+            "`C1:C8BC` builds the second-stage battle PSI menu entry row. It usually reads the associated `D5:7B68` battle action id from the ability row, uses the action row's first two selector bytes to compute a coarse offset into `C3:F124`, copies a 20-byte encoded row, appends the fixed `C3:F11C` tail, and then appends the PP cost.",
+            "Thunder is the visible exception. When `PSI_ID == 4`, the routine bypasses the ordinary action-row-derived selector and indexes the encoded row table directly by the PSI-table row. The safest explanation is that the ordinary action-row selector is too coarse to uniquely choose Thunder's intended menu-entry row."
+          ]
+        },
+        {
+          "title": "Prompt Boundary",
+          "paragraphs": [
+            "PSI display also touches targeting UI. `C1:93E7` opens and labels the temporary ally-target prompt before character selection, while `C1:9437` closes that prompt state afterward. These helpers are display scaffolding around targeting resolution, not PSI table storage.",
+            "This is the recurring theme for PSI display: ability rows, name rows, encoded C3 rows, rank suffixes, PP-cost append behavior, and target prompt labels are connected evidence, but each piece has a different storage owner."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Do not edit PSI name strings as if they alone define an ability. A PSI display edit should show the D5 ability row, D5 name row, C3 encoded menu-entry row, C3 suffix table, C1 display helper path, and any target prompt behavior that depends on the selected action.",
+            "Keep the exact decode of C3 encoded row bytes visibly separate from the stronger facts: row width, copy length, selector path, Thunder bypass, and PP-cost append."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-object-table-contracts",
+      "title": "Map Object Table Contracts",
+      "summary": "How map placements, NPC config rows, sprite contracts, movement IDs, event pointers, text fields, doors, and palette tables become world-editing data.",
+      "aliases": ["map object contracts", "object placement table", "NPC config table", "world object table"],
+      "maturity": "draft-narrative",
+      "keywords": ["map object", "NPC", "placement", "sprite", "movement", "event", "door", "palette", "table"],
+      "banks": ["C0", "C3", "C4", "CF", "D0", "D1", "D2", "D3", "D4", "D5", "D7", "D8", "DA", "EF"],
+      "related": ["chapter-table-contracts", "chapter-overworld-object-asset-model", "chapter-map-scene-contracts", "chapter-localization-authoring-model", "topic-overworld-runtime"],
+      "noteRefs": [
+        "notes/map-object-layer-closure.md",
+        "notes/map-object-bundles.md",
+        "notes/localization-map-object-crosswalk.md",
+        "notes/map-sprite-usage-contract.md",
+        "notes/map-movement-usage-contract.md",
+        "notes/map-sector-bundles.md",
+        "notes/map-tileset-bundles.md",
+        "notes/map-palette-pointer-table-contract.md",
+        "notes/c3-late-interaction-table-contracts.md",
+        "notes/map-milestone-closure.md"
+      ],
+      "sections": [
+        {
+          "title": "Object Bundle Row",
+          "paragraphs": [
+            "The practical world-editing unit is now the map object bundle row. It joins placed-object identity, NPC config, sector and world-pixel position, NPC type, visibility rule, initial direction, sprite ID, palette, runtime slot count, movement ID, C4 pointer target, event flag, and text fields.",
+            "Current coverage is strong: `1584` NPC config rows are joined to visual metadata, `1582` placements are exposed as stable `map_object.NNNN` rows, `627` of `1280` sectors contain placed objects, and all `895` C4 event pointer-table targets are decoded to concrete addresses."
+          ]
+        },
+        {
+          "title": "Behavior Boundary",
+          "paragraphs": [
+            "The object layer is intentionally a table contract, not a full event VM decompilation. It proves behavior entrypoints, macro profiles, source-file coverage, pointer targets, and object usage. Full event/actionscript semantics live in the C3 chapters.",
+            "The remaining `21` placed objects without present reference script files are no longer address-unknown. They are compact late movement IDs with C3 targets from `C3:9623` through `C3:9A28`, and sampled scripts follow a repeated template."
+          ]
+        },
+        {
+          "title": "Scene Substrate",
+          "paragraphs": [
+            "Objects need a surface. The next layer joins sectors, doors, rope/ladder/stair/escalator/switch/person/object triggers, enemy-map groups, music options, hotspots, map-change counts, tileset IDs, palette settings, and sector hashes.",
+            "The map palette pointer contract is a good example of a table promoted all the way to a contract: `32` long-pointer entries, `96` table bytes, exact pointer-to-palette asset matches, no palette-setting mismatch, and `28` palette assets used by sectors."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A map object editor should never ask users to edit a placement row in isolation. The safe authoring object is the joined bundle: placement, NPC config, sprite, palette, movement, script target, visibility flag, interaction text, and scene substrate.",
+            "When localization metadata supplies `;@Figure`, `;@AppearanceKey`, `;@ActionScript`, goods/check/message pointers, or symbolic `MSG_*` labels, treat that as crosswalk evidence. It can strengthen the object contract, but ROM-backed placement and pointer evidence remain the storage authority."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-asset-data-contracts",
+      "title": "Asset And Data Contracts",
+      "summary": "How graphics, UI, map, battle visual, audio, and table payloads are represented as source-safe contracts.",
+      "aliases": ["asset contracts", "data contracts", "asset pipeline", "manifest contracts"],
+      "maturity": "draft-narrative",
+      "keywords": ["asset", "data contract", "manifest", "render", "extract", "bundle", "palette", "sprite", "tile"],
+      "banks": ["CA", "CB", "CC", "CD", "CE", "D1", "D2", "D3", "D4", "D5", "D8", "DA", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "EA", "EB", "EC", "ED", "EE"],
+      "related": ["topic-asset-pipeline", "asset-contracts", "asset-manifest-index", "chapter-table-contracts", "chapter-battle-visual-contracts", "chapter-overworld-object-asset-model", "chapter-map-scene-contracts", "chapter-audio-pack-frontier", "chapter-audio-pack-stream-contracts", "chapter-audio-track-snapshot-contracts", "chapter-audio-spc-renderer-boundary"],
+      "noteRefs": [
+        "notes/asset-pipeline-plan.md",
+        "notes/asset-manifest-generation-status.md",
+        "notes/data-contracts-c0-c4.md",
+        "notes/bank-cb-asset-data-map.md",
+        "notes/bank-d1-asset-data-map.md",
+        "notes/overworld-sprite-group-contracts.md",
+        "notes/map-object-layer-closure.md",
+        "notes/map-milestone-closure.md",
+        "notes/bank-e2-ee-audio-pack-run.md",
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md",
+        "notes/audio-backend-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "Contract Model",
+          "paragraphs": [
+            "An asset/data contract is the evidence-backed boundary between original ROM bytes and editor or port work. It does not contain the copyrighted payload. It records what owns the bytes, how those bytes are located, what decoder or renderer shape is expected, and how a local user can regenerate or verify the derived output from their own ROM.",
+            "That makes contracts different from raw extraction. A raw `.gfx`, `.pal`, `.arr`, BRR sample, collision table, or object bundle can be extracted locally, but the checked-in source-safe object is the recipe: stable ID, bank/range, size, hash, decoder class, dependencies, uncertainty, and validation command. Those recipes are the durable knowledge layer."
+          ]
+        },
+        {
+          "title": "The Four Layers",
+          "bullets": [
+            "ROM recipe layer: records the source span, expected byte count, expected SHA-1, compression, and table or pointer evidence.",
+            "Portable asset layer: describes ignored local outputs such as raw slices, decompressed bytes, preview PNGs, palette JSON, object bundles, scene contracts, or audio intermediates.",
+            "Semantic ID layer: gives tools stable names such as battle background IDs, sprite group IDs, map object IDs, map tileset IDs, and table-contract names so consumers do not depend on bare SNES addresses.",
+            "Validation layer: proves the recipe against a user-supplied ROM and records which generated reports or hashes make the contract reproducible."
+          ]
+        },
+        {
+          "title": "Current Coverage",
+          "paragraphs": [
+            "The manifest pipeline now covers every currently mapped asset/data bank from `CA` through `EE`, plus the hand-curated EF debug seed manifest. The latest local status reports `38` manifests, `2218` assets, and `6174` output recipes. The output recipes include raw ROM-backed outputs, LZHAL decompression, palette JSON and swatches, battle-background previews, battle-sprite previews, default-palette overworld sprite sheets, and composed battle-background and battle-sprite PNGs.",
+            "This does not make every asset family semantically final. It gives the project a repeatable source-safe inventory. Interpretation remains a separate layer: which assets belong together, which runtime tables choose them, what renderer assumptions are proven, and which editor fields have evidence."
+          ]
+        },
+        {
+          "title": "Major Families",
+          "bullets": [
+            "`CA..CE`: battle backgrounds, battle sprites, palettes, arrangements, animation visuals, and related compressed graphics.",
+            "`D1..D5`: overworld sprite payloads, later joined through sprite group, frame, animation-role, map placement, and object bundle contracts.",
+            "`CF..D0`, `D5`, `D8`, `DA`, `DE`, `DF`, and `EF`: map doors, placements, battle/menu tables, collision records, map palettes, tile animation graphics, upload scripts, and pointer tables.",
+            "`E0..E1`: UI, font, town map, intro/title/ending/cast, and presentation assets.",
+            "`E2..EE`: audio-pack payloads, now promoted from bank-level coverage into `LOAD_SPC700_DATA` stream contracts, track-to-pack snapshot rules, and a renderer/backend boundary."
+          ]
+        },
+        {
+          "title": "Editing Rules",
+          "paragraphs": [
+            "The safe editing unit is the highest contract that already preserves the dependency chain. For a single compressed battle-background graphic, the useful edit boundary includes its graphics payload, matching palette, arrangement, preview renderer, and manifest hash. For an overworld NPC, the useful edit boundary is not just a D1-D5 `.gfx` payload; it includes sprite group identity, runtime slot records, animation role, map placement, movement/script target, event flag, and text pointer context.",
+            "A generated preview is evidence that a decoder path is plausible. It is not by itself an authoring schema. A family reaches editable status only when the contract explains stable fields, runtime-selected values, and which local outputs are disposable rebuild products."
+          ],
+          "bullets": [
+            "Keep ROM-derived payloads in ignored build/cache paths.",
+            "Commit manifests, tools, contracts, summaries, and validation reports only when they are payload-free.",
+            "Use semantic IDs in editor and port work; keep raw bank addresses as provenance and compatibility anchors.",
+            "Treat palette, arrangement, collision, OAM, and script dependencies as part of an asset's contract when the runtime consumes them together.",
+            "Do not rename a generated asset family as semantically final until the relevant runtime selector or table has been followed."
+          ]
+        },
+        {
+          "title": "Confidence Boundary",
+          "paragraphs": [
+            "The current asset pipeline is strong at inventory, extraction, and many visual preview paths. It is strongest where runtime contracts have been joined: map objects, sprite roles, collision pointer/runtime bits, palette pointer tables, tile animation upload records, and many battle visual assets.",
+            "The main weak spots are the places where a payload is mapped but the consumer-side authoring meaning is still thin: some map collision low bits, DA palette metadata words, text/common palette preview joining, palette-settings-only tilesets, event/actionscript behavior semantics, and the distinction between ROM audio facts and local playback/export tooling. Those limits belong in the visible contract layer rather than hidden in generated pages."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-battle-visual-contracts",
+      "title": "Battle Visual Asset Contracts",
+      "summary": "How battle backgrounds, battle sprites, palettes, arrangements, and C2/C3/C4 visual runtime evidence fit together.",
+      "aliases": ["battle visual contracts", "battle backgrounds", "battle sprites", "battle background assets", "enemy sprite assets"],
+      "maturity": "draft-narrative",
+      "keywords": ["battle background", "battle sprite", "battle visual", "palette", "arrangement", "sprite", "gfx", "battle"],
+      "banks": ["C2", "C3", "C4", "CA", "CB", "CC", "CD", "CE"],
+      "related": ["chapter-asset-data-contracts", "topic-battle-runtime", "topic-asset-pipeline", "asset-manifest-index"],
+      "noteRefs": [
+        "notes/asset-manifest-generation-status.md",
+        "notes/bank-ca-asset-data-map.md",
+        "notes/bank-cb-asset-data-map.md",
+        "notes/bank-cc-asset-data-map.md",
+        "notes/bank-cd-asset-data-map.md",
+        "notes/bank-ce-asset-data-map.md",
+        "notes/c2-battlebg-load-and-palette-effect-corridor-c2cfe5-c2e0e7.md",
+        "notes/c2-battle-sprite-render-and-palette-tail-c2eee7-c2ff9a.md",
+        "notes/c3-battle-visual-table-and-token-sublabels.md",
+        "notes/c3-battle-visual-offset-tables-f871-f8f1.md",
+        "notes/c4-visual-frame-copy-and-footprint-tables-283f-2b0d.md"
+      ],
+      "sections": [
+        {
+          "title": "System Shape",
+          "paragraphs": [
+            "Battle visuals are not a single asset type. They are a family of compressed graphics, palettes, arrangements, size metadata, token tables, runtime palette effects, and renderer staging code. The source-safe contract should keep those pieces linkable even when the decoded PNG preview is only a local build artifact.",
+            "The current manifest pipeline can extract and preview palette-aware battle backgrounds and battle sprites. For battle backgrounds, matching graphics, palette, and arrangement payloads can produce composed arrangement previews. For battle sprites, observed enemy-table sprite/palette combinations can produce size-aware composed previews."
+          ]
+        },
+        {
+          "title": "What Is Proven",
+          "bullets": [
+            "`CA..CE` asset maps provide bank ownership, labels, payload filenames, CPU spans, file offsets, sizes, and first-byte fingerprints for battle visual payloads.",
+            "The extraction pipeline records raw and LZHAL-decompressed outputs, palette-aware tile previews, battle-background arrangement previews, and battle-sprite composed previews.",
+            "C2 notes cover battle background loading, palette effects, battle sprite rendering, and palette-tail behavior.",
+            "C3 notes expose battle visual token, offset, and palette table evidence, giving the visual byte payloads runtime selector context.",
+            "C4 notes cover visual frame copy and footprint tables, which matters for how visual data reaches presentation memory."
+          ]
+        },
+        {
+          "title": "Authoring Boundary",
+          "paragraphs": [
+            "A battle background edit is safe only when the graphics, palette, arrangement, compression, and preview path remain coherent. A battle sprite edit also needs size and palette pairing evidence from the observed enemy table path. The editor-facing unit should be a composed contract, not a single decompressed byte stream.",
+            "Generated names like `BATTLE_BACKGROUND_GFX_86` or `BATTLE_BACKGROUND_ARR_43` are stable handles for tooling, but the display-facing meaning should come from runtime use, enemy/table context, and rendered previews rather than from the numeric suffix alone."
+          ]
+        },
+        {
+          "title": "Known Limits",
+          "bullets": [
+            "Preview coverage is strong for observed combinations, but not every possible runtime composition is necessarily a designed authoring combination.",
+            "Palette effects and battle visual tokens should be described through C2/C3 runtime evidence before editor UI treats them as intuitive art controls.",
+            "The manifest layer preserves payload provenance; final battle-effect semantics still need curated pages for major effect families."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-overworld-object-asset-model",
+      "title": "Overworld Object And Sprite Asset Model",
+      "summary": "How D1-D5 sprite payloads become object-facing contracts through sprite groups, runtime slots, animation roles, map placements, movement IDs, and behavior targets.",
+      "aliases": ["overworld sprite contracts", "map object bundles", "npc object model", "sprite groups", "overworld objects"],
+      "maturity": "draft-narrative",
+      "keywords": ["overworld sprite", "sprite group", "animation role", "map object", "npc config", "movement", "object bundle"],
+      "banks": ["C3", "C4", "CF", "D1", "D2", "D3", "D4", "D5", "EF"],
+      "related": ["chapter-asset-data-contracts", "chapter-map-scene-contracts", "topic-overworld-runtime", "topic-asset-pipeline", "bank-d1", "bank-d2", "bank-d3", "bank-d4", "bank-d5"],
+      "noteRefs": [
+        "notes/bank-d1-d4-overworld-sprite-closure.md",
+        "notes/bank-d1-d5-overworld-sprite-run.md",
+        "notes/overworld-sprite-group-contracts.md",
+        "notes/overworld-sprite-frame-semantics.md",
+        "notes/overworld-sprite-pointer-flag-semantics.md",
+        "notes/overworld-sprite-animation-roles.md",
+        "notes/map-sprite-usage-contract.md",
+        "notes/map-movement-usage-contract.md",
+        "notes/map-object-bundles.md",
+        "notes/map-object-layer-closure.md",
+        "notes/secondary-visual-descriptor-contracts.md"
+      ],
+      "sections": [
+        {
+          "title": "Mental Model",
+          "paragraphs": [
+            "D1-D5 contain overworld sprite graphics payloads, but the game does not place raw graphics payloads on the map. It places objects. The object-facing contract joins a visual identity, runtime frame slots, animation-role names, map placement, movement/script behavior, event flags, and text pointers.",
+            "That is the important promotion: sprite payloads become useful to tools only after the project can answer what object uses them, where it appears, which runtime slot model selects its frames, and which behavior entrypoint controls it."
+          ]
+        },
+        {
+          "title": "Join Layers",
+          "bullets": [
+            "Sprite group contracts map ebsrc `SPRITE_GROUP_*` labels onto D1-D5 payload assets and EBDecomp metadata.",
+            "Frame contracts resolve EF `spritepointerarray` runtime slots to concrete D1-D5 payload assets and low-bit renderer effects.",
+            "Animation role contracts promote slot order into direction, phase, descriptor-pass, and palette roles.",
+            "Map sprite usage joins NPC config rows and map placements to sprite metadata and direct EF runtime slot records.",
+            "Map movement usage joins NPC movement IDs to C4 pointer-table targets and C3 event/actionscript refs.",
+            "Map object bundles combine those layers into stable `map_object.NNNN` rows."
+          ]
+        },
+        {
+          "title": "Current Closure",
+          "paragraphs": [
+            "The object layer is closed enough for editor and port work. The local notes report `1582` placed object rows, `1584` NPC config rows joined to visual metadata, `627` populated sectors, `297` unique NPC sprite IDs, and `136` used movement IDs. Only sprite `0`, `OVERWORLD_SPRITE::NONE`, remains metadata-only.",
+            "The remaining late movement scripts are not address-unknown: `21` placed objects point at known C3 target addresses whose expected ref script files are absent. That should be treated as a compact script-emission frontier, not a failure of the object asset model."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "For an object editor, the primary row should be the placed object bundle, not the raw sprite payload. A user wants to know what is placed here, what it looks like, what behavior entrypoint it uses, and what interaction fields are attached. The D1-D5 graphics are one dependency under that row.",
+            "For an art tool, the primary row can be the sprite group or animation-role contract, but it still needs to preserve runtime slot order, pointer-bit descriptor-pass behavior, and palette role metadata so edited art remains compatible with the renderer."
+          ]
+        },
+        {
+          "title": "Known Limits",
+          "bullets": [
+            "Object contracts identify behavior entrypoints, but they do not fully decompile every event/actionscript payload.",
+            "Some late movement IDs need generated script assets or reconstructed source files.",
+            "Sprite animation roles are stable tool-facing labels derived from slot position; group-specific animation semantics still need care.",
+            "Composed overworld previews are prototype outputs under ignored build folders, not committed canonical assets."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-overworld-stutter-truth-state",
+      "title": "Overworld Walking Stutter Truth State",
+      "summary": "Current reconciled model for the overworld walking microstutter: camera and scroll publication are mostly cleared, strip dedupe helped but was incomplete, and the companion visual `A750 -> A794` watcher rerun seam is the leading patch target.",
+      "aliases": ["overworld stutter", "walking stutter", "diagonal hitch", "A794 stutter", "A750 watcher gate"],
+      "maturity": "draft-narrative",
+      "keywords": ["overworld", "stutter", "walking", "diagonal", "camera", "scroll", "A794", "A750", "companion visual", "VRAM queue"],
+      "banks": ["C0", "C4"],
+      "related": ["topic-overworld-runtime", "chapter-overworld-object-asset-model", "chapter-map-scene-contracts", "chapter-editing-validation-workflow", "bank-c0", "bank-c4"],
+      "noteRefs": [
+        "notes/overworld-stutter-current-truth-state.md",
+        "notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md",
+        "notes/overworld-a794-watcher-gate-safe-v4.md",
+        "notes/overworld-companion-family-priority-a794.md",
+        "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+        "notes/overworld-visible-entity-refresh-slice-c07b52-c07c5a.md",
+        "notes/overworld-live-walking-controller-c04c45-c04d33.md",
+        "notes/rom-patch-overworld-stutter-plan.md"
+      ],
+      "sections": [
+        {
+          "title": "Current Model",
+          "paragraphs": [
+            "The current stutter model has shifted away from stale camera state or stale scroll publication. The live camera step path, runtime scroll shadow writes, alternating NMI shadow publication, and NMI PPU scroll commit path now look healthy in the tested walking cases.",
+            "The visible hitch is better explained as aggregate presentation workload. The strip-upload family is real and still contributes, but the strongest remaining patchable sub-family is the companion visual lane around `C0:A794`, especially the broader watcher-side rerun site at `C0:A750`."
+          ]
+        },
+        {
+          "title": "Producer Split",
+          "paragraphs": [
+            "The walking refresh umbrella around `C0:1558` has two useful visual producer families. The known strip lane reaches `C0:0E16`, `C0:0FCB`, and `C0:1181`, producing map or strip uploads in bands such as `58xx` and `5Cxx`. A separate companion/entity visual lane flows through `C0:2A50 -> C0:2957 -> C0:1E49`, seeds tile-base fields such as `$298E`, and later reaches `C0:1CA8` plus `C0:A4C4/A794`.",
+            "That split explains why strip dedupe could help without solving the hitch. Diagonal walking can activate both axis lanes and both visual families in the same frame, so the remaining problem is not necessarily a single bad upload. It may be too much legitimate per-frame presentation work."
+          ]
+        },
+        {
+          "title": "Cleared Or Downgraded",
+          "bullets": [
+            "`C0:8012` is startup-only, not a frame pacing seam.",
+            "`C0:834E` is NMI bookkeeping, not a main-loop wait seam.",
+            "`C0:17EA..18F2`, `C0:1558`, `C0:8B20..8B8D`, and `C0:8284..82CA` now form a healthier camera-to-scroll-publication chain than the older stale-scroll theory allowed.",
+            "The queue-overflow spin loop at `C0:8671..8673` is downgraded because it did not trigger during visible stutter in the safe-v2 test.",
+            "The timer-only `A6E3` gate was safe but too narrow to visibly matter."
+          ]
+        },
+        {
+          "title": "Leading Patch Seam",
+          "paragraphs": [
+            "The best current patch seam is the common watcher-side rerun at `C0:A750`, above `A794` but below the broad companion watcher family. It is broader than the failed timer-only experiment and safer than hooking shared queue helpers such as `A56E`, `8643`, `8616`, or `865F`.",
+            "The compare tuple should not be only `$341A + $10F2`. The current notes call for a fuller derived descriptor signature: raw descriptor header, VRAM base `$298E`, transfer size `$2A7E`, transfer count `$2ABA`, source bank or auxiliary-prepass state from `$2A42/$2BAA`, and the effective selector pointer from `$29CA + 4*DATA_C0A623[$2AF6] + $10F2`."
+          ]
+        },
+        {
+          "title": "Best Decomp Follow-Up",
+          "paragraphs": [
+            "The best render-side decomp seam is now downstream of smooth camera motion: `C0:7B52..7C5A -> C0:A780 -> C0:A794`. The visible-entry refresh computes screen-space coordinates from the smooth camera shadows and then enters the same companion descriptor family.",
+            "If patching pauses and decomp resumes first, the next sampling pass should separate `C0:8677` traffic by upstream family: direct `1CA8/1D15`, `A56E -> 8643` split by `A4C4` versus `A794`, and the strip family `0E16/0FCB/1181`."
+          ]
+        },
+        {
+          "title": "Working Rule",
+          "bullets": [
+            "Do not return to timer-only gating as the main experiment.",
+            "Do not jump into `A56E`, `8643`, `8616`, or `865F` as a first patch target.",
+            "Prefer the broader `A750` watcher-side gate with the fuller derived descriptor tuple.",
+            "Treat camera and scroll publish as mostly cleared until new traces contradict that.",
+            "Keep strip-family refinements as a later target after the companion-side rerun seam is tested."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-scene-contracts",
+      "title": "Map Scene Contract Model",
+      "summary": "How sectors, tilesets, .fts exports, palette variants, tile animations, collision records, placed objects, and palette commands form the map asset layer.",
+      "aliases": ["map scene contracts", "map sectors", "tileset bundles", "map palette", "collision contracts", "scene bundles"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "sector", "tileset", "fts", "palette", "collision", "tile animation", "scene", "metatile"],
+      "banks": ["C0", "CF", "D0", "D8", "DA", "DE", "DF", "EF"],
+      "related": ["chapter-asset-data-contracts", "chapter-overworld-object-asset-model", "chapter-map-sector-scene-bundles", "chapter-map-tileset-fts-contracts", "chapter-map-palette-contracts", "chapter-map-collision-runtime-contracts", "chapter-map-tile-animation-contracts", "topic-asset-pipeline", "topic-overworld-runtime", "asset-manifest-index"],
+      "noteRefs": [
+        "notes/map-milestone-closure.md",
+        "notes/map-sector-bundles.md",
+        "notes/map-tileset-bundles.md",
+        "notes/map-fts-format-audit.md",
+        "notes/map-fts-arrangement-contract.md",
+        "notes/map-fts-palette-variant-contract.md",
+        "notes/map-tile-animation-runtime-contract.md",
+        "notes/map-scene-composition-contract.md",
+        "notes/map-palette-descriptor-context.md",
+        "notes/map-palette-pointer-table-contract.md",
+        "notes/map-palette-command-usage-contract.md",
+        "notes/map-collision-attribute-context.md",
+        "notes/map-collision-pointer-contract.md",
+        "notes/map-collision-runtime-bit-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "Why Map Assets Are Different",
+          "paragraphs": [
+            "The map layer is not a pile of independent graphics. A scene needs sector identity, placed objects, triggers, doors, hotspots, enemy groups, music, map-change counts, tileset dependencies, palette variants, arrangement cells, collision records, tile animation records, and runtime palette command behavior.",
+            "The current milestone turns those scattered facts into a reproducible set of checked-in contracts. The contracts are payload-free but detailed enough to define scene bundles."
+          ]
+        },
+        {
+          "title": "Closed Contract Stack",
+          "bullets": [
+            "All `1280` world sectors have stable sector inventory rows.",
+            "Placed objects are joined from object bundles into the sector layer.",
+            "The full `0..31` tileset ID domain is mapped, with `28` IDs used by sectors and `20` direct `.fts` exports present.",
+            "Direct `.fts` exports share a stable `64/290/96` section shape.",
+            "Arrangement records decode as 2-byte SNES BG tilemap descriptor words plus a 1-byte collision attribute.",
+            "All `168` variable 290-character rows are verified as DA palette variants with no unexplained mismatches.",
+            "EF tile-animation graphics/script pointer tables and C0 `$43DC` upload records are joined for `20` animation IDs.",
+            "D8 collision pointer entries match `.fts` collision records exactly, and C0 runtime masks ground the major collision bit roles."
+          ]
+        },
+        {
+          "title": "Scene Bundle Shape",
+          "paragraphs": [
+            "`map_scene.NNNN` is the scene-bundle root. Under it sit sector metadata, map object IDs, trigger/door/hotspot context, enemy/music context, `map_tileset.NN`, palette variant rows, tile animation records, arrangement/collision records, and preview hashes.",
+            "This is already enough to begin designing a native loader boundary. It is not yet a claim that every visual pixel or collision low bit is semantically named."
+          ]
+        },
+        {
+          "title": "Palette And Collision Boundaries",
+          "paragraphs": [
+            "The palette contracts prove that descriptor palettes `2..7` map to the six DA map-palette subpalettes and that descriptor palettes `0..1` belong to text/common palette space. The palette command contract verifies all parsed `CHANGE_MAP_PALETTE` hits against resolved palette variants.",
+            "The collision contracts prove the storage side and the major runtime masks. Observed solid/high collision is `0x80`; `0x10` latches special-surface coordinates; `0x04/0x08` feed entity terrain compatibility; low bits `0x01/0x02` remain intentionally unnamed until caller-side gameplay labels are proven."
+          ]
+        },
+        {
+          "title": "Known Limits",
+          "bullets": [
+            "Ten sector-used tileset IDs currently have palette settings without direct local `.fts` exports.",
+            "Descriptor palettes `0..1` still need the common/text palette source joined into preview tooling.",
+            "DA palette metadata words have structural names but need runtime behavior follow-up.",
+            "Collision low bits `0x01/0x02` are preserved and counted but should not receive strong names yet.",
+            "Scene previews are ignored local outputs; the checked-in contract is the source-safe layer."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-sector-scene-bundles",
+      "title": "Map Sector And Scene Bundles",
+      "summary": "How the 40x32 world-sector grid becomes stable scene rows with objects, triggers, doors, hotspots, music, enemies, tilesets, palettes, and map-tile hashes.",
+      "aliases": ["map sectors", "map scene bundles", "sector bundles", "map scene rows"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "sector", "scene", "bundle", "door", "trigger", "hotspot", "music", "enemy map"],
+      "banks": ["CF", "D0", "D5", "D8", "DA", "EF"],
+      "related": ["chapter-map-scene-contracts", "chapter-map-object-table-contracts", "chapter-overworld-object-asset-model", "chapter-map-tileset-fts-contracts", "chapter-map-palette-contracts", "topic-overworld-runtime"],
+      "noteRefs": [
+        "notes/map-sector-bundles.md",
+        "notes/map-scene-composition-contract.md",
+        "notes/map-object-bundles.md",
+        "notes/map-object-layer-closure.md",
+        "notes/map-tileset-bundles.md",
+        "notes/map-milestone-closure.md"
+      ],
+      "sections": [
+        {
+          "title": "Sector Root",
+          "paragraphs": [
+            "The map scene layer starts with the fixed `40x32` world-sector grid: `1280` sectors. Each sector can now be addressed as a stable scene row rather than inferred from a raw map coordinate window.",
+            "The sector bundle contract joins sector metadata, placed objects, tileset dependencies, door and trigger records, enemy-map groups, music options, hotspots, map-change group counts, and per-sector `map_tiles.map` hashes."
+          ]
+        },
+        {
+          "title": "Current Inventory",
+          "bullets": [
+            "`1280` sector rows exist.",
+            "`627` sectors contain placed objects.",
+            "`1582` placed object IDs are joined into sector rows.",
+            "`2080` trigger records span `601` sectors.",
+            "`1072` doors span `519` sectors.",
+            "`220` object triggers span `100` sectors.",
+            "`56` hotspots overlap `65` sectors.",
+            "`107` sectors have nonzero enemy-map groups.",
+            "`165` sectors have music override lists.",
+            "`430` sectors use tilesets with map-change groups."
+          ]
+        },
+        {
+          "title": "Scene Composition",
+          "paragraphs": [
+            "`map_scene.NNNN` rows join the sector inventory to tileset and palette status. The current scene composition contract covers all `1280` scenes, `28` used tilesets, `950` direct-FTS scenes, and `330` palette-settings-only scenes.",
+            "The scene contract deliberately stores hashes, counts, dependency status, and feature counts instead of raw tile grids. Preview/build tools can regenerate scene payloads locally while the encyclopedia stays source-safe."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A map scene editor should use the scene row as the root. Editing an object, door, palette, tile animation, collision cell, music override, or enemy group should keep the sector row visible so the user understands the full scene context.",
+            "The current contract is an inventory and dependency layer, not a finished renderer. The next renderer can attach ignored preview outputs to these scene IDs without changing the source-safe schema."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-tileset-fts-contracts",
+      "title": "Map Tileset And FTS Contracts",
+      "summary": "How tileset IDs, direct `.fts` exports, palette-settings-only rows, tile pixels, arrangement/collision records, and animation/settings rows fit together.",
+      "aliases": ["map tilesets", "FTS contracts", "tileset bundles", "map arrangement records"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "tileset", "fts", "arrangement", "tile pixels", "metatile", "collision", "settings"],
+      "banks": ["D8", "DA", "DE", "DF"],
+      "related": ["chapter-map-scene-contracts", "chapter-map-sector-scene-bundles", "chapter-map-palette-contracts", "chapter-map-collision-runtime-contracts", "chapter-map-tile-animation-contracts", "topic-asset-pipeline"],
+      "noteRefs": [
+        "notes/map-tileset-bundles.md",
+        "notes/map-fts-format-audit.md",
+        "notes/map-fts-arrangement-contract.md",
+        "notes/map-fts-animation-settings-contract.md",
+        "notes/map-fts-palette-variant-contract.md",
+        "notes/map-scene-composition-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "Tileset Domain",
+          "paragraphs": [
+            "The map tileset domain is `0..31`. `28` IDs are used by sectors, `20` direct `.fts` exports are present in the local refs, and `18` used IDs have direct exports. Ten used IDs currently have palette settings and sector use but no direct local `.fts` export.",
+            "The contract records that gap directly. It does not invent a mapping for palette-settings-only IDs, which is exactly the right source-safe behavior."
+          ]
+        },
+        {
+          "title": "FTS Shape",
+          "paragraphs": [
+            "All present `.fts` exports share a stable `64/290/96` section shape. The `64`-character rows are high-confidence 8x8 indexed tile pixel rows. The variable `290`-character rows are palette or animation/settings-shaped rows. The `96`-character rows decode as arrangement/collision records.",
+            "The format audit covers `20` direct exports, all matching the current shape, with `1024` tile-pixel rows and `1024` arrangement/collision rows per export."
+          ]
+        },
+        {
+          "title": "Arrangement Cells",
+          "paragraphs": [
+            "The `96`-character section decodes as `1024` records per tileset, each record holding `16` three-byte cells in a `4x4` grid. The first two bytes in each cell behave as a little-endian SNES BG tilemap descriptor word. The third byte is the collision or behavior attribute byte.",
+            "Across `20` tilesets the arrangement contract represents `20480` records and `327680` cells. Descriptor words yield tile index, palette, priority, horizontal flip, and vertical flip fields in the standard SNES tilemap shape."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A tileset editor should treat FTS tile pixels, arrangement/collision cells, palette variants, and animation/settings rows as related but separate layers. The `96`-row section is not just art; it owns collision attributes too.",
+            "For palette-settings-only tileset IDs, show the dependency gap honestly. A scene can be known and palette-backed without having a direct local `.fts` export yet."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-palette-contracts",
+      "title": "Map Palette Contracts",
+      "summary": "How DA palette assets, `.fts` palette variant rows, palette pointer tables, descriptor palette fields, and script palette commands connect.",
+      "aliases": ["map palettes", "DA palette variants", "palette rows", "map palette pointer table"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "palette", "DA", "fts", "variant", "subpalette", "descriptor", "command"],
+      "banks": ["C0", "DA", "EF"],
+      "related": ["chapter-map-scene-contracts", "chapter-map-tileset-fts-contracts", "chapter-map-sector-scene-bundles", "topic-asset-pipeline"],
+      "noteRefs": [
+        "notes/map-fts-palette-variant-contract.md",
+        "notes/map-palette-pointer-table-contract.md",
+        "notes/map-palette-descriptor-context.md",
+        "notes/map-palette-command-usage-contract.md",
+        "notes/map-scene-composition-contract.md",
+        "notes/bank-da-asset-data-map.md"
+      ],
+      "sections": [
+        {
+          "title": "Palette Variant Rows",
+          "paragraphs": [
+            "The `.fts` `290`-character rows are now resolved as map palette variant rows. Each row has a two-character ID and a `288`-character payload that decodes to `96` SNES BGR555 words, or `192` bytes, arranged as six subpalettes of sixteen colors.",
+            "All `168` `.fts` palette rows match palette-setting keys. `129` match raw ROM palette variants exactly, and `39` match after reserved metadata zeroing. There are no unexplained mismatches."
+          ]
+        },
+        {
+          "title": "DA Pointer Table",
+          "paragraphs": [
+            "The DA map palette pointer table at `DA:FAA7..DA:FB07` is a `32`-entry long-pointer table. Each entry points exactly at the corresponding `MAP_DATA_PALETTE_N` asset, with `96` table bytes and `32` exact pointer/asset matches.",
+            "This closes the storage identity. It does not by itself name every metadata word or explain every palette command effect, which is why the descriptor and command notes remain separate evidence layers."
+          ]
+        },
+        {
+          "title": "Descriptor Boundary",
+          "paragraphs": [
+            "Descriptor palettes `2..7` map to the six DA map-palette subpalettes. Descriptor palettes `0..1` belong to text/common palette space and still need the common/text palette source joined into preview tooling.",
+            "Reserved palette words in raw DA variants carry metadata-like settings: event flag, event palette selector, sprite palette, and flash effect slots. The `.fts` visual rows zero those slots, which explains the exact mismatch class without turning the metadata words into fully named runtime behavior."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A map palette editor should separate visual color rows from reserved metadata words and script-side palette command behavior. A preview can use the zeroed `.fts` visual row, but a ROM patcher must preserve or intentionally edit the DA metadata slots.",
+            "Do not treat descriptor palettes `0..1` as missing map colors. They are a known boundary with the common/text palette layer."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-collision-runtime-contracts",
+      "title": "Map Collision Runtime Contracts",
+      "summary": "How FTS collision bytes, D8 collision pointer records, C0 runtime masks, terrain compatibility bits, and unresolved low bits should be read.",
+      "aliases": ["map collision", "collision runtime", "collision bits", "surface modifiers"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "collision", "runtime", "surface", "terrain", "D8", "C0", "attribute"],
+      "banks": ["C0", "C2", "D8"],
+      "related": ["chapter-map-scene-contracts", "chapter-map-tileset-fts-contracts", "chapter-map-sector-scene-bundles", "topic-overworld-runtime"],
+      "noteRefs": [
+        "notes/map-collision-attribute-context.md",
+        "notes/map-collision-pointer-contract.md",
+        "notes/map-collision-runtime-bit-contract.md",
+        "notes/map-fts-arrangement-contract.md",
+        "notes/collision-surface-probes-c052d4-c05e3a.md"
+      ],
+      "sections": [
+        {
+          "title": "Storage Model",
+          "paragraphs": [
+            "The third byte of each `.fts` arrangement cell is storage-verified as the tile collision or behavior byte. D8 collision pointer entries match `.fts` collision records exactly, so the storage side is high confidence.",
+            "The meaningful uncertainty is no longer where collision bytes live. It is which gameplay names should be assigned to each bit after following runtime masks and callers."
+          ]
+        },
+        {
+          "title": "Runtime Masks",
+          "bullets": [
+            "`0x00C0`: high collision/block mask used by player, bicycle, pathfinding, teleport, and movement-script probes.",
+            "`0x00D0`: movement cache stop mask, combining high collision with the `0x10` special-surface latch bit.",
+            "`0x0010`: special surface coordinate latch; C0 stores probed coordinates for later movement handling.",
+            "`0x000C`: entity terrain compatibility class bits consumed through entity metadata compatibility checks.",
+            "`0x003F`: returned surface modifier mask, preserving low six bits after stripping high collision bits."
+          ]
+        },
+        {
+          "title": "Known And Open Bits",
+          "paragraphs": [
+            "`0x80` is the observed solid/high-collision bit in verified D8 and `.fts` data. `0x40` is runtime-supported by the high-collision mask but not observed in verified map collision data. `0x10` participates in special-surface coordinate latching. `0x04` and `0x08` feed entity terrain compatibility.",
+            "Low bits `0x01` and `0x02` remain preserved surface modifier bits. They are counted, returned, and runtime-visible, but they should not receive strong human gameplay labels until caller-side evidence proves them."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A collision editor should expose proved masks as behavior groups while preserving the raw byte. Users need to see both the practical labels and the bit-level storage because some bits participate in multiple masks.",
+            "Do not collapse collision into a single solid/not-solid checkbox. The runtime distinguishes high blocking, movement cache stops, special-surface latches, terrain compatibility, and returned surface modifiers."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-map-tile-animation-contracts",
+      "title": "Map Tile Animation Contracts",
+      "summary": "How EF tile-animation pointer tables, DE/DF graphics assets, C0 upload-script records, FTS animation/settings rows, and scene dependencies fit together.",
+      "aliases": ["map tile animation", "tile animation runtime", "animated map tiles", "EF tile animation"],
+      "maturity": "draft-narrative",
+      "keywords": ["map", "tile animation", "animation", "EF", "DE", "DF", "VRAM", "upload script"],
+      "banks": ["C0", "DE", "DF", "EF"],
+      "related": ["chapter-map-scene-contracts", "chapter-map-tileset-fts-contracts", "chapter-map-sector-scene-bundles", "topic-asset-pipeline"],
+      "noteRefs": [
+        "notes/map-tile-animation-runtime-contract.md",
+        "notes/map-fts-animation-settings-contract.md",
+        "notes/map-scene-composition-contract.md",
+        "notes/bank-de-asset-data-map.md",
+        "notes/bank-df-asset-data-map.md",
+        "notes/bank-ef-asset-data-map.md"
+      ],
+      "sections": [
+        {
+          "title": "Runtime Model",
+          "paragraphs": [
+            "The map tile-animation runtime is now a ROM-verified contract. Selector `$4372` chooses entries from EF graphics and upload-script pointer tables. Graphics decompress into `7E:C000`, upload scripts expand into `$43DC` runtime records, and C0 drives VRAM transfer through the documented upload path.",
+            "The active runtime pair covers `20` animation IDs, with `20` graphics pointer/asset matches, `24` upload-script records, `12` nonempty scripts, and `8` empty placeholder scripts."
+          ]
+        },
+        {
+          "title": "Upload Records",
+          "paragraphs": [
+            "Each 8-byte upload-script record expands to a 16-byte runtime record. The fields are frame count limit, reload delay, transfer size, source base offset, VRAM destination, live countdown, live frame counter, and live source offset.",
+            "All scripts fit the `$43DC` runtime capacity, all scripts end at the next pointer, and the script data ends at the sprite grouping table start. That makes the active EF/C0 runtime table pair closed at the structural level."
+          ]
+        },
+        {
+          "title": "FTS Boundary",
+          "paragraphs": [
+            "The `.fts` animation/settings rows are related but not identical to the C0 runtime upload scripts. Their row counts do not equal the decoded upload-script record counts, so they should remain a separate export-layer contract.",
+            "The runtime upload records that drive VRAM transfer and the `.fts` settings rows in the exported tileset package are related but separate evidence layers."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Tile-animation editing must keep graphics asset, upload script, scene dependency, and VRAM destination together. Editing only the decompressed graphics can desynchronize the runtime script that copies it.",
+            "Placeholder-empty entries are meaningful too. The contract records tiny placeholder payload IDs and empty scripts so tools can distinguish intentionally inactive animation IDs from missing data."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-audio-pack-frontier",
+      "title": "Audio Pack Contracts",
+      "summary": "ROM-facing audio-pack facts: bank coverage, loader stream shape, track-to-pack recipes, and local regeneration rules.",
+      "aliases": ["audio packs", "sound data", "BRR frontier", "music packs", "E2 EE audio"],
+      "maturity": "draft-narrative",
+      "keywords": ["audio", "brr", "sample", "song", "pack", "sound", "music", "e2", "ee"],
+      "banks": ["E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "EA", "EB", "EC", "ED", "EE"],
+      "related": ["chapter-asset-data-contracts", "chapter-audio-pack-stream-contracts", "chapter-audio-track-snapshot-contracts", "chapter-audio-spc-renderer-boundary", "chapter-audio-backend-adapter-contract", "topic-audio-data", "topic-asset-pipeline", "asset-manifest-index"],
+      "noteRefs": [
+        "notes/bank-e2-ee-audio-pack-run.md",
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md",
+        "notes/audio-backend-contract.md",
+        "notes/audio-apu-battlebg-transfer-frontier-c0ab06-c0ae44.md",
+        "notes/bank-e2-asset-data-map.md",
+        "notes/bank-e3-asset-data-map.md",
+        "notes/bank-e4-asset-data-map.md",
+        "notes/bank-e5-asset-data-map.md",
+        "notes/bank-e6-asset-data-map.md",
+        "notes/bank-e7-asset-data-map.md",
+        "notes/bank-e8-asset-data-map.md",
+        "notes/bank-e9-asset-data-map.md",
+        "notes/bank-ea-asset-data-map.md",
+        "notes/bank-eb-asset-data-map.md",
+        "notes/bank-ec-asset-data-map.md",
+        "notes/bank-ed-asset-data-map.md",
+        "notes/bank-ee-asset-data-map.md",
+        "notes/asset-pipeline-plan.md"
+      ],
+      "sections": [
+        {
+          "title": "Current Boundary",
+          "paragraphs": [
+            "The audio banks now have a payload-free contract layer for `169` audio packs, `192` music tracks, and `169` pack pointer entries. Every represented pack parses as an `ok` `LOAD_SPC700_DATA` stream, and the track table resolves to the primary, secondary, and sequence pack order used by `CHANGE_MUSIC`.",
+            "The ROM-facing facts are the source ranges, byte counts, SHA-1 hashes, stream block transcripts, pack selector evidence, and track mappings. ROM-derived payload bytes, APU RAM images, SPC snapshots, and WAV renders are generated locally from a user's ROM and stay out of the checked-in encyclopedia."
+          ]
+        },
+        {
+          "title": "What Is Now Teachable",
+          "bullets": [
+            "Banks `E2..EE` are overwhelmingly source-order audio-pack payloads, with E6's custom `AUDIO_PACK_1` handled as a special inline block instead of being double-counted.",
+            "Audio packs are modeled as loader streams, not opaque blobs: each stream has one or more destination blocks and a terminating loader handshake.",
+            "Music tracks can be described as pack recipes: primary sample pack, secondary sample pack, and sequence pack, with unchanged or `$FF` entries skipped by the runtime.",
+            "The local corpus tooling can rebuild deterministic APU RAM and later SPC/WAV evidence for selected tracks, but those outputs are local ROM-derived artifacts rather than checked-in ROM documentation.",
+            "Generated audio outputs belong under ignored `build/audio` paths. The committed encyclopedia contains contracts, not mirrored audio payload bytes."
+          ]
+        },
+        {
+          "title": "ROM And Tooling Boundary",
+          "paragraphs": [
+            "The pack contracts describe the ROM's loadable music payloads. Backend work describes how our tools replay those payloads through emulation, capture state, and render WAVs.",
+            "Keep those layers separate when reading the encyclopedia: `LOAD_SPC700_DATA`, pack pointers, track recipes, and `CHANGE_MUSIC` behavior are ROM knowledge; ares harnesses, libgme renders, result summaries, and playback/export manifests are project tooling evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-audio-pack-stream-contracts",
+      "title": "Audio Pack Stream Contracts",
+      "summary": "How audio packs are represented as `LOAD_SPC700_DATA` streams with source ranges, block transcripts, parse status, and validation hashes.",
+      "aliases": ["audio stream contracts", "LOAD_SPC700_DATA", "audio pack format", "SPC loader streams"],
+      "maturity": "draft-narrative",
+      "keywords": ["audio", "spc700", "apu", "stream", "loader", "pack", "validation"],
+      "banks": ["C0", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "EA", "EB", "EC", "ED", "EE"],
+      "related": ["chapter-audio-pack-frontier", "chapter-audio-track-snapshot-contracts", "chapter-audio-spc-renderer-boundary", "chapter-asset-data-contracts", "topic-audio-data", "topic-validation-workflows"],
+      "noteRefs": [
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/bank-e2-ee-audio-pack-run.md",
+        "notes/audio-apu-battlebg-transfer-frontier-c0ab06-c0ae44.md"
+      ],
+      "sections": [
+        {
+          "title": "Stream Model",
+          "paragraphs": [
+            "The runtime owner for this contract is `C0:AB06 LoadSpc700DataStream`. The loader waits for the SPC ready signature on the APU ports, temporarily disables NMI while it streams data, writes block payloads to APU destinations, and exits through the loader's final handshake.",
+            "The portable contract is intentionally simpler than the SNES routine. Each audio pack is represented as a sequence of blocks: a `u16 payload_byte_count`, then a `u16 apu_destination` plus payload bytes when the count is nonzero. A zero count terminates the stream and records the `$0500` terminal handshake behavior."
+          ]
+        },
+        {
+          "title": "Coverage",
+          "bullets": [
+            "`169` audio packs are represented.",
+            "`169` pack pointer entries are represented.",
+            "All represented streams currently parse with status `ok`.",
+            "Every known audio pack has a byte-exact ROM source range and SHA-1.",
+            "The track table currently has `0` unused pack IDs.",
+            "E6's custom `AUDIO_PACK_1` block is represented as a custom inline audio pack instead of a normal source-order insert."
+          ]
+        },
+        {
+          "title": "Bank Run Boundary",
+          "paragraphs": [
+            "The source-order run covers the heavy `E2..EE` audio banks, with the large `EE:9201..EE:FFFF` tail still called out as a separate unexplained slack region. The bank maps prove source readiness for the opaque payloads, while this stream contract proves that the payloads can be replayed through the same loader shape the game uses.",
+            "Pack identity is not the same thing as internal audio meaning. The pack contract says where bytes come from, how they load, how they validate, and which tracks select them. BRR sample names, sequence commands, and instrument semantics need their own evidence before they become ROM-facing facts."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "The safe stream-editing unit is a complete pack transcript. Changing a payload byte, destination, or block count without updating range/hash validation and track ownership desynchronizes the loader contract from the source ROM evidence.",
+            "Audio packs are validated load streams at this layer. Sample and sequence authoring is a later layer that consumes this contract instead of replacing it."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-audio-track-snapshot-contracts",
+      "title": "Audio Track Snapshot Contracts",
+      "summary": "How music tracks resolve to pack load order and diagnostic 64 KiB APU RAM seeds without claiming complete SPC playback state.",
+      "aliases": ["audio track snapshots", "music track packs", "APU RAM seed", "track-to-pack mapping"],
+      "maturity": "draft-narrative",
+      "keywords": ["audio", "music", "track", "snapshot", "apu ram", "change music", "pack order"],
+      "banks": ["C0", "C4", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "EA", "EB", "EC", "ED", "EE"],
+      "related": ["chapter-audio-pack-frontier", "chapter-audio-pack-stream-contracts", "chapter-audio-spc-renderer-boundary", "chapter-audio-backend-adapter-contract", "topic-audio-data"],
+      "noteRefs": [
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md",
+        "notes/audio-apu-battlebg-transfer-frontier-c0ab06-c0ae44.md"
+      ],
+      "sections": [
+        {
+          "title": "Track Load Order",
+          "paragraphs": [
+            "`CHANGE_MUSIC` gives the snapshot contract its order. A track resolves to primary sample pack, secondary sample pack, and sequence pack. The runtime loads changed packs in that order, skips unchanged entries, skips `$FF`, updates `CURRENT_MUSIC_TRACK`, and finally writes the one-based track index to `APUPort0` through `C0:ABBD`.",
+            "Cold start adds one more rule: `C4:FB58 InitializeMusicSubsystem` loads the row-0 sequence/common pack before ordinary track changes. A snapshot builder that omits that bootstrap can still load pack bytes, but it is not modeling the same runtime state."
+          ]
+        },
+        {
+          "title": "Diagnostic APU RAM Seed",
+          "bullets": [
+            "The snapshot corpus can construct a 64 KiB APU RAM image after replaying the selected pack streams.",
+            "The seed is ROM-derived and must remain an ignored local diagnostic artifact.",
+            "The seed records the post-load track command requirement, but it does not execute the APU driver after writing the command byte.",
+            "Renderer fixtures should point to ignored seed files and pack transcripts instead of embedding ROM-derived bytes in committed JSON.",
+            "The useful status label for this stage is `diagnostic_apu_ram_seed`, not `complete_spc_snapshot`."
+          ]
+        },
+        {
+          "title": "Tooling Contract",
+          "paragraphs": [
+            "The generated tooling path has distinct jobs: build and validate audio pack contracts, inspect track-to-pack mappings, build selected track snapshots, build an ignored corpus, and create renderer fixtures. Those jobs are not the renderer.",
+            "Track snapshot entries describe which packs a track uses and what memory image can be reconstructed. Playback and export evidence belongs to the backend/tooling layer."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A track edit starts as a change to the track's pack recipe. Changing a sequence pack, sample pack, or common bootstrap assumption requires rebuilding the snapshot corpus and comparing the pack transcript before playback/export results are trusted."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-audio-spc-renderer-boundary",
+      "title": "Audio SPC Renderer Boundary",
+      "summary": "Where ROM audio state ends and local playback/export evidence begins: APU RAM seeds, SPC snapshots, WAV renders, and runtime-state requirements.",
+      "aliases": ["SPC renderer boundary", "complete SPC frontier", "audio playback boundary", "PCM WAV frontier"],
+      "maturity": "draft-narrative",
+      "keywords": ["audio", "spc", "renderer", "pcm", "wav", "apu", "dsp", "runtime state"],
+      "banks": ["C0", "C4", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9", "EA", "EB", "EC", "ED", "EE"],
+      "related": ["chapter-audio-pack-frontier", "chapter-audio-pack-stream-contracts", "chapter-audio-track-snapshot-contracts", "chapter-audio-backend-adapter-contract", "chapter-known-limits", "topic-audio-data"],
+      "noteRefs": [
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md",
+        "notes/audio-backend-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "What The Seed Contains",
+          "paragraphs": [
+            "The APU RAM seed contains the 64 KiB memory image after the relevant `LOAD_SPC700_DATA` streams have been applied in runtime order. It proves that the pack stream contracts and track mapping can construct deterministic memory images.",
+            "A seed is not a running SPC state. It records loaded memory and the post-load track-command requirement, but it does not by itself prove the registers, DSP state, timers, mailbox timing, or rendered audio."
+          ]
+        },
+        {
+          "title": "Missing Runtime State",
+          "bullets": [
+            "SPC700 CPU registers are not captured.",
+            "DSP registers are not captured.",
+            "APU control and timer state are not captured.",
+            "APUIO mailbox state is only partially modeled.",
+            "Driver elapsed cycles and post-command timing are not captured."
+          ]
+        },
+        {
+          "title": "Renderer Gates",
+          "bullets": [
+            "`diagnostic_apu_ram_seed` is open and useful today.",
+            "`complete_spc_snapshot` requires runtime state capture or emulation evidence.",
+            "`local_pcm_wav_export` is tooling evidence: it requires a renderer backend, output hashes, and render metrics.",
+            "`snes_spc` is a lightweight renderer lane once a suitable SPC snapshot exists.",
+            "`ares` is the accuracy-first lane for proving command delivery, runtime state, and capture timing."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "A built APU RAM image is loaded-memory evidence. A playable/exportable artifact also needs a runtime-state source, backend identity, timing basis, output hashes, and render metrics.",
+            "A renderer entry must identify whether it is describing ROM behavior or project tooling. Registers, DSP state, timers, command byte, timing basis, and backend version are tooling evidence unless they are tied directly back to ROM execution."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-audio-backend-adapter-contract",
+      "title": "Project Audio Backend Adapter Contract",
+      "summary": "Project/tooling contract for local renderer jobs, backend results, playback/export manifests, and emulator adapter evidence.",
+      "aliases": ["audio backend contract", "ares audio backend", "renderer adapter", "audio backend jobs"],
+      "maturity": "draft-narrative",
+      "keywords": ["audio", "backend", "ares", "snes_spc", "renderer", "adapter", "job", "result"],
+      "related": ["chapter-audio-pack-frontier", "chapter-audio-pack-stream-contracts", "chapter-audio-track-snapshot-contracts", "chapter-audio-spc-renderer-boundary", "topic-validation-workflows", "release-artifact-policy"],
+      "noteRefs": [
+        "notes/audio-backend-contract.md",
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md"
+      ],
+      "sections": [
+        {
+          "title": "Backend Policy",
+          "paragraphs": [
+            "The backend adapter is project infrastructure, not a ROM-content contract. It consumes payload-free job descriptions and local ROM-derived artifacts, then records whether a renderer produced valid state captures, SPC snapshots, WAV/PCM, metrics, or comparison data.",
+            "`ares` is the accuracy-first emulator lane. `snes_spc`/libgme is the lightweight render lane for suitable SPC snapshots. External reference captures from bsnes/higan, Mesen2, or Mednafen remain optional comparison tools."
+          ]
+        },
+        {
+          "title": "Artifact Boundaries",
+          "bullets": [
+            "`renderer_fixture` describes the job and points to ignored APU RAM seeds and pack transcripts; it must not embed ROM-derived bytes.",
+            "`apu_ram_seed` is a raw 65536-byte local diagnostic image and remains ignored.",
+            "`backend_job` indexes backend, track, fixture, output paths, and expected modes without carrying ROM payloads.",
+            "`backend_result` records status, hashes, diagnostics, and paths to outputs such as state captures, complete SPC snapshots, WAV/PCM, and reference comparisons.",
+            "`playback_export_manifest` collects validated local WAV/SPC outputs into an app-facing handoff object without making those outputs distributable.",
+            "Validation checks schema, output existence, byte counts, SHA-1 hashes, headers, render metrics, and quality gates. Accuracy claims still depend on the stated runtime-state source and comparison scope."
+          ]
+        },
+        {
+          "title": "Result Status",
+          "paragraphs": [
+            "The result schema supports `ok`, `failed`, `unsupported`, and `mismatch`. Those labels are scoped to the job's declared mode: a protocol dry run can be `ok` for shape, while a playback/export job is `ok` only when it writes validated audio/state outputs.",
+            "The useful diagnostics are execution mode, handshake policy, timing basis, output hashes, backend version, source-state label, and reference capture identity. They make local experiments reproducible without turning backend implementation details into ROM facts."
+          ]
+        },
+        {
+          "title": "Editing Rule",
+          "paragraphs": [
+            "Editor-facing audio contracts stay centered on ROM pack and track semantics. Backend adapters are replaceable local playback/export lanes that consume those contracts and report their own evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-editing-validation-workflow",
+      "title": "Editing And Validation Workflow",
+      "summary": "How to make changes safely: rebuild source, validate byte equivalence, inspect generated maps, and avoid over-trusting generated labels.",
+      "aliases": ["editing workflow", "validation workflow", "byte equivalence", "build candidate"],
+      "maturity": "draft-narrative",
+      "keywords": ["editing", "validation", "workflow", "byte equivalence", "build candidate", "crosscheck"],
+      "related": ["workflows", "topic-validation-workflows", "upstream-status"],
+      "noteRefs": [
+        "notes/source-readiness-triage.md",
+        "notes/source-scaffold-status.md",
+        "notes/c3-byte-equivalence-validation.md",
+        "notes/c3-assembler-contract-validation.md",
+        "notes/c3-build-candidate-range-validation.md"
+      ],
+      "sections": [
+        {
+          "title": "Workflow Shape",
+          "paragraphs": [
+            "Editing should be evidence-led: identify the owning bank or source unit, inspect relevant notes, make the narrowest change, then validate byte equivalence or documented contract output.",
+            "This workflow is a repeated practice, not a list of disconnected commands."
+          ]
+        },
+        {
+          "title": "Safety Rules",
+          "bullets": [
+            "Validate at the smallest bank/range level available before trusting a change.",
+            "Use generated source/status pages to find ownership, but use notes and source refs to understand semantics.",
+            "Do not promote generated names to final names without call/data evidence.",
+            "Document any remaining uncertainty in the entry that carries the relevant editing decision."
+          ]
+        },
+        {
+          "title": "Useful Entry Points",
+          "paragraphs": [
+            "Use the upstream status page to verify which decomp workspace generated the app. Use validation/tool entries for commands, and use narrative chapters for why the command matters."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapter-known-limits",
+      "title": "Known Limits And Confidence Boundaries",
+      "summary": "A central page for unresolved semantics, generated-label risks, incomplete asset contracts, and places where confidence should remain bounded.",
+      "aliases": ["known limits", "limits page", "confidence boundaries", "open questions"],
+      "maturity": "draft-narrative",
+      "keywords": ["known limits", "limits", "confidence", "open questions", "boundary", "unknown"],
+      "related": ["chapter-public-status-truthfulness", "semantic-frontiers", "topic-validation-workflows", "chapter-c3-script-semantics", "chapter-c3-callback-argument-semantics", "chapter-c3-movement-value-semantics", "chapter-c3-direction-facing-values", "chapter-c3-animation-template-semantics", "chapter-text-vm-localization-semantics", "chapter-table-contracts", "chapter-d5-gameplay-table-split-model", "chapter-battle-enemy-table-contracts", "chapter-d5-battle-action-field-families", "chapter-d5-enemy-configuration-field-families", "chapter-psi-menu-table-contracts", "chapter-item-equipment-table-contracts", "chapter-d5-item-action-field-families", "chapter-d5-service-destination-field-families", "chapter-d5-commerce-shop-table-contracts", "chapter-d5-character-growth-table-contracts", "chapter-d5-route-support-table-contracts", "chapter-d5-condiment-table-contracts", "chapter-d5-psi-name-display-contracts", "chapter-asset-data-contracts", "chapter-map-scene-contracts", "chapter-map-sector-scene-bundles", "chapter-map-tileset-fts-contracts", "chapter-map-palette-contracts", "chapter-map-collision-runtime-contracts", "chapter-map-tile-animation-contracts", "chapter-audio-pack-frontier", "chapter-audio-pack-stream-contracts", "chapter-audio-track-snapshot-contracts", "chapter-audio-spc-renderer-boundary", "chapter-audio-backend-adapter-contract"],
+      "noteRefs": [
+        "notes/project-status.md",
+        "notes/source-readiness-triage.md",
+        "notes/c3-actionscript-semantics-roadmap.md",
+        "notes/c3-actionscript-callback-contracts.md",
+        "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+        "notes/direction-octant-normalizers-c46a5e-c46b51.md",
+        "notes/c3-temporary-actor-movement-and-release-scripts.md",
+        "notes/text-command-semantics-manifest.md",
+        "notes/bank-d5-gameplay-table-split-plan.md",
+        "notes/d5-table-splits.md",
+        "notes/c3-late-interaction-table-contracts.md",
+        "notes/class2-d57b68-battle-action-table-match.md",
+        "notes/class2-late-flavor-tail-c2902c-c2904e.md",
+        "notes/class2-d59589-enemy-data-crosswalk.md",
+        "notes/battle-psi-ability-table-d58a50.md",
+        "notes/c3-battle-psi-menu-data-contracts.md",
+        "notes/item-byte-19-packed-class-and-slot.md",
+        "notes/timed-delivery-controller-499-500-common.md",
+        "notes/level-up-stat-growth-helper-c1d08b.md",
+        "notes/level-up-stat-gain-text-family-c1d15b-d76d.md",
+        "notes/statistic-selector-family-c4550f-c3ee7a.md",
+        "notes/class2-cc19-20-eshop2-single-use.md",
+        "notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md",
+        "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+        "notes/asset-manifest-generation-status.md",
+        "notes/map-milestone-closure.md",
+        "notes/map-sector-bundles.md",
+        "notes/map-tileset-bundles.md",
+        "notes/map-fts-format-audit.md",
+        "notes/map-collision-runtime-bit-contract.md",
+        "notes/map-tile-animation-runtime-contract.md",
+        "notes/bank-e2-ee-audio-pack-run.md",
+        "notes/audio-pack-format-and-renderer-frontier.md",
+        "notes/audio-spc-state-frontier.md",
+        "notes/audio-backend-contract.md"
+      ],
+      "sections": [
+        {
+          "title": "Why This Page Exists",
+          "paragraphs": [
+            "Known limits are unresolved evidence boundaries. They mark where a generated page, table split, asset contract, or tool result is useful but not yet enough for a stronger claim.",
+            "This page groups unresolved script semantics, fragile generated labels, incomplete data contracts, table fields that still need caller-side proof, and tooling results that should not be mistaken for ROM facts."
+          ]
+        },
+        {
+          "title": "No Longer Limits",
+          "paragraphs": [
+            "Some items can now leave the broad unknown bucket. C3 event/actionscript parsing is closed at first-pass quality, several C3 value-family contracts are teachable, D5 post-pad table splitting is reconciled, the major D5 gameplay field families and smaller support-table families have first authored pages, condiment and PSI display rows have focused chapters, the map object bundle layer is usable, the map scene substrate has authored contract pages, the battle PSI ability table has a strong row model, and audio packs now have first stream and track snapshot contracts.",
+            "Those are not finished editors. They are mature enough to be taught as contracts: the remaining work is field naming, value semantics, authoring UX, consumer-specific edge cases, and runtime proof where playback or rendering claims depend on hardware state."
+          ]
+        },
+        {
+          "title": "Current Limit Categories",
+          "bullets": [
+            "Semantic names that are plausible but not proven.",
+            "C3 callback arguments whose byte shape is known but whose helper-specific authoring meaning is still literal.",
+            "C3 movement, direction, facing, and animation values that are family-local rather than global enums.",
+            "Text/localization macros with strong structural lowering evidence but incomplete compiler-grade expansion rules.",
+            "Runtime table fields with row-shape proof but only partial consumer-side names.",
+            "Asset payloads with source ranges but no visual, structural, or runtime-selector fixture.",
+            "ROM-backed enrichments that should remain optional local cache data.",
+            "Generated pages that are useful references but not yet educational chapters.",
+            "Map collision low bits `0x01/0x02`, DA palette metadata words, and text/common palette preview joining.",
+            "Item byte `+0x19` low bits `0..1` and high bits `6..7`, plus battle/enemy table tail fields that still need caller-side proof.",
+            "Audio pages that need a clear split between ROM facts, local ROM-derived outputs, and project playback/export tooling."
+          ]
+        },
+        {
+          "title": "C3 Specific Limits",
+          "bullets": [
+            "Movement presets: pulse tasks and setup helpers are strong, while some `C0:A685` parameter pairs should remain literal until the underlying current-slot fields are named.",
+            "Direction/facing: octant conversion and sprite-facing refresh behavior are proved, but player-visible labels for all `0..7` values and boundary-bias differences remain open.",
+            "Animation templates: `V0` and `V4` roles are strong inside specific template families, but they should not be treated as universal variable names across all C3 scripts.",
+            "Callback arguments: common schemas are now readable, but each friendly operand name still belongs to the target helper's evidence level.",
+            "Source pilots: many source-form seams validate byte-for-byte, but some are intentionally not wired into the main C3 scaffold yet."
+          ]
+        },
+        {
+          "title": "D5 Specific Limits",
+          "bullets": [
+            "D5 split model: row ranges and strides are reconciled, while `UNKNOWN_D57A70` remains a bounded exact-boundary unknown island.",
+            "Battle action rows: early and many late families are teachable, but some tail rows and reference-assisted names still need caller-side proof before final symbolic promotion.",
+            "Enemy rows: table identity, text pointers, row, final-action fields, and battler initialization links are strong, but not every `0x5E` byte has a local consumer name.",
+            "Item rows: broad class bits, equipment slot subtype, name display, and battle action word are strong; unresolved packed bits should remain preserved literals.",
+            "Service rows: landing destinations, timed delivery rows, shop inventory rows, character-growth rows, and route/support rows are now structured, but several fields still need deeper consumer-side proof before final naming."
+          ]
+        },
+        {
+          "title": "Map Specific Limits",
+          "bullets": [
+            "Sector and scene rows are stable inventory roots, but ignored preview rendering still needs to be generated from local payloads.",
+            "Ten sector-used tileset IDs have palette settings and scene use but no direct local `.fts` export.",
+            "Palette descriptor slots `0..1` still belong to common/text palette space and need preview-tool joining.",
+            "DA palette metadata words are structurally explained but not all runtime behavior is named.",
+            "Collision low bits `0x01/0x02` are preserved surface modifier bits, not final gameplay labels.",
+            "FTS animation/settings rows and EF/C0 tile-animation upload scripts are related but remain separate contract layers."
+          ]
+        },
+        {
+          "title": "Audio Specific Limits",
+          "bullets": [
+            "Audio pack streams are now structurally parsed and validated, but internal sample, instrument, and sequence semantics remain a later layer.",
+            "APU RAM seeds are diagnostic 64 KiB memory images, not complete `.spc` snapshots.",
+            "Complete playback/export claims must identify the SPC700 CPU registers, DSP registers, timer/control state, APUIO mailbox state, driver-start timing, elapsed cycles, and capture source used by the renderer.",
+            "Representative local playback/export now has validated SPC/WAV evidence, but that evidence is project tooling output, not checked-in ROM content.",
+            "Generated `build/audio` outputs are ROM-derived local artifacts and stay ignored.",
+            "The large `EE:9201..EE:FFFF` tail region remains an audio-bank boundary note rather than an explained authoring object."
+          ]
+        },
+        {
+          "title": "Table Specific Limits",
+          "bullets": [
+            "Battle action table: early rows and several later C2 body families are strong, but some tail rows remain presentation-heavy or caller-thin.",
+            "Enemy configuration table: row identity and several fields are strong, but not every `0x5E` field has local consumer names.",
+            "PSI menu tables: D5 ability rows, PSI name rows, display helpers, and the main C1 helpers are strong, while `C3:F054..F0B0` and the exact decode of encoded C3 menu-entry rows remain softer internal splits.",
+            "Item configuration table: row boundary, item name, broad class, equipment slot subtype, and battle item action word are strong; unresolved bitfields should remain literal.",
+            "Map object tables: placement/object bundles are strong, but full event/actionscript semantics remain separate work."
+          ]
+        },
+        {
+          "title": "Promotion Queue",
+          "paragraphs": [
+            "The strongest next promotions are narrow field-family chapters: NPC AI bytes, concrete shop selector paths, C3 encoded PSI menu row decoding, map preview/editor rules, audio runtime state capture, and eventually the sample/instrument/sequence split.",
+            "Each promotion needs the same minimum shape: storage range, row or field width, direct consumers, reference-assisted names if used, remaining unknowns, and an editor-facing rule."
+          ]
+        },
+        {
+          "title": "Promotion Rule",
+          "paragraphs": [
+            "A generated entry becomes curated when it explains what a reader can safely infer and what remains out of scope. This page keeps those promotion decisions visible."
+          ]
+        }
+      ]
+    }
+  ]
+}

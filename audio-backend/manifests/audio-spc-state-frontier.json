@@ -1,0 +1,926 @@
+{
+  "schema": "earthbound-decomp.audio-spc-state-frontier.v1",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "generated_audio_output_root": "build/audio"
+  },
+  "status": "apu_ram_seed_complete_spc_snapshot_not_yet_complete",
+  "contract_summary": {
+    "pack_count": 169,
+    "track_count": 192,
+    "pointer_count": 169,
+    "stream_status_counts": {
+      "ok": 169
+    }
+  },
+  "implemented_outputs": [
+    {
+      "artifact": "audio_pack_contract",
+      "status": "implemented",
+      "path": "manifests/audio-pack-contracts.json",
+      "validation": "tools/validate_audio_pack_contracts.py"
+    },
+    {
+      "artifact": "single_track_apu_ram_seed",
+      "status": "implemented_local_generated_ignored",
+      "path_pattern": "build/audio/track-###-name.apu-ram.bin",
+      "builder": "tools/build_audio_track_snapshot.py"
+    },
+    {
+      "artifact": "representative_apu_ram_seed_corpus",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/corpus/audio-snapshot-corpus.json",
+      "builder": "tools/build_audio_snapshot_corpus.py",
+      "validation": "tools/validate_audio_snapshot_corpus.py"
+    },
+    {
+      "artifact": "renderer_input_fixtures",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/renderer-fixtures/audio-renderer-fixtures.json",
+      "builder": "tools/build_audio_renderer_fixtures.py",
+      "validation": "tools/validate_audio_renderer_fixtures.py"
+    },
+    {
+      "artifact": "backend_job_queue",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-jobs.json",
+      "builder": "tools/build_audio_backend_jobs.py",
+      "validation": "tools/validate_audio_backend_jobs.py"
+    },
+    {
+      "artifact": "single_backend_job_runner",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-track-046-onett/result.json",
+      "builder": "tools/run_audio_backend_job.py",
+      "validation": "tools/validate_audio_backend_result.py"
+    },
+    {
+      "artifact": "external_backend_stub_harness",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-track-046-onett/result.json",
+      "builder": "tools/audio_backend_stub_harness.py",
+      "validation": "tools/run_audio_backend_job.py --mode external"
+    },
+    {
+      "artifact": "native_ares_diagnostic_harness",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-audio-harness-msvc/RelWithDebInfo/earthbound_ares_audio_harness.exe",
+      "builder": "tools/ares_audio_harness/CMakeLists.txt",
+      "validation": "tools/run_audio_backend_job.py ares-track-046-onett --mode native-ares",
+      "current_capability": "imports verified APU RAM seeds, captures public register preflight state, probes the $0500 driver entry with ares' SPC700 disassembler, runs a timer0-aware diagnostic SPC700 shim plus APUIO0 track-command preseed past the old $FD wait into track-specific update code, and emits diagnostic SPC snapshots"
+    },
+    {
+      "artifact": "diagnostic_complete_spc_snapshot",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/<job-id>/diagnostic-driver-state.spc",
+      "builder": "tools/ares_audio_harness/CMakeLists.txt",
+      "validation": "tools/validate_audio_backend_result.py",
+      "current_capability": "builds a structurally valid SNES-SPC700 container from the diagnostic probe's APU RAM, SPC700 registers, and DSP registers; not yet treated as faithful playback state"
+    },
+    {
+      "artifact": "diagnostic_spc_snapshot_index",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/diagnostic-spc-snapshots.json",
+      "builder": "tools/collect_audio_diagnostic_spc_snapshots.py",
+      "validation": "tools/validate_audio_diagnostic_spc_snapshots.py",
+      "current_capability": "indexes generated diagnostic SPC containers, header registers, RAM/DSP hashes, and declared output integrity for the representative corpus"
+    },
+    {
+      "artifact": "snes_spc_diagnostic_adapter",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/snes_spc-result-summary.json",
+      "builder": "tools/snes_spc_diagnostic_harness.py",
+      "validation": "tools/run_audio_backend_batch.py --jobs build/audio/backend-jobs/snes_spc-jobs.json --summary build/audio/backend-jobs/snes_spc-result-summary.json --mode external --force --external python tools/snes_spc_diagnostic_harness.py --job \"{job}\" --result \"{result}\"",
+      "current_capability": "exercises the snes_spc backend job/result adapter by copying validated diagnostic SPC inputs and writing readiness metadata without linking the renderer library yet"
+    },
+    {
+      "artifact": "libgme_diagnostic_wav_renderer",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/snes_spc-track-###-name/diagnostic-libgme-render.wav",
+      "builder": "tools/libgme_audio_harness/CMakeLists.txt",
+      "validation": "tools/run_audio_backend_batch.py --jobs build/audio/backend-jobs/snes_spc-jobs.json --summary build/audio/backend-jobs/snes_spc-result-summary.json --mode external --force --external build/audio/libgme-audio-harness-msvc/RelWithDebInfo/earthbound_libgme_audio_harness.exe --job \"{job}\" --result \"{result}\"",
+      "current_capability": "renders job-specified WAVs from fused CHANGE_MUSIC/key-on SPC snapshots through out-of-tree libgme; proves the lightweight renderer/export path while emulator-oracle comparison remains pending"
+    },
+    {
+      "artifact": "libgme_render_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/libgme-render-metrics.json",
+      "builder": "tools/collect_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics.py",
+      "current_capability": "summarizes rendered WAV energy and classifies diagnostic snapshot captures as silent, click/trace, very quiet, or audible"
+    },
+    {
+      "artifact": "ares_capture_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-capture-metrics.json",
+      "builder": "tools/collect_audio_capture_metrics.py",
+      "validation": "tools/validate_audio_capture_metrics.py",
+      "current_capability": "summarizes ares diagnostic probe behavior, including DSP key-on/key-off counts and the capture-boundary diagnosis"
+    },
+    {
+      "artifact": "keyon_primed_spc_experiment",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/keyon-primed-spc/keyon-primed-spc-snapshots.json",
+      "builder": "tools/build_audio_keyon_primed_spc_experiment.py",
+      "validation": "tools/validate_audio_keyon_primed_spc_experiment.py",
+      "current_capability": "patches diagnostic SPC DSP KON/KOF registers from observed key-on data to test whether capture timing, not renderer plumbing, explains quiet renders"
+    },
+    {
+      "artifact": "keyon_primed_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/keyon-primed-jobs/render-metrics-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "compares baseline diagnostic renders against key-on-primed renders and records improved/unchanged/worsened tracks"
+    },
+    {
+      "artifact": "last_keyon_spc_experiment",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/last-keyon-spc/last-keyon-spc-snapshots.json",
+      "builder": "tools/build_audio_last_keyon_spc_experiment.py",
+      "validation": "tools/validate_audio_last_keyon_spc_experiment.py",
+      "current_capability": "indexes real diagnostic ares snapshots captured at the last nonzero DSP KON write rather than patching SPC headers after the fact"
+    },
+    {
+      "artifact": "last_keyon_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/last-keyon-jobs/last-keyon-vs-baseline-render-comparison.json",
+      "builder": "tools/run_audio_last_keyon_experiment.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "compares baseline diagnostic renders against real last-key-on renders; current corpus improves 20 tracks, leaves 0 unchanged, and worsens 0"
+    },
+    {
+      "artifact": "audio_runtime_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/last-keyon-jobs/audio-runtime-frontier.json",
+      "builder": "tools/collect_audio_runtime_frontier.py",
+      "validation": "tools/validate_audio_runtime_frontier.py",
+      "current_capability": "joins ares capture evidence, last-key-on SPC snapshots, render metrics, comparisons, command injection/read ordering, and shortcut audit into one regression report"
+    },
+    {
+      "artifact": "audio_cpu_mailbox_contract",
+      "status": "implemented",
+      "path": "manifests/audio-cpu-mailbox-contract.json",
+      "builder": "tools/build_audio_cpu_mailbox_contract.py",
+      "validation": "tools/validate_audio_cpu_mailbox_contract.py",
+      "current_capability": "pins the CPU-side C0:ABBD $2140 write, APU-side $062A/$F4 read and zero acknowledgement write, and ares CPU/SMP mailbox bridge entry points as the next faithful replacement target"
+    },
+    {
+      "artifact": "ares_smp_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-smp-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "loads generated APU RAM seeds into ares' real SMP/DSP objects, delivers the track command through a timed smp.portWrite at the $062A command-read boundary, reaches key-on across the representative corpus, and writes real-SMP key-on SPC snapshots"
+    },
+    {
+      "artifact": "ares_smp_mailbox_spc_index",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-smp-mailbox-spc/ares-smp-mailbox-spc-snapshots.json",
+      "builder": "tools/build_audio_ares_smp_mailbox_spc_index.py",
+      "validation": "tools/validate_audio_ares_smp_mailbox_spc_index.py",
+      "current_capability": "indexes the real ares SMP mailbox key-on snapshots for snes_spc/libgme jobs and validates SPC signatures, source hashes, and nonzero KON state"
+    },
+    {
+      "artifact": "ares_smp_mailbox_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-smp-mailbox-render-jobs/smp-mailbox-vs-baseline-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders the real ares SMP mailbox snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus the custom last-key-on corpus, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_cpu_writeapu_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-cpu-writeapu-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery cpu_writeapu",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "delivers the track command through ares' CPU-side writeAPU($2140, track) bridge at the $062A command-read boundary and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_cpu_writeapu_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-cpu-writeapu-mailbox-render-jobs/cpu-writeapu-vs-smp-portwrite-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders CPU-side writeAPU snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus direct ares smp.portWrite, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_sta2140_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-sta2140-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_sta2140",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes a modeled WDC65816 prefix of C0:ABBD (`sep #$20; sta $002140`) at the $062A command-read boundary, routes the resulting bus write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_sta2140_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-sta2140-mailbox-render-jobs/wdc65816-vs-cpu-writeapu-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders modeled WDC65816 STA $2140 snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus CPU-side writeAPU, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_full_c0abbd_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-c0abbd-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_c0abbd",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes modeled WDC65816 bytes for the full C0:ABBD routine (`sep #$20; sta $002140; rep #$30; rtl`), routes the bus write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_full_c0abbd_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-c0abbd-mailbox-render-jobs/full-c0abbd-vs-sta2140-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders modeled full C0:ABBD snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus the STA $2140 prefix probe, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "audio_cpu_routine_fixtures",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/cpu-routine-fixtures/audio-cpu-routine-fixtures.json",
+      "builder": "tools/build_audio_cpu_routine_fixtures.py",
+      "validation": "tools/validate_audio_cpu_routine_fixtures.py",
+      "current_capability": "extracts byte-checked CPU routine fixtures from the user-provided ROM; the C0:ABBD fixture proves the real routine uses long-addressed STA $002140 bytes"
+    },
+    {
+      "artifact": "ares_wdc65816_rom_c0abbd_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-rom-c0abbd-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_rom_c0abbd",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes ROM-derived C0:ABBD bytes (`sep #$20; sta.l $002140; rep #$30; rtl`) at the $062A command-read boundary, routes the bus write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_rom_c0abbd_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-rom-c0abbd-mailbox-render-jobs/rom-c0abbd-vs-modeled-c0abbd-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders ROM-derived C0:ABBD snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus the modeled full C0:ABBD probe, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_rom_c0abbd_jsl_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-rom-c0abbd-jsl-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_rom_c0abbd_jsl",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes a modeled JSL caller into ROM-derived C0:ABBD bytes mapped at C0:ABBD, lets RTL return through the modeled CPU stack, routes the bus write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_rom_c0abbd_jsl_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-rom-c0abbd-jsl-mailbox-render-jobs/rom-c0abbd-jsl-vs-direct-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders ROM-derived C0:ABBD JSL-call snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus direct ROM-derived C0:ABBD, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_change_music_tail_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-change-music-tail-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_change_music_tail",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes ROM-derived C4:FD0E CHANGE_MUSIC tail bytes, seeds direct-page $10 with the zero-based track index, computes the one-based command via LDY/TYA/INC, calls C0:ABBD, returns through PLD/RTL, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_change_music_tail_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-change-music-tail-mailbox-render-jobs/change-music-tail-vs-c0abbd-jsl-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders CHANGE_MUSIC tail snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus ROM-derived C0:ABBD JSL-call snapshots, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_full_change_music",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes ROM-derived C4:FBBD CHANGE_MUSIC bytes under a documented pre-satisfied pack state, serves MusicDatasetTable reads from a ROM-derived fixture, lets the routine compute the one-based command and call C0:ABBD, routes the bus write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-mailbox-render-jobs/full-change-music-vs-tail-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders full CHANGE_MUSIC pre-satisfied-pack snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus CHANGE_MUSIC tail snapshots, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_load_stub_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-load-stub-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_full_change_music_load_stub",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "executes ROM-derived C4:FBBD CHANGE_MUSIC bytes with current pack state intentionally unsatisfied, serves MusicDatasetTable and MusicPackPointerTable reads from ROM-derived fixtures, records and stubs LOAD_SPC700_DATA calls, routes the final C0:ABBD write through ares' CPU/APU bridge, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_load_stub_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-load-stub-mailbox-smoke-jobs/change-music-load-stub-metrics.json",
+      "builder": "tools/collect_audio_change_music_load_stub_metrics.py",
+      "validation": "tools/validate_audio_change_music_load_stub_metrics.py",
+      "current_capability": "compares the recorded LOAD_SPC700_DATA A/X call arguments against MusicDatasetTable and MusicPackPointerTable; current corpus has 0 mismatches with call-count distribution 2:2 and 3:18"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_load_stub_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-load-stub-mailbox-render-jobs/full-change-music-load-stub-vs-presatisfied-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders full CHANGE_MUSIC load-path-stub snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus full CHANGE_MUSIC pre-satisfied-pack snapshots, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "audio_load_stream_transfer_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/load-stream-transfer/load-stream-transfer-metrics.json",
+      "builder": "tools/collect_audio_load_stream_transfer_metrics.py",
+      "validation": "tools/validate_audio_load_stream_transfer_metrics.py",
+      "current_capability": "semantically replays cold-start LOAD_SPC700_DATA pack streams into APU RAM, validates the replayed RAM against the generated corpus, and confirms recorded full CHANGE_MUSIC load-stub A/X arguments match each track's table-derived pack order"
+    },
+    {
+      "artifact": "c0ab06_loader_contract",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-loader/c0ab06-loader-contract.json",
+      "builder": "tools/collect_audio_c0ab06_loader_contract.py",
+      "validation": "tools/validate_audio_c0ab06_loader_contract.py",
+      "current_capability": "anchors the semantic stream-application/load-apply evidence to the byte-checked ROM-derived C0:AB06 LOAD_SPC700_DATA routine and verifies the selected stream totals match the load-apply probe"
+    },
+    {
+      "artifact": "c0ab06_loader_handshake_corpus",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-loader-handshake/c0ab06-loader-handshake-summary.json",
+      "builder": "tools/run_audio_c0ab06_loader_handshake_corpus.py",
+      "validation": "tools/validate_audio_c0ab06_loader_handshake_corpus.py",
+      "current_capability": "executes the ROM-derived C0:AB06 LOAD_SPC700_DATA routine through ares' WDC65816 core against a modeled APUIO receiver and verifies all selected stream occurrences match expected payload, block-token, terminal-token, return-PC, per-block final-region hash, and full APU RAM reconstruction evidence"
+    },
+    {
+      "artifact": "c0ab06_real_ipl_receiver_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-real-ipl-frontier/c0ab06-real-ipl-frontier.json",
+      "builder": "tools/collect_audio_c0ab06_real_ipl_frontier.py",
+      "validation": "tools/validate_audio_c0ab06_real_ipl_frontier.py",
+      "current_capability": "executes the ROM-derived C0:AB06 LOAD_SPC700_DATA routine through ares' WDC65816 core against the real ares SMP IPL receiver, validates payload-region equality for every selected unique pack stream, and proves pack 1 completes the terminal handoff back to the CPU loader"
+    },
+    {
+      "artifact": "c0ab06_post_bootstrap_reload_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-post-bootstrap-frontier/c0ab06-post-bootstrap-frontier.json",
+      "builder": "tools/collect_audio_c0ab06_post_bootstrap_frontier.py",
+      "validation": "tools/validate_audio_c0ab06_post_bootstrap_frontier.py",
+      "current_capability": "boots pack 1 through the real ares SMP IPL receiver, keeps the game driver alive, then reloads every non-bootstrap selected unique pack through the running driver with payload-region equality against ROM-derived expectations"
+    },
+    {
+      "artifact": "c0ab06_continuous_track_load_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-continuous-track-load-frontier/c0ab06-continuous-track-load-frontier.json",
+      "builder": "tools/collect_audio_c0ab06_continuous_track_load_frontier.py",
+      "validation": "tools/validate_audio_c0ab06_continuous_track_load_frontier.py",
+      "current_capability": "boots pack 1 once through the real ares SMP IPL receiver, loads each representative track's full selected pack sequence through the running game driver, validates stable payload regions, and marks live driver/overlay code as mutable runtime state"
+    },
+    {
+      "artifact": "change_music_continuous_sequence_contract",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/change-music-continuous-sequence-contract/change-music-continuous-sequence-contract.json",
+      "builder": "tools/collect_audio_change_music_continuous_sequence_contract.py",
+      "validation": "tools/validate_audio_change_music_continuous_sequence_contract.py",
+      "current_capability": "joins the real CHANGE_MUSIC load-stub call order, byte-checked C0:AB06 loader-contract stream order, and continuous real-driver C0:AB06 sequence order; the representative corpus matches 20/20"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-frontier/c0ab06-change-music-fusion-frontier.json",
+      "builder": "tools/collect_audio_c0ab06_change_music_fusion_frontier.py",
+      "validation": "tools/validate_audio_c0ab06_change_music_fusion_frontier.py",
+      "current_capability": "boots pack 1 through the real IPL, executes full ROM-derived CHANGE_MUSIC, lets real JSL C0:AB06 calls stream through the running game driver, sends the final C0:ABBD command, validates 20/20 representative runs plus stable payload-region equality, and now also validates 191/191 all-track load paths plus stable payload-region equality with 190 key-on snapshots and one explicit NONE2 load-ok/no-key-on record"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_spc_index",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-spc/c0ab06-change-music-fusion-spc-snapshots.json",
+      "builder": "tools/build_audio_c0ab06_change_music_fusion_spc_index.py",
+      "validation": "tools/validate_audio_ares_smp_mailbox_spc_index.py",
+      "current_capability": "indexes the fused CHANGE_MUSIC/C0:AB06 last-key-on SPC snapshots for snes_spc/libgme jobs; current representative corpus has 20/20 valid snapshots"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_render_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-render-jobs/libgme-render-metrics.json",
+      "builder": "tools/run_audio_backend_batch.py",
+      "validation": "tools/validate_audio_backend_result_summary.py",
+      "current_capability": "renders fused CHANGE_MUSIC/C0:AB06 key-on SPC snapshots through libgme; current representative corpus has 20/20 successful backend jobs and 20/20 audible render classifications"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_all_track_spc_and_jobs",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-spc-all/c0ab06-change-music-fusion-spc-all-snapshots.json",
+      "builder": "tools/build_audio_c0ab06_change_music_fusion_spc_index.py; tools/build_audio_backend_jobs_from_spc_index.py",
+      "validation": "tools/validate_audio_ares_smp_mailbox_spc_index.py --allow-missing-snapshots; tools/validate_audio_backend_jobs.py",
+      "current_capability": "indexes all-track fused CHANGE_MUSIC/C0:AB06 key-on snapshots and builds renderer jobs directly from that snapshot index, skipping known no-snapshot/no-key-on records such as NONE2; current broad corpus has 190/191 snapshots and 190 render jobs"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_all_track_render_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/libgme-render-metrics.json",
+      "builder": "tools/run_audio_backend_batch.py; tools/collect_audio_render_metrics.py",
+      "validation": "tools/validate_audio_backend_result_summary.py; tools/validate_audio_render_metrics.py",
+      "current_capability": "renders all snapshot-backed fused CHANGE_MUSIC/C0:AB06 tracks through libgme; current broad corpus has 190/190 valid backend results and 190/190 audible render classifications"
+    },
+    {
+      "artifact": "c0ab06_change_music_fusion_all_track_timing_metrics",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-frontier-all/c0ab06-change-music-fusion-timing-metrics.json",
+      "builder": "tools/collect_audio_fusion_timing_metrics.py",
+      "validation": "tools/validate_audio_fusion_timing_metrics.py",
+      "current_capability": "summarizes zero-burst post-command timing for the all-track fusion frontier: 191/191 command-read/zero-ack observations and 190/190 key-on observations after acknowledgement"
+    },
+    {
+      "artifact": "audio_playback_export_manifest_all_track",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/playback-export-manifest.json",
+      "builder": "tools/build_audio_playback_export_manifest.py",
+      "validation": "tools/validate_audio_playback_export_manifest.py",
+      "current_capability": "builds the local app/porter handoff for all snapshot-backed rendered tracks, including output hashes, render metrics, ROM-derived distribution policy, and skipped table entries such as NONE2"
+    },
+    {
+      "artifact": "audio_dependency_policy",
+      "status": "implemented",
+      "path": "manifests/audio-dependency-policy.json",
+      "builder": "tools/build_audio_dependency_policy.py",
+      "validation": "tools/validate_audio_dependency_policy.py",
+      "current_capability": "records backend license posture, observed local checkout commits, generated-output distribution policy, and release gates for ares, libgme, and optional GPL reference emulators"
+    },
+    {
+      "artifact": "audio_export_duration_policy",
+      "status": "implemented",
+      "path": "manifests/audio-export-duration-policy.json",
+      "builder": "tools/build_audio_export_duration_policy.py",
+      "validation": "tools/validate_audio_export_duration_policy.py",
+      "current_capability": "records that current 30-second renders are diagnostic previews, and separates finite, looping, no-audio, and unknown duration classes before exact-length export claims"
+    },
+    {
+      "artifact": "audio_export_duration_measurements",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/export-duration-measurements/export-duration-measurements.json",
+      "builder": "tools/collect_audio_export_duration_measurements.py",
+      "validation": "tools/validate_audio_export_duration_measurements.py",
+      "current_capability": "measures the current 30-second rendered WAV corpus for sustained trailing silence, records preview-derived finite-end candidates, and refuses to promote diagnostic-preview-only evidence to release exact-length readiness"
+    },
+    {
+      "artifact": "audio_export_plan",
+      "status": "implemented",
+      "path": "manifests/audio-export-plan.json",
+      "builder": "tools/build_audio_export_plan.py",
+      "validation": "tools/validate_audio_export_plan.py",
+      "current_capability": "combines duration policy, 30-second measurements, targeted 120-second finite-candidate measurements, and all-track near-oracle confidence into per-track export modes for app/CLI consumption"
+    },
+    {
+      "artifact": "audio_sequence_semantics_frontier",
+      "status": "implemented",
+      "path": "manifests/audio-sequence-semantics-frontier.json",
+      "builder": "tools/build_audio_sequence_semantics_frontier.py",
+      "validation": "tools/validate_audio_sequence_semantics_frontier.py",
+      "current_capability": "inventories `119` sequence packs and `170` sequence payload blocks, records pointer-prefix candidates and observed high-command histograms, and connects export-pressure classes to the packs that need exact loop/end semantics"
+    },
+    {
+      "artifact": "audio_sequence_control_flow_frontier",
+      "status": "implemented",
+      "path": "manifests/audio-sequence-control-flow-frontier.json",
+      "builder": "tools/build_audio_sequence_control_flow_frontier.py",
+      "validation": "tools/validate_audio_sequence_control_flow_frontier.py",
+      "current_capability": "isolates `EF/FD/FE/FF` candidates from sequence bodies, records pointer-shaped operand evidence, and shows `EF` has a strong same-block pointer profile while `FD/FE/FF` still need SPC700 dispatch or sequence-walker corroboration"
+    },
+    {
+      "artifact": "audio_sequence_walk_frontier",
+      "status": "implemented",
+      "path": "manifests/audio-sequence-walk-frontier.json",
+      "builder": "tools/build_audio_sequence_walk_frontier.py",
+      "validation": "tools/validate_audio_sequence_walk_frontier.py",
+      "current_capability": "walks `119` sequence packs from pointer roots with a provisional width table, records `2007` EF call edges, tracks `159` FF terminator candidates, and isolates `FD/FE` as unpromoted exact-duration blockers"
+    },
+    {
+      "artifact": "audio_exact_duration_triage",
+      "status": "implemented",
+      "path": "manifests/audio-exact-duration-triage.json",
+      "builder": "tools/build_audio_exact_duration_triage.py",
+      "validation": "tools/validate_audio_exact_duration_triage.py",
+      "current_capability": "sorts `119` walked sequence packs into `92` FF-terminator review candidates, `22` FD/FE-blocked packs, `4` loop/fallthrough packs, and `1` no-action pack so exact-duration work has a bounded queue"
+    },
+    {
+      "artifact": "audio_ebdecompile_ref_alignment",
+      "status": "implemented",
+      "path": "manifests/audio-ebdecompile-ref-alignment.json",
+      "builder": "tools/build_audio_ebdecompile_ref_alignment.py",
+      "validation": "tools/validate_audio_ebdecompile_ref_alignment.py",
+      "current_capability": "compares eb-decompile `songs.yml` and extracted `.ebm` files against this project's contract blocks; `169 / 171` direct song files match payload, destination, and contract sequence pack, with the two misses isolated to pack 1 in-engine/sub-song handling"
+    },
+    {
+      "artifact": "audio_oracle_comparison_plan",
+      "status": "implemented",
+      "path": "manifests/audio-oracle-comparison-plan.json",
+      "builder": "tools/build_audio_oracle_comparison_plan.py",
+      "validation": "tools/validate_audio_oracle_comparison_plan.py",
+      "current_capability": "pins the first emulator-oracle gate as 20 representative fused snapshot playback/export jobs, with ignored reference-capture outputs and SPC/header/RAM/DSP/PCM comparison levels"
+    },
+    {
+      "artifact": "audio_oracle_comparison_plan_all_tracks",
+      "status": "implemented",
+      "path": "manifests/audio-oracle-comparison-plan-all-tracks.json",
+      "builder": "tools/build_audio_oracle_comparison_plan.py --all-tracks",
+      "validation": "tools/validate_audio_oracle_comparison_plan.py manifests/audio-oracle-comparison-plan-all-tracks.json",
+      "current_capability": "stages the full `190` rendered-track playback corpus as oracle comparison jobs without overwriting the representative plan's imported reference captures"
+    },
+    {
+      "artifact": "audio_oracle_comparison_summary",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/oracle-comparison/oracle-comparison-summary.json",
+      "builder": "tools/collect_audio_oracle_comparison_results.py",
+      "validation": "tools/validate_audio_oracle_comparison_summary.py",
+      "current_capability": "writes per-track oracle comparison result records; current ares-managed full CHANGE_MUSIC/load-apply near-oracle captures classify 20 / 20 representative jobs as audio_equivalent_state_delta with exact PCM equivalence"
+    },
+    {
+      "artifact": "audio_oracle_verification_report",
+      "status": "implemented",
+      "path": "manifests/audio-oracle-verification-report.json",
+      "builder": "tools/build_audio_oracle_verification_report.py",
+      "validation": "tools/validate_audio_oracle_verification_report.py",
+      "current_capability": "rolls oracle comparison results into release gates, currently marking the representative near-oracle passed while independent external-emulator and all-track gates remain open"
+    },
+    {
+      "artifact": "audio_oracle_verification_report_all_tracks",
+      "status": "implemented",
+      "path": "manifests/audio-oracle-verification-report-all-tracks.json",
+      "builder": "tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "validation": "tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json",
+      "current_capability": "marks the all-track near-oracle gate passed for 190 / 190 rendered tracks, while keeping the independent external-emulator gate open before a final release-quality claim"
+    },
+    {
+      "artifact": "audio_oracle_reference_importer",
+      "status": "implemented",
+      "path": "tools/import_audio_oracle_reference_capture.py",
+      "validation": "tools/collect_audio_oracle_comparison_results.py then tools/validate_audio_oracle_comparison_summary.py",
+      "current_capability": "imports one externally captured oracle SPC/WAV pair into the planned ignored output paths with capture metadata and hashes"
+    },
+    {
+      "artifact": "audio_oracle_self_reference_populator",
+      "status": "implemented",
+      "path": "tools/populate_audio_oracle_self_reference.py",
+      "validation": "tools/collect_audio_oracle_comparison_results.py then tools/validate_audio_oracle_comparison_summary.py --require-compared",
+      "current_capability": "fills planned oracle reference slots with exact copies of current fused playback/export artifacts; current self-reference smoke classifies 20 / 20 representative jobs as exact pass before independent emulator captures"
+    },
+    {
+      "artifact": "audio_oracle_backend_summary_importer",
+      "status": "implemented",
+      "path": "tools/import_audio_oracle_references_from_backend_summary.py",
+      "validation": "tools/collect_audio_oracle_comparison_results.py then tools/validate_audio_oracle_comparison_summary.py --require-compared",
+      "current_capability": "imports complete_spc_snapshot and rendered_wav outputs from a backend result summary into planned oracle reference slots"
+    },
+    {
+      "artifact": "audio_bootstrap_snapshot_corpus",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/bootstrap-corpus/audio-bootstrap-snapshot-corpus.json",
+      "builder": "tools/build_audio_bootstrap_snapshot_corpus.py",
+      "validation": "tools/validate_audio_snapshot_corpus.py",
+      "current_capability": "builds bootstrap-only APU RAM seeds for the representative corpus so the smoke harness can load track-specific packs at runtime instead of starting from complete track RAM"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_load_apply_mailbox_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-load-apply-mailbox-smoke-jobs/smp-mailbox-smoke-summary.json",
+      "builder": "tools/run_audio_ares_smp_mailbox_smoke.py --delivery wdc65816_full_change_music_load_apply",
+      "validation": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "current_capability": "starts from bootstrap-only APU RAM, executes full ROM-derived CHANGE_MUSIC pack-decision branches, semantically applies selected LOAD_SPC700_DATA streams from ROM bytes into ares APU RAM, sends the track command, and reaches command read, zero ack, key-on, and valid SPC snapshots across the representative corpus"
+    },
+    {
+      "artifact": "ares_wdc65816_full_change_music_load_apply_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-wdc65816-full-change-music-load-apply-mailbox-render-jobs/full-change-music-load-apply-vs-load-stub-render-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "renders full CHANGE_MUSIC load-apply snapshots through libgme; the current corpus is 20 audible tracks, unchanged versus load-stub snapshots, and improved on all 20 tracks versus baseline final-state diagnostic snapshots"
+    },
+    {
+      "artifact": "command_timing_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/command-on-first-read-jobs/command-timing-frontier.json",
+      "builder": "tools/run_audio_ares_command_timing_experiment.py",
+      "validation": "tools/validate_audio_command_timing_frontier.py",
+      "current_capability": "runs the representative ares corpus with diagnostic APUIO0 command injection delayed until the driver first reads port 0, proving the audible key-on boundary still follows the command-read event"
+    },
+    {
+      "artifact": "audio_mailbox_frontier",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/command-on-first-read-jobs/mailbox-frontier.json",
+      "builder": "tools/collect_audio_mailbox_frontier.py",
+      "validation": "tools/validate_audio_mailbox_frontier.py",
+      "current_capability": "extracts the ordered APU IO window around the first track-command read and validates command byte, APUIO0 read, immediate zero acknowledgement write, and key-on ordering"
+    },
+    {
+      "artifact": "command_timing_render_comparison",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/command-on-first-read-render-jobs/last-keyon-render-metrics-comparison.json",
+      "builder": "tools/compare_audio_render_metrics.py",
+      "validation": "tools/validate_audio_render_metrics_comparison.py",
+      "current_capability": "compares the stricter on-first-read command timing render corpus against the prior last-key-on corpus; current result is 0 improved, 20 unchanged, and 0 worsened"
+    },
+    {
+      "artifact": "no_command_negative_control",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/no-command-jobs/no-command-frontier.json",
+      "builder": "tools/run_audio_ares_no_command_experiment.py",
+      "validation": "tools/validate_audio_no_command_frontier.py",
+      "current_capability": "runs the native ares probe with diagnostic APUIO0 command preseed disabled and records the no-key-on frontier"
+    },
+    {
+      "artifact": "ares_backend_prerequisite_check",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-backend-status.json",
+      "builder": "tools/check_ares_backend_prereq.py",
+      "validation": "status == ready"
+    },
+    {
+      "artifact": "ares_link_smoke",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/ares-link-smoke-msvc/RelWithDebInfo/earthbound_ares_link_smoke.exe",
+      "builder": "tools/ares_link_smoke/CMakeLists.txt",
+      "validation": "runs and prints ares SFC DSP link smoke OK"
+    },
+    {
+      "artifact": "backend_batch_runner",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-result-summary.json",
+      "builder": "tools/run_audio_backend_batch.py",
+      "validation": "tools/run_audio_backend_batch.py --mode native-ares --force; tools/validate_audio_backend_result_summary.py"
+    },
+    {
+      "artifact": "backend_adapter_contract",
+      "status": "implemented",
+      "path": "manifests/audio-backend-contract.json",
+      "builder": "tools/build_audio_backend_contract.py",
+      "validation": "tools/validate_audio_backend_contract.py"
+    },
+    {
+      "artifact": "backend_result_schema_dry_run",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-track-046-onett/result.json",
+      "builder": "tools/build_audio_backend_result_stub.py",
+      "validation": "tools/validate_audio_backend_result.py"
+    },
+    {
+      "artifact": "backend_result_summary",
+      "status": "implemented_local_generated_ignored",
+      "path": "build/audio/backend-jobs/ares-result-summary.json",
+      "builder": "tools/collect_audio_backend_results.py",
+      "validation": "tools/validate_audio_backend_result_summary.py"
+    },
+    {
+      "artifact": "apu_destination_region_map",
+      "status": "implemented",
+      "path": "manifests/audio-apu-region-map.json",
+      "builder": "tools/build_audio_apu_region_map.py",
+      "validation": "tools/validate_audio_apu_region_map.py"
+    }
+  ],
+  "known_state": [
+    {
+      "field": "apu_ram",
+      "status": "implemented",
+      "source": "cold_start_load_order plus track load_order from audio-pack contract",
+      "details": "64 KiB image after applying LOAD_SPC700_DATA payload blocks in runtime order; semantic transfer metrics replay the cold-start streams and match the generated corpus for 20/20 representative tracks, and the load-apply smoke now starts from bootstrap RAM plus runtime-applied track streams."
+    },
+    {
+      "field": "loader_stream_terminal",
+      "status": "implemented",
+      "source": "LOAD_SPC700_DATA terminal count zero path",
+      "details": "Terminal block sends destination $0500 with no payload."
+    },
+    {
+      "field": "cold_start_bootstrap",
+      "status": "implemented",
+      "source": "InitializeMusicSubsystem",
+      "details": "Row-0 sequence/common pack is applied before the requested track packs."
+    },
+    {
+      "field": "post_load_track_command",
+      "status": "executed_in_load_path_stub_probe",
+      "source": "CHANGE_MUSIC -> C0ABBD",
+      "details": "One-based track id is now produced by ROM-derived CHANGE_MUSIC after the real pack-decision branches run with table-derived LOAD_SPC700_DATA call arguments, routed through ROM-derived C0:ABBD to APUIO0, and consumed by the APU driver at the $062A command-read boundary."
+    }
+  ],
+  "missing_state": [
+    {
+      "field": "spc700_registers",
+      "status": "diagnostic_harness_captured_faithful_runtime_pending",
+      "needed_for": "faithful .spc snapshot and deterministic renderer start",
+      "examples": [
+        "PC",
+        "A",
+        "X",
+        "Y",
+        "PSW",
+        "SP"
+      ]
+    },
+    {
+      "field": "dsp_registers",
+      "status": "diagnostic_harness_captured_faithful_runtime_pending",
+      "needed_for": "correct voices, echo, envelopes, FIR/filter, master volume, and key-on state"
+    },
+    {
+      "field": "apu_control_timer_state",
+      "status": "missing",
+      "needed_for": "driver timing, tempo, note scheduling, and hardware timer counters"
+    },
+    {
+      "field": "apu_io_mailbox_state",
+      "status": "partially_known",
+      "needed_for": "faithful transition from loader handshake to active track command",
+      "known": "APUIO0 receives the track id through C0ABBD after ChangeMusic finishes loading packs.",
+      "missing": "final APUIO latch values after the SPC driver acknowledges and starts the song."
+    },
+    {
+      "field": "driver_elapsed_cycles",
+      "status": "missing",
+      "needed_for": "matching emulator-captured SPC snapshots at an exact audio frame boundary"
+    }
+  ],
+  "renderer_gates": [
+    {
+      "gate": "diagnostic_apu_ram_seed",
+      "status": "open",
+      "definition_of_done": "Can build and validate 64 KiB RAM seeds for representative tracks from a user ROM."
+    },
+    {
+      "gate": "complete_spc_snapshot",
+      "status": "diagnostic_container_implemented_faithful_state_pending",
+      "definition_of_done": "An external backend job writes a complete SPC snapshot or equivalent captured state combining APU RAM, SPC700 registers, DSP registers, control/timer state, and port state from a real handshake/timing boundary."
+    },
+    {
+      "gate": "accurate_pcm_wav_export",
+      "status": "diagnostic_libgme_rendering_implemented_faithful_state_pending",
+      "definition_of_done": "ares or snes_spc backend jobs render deterministic PCM/WAV from faithful runtime SPC state and report output hashes using the backend result contract."
+    }
+  ],
+  "backend_strategy": [
+    {
+      "backend": "ares",
+      "role": "accuracy-first emulator-backed prototype",
+      "next_step": "The native harness now imports verified APU RAM seeds into ares DSP memory, probes the $0500 entry code, advances past the $FD timer wait under a rough timer0 shim, reaches track-specific update code after diagnostic APUIO0 command delivery, emits a structurally valid diagnostic SPC snapshot, confirms all representative tracks issue DSP key-on writes during the probe, captures real last-key-on SPC snapshots at the final nonzero DSP KON write, and records instruction/sequence evidence proving the diagnostic command is read before the last-key-on boundary. Those last-key-on snapshots render all 20 representative tracks as audible through libgme, a stricter on-first-read command injection mode renders 20/20 audible with 0 regressions against that corpus, and the mailbox frontier validates the command-read/zero-ack/key-on ordering for all 20 tracks. A separate ares SMP mailbox smoke now delivers the command through the real smp.portWrite path at the $062A boundary, reaches key-on for all 20 representative tracks, writes valid SPC snapshots, and renders 20/20 audible through libgme with 0 classification regressions against the custom last-key-on corpus. The same corpus also succeeds through ares' CPU-side writeAPU($2140, track) bridge. The previous bridge starts from bootstrap-only APU RAM, executes full ROM-derived CHANGE_MUSIC with real pack-decision branches, applies 58 selected LOAD_SPC700_DATA streams / 188 payload blocks / 531593 bytes from ROM into ares APU RAM with 0 apply errors, computes the one-based command, calls ROM-derived C0:ABBD, routes its STA long $002140 bus write through ares' CPU/APU bridge, matches the load-stub probe at the classification level, and improves all 20 tracks versus baseline. The C0:AB06 loader contract byte-checks the real loader fixture and proves the selected stream totals match load-apply evidence; the byte-handshake corpus executes the same ROM-derived loader through ares' WDC65816 core against a modeled APUIO receiver and validates 58/58 selected stream occurrences across 33 unique packs, including full 64 KiB APU RAM byte equality against semantic reconstruction. The real-IPL frontier executes the same CPU loader against the real ares SMP IPL receiver, validates payload-region equality for 33/33 selected unique packs, and proves pack 1 completes the terminal handoff back to the CPU loader. The post-bootstrap frontier boots pack 1 through the real IPL, keeps the game driver alive, and validates payload-region equality for 32/32 later selected unique pack reloads through the running driver. The continuous track-load frontier boots pack 1 once, loads each representative track's selected pack sequence through the running driver, and validates stable payload-region equality for 20/20 tracks while treating live driver/overlay code as mutable runtime state. The CHANGE_MUSIC-to-continuous-load sequence contract proves that this continuous sequence is exactly the pack order requested by real CHANGE_MUSIC load-stub calls for 20/20 tracks. The newest fusion frontier combines those separate proofs: after real IPL bootstrap, full ROM-derived CHANGE_MUSIC now invokes real C0:AB06 against the live driver, sends the final C0:ABBD command, reaches command-read/ack/key-on, validates 20/20 representative runs with stable payload-region equality, emits 20/20 valid key-on SPC snapshots, and renders 20/20 audible WAVs through libgme. The all-track expansion now validates 191/191 load paths and 191/191 stable payload-region matches, with 190 key-on snapshots and track 4 (NONE2) documented as load-ok/no-key-on; the all-track renderer validates 190/190 backend results and classifies 190/190 renders as audible. The playback/export manifest now records 190 valid rendered tracks, hashes and metrics for app consumption, ROM-derived distribution policy, and the single skipped NONE2 table entry. The dependency policy records ares/libgme/reference-emulator license posture and release gates before public distribution. Gate 2 also moved: the command-write path now uses 0 immediate SMP burst instructions, then observes the driver one SMP instruction at a time until command-read, zero-ack, and key-on. The no-command negative control validates 20/20 captures, stops every track at $055A, and reaches 0 key-on events. Gate 1 is satisfied for the representative corpus, Gate 3 broad-corpus playback/export is now satisfied for snapshot-backed tracks, and the next useful work is continuing Gate 2 by replacing the remaining bounded post-command observation loop with a fuller scheduled runtime."
+    },
+    {
+      "backend": "snes_spc",
+      "role": "lightweight snapshot renderer candidate",
+      "next_step": "Out-of-tree libgme now renders job-specified WAVs from all-track fused CHANGE_MUSIC/C0:AB06 key-on SPC snapshots: 190 / 190 snapshot-backed table entries are audible, with NONE2 explicitly skipped as load-ok/no-key-on. Earlier representative diagnostic baselines remain useful history, but the active release path is now fused snapshot playback/export plus emulator-oracle comparison, loop/fade policy, and dependency notice polish."
+    },
+    {
+      "backend": "external_reference",
+      "role": "validation oracle",
+      "next_step": "Compare emitted PCM or captured SPC state against bsnes/higan, Mesen2, or Mednafen without linking them into core tools."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "load_spc700_data_ebsrc",
+      "path": "refs/ebsrc-main/ebsrc-main/src/audio/load_spc700_data.asm",
+      "claim": "CPU-side loader waits for APU boot signature, streams length/destination/payload blocks, and terminally targets $0500.",
+      "exists": true
+    },
+    {
+      "id": "initialize_music_subsystem_ebsrc",
+      "path": "refs/ebsrc-main/ebsrc-main/src/audio/initialize_music_subsystem.asm",
+      "claim": "Cold start seeds audio state by loading MusicDatasetTable row 0 sequence/common pack before any requested track change.",
+      "exists": true
+    },
+    {
+      "id": "change_music_ebsrc",
+      "path": "refs/ebsrc-main/ebsrc-main/src/audio/change_music.asm",
+      "claim": "Track changes load changed primary, secondary, and sequence packs, then send the one-based track index to the APU.",
+      "exists": true
+    },
+    {
+      "id": "c0_loader_source",
+      "path": "src/c0/c0_ab06_load_spc700_data_stream.asm",
+      "claim": "Local C0 source scaffold names the EarthBound loader entry used by the contract parser.",
+      "exists": true
+    },
+    {
+      "id": "c0_track_command_source",
+      "path": "src/c0/c0_abbd_send_apu_port0_command_byte.asm",
+      "claim": "Local C0 source scaffold confirms the final track-start command writes A low byte to APUIO0.",
+      "exists": true
+    },
+    {
+      "id": "audio_pack_contract",
+      "path": "manifests/audio-pack-contracts.json",
+      "claim": "Machine-readable pack, stream, track, cold-start, and pointer contract consumed by snapshot tools.",
+      "exists": true
+    },
+    {
+      "id": "audio_apu_region_map",
+      "path": "manifests/audio-apu-region-map.json",
+      "claim": "Machine-readable summary of every audio-pack payload write by APU RAM destination region.",
+      "exists": true
+    },
+    {
+      "id": "audio_backend_contract",
+      "path": "manifests/audio-backend-contract.json",
+      "claim": "Adapter contract for external ares, snes_spc, and reference renderer harnesses.",
+      "exists": true
+    },
+    {
+      "id": "audio_dependency_policy",
+      "path": "manifests/audio-dependency-policy.json",
+      "claim": "Machine-readable license, dependency, and distribution policy for ares, libgme, and optional reference emulators.",
+      "exists": true
+    },
+    {
+      "id": "audio_export_duration_policy",
+      "path": "manifests/audio-export-duration-policy.json",
+      "claim": "Machine-readable export-duration policy separating finite tracks, looping tracks, no-audio entries, and unknown tracks before public WAV export claims.",
+      "exists": true
+    },
+    {
+      "id": "audio_export_duration_measurements",
+      "path": "build/audio/export-duration-measurements/export-duration-measurements.json",
+      "claim": "Generated diagnostic-preview measurement report showing which current WAV previews actually reach sustained trailing silence.",
+      "exists": true
+    },
+    {
+      "id": "audio_export_plan",
+      "path": "manifests/audio-export-plan.json",
+      "claim": "Machine-readable export plan mapping every music table entry to finite trim, loop/fade preview, review, diagnostic preview, skip, or blocked export behavior.",
+      "exists": true
+    },
+    {
+      "id": "audio_sequence_semantics_frontier",
+      "path": "manifests/audio-sequence-semantics-frontier.json",
+      "claim": "Machine-readable sequence-pack frontier covering track-to-sequence-pack usage, sequence payload block destinations, pointer-prefix candidates, and high-command histograms for exact loop/end semantics work.",
+      "exists": true
+    },
+    {
+      "id": "audio_sequence_control_flow_frontier",
+      "path": "manifests/audio-sequence-control-flow-frontier.json",
+      "claim": "Machine-readable EF/FD/FE/FF control-flow frontier covering pointer-shaped operands, segment-relative offsets, and priority packs for exact loop/end sequence walking.",
+      "exists": true
+    },
+    {
+      "id": "audio_sequence_walk_frontier",
+      "path": "manifests/audio-sequence-walk-frontier.json",
+      "claim": "Machine-readable provisional static sequence walker covering EF call edges, FF terminator candidates, and FD/FE blockers.",
+      "exists": true
+    },
+    {
+      "id": "audio_exact_duration_triage",
+      "path": "manifests/audio-exact-duration-triage.json",
+      "claim": "Machine-readable exact-duration roadmap that splits sequence packs into FF terminator review, FD/FE blocked, loop/fallthrough, and no-action lanes.",
+      "exists": true
+    },
+    {
+      "id": "audio_ebdecompile_ref_alignment",
+      "path": "manifests/audio-ebdecompile-ref-alignment.json",
+      "claim": "Machine-readable alignment between eb-decompile's extracted song files and this project's audio pack contract.",
+      "exists": true
+    },
+    {
+      "id": "audio_oracle_comparison_plan",
+      "path": "manifests/audio-oracle-comparison-plan.json",
+      "claim": "Machine-readable representative-track oracle comparison plan for emulator-captured SPC/WAV corroboration.",
+      "exists": true
+    },
+    {
+      "id": "audio_oracle_comparison_plan_all_tracks",
+      "path": "manifests/audio-oracle-comparison-plan-all-tracks.json",
+      "claim": "Machine-readable all-track oracle comparison plan staged separately from the representative plan so imported reference evidence is not disturbed.",
+      "exists": true
+    },
+    {
+      "id": "audio_oracle_verification_report",
+      "path": "manifests/audio-oracle-verification-report.json",
+      "claim": "Machine-readable oracle gate rollup showing representative near-oracle status, exact PCM equivalence, state deltas, and remaining release-quality blockers.",
+      "exists": true
+    },
+    {
+      "id": "audio_oracle_verification_report_all_tracks",
+      "path": "manifests/audio-oracle-verification-report-all-tracks.json",
+      "claim": "Machine-readable all-track near-oracle gate rollup showing exact PCM equivalence for every rendered track and the remaining independent-emulator blocker.",
+      "exists": true
+    },
+    {
+      "id": "audio_cpu_mailbox_contract",
+      "path": "manifests/audio-cpu-mailbox-contract.json",
+      "claim": "Machine-readable CPU/APU track-command mailbox contract tying C0 source, ares mailbox entry points, and the diagnostic mailbox frontier together.",
+      "exists": true
+    },
+    {
+      "id": "ares_audio_backend_prototype",
+      "path": "notes/ares-audio-backend-prototype.md",
+      "claim": "Local source checkout/build status and first-harness direction for the ares backend.",
+      "exists": true
+    }
+  ],
+  "next_manual_seam": "Gate 1 is satisfied for the representative corpus, and the all-track fusion path now validates 191/191 track entries, emits 190 key-on snapshots plus one explicit NONE2 no-key-on record, renders 190/190 snapshot-backed tracks, and classifies 190/190 renders as audible. Gate 2 moved from an immediate 128-instruction post-write burst to zero-burst one-instruction observation; keep Gate 2 focused on replacing the remaining bounded post-command loop with fuller CPU/APU scheduling."
+}

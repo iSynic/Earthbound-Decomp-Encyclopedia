@@ -1,0 +1,6019 @@
+{
+  "generatedAt": "2026-04-30T01:20:42.833Z",
+  "buildMode": "authored",
+  "sourceRoot": "authored-release-baseline",
+  "appRoot": "packaged-app",
+  "git": {
+    "available": true,
+    "branch": "main",
+    "sha": "c0c0a9ccd03218d6893c56b48cebff2ebd754d4b",
+    "shortSha": "c0c0a9ccd032"
+  },
+  "counts": {
+    "notes": 934,
+    "README.md": 1,
+    "tools": 259
+  },
+  "fileCount": 1194,
+  "changesSinceLastBuild": {
+    "hasPreviousSnapshot": true,
+    "added": [],
+    "modified": [],
+    "removed": [],
+    "total": 0
+  },
+  "latest": [
+    "README.md",
+    "notes/readable-source-bank-closure.md",
+    "notes/source-scaffold-status.md",
+    "notes/asset-data-contract-frontier.md",
+    "notes/map-milestone-closure.md",
+    "notes/localization-script-source-index.md",
+    "notes/legacy-reference-findings.md",
+    "notes/c2-battle-contract-workahead.md",
+    "notes/window-title-glyph-upload-c444fb.md",
+    "notes/window-flavour-palette-block-refresh-c47f87.md",
+    "notes/visual-selector-family-c0780f-c3f2b5.md",
+    "notes/visual-frame-selector-update-family-c4-62ff.md",
+    "notes/try-fix-item-callback-d0.md",
+    "notes/transition-landing-mode-family-9f3f-9f41.md",
+    "notes/timed-event-slot-block-7440-and-c20abc.md",
+    "notes/timed-event-callback-invoker-c187cc.md",
+    "notes/timed-event-callback-family-bank01.md",
+    "notes/timed-delivery-warning-text-gates.md",
+    "notes/timed-delivery-system-flags-754-779.md",
+    "notes/timed-delivery-state-helpers-ef0f60-fdb-ff6.md"
+  ],
+  "files": [
+    {
+      "path": "notes/actionscript-dispatch-task-frontier-c08fc2-c09ece.md",
+      "size": 10065,
+      "mtimeMs": 1777040194251
+    },
+    {
+      "path": "notes/actionscript-wrapper-strip-c0a841-c0aafd.md",
+      "size": 7475,
+      "mtimeMs": 1777507401071
+    },
+    {
+      "path": "notes/active-text-entry-chain-layout-c451fa.md",
+      "size": 5749,
+      "mtimeMs": 1777507401076
+    },
+    {
+      "path": "notes/active-window-text-tile-pair-placement-c44c8c.md",
+      "size": 3851,
+      "mtimeMs": 1777507401083
+    },
+    {
+      "path": "notes/ares-audio-backend-prototype.md",
+      "size": 29454,
+      "mtimeMs": 1777507401088
+    },
+    {
+      "path": "notes/asset-data-contract-frontier.md",
+      "size": 14974,
+      "mtimeMs": 1777510683478
+    },
+    {
+      "path": "notes/asset-manifest-generation-status.md",
+      "size": 22418,
+      "mtimeMs": 1777422568659
+    },
+    {
+      "path": "notes/asset-pipeline-plan.md",
+      "size": 18187,
+      "mtimeMs": 1777422501288
+    },
+    {
+      "path": "notes/audio-apu-battlebg-transfer-frontier-c0ab06-c0ae44.md",
+      "size": 6284,
+      "mtimeMs": 1777039768264
+    },
+    {
+      "path": "notes/audio-apu-region-map.md",
+      "size": 3020,
+      "mtimeMs": 1777426849801
+    },
+    {
+      "path": "notes/audio-backend-contract.md",
+      "size": 44621,
+      "mtimeMs": 1777507070226
+    },
+    {
+      "path": "notes/audio-cpu-mailbox-contract.md",
+      "size": 20620,
+      "mtimeMs": 1777507288819
+    },
+    {
+      "path": "notes/audio-dependency-policy.md",
+      "size": 2054,
+      "mtimeMs": 1777507240387
+    },
+    {
+      "path": "notes/audio-ebdecompile-ref-alignment.md",
+      "size": 12077,
+      "mtimeMs": 1777495652821
+    },
+    {
+      "path": "notes/audio-exact-duration-triage.md",
+      "size": 7256,
+      "mtimeMs": 1777496130287
+    },
+    {
+      "path": "notes/audio-export-duration-policy.md",
+      "size": 34546,
+      "mtimeMs": 1777507069151
+    },
+    {
+      "path": "notes/audio-export-plan.md",
+      "size": 32169,
+      "mtimeMs": 1777507078701
+    },
+    {
+      "path": "notes/audio-oracle-comparison-plan-all-tracks.md",
+      "size": 41766,
+      "mtimeMs": 1777492141358
+    },
+    {
+      "path": "notes/audio-oracle-comparison-plan.md",
+      "size": 6985,
+      "mtimeMs": 1777492141497
+    },
+    {
+      "path": "notes/audio-oracle-verification-report-all-tracks.md",
+      "size": 30357,
+      "mtimeMs": 1777507069935
+    },
+    {
+      "path": "notes/audio-oracle-verification-report.md",
+      "size": 4600,
+      "mtimeMs": 1777507078441
+    },
+    {
+      "path": "notes/audio-pack-format-and-renderer-frontier.md",
+      "size": 23609,
+      "mtimeMs": 1777507241278
+    },
+    {
+      "path": "notes/audio-sequence-control-flow-frontier.md",
+      "size": 4130,
+      "mtimeMs": 1777495448672
+    },
+    {
+      "path": "notes/audio-sequence-pack-025-semantics.md",
+      "size": 6238,
+      "mtimeMs": 1777495274463
+    },
+    {
+      "path": "notes/audio-sequence-semantics-frontier.md",
+      "size": 22894,
+      "mtimeMs": 1777495279958
+    },
+    {
+      "path": "notes/audio-sequence-walk-frontier.md",
+      "size": 5533,
+      "mtimeMs": 1777496059459
+    },
+    {
+      "path": "notes/audio-spc-state-frontier.md",
+      "size": 37006,
+      "mtimeMs": 1777496173166
+    },
+    {
+      "path": "notes/bank-0-1-progress-audit.md",
+      "size": 43712,
+      "mtimeMs": 1777062957687
+    },
+    {
+      "path": "notes/bank-c0-c2-closure.md",
+      "size": 23039,
+      "mtimeMs": 1777167263504
+    },
+    {
+      "path": "notes/bank-c0-entry-notes.md",
+      "size": 32163,
+      "mtimeMs": 1777003073583
+    },
+    {
+      "path": "notes/bank-c0-first-pass.md",
+      "size": 187733,
+      "mtimeMs": 1777167222467
+    },
+    {
+      "path": "notes/bank-c0-progress-audit.md",
+      "size": 22178,
+      "mtimeMs": 1777043856213
+    },
+    {
+      "path": "notes/bank-c0-source-scaffold-handoff.md",
+      "size": 1833,
+      "mtimeMs": 1777167137085
+    },
+    {
+      "path": "notes/bank-c0-working-name-proposals.md",
+      "size": 58709,
+      "mtimeMs": 1777065604337
+    },
+    {
+      "path": "notes/bank-c1-cluster-map.md",
+      "size": 26053,
+      "mtimeMs": 1777213058836
+    },
+    {
+      "path": "notes/bank-c1-first-pass.md",
+      "size": 4342,
+      "mtimeMs": 1777167231982
+    },
+    {
+      "path": "notes/bank-c1-null-hook-c1e1a2.md",
+      "size": 999,
+      "mtimeMs": 1777221702749
+    },
+    {
+      "path": "notes/bank-c1-progress-audit.md",
+      "size": 22560,
+      "mtimeMs": 1777084847092
+    },
+    {
+      "path": "notes/bank-c1-source-scaffold-handoff.md",
+      "size": 2072,
+      "mtimeMs": 1777260252196
+    },
+    {
+      "path": "notes/bank-c1-subsystem-and-symbol-synthesis.md",
+      "size": 11225,
+      "mtimeMs": 1777507401240
+    },
+    {
+      "path": "notes/bank-c1-working-name-proposals.md",
+      "size": 26795,
+      "mtimeMs": 1777224084641
+    },
+    {
+      "path": "notes/bank-c2-first-pass.md",
+      "size": 4592,
+      "mtimeMs": 1777167239235
+    },
+    {
+      "path": "notes/bank-c2-progress-audit.md",
+      "size": 20974,
+      "mtimeMs": 1777044506010
+    },
+    {
+      "path": "notes/bank-c2-source-scaffold-handoff.md",
+      "size": 4190,
+      "mtimeMs": 1777255178419
+    },
+    {
+      "path": "notes/bank-c2-working-name-proposals.md",
+      "size": 24368,
+      "mtimeMs": 1777255102261
+    },
+    {
+      "path": "notes/bank-c3-closure.md",
+      "size": 13847,
+      "mtimeMs": 1777398861805
+    },
+    {
+      "path": "notes/bank-c3-first-pass.md",
+      "size": 11020,
+      "mtimeMs": 1777164407188
+    },
+    {
+      "path": "notes/bank-c3-progress-audit.md",
+      "size": 18106,
+      "mtimeMs": 1777086186275
+    },
+    {
+      "path": "notes/bank-c3-reference-frontier.md",
+      "size": 94771,
+      "mtimeMs": 1777053518124
+    },
+    {
+      "path": "notes/bank-c3-working-name-proposals.md",
+      "size": 20822,
+      "mtimeMs": 1777086165767
+    },
+    {
+      "path": "notes/bank-c4-cluster-map.md",
+      "size": 58475,
+      "mtimeMs": 1777160262949
+    },
+    {
+      "path": "notes/bank-c4-first-pass.md",
+      "size": 12171,
+      "mtimeMs": 1777160221452
+    },
+    {
+      "path": "notes/bank-c4-progress-audit.md",
+      "size": 20528,
+      "mtimeMs": 1777069124324
+    },
+    {
+      "path": "notes/bank-c4-reference-frontier.md",
+      "size": 72762,
+      "mtimeMs": 1777058179509
+    },
+    {
+      "path": "notes/bank-c4-source-scaffold-handoff.md",
+      "size": 4099,
+      "mtimeMs": 1777265140712
+    },
+    {
+      "path": "notes/bank-c4-working-name-proposals.md",
+      "size": 49272,
+      "mtimeMs": 1777157760669
+    },
+    {
+      "path": "notes/bank-c5-cluster-map.md",
+      "size": 1432,
+      "mtimeMs": 1777070987016
+    },
+    {
+      "path": "notes/bank-c5-first-pass.md",
+      "size": 5060,
+      "mtimeMs": 1777160938627
+    },
+    {
+      "path": "notes/bank-c5-progress-audit.md",
+      "size": 5297,
+      "mtimeMs": 1777072017649
+    },
+    {
+      "path": "notes/bank-c5-source-scaffold-handoff.md",
+      "size": 3051,
+      "mtimeMs": 1777160919673
+    },
+    {
+      "path": "notes/bank-c5-text-data-map.md",
+      "size": 10362,
+      "mtimeMs": 1777072991351
+    },
+    {
+      "path": "notes/bank-c6-cluster-map.md",
+      "size": 1432,
+      "mtimeMs": 1777071588358
+    },
+    {
+      "path": "notes/bank-c6-first-pass.md",
+      "size": 3717,
+      "mtimeMs": 1777161101931
+    },
+    {
+      "path": "notes/bank-c6-progress-audit.md",
+      "size": 5692,
+      "mtimeMs": 1777072017972
+    },
+    {
+      "path": "notes/bank-c6-source-scaffold-handoff.md",
+      "size": 2406,
+      "mtimeMs": 1777161091755
+    },
+    {
+      "path": "notes/bank-c6-text-data-map.md",
+      "size": 10298,
+      "mtimeMs": 1777072991731
+    },
+    {
+      "path": "notes/bank-c7-cluster-map.md",
+      "size": 1433,
+      "mtimeMs": 1777071992423
+    },
+    {
+      "path": "notes/bank-c7-first-pass.md",
+      "size": 4484,
+      "mtimeMs": 1777162337057
+    },
+    {
+      "path": "notes/bank-c7-progress-audit.md",
+      "size": 6127,
+      "mtimeMs": 1777072017819
+    },
+    {
+      "path": "notes/bank-c7-source-scaffold-handoff.md",
+      "size": 2515,
+      "mtimeMs": 1777162314044
+    },
+    {
+      "path": "notes/bank-c7-text-data-map.md",
+      "size": 13617,
+      "mtimeMs": 1777162407541
+    },
+    {
+      "path": "notes/bank-c8-cluster-map.md",
+      "size": 1433,
+      "mtimeMs": 1777073039675
+    },
+    {
+      "path": "notes/bank-c8-first-pass.md",
+      "size": 4784,
+      "mtimeMs": 1777162337112
+    },
+    {
+      "path": "notes/bank-c8-progress-audit.md",
+      "size": 6436,
+      "mtimeMs": 1777073039523
+    },
+    {
+      "path": "notes/bank-c8-source-scaffold-handoff.md",
+      "size": 2657,
+      "mtimeMs": 1777162314075
+    },
+    {
+      "path": "notes/bank-c8-text-data-map.md",
+      "size": 12291,
+      "mtimeMs": 1777162407003
+    },
+    {
+      "path": "notes/bank-c9-cluster-map.md",
+      "size": 1433,
+      "mtimeMs": 1777073121598
+    },
+    {
+      "path": "notes/bank-c9-first-pass.md",
+      "size": 4175,
+      "mtimeMs": 1777162337167
+    },
+    {
+      "path": "notes/bank-c9-progress-audit.md",
+      "size": 6475,
+      "mtimeMs": 1777073121378
+    },
+    {
+      "path": "notes/bank-c9-source-scaffold-handoff.md",
+      "size": 3000,
+      "mtimeMs": 1777162314102
+    },
+    {
+      "path": "notes/bank-c9-text-data-map.md",
+      "size": 20017,
+      "mtimeMs": 1777162408051
+    },
+    {
+      "path": "notes/bank-ca-asset-data-map.md",
+      "size": 4430,
+      "mtimeMs": 1777162812581
+    },
+    {
+      "path": "notes/bank-ca-cf-asset-closure.md",
+      "size": 3506,
+      "mtimeMs": 1777075736647
+    },
+    {
+      "path": "notes/bank-ca-first-pass.md",
+      "size": 5852,
+      "mtimeMs": 1777162873980
+    },
+    {
+      "path": "notes/bank-ca-source-scaffold-handoff.md",
+      "size": 2453,
+      "mtimeMs": 1777162862937
+    },
+    {
+      "path": "notes/bank-cb-asset-data-map.md",
+      "size": 43600,
+      "mtimeMs": 1777162918998
+    },
+    {
+      "path": "notes/bank-cb-first-pass.md",
+      "size": 4237,
+      "mtimeMs": 1777162974596
+    },
+    {
+      "path": "notes/bank-cb-source-scaffold-handoff.md",
+      "size": 2346,
+      "mtimeMs": 1777162966690
+    },
+    {
+      "path": "notes/bank-cc-asset-data-map.md",
+      "size": 11174,
+      "mtimeMs": 1777163026187
+    },
+    {
+      "path": "notes/bank-cc-first-pass.md",
+      "size": 5462,
+      "mtimeMs": 1777163087063
+    },
+    {
+      "path": "notes/bank-cc-source-scaffold-handoff.md",
+      "size": 2535,
+      "mtimeMs": 1777163077621
+    },
+    {
+      "path": "notes/bank-cd-asset-data-map.md",
+      "size": 7801,
+      "mtimeMs": 1777163206873
+    },
+    {
+      "path": "notes/bank-cd-first-pass.md",
+      "size": 3245,
+      "mtimeMs": 1777163261639
+    },
+    {
+      "path": "notes/bank-cd-source-scaffold-handoff.md",
+      "size": 1856,
+      "mtimeMs": 1777163252340
+    },
+    {
+      "path": "notes/bank-ce-asset-data-map.md",
+      "size": 26807,
+      "mtimeMs": 1777163300206
+    },
+    {
+      "path": "notes/bank-ce-first-pass.md",
+      "size": 4629,
+      "mtimeMs": 1777163373865
+    },
+    {
+      "path": "notes/bank-ce-source-scaffold-handoff.md",
+      "size": 2715,
+      "mtimeMs": 1777163364889
+    },
+    {
+      "path": "notes/bank-cf-asset-data-map.md",
+      "size": 1894,
+      "mtimeMs": 1777076606792
+    },
+    {
+      "path": "notes/bank-cf-first-pass.md",
+      "size": 3834,
+      "mtimeMs": 1777163591301
+    },
+    {
+      "path": "notes/bank-cf-source-scaffold-handoff.md",
+      "size": 2558,
+      "mtimeMs": 1777163582147
+    },
+    {
+      "path": "notes/bank-d0-asset-data-map.md",
+      "size": 1927,
+      "mtimeMs": 1777076606429
+    },
+    {
+      "path": "notes/bank-d0-first-pass.md",
+      "size": 4565,
+      "mtimeMs": 1777163684675
+    },
+    {
+      "path": "notes/bank-d0-source-scaffold-handoff.md",
+      "size": 2549,
+      "mtimeMs": 1777163675361
+    },
+    {
+      "path": "notes/bank-d1-asset-data-map.md",
+      "size": 16323,
+      "mtimeMs": 1777076285935
+    },
+    {
+      "path": "notes/bank-d1-d4-overworld-sprite-closure.md",
+      "size": 1862,
+      "mtimeMs": 1777076275414
+    },
+    {
+      "path": "notes/bank-d1-d5-overworld-sprite-run.md",
+      "size": 1843,
+      "mtimeMs": 1777076594497
+    },
+    {
+      "path": "notes/bank-d1-first-pass.md",
+      "size": 2784,
+      "mtimeMs": 1777165534235
+    },
+    {
+      "path": "notes/bank-d1-source-scaffold-handoff.md",
+      "size": 1289,
+      "mtimeMs": 1777165466407
+    },
+    {
+      "path": "notes/bank-d2-asset-data-map.md",
+      "size": 30140,
+      "mtimeMs": 1777076298798
+    },
+    {
+      "path": "notes/bank-d2-first-pass.md",
+      "size": 2596,
+      "mtimeMs": 1777165534293
+    },
+    {
+      "path": "notes/bank-d2-source-scaffold-handoff.md",
+      "size": 1289,
+      "mtimeMs": 1777165477691
+    },
+    {
+      "path": "notes/bank-d3-asset-data-map.md",
+      "size": 43961,
+      "mtimeMs": 1777076298642
+    },
+    {
+      "path": "notes/bank-d3-first-pass.md",
+      "size": 2219,
+      "mtimeMs": 1777165534347
+    },
+    {
+      "path": "notes/bank-d3-source-scaffold-handoff.md",
+      "size": 1289,
+      "mtimeMs": 1777165477816
+    },
+    {
+      "path": "notes/bank-d4-asset-data-map.md",
+      "size": 43449,
+      "mtimeMs": 1777076395299
+    },
+    {
+      "path": "notes/bank-d4-first-pass.md",
+      "size": 2285,
+      "mtimeMs": 1777165534398
+    },
+    {
+      "path": "notes/bank-d4-source-scaffold-handoff.md",
+      "size": 1289,
+      "mtimeMs": 1777165477939
+    },
+    {
+      "path": "notes/bank-d5-asset-data-map.md",
+      "size": 17943,
+      "mtimeMs": 1777077967846
+    },
+    {
+      "path": "notes/bank-d5-ee-asset-bank-rollup.md",
+      "size": 2254,
+      "mtimeMs": 1777077999690
+    },
+    {
+      "path": "notes/bank-d5-ee-integration-closure.md",
+      "size": 4775,
+      "mtimeMs": 1777077888601
+    },
+    {
+      "path": "notes/bank-d5-first-pass.md",
+      "size": 4533,
+      "mtimeMs": 1777165329688
+    },
+    {
+      "path": "notes/bank-d5-gameplay-table-split-plan.md",
+      "size": 3645,
+      "mtimeMs": 1777079648359
+    },
+    {
+      "path": "notes/bank-d5-source-scaffold-handoff.md",
+      "size": 2643,
+      "mtimeMs": 1777165318852
+    },
+    {
+      "path": "notes/bank-d6-asset-data-map.md",
+      "size": 1497,
+      "mtimeMs": 1777076625072
+    },
+    {
+      "path": "notes/bank-d6-first-pass.md",
+      "size": 2065,
+      "mtimeMs": 1777165534449
+    },
+    {
+      "path": "notes/bank-d6-source-scaffold-handoff.md",
+      "size": 1292,
+      "mtimeMs": 1777165478058
+    },
+    {
+      "path": "notes/bank-d7-asset-data-map.md",
+      "size": 1750,
+      "mtimeMs": 1777076652641
+    },
+    {
+      "path": "notes/bank-d7-first-pass.md",
+      "size": 2824,
+      "mtimeMs": 1777165636742
+    },
+    {
+      "path": "notes/bank-d7-source-scaffold-handoff.md",
+      "size": 1424,
+      "mtimeMs": 1777165619946
+    },
+    {
+      "path": "notes/bank-d8-asset-data-map.md",
+      "size": 4020,
+      "mtimeMs": 1777076685187
+    },
+    {
+      "path": "notes/bank-d8-first-pass.md",
+      "size": 3445,
+      "mtimeMs": 1777163781505
+    },
+    {
+      "path": "notes/bank-d8-source-scaffold-handoff.md",
+      "size": 2456,
+      "mtimeMs": 1777163772459
+    },
+    {
+      "path": "notes/bank-d9-asset-data-map.md",
+      "size": 1653,
+      "mtimeMs": 1777076715542
+    },
+    {
+      "path": "notes/bank-d9-first-pass.md",
+      "size": 1773,
+      "mtimeMs": 1777076736305
+    },
+    {
+      "path": "notes/bank-d9-source-scaffold-handoff.md",
+      "size": 1311,
+      "mtimeMs": 1777165683497
+    },
+    {
+      "path": "notes/bank-da-asset-data-map.md",
+      "size": 5498,
+      "mtimeMs": 1777076744535
+    },
+    {
+      "path": "notes/bank-da-first-pass.md",
+      "size": 2239,
+      "mtimeMs": 1777076766609
+    },
+    {
+      "path": "notes/bank-da-source-scaffold-handoff.md",
+      "size": 1365,
+      "mtimeMs": 1777165683614
+    },
+    {
+      "path": "notes/bank-db-asset-data-map.md",
+      "size": 1799,
+      "mtimeMs": 1777076776550
+    },
+    {
+      "path": "notes/bank-db-first-pass.md",
+      "size": 1779,
+      "mtimeMs": 1777076797264
+    },
+    {
+      "path": "notes/bank-db-source-scaffold-handoff.md",
+      "size": 1311,
+      "mtimeMs": 1777165683724
+    },
+    {
+      "path": "notes/bank-dc-asset-data-map.md",
+      "size": 2184,
+      "mtimeMs": 1777076803386
+    },
+    {
+      "path": "notes/bank-dc-first-pass.md",
+      "size": 2251,
+      "mtimeMs": 1777076829975
+    },
+    {
+      "path": "notes/bank-dc-source-scaffold-handoff.md",
+      "size": 1362,
+      "mtimeMs": 1777165683842
+    },
+    {
+      "path": "notes/bank-dd-asset-data-map.md",
+      "size": 1740,
+      "mtimeMs": 1777077091312
+    },
+    {
+      "path": "notes/bank-dd-first-pass.md",
+      "size": 1670,
+      "mtimeMs": 1777077011347
+    },
+    {
+      "path": "notes/bank-dd-source-scaffold-handoff.md",
+      "size": 1311,
+      "mtimeMs": 1777165683955
+    },
+    {
+      "path": "notes/bank-de-asset-data-map.md",
+      "size": 2455,
+      "mtimeMs": 1777077091495
+    },
+    {
+      "path": "notes/bank-de-first-pass.md",
+      "size": 1784,
+      "mtimeMs": 1777077011377
+    },
+    {
+      "path": "notes/bank-de-source-scaffold-handoff.md",
+      "size": 1313,
+      "mtimeMs": 1777165684069
+    },
+    {
+      "path": "notes/bank-deposit-accumulator-98b9-98bb.md",
+      "size": 3041,
+      "mtimeMs": 1777182212638
+    },
+    {
+      "path": "notes/bank-df-asset-data-map.md",
+      "size": 4207,
+      "mtimeMs": 1777077097262
+    },
+    {
+      "path": "notes/bank-df-first-pass.md",
+      "size": 2134,
+      "mtimeMs": 1777077011408
+    },
+    {
+      "path": "notes/bank-df-source-scaffold-handoff.md",
+      "size": 1371,
+      "mtimeMs": 1777165684178
+    },
+    {
+      "path": "notes/bank-e0-asset-data-map.md",
+      "size": 3042,
+      "mtimeMs": 1777077173069
+    },
+    {
+      "path": "notes/bank-e0-first-pass.md",
+      "size": 3800,
+      "mtimeMs": 1777166101639
+    },
+    {
+      "path": "notes/bank-e0-source-scaffold-handoff.md",
+      "size": 1538,
+      "mtimeMs": 1777166080350
+    },
+    {
+      "path": "notes/bank-e1-asset-data-map.md",
+      "size": 8192,
+      "mtimeMs": 1777420206194
+    },
+    {
+      "path": "notes/bank-e1-first-pass.md",
+      "size": 4704,
+      "mtimeMs": 1777166101694
+    },
+    {
+      "path": "notes/bank-e1-source-scaffold-handoff.md",
+      "size": 1553,
+      "mtimeMs": 1777166080468
+    },
+    {
+      "path": "notes/bank-e2-asset-data-map.md",
+      "size": 1269,
+      "mtimeMs": 1777077288274
+    },
+    {
+      "path": "notes/bank-e2-ee-audio-pack-run.md",
+      "size": 2056,
+      "mtimeMs": 1777077615341
+    },
+    {
+      "path": "notes/bank-e2-first-pass.md",
+      "size": 1042,
+      "mtimeMs": 1777077349445
+    },
+    {
+      "path": "notes/bank-e2-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165746839
+    },
+    {
+      "path": "notes/bank-e3-asset-data-map.md",
+      "size": 1270,
+      "mtimeMs": 1777077296655
+    },
+    {
+      "path": "notes/bank-e3-first-pass.md",
+      "size": 973,
+      "mtimeMs": 1777077349472
+    },
+    {
+      "path": "notes/bank-e3-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165746952
+    },
+    {
+      "path": "notes/bank-e4-asset-data-map.md",
+      "size": 1392,
+      "mtimeMs": 1777077297002
+    },
+    {
+      "path": "notes/bank-e4-first-pass.md",
+      "size": 1027,
+      "mtimeMs": 1777077349499
+    },
+    {
+      "path": "notes/bank-e4-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747059
+    },
+    {
+      "path": "notes/bank-e5-asset-data-map.md",
+      "size": 1392,
+      "mtimeMs": 1777077421601
+    },
+    {
+      "path": "notes/bank-e5-first-pass.md",
+      "size": 1233,
+      "mtimeMs": 1777077349526
+    },
+    {
+      "path": "notes/bank-e5-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747169
+    },
+    {
+      "path": "notes/bank-e6-asset-data-map.md",
+      "size": 2680,
+      "mtimeMs": 1777077446830
+    },
+    {
+      "path": "notes/bank-e6-first-pass.md",
+      "size": 1906,
+      "mtimeMs": 1777077472261
+    },
+    {
+      "path": "notes/bank-e6-source-scaffold-handoff.md",
+      "size": 1365,
+      "mtimeMs": 1777165870407
+    },
+    {
+      "path": "notes/bank-e7-asset-data-map.md",
+      "size": 1274,
+      "mtimeMs": 1777077481426
+    },
+    {
+      "path": "notes/bank-e7-first-pass.md",
+      "size": 665,
+      "mtimeMs": 1777077509872
+    },
+    {
+      "path": "notes/bank-e7-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747435
+    },
+    {
+      "path": "notes/bank-e8-asset-data-map.md",
+      "size": 1507,
+      "mtimeMs": 1777077481587
+    },
+    {
+      "path": "notes/bank-e8-first-pass.md",
+      "size": 769,
+      "mtimeMs": 1777077509899
+    },
+    {
+      "path": "notes/bank-e8-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747579
+    },
+    {
+      "path": "notes/bank-e9-asset-data-map.md",
+      "size": 1512,
+      "mtimeMs": 1777077481783
+    },
+    {
+      "path": "notes/bank-e9-first-pass.md",
+      "size": 773,
+      "mtimeMs": 1777077509924
+    },
+    {
+      "path": "notes/bank-e9-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747714
+    },
+    {
+      "path": "notes/bank-ea-asset-data-map.md",
+      "size": 1626,
+      "mtimeMs": 1777077520658
+    },
+    {
+      "path": "notes/bank-ea-first-pass.md",
+      "size": 826,
+      "mtimeMs": 1777077557523
+    },
+    {
+      "path": "notes/bank-ea-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747847
+    },
+    {
+      "path": "notes/bank-eb-asset-data-map.md",
+      "size": 1735,
+      "mtimeMs": 1777077520841
+    },
+    {
+      "path": "notes/bank-eb-first-pass.md",
+      "size": 872,
+      "mtimeMs": 1777077557549
+    },
+    {
+      "path": "notes/bank-eb-source-scaffold-handoff.md",
+      "size": 1350,
+      "mtimeMs": 1777165747983
+    },
+    {
+      "path": "notes/bank-ec-asset-data-map.md",
+      "size": 2452,
+      "mtimeMs": 1777077521021
+    },
+    {
+      "path": "notes/bank-ec-first-pass.md",
+      "size": 841,
+      "mtimeMs": 1777077557577
+    },
+    {
+      "path": "notes/bank-ec-source-scaffold-handoff.md",
+      "size": 1352,
+      "mtimeMs": 1777165748115
+    },
+    {
+      "path": "notes/bank-ed-asset-data-map.md",
+      "size": 5039,
+      "mtimeMs": 1777077565286
+    },
+    {
+      "path": "notes/bank-ed-first-pass.md",
+      "size": 1256,
+      "mtimeMs": 1777077615279
+    },
+    {
+      "path": "notes/bank-ed-source-scaffold-handoff.md",
+      "size": 1352,
+      "mtimeMs": 1777165748245
+    },
+    {
+      "path": "notes/bank-ee-asset-data-map.md",
+      "size": 6205,
+      "mtimeMs": 1777077565463
+    },
+    {
+      "path": "notes/bank-ee-first-pass.md",
+      "size": 1771,
+      "mtimeMs": 1777077615310
+    },
+    {
+      "path": "notes/bank-ee-source-scaffold-handoff.md",
+      "size": 1352,
+      "mtimeMs": 1777165748375
+    },
+    {
+      "path": "notes/bank-ef-asset-data-map.md",
+      "size": 17006,
+      "mtimeMs": 1777078149612
+    },
+    {
+      "path": "notes/bank-ef-first-pass.md",
+      "size": 7754,
+      "mtimeMs": 1777166190290
+    },
+    {
+      "path": "notes/bank-ef-reference-frontier.md",
+      "size": 53060,
+      "mtimeMs": 1777078149900
+    },
+    {
+      "path": "notes/bank-ef-source-scaffold-handoff.md",
+      "size": 1782,
+      "mtimeMs": 1777266054512
+    },
+    {
+      "path": "notes/bank-first-pass-coverage-index.md",
+      "size": 2251,
+      "mtimeMs": 1777078745526
+    },
+    {
+      "path": "notes/bank01-text-command-map-00-1f.md",
+      "size": 4697,
+      "mtimeMs": 1777507401659
+    },
+    {
+      "path": "notes/battle-action-stat-change-family-c2b2e0-b5d7.md",
+      "size": 10694,
+      "mtimeMs": 1777507401665
+    },
+    {
+      "path": "notes/battle-affliction-recovery-family-c29aea-a39d.md",
+      "size": 10453,
+      "mtimeMs": 1777507401670
+    },
+    {
+      "path": "notes/battle-background-scene-bundles.md",
+      "size": 11681,
+      "mtimeMs": 1777411250283
+    },
+    {
+      "path": "notes/battle-choice-text-family-c1b2ec-b997.md",
+      "size": 6268,
+      "mtimeMs": 1777507401679
+    },
+    {
+      "path": "notes/battle-item-action-selection-c1ce85-c1cfc6.md",
+      "size": 3717,
+      "mtimeMs": 1777507401685
+    },
+    {
+      "path": "notes/battle-overlay-script-state-c4a67e-c4a7b0.md",
+      "size": 5104,
+      "mtimeMs": 1777507401689
+    },
+    {
+      "path": "notes/battle-psi-ability-table-d58a50.md",
+      "size": 5659,
+      "mtimeMs": 1777507401693
+    },
+    {
+      "path": "notes/battle-psi-category-list-family-c1caf5-c1cb7f.md",
+      "size": 5310,
+      "mtimeMs": 1777507401698
+    },
+    {
+      "path": "notes/battle-psi-menu-controller-c1cc39-ce73.md",
+      "size": 7265,
+      "mtimeMs": 1777507401705
+    },
+    {
+      "path": "notes/battle-psi-menu-metadata-family-c1c853-c1c8bc.md",
+      "size": 5352,
+      "mtimeMs": 1777507401711
+    },
+    {
+      "path": "notes/battle-psi-menu-table-helpers-c1c046-c1c165.md",
+      "size": 4492,
+      "mtimeMs": 1777507401716
+    },
+    {
+      "path": "notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md",
+      "size": 6190,
+      "mtimeMs": 1777507401723
+    },
+    {
+      "path": "notes/battle-psi-selection-refresh-c1ca72.md",
+      "size": 2375,
+      "mtimeMs": 1777507401729
+    },
+    {
+      "path": "notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md",
+      "size": 8373,
+      "mtimeMs": 1777507401735
+    },
+    {
+      "path": "notes/battle-selection-snapshot-export-c2b930.md",
+      "size": 3890,
+      "mtimeMs": 1777507401742
+    },
+    {
+      "path": "notes/battle-sprite-bundle-contracts.md",
+      "size": 15331,
+      "mtimeMs": 1777412335152
+    },
+    {
+      "path": "notes/battle-targetting-resolver-c1adb4-af50.md",
+      "size": 4954,
+      "mtimeMs": 1777507401750
+    },
+    {
+      "path": "notes/battle-text-context-buffer-family-c1ac4a-ad42.md",
+      "size": 6317,
+      "mtimeMs": 1777507401757
+    },
+    {
+      "path": "notes/battle-text-display-mode-latch-964d.md",
+      "size": 3958,
+      "mtimeMs": 1777507401761
+    },
+    {
+      "path": "notes/battle-text-entry-family-c1dc1c-dd7c.md",
+      "size": 14549,
+      "mtimeMs": 1777507401766
+    },
+    {
+      "path": "notes/battle-text-entry-tail-dd82-dd9f.md",
+      "size": 6380,
+      "mtimeMs": 1777507401771
+    },
+    {
+      "path": "notes/battle-visual-asset-contracts.md",
+      "size": 108348,
+      "mtimeMs": 1777414184588
+    },
+    {
+      "path": "notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md",
+      "size": 10904,
+      "mtimeMs": 1777042369956
+    },
+    {
+      "path": "notes/c0-build-candidate-ranges.md",
+      "size": 318329,
+      "mtimeMs": 1777326783741
+    },
+    {
+      "path": "notes/c0-byte-equivalence-validation.md",
+      "size": 68987,
+      "mtimeMs": 1777326794817
+    },
+    {
+      "path": "notes/c0-c4-integration-pass.md",
+      "size": 6436,
+      "mtimeMs": 1777069747924
+    },
+    {
+      "path": "notes/c0-decoded-source-promotion-pass.md",
+      "size": 5957,
+      "mtimeMs": 1777326761857
+    },
+    {
+      "path": "notes/c0-small-utility-frontier-69f7-8c54.md",
+      "size": 7428,
+      "mtimeMs": 1777041625799
+    },
+    {
+      "path": "notes/c0-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777326781868
+    },
+    {
+      "path": "notes/c1-build-candidate-ranges.md",
+      "size": 128002,
+      "mtimeMs": 1777260240166
+    },
+    {
+      "path": "notes/c1-byte-equivalence-validation.md",
+      "size": 23845,
+      "mtimeMs": 1777260268927
+    },
+    {
+      "path": "notes/c1-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777260241537
+    },
+    {
+      "path": "notes/c2-battle-contract-workahead.md",
+      "size": 14268,
+      "mtimeMs": 1777507450230
+    },
+    {
+      "path": "notes/c2-battle-sprite-render-and-palette-tail-c2eee7-c2ff9a.md",
+      "size": 10619,
+      "mtimeMs": 1777238335661
+    },
+    {
+      "path": "notes/c2-battlebg-load-and-palette-effect-corridor-c2cfe5-c2e0e7.md",
+      "size": 10732,
+      "mtimeMs": 1777255198842
+    },
+    {
+      "path": "notes/c2-build-candidate-ranges.md",
+      "size": 131349,
+      "mtimeMs": 1777255098487
+    },
+    {
+      "path": "notes/c2-byte-equivalence-validation.md",
+      "size": 32052,
+      "mtimeMs": 1777255188916
+    },
+    {
+      "path": "notes/c2-ef-battle-text-contract-workahead.md",
+      "size": 18763,
+      "mtimeMs": 1777253421688
+    },
+    {
+      "path": "notes/c2-instant-win-and-magic-butterfly-helpers-c26189-c2654c.md",
+      "size": 4794,
+      "mtimeMs": 1777235416898
+    },
+    {
+      "path": "notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md",
+      "size": 10328,
+      "mtimeMs": 1777238315115
+    },
+    {
+      "path": "notes/c2-pp-loss-and-call-for-help-width-helpers-c2bcb9-c2bd13.md",
+      "size": 2745,
+      "mtimeMs": 1777044386525
+    },
+    {
+      "path": "notes/c2-psi-swirl-overlay-tail-c2e6b3-c2ea74.md",
+      "size": 4823,
+      "mtimeMs": 1777044449990
+    },
+    {
+      "path": "notes/c2-source-promotion-candidates-workahead.md",
+      "size": 35615,
+      "mtimeMs": 1777252369294
+    },
+    {
+      "path": "notes/c2-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777255100894
+    },
+    {
+      "path": "notes/c2-steal-and-target-selection-helpers-c241dc-c24434.md",
+      "size": 7725,
+      "mtimeMs": 1777037167742
+    },
+    {
+      "path": "notes/c2-symbol-only-stragglers-c200d1-c20d3f.md",
+      "size": 2809,
+      "mtimeMs": 1777038173898
+    },
+    {
+      "path": "notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md",
+      "size": 10379,
+      "mtimeMs": 1777066925980
+    },
+    {
+      "path": "notes/c3-actionscript-callback-contracts.md",
+      "size": 6381,
+      "mtimeMs": 1777404689590
+    },
+    {
+      "path": "notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md",
+      "size": 6820,
+      "mtimeMs": 1777329732629
+    },
+    {
+      "path": "notes/c3-actionscript-semantics-audit.md",
+      "size": 115021,
+      "mtimeMs": 1777404736614
+    },
+    {
+      "path": "notes/c3-actionscript-semantics-roadmap.md",
+      "size": 47708,
+      "mtimeMs": 1777507401878
+    },
+    {
+      "path": "notes/c3-anim-port-direction-tasks-source-pilot.md",
+      "size": 1360,
+      "mtimeMs": 1777397941820
+    },
+    {
+      "path": "notes/c3-anim-port-flag-pokey-paths-source-pilot.md",
+      "size": 1393,
+      "mtimeMs": 1777397942097
+    },
+    {
+      "path": "notes/c3-anim-port-flag-switch-source-pilot.md",
+      "size": 1304,
+      "mtimeMs": 1777397942371
+    },
+    {
+      "path": "notes/c3-area-wait-random-wander-helpers-source-pilot.md",
+      "size": 1389,
+      "mtimeMs": 1777354482402
+    },
+    {
+      "path": "notes/c3-assembler-contract-validation.md",
+      "size": 1366,
+      "mtimeMs": 1777398047753
+    },
+    {
+      "path": "notes/c3-battle-psi-menu-data-contracts.md",
+      "size": 2526,
+      "mtimeMs": 1777399973993
+    },
+    {
+      "path": "notes/c3-battle-swirl-interaction-paths-source-pilot.md",
+      "size": 1419,
+      "mtimeMs": 1777381150917
+    },
+    {
+      "path": "notes/c3-battle-swirl-recovery-party-spawns-source-pilot.md",
+      "size": 1354,
+      "mtimeMs": 1777397942657
+    },
+    {
+      "path": "notes/c3-battle-swirl-visual-countdown-paths-source-pilot.md",
+      "size": 1367,
+      "mtimeMs": 1777381638936
+    },
+    {
+      "path": "notes/c3-battle-visual-data-and-file-select-transition-split.md",
+      "size": 1966,
+      "mtimeMs": 1777400418460
+    },
+    {
+      "path": "notes/c3-battle-visual-effect-dispatch-source-contract-f981.md",
+      "size": 3972,
+      "mtimeMs": 1777182262275
+    },
+    {
+      "path": "notes/c3-battle-visual-offset-tables-f871-f8f1.md",
+      "size": 2952,
+      "mtimeMs": 1777051338523
+    },
+    {
+      "path": "notes/c3-battle-visual-table-and-token-sublabels.md",
+      "size": 5455,
+      "mtimeMs": 1777507401918
+    },
+    {
+      "path": "notes/c3-boogy-city-bus-movement-dispatch-source-pilot.md",
+      "size": 1433,
+      "mtimeMs": 1777397942939
+    },
+    {
+      "path": "notes/c3-boogy-tent-city-bus-paths-source-pilot.md",
+      "size": 1369,
+      "mtimeMs": 1777342128138
+    },
+    {
+      "path": "notes/c3-bubble-monkey-route-paths-source-pilot.md",
+      "size": 1426,
+      "mtimeMs": 1777397943217
+    },
+    {
+      "path": "notes/c3-build-candidate-plan.md",
+      "size": 2225,
+      "mtimeMs": 1777094880097
+    },
+    {
+      "path": "notes/c3-build-candidate-range-validation.md",
+      "size": 113,
+      "mtimeMs": 1777401824716
+    },
+    {
+      "path": "notes/c3-build-candidate-ranges.md",
+      "size": 47270,
+      "mtimeMs": 1777265586530
+    },
+    {
+      "path": "notes/c3-build-candidate-source-conventions.md",
+      "size": 5158,
+      "mtimeMs": 1777094834155
+    },
+    {
+      "path": "notes/c3-bus-bridge-obscured-route-paths-source-pilot.md",
+      "size": 1396,
+      "mtimeMs": 1777380079460
+    },
+    {
+      "path": "notes/c3-bus-bridge-route-terminal-paths-source-pilot.md",
+      "size": 1437,
+      "mtimeMs": 1777356843437
+    },
+    {
+      "path": "notes/c3-bus-driver-attention-coordinator-source-pilot.md",
+      "size": 1448,
+      "mtimeMs": 1777386377295
+    },
+    {
+      "path": "notes/c3-bus-driver-attention-release-source-pilot.md",
+      "size": 1332,
+      "mtimeMs": 1777386459260
+    },
+    {
+      "path": "notes/c3-bus-transition-route-paths-source-pilot.md",
+      "size": 1458,
+      "mtimeMs": 1777397943501
+    },
+    {
+      "path": "notes/c3-bus-tunnel-bridge-paths-source-pilot.md",
+      "size": 1425,
+      "mtimeMs": 1777343225072
+    },
+    {
+      "path": "notes/c3-bus-tunnel-desert-route-paths-source-pilot.md",
+      "size": 1489,
+      "mtimeMs": 1777356843437
+    },
+    {
+      "path": "notes/c3-byte-equivalence-battle-visual.md",
+      "size": 544,
+      "mtimeMs": 1777093652332
+    },
+    {
+      "path": "notes/c3-byte-equivalence-equipment-selector.md",
+      "size": 558,
+      "mtimeMs": 1777093611119
+    },
+    {
+      "path": "notes/c3-byte-equivalence-hp-pp.md",
+      "size": 531,
+      "mtimeMs": 1777093601214
+    },
+    {
+      "path": "notes/c3-byte-equivalence-inventory.md",
+      "size": 574,
+      "mtimeMs": 1777093652624
+    },
+    {
+      "path": "notes/c3-byte-equivalence-validation.md",
+      "size": 2366,
+      "mtimeMs": 1777404801495
+    },
+    {
+      "path": "notes/c3-byte-equivalence-window.md",
+      "size": 517,
+      "mtimeMs": 1777093652949
+    },
+    {
+      "path": "notes/c3-c0-callback-binding-correction.md",
+      "size": 3621,
+      "mtimeMs": 1777048829157
+    },
+    {
+      "path": "notes/c3-cast-screen-orbit-continuation-source-pilot.md",
+      "size": 1417,
+      "mtimeMs": 1777397943785
+    },
+    {
+      "path": "notes/c3-cast-screen-step-spawn-continuation-source-pilot.md",
+      "size": 1350,
+      "mtimeMs": 1777397944064
+    },
+    {
+      "path": "notes/c3-cast-screen-tenda-king-paths-source-pilot.md",
+      "size": 1447,
+      "mtimeMs": 1777397944335
+    },
+    {
+      "path": "notes/c3-cast-scroll-event-801-spawn-sequence-source-pilot.md",
+      "size": 1423,
+      "mtimeMs": 1777391240924
+    },
+    {
+      "path": "notes/c3-direction-follower-display-reset-paths-source-pilot.md",
+      "size": 1432,
+      "mtimeMs": 1777381830408
+    },
+    {
+      "path": "notes/c3-direction-tracker-townhall-paths-source-pilot.md",
+      "size": 1433,
+      "mtimeMs": 1777354482447
+    },
+    {
+      "path": "notes/c3-e84e-debug-menu-and-embedded-item-helpers-split.md",
+      "size": 2733,
+      "mtimeMs": 1777083496915
+    },
+    {
+      "path": "notes/c3-early-event255-landing-profile-tail-source-pilot.md",
+      "size": 1348,
+      "mtimeMs": 1777397944613
+    },
+    {
+      "path": "notes/c3-early-event255-pose-and-text-routes-source-pilot.md",
+      "size": 1377,
+      "mtimeMs": 1777397944880
+    },
+    {
+      "path": "notes/c3-early-party-look-coordinate-paths-source-pilot.md",
+      "size": 1481,
+      "mtimeMs": 1777357730113
+    },
+    {
+      "path": "notes/c3-early-pose-coordinate-pair-paths-source-pilot.md",
+      "size": 1432,
+      "mtimeMs": 1777357730048
+    },
+    {
+      "path": "notes/c3-early-turn-bias-and-coordinate-routes-source-pilot.md",
+      "size": 1378,
+      "mtimeMs": 1777397945149
+    },
+    {
+      "path": "notes/c3-early-visual-countdown-halts-source-pilot.md",
+      "size": 1320,
+      "mtimeMs": 1777390116585
+    },
+    {
+      "path": "notes/c3-equipment-selector-source-contract-ee14-ef22.md",
+      "size": 3938,
+      "mtimeMs": 1777084273913
+    },
+    {
+      "path": "notes/c3-event-222-224-movement-helper-cluster.md",
+      "size": 8689,
+      "mtimeMs": 1777401517813
+    },
+    {
+      "path": "notes/c3-event-script-source-pilot.md",
+      "size": 2876,
+      "mtimeMs": 1777339131171
+    },
+    {
+      "path": "notes/c3-event-script-source-scaffold-validation.md",
+      "size": 578,
+      "mtimeMs": 1777394215205
+    },
+    {
+      "path": "notes/c3-event-script-source-scaffold.md",
+      "size": 1629,
+      "mtimeMs": 1777398861731
+    },
+    {
+      "path": "notes/c3-event353-message-tile-reveal-source-pilot.md",
+      "size": 1327,
+      "mtimeMs": 1777390018606
+    },
+    {
+      "path": "notes/c3-facing-pulse-helpers-source-pilot.md",
+      "size": 1322,
+      "mtimeMs": 1777352418344
+    },
+    {
+      "path": "notes/c3-falling-bounce-yield-paths-source-pilot.md",
+      "size": 1448,
+      "mtimeMs": 1777342545096
+    },
+    {
+      "path": "notes/c3-flyover-intro-text-release-paths-source-pilot.md",
+      "size": 1371,
+      "mtimeMs": 1777381725868
+    },
+    {
+      "path": "notes/c3-flyover-palette-random-movement-paths-source-pilot.md",
+      "size": 1452,
+      "mtimeMs": 1777397945424
+    },
+    {
+      "path": "notes/c3-flyover-scene-wait-paths-source-pilot.md",
+      "size": 1376,
+      "mtimeMs": 1777397945707
+    },
+    {
+      "path": "notes/c3-focused-party-hppp-actor-clear-e6f8.md",
+      "size": 1872,
+      "mtimeMs": 1777082015933
+    },
+    {
+      "path": "notes/c3-gum-machine-flyover-paths-source-pilot.md",
+      "size": 1442,
+      "mtimeMs": 1777352302679
+    },
+    {
+      "path": "notes/c3-hp-pp-source-contract-quartet-ec1f-ee13.md",
+      "size": 3491,
+      "mtimeMs": 1777507402039
+    },
+    {
+      "path": "notes/c3-intro-cast-followup-paths-source-pilot.md",
+      "size": 1398,
+      "mtimeMs": 1777380363793
+    },
+    {
+      "path": "notes/c3-intro-cast-member-paths-source-pilot.md",
+      "size": 1382,
+      "mtimeMs": 1777397945990
+    },
+    {
+      "path": "notes/c3-intro-cast-scroll-setup-source-pilot.md",
+      "size": 1283,
+      "mtimeMs": 1777339132962
+    },
+    {
+      "path": "notes/c3-intro-presentation-paths-source-pilot.md",
+      "size": 1316,
+      "mtimeMs": 1777339132708
+    },
+    {
+      "path": "notes/c3-intro-script-frontier-9ff2-a07f.md",
+      "size": 5224,
+      "mtimeMs": 1777403359803
+    },
+    {
+      "path": "notes/c3-inventory-equipped-slot-and-egg-refresh-helpers-e977-ebca.md",
+      "size": 4833,
+      "mtimeMs": 1777507402057
+    },
+    {
+      "path": "notes/c3-itoi-production-intro-source-pilot.md",
+      "size": 1358,
+      "mtimeMs": 1777397946272
+    },
+    {
+      "path": "notes/c3-jeff-repair-source-contract-f1ec.md",
+      "size": 3876,
+      "mtimeMs": 1777507402064
+    },
+    {
+      "path": "notes/c3-late-interaction-table-contracts.md",
+      "size": 2437,
+      "mtimeMs": 1777399241369
+    },
+    {
+      "path": "notes/c3-leftward-bounds-release-paths-source-pilot.md",
+      "size": 1343,
+      "mtimeMs": 1777345795973
+    },
+    {
+      "path": "notes/c3-live-area-facing-movement-paths-source-pilot.md",
+      "size": 1409,
+      "mtimeMs": 1777352418397
+    },
+    {
+      "path": "notes/c3-magic-butterfly-pp-restore-release-source-pilot.md",
+      "size": 1400,
+      "mtimeMs": 1777386560373
+    },
+    {
+      "path": "notes/c3-map-movement-parameter-table-e1d8-e240.md",
+      "size": 3499,
+      "mtimeMs": 1777049522080
+    },
+    {
+      "path": "notes/c3-menu-cursor-tile-data-e3f8-e450.md",
+      "size": 3836,
+      "mtimeMs": 1777399826735
+    },
+    {
+      "path": "notes/c3-meteorite-window-party-approach-paths-source-pilot.md",
+      "size": 1503,
+      "mtimeMs": 1777397946563
+    },
+    {
+      "path": "notes/c3-mixed-source-split-plan.md",
+      "size": 1105,
+      "mtimeMs": 1777086165109
+    },
+    {
+      "path": "notes/c3-monotoly-coordinate-text-paths-source-pilot.md",
+      "size": 1394,
+      "mtimeMs": 1777397946845
+    },
+    {
+      "path": "notes/c3-movement-vector-core-helpers-source-pilot.md",
+      "size": 1598,
+      "mtimeMs": 1777397947120
+    },
+    {
+      "path": "notes/c3-npc-attention-arc-distance-final-tail-source-pilot.md",
+      "size": 1389,
+      "mtimeMs": 1777392329202
+    },
+    {
+      "path": "notes/c3-npc-attention-arc-distance-routes-source-pilot.md",
+      "size": 1375,
+      "mtimeMs": 1777391702745
+    },
+    {
+      "path": "notes/c3-npc-attention-collision-target-routes-source-pilot.md",
+      "size": 1384,
+      "mtimeMs": 1777391371986
+    },
+    {
+      "path": "notes/c3-npc-attention-path-helpers-source-pilot.md",
+      "size": 1379,
+      "mtimeMs": 1777381242375
+    },
+    {
+      "path": "notes/c3-npc-attention-roundwalk-routes-source-pilot.md",
+      "size": 1407,
+      "mtimeMs": 1777391275222
+    },
+    {
+      "path": "notes/c3-npc-attention-wide-distance-bounce-routes-source-pilot.md",
+      "size": 1366,
+      "mtimeMs": 1777391432562
+    },
+    {
+      "path": "notes/c3-npc-attention-wide-distance-gate-source-pilot.md",
+      "size": 1403,
+      "mtimeMs": 1777386377350
+    },
+    {
+      "path": "notes/c3-onett-door-close-arc-continuation-source-pilot.md",
+      "size": 1445,
+      "mtimeMs": 1777383703752
+    },
+    {
+      "path": "notes/c3-onett-door-close-coordinate-paths-source-pilot.md",
+      "size": 1400,
+      "mtimeMs": 1777379926096
+    },
+    {
+      "path": "notes/c3-onett-door-close-display-continuation-source-pilot.md",
+      "size": 1447,
+      "mtimeMs": 1777383784996
+    },
+    {
+      "path": "notes/c3-onett-door-close-gate-paths-source-pilot.md",
+      "size": 1381,
+      "mtimeMs": 1777397947394
+    },
+    {
+      "path": "notes/c3-onett-townhall-door-paths-source-pilot.md",
+      "size": 1375,
+      "mtimeMs": 1777350027293
+    },
+    {
+      "path": "notes/c3-onett-townhall-movement-paths-source-pilot.md",
+      "size": 1411,
+      "mtimeMs": 1777397947675
+    },
+    {
+      "path": "notes/c3-overworld-snapshot-seed-loop-source-pilot.md",
+      "size": 1388,
+      "mtimeMs": 1777390067347
+    },
+    {
+      "path": "notes/c3-palette-fade-coordinate-paths-source-pilot.md",
+      "size": 1445,
+      "mtimeMs": 1777342360535
+    },
+    {
+      "path": "notes/c3-party-look-jump-and-route-terminal-source-pilot.md",
+      "size": 1441,
+      "mtimeMs": 1777397947960
+    },
+    {
+      "path": "notes/c3-party-look-meteorite-paths-source-pilot.md",
+      "size": 1426,
+      "mtimeMs": 1777397948239
+    },
+    {
+      "path": "notes/c3-party-look-random-camera-route-tail-source-pilot.md",
+      "size": 1399,
+      "mtimeMs": 1777397948509
+    },
+    {
+      "path": "notes/c3-party-look-random-camera-text-tail-source-pilot.md",
+      "size": 1378,
+      "mtimeMs": 1777391702631
+    },
+    {
+      "path": "notes/c3-party-look-registry-visual-flag-routes-source-pilot.md",
+      "size": 1467,
+      "mtimeMs": 1777397948792
+    },
+    {
+      "path": "notes/c3-party-look-window-gfx-paths-source-pilot.md",
+      "size": 1367,
+      "mtimeMs": 1777339134267
+    },
+    {
+      "path": "notes/c3-party-member-hop-text-paths-source-pilot.md",
+      "size": 1336,
+      "mtimeMs": 1777381638844
+    },
+    {
+      "path": "notes/c3-party-member-orbit-damping-paths-source-pilot.md",
+      "size": 1354,
+      "mtimeMs": 1777385708071
+    },
+    {
+      "path": "notes/c3-party-member-tracker-winter-paths-source-pilot.md",
+      "size": 1459,
+      "mtimeMs": 1777397949069
+    },
+    {
+      "path": "notes/c3-photo-scene-jump-release-source-pilot.md",
+      "size": 1391,
+      "mtimeMs": 1777386095147
+    },
+    {
+      "path": "notes/c3-photo-scene-spin-and-window-gfx-release-source-pilot.md",
+      "size": 1425,
+      "mtimeMs": 1777389512987
+    },
+    {
+      "path": "notes/c3-pokey-bubble-monkey-paths-source-pilot.md",
+      "size": 1484,
+      "mtimeMs": 1777351533595
+    },
+    {
+      "path": "notes/c3-position-door-close-helpers-source-pilot.md",
+      "size": 1367,
+      "mtimeMs": 1777344834179
+    },
+    {
+      "path": "notes/c3-position-door-close-rotation-and-target-paths-source-pilot.md",
+      "size": 1486,
+      "mtimeMs": 1777389513029
+    },
+    {
+      "path": "notes/c3-position-text-door-sound-paths-source-pilot.md",
+      "size": 1452,
+      "mtimeMs": 1777397949339
+    },
+    {
+      "path": "notes/c3-position-text-yield-paths-source-pilot.md",
+      "size": 1391,
+      "mtimeMs": 1777397949630
+    },
+    {
+      "path": "notes/c3-position-watch-new-entity-paths-source-pilot.md",
+      "size": 1315,
+      "mtimeMs": 1777355590504
+    },
+    {
+      "path": "notes/c3-preserved-gap-contracts.md",
+      "size": 17998,
+      "mtimeMs": 1777401772509
+    },
+    {
+      "path": "notes/c3-rightward-live-area-bounce-yield-source-pilot.md",
+      "size": 1381,
+      "mtimeMs": 1777346203597
+    },
+    {
+      "path": "notes/c3-service-animation-source-pilot.md",
+      "size": 1376,
+      "mtimeMs": 1777397949902
+    },
+    {
+      "path": "notes/c3-service-event-movement-source-pilot.md",
+      "size": 1284,
+      "mtimeMs": 1777339131686
+    },
+    {
+      "path": "notes/c3-service-presentation-effects-source-pilot.md",
+      "size": 1341,
+      "mtimeMs": 1777397950185
+    },
+    {
+      "path": "notes/c3-shared-helper-working-name-promotion.md",
+      "size": 6651,
+      "mtimeMs": 1777086140997
+    },
+    {
+      "path": "notes/c3-sky-runner-electric-effect-helpers-source-pilot.md",
+      "size": 1446,
+      "mtimeMs": 1777397950460
+    },
+    {
+      "path": "notes/c3-sky-runner-electric-effect-release-paths-source-pilot.md",
+      "size": 1467,
+      "mtimeMs": 1777380171284
+    },
+    {
+      "path": "notes/c3-sky-runner-fall-handoff-paths-source-pilot.md",
+      "size": 1345,
+      "mtimeMs": 1777383186726
+    },
+    {
+      "path": "notes/c3-sky-runner-landing-sequence-paths-source-pilot.md",
+      "size": 1399,
+      "mtimeMs": 1777383186700
+    },
+    {
+      "path": "notes/c3-skyrunner-crash-winter-paths-source-pilot.md",
+      "size": 1454,
+      "mtimeMs": 1777397950749
+    },
+    {
+      "path": "notes/c3-small-terminal-helper-cleanup-source-pilot.md",
+      "size": 2235,
+      "mtimeMs": 1777382979581
+    },
+    {
+      "path": "notes/c3-source-data-map.md",
+      "size": 36431,
+      "mtimeMs": 1777401768172
+    },
+    {
+      "path": "notes/c3-source-emission-plan.md",
+      "size": 14866,
+      "mtimeMs": 1777091883711
+    },
+    {
+      "path": "notes/c3-source-extraction-candidates.md",
+      "size": 14782,
+      "mtimeMs": 1777091004870
+    },
+    {
+      "path": "notes/c3-source-pilot-frontier.md",
+      "size": 1340,
+      "mtimeMs": 1777394214559
+    },
+    {
+      "path": "notes/c3-source-prototype-validation.md",
+      "size": 84,
+      "mtimeMs": 1777398729600
+    },
+    {
+      "path": "notes/c3-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777265498180
+    },
+    {
+      "path": "notes/c3-source-signature-validation.md",
+      "size": 948,
+      "mtimeMs": 1777398801576
+    },
+    {
+      "path": "notes/c3-space-tunnel-crash-paths-source-pilot.md",
+      "size": 1491,
+      "mtimeMs": 1777397951023
+    },
+    {
+      "path": "notes/c3-stage-brightness-continuation-paths-source-pilot.md",
+      "size": 1579,
+      "mtimeMs": 1777383434144
+    },
+    {
+      "path": "notes/c3-stage-brightness-terminal-helpers-source-pilot.md",
+      "size": 1603,
+      "mtimeMs": 1777381972553
+    },
+    {
+      "path": "notes/c3-stage-visual-continuation-paths-source-pilot.md",
+      "size": 1423,
+      "mtimeMs": 1777383353639
+    },
+    {
+      "path": "notes/c3-stage-visual-pulse-paths-source-pilot.md",
+      "size": 1349,
+      "mtimeMs": 1777350802828
+    },
+    {
+      "path": "notes/c3-teleport-destination-paths-source-pilot.md",
+      "size": 1369,
+      "mtimeMs": 1777339133762
+    },
+    {
+      "path": "notes/c3-teleport-destination-prelude-paths-source-pilot.md",
+      "size": 1468,
+      "mtimeMs": 1777343026311
+    },
+    {
+      "path": "notes/c3-teleport-flyover-coordinate-helpers-source-pilot.md",
+      "size": 1350,
+      "mtimeMs": 1777344657311
+    },
+    {
+      "path": "notes/c3-teleport-flyover-pulse-helpers-source-pilot.md",
+      "size": 1472,
+      "mtimeMs": 1777348771623
+    },
+    {
+      "path": "notes/c3-temp-flag-door-close-paths-source-pilot.md",
+      "size": 1340,
+      "mtimeMs": 1777397951303
+    },
+    {
+      "path": "notes/c3-temporary-actor-movement-and-release-scripts.md",
+      "size": 8273,
+      "mtimeMs": 1777065587276
+    },
+    {
+      "path": "notes/c3-threed-escaper-appear-paths-source-pilot.md",
+      "size": 1473,
+      "mtimeMs": 1777397951591
+    },
+    {
+      "path": "notes/c3-threed-escaper-arc-continuation-source-pilot.md",
+      "size": 1353,
+      "mtimeMs": 1777385708536
+    },
+    {
+      "path": "notes/c3-threed-escaper-landing-continuation-source-pilot.md",
+      "size": 1389,
+      "mtimeMs": 1777397951870
+    },
+    {
+      "path": "notes/c3-threed-escaper-late-route-tail-source-pilot.md",
+      "size": 1353,
+      "mtimeMs": 1777392329245
+    },
+    {
+      "path": "notes/c3-threed-escaper-random-text-tail-source-pilot.md",
+      "size": 1349,
+      "mtimeMs": 1777391702821
+    },
+    {
+      "path": "notes/c3-threed-fight-matent-paths-source-pilot.md",
+      "size": 1413,
+      "mtimeMs": 1777344703902
+    },
+    {
+      "path": "notes/c3-timed-delivery-controller-working-names.md",
+      "size": 4929,
+      "mtimeMs": 1777330840025
+    },
+    {
+      "path": "notes/c3-timed-delivery-source-pilot.md",
+      "size": 1375,
+      "mtimeMs": 1777339131422
+    },
+    {
+      "path": "notes/c3-townhall-coffee-tea-gatekeeper-paths-source-pilot.md",
+      "size": 1431,
+      "mtimeMs": 1777397952158
+    },
+    {
+      "path": "notes/c3-townhall-direction-common-paths-source-pilot.md",
+      "size": 1408,
+      "mtimeMs": 1777397952436
+    },
+    {
+      "path": "notes/c3-tracked-item-sync-source-contract-ebca.md",
+      "size": 3858,
+      "mtimeMs": 1777085070731
+    },
+    {
+      "path": "notes/c3-traffic-light-profile-and-random-wander-source-pilot.md",
+      "size": 1448,
+      "mtimeMs": 1777397903268
+    },
+    {
+      "path": "notes/c3-tstage-dance-followup-paths-source-pilot.md",
+      "size": 1438,
+      "mtimeMs": 1777385709255
+    },
+    {
+      "path": "notes/c3-tstage-dance-sequence-paths-source-pilot.md",
+      "size": 1332,
+      "mtimeMs": 1777352151879
+    },
+    {
+      "path": "notes/c3-tstage-dual-window-position-paths-source-pilot.md",
+      "size": 1454,
+      "mtimeMs": 1777385709501
+    },
+    {
+      "path": "notes/c3-tstage-long-choreography-release-source-pilot.md",
+      "size": 1344,
+      "mtimeMs": 1777385989347
+    },
+    {
+      "path": "notes/c3-tstage-performance-movement-paths-source-pilot.md",
+      "size": 1387,
+      "mtimeMs": 1777350764343
+    },
+    {
+      "path": "notes/c3-tstage-performance-upper-corridor-source-pilot.md",
+      "size": 1440,
+      "mtimeMs": 1777385709744
+    },
+    {
+      "path": "notes/c3-tstage-text-continuation-paths-source-pilot.md",
+      "size": 1363,
+      "mtimeMs": 1777383434174
+    },
+    {
+      "path": "notes/c3-tstage-vstage-route-release-paths-source-pilot.md",
+      "size": 1330,
+      "mtimeMs": 1777386045487
+    },
+    {
+      "path": "notes/c3-tstage3-performance-routes-source-pilot.md",
+      "size": 1359,
+      "mtimeMs": 1777385709979
+    },
+    {
+      "path": "notes/c3-tunnel-ghost-entity-setup-paths-source-pilot.md",
+      "size": 1493,
+      "mtimeMs": 1777397952722
+    },
+    {
+      "path": "notes/c3-tunnel-ghost-follower-paths-source-pilot.md",
+      "size": 1347,
+      "mtimeMs": 1777397953001
+    },
+    {
+      "path": "notes/c3-tunnel-ghost-teleport-routes-source-pilot.md",
+      "size": 1432,
+      "mtimeMs": 1777397953280
+    },
+    {
+      "path": "notes/c3-tunnel-ghost-warp-text-helpers-source-pilot.md",
+      "size": 1362,
+      "mtimeMs": 1777346427398
+    },
+    {
+      "path": "notes/c3-tunnel-ghost-zombie-paths-source-pilot.md",
+      "size": 1358,
+      "mtimeMs": 1777397953570
+    },
+    {
+      "path": "notes/c3-twoson-bus-route-paths-source-pilot.md",
+      "size": 1391,
+      "mtimeMs": 1777397953855
+    },
+    {
+      "path": "notes/c3-var0-animation-collision-probe-source-pilot.md",
+      "size": 1367,
+      "mtimeMs": 1777343606680
+    },
+    {
+      "path": "notes/c3-var4-animation-side-step-helpers-source-pilot.md",
+      "size": 1470,
+      "mtimeMs": 1777346302106
+    },
+    {
+      "path": "notes/c3-vehicle-coordinate-paths-source-pilot.md",
+      "size": 1351,
+      "mtimeMs": 1777397954141
+    },
+    {
+      "path": "notes/c3-visual-countdown-anchor-followers-source-pilot.md",
+      "size": 1414,
+      "mtimeMs": 1777381638838
+    },
+    {
+      "path": "notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md",
+      "size": 5678,
+      "mtimeMs": 1777090989545
+    },
+    {
+      "path": "notes/c3-window-gfx-loader-prologue-source-pilot.md",
+      "size": 1402,
+      "mtimeMs": 1777346369367
+    },
+    {
+      "path": "notes/c3-window-gfx-sequence-release-paths-source-pilot.md",
+      "size": 1422,
+      "mtimeMs": 1777380269424
+    },
+    {
+      "path": "notes/c3-window-lifecycle-source-contract-e4ef-e6f7.md",
+      "size": 3438,
+      "mtimeMs": 1777086125296
+    },
+    {
+      "path": "notes/c3-window-text-source-helper-corridor-e450-e7e3.md",
+      "size": 5514,
+      "mtimeMs": 1777507402378
+    },
+    {
+      "path": "notes/c3-winter-battle-bg-reload-and-route-release-source-pilot.md",
+      "size": 1500,
+      "mtimeMs": 1777397954423
+    },
+    {
+      "path": "notes/c3-winter-coordinate-facing-routes-source-pilot.md",
+      "size": 1378,
+      "mtimeMs": 1777386870275
+    },
+    {
+      "path": "notes/c3-winter-coordinate-transition-routes-source-pilot.md",
+      "size": 1377,
+      "mtimeMs": 1777397954718
+    },
+    {
+      "path": "notes/c3-winter-input-battle-bg-transition-source-pilot.md",
+      "size": 1398,
+      "mtimeMs": 1777397955000
+    },
+    {
+      "path": "notes/c3-winter-input-bubble-monkey-routes-source-pilot.md",
+      "size": 1425,
+      "mtimeMs": 1777386823170
+    },
+    {
+      "path": "notes/c3-winter-sanctuary-display-and-pulse-release-source-pilot.md",
+      "size": 1453,
+      "mtimeMs": 1777397955282
+    },
+    {
+      "path": "notes/c3-winter-target-release-paths-source-pilot.md",
+      "size": 1441,
+      "mtimeMs": 1777357730164
+    },
+    {
+      "path": "notes/c3-winters-ride-input-and-route-release-source-pilot.md",
+      "size": 1424,
+      "mtimeMs": 1777397955576
+    },
+    {
+      "path": "notes/c3-winters-ride-launch-paths-source-pilot.md",
+      "size": 1378,
+      "mtimeMs": 1777397955853
+    },
+    {
+      "path": "notes/c4-build-candidate-ranges.md",
+      "size": 108576,
+      "mtimeMs": 1777265124066
+    },
+    {
+      "path": "notes/c4-byte-equivalence-validation.md",
+      "size": 18405,
+      "mtimeMs": 1777265335662
+    },
+    {
+      "path": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "size": 6351,
+      "mtimeMs": 1777152287093
+    },
+    {
+      "path": "notes/c4-party-state-reset-and-callback-tables-30ec-3317.md",
+      "size": 4849,
+      "mtimeMs": 1777064328198
+    },
+    {
+      "path": "notes/c4-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777265125385
+    },
+    {
+      "path": "notes/c4-system-error-screen-render-0b51-0b75.md",
+      "size": 3405,
+      "mtimeMs": 1777055069196
+    },
+    {
+      "path": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "size": 4116,
+      "mtimeMs": 1777055239872
+    },
+    {
+      "path": "notes/c4-visual-frame-copy-and-footprint-tables-283f-2b0d.md",
+      "size": 6265,
+      "mtimeMs": 1777055908737
+    },
+    {
+      "path": "notes/c4-window-color-math-and-palette-helpers-23dc-26ed.md",
+      "size": 7499,
+      "mtimeMs": 1777055697075
+    },
+    {
+      "path": "notes/c5-build-candidate-ranges.md",
+      "size": 6363,
+      "mtimeMs": 1777160878215
+    },
+    {
+      "path": "notes/c5-byte-equivalence-validation.md",
+      "size": 1414,
+      "mtimeMs": 1777161139623
+    },
+    {
+      "path": "notes/c5-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777161013643
+    },
+    {
+      "path": "notes/c6-build-candidate-ranges.md",
+      "size": 6384,
+      "mtimeMs": 1777161065700
+    },
+    {
+      "path": "notes/c6-byte-equivalence-validation.md",
+      "size": 1420,
+      "mtimeMs": 1777161138719
+    },
+    {
+      "path": "notes/c6-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777161072752
+    },
+    {
+      "path": "notes/c7-build-candidate-ranges.md",
+      "size": 7642,
+      "mtimeMs": 1777162439763
+    },
+    {
+      "path": "notes/c7-byte-equivalence-validation.md",
+      "size": 1628,
+      "mtimeMs": 1777162431672
+    },
+    {
+      "path": "notes/c7-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777162448227
+    },
+    {
+      "path": "notes/c8-build-candidate-ranges.md",
+      "size": 7724,
+      "mtimeMs": 1777162440612
+    },
+    {
+      "path": "notes/c8-byte-equivalence-validation.md",
+      "size": 1654,
+      "mtimeMs": 1777162431180
+    },
+    {
+      "path": "notes/c8-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777162449090
+    },
+    {
+      "path": "notes/c9-build-candidate-ranges.md",
+      "size": 10860,
+      "mtimeMs": 1777162441186
+    },
+    {
+      "path": "notes/c9-byte-equivalence-validation.md",
+      "size": 2168,
+      "mtimeMs": 1777162432230
+    },
+    {
+      "path": "notes/c9-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777162449612
+    },
+    {
+      "path": "notes/ca-build-candidate-ranges.md",
+      "size": 19318,
+      "mtimeMs": 1777162829246
+    },
+    {
+      "path": "notes/ca-byte-equivalence-validation.md",
+      "size": 3886,
+      "mtimeMs": 1777163113034
+    },
+    {
+      "path": "notes/ca-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163121431
+    },
+    {
+      "path": "notes/cast-scene-scroll-helpers-c4e4da-c4e583.md",
+      "size": 9137,
+      "mtimeMs": 1777151698833
+    },
+    {
+      "path": "notes/cb-build-candidate-ranges.md",
+      "size": 210442,
+      "mtimeMs": 1777162941052
+    },
+    {
+      "path": "notes/cb-byte-equivalence-validation.md",
+      "size": 38032,
+      "mtimeMs": 1777163113568
+    },
+    {
+      "path": "notes/cb-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163121989
+    },
+    {
+      "path": "notes/cc-build-candidate-ranges.md",
+      "size": 56600,
+      "mtimeMs": 1777163046950
+    },
+    {
+      "path": "notes/cc-byte-equivalence-validation.md",
+      "size": 10376,
+      "mtimeMs": 1777163114050
+    },
+    {
+      "path": "notes/cc-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163122578
+    },
+    {
+      "path": "notes/cd-build-candidate-ranges.md",
+      "size": 36785,
+      "mtimeMs": 1777163219970
+    },
+    {
+      "path": "notes/cd-byte-equivalence-validation.md",
+      "size": 6784,
+      "mtimeMs": 1777163399704
+    },
+    {
+      "path": "notes/cd-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163227211
+    },
+    {
+      "path": "notes/ce-build-candidate-ranges.md",
+      "size": 145083,
+      "mtimeMs": 1777163321574
+    },
+    {
+      "path": "notes/ce-byte-equivalence-validation.md",
+      "size": 25751,
+      "mtimeMs": 1777163400244
+    },
+    {
+      "path": "notes/ce-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163336103
+    },
+    {
+      "path": "notes/cf-build-candidate-ranges.md",
+      "size": 6647,
+      "mtimeMs": 1777163548078
+    },
+    {
+      "path": "notes/cf-byte-equivalence-validation.md",
+      "size": 1748,
+      "mtimeMs": 1777163806824
+    },
+    {
+      "path": "notes/cf-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163815331
+    },
+    {
+      "path": "notes/cf-table-splits.md",
+      "size": 2540,
+      "mtimeMs": 1777163535866
+    },
+    {
+      "path": "notes/character-affliction-clear-c0329f.md",
+      "size": 2968,
+      "mtimeMs": 1777042344840
+    },
+    {
+      "path": "notes/character-selection-prompt-cluster-c11f8a-c1242e.md",
+      "size": 7144,
+      "mtimeMs": 1777196891059
+    },
+    {
+      "path": "notes/character-selection-prompt-dispatch-c1242e-c12bf3.md",
+      "size": 1617,
+      "mtimeMs": 1777196250514
+    },
+    {
+      "path": "notes/child-entity-spawn-c4b3d0-c40de8.md",
+      "size": 6296,
+      "mtimeMs": 1777507402534
+    },
+    {
+      "path": "notes/class2-005e-record-domain.md",
+      "size": 6668,
+      "mtimeMs": 1777507402538
+    },
+    {
+      "path": "notes/class2-9f8c-upstream-verification.md",
+      "size": 4369,
+      "mtimeMs": 1777507402542
+    },
+    {
+      "path": "notes/class2-affliction-apply-helper-724a.md",
+      "size": 7632,
+      "mtimeMs": 1777507402547
+    },
+    {
+      "path": "notes/class2-asleep-family-c29f06-c29f57.md",
+      "size": 3620,
+      "mtimeMs": 1777507402554
+    },
+    {
+      "path": "notes/class2-b6eb-caller-family-4dxx.md",
+      "size": 5850,
+      "mtimeMs": 1777507402559
+    },
+    {
+      "path": "notes/class2-battle-start-extra-message-state-4dbc-aa10.md",
+      "size": 7199,
+      "mtimeMs": 1777507402564
+    },
+    {
+      "path": "notes/class2-battle-text-cluster-overview.md",
+      "size": 8199,
+      "mtimeMs": 1777507402569
+    },
+    {
+      "path": "notes/class2-battle-text-dispatch-stack.md",
+      "size": 9957,
+      "mtimeMs": 1777507402575
+    },
+    {
+      "path": "notes/class2-battler-affliction-crosswalk.md",
+      "size": 10480,
+      "mtimeMs": 1777507402580
+    },
+    {
+      "path": "notes/class2-battler-core-field-crosswalk.md",
+      "size": 6859,
+      "mtimeMs": 1777507402585
+    },
+    {
+      "path": "notes/class2-battlers-table-layout-9f8a-9fac.md",
+      "size": 4784,
+      "mtimeMs": 1777507402590
+    },
+    {
+      "path": "notes/class2-bomb-common-family-c2a658-c2a821.md",
+      "size": 4866,
+      "mtimeMs": 1777507402595
+    },
+    {
+      "path": "notes/class2-bounded-offense-defense-helpers-c27d28-c27e33.md",
+      "size": 4032,
+      "mtimeMs": 1777507402600
+    },
+    {
+      "path": "notes/class2-busy-helper-eacf-and-window-setup.md",
+      "size": 7575,
+      "mtimeMs": 1774410301158
+    },
+    {
+      "path": "notes/class2-c1-display-text-substitution-handler-7af3.md",
+      "size": 9707,
+      "mtimeMs": 1777507402608
+    },
+    {
+      "path": "notes/class2-c1acf8-substitution-byte-family.md",
+      "size": 6857,
+      "mtimeMs": 1777507402615
+    },
+    {
+      "path": "notes/class2-c2-handlers.md",
+      "size": 3452,
+      "mtimeMs": 1777044431800
+    },
+    {
+      "path": "notes/class2-candidate-population-and-ranking.md",
+      "size": 6485,
+      "mtimeMs": 1777064552782
+    },
+    {
+      "path": "notes/class2-candidate-table-9fac.md",
+      "size": 3128,
+      "mtimeMs": 1777507402627
+    },
+    {
+      "path": "notes/class2-cc19-1f-cross-segment-reuse.md",
+      "size": 3917,
+      "mtimeMs": 1777507402631
+    },
+    {
+      "path": "notes/class2-cc19-1f-display-text-bridge.md",
+      "size": 3646,
+      "mtimeMs": 1777507402636
+    },
+    {
+      "path": "notes/class2-cc19-20-eshop2-single-use.md",
+      "size": 4486,
+      "mtimeMs": 1777507402641
+    },
+    {
+      "path": "notes/class2-concentration-seal-family-c28d5a-c2a3d1.md",
+      "size": 4847,
+      "mtimeMs": 1777507402646
+    },
+    {
+      "path": "notes/class2-concrete-battle-text-call-paths.md",
+      "size": 7748,
+      "mtimeMs": 1777507402652
+    },
+    {
+      "path": "notes/class2-d57b68-battle-action-table-match.md",
+      "size": 12705,
+      "mtimeMs": 1777507402658
+    },
+    {
+      "path": "notes/class2-d57b68-early-entry-name-crosswalk.md",
+      "size": 15625,
+      "mtimeMs": 1777507402663
+    },
+    {
+      "path": "notes/class2-d59589-enemy-data-crosswalk.md",
+      "size": 4551,
+      "mtimeMs": 1777507402669
+    },
+    {
+      "path": "notes/class2-descriptor-field-4e-and-d57b68.md",
+      "size": 8016,
+      "mtimeMs": 1774555106122
+    },
+    {
+      "path": "notes/class2-dispatch-family.md",
+      "size": 6522,
+      "mtimeMs": 1776997860912
+    },
+    {
+      "path": "notes/class2-end-to-end-gate-path-5540.md",
+      "size": 6184,
+      "mtimeMs": 1777253395924
+    },
+    {
+      "path": "notes/class2-end-to-end-gate-path-ab35.md",
+      "size": 3955,
+      "mtimeMs": 1774407838996
+    },
+    {
+      "path": "notes/class2-enemy-text-pointer-consumers.md",
+      "size": 6035,
+      "mtimeMs": 1777507402687
+    },
+    {
+      "path": "notes/class2-final-prayer-family-c2c572-c2c6f0.md",
+      "size": 6403,
+      "mtimeMs": 1777507402690
+    },
+    {
+      "path": "notes/class2-handoff-4477-4703.md",
+      "size": 4058,
+      "mtimeMs": 1777044431955
+    },
+    {
+      "path": "notes/class2-healing-amount-family-c29ab8-c29ae1.md",
+      "size": 5502,
+      "mtimeMs": 1777507402699
+    },
+    {
+      "path": "notes/class2-late-controller-path-77ca.md",
+      "size": 8395,
+      "mtimeMs": 1777044487204
+    },
+    {
+      "path": "notes/class2-late-flavor-tail-c2902c-c2904e.md",
+      "size": 4310,
+      "mtimeMs": 1777507402707
+    },
+    {
+      "path": "notes/class2-late-normalization-and-odor-family-c29051-c29254.md",
+      "size": 7220,
+      "mtimeMs": 1777507402712
+    },
+    {
+      "path": "notes/class2-late-physical-special-family-c28f97-c2900b.md",
+      "size": 5405,
+      "mtimeMs": 1777507402717
+    },
+    {
+      "path": "notes/class2-late-stat-and-resource-family-c28e42-c29e38.md",
+      "size": 7846,
+      "mtimeMs": 1777507402721
+    },
+    {
+      "path": "notes/class2-local-enemy-id-to-battler-init-chain.md",
+      "size": 5090,
+      "mtimeMs": 1777507402727
+    },
+    {
+      "path": "notes/class2-mask-helper-family.md",
+      "size": 5922,
+      "mtimeMs": 1777044183337
+    },
+    {
+      "path": "notes/class2-persistent-status-action-pair-c28bbe-c28bfd.md",
+      "size": 4500,
+      "mtimeMs": 1777507402735
+    },
+    {
+      "path": "notes/class2-post-selection-controller-phases.md",
+      "size": 10322,
+      "mtimeMs": 1777507402740
+    },
+    {
+      "path": "notes/class2-prayer-common-helpers-c2c37a-c2c3e2-c2c41f.md",
+      "size": 4135,
+      "mtimeMs": 1777507402746
+    },
+    {
+      "path": "notes/class2-psi-action-wrapper-local-verification.md",
+      "size": 4795,
+      "mtimeMs": 1774555301737
+    },
+    {
+      "path": "notes/class2-psi-common-helper-candidates.md",
+      "size": 6853,
+      "mtimeMs": 1777044284075
+    },
+    {
+      "path": "notes/class2-psi-flash-common-local-flow.md",
+      "size": 7122,
+      "mtimeMs": 1777044183147
+    },
+    {
+      "path": "notes/class2-psi-shield-post-hit-aa96.md",
+      "size": 5783,
+      "mtimeMs": 1774411757147
+    },
+    {
+      "path": "notes/class2-psi-thunder-common-local-flow.md",
+      "size": 7440,
+      "mtimeMs": 1774555106124
+    },
+    {
+      "path": "notes/class2-psi-thunder-reflection-branch.md",
+      "size": 4520,
+      "mtimeMs": 1777044487308
+    },
+    {
+      "path": "notes/class2-record-consumer-families.md",
+      "size": 5668,
+      "mtimeMs": 1777507402768
+    },
+    {
+      "path": "notes/class2-reflected-hit-context-rebuild.md",
+      "size": 5981,
+      "mtimeMs": 1777044331184
+    },
+    {
+      "path": "notes/class2-reflected-hit-side-buffer-flags.md",
+      "size": 5683,
+      "mtimeMs": 1777507402775
+    },
+    {
+      "path": "notes/class2-reflected-hit-side-token-consumers.md",
+      "size": 11033,
+      "mtimeMs": 1777507402779
+    },
+    {
+      "path": "notes/class2-reflected-hit-text-context.md",
+      "size": 6139,
+      "mtimeMs": 1777507402785
+    },
+    {
+      "path": "notes/class2-row-position-text-cluster-c454f0.md",
+      "size": 3343,
+      "mtimeMs": 1777507402790
+    },
+    {
+      "path": "notes/class2-second-pointer-consumer-40a4.md",
+      "size": 8264,
+      "mtimeMs": 1777507402796
+    },
+    {
+      "path": "notes/class2-second-stage-selector-a970.md",
+      "size": 6480,
+      "mtimeMs": 1777236059634
+    },
+    {
+      "path": "notes/class2-slot-fields-and-transition-start.md",
+      "size": 5824,
+      "mtimeMs": 1774554461954
+    },
+    {
+      "path": "notes/class2-solidification-item-action-c2a5ec-a630.md",
+      "size": 4770,
+      "mtimeMs": 1777507402809
+    },
+    {
+      "path": "notes/class2-source-families-986f-9f8a.md",
+      "size": 3952,
+      "mtimeMs": 1777507402814
+    },
+    {
+      "path": "notes/class2-special-event-results-c29298-c2c14e.md",
+      "size": 5649,
+      "mtimeMs": 1777507402819
+    },
+    {
+      "path": "notes/class2-state-machine-99xx.md",
+      "size": 7038,
+      "mtimeMs": 1777507402824
+    },
+    {
+      "path": "notes/class2-strange-status-family-c28d3a-c28dbb-c2a056.md",
+      "size": 5231,
+      "mtimeMs": 1777507402829
+    },
+    {
+      "path": "notes/class2-temporary-status-action-cluster-c28c69-c28cb8-c28cf1.md",
+      "size": 5606,
+      "mtimeMs": 1777507402835
+    },
+    {
+      "path": "notes/class2-ufo-present-message-family.md",
+      "size": 7673,
+      "mtimeMs": 1777507402840
+    },
+    {
+      "path": "notes/class3-doorway-transition-context.md",
+      "size": 4630,
+      "mtimeMs": 1777507402845
+    },
+    {
+      "path": "notes/class4-class6-surface-contexts.md",
+      "size": 8764,
+      "mtimeMs": 1777507402849
+    },
+    {
+      "path": "notes/collision-surface-probes-c052d4-c05e3a.md",
+      "size": 13318,
+      "mtimeMs": 1777320096697
+    },
+    {
+      "path": "notes/current-slot-position-staging-c46b8d-c46d4b.md",
+      "size": 8147,
+      "mtimeMs": 1777507402860
+    },
+    {
+      "path": "notes/d0-build-candidate-ranges.md",
+      "size": 6736,
+      "mtimeMs": 1777163640021
+    },
+    {
+      "path": "notes/d0-byte-equivalence-validation.md",
+      "size": 1772,
+      "mtimeMs": 1777163807911
+    },
+    {
+      "path": "notes/d0-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163815928
+    },
+    {
+      "path": "notes/d0-table-splits.md",
+      "size": 2733,
+      "mtimeMs": 1777163623376
+    },
+    {
+      "path": "notes/d1-build-candidate-ranges.md",
+      "size": 79175,
+      "mtimeMs": 1777165404534
+    },
+    {
+      "path": "notes/d1-byte-equivalence-validation.md",
+      "size": 13968,
+      "mtimeMs": 1777165404983
+    },
+    {
+      "path": "notes/d1-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165404668
+    },
+    {
+      "path": "notes/d2-build-candidate-ranges.md",
+      "size": 148166,
+      "mtimeMs": 1777165407456
+    },
+    {
+      "path": "notes/d2-byte-equivalence-validation.md",
+      "size": 25841,
+      "mtimeMs": 1777165407930
+    },
+    {
+      "path": "notes/d2-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165407580
+    },
+    {
+      "path": "notes/d3-build-candidate-ranges.md",
+      "size": 217169,
+      "mtimeMs": 1777165411667
+    },
+    {
+      "path": "notes/d3-byte-equivalence-validation.md",
+      "size": 37718,
+      "mtimeMs": 1777165412177
+    },
+    {
+      "path": "notes/d3-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165411809
+    },
+    {
+      "path": "notes/d4-build-candidate-ranges.md",
+      "size": 214613,
+      "mtimeMs": 1777165415682
+    },
+    {
+      "path": "notes/d4-byte-equivalence-validation.md",
+      "size": 37278,
+      "mtimeMs": 1777165416314
+    },
+    {
+      "path": "notes/d4-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165415872
+    },
+    {
+      "path": "notes/d5-build-candidate-ranges.md",
+      "size": 98100,
+      "mtimeMs": 1777165284940
+    },
+    {
+      "path": "notes/d5-byte-equivalence-validation.md",
+      "size": 15880,
+      "mtimeMs": 1777165290086
+    },
+    {
+      "path": "notes/d5-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165285551
+    },
+    {
+      "path": "notes/d5-table-splits.md",
+      "size": 4031,
+      "mtimeMs": 1777079418037
+    },
+    {
+      "path": "notes/d6-build-candidate-ranges.md",
+      "size": 4752,
+      "mtimeMs": 1777165416772
+    },
+    {
+      "path": "notes/d6-byte-equivalence-validation.md",
+      "size": 1194,
+      "mtimeMs": 1777165417292
+    },
+    {
+      "path": "notes/d6-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165416889
+    },
+    {
+      "path": "notes/d7-build-candidate-ranges.md",
+      "size": 5477,
+      "mtimeMs": 1777165611792
+    },
+    {
+      "path": "notes/d7-byte-equivalence-validation.md",
+      "size": 1332,
+      "mtimeMs": 1777165612183
+    },
+    {
+      "path": "notes/d7-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165611903
+    },
+    {
+      "path": "notes/d8-build-candidate-ranges.md",
+      "size": 17126,
+      "mtimeMs": 1777163734729
+    },
+    {
+      "path": "notes/d8-byte-equivalence-validation.md",
+      "size": 4076,
+      "mtimeMs": 1777163807383
+    },
+    {
+      "path": "notes/d8-source-residual-map.md",
+      "size": 1040,
+      "mtimeMs": 1777163816537
+    },
+    {
+      "path": "notes/d8-table-splits.md",
+      "size": 4996,
+      "mtimeMs": 1777163720586
+    },
+    {
+      "path": "notes/d9-build-candidate-ranges.md",
+      "size": 5395,
+      "mtimeMs": 1777165662026
+    },
+    {
+      "path": "notes/d9-byte-equivalence-validation.md",
+      "size": 1302,
+      "mtimeMs": 1777165662419
+    },
+    {
+      "path": "notes/d9-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165662139
+    },
+    {
+      "path": "notes/da-build-candidate-ranges.md",
+      "size": 26084,
+      "mtimeMs": 1777165663062
+    },
+    {
+      "path": "notes/da-byte-equivalence-validation.md",
+      "size": 4972,
+      "mtimeMs": 1777165663452
+    },
+    {
+      "path": "notes/da-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165663174
+    },
+    {
+      "path": "notes/data-contracts-c0-c2.md",
+      "size": 21431,
+      "mtimeMs": 1777046095981
+    },
+    {
+      "path": "notes/data-contracts-c0-c3.md",
+      "size": 32990,
+      "mtimeMs": 1777399318883
+    },
+    {
+      "path": "notes/data-contracts-c0-c4.md",
+      "size": 85072,
+      "mtimeMs": 1777400854864
+    },
+    {
+      "path": "notes/db-build-candidate-ranges.md",
+      "size": 6108,
+      "mtimeMs": 1777165663888
+    },
+    {
+      "path": "notes/db-byte-equivalence-validation.md",
+      "size": 1432,
+      "mtimeMs": 1777165664307
+    },
+    {
+      "path": "notes/db-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165664010
+    },
+    {
+      "path": "notes/dc-build-candidate-ranges.md",
+      "size": 8155,
+      "mtimeMs": 1777165664754
+    },
+    {
+      "path": "notes/dc-byte-equivalence-validation.md",
+      "size": 1805,
+      "mtimeMs": 1777165665161
+    },
+    {
+      "path": "notes/dc-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165664867
+    },
+    {
+      "path": "notes/dd-build-candidate-ranges.md",
+      "size": 6101,
+      "mtimeMs": 1777165665595
+    },
+    {
+      "path": "notes/dd-byte-equivalence-validation.md",
+      "size": 1433,
+      "mtimeMs": 1777165665999
+    },
+    {
+      "path": "notes/dd-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165665704
+    },
+    {
+      "path": "notes/de-build-candidate-ranges.md",
+      "size": 9646,
+      "mtimeMs": 1777165666455
+    },
+    {
+      "path": "notes/de-byte-equivalence-validation.md",
+      "size": 2081,
+      "mtimeMs": 1777165666856
+    },
+    {
+      "path": "notes/de-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165666567
+    },
+    {
+      "path": "notes/debug-menu-reachability-c0-c1-ef.md",
+      "size": 3791,
+      "mtimeMs": 1777507403015
+    },
+    {
+      "path": "notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md",
+      "size": 5234,
+      "mtimeMs": 1777507403019
+    },
+    {
+      "path": "notes/deferred-text-byte-queue-97ba-97ca.md",
+      "size": 2113,
+      "mtimeMs": 1777507403026
+    },
+    {
+      "path": "notes/delayed-action-timer-callers.md",
+      "size": 5114,
+      "mtimeMs": 1774397830057
+    },
+    {
+      "path": "notes/delivery-row-helpers-ef0e67-ef0ead.md",
+      "size": 9122,
+      "mtimeMs": 1777507403037
+    },
+    {
+      "path": "notes/df-build-candidate-ranges.md",
+      "size": 17402,
+      "mtimeMs": 1777165667440
+    },
+    {
+      "path": "notes/df-byte-equivalence-validation.md",
+      "size": 3500,
+      "mtimeMs": 1777165667845
+    },
+    {
+      "path": "notes/df-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165667555
+    },
+    {
+      "path": "notes/direct-callers-c0-dbe6.md",
+      "size": 361,
+      "mtimeMs": 1774397089699
+    },
+    {
+      "path": "notes/direct-callers-c0-dc38.md",
+      "size": 174,
+      "mtimeMs": 1774397089665
+    },
+    {
+      "path": "notes/direct-callers-c1-dc1c.md",
+      "size": 4344,
+      "mtimeMs": 1774416209501
+    },
+    {
+      "path": "notes/direct-callers-c2-3d05.md",
+      "size": 648,
+      "mtimeMs": 1774416376133
+    },
+    {
+      "path": "notes/direction-octant-normalizers-c46a5e-c46b51.md",
+      "size": 4467,
+      "mtimeMs": 1777063701546
+    },
+    {
+      "path": "notes/display-text-dynamic-source-selector-dispatch-c17b56-c1866d.md",
+      "size": 1667,
+      "mtimeMs": 1777507403067
+    },
+    {
+      "path": "notes/e0-build-candidate-ranges.md",
+      "size": 11158,
+      "mtimeMs": 1777166063132
+    },
+    {
+      "path": "notes/e0-byte-equivalence-validation.md",
+      "size": 2301,
+      "mtimeMs": 1777166063550
+    },
+    {
+      "path": "notes/e0-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777166063249
+    },
+    {
+      "path": "notes/e1-build-candidate-ranges.md",
+      "size": 35904,
+      "mtimeMs": 1777420227892
+    },
+    {
+      "path": "notes/e1-byte-equivalence-validation.md",
+      "size": 6735,
+      "mtimeMs": 1777420382083
+    },
+    {
+      "path": "notes/e1-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777166064459
+    },
+    {
+      "path": "notes/e2-build-candidate-ranges.md",
+      "size": 3824,
+      "mtimeMs": 1777165727477
+    },
+    {
+      "path": "notes/e2-byte-equivalence-validation.md",
+      "size": 1001,
+      "mtimeMs": 1777165728047
+    },
+    {
+      "path": "notes/e2-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165727666
+    },
+    {
+      "path": "notes/e3-build-candidate-ranges.md",
+      "size": 3826,
+      "mtimeMs": 1777165728526
+    },
+    {
+      "path": "notes/e3-byte-equivalence-validation.md",
+      "size": 1002,
+      "mtimeMs": 1777165729024
+    },
+    {
+      "path": "notes/e3-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165728689
+    },
+    {
+      "path": "notes/e4-build-candidate-ranges.md",
+      "size": 4487,
+      "mtimeMs": 1777165729576
+    },
+    {
+      "path": "notes/e4-byte-equivalence-validation.md",
+      "size": 1118,
+      "mtimeMs": 1777165730063
+    },
+    {
+      "path": "notes/e4-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165729711
+    },
+    {
+      "path": "notes/e5-build-candidate-ranges.md",
+      "size": 4486,
+      "mtimeMs": 1777165730528
+    },
+    {
+      "path": "notes/e5-byte-equivalence-validation.md",
+      "size": 1118,
+      "mtimeMs": 1777165730923
+    },
+    {
+      "path": "notes/e5-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165730634
+    },
+    {
+      "path": "notes/e6-build-candidate-ranges.md",
+      "size": 9984,
+      "mtimeMs": 1777165869825
+    },
+    {
+      "path": "notes/e6-byte-equivalence-validation.md",
+      "size": 2121,
+      "mtimeMs": 1777165870278
+    },
+    {
+      "path": "notes/e6-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165869971
+    },
+    {
+      "path": "notes/e7-build-candidate-ranges.md",
+      "size": 3835,
+      "mtimeMs": 1777165732172
+    },
+    {
+      "path": "notes/e7-byte-equivalence-validation.md",
+      "size": 1005,
+      "mtimeMs": 1777165732588
+    },
+    {
+      "path": "notes/e7-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165732295
+    },
+    {
+      "path": "notes/e8-build-candidate-ranges.md",
+      "size": 5133,
+      "mtimeMs": 1777165733018
+    },
+    {
+      "path": "notes/e8-byte-equivalence-validation.md",
+      "size": 1231,
+      "mtimeMs": 1777165733457
+    },
+    {
+      "path": "notes/e8-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165733148
+    },
+    {
+      "path": "notes/e9-build-candidate-ranges.md",
+      "size": 5143,
+      "mtimeMs": 1777165733910
+    },
+    {
+      "path": "notes/e9-byte-equivalence-validation.md",
+      "size": 1234,
+      "mtimeMs": 1777165734324
+    },
+    {
+      "path": "notes/e9-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165734035
+    },
+    {
+      "path": "notes/ea-build-candidate-ranges.md",
+      "size": 5788,
+      "mtimeMs": 1777165734768
+    },
+    {
+      "path": "notes/ea-byte-equivalence-validation.md",
+      "size": 1346,
+      "mtimeMs": 1777165735169
+    },
+    {
+      "path": "notes/ea-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165734877
+    },
+    {
+      "path": "notes/early-entity-map-reset-family-c019e2-c01a86.md",
+      "size": 4543,
+      "mtimeMs": 1777063701723
+    },
+    {
+      "path": "notes/early-naming-buffers-9819-9829.md",
+      "size": 4538,
+      "mtimeMs": 1777507403155
+    },
+    {
+      "path": "notes/earthbound-localization-script-authoring-format.md",
+      "size": 5802,
+      "mtimeMs": 1777340833700
+    },
+    {
+      "path": "notes/eb-build-candidate-ranges.md",
+      "size": 6420,
+      "mtimeMs": 1777165735593
+    },
+    {
+      "path": "notes/eb-byte-equivalence-validation.md",
+      "size": 1454,
+      "mtimeMs": 1777165735991
+    },
+    {
+      "path": "notes/eb-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165735706
+    },
+    {
+      "path": "notes/ebsrc-bank-c4-map.md",
+      "size": 71064,
+      "mtimeMs": 1777160176637
+    },
+    {
+      "path": "notes/ec-build-candidate-ranges.md",
+      "size": 10336,
+      "mtimeMs": 1777165736464
+    },
+    {
+      "path": "notes/ec-byte-equivalence-validation.md",
+      "size": 2140,
+      "mtimeMs": 1777165736871
+    },
+    {
+      "path": "notes/ec-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165736574
+    },
+    {
+      "path": "notes/ed-build-candidate-ranges.md",
+      "size": 24619,
+      "mtimeMs": 1777165737507
+    },
+    {
+      "path": "notes/ed-byte-equivalence-validation.md",
+      "size": 4632,
+      "mtimeMs": 1777165737920
+    },
+    {
+      "path": "notes/ed-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165737617
+    },
+    {
+      "path": "notes/ee-build-candidate-ranges.md",
+      "size": 31061,
+      "mtimeMs": 1777165738634
+    },
+    {
+      "path": "notes/ee-byte-equivalence-validation.md",
+      "size": 5747,
+      "mtimeMs": 1777165739045
+    },
+    {
+      "path": "notes/ee-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777165738743
+    },
+    {
+      "path": "notes/ef-build-candidate-ranges.md",
+      "size": 19035,
+      "mtimeMs": 1777326221471
+    },
+    {
+      "path": "notes/ef-byte-equivalence-validation.md",
+      "size": 4100,
+      "mtimeMs": 1777326234956
+    },
+    {
+      "path": "notes/ef-debug-menu-controller-and-loader-d6d4-dabd.md",
+      "size": 2054,
+      "mtimeMs": 1777324138103
+    },
+    {
+      "path": "notes/ef-debug-menu-runtime-closure-dabd-eb5f.md",
+      "size": 3292,
+      "mtimeMs": 1777325237738
+    },
+    {
+      "path": "notes/ef-debug-sound-menu-prefix-d56f-d6d4.md",
+      "size": 1745,
+      "mtimeMs": 1777323323091
+    },
+    {
+      "path": "notes/ef-front-source-closure-0000-0ca7.md",
+      "size": 3765,
+      "mtimeMs": 1777421824947
+    },
+    {
+      "path": "notes/ef-readable-source-split-queue.md",
+      "size": 7321,
+      "mtimeMs": 1777326351748
+    },
+    {
+      "path": "notes/ef-source-residual-map.md",
+      "size": 497,
+      "mtimeMs": 1777326225080
+    },
+    {
+      "path": "notes/entity-overlap-neighbor-cache-c05ece-c064d3.md",
+      "size": 7086,
+      "mtimeMs": 1777041290336
+    },
+    {
+      "path": "notes/entity-overlay-ram-block-layout.md",
+      "size": 3895,
+      "mtimeMs": 1777507403217
+    },
+    {
+      "path": "notes/entity-placement-probe-c0263d-c02668.md",
+      "size": 7161,
+      "mtimeMs": 1777040696594
+    },
+    {
+      "path": "notes/entity-pool-allocation-and-release-c01a9d-c020f1.md",
+      "size": 8418,
+      "mtimeMs": 1777041906702
+    },
+    {
+      "path": "notes/entity-resolver-script-and-direction-wrappers-c460ce-c4645a.md",
+      "size": 5691,
+      "mtimeMs": 1777507403227
+    },
+    {
+      "path": "notes/entity-visual-flag-and-current-slot-wrappers-c46534-c469f1.md",
+      "size": 8262,
+      "mtimeMs": 1777507403234
+    },
+    {
+      "path": "notes/equipment-comparison-markers-9a1d.md",
+      "size": 10604,
+      "mtimeMs": 1777507403239
+    },
+    {
+      "path": "notes/equipment-menu-display-fringe-c19a11-c19f29.md",
+      "size": 7587,
+      "mtimeMs": 1777507403244
+    },
+    {
+      "path": "notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md",
+      "size": 5087,
+      "mtimeMs": 1777507403249
+    },
+    {
+      "path": "notes/equipment-preview-and-derived-state-cluster.md",
+      "size": 5539,
+      "mtimeMs": 1777507403255
+    },
+    {
+      "path": "notes/equipment-preview-slot-block-9cd0-9cd6.md",
+      "size": 6502,
+      "mtimeMs": 1777507403260
+    },
+    {
+      "path": "notes/equipment-slot-subtype-dispatch-c19066-c4577d.md",
+      "size": 8892,
+      "mtimeMs": 1777507403267
+    },
+    {
+      "path": "notes/equipped-item-derived-cache-family-c21857-c21e03.md",
+      "size": 15735,
+      "mtimeMs": 1777507403272
+    },
+    {
+      "path": "notes/equipped-item-presence-predicate-c3e9a0.md",
+      "size": 3645,
+      "mtimeMs": 1777507403279
+    },
+    {
+      "path": "notes/event353-message-tile-builders-c4810e-c48a6d.md",
+      "size": 4670,
+      "mtimeMs": 1777061578361
+    },
+    {
+      "path": "notes/file-select-action-copy-delete-menus-c1f07e-f14f-f2a8.md",
+      "size": 3848,
+      "mtimeMs": 1777507403287
+    },
+    {
+      "path": "notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md",
+      "size": 7243,
+      "mtimeMs": 1777507403293
+    },
+    {
+      "path": "notes/file-select-setup-option-menus-c1f497-c1f616.md",
+      "size": 4240,
+      "mtimeMs": 1777507403297
+    },
+    {
+      "path": "notes/file-select-tail-helpers-c1ff2c-ff6b-ff99.md",
+      "size": 3822,
+      "mtimeMs": 1777507403304
+    },
+    {
+      "path": "notes/file-select-window-flavour-refresh-c1ec8f-ecd1.md",
+      "size": 3173,
+      "mtimeMs": 1777507403309
+    },
+    {
+      "path": "notes/font-bundle-contracts.md",
+      "size": 6610,
+      "mtimeMs": 1777415708274
+    },
+    {
+      "path": "notes/frame-callback-bodies.md",
+      "size": 15891,
+      "mtimeMs": 1777040636568
+    },
+    {
+      "path": "notes/frame-callback-xrefs.md",
+      "size": 1134,
+      "mtimeMs": 1777507403322
+    },
+    {
+      "path": "notes/front-interaction-flow.md",
+      "size": 7694,
+      "mtimeMs": 1777152461725
+    },
+    {
+      "path": "notes/frontier-scout-2026-04-26.md",
+      "size": 15834,
+      "mtimeMs": 1777213408976
+    },
+    {
+      "path": "notes/gas-station-intro-asset-loader-c4a377.md",
+      "size": 3375,
+      "mtimeMs": 1777507403330
+    },
+    {
+      "path": "notes/header-and-vectors.md",
+      "size": 1698,
+      "mtimeMs": 1777507403336
+    },
+    {
+      "path": "notes/how-to-validate.md",
+      "size": 5080,
+      "mtimeMs": 1777507147771
+    },
+    {
+      "path": "notes/hp-pp-adjust-helper-quartet-c18f0e-c19010.md",
+      "size": 4664,
+      "mtimeMs": 1777215125889
+    },
+    {
+      "path": "notes/input-direction-and-interaction-probes-c0402b-c04116.md",
+      "size": 4742,
+      "mtimeMs": 1777051540672
+    },
+    {
+      "path": "notes/interaction-context-and-event-flags.md",
+      "size": 5205,
+      "mtimeMs": 1777174811494
+    },
+    {
+      "path": "notes/interaction-result-classes.md",
+      "size": 2855,
+      "mtimeMs": 1774403151362
+    },
+    {
+      "path": "notes/interaction-result-consumers.md",
+      "size": 8412,
+      "mtimeMs": 1777178584970
+    },
+    {
+      "path": "notes/intro-logo-wait-and-gas-station-helpers-c0efe1-c0f21e.md",
+      "size": 3835,
+      "mtimeMs": 1777067345687
+    },
+    {
+      "path": "notes/intro-overworld-position-init-c0b65f-c0b67f.md",
+      "size": 2120,
+      "mtimeMs": 1777042190937
+    },
+    {
+      "path": "notes/intro-title-visual-bundle-contracts.md",
+      "size": 13987,
+      "mtimeMs": 1777419825006
+    },
+    {
+      "path": "notes/inventory-slot-insertion-helper-c18bc6.md",
+      "size": 3568,
+      "mtimeMs": 1777507403365
+    },
+    {
+      "path": "notes/inventory-slot-removal-helper-c18c27.md",
+      "size": 4488,
+      "mtimeMs": 1777507403370
+    },
+    {
+      "path": "notes/inventory-slot-search-removal-helper-c18e5b-c18ead.md",
+      "size": 3728,
+      "mtimeMs": 1777507403376
+    },
+    {
+      "path": "notes/item-byte-19-packed-class-and-slot.md",
+      "size": 4150,
+      "mtimeMs": 1777507403380
+    },
+    {
+      "path": "notes/item-category-classifier-c19ee6.md",
+      "size": 3490,
+      "mtimeMs": 1777507403387
+    },
+    {
+      "path": "notes/item-psi-name-display-and-target-prompt-c19216-c19437.md",
+      "size": 5091,
+      "mtimeMs": 1777507403393
+    },
+    {
+      "path": "notes/item-slot-helper-pair-c3e977-c3ee14.md",
+      "size": 3097,
+      "mtimeMs": 1774498556046
+    },
+    {
+      "path": "notes/jeff-repair-item-name-bridge.md",
+      "size": 27884,
+      "mtimeMs": 1777507403400
+    },
+    {
+      "path": "notes/landing-and-coffee-tea-visual-helpers-c492d2-c49d1e.md",
+      "size": 10181,
+      "mtimeMs": 1777069105333
+    },
+    {
+      "path": "notes/landing-cast-visual-contracts.md",
+      "size": 6268,
+      "mtimeMs": 1777420369107
+    },
+    {
+      "path": "notes/landing-destination-table-d57880.md",
+      "size": 7684,
+      "mtimeMs": 1777507403410
+    },
+    {
+      "path": "notes/landing-display-assembly-cluster-c007b6-c4b26b.md",
+      "size": 29354,
+      "mtimeMs": 1777507403416
+    },
+    {
+      "path": "notes/landing-display-control-words-2baa-2e7a.md",
+      "size": 6005,
+      "mtimeMs": 1777507403423
+    },
+    {
+      "path": "notes/landing-display-profile-overview.md",
+      "size": 8136,
+      "mtimeMs": 1777507403428
+    },
+    {
+      "path": "notes/landing-hdma-dispatch-family-ef117b-c00d7e.md",
+      "size": 5195,
+      "mtimeMs": 1777507403434
+    },
+    {
+      "path": "notes/landing-palette-interpolation-export-c4958e-c426ed.md",
+      "size": 7775,
+      "mtimeMs": 1777507403439
+    },
+    {
+      "path": "notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md",
+      "size": 8888,
+      "mtimeMs": 1777507403444
+    },
+    {
+      "path": "notes/landing-profile-bundles-ef121b-43dc.md",
+      "size": 11459,
+      "mtimeMs": 1777507403450
+    },
+    {
+      "path": "notes/landing-profile-cache-436e-4474.md",
+      "size": 8047,
+      "mtimeMs": 1777507403457
+    },
+    {
+      "path": "notes/legacy-reference-findings.md",
+      "size": 4001,
+      "mtimeMs": 1777507450425
+    },
+    {
+      "path": "notes/level-up-stat-gain-text-family-c1d15b-d76d.md",
+      "size": 4694,
+      "mtimeMs": 1777507403465
+    },
+    {
+      "path": "notes/level-up-stat-growth-helper-c1d08b.md",
+      "size": 2829,
+      "mtimeMs": 1777507403469
+    },
+    {
+      "path": "notes/localization-authoring-command-frontier.md",
+      "size": 18658,
+      "mtimeMs": 1777406758486
+    },
+    {
+      "path": "notes/localization-cmp-ongosub-lowering.md",
+      "size": 4565,
+      "mtimeMs": 1777407449800
+    },
+    {
+      "path": "notes/localization-control-macro-context.md",
+      "size": 5124,
+      "mtimeMs": 1777407504549
+    },
+    {
+      "path": "notes/localization-control-macro-expansion-model.md",
+      "size": 6936,
+      "mtimeMs": 1777408715956
+    },
+    {
+      "path": "notes/localization-control-macro-lowering-profiles.md",
+      "size": 4930,
+      "mtimeMs": 1777408606526
+    },
+    {
+      "path": "notes/localization-control-macro-patterns.md",
+      "size": 9614,
+      "mtimeMs": 1777407504659
+    },
+    {
+      "path": "notes/localization-display-inventory-aliases.md",
+      "size": 8491,
+      "mtimeMs": 1777408702658
+    },
+    {
+      "path": "notes/localization-macro-expansion-frontier.md",
+      "size": 17096,
+      "mtimeMs": 1777408745456
+    },
+    {
+      "path": "notes/localization-map-object-crosswalk.md",
+      "size": 2388,
+      "mtimeMs": 1777340651438
+    },
+    {
+      "path": "notes/localization-movement-evidence.md",
+      "size": 5699,
+      "mtimeMs": 1777340843950
+    },
+    {
+      "path": "notes/localization-script-source-index.md",
+      "size": 5290,
+      "mtimeMs": 1777507450432
+    },
+    {
+      "path": "notes/localization-selgoto-lowering.md",
+      "size": 6342,
+      "mtimeMs": 1777408539317
+    },
+    {
+      "path": "notes/localization-set-loopreg-gosub-lowering.md",
+      "size": 6052,
+      "mtimeMs": 1777407590488
+    },
+    {
+      "path": "notes/lower-bank01-text-control-strip-00-17.md",
+      "size": 6746,
+      "mtimeMs": 1777507403508
+    },
+    {
+      "path": "notes/map-collision-attribute-context.md",
+      "size": 5307,
+      "mtimeMs": 1777320618296
+    },
+    {
+      "path": "notes/map-collision-pointer-contract.md",
+      "size": 4614,
+      "mtimeMs": 1777320618699
+    },
+    {
+      "path": "notes/map-collision-runtime-bit-contract.md",
+      "size": 4019,
+      "mtimeMs": 1777320618824
+    },
+    {
+      "path": "notes/map-fts-animation-settings-contract.md",
+      "size": 6329,
+      "mtimeMs": 1777320616690
+    },
+    {
+      "path": "notes/map-fts-arrangement-contract.md",
+      "size": 2652,
+      "mtimeMs": 1777320616538
+    },
+    {
+      "path": "notes/map-fts-format-audit.md",
+      "size": 2691,
+      "mtimeMs": 1777320616007
+    },
+    {
+      "path": "notes/map-fts-palette-variant-contract.md",
+      "size": 8021,
+      "mtimeMs": 1777320616952
+    },
+    {
+      "path": "notes/map-milestone-closure.md",
+      "size": 7309,
+      "mtimeMs": 1777507450439
+    },
+    {
+      "path": "notes/map-movement-usage-contract.md",
+      "size": 9379,
+      "mtimeMs": 1777320615087
+    },
+    {
+      "path": "notes/map-object-bundles.md",
+      "size": 6115,
+      "mtimeMs": 1777320615273
+    },
+    {
+      "path": "notes/map-object-layer-closure.md",
+      "size": 5960,
+      "mtimeMs": 1777309551347
+    },
+    {
+      "path": "notes/map-palette-command-usage-contract.md",
+      "size": 6099,
+      "mtimeMs": 1777320619221
+    },
+    {
+      "path": "notes/map-palette-descriptor-context.md",
+      "size": 3586,
+      "mtimeMs": 1777320617779
+    },
+    {
+      "path": "notes/map-palette-pointer-table-contract.md",
+      "size": 4425,
+      "mtimeMs": 1777320616808
+    },
+    {
+      "path": "notes/map-scene-composition-contract.md",
+      "size": 3069,
+      "mtimeMs": 1777320617293
+    },
+    {
+      "path": "notes/map-sector-bundles.md",
+      "size": 3563,
+      "mtimeMs": 1777320615673
+    },
+    {
+      "path": "notes/map-sprite-usage-contract.md",
+      "size": 4336,
+      "mtimeMs": 1777320614636
+    },
+    {
+      "path": "notes/map-tile-animation-runtime-contract.md",
+      "size": 6186,
+      "mtimeMs": 1777320617074
+    },
+    {
+      "path": "notes/map-tileset-bundles.md",
+      "size": 2915,
+      "mtimeMs": 1777320615831
+    },
+    {
+      "path": "notes/movement-target-bounds-and-vector-refresh-c46ef8-c47369.md",
+      "size": 7446,
+      "mtimeMs": 1777063675748
+    },
+    {
+      "path": "notes/movement-trigger-helper-bodies.md",
+      "size": 6208,
+      "mtimeMs": 1777042111318
+    },
+    {
+      "path": "notes/movement-trigger-lookup-7477.md",
+      "size": 4877,
+      "mtimeMs": 1774403151406
+    },
+    {
+      "path": "notes/movement-vector-script-runtime-c0c83b-c0d195.md",
+      "size": 7032,
+      "mtimeMs": 1777042190998
+    },
+    {
+      "path": "notes/mushroomized-overlay-animation-scripts.md",
+      "size": 5954,
+      "mtimeMs": 1777507403943
+    },
+    {
+      "path": "notes/mushroomized-overlay-gate-words.md",
+      "size": 3581,
+      "mtimeMs": 1777507403947
+    },
+    {
+      "path": "notes/mushroomized-overlay-redirect-c08c58.md",
+      "size": 3599,
+      "mtimeMs": 1777507403952
+    },
+    {
+      "path": "notes/mushroomized-walking-builders-34de-37d0.md",
+      "size": 11240,
+      "mtimeMs": 1777507403956
+    },
+    {
+      "path": "notes/mushroomized-walking-remap-family.md",
+      "size": 8126,
+      "mtimeMs": 1777507403960
+    },
+    {
+      "path": "notes/naming-buffer-commit-family-c1ead6-c4d065.md",
+      "size": 4516,
+      "mtimeMs": 1777507403965
+    },
+    {
+      "path": "notes/nested-text-pointer-and-callback-invoker-c186b1-c18b2c.md",
+      "size": 1095,
+      "mtimeMs": 1777507403970
+    },
+    {
+      "path": "notes/next-phase-source-roadmap.md",
+      "size": 24816,
+      "mtimeMs": 1777410606534
+    },
+    {
+      "path": "notes/npc-attention-path-coordinator-c0d19b-c0d98f.md",
+      "size": 6556,
+      "mtimeMs": 1777041504172
+    },
+    {
+      "path": "notes/offensive-defensive-item-check-c17708.md",
+      "size": 3416,
+      "mtimeMs": 1777507403982
+    },
+    {
+      "path": "notes/open-menu-prelude-helpers-c1339e-c133b0.md",
+      "size": 3851,
+      "mtimeMs": 1777216092627
+    },
+    {
+      "path": "notes/overlay-init-descriptor-fields.md",
+      "size": 4203,
+      "mtimeMs": 1777507403990
+    },
+    {
+      "path": "notes/overworld-a794-watcher-gate-safe-v4.md",
+      "size": 4220,
+      "mtimeMs": 1777507403996
+    },
+    {
+      "path": "notes/overworld-camera-step-accumulator-c017ea-c018f2.md",
+      "size": 6332,
+      "mtimeMs": 1777507404000
+    },
+    {
+      "path": "notes/overworld-companion-family-priority-a794.md",
+      "size": 9236,
+      "mtimeMs": 1777507404005
+    },
+    {
+      "path": "notes/overworld-entity-type-registry-9887-98a4.md",
+      "size": 8657,
+      "mtimeMs": 1777507404010
+    },
+    {
+      "path": "notes/overworld-live-walking-controller-c04c45-c04d33.md",
+      "size": 5454,
+      "mtimeMs": 1777320837062
+    },
+    {
+      "path": "notes/overworld-native-cadence-hypothesis.md",
+      "size": 3914,
+      "mtimeMs": 1777507404018
+    },
+    {
+      "path": "notes/overworld-position-context-byte-c1ad7d.md",
+      "size": 2210,
+      "mtimeMs": 1777507404023
+    },
+    {
+      "path": "notes/overworld-registry-accessor-c190e6.md",
+      "size": 1845,
+      "mtimeMs": 1777507404028
+    },
+    {
+      "path": "notes/overworld-sprite-animation-roles.md",
+      "size": 3333,
+      "mtimeMs": 1777304955639
+    },
+    {
+      "path": "notes/overworld-sprite-frame-semantics.md",
+      "size": 4059,
+      "mtimeMs": 1777304307825
+    },
+    {
+      "path": "notes/overworld-sprite-group-contracts.md",
+      "size": 6804,
+      "mtimeMs": 1777299211935
+    },
+    {
+      "path": "notes/overworld-sprite-pointer-flag-semantics.md",
+      "size": 4023,
+      "mtimeMs": 1777304398891
+    },
+    {
+      "path": "notes/overworld-stutter-current-truth-state.md",
+      "size": 7920,
+      "mtimeMs": 1777507404176
+    },
+    {
+      "path": "notes/overworld-timer-rerun-gate-a6e3-a794.md",
+      "size": 6789,
+      "mtimeMs": 1777507404180
+    },
+    {
+      "path": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "size": 10197,
+      "mtimeMs": 1777507404185
+    },
+    {
+      "path": "notes/overworld-visible-entity-refresh-slice-c07b52-c07c5a.md",
+      "size": 6408,
+      "mtimeMs": 1777507404190
+    },
+    {
+      "path": "notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md",
+      "size": 26088,
+      "mtimeMs": 1777507404197
+    },
+    {
+      "path": "notes/palette-brightness-row-adjusters-c473b2-c474a8.md",
+      "size": 3931,
+      "mtimeMs": 1777507404203
+    },
+    {
+      "path": "notes/party-inventory-room-search-c456e4-c4572b.md",
+      "size": 3371,
+      "mtimeMs": 1777507404208
+    },
+    {
+      "path": "notes/party-item-possession-search-c45637-c45683.md",
+      "size": 3839,
+      "mtimeMs": 1777507404213
+    },
+    {
+      "path": "notes/party-overlay-arbitration-c216db-c3ebca.md",
+      "size": 5486,
+      "mtimeMs": 1777507404219
+    },
+    {
+      "path": "notes/patch-testing/external-handoffs/claude-patch-overworld-tile-stutter.md",
+      "size": 9670,
+      "mtimeMs": 1774583252466
+    },
+    {
+      "path": "notes/pathfinding-consumers-direction-helpers-c0bd96-c0c7db.md",
+      "size": 9069,
+      "mtimeMs": 1777040591628
+    },
+    {
+      "path": "notes/pathfinding-frontier-c0b9bc-c0ba35.md",
+      "size": 5980,
+      "mtimeMs": 1777135798747
+    },
+    {
+      "path": "notes/pending-item-queue-984b.md",
+      "size": 4788,
+      "mtimeMs": 1777507404232
+    },
+    {
+      "path": "notes/phase-4-asset-data-closeout.md",
+      "size": 3315,
+      "mtimeMs": 1777422464040
+    },
+    {
+      "path": "notes/physics-sprite-field-frontier-c0a317-c0a6cb.md",
+      "size": 7286,
+      "mtimeMs": 1777053352968
+    },
+    {
+      "path": "notes/position-derived-visual-context-class-9887.md",
+      "size": 6245,
+      "mtimeMs": 1777507404240
+    },
+    {
+      "path": "notes/position-snapshot-and-movement-tick-c0449b-c05200.md",
+      "size": 13092,
+      "mtimeMs": 1777320841998
+    },
+    {
+      "path": "notes/post-transition-deferred-script-queue-c06b21-c06bff.md",
+      "size": 6374,
+      "mtimeMs": 1777042136257
+    },
+    {
+      "path": "notes/ppu-colour-window-bg-offset-frontier-c0afcd-c0b3ff.md",
+      "size": 5033,
+      "mtimeMs": 1777039768159
+    },
+    {
+      "path": "notes/project-status.md",
+      "size": 22458,
+      "mtimeMs": 1777507147712
+    },
+    {
+      "path": "notes/psi-animation-bundle-contracts.md",
+      "size": 9345,
+      "mtimeMs": 1777411734826
+    },
+    {
+      "path": "notes/public-release-checklist.md",
+      "size": 2018,
+      "mtimeMs": 1777507147830
+    },
+    {
+      "path": "notes/public-release-known-limits.md",
+      "size": 2134,
+      "mtimeMs": 1777507147801
+    },
+    {
+      "path": "notes/python-tool-syntax-guide.md",
+      "size": 15689,
+      "mtimeMs": 1777340748095
+    },
+    {
+      "path": "notes/readable-source-bank-closure.md",
+      "size": 1783,
+      "mtimeMs": 1777510684731
+    },
+    {
+      "path": "notes/reference-community-earthbound-docs.md",
+      "size": 3001,
+      "mtimeMs": 1774556239668
+    },
+    {
+      "path": "notes/reference-eb-decompile-4ef92.md",
+      "size": 2304,
+      "mtimeMs": 1777507404283
+    },
+    {
+      "path": "notes/reference-first-workflow.md",
+      "size": 4907,
+      "mtimeMs": 1777337502263
+    },
+    {
+      "path": "notes/respawn-warp-target-snapshot-helper-c230f3.md",
+      "size": 5152,
+      "mtimeMs": 1777507404290
+    },
+    {
+      "path": "notes/rom-patch-overworld-stutter-plan.md",
+      "size": 6880,
+      "mtimeMs": 1777507404295
+    },
+    {
+      "path": "notes/saved-coordinate-reload-path-c4c718-c0b967.md",
+      "size": 6700,
+      "mtimeMs": 1777507404299
+    },
+    {
+      "path": "notes/saved-landing-display-stage-c4c2de-c4c64d.md",
+      "size": 7057,
+      "mtimeMs": 1777138449246
+    },
+    {
+      "path": "notes/script-payloads-c3.md",
+      "size": 82473,
+      "mtimeMs": 1777404736506
+    },
+    {
+      "path": "notes/seam-scout-c0-gap-cluster-329f-3f1e.md",
+      "size": 11560,
+      "mtimeMs": 1777055900278
+    },
+    {
+      "path": "notes/secondary-visual-descriptor-c42b0d.md",
+      "size": 16621,
+      "mtimeMs": 1777507404315
+    },
+    {
+      "path": "notes/secondary-visual-descriptor-contracts.md",
+      "size": 4519,
+      "mtimeMs": 1777303711602
+    },
+    {
+      "path": "notes/selector-row-config-family-ef0ee8.md",
+      "size": 7116,
+      "mtimeMs": 1777507404344
+    },
+    {
+      "path": "notes/selector-row-zero-caveat.md",
+      "size": 3758,
+      "mtimeMs": 1777507404348
+    },
+    {
+      "path": "notes/service-script-pointer-table-c58cf4.md",
+      "size": 2923,
+      "mtimeMs": 1774469421922
+    },
+    {
+      "path": "notes/short-text-staging-buffer-9c9f.md",
+      "size": 4717,
+      "mtimeMs": 1777507404356
+    },
+    {
+      "path": "notes/sound-stone-presentation-data-c4ac57.md",
+      "size": 2897,
+      "mtimeMs": 1777507404362
+    },
+    {
+      "path": "notes/source-bank-graduation-pipeline.md",
+      "size": 5854,
+      "mtimeMs": 1777321450150
+    },
+    {
+      "path": "notes/source-prototype-policy.md",
+      "size": 3023,
+      "mtimeMs": 1777507404368
+    },
+    {
+      "path": "notes/source-readiness-triage.md",
+      "size": 13522,
+      "mtimeMs": 1777402697193
+    },
+    {
+      "path": "notes/source-scaffold-status.md",
+      "size": 4817,
+      "mtimeMs": 1777510684469
+    },
+    {
+      "path": "notes/sprite-pose-descriptor-cache-2a06-2cd6.md",
+      "size": 7298,
+      "mtimeMs": 1777507404383
+    },
+    {
+      "path": "notes/sprite-pose-descriptor-header-bytes-2-7.md",
+      "size": 5074,
+      "mtimeMs": 1777507404387
+    },
+    {
+      "path": "notes/sram-template-contracts.md",
+      "size": 6866,
+      "mtimeMs": 1777421785889
+    },
+    {
+      "path": "notes/staged-movement-pulse-and-tracked-item-registry-c48c59-c48f98.md",
+      "size": 7374,
+      "mtimeMs": 1777507404396
+    },
+    {
+      "path": "notes/staged-movement-queue.md",
+      "size": 5656,
+      "mtimeMs": 1777507404401
+    },
+    {
+      "path": "notes/staged-movement-wrapper-70cb.md",
+      "size": 4328,
+      "mtimeMs": 1774398276581
+    },
+    {
+      "path": "notes/stairs-escalator-state-block-5daa-5dd6.md",
+      "size": 5037,
+      "mtimeMs": 1774464320557
+    },
+    {
+      "path": "notes/statistic-selector-family-c4550f-c3ee7a.md",
+      "size": 16065,
+      "mtimeMs": 1777507404412
+    },
+    {
+      "path": "notes/swirl-sequence-bundle-contracts.md",
+      "size": 4012,
+      "mtimeMs": 1777414116443
+    },
+    {
+      "path": "notes/task-freeze-position-callbacks-maplookup-c09f3b-c0a26b.md",
+      "size": 8427,
+      "mtimeMs": 1777040229673
+    },
+    {
+      "path": "notes/teddy-bear-and-egg-item-cleanup-branches.md",
+      "size": 3609,
+      "mtimeMs": 1777507404421
+    },
+    {
+      "path": "notes/teleport-freeze-vector-frontier-c0dd0f-c0e196.md",
+      "size": 4520,
+      "mtimeMs": 1777039768347
+    },
+    {
+      "path": "notes/teleport-mainloop-state-machines-c0e214-c0ebdf.md",
+      "size": 9021,
+      "mtimeMs": 1777039768421
+    },
+    {
+      "path": "notes/teleport-menu-wrapper-c1bb71-bcab.md",
+      "size": 4221,
+      "mtimeMs": 1777507404433
+    },
+    {
+      "path": "notes/text-command-00-line-break.md",
+      "size": 3118,
+      "mtimeMs": 1777507404437
+    },
+    {
+      "path": "notes/text-command-01-start-new-line.md",
+      "size": 4338,
+      "mtimeMs": 1777507404442
+    },
+    {
+      "path": "notes/text-command-02-end-block.md",
+      "size": 2678,
+      "mtimeMs": 1777507404448
+    },
+    {
+      "path": "notes/text-command-03-halt-with-prompt.md",
+      "size": 2856,
+      "mtimeMs": 1777507404453
+    },
+    {
+      "path": "notes/text-command-04-set-event-flag.md",
+      "size": 3813,
+      "mtimeMs": 1777507404457
+    },
+    {
+      "path": "notes/text-command-05-clear-event-flag.md",
+      "size": 3818,
+      "mtimeMs": 1777507404462
+    },
+    {
+      "path": "notes/text-command-06-jump-if-flag-set.md",
+      "size": 4507,
+      "mtimeMs": 1777507404467
+    },
+    {
+      "path": "notes/text-command-07-check-event-flag.md",
+      "size": 4314,
+      "mtimeMs": 1777507404472
+    },
+    {
+      "path": "notes/text-command-08-call-text.md",
+      "size": 5242,
+      "mtimeMs": 1777507404477
+    },
+    {
+      "path": "notes/text-command-09-jump-multi.md",
+      "size": 3625,
+      "mtimeMs": 1777507404482
+    },
+    {
+      "path": "notes/text-command-0a-24bit-jump.md",
+      "size": 3872,
+      "mtimeMs": 1777507404486
+    },
+    {
+      "path": "notes/text-command-0b-parameterized-test-if-workmem-true.md",
+      "size": 3441,
+      "mtimeMs": 1777507404492
+    },
+    {
+      "path": "notes/text-command-0c-parameterized-test-if-workmem-false.md",
+      "size": 3354,
+      "mtimeMs": 1777507404498
+    },
+    {
+      "path": "notes/text-command-0d-parameterized-copy-to-argmem.md",
+      "size": 3706,
+      "mtimeMs": 1777507404503
+    },
+    {
+      "path": "notes/text-command-0e-parameterized-store-to-argmem.md",
+      "size": 3301,
+      "mtimeMs": 1777507404509
+    },
+    {
+      "path": "notes/text-command-0f-parameterized-workmem-increment.md",
+      "size": 2770,
+      "mtimeMs": 1777507404513
+    },
+    {
+      "path": "notes/text-command-10-parameterized-pause.md",
+      "size": 3179,
+      "mtimeMs": 1777507404519
+    },
+    {
+      "path": "notes/text-command-15-compressed-bank-1-pseudo-opcode.md",
+      "size": 4705,
+      "mtimeMs": 1777507404523
+    },
+    {
+      "path": "notes/text-command-16-compressed-bank-2-pseudo-opcode.md",
+      "size": 4464,
+      "mtimeMs": 1777507404529
+    },
+    {
+      "path": "notes/text-command-17-compressed-bank-3-pseudo-opcode.md",
+      "size": 3943,
+      "mtimeMs": 1777507404535
+    },
+    {
+      "path": "notes/text-command-1f-c0-jump-multi2-c1621f.md",
+      "size": 3331,
+      "mtimeMs": 1777181885964
+    },
+    {
+      "path": "notes/text-command-1f41-special-event-dispatch-c1befc.md",
+      "size": 4288,
+      "mtimeMs": 1777507404543
+    },
+    {
+      "path": "notes/text-command-family-18-windows-and-selection.md",
+      "size": 8936,
+      "mtimeMs": 1777507404547
+    },
+    {
+      "path": "notes/text-command-family-19-data-and-substitution.md",
+      "size": 18205,
+      "mtimeMs": 1777507404555
+    },
+    {
+      "path": "notes/text-command-family-1a-menus.md",
+      "size": 9936,
+      "mtimeMs": 1777507404560
+    },
+    {
+      "path": "notes/text-command-family-1b-memory-context.md",
+      "size": 2461,
+      "mtimeMs": 1777507404566
+    },
+    {
+      "path": "notes/text-command-family-1c-print-display.md",
+      "size": 2758,
+      "mtimeMs": 1777507404572
+    },
+    {
+      "path": "notes/text-command-family-1d-inventory-money.md",
+      "size": 26082,
+      "mtimeMs": 1777507404578
+    },
+    {
+      "path": "notes/text-command-family-1e-stat-recovery.md",
+      "size": 11026,
+      "mtimeMs": 1777507404583
+    },
+    {
+      "path": "notes/text-command-family-1f-deferred-callbacks.md",
+      "size": 4127,
+      "mtimeMs": 1777507404589
+    },
+    {
+      "path": "notes/text-command-load-string-pointer-c17796-c17889.md",
+      "size": 4259,
+      "mtimeMs": 1777507404597
+    },
+    {
+      "path": "notes/text-command-parser-artifact-frontier.md",
+      "size": 2076,
+      "mtimeMs": 1777396027563
+    },
+    {
+      "path": "notes/text-command-semantics-manifest.md",
+      "size": 13533,
+      "mtimeMs": 1777406086273
+    },
+    {
+      "path": "notes/text-commands-11-and-12-menu-and-line-control.md",
+      "size": 3780,
+      "mtimeMs": 1777507404608
+    },
+    {
+      "path": "notes/text-commands-13-and-14-halt-control.md",
+      "size": 4387,
+      "mtimeMs": 1777507404614
+    },
+    {
+      "path": "notes/text-engine-entry-waits-window-gates-c10000-c102d0.md",
+      "size": 8520,
+      "mtimeMs": 1777175913386
+    },
+    {
+      "path": "notes/text-entry-builder-c113d1-89d4.md",
+      "size": 5021,
+      "mtimeMs": 1777507404620
+    },
+    {
+      "path": "notes/text-entry-record-builder-neighbors-c10f40-c11887.md",
+      "size": 7228,
+      "mtimeMs": 1777507404625
+    },
+    {
+      "path": "notes/text-input-dialog-option-helpers-c1e48d-c1e4be.md",
+      "size": 5624,
+      "mtimeMs": 1777507404630
+    },
+    {
+      "path": "notes/text-script-assets-frontier.md",
+      "size": 6443,
+      "mtimeMs": 1777406758507
+    },
+    {
+      "path": "notes/text-token-glyph-run-stager-c44b3a-c44e61.md",
+      "size": 4475,
+      "mtimeMs": 1777507404638
+    },
+    {
+      "path": "notes/text-vm-localization-semantics-closeout.md",
+      "size": 5775,
+      "mtimeMs": 1777408931949
+    },
+    {
+      "path": "notes/text-window-rendering-primitives-c1078d-c10d7c.md",
+      "size": 30182,
+      "mtimeMs": 1777507404646
+    },
+    {
+      "path": "notes/text-window-skin-bundle-contracts.md",
+      "size": 12759,
+      "mtimeMs": 1777420801433
+    },
+    {
+      "path": "notes/timed-delivery-controller-499-500-common.md",
+      "size": 6424,
+      "mtimeMs": 1777507404654
+    },
+    {
+      "path": "notes/timed-delivery-row-index-command-1f-d3.md",
+      "size": 6302,
+      "mtimeMs": 1777507404659
+    },
+    {
+      "path": "notes/timed-delivery-special-row-02a3.md",
+      "size": 2771,
+      "mtimeMs": 1777507404666
+    },
+    {
+      "path": "notes/timed-delivery-state-helpers-ef0f60-fdb-ff6.md",
+      "size": 7247,
+      "mtimeMs": 1777507404673
+    },
+    {
+      "path": "notes/timed-delivery-system-flags-754-779.md",
+      "size": 4241,
+      "mtimeMs": 1777507404678
+    },
+    {
+      "path": "notes/timed-delivery-warning-text-gates.md",
+      "size": 3884,
+      "mtimeMs": 1777507404684
+    },
+    {
+      "path": "notes/timed-event-callback-family-bank01.md",
+      "size": 6227,
+      "mtimeMs": 1777507404688
+    },
+    {
+      "path": "notes/timed-event-callback-invoker-c187cc.md",
+      "size": 3427,
+      "mtimeMs": 1777507404693
+    },
+    {
+      "path": "notes/timed-event-slot-block-7440-and-c20abc.md",
+      "size": 8889,
+      "mtimeMs": 1777507404698
+    },
+    {
+      "path": "notes/title-screen-letter-oam-contracts.md",
+      "size": 11067,
+      "mtimeMs": 1777418476172
+    },
+    {
+      "path": "notes/title-screen-logo-palette-event-helpers-c0ebe0-c0ee53.md",
+      "size": 4677,
+      "mtimeMs": 1777040239865
+    },
+    {
+      "path": "notes/title-screen-palette-animation-contracts.md",
+      "size": 3551,
+      "mtimeMs": 1777419131721
+    },
+    {
+      "path": "notes/town-map-selection-rendering-c4d274-c4d744.md",
+      "size": 7733,
+      "mtimeMs": 1777421112862
+    },
+    {
+      "path": "notes/transition-landing-mode-family-9f3f-9f41.md",
+      "size": 10797,
+      "mtimeMs": 1777507404715
+    },
+    {
+      "path": "notes/try-fix-item-callback-d0.md",
+      "size": 6879,
+      "mtimeMs": 1777507404719
+    },
+    {
+      "path": "notes/type6-door-candidate-probe-65c2.md",
+      "size": 4209,
+      "mtimeMs": 1774401545822
+    },
+    {
+      "path": "notes/ui-font-town-map-asset-contracts.md",
+      "size": 24499,
+      "mtimeMs": 1777422426006
+    },
+    {
+      "path": "notes/visual-frame-selector-update-family-c4-62ff.md",
+      "size": 6490,
+      "mtimeMs": 1777507404729
+    },
+    {
+      "path": "notes/visual-record-constructor-and-latches-c4c8a4-c4cbe3.md",
+      "size": 4529,
+      "mtimeMs": 1777138961714
+    },
+    {
+      "path": "notes/visual-record-walkers-and-naming-remap-c4cc2f-c4d065.md",
+      "size": 5707,
+      "mtimeMs": 1777138954213
+    },
+    {
+      "path": "notes/visual-selector-family-c0780f-c3f2b5.md",
+      "size": 9459,
+      "mtimeMs": 1777507404739
+    },
+    {
+      "path": "notes/window-flavour-palette-block-refresh-c47f87.md",
+      "size": 4399,
+      "mtimeMs": 1777507404744
+    },
+    {
+      "path": "notes/window-mask-and-indexed-gfx-c47501-c47b77.md",
+      "size": 5777,
+      "mtimeMs": 1777069095438
+    },
+    {
+      "path": "notes/window-title-glyph-upload-c444fb.md",
+      "size": 3496,
+      "mtimeMs": 1777507404751
+    },
+    {
+      "path": "notes/yoshifanatic1-c0-c4-evidence-snippets.md",
+      "size": 4291,
+      "mtimeMs": 1777070124082
+    },
+    {
+      "path": "notes/yoshifanatic1-c0-c4-handoff-format.md",
+      "size": 4819,
+      "mtimeMs": 1777069776974
+    },
+    {
+      "path": "notes/yoshifanatic1-c0-c4-handoff-readme.md",
+      "size": 4034,
+      "mtimeMs": 1777070095565
+    },
+    {
+      "path": "notes/your-sanctuary-location-coordinate-table-c4de78.md",
+      "size": 3138,
+      "mtimeMs": 1777148903899
+    },
+    {
+      "path": "README.md",
+      "size": 10698,
+      "mtimeMs": 1777511167235
+    },
+    {
+      "path": "tools/add_source_bank_range.py",
+      "size": 8892,
+      "mtimeMs": 1777322954820
+    },
+    {
+      "path": "tools/audio_backend_stub_harness.py",
+      "size": 2368,
+      "mtimeMs": 1777429274398
+    },
+    {
+      "path": "tools/audio_pack_contracts.py",
+      "size": 29599,
+      "mtimeMs": 1777507221529
+    },
+    {
+      "path": "tools/audio_renderers.py",
+      "size": 5938,
+      "mtimeMs": 1777486637285
+    },
+    {
+      "path": "tools/audit_bank_progress.py",
+      "size": 13585,
+      "mtimeMs": 1777083165736
+    },
+    {
+      "path": "tools/audit_working_name_coverage.py",
+      "size": 6904,
+      "mtimeMs": 1777083165861
+    },
+    {
+      "path": "tools/build_asset_bank_manifest.py",
+      "size": 33791,
+      "mtimeMs": 1777420192853
+    },
+    {
+      "path": "tools/build_asset_data_contract_frontier.py",
+      "size": 22676,
+      "mtimeMs": 1777422443955
+    },
+    {
+      "path": "tools/build_asset_extraction_manifest.py",
+      "size": 30953,
+      "mtimeMs": 1777420313183
+    },
+    {
+      "path": "tools/build_audio_apu_region_map.py",
+      "size": 9128,
+      "mtimeMs": 1777426799373
+    },
+    {
+      "path": "tools/build_audio_ares_smp_mailbox_spc_index.py",
+      "size": 3532,
+      "mtimeMs": 1777468102102
+    },
+    {
+      "path": "tools/build_audio_backend_contract.py",
+      "size": 59722,
+      "mtimeMs": 1777507056085
+    },
+    {
+      "path": "tools/build_audio_backend_jobs_from_spc_index.py",
+      "size": 7900,
+      "mtimeMs": 1777493198019
+    },
+    {
+      "path": "tools/build_audio_backend_jobs.py",
+      "size": 7028,
+      "mtimeMs": 1777428321890
+    },
+    {
+      "path": "tools/build_audio_backend_result_stub.py",
+      "size": 2570,
+      "mtimeMs": 1777427934759
+    },
+    {
+      "path": "tools/build_audio_bootstrap_snapshot_corpus.py",
+      "size": 5404,
+      "mtimeMs": 1777476746857
+    },
+    {
+      "path": "tools/build_audio_c0ab06_change_music_fusion_spc_index.py",
+      "size": 3792,
+      "mtimeMs": 1777483780946
+    },
+    {
+      "path": "tools/build_audio_cpu_mailbox_contract.py",
+      "size": 89193,
+      "mtimeMs": 1777507276379
+    },
+    {
+      "path": "tools/build_audio_cpu_routine_fixtures.py",
+      "size": 6873,
+      "mtimeMs": 1777477785863
+    },
+    {
+      "path": "tools/build_audio_dependency_policy.py",
+      "size": 8752,
+      "mtimeMs": 1777507221290
+    },
+    {
+      "path": "tools/build_audio_ebdecompile_ref_alignment.py",
+      "size": 12711,
+      "mtimeMs": 1777495646561
+    },
+    {
+      "path": "tools/build_audio_exact_duration_triage.py",
+      "size": 8880,
+      "mtimeMs": 1777496124099
+    },
+    {
+      "path": "tools/build_audio_export_duration_policy.py",
+      "size": 9365,
+      "mtimeMs": 1777507055929
+    },
+    {
+      "path": "tools/build_audio_export_plan.py",
+      "size": 14250,
+      "mtimeMs": 1777507055873
+    },
+    {
+      "path": "tools/build_audio_keyon_primed_spc_experiment.py",
+      "size": 6315,
+      "mtimeMs": 1777459012210
+    },
+    {
+      "path": "tools/build_audio_last_keyon_spc_experiment.py",
+      "size": 5835,
+      "mtimeMs": 1777459012153
+    },
+    {
+      "path": "tools/build_audio_oracle_comparison_plan.py",
+      "size": 13009,
+      "mtimeMs": 1777492123387
+    },
+    {
+      "path": "tools/build_audio_oracle_verification_report.py",
+      "size": 13977,
+      "mtimeMs": 1777507055981
+    },
+    {
+      "path": "tools/build_audio_pack_contracts.py",
+      "size": 1793,
+      "mtimeMs": 1777424668970
+    },
+    {
+      "path": "tools/build_audio_playback_export_manifest.py",
+      "size": 7859,
+      "mtimeMs": 1777485952417
+    },
+    {
+      "path": "tools/build_audio_renderer_fixtures.py",
+      "size": 8406,
+      "mtimeMs": 1777426688684
+    },
+    {
+      "path": "tools/build_audio_sequence_control_flow_frontier.py",
+      "size": 16316,
+      "mtimeMs": 1777495441358
+    },
+    {
+      "path": "tools/build_audio_sequence_pack_report.py",
+      "size": 19203,
+      "mtimeMs": 1777495264940
+    },
+    {
+      "path": "tools/build_audio_sequence_semantics_frontier.py",
+      "size": 22095,
+      "mtimeMs": 1777494849342
+    },
+    {
+      "path": "tools/build_audio_sequence_walk_frontier.py",
+      "size": 18762,
+      "mtimeMs": 1777496054186
+    },
+    {
+      "path": "tools/build_audio_snapshot_corpus.py",
+      "size": 5969,
+      "mtimeMs": 1777425988015
+    },
+    {
+      "path": "tools/build_audio_spc_state_frontier.py",
+      "size": 75139,
+      "mtimeMs": 1777496164804
+    },
+    {
+      "path": "tools/build_audio_track_snapshot.py",
+      "size": 5981,
+      "mtimeMs": 1777425654782
+    },
+    {
+      "path": "tools/build_battle_background_scene_bundles.py",
+      "size": 23664,
+      "mtimeMs": 1777411237224
+    },
+    {
+      "path": "tools/build_battle_sprite_bundle_contracts.py",
+      "size": 17041,
+      "mtimeMs": 1777412328598
+    },
+    {
+      "path": "tools/build_battle_visual_asset_contracts.py",
+      "size": 21361,
+      "mtimeMs": 1777414141607
+    },
+    {
+      "path": "tools/build_c3_actionscript_semantics_audit.py",
+      "size": 24535,
+      "mtimeMs": 1777403042583
+    },
+    {
+      "path": "tools/build_c3_build_candidate_plan.py",
+      "size": 15017,
+      "mtimeMs": 1777092457431
+    },
+    {
+      "path": "tools/build_c3_build_candidate_ranges.py",
+      "size": 10649,
+      "mtimeMs": 1777091820281
+    },
+    {
+      "path": "tools/build_c3_event_script_source_pilot.py",
+      "size": 241636,
+      "mtimeMs": 1777397883697
+    },
+    {
+      "path": "tools/build_c3_event_script_source_scaffold.py",
+      "size": 19312,
+      "mtimeMs": 1777394066271
+    },
+    {
+      "path": "tools/build_c3_mixed_source_split_plan.py",
+      "size": 7899,
+      "mtimeMs": 1777085985137
+    },
+    {
+      "path": "tools/build_c3_preserved_gap_contracts.py",
+      "size": 31175,
+      "mtimeMs": 1777401738481
+    },
+    {
+      "path": "tools/build_c3_source_data_map.py",
+      "size": 29570,
+      "mtimeMs": 1777401760218
+    },
+    {
+      "path": "tools/build_c3_source_emission_plan.py",
+      "size": 17125,
+      "mtimeMs": 1777091871541
+    },
+    {
+      "path": "tools/build_c3_source_extraction_candidates.py",
+      "size": 18999,
+      "mtimeMs": 1777086145912
+    },
+    {
+      "path": "tools/build_c3_source_pilot_bank_scaffold.py",
+      "size": 2461,
+      "mtimeMs": 1777393933663
+    },
+    {
+      "path": "tools/build_c3_source_pilot_frontier.py",
+      "size": 23220,
+      "mtimeMs": 1777333555398
+    },
+    {
+      "path": "tools/build_cf_table_splits.py",
+      "size": 14136,
+      "mtimeMs": 1777080191472
+    },
+    {
+      "path": "tools/build_d0_table_splits.py",
+      "size": 15800,
+      "mtimeMs": 1777080469011
+    },
+    {
+      "path": "tools/build_d5_table_splits.py",
+      "size": 17250,
+      "mtimeMs": 1777079353545
+    },
+    {
+      "path": "tools/build_d8_table_splits.py",
+      "size": 11661,
+      "mtimeMs": 1777081220693
+    },
+    {
+      "path": "tools/build_data_contract_manifest.py",
+      "size": 70669,
+      "mtimeMs": 1777400846924
+    },
+    {
+      "path": "tools/build_ebsrc_bank_map.py",
+      "size": 17869,
+      "mtimeMs": 1777147521044
+    },
+    {
+      "path": "tools/build_font_bundle_contracts.py",
+      "size": 20246,
+      "mtimeMs": 1777415641270
+    },
+    {
+      "path": "tools/build_intro_title_visual_bundle_contracts.py",
+      "size": 18935,
+      "mtimeMs": 1777419820736
+    },
+    {
+      "path": "tools/build_landing_cast_visual_contracts.py",
+      "size": 14430,
+      "mtimeMs": 1777420249111
+    },
+    {
+      "path": "tools/build_localization_authoring_command_frontier.py",
+      "size": 13886,
+      "mtimeMs": 1777406058810
+    },
+    {
+      "path": "tools/build_localization_control_macro_context.py",
+      "size": 8877,
+      "mtimeMs": 1777406665500
+    },
+    {
+      "path": "tools/build_localization_control_macro_lowering_profiles.py",
+      "size": 10418,
+      "mtimeMs": 1777408487976
+    },
+    {
+      "path": "tools/build_localization_control_macro_patterns.py",
+      "size": 12254,
+      "mtimeMs": 1777407106779
+    },
+    {
+      "path": "tools/build_localization_macro_expansion_frontier.py",
+      "size": 11427,
+      "mtimeMs": 1777406732682
+    },
+    {
+      "path": "tools/build_localization_map_object_crosswalk.py",
+      "size": 13932,
+      "mtimeMs": 1777340603205
+    },
+    {
+      "path": "tools/build_localization_movement_evidence.py",
+      "size": 5981,
+      "mtimeMs": 1777340798941
+    },
+    {
+      "path": "tools/build_localization_script_metadata_manifest.py",
+      "size": 7511,
+      "mtimeMs": 1777340017765
+    },
+    {
+      "path": "tools/build_map_collision_attribute_context.py",
+      "size": 19052,
+      "mtimeMs": 1777316117788
+    },
+    {
+      "path": "tools/build_map_collision_pointer_contract.py",
+      "size": 21314,
+      "mtimeMs": 1777320002938
+    },
+    {
+      "path": "tools/build_map_collision_runtime_bit_contract.py",
+      "size": 20805,
+      "mtimeMs": 1777319992984
+    },
+    {
+      "path": "tools/build_map_fts_animation_settings_contract.py",
+      "size": 23718,
+      "mtimeMs": 1777318248335
+    },
+    {
+      "path": "tools/build_map_fts_arrangement_contract.py",
+      "size": 12993,
+      "mtimeMs": 1777319524100
+    },
+    {
+      "path": "tools/build_map_fts_format_audit.py",
+      "size": 12927,
+      "mtimeMs": 1777310954032
+    },
+    {
+      "path": "tools/build_map_fts_palette_variant_contract.py",
+      "size": 23878,
+      "mtimeMs": 1777318617077
+    },
+    {
+      "path": "tools/build_map_movement_usage_contract.py",
+      "size": 23508,
+      "mtimeMs": 1777308151495
+    },
+    {
+      "path": "tools/build_map_object_bundle_contract.py",
+      "size": 14457,
+      "mtimeMs": 1777308202930
+    },
+    {
+      "path": "tools/build_map_palette_command_usage_contract.py",
+      "size": 13354,
+      "mtimeMs": 1777318682770
+    },
+    {
+      "path": "tools/build_map_palette_descriptor_context.py",
+      "size": 15113,
+      "mtimeMs": 1777315702380
+    },
+    {
+      "path": "tools/build_map_palette_pointer_table_contract.py",
+      "size": 10178,
+      "mtimeMs": 1777314337180
+    },
+    {
+      "path": "tools/build_map_scene_composition_contract.py",
+      "size": 16963,
+      "mtimeMs": 1777311551796
+    },
+    {
+      "path": "tools/build_map_sector_bundle_contract.py",
+      "size": 23128,
+      "mtimeMs": 1777309476036
+    },
+    {
+      "path": "tools/build_map_sprite_usage_contract.py",
+      "size": 30729,
+      "mtimeMs": 1777305999471
+    },
+    {
+      "path": "tools/build_map_tile_animation_runtime_contract.py",
+      "size": 23384,
+      "mtimeMs": 1777317570114
+    },
+    {
+      "path": "tools/build_map_tileset_bundle_contract.py",
+      "size": 13185,
+      "mtimeMs": 1777310892799
+    },
+    {
+      "path": "tools/build_overworld_sprite_animation_role_contract.py",
+      "size": 14571,
+      "mtimeMs": 1777304865246
+    },
+    {
+      "path": "tools/build_overworld_sprite_composed_previews.py",
+      "size": 19558,
+      "mtimeMs": 1777304289454
+    },
+    {
+      "path": "tools/build_overworld_sprite_frame_contract.py",
+      "size": 29834,
+      "mtimeMs": 1777304295996
+    },
+    {
+      "path": "tools/build_overworld_sprite_group_manifest.py",
+      "size": 24179,
+      "mtimeMs": 1777299062405
+    },
+    {
+      "path": "tools/build_overworld_sprite_preview_sheets.py",
+      "size": 11412,
+      "mtimeMs": 1777300956661
+    },
+    {
+      "path": "tools/build_psi_animation_bundle_contracts.py",
+      "size": 16734,
+      "mtimeMs": 1777411727032
+    },
+    {
+      "path": "tools/build_readable_source_bank_closure.py",
+      "size": 15222,
+      "mtimeMs": 1777326834156
+    },
+    {
+      "path": "tools/build_ref_bank_report.py",
+      "size": 7658,
+      "mtimeMs": 1777054515538
+    },
+    {
+      "path": "tools/build_ref_index.py",
+      "size": 18523,
+      "mtimeMs": 1777403680431
+    },
+    {
+      "path": "tools/build_script_payload_manifest.py",
+      "size": 10440,
+      "mtimeMs": 1777081614180
+    },
+    {
+      "path": "tools/build_secondary_visual_descriptor_contract.py",
+      "size": 17007,
+      "mtimeMs": 1777303704419
+    },
+    {
+      "path": "tools/build_source_bank_candidate_ranges_doc.py",
+      "size": 3830,
+      "mtimeMs": 1777131494692
+    },
+    {
+      "path": "tools/build_source_bank_residual_map.py",
+      "size": 13427,
+      "mtimeMs": 1777164437492
+    },
+    {
+      "path": "tools/build_source_bank_scaffold.py",
+      "size": 2354,
+      "mtimeMs": 1777094902573
+    },
+    {
+      "path": "tools/build_source_readiness_triage.py",
+      "size": 23588,
+      "mtimeMs": 1777402690457
+    },
+    {
+      "path": "tools/build_source_scaffold_handoff.py",
+      "size": 6020,
+      "mtimeMs": 1777165457076
+    },
+    {
+      "path": "tools/build_source_scaffold_status.py",
+      "size": 6194,
+      "mtimeMs": 1777167167027
+    },
+    {
+      "path": "tools/build_sram_template_contracts.py",
+      "size": 20232,
+      "mtimeMs": 1777421743057
+    },
+    {
+      "path": "tools/build_swirl_sequence_bundle_contracts.py",
+      "size": 18773,
+      "mtimeMs": 1777414108595
+    },
+    {
+      "path": "tools/build_text_bank_manifest.py",
+      "size": 20743,
+      "mtimeMs": 1777072982456
+    },
+    {
+      "path": "tools/build_text_command_semantics_manifest.py",
+      "size": 29925,
+      "mtimeMs": 1777405983450
+    },
+    {
+      "path": "tools/build_text_script_asset_frontier.py",
+      "size": 9901,
+      "mtimeMs": 1777405389541
+    },
+    {
+      "path": "tools/build_text_window_skin_bundle_contracts.py",
+      "size": 18712,
+      "mtimeMs": 1777420762211
+    },
+    {
+      "path": "tools/build_title_screen_letter_oam_contracts.py",
+      "size": 13291,
+      "mtimeMs": 1777418468370
+    },
+    {
+      "path": "tools/build_title_screen_palette_animation_contracts.py",
+      "size": 11543,
+      "mtimeMs": 1777419040280
+    },
+    {
+      "path": "tools/build_ui_font_town_map_asset_contracts.py",
+      "size": 36888,
+      "mtimeMs": 1777422363416
+    },
+    {
+      "path": "tools/build_working_name_manifest.py",
+      "size": 4708,
+      "mtimeMs": 1777039412762
+    },
+    {
+      "path": "tools/census_ebtext_commands.py",
+      "size": 10708,
+      "mtimeMs": 1774545328040
+    },
+    {
+      "path": "tools/check_ares_backend_prereq.py",
+      "size": 6151,
+      "mtimeMs": 1777432715505
+    },
+    {
+      "path": "tools/collect_audio_backend_results.py",
+      "size": 3780,
+      "mtimeMs": 1777432900306
+    },
+    {
+      "path": "tools/collect_audio_c0ab06_change_music_fusion_frontier.py",
+      "size": 12990,
+      "mtimeMs": 1777484968471
+    },
+    {
+      "path": "tools/collect_audio_c0ab06_continuous_track_load_frontier.py",
+      "size": 11325,
+      "mtimeMs": 1777482048727
+    },
+    {
+      "path": "tools/collect_audio_c0ab06_loader_contract.py",
+      "size": 9071,
+      "mtimeMs": 1777477853780
+    },
+    {
+      "path": "tools/collect_audio_c0ab06_post_bootstrap_frontier.py",
+      "size": 7365,
+      "mtimeMs": 1777480541717
+    },
+    {
+      "path": "tools/collect_audio_c0ab06_real_ipl_frontier.py",
+      "size": 9452,
+      "mtimeMs": 1777507221407
+    },
+    {
+      "path": "tools/collect_audio_capture_metrics.py",
+      "size": 7268,
+      "mtimeMs": 1777458736069
+    },
+    {
+      "path": "tools/collect_audio_change_music_continuous_sequence_contract.py",
+      "size": 7145,
+      "mtimeMs": 1777482448941
+    },
+    {
+      "path": "tools/collect_audio_change_music_load_stub_metrics.py",
+      "size": 4828,
+      "mtimeMs": 1777475775613
+    },
+    {
+      "path": "tools/collect_audio_command_timing_frontier.py",
+      "size": 6851,
+      "mtimeMs": 1777458771179
+    },
+    {
+      "path": "tools/collect_audio_diagnostic_spc_snapshots.py",
+      "size": 5001,
+      "mtimeMs": 1777435397900
+    },
+    {
+      "path": "tools/collect_audio_export_duration_measurements.py",
+      "size": 13822,
+      "mtimeMs": 1777491313309
+    },
+    {
+      "path": "tools/collect_audio_fusion_timing_metrics.py",
+      "size": 6757,
+      "mtimeMs": 1777485161966
+    },
+    {
+      "path": "tools/collect_audio_load_stream_transfer_metrics.py",
+      "size": 10311,
+      "mtimeMs": 1777476461488
+    },
+    {
+      "path": "tools/collect_audio_mailbox_frontier.py",
+      "size": 10178,
+      "mtimeMs": 1777459675128
+    },
+    {
+      "path": "tools/collect_audio_no_command_frontier.py",
+      "size": 6272,
+      "mtimeMs": 1777458354221
+    },
+    {
+      "path": "tools/collect_audio_oracle_comparison_results.py",
+      "size": 19396,
+      "mtimeMs": 1777489574984
+    },
+    {
+      "path": "tools/collect_audio_render_metrics.py",
+      "size": 6438,
+      "mtimeMs": 1777486637176
+    },
+    {
+      "path": "tools/collect_audio_runtime_frontier.py",
+      "size": 16083,
+      "mtimeMs": 1777457867351
+    },
+    {
+      "path": "tools/compare_audio_render_metrics.py",
+      "size": 5922,
+      "mtimeMs": 1777468318936
+    },
+    {
+      "path": "tools/crosscheck_ebtext_family.py",
+      "size": 4913,
+      "mtimeMs": 1774503853125
+    },
+    {
+      "path": "tools/data_contracts.py",
+      "size": 10404,
+      "mtimeMs": 1777069698954
+    },
+    {
+      "path": "tools/decode_event_script.py",
+      "size": 35828,
+      "mtimeMs": 1777404655871
+    },
+    {
+      "path": "tools/decode_snippet.py",
+      "size": 18460,
+      "mtimeMs": 1777258861706
+    },
+    {
+      "path": "tools/decompress_c41a9e.py",
+      "size": 3620,
+      "mtimeMs": 1777268588034
+    },
+    {
+      "path": "tools/disasm_bank_c0.py",
+      "size": 24963,
+      "mtimeMs": 1774402319657
+    },
+    {
+      "path": "tools/disasm_ebtext_script.py",
+      "size": 19086,
+      "mtimeMs": 1777395857795
+    },
+    {
+      "path": "tools/dump_header.py",
+      "size": 4359,
+      "mtimeMs": 1774393373718
+    },
+    {
+      "path": "tools/emit_linear_source_module.py",
+      "size": 14512,
+      "mtimeMs": 1777258314679
+    },
+    {
+      "path": "tools/emit_source_labels.py",
+      "size": 6458,
+      "mtimeMs": 1777044843603
+    },
+    {
+      "path": "tools/extract_assets.py",
+      "size": 27560,
+      "mtimeMs": 1777295391912
+    },
+    {
+      "path": "tools/extract_ebtext.py",
+      "size": 5654,
+      "mtimeMs": 1774414472440
+    },
+    {
+      "path": "tools/extract_working_names.py",
+      "size": 5535,
+      "mtimeMs": 1777040373110
+    },
+    {
+      "path": "tools/find_direct_callers.py",
+      "size": 3124,
+      "mtimeMs": 1774416243859
+    },
+    {
+      "path": "tools/find_ebtext_command.py",
+      "size": 5495,
+      "mtimeMs": 1777070894539
+    },
+    {
+      "path": "tools/find_ebtext_sequence.py",
+      "size": 3365,
+      "mtimeMs": 1774448076141
+    },
+    {
+      "path": "tools/find_frame_callbacks.py",
+      "size": 3228,
+      "mtimeMs": 1774394520329
+    },
+    {
+      "path": "tools/find_rom_bytes.py",
+      "size": 3627,
+      "mtimeMs": 1774468267982
+    },
+    {
+      "path": "tools/find_xrefs.py",
+      "size": 15941,
+      "mtimeMs": 1774476706623
+    },
+    {
+      "path": "tools/import_audio_oracle_reference_capture.py",
+      "size": 5150,
+      "mtimeMs": 1777488517884
+    },
+    {
+      "path": "tools/import_audio_oracle_references_from_backend_summary.py",
+      "size": 6419,
+      "mtimeMs": 1777489518957
+    },
+    {
+      "path": "tools/index_localization_script_source.py",
+      "size": 7424,
+      "mtimeMs": 1777507221465
+    },
+    {
+      "path": "tools/inline_manifest_data_gaps.py",
+      "size": 6906,
+      "mtimeMs": 1777265146116
+    },
+    {
+      "path": "tools/inspect_battle_action.py",
+      "size": 9424,
+      "mtimeMs": 1777045931529
+    },
+    {
+      "path": "tools/inspect_ebtext_hits.py",
+      "size": 3715,
+      "mtimeMs": 1774493194084
+    },
+    {
+      "path": "tools/inspect_item.py",
+      "size": 7670,
+      "mtimeMs": 1777045931476
+    },
+    {
+      "path": "tools/inspect_slot.py",
+      "size": 4011,
+      "mtimeMs": 1777045964452
+    },
+    {
+      "path": "tools/inspect_snes_palette.py",
+      "size": 7590,
+      "mtimeMs": 1774537544578
+    },
+    {
+      "path": "tools/inspect_table.py",
+      "size": 9686,
+      "mtimeMs": 1777052979427
+    },
+    {
+      "path": "tools/lookup_audio_track.py",
+      "size": 2648,
+      "mtimeMs": 1777425921722
+    },
+    {
+      "path": "tools/lookup_data_contract.py",
+      "size": 5673,
+      "mtimeMs": 1777046036738
+    },
+    {
+      "path": "tools/lookup_ref_context.py",
+      "size": 7509,
+      "mtimeMs": 1777047367704
+    },
+    {
+      "path": "tools/lookup_ref_symbol.py",
+      "size": 3273,
+      "mtimeMs": 1774490035885
+    },
+    {
+      "path": "tools/lookup_wram_field.py",
+      "size": 14473,
+      "mtimeMs": 1777045376902
+    },
+    {
+      "path": "tools/populate_audio_oracle_self_reference.py",
+      "size": 5079,
+      "mtimeMs": 1777489058399
+    },
+    {
+      "path": "tools/promote_asset_bank_to_source_scaffold.py",
+      "size": 9021,
+      "mtimeMs": 1777166125891
+    },
+    {
+      "path": "tools/promote_c3_classified_data_to_source_scaffold.py",
+      "size": 13841,
+      "mtimeMs": 1777164467768
+    },
+    {
+      "path": "tools/promote_linear_range_to_decoded_source.py",
+      "size": 6323,
+      "mtimeMs": 1777257439084
+    },
+    {
+      "path": "tools/promote_mixed_asset_table_bank_to_source_scaffold.py",
+      "size": 9783,
+      "mtimeMs": 1777165273161
+    },
+    {
+      "path": "tools/promote_mixed_range_to_source.py",
+      "size": 11976,
+      "mtimeMs": 1777259753533
+    },
+    {
+      "path": "tools/promote_source_bank_data_range.py",
+      "size": 4996,
+      "mtimeMs": 1777322102800
+    },
+    {
+      "path": "tools/promote_table_splits_to_source_scaffold.py",
+      "size": 6881,
+      "mtimeMs": 1777163526244
+    },
+    {
+      "path": "tools/promote_text_bank_to_source_scaffold.py",
+      "size": 7705,
+      "mtimeMs": 1777162200457
+    },
+    {
+      "path": "tools/promote_working_names_to_source_scaffold.py",
+      "size": 10753,
+      "mtimeMs": 1777167052476
+    },
+    {
+      "path": "tools/render_map_fts_tile_previews.py",
+      "size": 5825,
+      "mtimeMs": 1777310092742
+    },
+    {
+      "path": "tools/render_map_scene_composition_previews.py",
+      "size": 5712,
+      "mtimeMs": 1777311407739
+    },
+    {
+      "path": "tools/render_map_scene_metatile_previews.py",
+      "size": 21615,
+      "mtimeMs": 1777315711012
+    },
+    {
+      "path": "tools/render_snes_4bpp.py",
+      "size": 4294,
+      "mtimeMs": 1774533438615
+    },
+    {
+      "path": "tools/rom_tools.py",
+      "size": 7747,
+      "mtimeMs": 1777166154007
+    },
+    {
+      "path": "tools/run_audio_ares_command_timing_experiment.py",
+      "size": 4097,
+      "mtimeMs": 1777459685451
+    },
+    {
+      "path": "tools/run_audio_ares_no_command_experiment.py",
+      "size": 2931,
+      "mtimeMs": 1777458393555
+    },
+    {
+      "path": "tools/run_audio_ares_smp_mailbox_smoke.py",
+      "size": 15029,
+      "mtimeMs": 1777489366683
+    },
+    {
+      "path": "tools/run_audio_backend_batch.py",
+      "size": 5410,
+      "mtimeMs": 1777432657575
+    },
+    {
+      "path": "tools/run_audio_backend_job.py",
+      "size": 5641,
+      "mtimeMs": 1777432648267
+    },
+    {
+      "path": "tools/run_audio_c0ab06_loader_handshake_corpus.py",
+      "size": 15575,
+      "mtimeMs": 1777478998355
+    },
+    {
+      "path": "tools/run_audio_last_keyon_experiment.py",
+      "size": 5247,
+      "mtimeMs": 1777438439690
+    },
+    {
+      "path": "tools/run_map_contracts.py",
+      "size": 4279,
+      "mtimeMs": 1777320426334
+    },
+    {
+      "path": "tools/score_bank_frontier.py",
+      "size": 22252,
+      "mtimeMs": 1777083165801
+    },
+    {
+      "path": "tools/snes_palette.py",
+      "size": 4354,
+      "mtimeMs": 1777293314088
+    },
+    {
+      "path": "tools/snes_spc_diagnostic_harness.py",
+      "size": 6370,
+      "mtimeMs": 1777435698734
+    },
+    {
+      "path": "tools/source_bank_byte_equivalence.py",
+      "size": 18445,
+      "mtimeMs": 1777160126145
+    },
+    {
+      "path": "tools/split_rom.py",
+      "size": 3611,
+      "mtimeMs": 1774392729086
+    },
+    {
+      "path": "tools/summarize_asset_bank_manifests.py",
+      "size": 6358,
+      "mtimeMs": 1777077847054
+    },
+    {
+      "path": "tools/summarize_dispatch.py",
+      "size": 8593,
+      "mtimeMs": 1774487802977
+    },
+    {
+      "path": "tools/summarize_ebtext_family.py",
+      "size": 2680,
+      "mtimeMs": 1774489507675
+    },
+    {
+      "path": "tools/summarize_transfer_to_vram_callers.py",
+      "size": 7054,
+      "mtimeMs": 1774650261729
+    },
+    {
+      "path": "tools/trace_dp_window.py",
+      "size": 12333,
+      "mtimeMs": 1774556881939
+    },
+    {
+      "path": "tools/validate_asset_manifests.py",
+      "size": 4834,
+      "mtimeMs": 1777267954061
+    },
+    {
+      "path": "tools/validate_audio_apu_region_map.py",
+      "size": 2256,
+      "mtimeMs": 1777426815868
+    },
+    {
+      "path": "tools/validate_audio_ares_smp_mailbox_smoke.py",
+      "size": 10993,
+      "mtimeMs": 1777476932375
+    },
+    {
+      "path": "tools/validate_audio_ares_smp_mailbox_spc_index.py",
+      "size": 3450,
+      "mtimeMs": 1777484597549
+    },
+    {
+      "path": "tools/validate_audio_backend_contract.py",
+      "size": 2639,
+      "mtimeMs": 1777428393340
+    },
+    {
+      "path": "tools/validate_audio_backend_jobs.py",
+      "size": 3535,
+      "mtimeMs": 1777428330297
+    },
+    {
+      "path": "tools/validate_audio_backend_result_summary.py",
+      "size": 2515,
+      "mtimeMs": 1777429145584
+    },
+    {
+      "path": "tools/validate_audio_backend_result.py",
+      "size": 5448,
+      "mtimeMs": 1777429411256
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_change_music_fusion_frontier.py",
+      "size": 6916,
+      "mtimeMs": 1777484242025
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_continuous_track_load_frontier.py",
+      "size": 4615,
+      "mtimeMs": 1777482063306
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_loader_contract.py",
+      "size": 3345,
+      "mtimeMs": 1777477853828
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_loader_handshake_corpus.py",
+      "size": 6029,
+      "mtimeMs": 1777479095460
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_post_bootstrap_frontier.py",
+      "size": 4261,
+      "mtimeMs": 1777480567666
+    },
+    {
+      "path": "tools/validate_audio_c0ab06_real_ipl_frontier.py",
+      "size": 4278,
+      "mtimeMs": 1777480073657
+    },
+    {
+      "path": "tools/validate_audio_capture_metrics.py",
+      "size": 3185,
+      "mtimeMs": 1777458319380
+    },
+    {
+      "path": "tools/validate_audio_change_music_continuous_sequence_contract.py",
+      "size": 3421,
+      "mtimeMs": 1777482448971
+    },
+    {
+      "path": "tools/validate_audio_change_music_load_stub_metrics.py",
+      "size": 3094,
+      "mtimeMs": 1777475775643
+    },
+    {
+      "path": "tools/validate_audio_command_timing_frontier.py",
+      "size": 3224,
+      "mtimeMs": 1777458790195
+    },
+    {
+      "path": "tools/validate_audio_cpu_mailbox_contract.py",
+      "size": 10273,
+      "mtimeMs": 1777477283350
+    },
+    {
+      "path": "tools/validate_audio_cpu_routine_fixtures.py",
+      "size": 2628,
+      "mtimeMs": 1777473734742
+    },
+    {
+      "path": "tools/validate_audio_dependency_policy.py",
+      "size": 3240,
+      "mtimeMs": 1777486214230
+    },
+    {
+      "path": "tools/validate_audio_diagnostic_spc_snapshots.py",
+      "size": 3113,
+      "mtimeMs": 1777435416507
+    },
+    {
+      "path": "tools/validate_audio_ebdecompile_ref_alignment.py",
+      "size": 2590,
+      "mtimeMs": 1777495646591
+    },
+    {
+      "path": "tools/validate_audio_exact_duration_triage.py",
+      "size": 2284,
+      "mtimeMs": 1777496124126
+    },
+    {
+      "path": "tools/validate_audio_export_duration_measurements.py",
+      "size": 6128,
+      "mtimeMs": 1777491272824
+    },
+    {
+      "path": "tools/validate_audio_export_duration_policy.py",
+      "size": 4027,
+      "mtimeMs": 1777490089618
+    },
+    {
+      "path": "tools/validate_audio_export_plan.py",
+      "size": 4911,
+      "mtimeMs": 1777493398170
+    },
+    {
+      "path": "tools/validate_audio_fusion_timing_metrics.py",
+      "size": 3236,
+      "mtimeMs": 1777485161994
+    },
+    {
+      "path": "tools/validate_audio_keyon_primed_spc_experiment.py",
+      "size": 2438,
+      "mtimeMs": 1777437108918
+    },
+    {
+      "path": "tools/validate_audio_last_keyon_spc_experiment.py",
+      "size": 3146,
+      "mtimeMs": 1777437719325
+    },
+    {
+      "path": "tools/validate_audio_load_stream_transfer_metrics.py",
+      "size": 3251,
+      "mtimeMs": 1777476461522
+    },
+    {
+      "path": "tools/validate_audio_mailbox_frontier.py",
+      "size": 4481,
+      "mtimeMs": 1777459675156
+    },
+    {
+      "path": "tools/validate_audio_no_command_frontier.py",
+      "size": 2963,
+      "mtimeMs": 1777458372281
+    },
+    {
+      "path": "tools/validate_audio_oracle_comparison_plan.py",
+      "size": 6280,
+      "mtimeMs": 1777492134520
+    },
+    {
+      "path": "tools/validate_audio_oracle_comparison_summary.py",
+      "size": 5144,
+      "mtimeMs": 1777489575042
+    },
+    {
+      "path": "tools/validate_audio_oracle_verification_report.py",
+      "size": 4772,
+      "mtimeMs": 1777491876575
+    },
+    {
+      "path": "tools/validate_audio_pack_contracts.py",
+      "size": 3667,
+      "mtimeMs": 1777425672308
+    },
+    {
+      "path": "tools/validate_audio_playback_export_manifest.py",
+      "size": 8632,
+      "mtimeMs": 1777486828055
+    },
+    {
+      "path": "tools/validate_audio_render_metrics_comparison.py",
+      "size": 2601,
+      "mtimeMs": 1777437243650
+    },
+    {
+      "path": "tools/validate_audio_render_metrics.py",
+      "size": 4163,
+      "mtimeMs": 1777486637231
+    },
+    {
+      "path": "tools/validate_audio_renderer_fixtures.py",
+      "size": 4211,
+      "mtimeMs": 1777492224766
+    },
+    {
+      "path": "tools/validate_audio_runtime_frontier.py",
+      "size": 4904,
+      "mtimeMs": 1777457880829
+    },
+    {
+      "path": "tools/validate_audio_sequence_control_flow_frontier.py",
+      "size": 2943,
+      "mtimeMs": 1777495441388
+    },
+    {
+      "path": "tools/validate_audio_sequence_pack_report.py",
+      "size": 3489,
+      "mtimeMs": 1777495264881
+    },
+    {
+      "path": "tools/validate_audio_sequence_semantics_frontier.py",
+      "size": 4462,
+      "mtimeMs": 1777494860217
+    },
+    {
+      "path": "tools/validate_audio_sequence_walk_frontier.py",
+      "size": 3151,
+      "mtimeMs": 1777496054247
+    },
+    {
+      "path": "tools/validate_audio_snapshot_corpus.py",
+      "size": 2865,
+      "mtimeMs": 1777425422599
+    },
+    {
+      "path": "tools/validate_audio_spc_state_frontier.py",
+      "size": 2874,
+      "mtimeMs": 1777425905143
+    },
+    {
+      "path": "tools/validate_c3_assembler_contract.py",
+      "size": 11159,
+      "mtimeMs": 1777092359623
+    },
+    {
+      "path": "tools/validate_c3_build_candidate_ranges.py",
+      "size": 7948,
+      "mtimeMs": 1777398788628
+    },
+    {
+      "path": "tools/validate_c3_byte_equivalence.py",
+      "size": 243,
+      "mtimeMs": 1777094757946
+    },
+    {
+      "path": "tools/validate_c3_source_prototypes.py",
+      "size": 6864,
+      "mtimeMs": 1777088162042
+    },
+    {
+      "path": "tools/validate_c3_source_signatures.py",
+      "size": 10756,
+      "mtimeMs": 1777089628448
+    },
+    {
+      "path": "tools/validate_data_contracts.py",
+      "size": 952,
+      "mtimeMs": 1777069702047
+    },
+    {
+      "path": "tools/validate_source_bank_byte_equivalence.py",
+      "size": 3126,
+      "mtimeMs": 1777094749205
+    },
+    {
+      "path": "tools/verify_rom.py",
+      "size": 1548,
+      "mtimeMs": 1774392729083
+    }
+  ]
+}

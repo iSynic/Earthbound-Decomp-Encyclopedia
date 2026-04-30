@@ -1,0 +1,422 @@
+{
+  "schema": "earthbound-decomp.audio-apu-region-map.v1",
+  "source": "manifests/audio-pack-contracts.json",
+  "summary": {
+    "pack_count": 169,
+    "payload_write_count": 323,
+    "payload_byte_count": 874945,
+    "destination_role_counts": {
+      "brr_sample_or_high_apu_payload": 152,
+      "main_spc700_driver_or_driver_overlay": 1,
+      "sequence_or_runtime_tables": 69,
+      "music_sequence_or_sample_directory": 101
+    },
+    "lowest_destination": "0x0500",
+    "highest_end": "0xE6E0"
+  },
+  "regions_by_role": [
+    {
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "write_count": 152,
+      "total_payload_bytes": 670636,
+      "lowest_destination": "0x6C00",
+      "highest_end": "0xE6E0",
+      "unique_destination_count": 10,
+      "common_destinations": [
+        {
+          "destination": "0x6C68",
+          "write_count": 44
+        },
+        {
+          "destination": "0x95B0",
+          "write_count": 44
+        },
+        {
+          "destination": "0x6E9C",
+          "write_count": 44
+        },
+        {
+          "destination": "0x6E00",
+          "write_count": 5
+        },
+        {
+          "destination": "0x6C00",
+          "write_count": 4
+        },
+        {
+          "destination": "0x7000",
+          "write_count": 4
+        },
+        {
+          "destination": "0x6C2C",
+          "write_count": 2
+        },
+        {
+          "destination": "0x87C4",
+          "write_count": 2
+        }
+      ],
+      "largest_write": {
+        "pack_id": 108,
+        "block_index": 1,
+        "destination": "0x7000",
+        "end": "0xE6D0",
+        "bytes": 30416
+      }
+    },
+    {
+      "role_guess": "main_spc700_driver_or_driver_overlay",
+      "write_count": 1,
+      "total_payload_bytes": 16779,
+      "lowest_destination": "0x0500",
+      "highest_end": "0x468B",
+      "unique_destination_count": 1,
+      "common_destinations": [
+        {
+          "destination": "0x0500",
+          "write_count": 1
+        }
+      ],
+      "largest_write": {
+        "pack_id": 1,
+        "block_index": 2,
+        "destination": "0x0500",
+        "end": "0x468B",
+        "bytes": 16779
+      }
+    },
+    {
+      "role_guess": "music_sequence_or_sample_directory",
+      "write_count": 101,
+      "total_payload_bytes": 100636,
+      "lowest_destination": "0x5000",
+      "highest_end": "0x690B",
+      "unique_destination_count": 16,
+      "common_destinations": [
+        {
+          "destination": "0x5800",
+          "write_count": 60
+        },
+        {
+          "destination": "0x5200",
+          "write_count": 8
+        },
+        {
+          "destination": "0x6000",
+          "write_count": 7
+        },
+        {
+          "destination": "0x5000",
+          "write_count": 6
+        },
+        {
+          "destination": "0x5C00",
+          "write_count": 4
+        },
+        {
+          "destination": "0x5400",
+          "write_count": 3
+        },
+        {
+          "destination": "0x6200",
+          "write_count": 3
+        },
+        {
+          "destination": "0x6400",
+          "write_count": 2
+        }
+      ],
+      "largest_write": {
+        "pack_id": 36,
+        "block_index": 0,
+        "destination": "0x5800",
+        "end": "0x6756",
+        "bytes": 3926
+      }
+    },
+    {
+      "role_guess": "sequence_or_runtime_tables",
+      "write_count": 69,
+      "total_payload_bytes": 86894,
+      "lowest_destination": "0x4800",
+      "highest_end": "0x69A0",
+      "unique_destination_count": 10,
+      "common_destinations": [
+        {
+          "destination": "0x4800",
+          "write_count": 59
+        },
+        {
+          "destination": "0x4C00",
+          "write_count": 2
+        },
+        {
+          "destination": "0x4A00",
+          "write_count": 1
+        },
+        {
+          "destination": "0x4E00",
+          "write_count": 1
+        },
+        {
+          "destination": "0x4B00",
+          "write_count": 1
+        },
+        {
+          "destination": "0x4F80",
+          "write_count": 1
+        },
+        {
+          "destination": "0x4900",
+          "write_count": 1
+        },
+        {
+          "destination": "0x4AE0",
+          "write_count": 1
+        }
+      ],
+      "largest_write": {
+        "pack_id": 109,
+        "block_index": 0,
+        "destination": "0x4800",
+        "end": "0x69A0",
+        "bytes": 8608
+      }
+    }
+  ],
+  "repeated_write_shapes": [
+    {
+      "destination": "0x6C68",
+      "end": "0x6C80",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 24,
+      "write_count": 25,
+      "sample_pack_ids": [
+        21,
+        27,
+        33,
+        35,
+        40,
+        44,
+        50,
+        52,
+        54,
+        56,
+        64,
+        66
+      ]
+    },
+    {
+      "destination": "0x6C68",
+      "end": "0x6C90",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 40,
+      "write_count": 9,
+      "sample_pack_ids": [
+        8,
+        24,
+        37,
+        47,
+        60,
+        70,
+        84,
+        105,
+        118
+      ]
+    },
+    {
+      "destination": "0x6C68",
+      "end": "0x6C70",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 8,
+      "write_count": 8,
+      "sample_pack_ids": [
+        58,
+        72,
+        74,
+        80,
+        95,
+        114,
+        161,
+        165
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EBA",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 30,
+      "write_count": 8,
+      "sample_pack_ids": [
+        21,
+        27,
+        35,
+        56,
+        78,
+        92,
+        98,
+        139
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EC0",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 36,
+      "write_count": 7,
+      "sample_pack_ids": [
+        33,
+        50,
+        52,
+        54,
+        64,
+        89,
+        124
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EA8",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 12,
+      "write_count": 6,
+      "sample_pack_ids": [
+        58,
+        72,
+        74,
+        80,
+        95,
+        165
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EAE",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 18,
+      "write_count": 6,
+      "sample_pack_ids": [
+        40,
+        44,
+        66,
+        82,
+        116,
+        156
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EB4",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 24,
+      "write_count": 4,
+      "sample_pack_ids": [
+        76,
+        110,
+        126,
+        131
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EC6",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 42,
+      "write_count": 3,
+      "sample_pack_ids": [
+        47,
+        60,
+        118
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6ED2",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 54,
+      "write_count": 3,
+      "sample_pack_ids": [
+        8,
+        24,
+        105
+      ]
+    },
+    {
+      "destination": "0x5800",
+      "end": "0x5A61",
+      "role_guess": "music_sequence_or_sample_directory",
+      "bytes": 609,
+      "write_count": 2,
+      "sample_pack_ids": [
+        14,
+        155
+      ]
+    },
+    {
+      "destination": "0x6C00",
+      "end": "0x6C70",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 112,
+      "write_count": 2,
+      "sample_pack_ids": [
+        5,
+        108
+      ]
+    },
+    {
+      "destination": "0x6C2C",
+      "end": "0x6C50",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 36,
+      "write_count": 2,
+      "sample_pack_ids": [
+        3,
+        153
+      ]
+    },
+    {
+      "destination": "0x6E00",
+      "end": "0x6E1E",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 30,
+      "write_count": 2,
+      "sample_pack_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6EA2",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 6,
+      "write_count": 2,
+      "sample_pack_ids": [
+        114,
+        161
+      ]
+    },
+    {
+      "destination": "0x6E9C",
+      "end": "0x6ECC",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 48,
+      "write_count": 2,
+      "sample_pack_ids": [
+        70,
+        84
+      ]
+    },
+    {
+      "destination": "0x95B0",
+      "end": "0xE210",
+      "role_guess": "brr_sample_or_high_apu_payload",
+      "bytes": 19552,
+      "write_count": 2,
+      "sample_pack_ids": [
+        37,
+        126
+      ]
+    }
+  ]
+}

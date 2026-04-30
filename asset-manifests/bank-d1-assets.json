@@ -1,0 +1,4953 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D1 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d1-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank11.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 123,
+    "binary_assets_by_extension": {
+      "gfx": 123
+    },
+    "binary_asset_bytes": 65536,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 0,
+    "coverage_gap_bytes": 0,
+    "missing_payload_metadata": 0
+  },
+  "assets": [
+    {
+      "id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0000..D1:0300",
+        "bytes": 768,
+        "sha1": "a4dc40f8e6db4d651285d8a302e4e3bed952316f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0000.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 0,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0000.gfx",
+        "Original file offset: 0x110000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0001",
+      "title": "SPRITE_0001",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0300..D1:0600",
+        "bytes": 768,
+        "sha1": "ec4ef0190f81fb44dc2d303d6612f89878fd638a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0001.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0001_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0001_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 1,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0001.gfx",
+        "Original file offset: 0x110300"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0002",
+      "title": "SPRITE_0002",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0600..D1:0900",
+        "bytes": 768,
+        "sha1": "2f149e364483b0a3b13b9a0b7b605d93d884992d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0002.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0002_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0002_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 2,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0002.gfx",
+        "Original file offset: 0x110600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0003",
+      "title": "SPRITE_0003",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0900..D1:0C00",
+        "bytes": 768,
+        "sha1": "0d7704baa2ad2066c911df58a7efb13473ac2b65"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0003.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0003_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0003_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 3,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0003.gfx",
+        "Original file offset: 0x110900"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0004",
+      "title": "SPRITE_0004",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0C00..D1:0F00",
+        "bytes": 768,
+        "sha1": "f5edc08824ffa1b85041cf2f39bdcca540d439d7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0004.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0004_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0004_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 4,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0004.gfx",
+        "Original file offset: 0x110C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0005",
+      "title": "SPRITE_0005",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:0F00..D1:1200",
+        "bytes": 768,
+        "sha1": "4877173404ff8c52ae0c2844864730b8674bc3a9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0005.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0005_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0005_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 5,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0005.gfx",
+        "Original file offset: 0x110F00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0006",
+      "title": "SPRITE_0006",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:1200..D1:1500",
+        "bytes": 768,
+        "sha1": "1dc23d19e0f802e52e032020c2945e486767e9ad"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0006.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0006_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0006_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 6,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0006.gfx",
+        "Original file offset: 0x111200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0007",
+      "title": "SPRITE_0007",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:1500..D1:1800",
+        "bytes": 768,
+        "sha1": "fb93f3e685ff9be290d2e31cb7c7d049b458cffa"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0007.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0007_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0007_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 7,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0007.gfx",
+        "Original file offset: 0x111500"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0008",
+      "title": "SPRITE_0008",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:1800..D1:1E00",
+        "bytes": 1536,
+        "sha1": "45f74daed11be3141619a2f7c696b7b2f6a817f6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0008.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0008_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0008_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 8,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0008.gfx",
+        "Original file offset: 0x111800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0009",
+      "title": "SPRITE_0009",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:1E00..D1:2400",
+        "bytes": 1536,
+        "sha1": "6fd3b7dc04bb6caaf22410fb5981695cead99cd0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0009.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0009_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0009_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 9,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0009.gfx",
+        "Original file offset: 0x111E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0010",
+      "title": "SPRITE_0010",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:2400..D1:2A00",
+        "bytes": 1536,
+        "sha1": "0b329754df37119c45608451699bd47ff69e9688"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0010.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0010_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0010_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 10,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0010.gfx",
+        "Original file offset: 0x112400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0011",
+      "title": "SPRITE_0011",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:2A00..D1:3000",
+        "bytes": 1536,
+        "sha1": "e52e8f062626763656c26d63c106f5574324f4eb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0011.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0011_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0011_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 11,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0011.gfx",
+        "Original file offset: 0x112A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0012",
+      "title": "SPRITE_0012",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:3000..D1:3600",
+        "bytes": 1536,
+        "sha1": "63e1b2c3a3ea524119f24ddf30461c4312e65e75"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0012.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0012_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0012_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 12,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0012.gfx",
+        "Original file offset: 0x113000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0013",
+      "title": "SPRITE_0013",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:3600..D1:3C00",
+        "bytes": 1536,
+        "sha1": "e1a068c57aef21f7ea3b358c86e6494618d9b516"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0013.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0013_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0013_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 13,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0013.gfx",
+        "Original file offset: 0x113600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0014",
+      "title": "SPRITE_0014",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:3C00..D1:3F00",
+        "bytes": 768,
+        "sha1": "b05d05173bc5e28d2d821b5989ba025795d48c56"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0014.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0014_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0014_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 14,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0014.gfx",
+        "Original file offset: 0x113C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0015",
+      "title": "SPRITE_0015",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:3F00..D1:4200",
+        "bytes": 768,
+        "sha1": "8d02ec779a3685919d446dcb2559bd6348e5997a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0015.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0015_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0015_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 15,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0015.gfx",
+        "Original file offset: 0x113F00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0016",
+      "title": "SPRITE_0016",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:4200..D1:4500",
+        "bytes": 768,
+        "sha1": "388eea21534cc8ec0bd03c253113ca0e10389ff5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0016.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0016_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0016_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 16,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0016.gfx",
+        "Original file offset: 0x114200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0017",
+      "title": "SPRITE_0017",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:4500..D1:4800",
+        "bytes": 768,
+        "sha1": "6e8fb54dd6d373f55f5e5c5d0205bd2fc7aa5127"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0017.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0017_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0017_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 17,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0017.gfx",
+        "Original file offset: 0x114500"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0018",
+      "title": "SPRITE_0018",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:4800..D1:5200",
+        "bytes": 2560,
+        "sha1": "c5c1237bcf78739b11cc62c9573507ba688f1e10"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0018.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0018_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0018_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 18,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0018.gfx",
+        "Original file offset: 0x114800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0019",
+      "title": "SPRITE_0019",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:5200..D1:5A00",
+        "bytes": 2048,
+        "sha1": "02c2d6991e73c2d1d41eae8687791e6d81f95850"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0019.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0019_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0019_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 19,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0019.gfx",
+        "Original file offset: 0x115200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0020",
+      "title": "SPRITE_0020",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:5A00..D1:5C00",
+        "bytes": 512,
+        "sha1": "3725408d1cf07ed1c3dd939f5d4040ee88772ea1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0020.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0020_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0020_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 20,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0020.gfx",
+        "Original file offset: 0x115A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0021",
+      "title": "SPRITE_0021",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:5C00..D1:5E00",
+        "bytes": 512,
+        "sha1": "0fbc624bd20374cfa310ad0a8bac782aaa088395"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0021.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0021_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0021_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 21,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0021.gfx",
+        "Original file offset: 0x115C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0022",
+      "title": "SPRITE_0022",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:5E00..D1:6000",
+        "bytes": 512,
+        "sha1": "d0aa333adb45d2fcb239c4c525e8633ab69292dd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0022.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0022_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0022_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 22,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0022.gfx",
+        "Original file offset: 0x115E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0023",
+      "title": "SPRITE_0023",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6000..D1:6200",
+        "bytes": 512,
+        "sha1": "a4d323ac9c9d58536048849b2da7a460789f6899"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0023.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0023_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0023_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 23,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0023.gfx",
+        "Original file offset: 0x116000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0024",
+      "title": "SPRITE_0024",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6200..D1:6400",
+        "bytes": 512,
+        "sha1": "85895006b7948ca777ca55ec444346b30ecbe8e4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0024.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0024_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0024_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 24,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0024.gfx",
+        "Original file offset: 0x116200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0025",
+      "title": "SPRITE_0025",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6400..D1:6600",
+        "bytes": 512,
+        "sha1": "eaba9078cfc40d6ed92fa183e44c091a39cd4964"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0025.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0025_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0025_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 25,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0025.gfx",
+        "Original file offset: 0x116400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0026",
+      "title": "SPRITE_0026",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6600..D1:6800",
+        "bytes": 512,
+        "sha1": "2b33ea22aa8175e67a9e9072dcb9e13afb7a9aed"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0026.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0026_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0026_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 26,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0026.gfx",
+        "Original file offset: 0x116600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0027",
+      "title": "SPRITE_0027",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6800..D1:6A00",
+        "bytes": 512,
+        "sha1": "80e1bb01242c4d3756811bf33136b34e4499b76f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0027.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0027_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0027_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 27,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0027.gfx",
+        "Original file offset: 0x116800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0028",
+      "title": "SPRITE_0028",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6A00..D1:6C00",
+        "bytes": 512,
+        "sha1": "ba75ac25a2f63bdbedbba2aa3bfbeed07d96f3fe"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0028.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0028_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0028_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 28,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0028.gfx",
+        "Original file offset: 0x116A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0029",
+      "title": "SPRITE_0029",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6C00..D1:6E00",
+        "bytes": 512,
+        "sha1": "d8afdbac70c9e4f2f0048a455ef1dcdae7488d6f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0029.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0029_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0029_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 29,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0029.gfx",
+        "Original file offset: 0x116C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0030",
+      "title": "SPRITE_0030",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:6E00..D1:7000",
+        "bytes": 512,
+        "sha1": "e1fff6c3b253c182d8a5cd870789cc57215ed81e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0030.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0030_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0030_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 30,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0030.gfx",
+        "Original file offset: 0x116E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0031",
+      "title": "SPRITE_0031",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7000..D1:7200",
+        "bytes": 512,
+        "sha1": "6b07cfb779556cb92508a19fcd21e7f31ea20ab0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0031.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0031_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0031_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 31,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0031.gfx",
+        "Original file offset: 0x117000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0032",
+      "title": "SPRITE_0032",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7200..D1:7400",
+        "bytes": 512,
+        "sha1": "f811fa69a692eeb4ec258f6a3e60b2a2663363aa"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0032.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0032_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0032_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 32,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0032.gfx",
+        "Original file offset: 0x117200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0033",
+      "title": "SPRITE_0033",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7400..D1:7600",
+        "bytes": 512,
+        "sha1": "11f5cc6df282d8cd7730ff01015096c901996dcb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0033.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0033_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0033_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 33,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0033.gfx",
+        "Original file offset: 0x117400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0034",
+      "title": "SPRITE_0034",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7600..D1:7800",
+        "bytes": 512,
+        "sha1": "b026816ef984127dd94afa893aa92ca8608b49ae"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0034.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0034_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0034_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 34,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0034.gfx",
+        "Original file offset: 0x117600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0035",
+      "title": "SPRITE_0035",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7800..D1:7A00",
+        "bytes": 512,
+        "sha1": "0cbaf63397f7fc8d3bc88a7ae3c317a7e9260a13"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0035.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0035_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0035_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 35,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0035.gfx",
+        "Original file offset: 0x117800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0036",
+      "title": "SPRITE_0036",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7A00..D1:7C00",
+        "bytes": 512,
+        "sha1": "e1144de90aa8a7924bc57b525c4fdf38f27a1d7f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0036.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0036_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0036_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 36,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0036.gfx",
+        "Original file offset: 0x117A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0037",
+      "title": "SPRITE_0037",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7C00..D1:7E00",
+        "bytes": 512,
+        "sha1": "3e4b5a2abe3cb68ec14ba93c9836d34e4148e563"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0037.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0037_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0037_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 37,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0037.gfx",
+        "Original file offset: 0x117C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0038",
+      "title": "SPRITE_0038",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:7E00..D1:8000",
+        "bytes": 512,
+        "sha1": "b3900d9fe234e4a4d4af738c6f49e95215b91a54"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0038.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0038_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0038_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 38,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0038.gfx",
+        "Original file offset: 0x117E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0039",
+      "title": "SPRITE_0039",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8000..D1:8200",
+        "bytes": 512,
+        "sha1": "afa1e98046b9e8d56835249d2a4d223cdbb08bba"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0039.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0039_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0039_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 39,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0039.gfx",
+        "Original file offset: 0x118000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0040",
+      "title": "SPRITE_0040",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8200..D1:8400",
+        "bytes": 512,
+        "sha1": "b9ec677e6143f05326d29c905fce97b51b012d17"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0040.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0040_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0040_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 40,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0040.gfx",
+        "Original file offset: 0x118200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0041",
+      "title": "SPRITE_0041",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8400..D1:8600",
+        "bytes": 512,
+        "sha1": "75712c277be8570abe791932869879a201502f33"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0041.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0041_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0041_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 41,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0041.gfx",
+        "Original file offset: 0x118400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0042",
+      "title": "SPRITE_0042",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8600..D1:8800",
+        "bytes": 512,
+        "sha1": "1673856650dacdc9ff24e87fd9f79260b4020a0b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0042.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0042_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0042_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 42,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0042.gfx",
+        "Original file offset: 0x118600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0043",
+      "title": "SPRITE_0043",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8800..D1:8A00",
+        "bytes": 512,
+        "sha1": "fedb6dc3bde8dbed914496f468f7626e4ae95876"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0043.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0043_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0043_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 43,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0043.gfx",
+        "Original file offset: 0x118800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0044",
+      "title": "SPRITE_0044",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8A00..D1:8C00",
+        "bytes": 512,
+        "sha1": "e0d3aa35ecdecca0b58c13a3fc8f2b2709b0d7e0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0044.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0044_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0044_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 44,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0044.gfx",
+        "Original file offset: 0x118A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0045",
+      "title": "SPRITE_0045",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8C00..D1:8E00",
+        "bytes": 512,
+        "sha1": "98d5cf22f8196d766fd5e941ca912abd62234f95"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0045.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0045_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0045_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 45,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0045.gfx",
+        "Original file offset: 0x118C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0046",
+      "title": "SPRITE_0046",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:8E00..D1:9000",
+        "bytes": 512,
+        "sha1": "3dead0997ba03d6c2139942ea940f20f2108a842"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0046.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0046_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0046_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 46,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0046.gfx",
+        "Original file offset: 0x118E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0047",
+      "title": "SPRITE_0047",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9000..D1:9200",
+        "bytes": 512,
+        "sha1": "c89e810e669fcaae0b7d62a45ac6a92fd814d3f1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0047.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0047_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0047_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 47,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0047.gfx",
+        "Original file offset: 0x119000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0048",
+      "title": "SPRITE_0048",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9200..D1:9400",
+        "bytes": 512,
+        "sha1": "5f3c3e640df3f1e777f22aed02970048af8edaa8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0048.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0048_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0048_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 48,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0048.gfx",
+        "Original file offset: 0x119200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0049",
+      "title": "SPRITE_0049",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9400..D1:9600",
+        "bytes": 512,
+        "sha1": "70036f71676614d7b10030f304526dd4173db7ab"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0049.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0049_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0049_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 49,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0049.gfx",
+        "Original file offset: 0x119400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0050",
+      "title": "SPRITE_0050",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9600..D1:9800",
+        "bytes": 512,
+        "sha1": "f0b5982daf823434ee65f97482784134d0e7732d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0050.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0050_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0050_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 50,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0050.gfx",
+        "Original file offset: 0x119600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0051",
+      "title": "SPRITE_0051",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9800..D1:9A00",
+        "bytes": 512,
+        "sha1": "712b4ae503f7aa09261a36a8898f126256d46969"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0051.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0051_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0051_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 51,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0051.gfx",
+        "Original file offset: 0x119800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0052",
+      "title": "SPRITE_0052",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9A00..D1:9C00",
+        "bytes": 512,
+        "sha1": "2244c81680931abb7fd2ef578d5b956004723c62"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0052.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0052_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0052_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 52,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0052.gfx",
+        "Original file offset: 0x119A00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0053",
+      "title": "SPRITE_0053",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9C00..D1:9E00",
+        "bytes": 512,
+        "sha1": "7fd5528c14740b2024113bebe60fc2629637c7c8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0053.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0053_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0053_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 53,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0053.gfx",
+        "Original file offset: 0x119C00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0054",
+      "title": "SPRITE_0054",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:9E00..D1:A000",
+        "bytes": 512,
+        "sha1": "b3acc54c40f8ab5a369f8acb2d1abe0fa00e8b17"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0054.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0054_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0054_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 54,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0054.gfx",
+        "Original file offset: 0x119E00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0055",
+      "title": "SPRITE_0055",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:A000..D1:A200",
+        "bytes": 512,
+        "sha1": "2cae2311a62981029db32815da71b161f73bac35"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0055.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0055_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0055_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0055.gfx",
+        "Original file offset: 0x11A000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0056",
+      "title": "SPRITE_0056",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:A200..D1:A400",
+        "bytes": 512,
+        "sha1": "75fde1041bc8e9973599f20eec2b9fa528193fd7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0056.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0056_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0056_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 56,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0056.gfx",
+        "Original file offset: 0x11A200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0057",
+      "title": "SPRITE_0057",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:A400..D1:A600",
+        "bytes": 512,
+        "sha1": "fc6b905217eaeae2248b14f3e017e54eae1e1812"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0057.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0057_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0057_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 57,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0057.gfx",
+        "Original file offset: 0x11A400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0058",
+      "title": "SPRITE_0058",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:A600..D1:A800",
+        "bytes": 512,
+        "sha1": "6af611486950926ee2aac22f4b88d8815e757921"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0058.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0058_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0058_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 58,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0058.gfx",
+        "Original file offset: 0x11A600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0059",
+      "title": "SPRITE_0059",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:A800..D1:AA00",
+        "bytes": 512,
+        "sha1": "009d099cc6caee6a04604a320e53bd13f0689911"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0059.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0059_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0059_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 59,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0059.gfx",
+        "Original file offset: 0x11A800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0060",
+      "title": "SPRITE_0060",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:AA00..D1:AC00",
+        "bytes": 512,
+        "sha1": "979db0add27ff229caf776647e9a599efbd8c5d1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0060.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0060_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0060_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 60,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0060.gfx",
+        "Original file offset: 0x11AA00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0061",
+      "title": "SPRITE_0061",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:AC00..D1:AE00",
+        "bytes": 512,
+        "sha1": "a117a98617ae6ea39105450119bf81a85384d8bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0061.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0061_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0061_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 61,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0061.gfx",
+        "Original file offset: 0x11AC00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0062",
+      "title": "SPRITE_0062",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:AE00..D1:B000",
+        "bytes": 512,
+        "sha1": "d67b50a4a73a0696b31e96c9aa703a84369bf2bd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0062.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0062_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0062_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 62,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0062.gfx",
+        "Original file offset: 0x11AE00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0063",
+      "title": "SPRITE_0063",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:B000..D1:B200",
+        "bytes": 512,
+        "sha1": "3a696095a1a7de26844303afcfa708b341a61653"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0063.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0063_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0063_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 63,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0063.gfx",
+        "Original file offset: 0x11B000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0064",
+      "title": "SPRITE_0064",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:B200..D1:B400",
+        "bytes": 512,
+        "sha1": "0b4eceb695776270de00111a3d29c0a2c0735f6a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0064.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0064_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0064_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 64,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0064.gfx",
+        "Original file offset: 0x11B200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0065",
+      "title": "SPRITE_0065",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:B400..D1:B600",
+        "bytes": 512,
+        "sha1": "3a07bfe4a1af920a91031d8c8c3d87c196202064"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0065.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0065_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0065_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 65,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0065.gfx",
+        "Original file offset: 0x11B400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0066",
+      "title": "SPRITE_0066",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:B600..D1:B800",
+        "bytes": 512,
+        "sha1": "3f82923b96152693cb921fdedfc6e816f58cd049"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0066.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0066_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0066_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 66,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0066.gfx",
+        "Original file offset: 0x11B600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0067",
+      "title": "SPRITE_0067",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:B800..D1:BA00",
+        "bytes": 512,
+        "sha1": "f3a0dd0c4e51be7f4f22e82b3c4d75cbb65e04aa"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0067.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0067_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0067_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 67,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0067.gfx",
+        "Original file offset: 0x11B800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0068",
+      "title": "SPRITE_0068",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BA00..D1:BAC0",
+        "bytes": 192,
+        "sha1": "90f76239b4b434ee679aa1319e0257341ee6c724"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0068.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0068_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0068_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 68,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0068.gfx",
+        "Original file offset: 0x11BA00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0069",
+      "title": "SPRITE_0069",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BAC0..D1:BB80",
+        "bytes": 192,
+        "sha1": "93e3a4fcbeda94e890656e5c2cc312c76e6550e4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0069.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0069_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0069_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 69,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0069.gfx",
+        "Original file offset: 0x11BAC0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0070",
+      "title": "SPRITE_0070",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BB80..D1:BC40",
+        "bytes": 192,
+        "sha1": "93a43f84b48d577a50b1b412a20c072772b956d4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0070.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0070_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0070_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 70,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0070.gfx",
+        "Original file offset: 0x11BB80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0071",
+      "title": "SPRITE_0071",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BC40..D1:BD00",
+        "bytes": 192,
+        "sha1": "e7a1551142b27e4b352f0d0470578a985f72dce6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0071.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0071_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0071_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 71,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0071.gfx",
+        "Original file offset: 0x11BC40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0072",
+      "title": "SPRITE_0072",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BD00..D1:BDC0",
+        "bytes": 192,
+        "sha1": "8623e6eb88fc65eca5df191ad0c06e4415044e8a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0072.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0072_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0072_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 72,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0072.gfx",
+        "Original file offset: 0x11BD00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0073",
+      "title": "SPRITE_0073",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BDC0..D1:BE80",
+        "bytes": 192,
+        "sha1": "323694c8e5ec4fafda3cdde0f207856869f6b2f3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0073.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0073_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0073_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 73,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0073.gfx",
+        "Original file offset: 0x11BDC0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0074",
+      "title": "SPRITE_0074",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BE80..D1:BF40",
+        "bytes": 192,
+        "sha1": "bb9d05b1afe9ccd0dd634916b383a21f3585c25d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0074.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0074_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0074_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 74,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0074.gfx",
+        "Original file offset: 0x11BE80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0075",
+      "title": "SPRITE_0075",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:BF40..D1:C000",
+        "bytes": 192,
+        "sha1": "6fb1bff4a70f59d9212b9b108e267585bbb6a991"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0075.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0075_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0075_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 75,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0075.gfx",
+        "Original file offset: 0x11BF40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0076",
+      "title": "SPRITE_0076",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C000..D1:C0C0",
+        "bytes": 192,
+        "sha1": "51e714e49f5d0d712fd01a365ffead30135132c8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0076.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0076_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0076_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 76,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0076.gfx",
+        "Original file offset: 0x11C000"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0077",
+      "title": "SPRITE_0077",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C0C0..D1:C180",
+        "bytes": 192,
+        "sha1": "90f76239b4b434ee679aa1319e0257341ee6c724"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0077.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0077_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0077_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 77,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0077.gfx",
+        "Original file offset: 0x11C0C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0078",
+      "title": "SPRITE_0078",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C180..D1:C240",
+        "bytes": 192,
+        "sha1": "93e3a4fcbeda94e890656e5c2cc312c76e6550e4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0078.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0078_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0078_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 78,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0078.gfx",
+        "Original file offset: 0x11C180"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0079",
+      "title": "SPRITE_0079",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C240..D1:C300",
+        "bytes": 192,
+        "sha1": "93a43f84b48d577a50b1b412a20c072772b956d4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0079.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0079_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0079_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 79,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0079.gfx",
+        "Original file offset: 0x11C240"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0080",
+      "title": "SPRITE_0080",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C300..D1:C3C0",
+        "bytes": 192,
+        "sha1": "e7a1551142b27e4b352f0d0470578a985f72dce6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0080.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0080_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0080_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 80,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0080.gfx",
+        "Original file offset: 0x11C300"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0081",
+      "title": "SPRITE_0081",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C3C0..D1:C480",
+        "bytes": 192,
+        "sha1": "8623e6eb88fc65eca5df191ad0c06e4415044e8a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0081.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0081_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0081_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 81,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0081.gfx",
+        "Original file offset: 0x11C3C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0082",
+      "title": "SPRITE_0082",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C480..D1:C540",
+        "bytes": 192,
+        "sha1": "323694c8e5ec4fafda3cdde0f207856869f6b2f3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0082.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0082_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0082_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 82,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0082.gfx",
+        "Original file offset: 0x11C480"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0083",
+      "title": "SPRITE_0083",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C540..D1:C600",
+        "bytes": 192,
+        "sha1": "bb9d05b1afe9ccd0dd634916b383a21f3585c25d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0083.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0083_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0083_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 83,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0083.gfx",
+        "Original file offset: 0x11C540"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0084",
+      "title": "SPRITE_0084",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C600..D1:C6C0",
+        "bytes": 192,
+        "sha1": "6fb1bff4a70f59d9212b9b108e267585bbb6a991"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0084.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0084_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0084_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0084.gfx",
+        "Original file offset: 0x11C600"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0085",
+      "title": "SPRITE_0085",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C6C0..D1:C780",
+        "bytes": 192,
+        "sha1": "51e714e49f5d0d712fd01a365ffead30135132c8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0085.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0085_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0085_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 85,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0085.gfx",
+        "Original file offset: 0x11C6C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0086",
+      "title": "SPRITE_0086",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C780..D1:C840",
+        "bytes": 192,
+        "sha1": "9c1346488dbc28bcf2a4325793c1f162c6e3f6d1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0086.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0086_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0086_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 86,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0086.gfx",
+        "Original file offset: 0x11C780"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0087",
+      "title": "SPRITE_0087",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C840..D1:C900",
+        "bytes": 192,
+        "sha1": "f5fd774eac2c4e902d6ecf07b688ab17817d20ce"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0087.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0087_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0087_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 87,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0087.gfx",
+        "Original file offset: 0x11C840"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0088",
+      "title": "SPRITE_0088",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C900..D1:C9C0",
+        "bytes": 192,
+        "sha1": "c1cb76989bec25a70101f8cac91a9f2596d1268a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0088.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0088_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0088_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 88,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0088.gfx",
+        "Original file offset: 0x11C900"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0089",
+      "title": "SPRITE_0089",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:C9C0..D1:CA80",
+        "bytes": 192,
+        "sha1": "e7506fc28829f438b5b23f58d552f2db8bfc33c5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0089.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0089_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0089_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 89,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0089.gfx",
+        "Original file offset: 0x11C9C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0090",
+      "title": "SPRITE_0090",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CA80..D1:CB40",
+        "bytes": 192,
+        "sha1": "d51bb34c1ad7a015348e4b787f55882dd46aa946"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0090.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0090_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0090_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 90,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0090.gfx",
+        "Original file offset: 0x11CA80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0091",
+      "title": "SPRITE_0091",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CB40..D1:CC00",
+        "bytes": 192,
+        "sha1": "54fec18fade3bd68b0f347f8c6a784cf89ad07a8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0091.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0091_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0091_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 91,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0091.gfx",
+        "Original file offset: 0x11CB40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0092",
+      "title": "SPRITE_0092",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CC00..D1:CCC0",
+        "bytes": 192,
+        "sha1": "85279d0f1c18681e512d4a1aac110b64f261a9fb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0092.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0092_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0092_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 92,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0092.gfx",
+        "Original file offset: 0x11CC00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0093",
+      "title": "SPRITE_0093",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CCC0..D1:CD80",
+        "bytes": 192,
+        "sha1": "a800400753ffaf1d79a0b336cee5c86af7bd36e6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0093.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0093_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0093_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 93,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0093.gfx",
+        "Original file offset: 0x11CCC0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0094",
+      "title": "SPRITE_0094",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CD80..D1:CE40",
+        "bytes": 192,
+        "sha1": "535ce6e0b6b82d1f573a92b40fb44589aa8944ac"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0094.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0094_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0094_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 94,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0094.gfx",
+        "Original file offset: 0x11CD80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0095",
+      "title": "SPRITE_0095",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CE40..D1:CF00",
+        "bytes": 192,
+        "sha1": "7a48b18623d08fc5f7620680969d0ff600aec9f4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0095.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0095_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0095_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 95,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0095.gfx",
+        "Original file offset: 0x11CE40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0096",
+      "title": "SPRITE_0096",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CF00..D1:CFC0",
+        "bytes": 192,
+        "sha1": "c8e0952124c3989171d8897ea981494015a3f516"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0096.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0096_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0096_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 96,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0096.gfx",
+        "Original file offset: 0x11CF00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0097",
+      "title": "SPRITE_0097",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:CFC0..D1:D080",
+        "bytes": 192,
+        "sha1": "cf1ae45d7cd5920c9c5eab26f55e0d9948a86e51"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0097.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0097_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0097_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 97,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0097.gfx",
+        "Original file offset: 0x11CFC0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0098",
+      "title": "SPRITE_0098",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D080..D1:D140",
+        "bytes": 192,
+        "sha1": "a3d8b849ac78f90c23caa72fa21fa35bdf1f07c3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0098.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0098_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0098_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 98,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0098.gfx",
+        "Original file offset: 0x11D080"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0099",
+      "title": "SPRITE_0099",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D140..D1:D200",
+        "bytes": 192,
+        "sha1": "9e95d4c161b0840017e4295c742ed99d5a834248"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0099.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0099_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0099_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 99,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0099.gfx",
+        "Original file offset: 0x11D140"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0100",
+      "title": "SPRITE_0100",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D200..D1:D2C0",
+        "bytes": 192,
+        "sha1": "38b2439ba603d80f6fc8d5ab1ed18cc4a3bfc97c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0100.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0100_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0100_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 100,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0100.gfx",
+        "Original file offset: 0x11D200"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0101",
+      "title": "SPRITE_0101",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D2C0..D1:D380",
+        "bytes": 192,
+        "sha1": "eaa197829171ba729f97763bf8ec16dcca56f832"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0101.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0101_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0101_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 101,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0101.gfx",
+        "Original file offset: 0x11D2C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0102",
+      "title": "SPRITE_0102",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D380..D1:D440",
+        "bytes": 192,
+        "sha1": "3900cbb0151ca62818bcf48d7a7a360249d9febb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0102.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0102_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0102_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 102,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0102.gfx",
+        "Original file offset: 0x11D380"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0103",
+      "title": "SPRITE_0103",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D440..D1:D500",
+        "bytes": 192,
+        "sha1": "8b176ca12eefd05c85065699ac9e0515d9e8fb79"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0103.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0103_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0103_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 103,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0103.gfx",
+        "Original file offset: 0x11D440"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0104",
+      "title": "SPRITE_0104",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D500..D1:D800",
+        "bytes": 768,
+        "sha1": "ad712f0d1c1942bb1fd7b16cd04a7431abba5a3d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0104.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0104_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0104_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 104,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0104.gfx",
+        "Original file offset: 0x11D500"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0105",
+      "title": "SPRITE_0105",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:D800..D1:DB00",
+        "bytes": 768,
+        "sha1": "61abaf167173e84eec728f5663f6189acacb0154"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0105.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0105_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0105_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 105,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0105.gfx",
+        "Original file offset: 0x11D800"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0106",
+      "title": "SPRITE_0106",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:DB00..D1:DE00",
+        "bytes": 768,
+        "sha1": "3ecd4dda0b92ead4d2ff873c6b7084fb66de1ede"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0106.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0106_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0106_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 106,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0106.gfx",
+        "Original file offset: 0x11DB00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0107",
+      "title": "SPRITE_0107",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:DE00..D1:E100",
+        "bytes": 768,
+        "sha1": "3059c2bb02ec69d82c2b8d284bb638962396ac56"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0107.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0107_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0107_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 107,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0107.gfx",
+        "Original file offset: 0x11DE00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0108",
+      "title": "SPRITE_0108",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:E100..D1:E400",
+        "bytes": 768,
+        "sha1": "6ae521dcf7cc5a4c8d0325fd067837560ea51b7f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0108.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0108_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0108_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 108,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0108.gfx",
+        "Original file offset: 0x11E100"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0109",
+      "title": "SPRITE_0109",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:E400..D1:E700",
+        "bytes": 768,
+        "sha1": "671a920da90932dc6f0aa1d94f98c9edac534f74"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0109.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0109_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0109_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 109,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0109.gfx",
+        "Original file offset: 0x11E400"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0110",
+      "title": "SPRITE_0110",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:E700..D1:EA00",
+        "bytes": 768,
+        "sha1": "5b41e2275eef53ede0d93f4efa9335eeaf385836"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0110.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0110_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0110_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 110,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0110.gfx",
+        "Original file offset: 0x11E700"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0111",
+      "title": "SPRITE_0111",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:EA00..D1:ED00",
+        "bytes": 768,
+        "sha1": "8fd4fa8897c7af3189ca9b85ffc64c378927d482"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0111.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0111_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0111_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 111,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0111.gfx",
+        "Original file offset: 0x11EA00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0112",
+      "title": "SPRITE_0112",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:ED00..D1:F300",
+        "bytes": 1536,
+        "sha1": "12676c1ddb2f6cab23f57a5a7d7f9ded1f9aed52"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0112.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0112_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0112_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 112,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0112.gfx",
+        "Original file offset: 0x11ED00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0113",
+      "title": "SPRITE_0113",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:F300..D1:F900",
+        "bytes": 1536,
+        "sha1": "a523c736187981ea10929de7ccf16aa788e305dd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0113.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0113_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0113_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 113,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0113.gfx",
+        "Original file offset: 0x11F300"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0114",
+      "title": "SPRITE_0114",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:F900..D1:F9C0",
+        "bytes": 192,
+        "sha1": "6dff96286177403da3eec61646b74d5bcd422c7c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0114.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0114_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0114_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 114,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0114.gfx",
+        "Original file offset: 0x11F900"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0115",
+      "title": "SPRITE_0115",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:F9C0..D1:FA80",
+        "bytes": 192,
+        "sha1": "d125503abd66080ab8399f0508016c3bcc8cbbca"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0115.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0115_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0115_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 115,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0115.gfx",
+        "Original file offset: 0x11F9C0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0116",
+      "title": "SPRITE_0116",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FA80..D1:FB40",
+        "bytes": 192,
+        "sha1": "baf81b6155fff4b61decf16a6e3ff86aa312a3f6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0116.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0116_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0116_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 116,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0116.gfx",
+        "Original file offset: 0x11FA80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0117",
+      "title": "SPRITE_0117",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FB40..D1:FC00",
+        "bytes": 192,
+        "sha1": "86886f95e39429cbf906ba2f462db828258a8d67"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0117.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0117_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0117_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 117,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0117.gfx",
+        "Original file offset: 0x11FB40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0118",
+      "title": "SPRITE_0118",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FC00..D1:FCC0",
+        "bytes": 192,
+        "sha1": "29344b94fb1ed9c1410cf690ce9058bc3d79bd41"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0118.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0118_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0118_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 118,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0118.gfx",
+        "Original file offset: 0x11FC00"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0119",
+      "title": "SPRITE_0119",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FCC0..D1:FD80",
+        "bytes": 192,
+        "sha1": "01a8f8a727b837cab39f84782c5c92649d0ff4d8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0119.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0119_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0119_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 119,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0119.gfx",
+        "Original file offset: 0x11FCC0"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0120",
+      "title": "SPRITE_0120",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FD80..D1:FE40",
+        "bytes": 192,
+        "sha1": "670f6a8bbcea777ce4aa275c810c3f14420bde2d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0120.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0120_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0120_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 120,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0120.gfx",
+        "Original file offset: 0x11FD80"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0121",
+      "title": "SPRITE_0121",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FE40..D1:FF00",
+        "bytes": 192,
+        "sha1": "2128ef7e62ef5f8fc8b43380dbffa80090ffb641"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0121.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0121_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0121_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 121,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0121.gfx",
+        "Original file offset: 0x11FE40"
+      ]
+    },
+    {
+      "id": "asset.d1.sprite_0122",
+      "title": "SPRITE_0122",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D1:FF00..D1:10000",
+        "bytes": 256,
+        "sha1": "e2f392e64607d651ef9e2dad4e70c3261d606c15"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d1/overworld_sprites/gfx/0122.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "d1/overworld_sprites/gfx/0122_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "snes_4bpp_tiles_palette_png",
+          "path": "d1/overworld_sprites/gfx/0122_palette_00_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 122,
+          "palette_id": 0,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "C3:0000..C3:0020",
+            "bytes": 32,
+            "sha1": "ec19ba264a2c8430ecba455c016d17da86e55916"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: overworld_sprites/gfx/0122.gfx",
+        "Original file offset: 0x11FF00"
+      ]
+    }
+  ]
+}

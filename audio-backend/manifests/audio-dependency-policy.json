@@ -1,0 +1,63 @@
+{
+  "schema": "earthbound-decomp.audio-dependency-policy.v1",
+  "status": "audio_dependency_policy_recorded",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_audio_outputs_are_ignored": true,
+    "generated_outputs_root": "build/audio",
+    "do_not_distribute_spc_wav_or_rom_derived_audio": true
+  },
+  "dependencies": [
+    {
+      "id": "ares",
+      "role": "accuracy-first SNES/APU runtime and capture backend prototype",
+      "status": "local_external_checkout_used_by_diagnostic_harness",
+      "local_root": "<local external checkout outside this repository>",
+      "local_root_exists": true,
+      "observed_commit": "6f6786e04f0822a3475463df284f313ab8518d51",
+      "observed_commit_short": "6f6786e0",
+      "license_file": "LICENSE",
+      "license_file_exists": true,
+      "license_sha1": "c9655b8e8eecc315fafda6bb31d72870c6fb211a",
+      "license_policy": "ISC/permissive for core ares; bundled third-party notices must be reviewed before vendoring or binary distribution.",
+      "integration_policy": "External checkout/build for now. Future submodule is acceptable after license-notice review; avoid copying a carved subset until the boundary is stable.",
+      "distribution_policy": "May be distributed with notices if license review is complete; current generated outputs remain local only."
+    },
+    {
+      "id": "libgme",
+      "role": "lightweight SPC snapshot playback/export renderer",
+      "status": "local_external_checkout_used_by_snes_spc_render_harness",
+      "local_root": "<local external checkout outside this repository>",
+      "local_root_exists": true,
+      "observed_commit": "dd3182a8bdae3ff761438632aace418fbcaed439",
+      "observed_commit_short": "dd3182a8",
+      "license_file": "license.txt",
+      "license_file_exists": true,
+      "license_sha1": "49ab6ca84cf47ec643e38db3b1630d2ccbd7f6a2",
+      "license_policy": "LGPL-2.1; dynamic/external linkage preferred for app distribution, with notices and relinkability/source obligations respected.",
+      "integration_policy": "External checkout/build for now. Keep the renderer swappable and avoid GPL-only optional components in the core path.",
+      "distribution_policy": "Can support local playback/export with LGPL compliance; generated SPC/WAV outputs remain user-local ROM-derived artifacts."
+    },
+    {
+      "id": "bsnes_higan_mesen2_mednafen",
+      "role": "optional reference oracles for accuracy comparison",
+      "status": "reference_only_not_core_dependency",
+      "local_root": null,
+      "local_root_exists": false,
+      "observed_commit": null,
+      "license_file": null,
+      "license_file_exists": false,
+      "license_sha1": null,
+      "license_policy": "GPL or mixed/non-core policies; keep optional and out-of-process unless the project intentionally changes license posture.",
+      "integration_policy": "Use for comparison captures, not required app playback/export.",
+      "distribution_policy": "Do not bundle as a required core dependency without explicit licensing decision."
+    }
+  ],
+  "release_gates": [
+    "Generated ROM-derived SPC/WAV/PCM/sample outputs must stay ignored and out of commits.",
+    "Dependency notices must be included before distributing binaries that invoke or link renderer backends.",
+    "LGPL renderer integration must preserve relinkability or remain external/plugin-like.",
+    "GPL reference tools must remain optional or out-of-process unless the whole relevant distribution adopts compatible terms.",
+    "Public docs must state that end users provide their own ROM and that audio exports are generated locally."
+  ]
+}

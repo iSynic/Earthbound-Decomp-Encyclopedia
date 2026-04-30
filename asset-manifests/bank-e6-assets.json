@@ -1,0 +1,328 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank E6 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-e6-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank26.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 4,
+    "binary_assets_by_extension": {
+      "ebm": 4
+    },
+    "binary_asset_bytes": 47645,
+    "table_includes": 14,
+    "table_bytes": 17880,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 11,
+    "missing_payload_metadata": 0
+  },
+  "assets": [
+    {
+      "id": "asset.e6.audio_pack_74",
+      "title": "AUDIO_PACK_74",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:45D8..E6:8B9A",
+        "bytes": 17858,
+        "sha1": "eedb066c87ee37ad34cf671e1261c6b1c50622ab"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/audiopacks/74.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/74.ebm",
+        "Original file offset: 0x2645D8"
+      ]
+    },
+    {
+      "id": "asset.e6.audio_pack_76",
+      "title": "AUDIO_PACK_76",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:8B9A..E6:CF08",
+        "bytes": 17262,
+        "sha1": "9b6c25e09d32562c7f4be03761e8b025bb60a485"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/audiopacks/76.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/76.ebm",
+        "Original file offset: 0x268B9A"
+      ]
+    },
+    {
+      "id": "asset.e6.audio_pack_47",
+      "title": "AUDIO_PACK_47",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:CF08..E6:FF18",
+        "bytes": 12304,
+        "sha1": "c75987e2afc0547ca9b3ddf5bef78635128fc649"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/audiopacks/47.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/47.ebm",
+        "Original file offset: 0x26CF08"
+      ]
+    },
+    {
+      "id": "asset.e6.audio_pack_73",
+      "title": "AUDIO_PACK_73",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:FF18..E6:FFF5",
+        "bytes": 221,
+        "sha1": "4771e9c6622793bfc04f062e6363fe8f085a90ee"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/audiopacks/73.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/73.ebm",
+        "Original file offset: 0x26FF18"
+      ]
+    },
+    {
+      "id": "table.e6.000_inline_audio_pack_1",
+      "title": "inline:AUDIO_PACK_1",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0000..E6:0002",
+        "bytes": 2,
+        "sha1": "34d4fc077e54157726ae9b0adda15b8bff84a418"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/000_inline_audio_pack_1.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:AUDIO_PACK_1",
+        "Original file offset: 0x260000"
+      ]
+    },
+    {
+      "id": "table.e6.001_inline_word",
+      "title": "inline:WORD",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0002..E6:0004",
+        "bytes": 2,
+        "sha1": "4428868981ef6556daaf1e0de8a79aee292d477c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/001_inline_word.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:WORD",
+        "Original file offset: 0x260002"
+      ]
+    },
+    {
+      "id": "table.e6.002_inline_audio_subpack_0_data_start",
+      "title": "inline:AUDIO_SUBPACK_0_DATA_START",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0004..E6:0022",
+        "bytes": 30,
+        "sha1": "fe92c6928b1b5527af8df84f9e48115e22b425d0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/002_inline_audio_subpack_0_data_start.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:AUDIO_SUBPACK_0_DATA_START",
+        "Original file offset: 0x260004"
+      ]
+    },
+    {
+      "id": "table.e6.003_inline_audio_subpack_0_data_end",
+      "title": "inline:AUDIO_SUBPACK_0_DATA_END",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0022..E6:0024",
+        "bytes": 2,
+        "sha1": "bff9cd3d2942e27ef1abaf545d8b0e0b86603731"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/003_inline_audio_subpack_0_data_end.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:AUDIO_SUBPACK_0_DATA_END",
+        "Original file offset: 0x260022"
+      ]
+    },
+    {
+      "id": "table.e6.004_inline_word",
+      "title": "inline:WORD",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0024..E6:0026",
+        "bytes": 2,
+        "sha1": "ef05a40d9e4cdc8261845e4162b8db6a391cf016"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/004_inline_word.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:WORD",
+        "Original file offset: 0x260024"
+      ]
+    },
+    {
+      "id": "table.e6.005_inline_audio_subpack_1_data_start",
+      "title": "inline:AUDIO_SUBPACK_1_DATA_START",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0026..E6:003E",
+        "bytes": 24,
+        "sha1": "2bd5f7ba629c35162418bbecd59639d7dc549ce6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/005_inline_audio_subpack_1_data_start.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:AUDIO_SUBPACK_1_DATA_START",
+        "Original file offset: 0x260026"
+      ]
+    },
+    {
+      "id": "table.e6.006_inline_audio_subpack_1_data_end",
+      "title": "inline:AUDIO_SUBPACK_1_DATA_END",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:003E..E6:0040",
+        "bytes": 2,
+        "sha1": "b982886bed4a4c500f57ab1a342b66c4e1078a81"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/006_inline_audio_subpack_1_data_end.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:AUDIO_SUBPACK_1_DATA_END",
+        "Original file offset: 0x26003E"
+      ]
+    },
+    {
+      "id": "table.e6.007_inline_word",
+      "title": "inline:WORD",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0040..E6:0042",
+        "bytes": 2,
+        "sha1": "6bc896c1c613812cb90989f1ee99b46ccc697e8f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/007_inline_word.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: inline:WORD",
+        "Original file offset: 0x260040"
+      ]
+    },
+    {
+      "id": "table.e6.008_incbin_main_spc700_bin",
+      "title": "incbin:main.spc700.bin",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:0042..E6:45D8",
+        "bytes": 17814,
+        "sha1": "cb5bac7dd52f2b0de2bc6aa27c18f34e956c16d2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/tables/008_incbin_main_spc700_bin.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: incbin:main.spc700.bin",
+        "Original file offset: 0x260042",
+        "Size was inferred from the next known binary asset boundary."
+      ]
+    },
+    {
+      "id": "gap.e6.e6_fff5",
+      "title": "Bank E6 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "E6:FFF5..E6:10000",
+        "bytes": 11,
+        "sha1": "e89931b7aa0422594a6876f9bd77450cdb6353ec"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e6/gaps/01_e6_fff5.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x26FFF5..0x26FFFF"
+      ]
+    }
+  ]
+}

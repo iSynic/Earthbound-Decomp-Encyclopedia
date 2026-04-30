@@ -1,0 +1,4902 @@
+{
+  "schema": "earthbound-decomp.audio-ebdecompile-ref-alignment.v1",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "generated_audio_output_root": "build/audio"
+  },
+  "references": [
+    "refs/eb-decompile-4ef92/Music/songs.yml",
+    "refs/eb-decompile-4ef92/Music/Packs/*/*.ebm",
+    "manifests/audio-pack-contracts.json"
+  ],
+  "summary": {
+    "songs_yml_entries": 191,
+    "direct_ref_song_files": 171,
+    "direct_ref_payload_matches": 169,
+    "contract_sequence_pack_matches": 169,
+    "song_reference_entries": 5,
+    "in_engine_entries": 15,
+    "alignment_status_counts": {
+      "in_engine_subsong_reference": 15,
+      "no_matching_contract_sequence_block": 2,
+      "payload_matches_contract_sequence_block": 169,
+      "song_references_another_track": 5
+    }
+  },
+  "records": [
+    {
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "contract_sequence_pack": 1,
+      "ebdecompile_song_pack": "0x01",
+      "ebdecompile_song_file": "song-01.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/01/song-01.ebm",
+      "reference_bytes": 577,
+      "declared_count": 573,
+      "declared_destination": "0x4800",
+      "payload_sha1": "064ae7b261c027a2d4df230737f7498300b02474",
+      "matching_contract_blocks": [],
+      "alignment_status": "no_matching_contract_sequence_block"
+    },
+    {
+      "track_id": 2,
+      "track_name": "NAMING_SCREEN",
+      "contract_sequence_pack": 4,
+      "ebdecompile_song_pack": "0x04",
+      "ebdecompile_song_file": "song-02.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/04/song-02.ebm",
+      "reference_bytes": 3359,
+      "declared_count": 3355,
+      "declared_destination": "0x5000",
+      "payload_sha1": "c2919888ebc907f53bb97cb1758fbefdb866e7c9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 4,
+          "pack_range": "DF:EC46..DF:FFEE",
+          "block_index": 1,
+          "destination": "0x5000",
+          "bytes": 3355,
+          "payload_sha1": "c2919888ebc907f53bb97cb1758fbefdb866e7c9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 3,
+      "track_name": "SETUP_SCREEN",
+      "contract_sequence_pack": 4,
+      "ebdecompile_song_pack": "0x04",
+      "ebdecompile_song_file": "song-03.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/04/song-03.ebm",
+      "reference_bytes": 1318,
+      "declared_count": 1314,
+      "declared_destination": "0x4800",
+      "payload_sha1": "dba8e60895204b9676d7611e8835e2d2e374b179",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 4,
+          "pack_range": "DF:EC46..DF:FFEE",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1314,
+          "payload_sha1": "dba8e60895204b9676d7611e8835e2d2e374b179"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 4,
+      "track_name": "NONE2",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-04.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-04.ebm"
+      ]
+    },
+    {
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-05.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-05.ebm"
+      ]
+    },
+    {
+      "track_id": 6,
+      "track_name": "LEVEL_UP",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-06.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-06.ebm"
+      ]
+    },
+    {
+      "track_id": 7,
+      "track_name": "YOU_LOSE",
+      "contract_sequence_pack": 6,
+      "ebdecompile_song_pack": "0x06",
+      "ebdecompile_song_file": "song-07.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/06/song-07.ebm",
+      "reference_bytes": 720,
+      "declared_count": 716,
+      "declared_destination": "0x4800",
+      "payload_sha1": "139f9b71551538ede42ebc8b0e83388f3083527e",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 6,
+          "pack_range": "E0:FCE1..E0:FFB3",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 716,
+          "payload_sha1": "139f9b71551538ede42ebc8b0e83388f3083527e"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 8,
+      "track_name": "BATTLE_SWIRL1",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-08.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-08.ebm"
+      ]
+    },
+    {
+      "track_id": 9,
+      "track_name": "BATTLE_SWIRL2",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-09.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-09.ebm"
+      ]
+    },
+    {
+      "track_id": 10,
+      "track_name": "WHAT_THE_HECK",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": null,
+      "ebdecompile_song_file": null,
+      "song_to_reference": "0x01",
+      "instrument_pack_1": "0x05",
+      "instrument_pack_2": null,
+      "alignment_status": "song_references_another_track"
+    },
+    {
+      "track_id": 11,
+      "track_name": "NEW_FRIEND",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-0B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-0B.ebm"
+      ]
+    },
+    {
+      "track_id": 12,
+      "track_name": "YOU_WON2",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-0C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-0C.ebm"
+      ]
+    },
+    {
+      "track_id": 13,
+      "track_name": "TELEPORT_OUT",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-0D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-0D.ebm"
+      ]
+    },
+    {
+      "track_id": 14,
+      "track_name": "TELEPORT_FAIL",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-0E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-0E.ebm"
+      ]
+    },
+    {
+      "track_id": 15,
+      "track_name": "FALLING_UNDERGROUND",
+      "contract_sequence_pack": 7,
+      "ebdecompile_song_pack": "0x07",
+      "ebdecompile_song_file": "song-0F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/07/song-0F.ebm",
+      "reference_bytes": 208,
+      "declared_count": 204,
+      "declared_destination": "0x4800",
+      "payload_sha1": "dc920af3b84c80640b69d73bc909e764a4b33cd0",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 7,
+          "pack_range": "E8:FF1B..E8:FFED",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 204,
+          "payload_sha1": "dc920af3b84c80640b69d73bc909e764a4b33cd0"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 16,
+      "track_name": "DR_ANDONUTS_LAB",
+      "contract_sequence_pack": 9,
+      "ebdecompile_song_pack": "0x09",
+      "ebdecompile_song_file": "song-10.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/09/song-10.ebm",
+      "reference_bytes": 377,
+      "declared_count": 373,
+      "declared_destination": "0x5800",
+      "payload_sha1": "e1dfcd07fb2002735227bc67dfe0f8ab333aa149",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 9,
+          "pack_range": "EE:894F..EE:8ACA",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 373,
+          "payload_sha1": "e1dfcd07fb2002735227bc67dfe0f8ab333aa149"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "contract_sequence_pack": 10,
+      "ebdecompile_song_pack": "0x0A",
+      "ebdecompile_song_file": "song-11.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0A/song-11.ebm",
+      "reference_bytes": 320,
+      "declared_count": 316,
+      "declared_destination": "0x5800",
+      "payload_sha1": "4566f947e72c2c3a8f9f550e09555708cafb4407",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 10,
+          "pack_range": "ED:BD60..ED:C36C",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 316,
+          "payload_sha1": "4566f947e72c2c3a8f9f550e09555708cafb4407"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 18,
+      "track_name": "SLOPPY_HOUSE",
+      "contract_sequence_pack": 11,
+      "ebdecompile_song_pack": "0x0B",
+      "ebdecompile_song_file": "song-12.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0B/song-12.ebm",
+      "reference_bytes": 1041,
+      "declared_count": 1037,
+      "declared_destination": "0x5800",
+      "payload_sha1": "82d809eba5ec8d7095551d062a1a845d4af63403",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 11,
+          "pack_range": "EE:42BB..EE:46CE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1037,
+          "payload_sha1": "82d809eba5ec8d7095551d062a1a845d4af63403"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 19,
+      "track_name": "NEIGHBOURS_HOUSE",
+      "contract_sequence_pack": 12,
+      "ebdecompile_song_pack": "0x0C",
+      "ebdecompile_song_file": "song-13.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0C/song-13.ebm",
+      "reference_bytes": 716,
+      "declared_count": 712,
+      "declared_destination": "0x4800",
+      "payload_sha1": "45966ceeb84cf5b3fdccebad3740b1e1fce812e1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 12,
+          "pack_range": "EE:67B7..EE:6A85",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 712,
+          "payload_sha1": "45966ceeb84cf5b3fdccebad3740b1e1fce812e1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 20,
+      "track_name": "ARCADE",
+      "contract_sequence_pack": 13,
+      "ebdecompile_song_pack": "0x0D",
+      "ebdecompile_song_file": "song-14.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0D/song-14.ebm",
+      "reference_bytes": 475,
+      "declared_count": 471,
+      "declared_destination": "0x5800",
+      "payload_sha1": "e6499eeaf28221e17885f521f0f4afb41bed4119",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 13,
+          "pack_range": "EB:FE22..EB:FFFF",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 471,
+          "payload_sha1": "e6499eeaf28221e17885f521f0f4afb41bed4119"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 21,
+      "track_name": "POKEYS_HOUSE",
+      "contract_sequence_pack": 14,
+      "ebdecompile_song_pack": "0x0E",
+      "ebdecompile_song_file": "song-15.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0E/song-15.ebm",
+      "reference_bytes": 613,
+      "declared_count": 609,
+      "declared_destination": "0x5800",
+      "payload_sha1": "3ae491e56236e3bdf6ce48c86074244eceeb65d4",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 14,
+          "pack_range": "ED:DAFD..ED:E0AE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 609,
+          "payload_sha1": "3ae491e56236e3bdf6ce48c86074244eceeb65d4"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 22,
+      "track_name": "HOSPITAL",
+      "contract_sequence_pack": 15,
+      "ebdecompile_song_pack": "0x0F",
+      "ebdecompile_song_file": "song-16.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0F/song-16.ebm",
+      "reference_bytes": 2597,
+      "declared_count": 2593,
+      "declared_destination": "0x4800",
+      "payload_sha1": "1c5a7e9fd15683cacd69f3ee7baebb66a1581350",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 15,
+          "pack_range": "EC:EB51..EC:F578",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2593,
+          "payload_sha1": "1c5a7e9fd15683cacd69f3ee7baebb66a1581350"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 23,
+      "track_name": "NESSS_HOUSE",
+      "contract_sequence_pack": 16,
+      "ebdecompile_song_pack": "0x10",
+      "ebdecompile_song_file": "song-17.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/10/song-17.ebm",
+      "reference_bytes": 1054,
+      "declared_count": 1050,
+      "declared_destination": "0x4800",
+      "payload_sha1": "e9d741370f359aaf3f384715c5012387e1bcb267",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 16,
+          "pack_range": "EE:365D..EE:3A7D",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1050,
+          "payload_sha1": "e9d741370f359aaf3f384715c5012387e1bcb267"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 24,
+      "track_name": "PAULAS_THEME",
+      "contract_sequence_pack": 17,
+      "ebdecompile_song_pack": "0x11",
+      "ebdecompile_song_file": "song-18.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/11/song-18.ebm",
+      "reference_bytes": 591,
+      "declared_count": 587,
+      "declared_destination": "0x4800",
+      "payload_sha1": "54575ff6d861c25e131c3fb21daa3a91ff977d7c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 17,
+          "pack_range": "EE:798E..EE:7BDF",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 587,
+          "payload_sha1": "54575ff6d861c25e131c3fb21daa3a91ff977d7c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "contract_sequence_pack": 18,
+      "ebdecompile_song_pack": "0x12",
+      "ebdecompile_song_file": "song-19.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/12/song-19.ebm",
+      "reference_bytes": 883,
+      "declared_count": 879,
+      "declared_destination": "0x5800",
+      "payload_sha1": "ff33790ca391f9de61cacd12352a73297719ffc2",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 18,
+          "pack_range": "E2:FC88..E2:FFFD",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 879,
+          "payload_sha1": "ff33790ca391f9de61cacd12352a73297719ffc2"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 26,
+      "track_name": "HOTEL",
+      "contract_sequence_pack": 19,
+      "ebdecompile_song_pack": "0x13",
+      "ebdecompile_song_file": "song-1A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/13/song-1A.ebm",
+      "reference_bytes": 617,
+      "declared_count": 613,
+      "declared_destination": "0x4800",
+      "payload_sha1": "a5ec1a599a0fdbe26e0b27ad1a8859220e17b8e4",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 19,
+          "pack_range": "ED:CF55..ED:D539",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 613,
+          "payload_sha1": "a5ec1a599a0fdbe26e0b27ad1a8859220e17b8e4"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 27,
+      "track_name": "GOOD_MORNING",
+      "contract_sequence_pack": 19,
+      "ebdecompile_song_pack": "0x13",
+      "ebdecompile_song_file": "song-1B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/13/song-1B.ebm",
+      "reference_bytes": 889,
+      "declared_count": 885,
+      "declared_destination": "0x5200",
+      "payload_sha1": "05f32f1e6cff39f4de78eba13f31106cf2ffd7b0",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 19,
+          "pack_range": "ED:CF55..ED:D539",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 885,
+          "payload_sha1": "05f32f1e6cff39f4de78eba13f31106cf2ffd7b0"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 28,
+      "track_name": "DEPARTMENT_STORE",
+      "contract_sequence_pack": 20,
+      "ebdecompile_song_pack": "0x14",
+      "ebdecompile_song_file": "song-1C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/14/song-1C.ebm",
+      "reference_bytes": 1281,
+      "declared_count": 1277,
+      "declared_destination": "0x4800",
+      "payload_sha1": "bbdd2bac6ce4f5ab0862e071a1e808741629a336",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 20,
+          "pack_range": "EE:1EFE..EE:2401",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1277,
+          "payload_sha1": "bbdd2bac6ce4f5ab0862e071a1e808741629a336"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 29,
+      "track_name": "ONETT_AT_NIGHT_1",
+      "contract_sequence_pack": 22,
+      "ebdecompile_song_pack": "0x16",
+      "ebdecompile_song_file": "song-1D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/16/song-1D.ebm",
+      "reference_bytes": 597,
+      "declared_count": 593,
+      "declared_destination": "0x5800",
+      "payload_sha1": "3069e165e855fdbc4726d48ee541404911f5c5f0",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 22,
+          "pack_range": "EE:7737..EE:798E",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 593,
+          "payload_sha1": "3069e165e855fdbc4726d48ee541404911f5c5f0"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 30,
+      "track_name": "YOUR_SANCTUARY_1",
+      "contract_sequence_pack": 23,
+      "ebdecompile_song_pack": "0x17",
+      "ebdecompile_song_file": "song-1E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/17/song-1E.ebm",
+      "reference_bytes": 356,
+      "declared_count": 352,
+      "declared_destination": "0x5800",
+      "payload_sha1": "ac5a9dbfeac3e48de1d30f32502c6ca7358f5cf7",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 23,
+          "pack_range": "EE:3E9C..EE:42BB",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 352,
+          "payload_sha1": "ac5a9dbfeac3e48de1d30f32502c6ca7358f5cf7"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 31,
+      "track_name": "YOUR_SANCTUARY_2",
+      "contract_sequence_pack": 23,
+      "ebdecompile_song_pack": "0x17",
+      "ebdecompile_song_file": "song-1F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/17/song-1F.ebm",
+      "reference_bytes": 697,
+      "declared_count": 693,
+      "declared_destination": "0x6000",
+      "payload_sha1": "a2be1c0ce713da593de25eecb0e4007d31836073",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 23,
+          "pack_range": "EE:3E9C..EE:42BB",
+          "block_index": 1,
+          "destination": "0x6000",
+          "bytes": 693,
+          "payload_sha1": "a2be1c0ce713da593de25eecb0e4007d31836073"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-20.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-20.ebm",
+      "reference_bytes": 329,
+      "declared_count": 325,
+      "declared_destination": "0x4800",
+      "payload_sha1": "31fe845104241dca4243f5344dc7f5f383c0233b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 325,
+          "payload_sha1": "31fe845104241dca4243f5344dc7f5f383c0233b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-21.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-21.ebm",
+      "reference_bytes": 331,
+      "declared_count": 327,
+      "declared_destination": "0x4A00",
+      "payload_sha1": "29cf3f785d9c774f71ced43f2b7aad5f037c353e",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 1,
+          "destination": "0x4A00",
+          "bytes": 327,
+          "payload_sha1": "29cf3f785d9c774f71ced43f2b7aad5f037c353e"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-22.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-22.ebm",
+      "reference_bytes": 347,
+      "declared_count": 343,
+      "declared_destination": "0x4C00",
+      "payload_sha1": "0a4e4f11ae05237cab5640f2f177fb82463b0105",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 2,
+          "destination": "0x4C00",
+          "bytes": 343,
+          "payload_sha1": "0a4e4f11ae05237cab5640f2f177fb82463b0105"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-23.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-23.ebm",
+      "reference_bytes": 339,
+      "declared_count": 335,
+      "declared_destination": "0x4E00",
+      "payload_sha1": "7fa7178af1d7593f0ba7347eafcf28b38344d71c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 3,
+          "destination": "0x4E00",
+          "bytes": 335,
+          "payload_sha1": "7fa7178af1d7593f0ba7347eafcf28b38344d71c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-24.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-24.ebm",
+      "reference_bytes": 324,
+      "declared_count": 320,
+      "declared_destination": "0x5000",
+      "payload_sha1": "15c2ee688ca8d8f1cbdd2ec48304322c0421b2df",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 4,
+          "destination": "0x5000",
+          "bytes": 320,
+          "payload_sha1": "15c2ee688ca8d8f1cbdd2ec48304322c0421b2df"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-25.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-25.ebm",
+      "reference_bytes": 343,
+      "declared_count": 339,
+      "declared_destination": "0x5200",
+      "payload_sha1": "2ac45143a57b42117d8f03495bc546eefafcdfc1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 5,
+          "destination": "0x5200",
+          "bytes": 339,
+          "payload_sha1": "2ac45143a57b42117d8f03495bc546eefafcdfc1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-26.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-26.ebm",
+      "reference_bytes": 341,
+      "declared_count": 337,
+      "declared_destination": "0x5400",
+      "payload_sha1": "e815a421ef22dee09e7977e3135aefabd9576024",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 6,
+          "destination": "0x5400",
+          "bytes": 337,
+          "payload_sha1": "e815a421ef22dee09e7977e3135aefabd9576024"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "contract_sequence_pack": 25,
+      "ebdecompile_song_pack": "0x19",
+      "ebdecompile_song_file": "song-27.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/19/song-27.ebm",
+      "reference_bytes": 284,
+      "declared_count": 280,
+      "declared_destination": "0x5600",
+      "payload_sha1": "e6f8cf33741de67ce89a54d73c8b12d9e93fe2f0",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 25,
+          "pack_range": "EC:E101..EC:EB51",
+          "block_index": 7,
+          "destination": "0x5600",
+          "bytes": 280,
+          "payload_sha1": "e6f8cf33741de67ce89a54d73c8b12d9e93fe2f0"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 40,
+      "track_name": "NEAR_A_BOSS",
+      "contract_sequence_pack": 26,
+      "ebdecompile_song_pack": "0x1A",
+      "ebdecompile_song_file": "song-28.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1A/song-28.ebm",
+      "reference_bytes": 1645,
+      "declared_count": 1641,
+      "declared_destination": "0x5800",
+      "payload_sha1": "a70738a36e41e60d9b1f97b420aac0884b343221",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 26,
+          "pack_range": "ED:9824..ED:9E93",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1641,
+          "payload_sha1": "a70738a36e41e60d9b1f97b420aac0884b343221"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 41,
+      "track_name": "ALIEN_INVESTIGATION",
+      "contract_sequence_pack": 28,
+      "ebdecompile_song_pack": "0x1C",
+      "ebdecompile_song_file": "song-29.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1C/song-29.ebm",
+      "reference_bytes": 708,
+      "declared_count": 704,
+      "declared_destination": "0x5800",
+      "payload_sha1": "30acb20cec661410fc1759e5652a121538411967",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 28,
+          "pack_range": "ED:B753..ED:BD60",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 704,
+          "payload_sha1": "30acb20cec661410fc1759e5652a121538411967"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 42,
+      "track_name": "FIRE_SPRINGS_HALL",
+      "contract_sequence_pack": 29,
+      "ebdecompile_song_pack": "0x1D",
+      "ebdecompile_song_file": "song-2A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1D/song-2A.ebm",
+      "reference_bytes": 864,
+      "declared_count": 860,
+      "declared_destination": "0x5800",
+      "payload_sha1": "614d436ee004b838c5f545fff21005deeb7210eb",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 29,
+          "pack_range": "ED:FC9C..ED:FFFE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 860,
+          "payload_sha1": "614d436ee004b838c5f545fff21005deeb7210eb"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 43,
+      "track_name": "BELCH_BASE",
+      "contract_sequence_pack": 30,
+      "ebdecompile_song_pack": "0x1E",
+      "ebdecompile_song_file": "song-2B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1E/song-2B.ebm",
+      "reference_bytes": 1430,
+      "declared_count": 1426,
+      "declared_destination": "0x5800",
+      "payload_sha1": "15e77e53ba9a4aa723d96605b3491fbd39a3a5c7",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 30,
+          "pack_range": "ED:E65C..ED:EBF4",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1426,
+          "payload_sha1": "15e77e53ba9a4aa723d96605b3491fbd39a3a5c7"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 44,
+      "track_name": "ZOMBIE_THREED",
+      "contract_sequence_pack": 31,
+      "ebdecompile_song_pack": "0x1F",
+      "ebdecompile_song_file": "song-2C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1F/song-2C.ebm",
+      "reference_bytes": 609,
+      "declared_count": 605,
+      "declared_destination": "0x5800",
+      "payload_sha1": "7d6df84486dbbd03e73d3024c81aa797122c3cd2",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 31,
+          "pack_range": "EE:7274..EE:74D7",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 605,
+          "payload_sha1": "7d6df84486dbbd03e73d3024c81aa797122c3cd2"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 45,
+      "track_name": "SPOOKY_CAVE",
+      "contract_sequence_pack": 32,
+      "ebdecompile_song_pack": "0x20",
+      "ebdecompile_song_file": "song-2D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/20/song-2D.ebm",
+      "reference_bytes": 548,
+      "declared_count": 544,
+      "declared_destination": "0x5800",
+      "payload_sha1": "8084c9f3993449a9ab0542fe3171b76a2ba26e01",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 32,
+          "pack_range": "E3:FDCC..E3:FFF2",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 544,
+          "payload_sha1": "8084c9f3993449a9ab0542fe3171b76a2ba26e01"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 46,
+      "track_name": "ONETT",
+      "contract_sequence_pack": 34,
+      "ebdecompile_song_pack": null,
+      "ebdecompile_song_file": null,
+      "song_to_reference": "0x7A",
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "song_references_another_track"
+    },
+    {
+      "track_id": 47,
+      "track_name": "FOURSIDE",
+      "contract_sequence_pack": 36,
+      "ebdecompile_song_pack": "0x24",
+      "ebdecompile_song_file": "song-2F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/24/song-2F.ebm",
+      "reference_bytes": 3930,
+      "declared_count": 3926,
+      "declared_destination": "0x5800",
+      "payload_sha1": "4c96c400b8ae91cc28f974f5005de24568eaa2fa",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 36,
+          "pack_range": "E2:ED2C..E2:FC88",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 3926,
+          "payload_sha1": "4c96c400b8ae91cc28f974f5005de24568eaa2fa"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 48,
+      "track_name": "SATURN_VALLEY",
+      "contract_sequence_pack": 38,
+      "ebdecompile_song_pack": "0x26",
+      "ebdecompile_song_file": "song-30.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/26/song-30.ebm",
+      "reference_bytes": 1231,
+      "declared_count": 1227,
+      "declared_destination": "0x5800",
+      "payload_sha1": "83e83f9007b8af562175aa4b127b2139313b007c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 38,
+          "pack_range": "ED:6409..ED:6C06",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1227,
+          "payload_sha1": "83e83f9007b8af562175aa4b127b2139313b007c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 49,
+      "track_name": "MONKEY_CAVES",
+      "contract_sequence_pack": 39,
+      "ebdecompile_song_pack": "0x27",
+      "ebdecompile_song_file": "song-31.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/27/song-31.ebm",
+      "reference_bytes": 2102,
+      "declared_count": 2098,
+      "declared_destination": "0x5800",
+      "payload_sha1": "d23c71231b05c2bd06998628af35b16ff0e750f5",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 39,
+          "pack_range": "ED:4BA7..ED:53DF",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2098,
+          "payload_sha1": "d23c71231b05c2bd06998628af35b16ff0e750f5"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 50,
+      "track_name": "MOONSIDE",
+      "contract_sequence_pack": 41,
+      "ebdecompile_song_pack": "0x29",
+      "ebdecompile_song_file": "song-32.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/29/song-32.ebm",
+      "reference_bytes": 256,
+      "declared_count": 252,
+      "declared_destination": "0x5800",
+      "payload_sha1": "4c35d8c7c3ac4c8514a3f276bf9e3f9c4cca5189",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 41,
+          "pack_range": "EE:90FF..EE:9201",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 252,
+          "payload_sha1": "4c35d8c7c3ac4c8514a3f276bf9e3f9c4cca5189"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 51,
+      "track_name": "DUSTY_DUNES_DESERT",
+      "contract_sequence_pack": 43,
+      "ebdecompile_song_pack": "0x2B",
+      "ebdecompile_song_file": "song-33.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/2B/song-33.ebm",
+      "reference_bytes": 1602,
+      "declared_count": 1598,
+      "declared_destination": "0x5800",
+      "payload_sha1": "124c7b9db472efd418da15b66f533845f6cd34fc",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 43,
+          "pack_range": "ED:9E93..ED:A4D7",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1598,
+          "payload_sha1": "124c7b9db472efd418da15b66f533845f6cd34fc"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 52,
+      "track_name": "PEACEFUL_REST_VALLEY",
+      "contract_sequence_pack": 45,
+      "ebdecompile_song_pack": "0x2D",
+      "ebdecompile_song_file": "song-34.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/2D/song-34.ebm",
+      "reference_bytes": 967,
+      "declared_count": 963,
+      "declared_destination": "0x5800",
+      "payload_sha1": "99a69868676df99f094eb83f1b3de3216e6ca92d",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 45,
+          "pack_range": "D9:FC18..D9:FFE1",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 963,
+          "payload_sha1": "99a69868676df99f094eb83f1b3de3216e6ca92d"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 53,
+      "track_name": "ZOMBIE_THREED2",
+      "contract_sequence_pack": 46,
+      "ebdecompile_song_pack": "0x2E",
+      "ebdecompile_song_file": "song-35.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/2E/song-35.ebm",
+      "reference_bytes": 1703,
+      "declared_count": 1699,
+      "declared_destination": "0x5800",
+      "payload_sha1": "03409058748ced4c2e3c85d18e0ddabef0549a0c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 46,
+          "pack_range": "E8:F872..E8:FF1B",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1699,
+          "payload_sha1": "03409058748ced4c2e3c85d18e0ddabef0549a0c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 54,
+      "track_name": "WINTERS",
+      "contract_sequence_pack": 48,
+      "ebdecompile_song_pack": "0x30",
+      "ebdecompile_song_file": "song-36.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/30/song-36.ebm",
+      "reference_bytes": 2106,
+      "declared_count": 2102,
+      "declared_destination": "0x5800",
+      "payload_sha1": "e6af453bf1bf4df97f6c34ae1487065c0c03bfdb",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 48,
+          "pack_range": "ED:436B..ED:4BA7",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2102,
+          "payload_sha1": "e6af453bf1bf4df97f6c34ae1487065c0c03bfdb"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 55,
+      "track_name": "CAVE_NEAR_A_BOSS",
+      "contract_sequence_pack": 49,
+      "ebdecompile_song_pack": "0x31",
+      "ebdecompile_song_file": "song-37.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/31/song-37.ebm",
+      "reference_bytes": 386,
+      "declared_count": 382,
+      "declared_destination": "0x5800",
+      "payload_sha1": "17ec84803322cb3fecfaaaa59897a32e700ead97",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 49,
+          "pack_range": "EE:87CB..EE:894F",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 382,
+          "payload_sha1": "17ec84803322cb3fecfaaaa59897a32e700ead97"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 56,
+      "track_name": "SUMMERS",
+      "contract_sequence_pack": 51,
+      "ebdecompile_song_pack": "0x33",
+      "ebdecompile_song_file": "song-38.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/33/song-38.ebm",
+      "reference_bytes": 952,
+      "declared_count": 948,
+      "declared_destination": "0x5800",
+      "payload_sha1": "c3ff5b29a4aaaf7a7aa798965a8895b1b67aee66",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 51,
+          "pack_range": "EE:56DF..EE:5A99",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 948,
+          "payload_sha1": "c3ff5b29a4aaaf7a7aa798965a8895b1b67aee66"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 57,
+      "track_name": "JACKIES_CAFE",
+      "contract_sequence_pack": 53,
+      "ebdecompile_song_pack": "0x35",
+      "ebdecompile_song_file": "song-39.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/35/song-39.ebm",
+      "reference_bytes": 1304,
+      "declared_count": 1300,
+      "declared_destination": "0x5800",
+      "payload_sha1": "4aeab2b263ac34a06a40c66f96af298e4df31e59",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 53,
+          "pack_range": "EE:14D4..EE:19EE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1300,
+          "payload_sha1": "4aeab2b263ac34a06a40c66f96af298e4df31e59"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 58,
+      "track_name": "SAILING_TO_SCARABA",
+      "contract_sequence_pack": 55,
+      "ebdecompile_song_pack": "0x37",
+      "ebdecompile_song_file": "song-3A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/37/song-3A.ebm",
+      "reference_bytes": 1171,
+      "declared_count": 1167,
+      "declared_destination": "0x5800",
+      "payload_sha1": "84bd683824a9f0d6a25f3b9085d73ab0d27e0e73",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 55,
+          "pack_range": "EC:CAA1..EC:D5D8",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1167,
+          "payload_sha1": "84bd683824a9f0d6a25f3b9085d73ab0d27e0e73"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 59,
+      "track_name": "DALAAM",
+      "contract_sequence_pack": 57,
+      "ebdecompile_song_pack": "0x39",
+      "ebdecompile_song_file": "song-3B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/39/song-3B.ebm",
+      "reference_bytes": 1474,
+      "declared_count": 1470,
+      "declared_destination": "0x5800",
+      "payload_sha1": "de49ee0d96ae4d1fd3a3b7a3e73817b865dfe85b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 57,
+          "pack_range": "ED:D539..ED:DAFD",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1470,
+          "payload_sha1": "de49ee0d96ae4d1fd3a3b7a3e73817b865dfe85b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 60,
+      "track_name": "MU_TRAINING",
+      "contract_sequence_pack": 59,
+      "ebdecompile_song_pack": "0x3B",
+      "ebdecompile_song_file": "song-3C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/3B/song-3C.ebm",
+      "reference_bytes": 256,
+      "declared_count": 252,
+      "declared_destination": "0x4800",
+      "payload_sha1": "28535891684709e2afdbf8238ab60198144080ca",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 59,
+          "pack_range": "CB:FEE2..CB:FFE4",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 252,
+          "payload_sha1": "28535891684709e2afdbf8238ab60198144080ca"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 61,
+      "track_name": "BAZAAR",
+      "contract_sequence_pack": 61,
+      "ebdecompile_song_pack": "0x3D",
+      "ebdecompile_song_file": "song-3D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/3D/song-3D.ebm",
+      "reference_bytes": 2352,
+      "declared_count": 2348,
+      "declared_destination": "0x5800",
+      "payload_sha1": "4e00a7af2d7eab6e522dfbccef24581a48f10df4",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 61,
+          "pack_range": "D8:F6B7..D8:FFE9",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2348,
+          "payload_sha1": "4e00a7af2d7eab6e522dfbccef24581a48f10df4"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 62,
+      "track_name": "SCARABA_DESERT",
+      "contract_sequence_pack": 62,
+      "ebdecompile_song_pack": "0x3E",
+      "ebdecompile_song_file": "song-3E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/3E/song-3E.ebm",
+      "reference_bytes": 3168,
+      "declared_count": 3164,
+      "declared_destination": "0x5800",
+      "payload_sha1": "e580b58a860a916e5d820131203ad7d8c92988ca",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 62,
+          "pack_range": "EC:9B76..EC:A7D8",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 3164,
+          "payload_sha1": "e580b58a860a916e5d820131203ad7d8c92988ca"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 63,
+      "track_name": "PYRAMID",
+      "contract_sequence_pack": 63,
+      "ebdecompile_song_pack": "0x3F",
+      "ebdecompile_song_file": "song-3F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/3F/song-3F.ebm",
+      "reference_bytes": 1229,
+      "declared_count": 1225,
+      "declared_destination": "0x5800",
+      "payload_sha1": "b654d1a4542ec457687866d1791206e39f208b95",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 63,
+          "pack_range": "EE:28FE..EE:2DCD",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1225,
+          "payload_sha1": "b654d1a4542ec457687866d1791206e39f208b95"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 64,
+      "track_name": "DEEP_DARKNESS",
+      "contract_sequence_pack": 65,
+      "ebdecompile_song_pack": "0x41",
+      "ebdecompile_song_file": "song-40.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/41/song-40.ebm",
+      "reference_bytes": 3191,
+      "declared_count": 3187,
+      "declared_destination": "0x5800",
+      "payload_sha1": "a65220455c4170b51bc5731307f33cade29c49de",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 65,
+          "pack_range": "DB:F2EB..DB:FF64",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 3187,
+          "payload_sha1": "a65220455c4170b51bc5731307f33cade29c49de"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 65,
+      "track_name": "TENDA_VILLAGE",
+      "contract_sequence_pack": 67,
+      "ebdecompile_song_pack": "0x43",
+      "ebdecompile_song_file": "song-41.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/43/song-41.ebm",
+      "reference_bytes": 1294,
+      "declared_count": 1290,
+      "declared_destination": "0x5800",
+      "payload_sha1": "7316fa3ee8221e7134924a3cd65681e24c2beb7d",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 67,
+          "pack_range": "EE:19EE..EE:1EFE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1290,
+          "payload_sha1": "7316fa3ee8221e7134924a3cd65681e24c2beb7d"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 66,
+      "track_name": "WELCOME_HOME",
+      "contract_sequence_pack": 68,
+      "ebdecompile_song_pack": "0x44",
+      "ebdecompile_song_file": "song-42.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/44/song-42.ebm",
+      "reference_bytes": 2002,
+      "declared_count": 1998,
+      "declared_destination": "0x5800",
+      "payload_sha1": "68a013ae50119e0397986d939797631f981655e7",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 68,
+          "pack_range": "ED:73E2..ED:7BB6",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1998,
+          "payload_sha1": "68a013ae50119e0397986d939797631f981655e7"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 67,
+      "track_name": "SEA_OF_EDEN",
+      "contract_sequence_pack": 69,
+      "ebdecompile_song_pack": "0x45",
+      "ebdecompile_song_file": "song-43.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/45/song-43.ebm",
+      "reference_bytes": 338,
+      "declared_count": 334,
+      "declared_destination": "0x5800",
+      "payload_sha1": "e146aba7d63f5072480ba994ef5f04225a208ff9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 69,
+          "pack_range": "EE:8ACA..EE:8C1E",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 334,
+          "payload_sha1": "e146aba7d63f5072480ba994ef5f04225a208ff9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 68,
+      "track_name": "LOST_UNDERWORLD",
+      "contract_sequence_pack": 71,
+      "ebdecompile_song_pack": "0x47",
+      "ebdecompile_song_file": "song-44.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/47/song-44.ebm",
+      "reference_bytes": 2498,
+      "declared_count": 2494,
+      "declared_destination": "0x5800",
+      "payload_sha1": "db686cbf5c2397c9a463c3296837e5d1ebfb3483",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 71,
+          "pack_range": "CC:F617..CC:FFDB",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2494,
+          "payload_sha1": "db686cbf5c2397c9a463c3296837e5d1ebfb3483"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 69,
+      "track_name": "FIRST_STEP_BACK",
+      "contract_sequence_pack": 73,
+      "ebdecompile_song_pack": "0x49",
+      "ebdecompile_song_file": "song-45.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/49/song-45.ebm",
+      "reference_bytes": 219,
+      "declared_count": 215,
+      "declared_destination": "0x5800",
+      "payload_sha1": "9263a4c123f3d3f4e500aa0bf59e0d31feeccf2f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 73,
+          "pack_range": "E6:FF18..E6:FFF5",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 215,
+          "payload_sha1": "9263a4c123f3d3f4e500aa0bf59e0d31feeccf2f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 70,
+      "track_name": "SECOND_STEP_BACK",
+      "contract_sequence_pack": 75,
+      "ebdecompile_song_pack": "0x4B",
+      "ebdecompile_song_file": "song-46.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4B/song-46.ebm",
+      "reference_bytes": 296,
+      "declared_count": 292,
+      "declared_destination": "0x5800",
+      "payload_sha1": "7a19079d988315041e4d17cb42e1bcddca217eff",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 75,
+          "pack_range": "DD:FECE..DD:FFF8",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 292,
+          "payload_sha1": "7a19079d988315041e4d17cb42e1bcddca217eff"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 71,
+      "track_name": "THE_PLACE",
+      "contract_sequence_pack": 77,
+      "ebdecompile_song_pack": "0x4D",
+      "ebdecompile_song_file": "song-47.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4D/song-47.ebm",
+      "reference_bytes": 311,
+      "declared_count": 307,
+      "declared_destination": "0x4800",
+      "payload_sha1": "1c78f83a30e3ce0830c699afd9629a2010a84e58",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 77,
+          "pack_range": "ED:C96E..ED:CF55",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 307,
+          "payload_sha1": "1c78f83a30e3ce0830c699afd9629a2010a84e58"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 72,
+      "track_name": "GIYGAS_AWAKENS",
+      "contract_sequence_pack": 77,
+      "ebdecompile_song_pack": "0x4D",
+      "ebdecompile_song_file": "song-48.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4D/song-48.ebm",
+      "reference_bytes": 1198,
+      "declared_count": 1194,
+      "declared_destination": "0x5200",
+      "payload_sha1": "7852c74b8b64fd889434040ec7acf6017b86974d",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 77,
+          "pack_range": "ED:C96E..ED:CF55",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 1194,
+          "payload_sha1": "7852c74b8b64fd889434040ec7acf6017b86974d"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 73,
+      "track_name": "GIYGAS_PHASE2",
+      "contract_sequence_pack": 79,
+      "ebdecompile_song_pack": "0x4F",
+      "ebdecompile_song_file": "song-49.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4F/song-49.ebm",
+      "reference_bytes": 274,
+      "declared_count": 270,
+      "declared_destination": "0x4800",
+      "payload_sha1": "9902febf57ca15da0ad319d79db4ddf84e3a9e1e",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 79,
+          "pack_range": "DC:F8BF..DC:FF92",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 270,
+          "payload_sha1": "9902febf57ca15da0ad319d79db4ddf84e3a9e1e"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 74,
+      "track_name": "GIYGAS_WEAKENED2",
+      "contract_sequence_pack": 81,
+      "ebdecompile_song_pack": "0x51",
+      "ebdecompile_song_file": "song-4A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/51/song-4A.ebm",
+      "reference_bytes": 273,
+      "declared_count": 269,
+      "declared_destination": "0x4800",
+      "payload_sha1": "2101bbe3463c4226f8ba39fbf9a482f2095ecb6b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 81,
+          "pack_range": "EE:7E29..EE:804D",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 269,
+          "payload_sha1": "2101bbe3463c4226f8ba39fbf9a482f2095ecb6b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 75,
+      "track_name": "GIYGAS_DEATH2",
+      "contract_sequence_pack": 83,
+      "ebdecompile_song_pack": "0x53",
+      "ebdecompile_song_file": "song-4B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/53/song-4B.ebm",
+      "reference_bytes": 251,
+      "declared_count": 247,
+      "declared_destination": "0x4800",
+      "payload_sha1": "81d116dd9b7076dd099eef01866411566569881a",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 83,
+          "pack_range": "EE:6D36..EE:6FDD",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 247,
+          "payload_sha1": "81d116dd9b7076dd099eef01866411566569881a"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 76,
+      "track_name": "RUNAWAY5_CONCERT_1",
+      "contract_sequence_pack": 85,
+      "ebdecompile_song_pack": "0x55",
+      "ebdecompile_song_file": "song-4C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/55/song-4C.ebm",
+      "reference_bytes": 1570,
+      "declared_count": 1566,
+      "declared_destination": "0x4800",
+      "payload_sha1": "4e9cad702d6cd467a69c8835c9cde97754861e77",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 85,
+          "pack_range": "ED:AB12..ED:B136",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1566,
+          "payload_sha1": "4e9cad702d6cd467a69c8835c9cde97754861e77"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 77,
+      "track_name": "RUNAWAY5_TOUR_BUS",
+      "contract_sequence_pack": 86,
+      "ebdecompile_song_pack": "0x56",
+      "ebdecompile_song_file": "song-4D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/56/song-4D.ebm",
+      "reference_bytes": 1676,
+      "declared_count": 1672,
+      "declared_destination": "0x4800",
+      "payload_sha1": "0f273d80739cac50fe8a28bb251547ef7374316d",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 86,
+          "pack_range": "ED:8B21..ED:91AF",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1672,
+          "payload_sha1": "0f273d80739cac50fe8a28bb251547ef7374316d"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 78,
+      "track_name": "RUNAWAY5_CONCERT_2",
+      "contract_sequence_pack": 87,
+      "ebdecompile_song_pack": "0x57",
+      "ebdecompile_song_file": "song-4E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/57/song-4E.ebm",
+      "reference_bytes": 1653,
+      "declared_count": 1649,
+      "declared_destination": "0x4800",
+      "payload_sha1": "4c083a98dab4a51c383d4c91d474e325d82b85a9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 87,
+          "pack_range": "ED:0A07..ED:1406",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1649,
+          "payload_sha1": "4c083a98dab4a51c383d4c91d474e325d82b85a9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 79,
+      "track_name": "POWER",
+      "contract_sequence_pack": 88,
+      "ebdecompile_song_pack": "0x58",
+      "ebdecompile_song_file": "song-4F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/58/song-4F.ebm",
+      "reference_bytes": 661,
+      "declared_count": 657,
+      "declared_destination": "0x4800",
+      "payload_sha1": "ea000921ef367ab1b95525beda8e64a485f6388b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 88,
+          "pack_range": "EE:6FDD..EE:7274",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 657,
+          "payload_sha1": "ea000921ef367ab1b95525beda8e64a485f6388b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 80,
+      "track_name": "VENUS_CONCERT",
+      "contract_sequence_pack": 90,
+      "ebdecompile_song_pack": "0x5A",
+      "ebdecompile_song_file": "song-50.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5A/song-50.ebm",
+      "reference_bytes": 1942,
+      "declared_count": 1938,
+      "declared_destination": "0x4800",
+      "payload_sha1": "30589d65f94f6d086c10436ac07259ca6d8bf526",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 90,
+          "pack_range": "ED:8389..ED:8B21",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1938,
+          "payload_sha1": "30589d65f94f6d086c10436ac07259ca6d8bf526"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 81,
+      "track_name": "YELLOW_SUBMARINE",
+      "contract_sequence_pack": 91,
+      "ebdecompile_song_pack": "0x5B",
+      "ebdecompile_song_file": "song-51.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5B/song-51.ebm",
+      "reference_bytes": 584,
+      "declared_count": 580,
+      "declared_destination": "0x4800",
+      "payload_sha1": "a750d9c510b4c21d6cc44538d20d39d596826411",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 91,
+          "pack_range": "EE:7BDF..EE:7E29",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 580,
+          "payload_sha1": "a750d9c510b4c21d6cc44538d20d39d596826411"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 82,
+      "track_name": "BICYCLE",
+      "contract_sequence_pack": 93,
+      "ebdecompile_song_pack": "0x5D",
+      "ebdecompile_song_file": "song-52.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5D/song-52.ebm",
+      "reference_bytes": 863,
+      "declared_count": 859,
+      "declared_destination": "0x5800",
+      "payload_sha1": "d0435508636dcb956f5bf32cdcb6bf51e78a70c1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 93,
+          "pack_range": "EE:5A99..EE:5DFA",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 859,
+          "payload_sha1": "d0435508636dcb956f5bf32cdcb6bf51e78a70c1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 83,
+      "track_name": "SKY_RUNNER",
+      "contract_sequence_pack": 94,
+      "ebdecompile_song_pack": "0x5E",
+      "ebdecompile_song_file": "song-53.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5E/song-53.ebm",
+      "reference_bytes": 1895,
+      "declared_count": 1891,
+      "declared_destination": "0x4800",
+      "payload_sha1": "73cfee5c1da6e97853ce63a5d63f65f880724e4c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 94,
+          "pack_range": "CF:F2B5..CF:FF38",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1891,
+          "payload_sha1": "73cfee5c1da6e97853ce63a5d63f65f880724e4c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 84,
+      "track_name": "SKY_RUNNER_FALLING",
+      "contract_sequence_pack": 94,
+      "ebdecompile_song_pack": "0x5E",
+      "ebdecompile_song_file": "song-54.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5E/song-54.ebm",
+      "reference_bytes": 303,
+      "declared_count": 299,
+      "declared_destination": "0x4F80",
+      "payload_sha1": "e71e7d5bb217a552c723600e73b0d756a73aa2aa",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 94,
+          "pack_range": "CF:F2B5..CF:FF38",
+          "block_index": 1,
+          "destination": "0x4F80",
+          "bytes": 299,
+          "payload_sha1": "e71e7d5bb217a552c723600e73b0d756a73aa2aa"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "contract_sequence_pack": 96,
+      "ebdecompile_song_pack": "0x60",
+      "ebdecompile_song_file": "song-55.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/60/song-55.ebm",
+      "reference_bytes": 191,
+      "declared_count": 187,
+      "declared_destination": "0x4800",
+      "payload_sha1": "d88765348324522c5668b9f4fd105898b51433ba",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 96,
+          "pack_range": "CF:FF38..CF:FFF9",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 187,
+          "payload_sha1": "d88765348324522c5668b9f4fd105898b51433ba"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 86,
+      "track_name": "TESSIE",
+      "contract_sequence_pack": 97,
+      "ebdecompile_song_pack": "0x61",
+      "ebdecompile_song_file": "song-56.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/61/song-56.ebm",
+      "reference_bytes": 2035,
+      "declared_count": 2031,
+      "declared_destination": "0x4800",
+      "payload_sha1": "b167abf0029373f0976552ee51c4451b8b506de9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 97,
+          "pack_range": "EC:BF28..EC:CAA1",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2031,
+          "payload_sha1": "b167abf0029373f0976552ee51c4451b8b506de9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 87,
+      "track_name": "CITY_BUS",
+      "contract_sequence_pack": 99,
+      "ebdecompile_song_pack": "0x63",
+      "ebdecompile_song_file": "song-57.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/63/song-57.ebm",
+      "reference_bytes": 1563,
+      "declared_count": 1559,
+      "declared_destination": "0x4800",
+      "payload_sha1": "9dbf348cb926dfa8e21f0e4a6557683de1e85efd",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 99,
+          "pack_range": "ED:B136..ED:B753",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1559,
+          "payload_sha1": "9dbf348cb926dfa8e21f0e4a6557683de1e85efd"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 88,
+      "track_name": "FUZZY_PICKLES",
+      "contract_sequence_pack": 100,
+      "ebdecompile_song_pack": "0x64",
+      "ebdecompile_song_file": "song-58.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/64/song-58.ebm",
+      "reference_bytes": 1651,
+      "declared_count": 1647,
+      "declared_destination": "0x4800",
+      "payload_sha1": "6363507b740198a5f7e1516a4db8f33f2c8a5f8f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 100,
+          "pack_range": "ED:91AF..ED:9824",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1647,
+          "payload_sha1": "6363507b740198a5f7e1516a4db8f33f2c8a5f8f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 89,
+      "track_name": "DELIVERY",
+      "contract_sequence_pack": 101,
+      "ebdecompile_song_pack": "0x65",
+      "ebdecompile_song_file": "song-59.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/65/song-59.ebm",
+      "reference_bytes": 1018,
+      "declared_count": 1014,
+      "declared_destination": "0x4800",
+      "payload_sha1": "437e8b68647ebc822384b44363efbfb9ee35ea4b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 101,
+          "pack_range": "EE:4EEA..EE:52E6",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1014,
+          "payload_sha1": "437e8b68647ebc822384b44363efbfb9ee35ea4b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 90,
+      "track_name": "RETURN_TO_YOUR_BODY",
+      "contract_sequence_pack": 102,
+      "ebdecompile_song_pack": "0x66",
+      "ebdecompile_song_file": "song-5A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/66/song-5A.ebm",
+      "reference_bytes": 625,
+      "declared_count": 621,
+      "declared_destination": "0x4800",
+      "payload_sha1": "5f26be05c62c78c128aa1db3ef707dbdcf5568ea",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 102,
+          "pack_range": "CE:F8C6..CE:FFAA",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 621,
+          "payload_sha1": "5f26be05c62c78c128aa1db3ef707dbdcf5568ea"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 91,
+      "track_name": "PHASE_DISTORTER_TIME_TRAVEL",
+      "contract_sequence_pack": 103,
+      "ebdecompile_song_pack": "0x67",
+      "ebdecompile_song_file": "song-5B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/67/song-5B.ebm",
+      "reference_bytes": 426,
+      "declared_count": 422,
+      "declared_destination": "0x4800",
+      "payload_sha1": "8326c58a30f40d42e1c6bfa5d115d8740ca8ca05",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 103,
+          "pack_range": "EE:52E6..EE:56DF",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 422,
+          "payload_sha1": "8326c58a30f40d42e1c6bfa5d115d8740ca8ca05"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 92,
+      "track_name": "COFFEE_BREAK",
+      "contract_sequence_pack": 104,
+      "ebdecompile_song_pack": "0x68",
+      "ebdecompile_song_file": "song-5C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/68/song-5C.ebm",
+      "reference_bytes": 2001,
+      "declared_count": 1997,
+      "declared_destination": "0x5800",
+      "payload_sha1": "73f83db6fab4ed8f22f8022c275840bc0cef40c6",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 104,
+          "pack_range": "ED:7BB6..ED:8389",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1997,
+          "payload_sha1": "73f83db6fab4ed8f22f8022c275840bc0cef40c6"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 93,
+      "track_name": "BECAUSE_I_LOVE_YOU",
+      "contract_sequence_pack": 106,
+      "ebdecompile_song_pack": "0x6A",
+      "ebdecompile_song_file": "song-5D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/6A/song-5D.ebm",
+      "reference_bytes": 2855,
+      "declared_count": 2851,
+      "declared_destination": "0x5800",
+      "payload_sha1": "83854621e43d1b9721762405b629aab8c84cd59a",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 106,
+          "pack_range": "EC:D5D8..EC:E101",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2851,
+          "payload_sha1": "83854621e43d1b9721762405b629aab8c84cd59a"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "contract_sequence_pack": 107,
+      "ebdecompile_song_pack": "0x6B",
+      "ebdecompile_song_file": "song-5E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/6B/song-5E.ebm",
+      "reference_bytes": 8556,
+      "declared_count": 8552,
+      "declared_destination": "0x4800",
+      "payload_sha1": "06a34e5230e24cf6f5ac1212e0afa7051f1c3f75",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 107,
+          "pack_range": "EC:4592..EC:6700",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 8552,
+          "payload_sha1": "06a34e5230e24cf6f5ac1212e0afa7051f1c3f75"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 95,
+      "track_name": "SMILES_AND_TEARS",
+      "contract_sequence_pack": 109,
+      "ebdecompile_song_pack": "0x6D",
+      "ebdecompile_song_file": "song-5F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/6D/song-5F.ebm",
+      "reference_bytes": 8612,
+      "declared_count": 8608,
+      "declared_destination": "0x4800",
+      "payload_sha1": "cb7444aad8624b223a574d02562ded42f4212135",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 109,
+          "pack_range": "EC:23EC..EC:4592",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 8608,
+          "payload_sha1": "cb7444aad8624b223a574d02562ded42f4212135"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 96,
+      "track_name": "VS_CRANKY_LADY",
+      "contract_sequence_pack": 111,
+      "ebdecompile_song_pack": "0x6F",
+      "ebdecompile_song_file": "song-60.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/6F/song-60.ebm",
+      "reference_bytes": 1253,
+      "declared_count": 1249,
+      "declared_destination": "0x4800",
+      "payload_sha1": "39b9f6f0d8279a755efa7648df189e2264e3a890",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 111,
+          "pack_range": "DA:FB07..DA:FFEE",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1249,
+          "payload_sha1": "39b9f6f0d8279a755efa7648df189e2264e3a890"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 97,
+      "track_name": "VS_SPINNING_ROBO",
+      "contract_sequence_pack": 112,
+      "ebdecompile_song_pack": "0x70",
+      "ebdecompile_song_file": "song-61.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/70/song-61.ebm",
+      "reference_bytes": 1333,
+      "declared_count": 1329,
+      "declared_destination": "0x4800",
+      "payload_sha1": "43480d383bb5a721b73da7bbd30ac987ba32c00e",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 112,
+          "pack_range": "EE:0554..EE:0A8B",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1329,
+          "payload_sha1": "43480d383bb5a721b73da7bbd30ac987ba32c00e"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 98,
+      "track_name": "VS_STRUTTIN_EVIL_MUSHROOM",
+      "contract_sequence_pack": 113,
+      "ebdecompile_song_pack": "0x71",
+      "ebdecompile_song_file": "song-62.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/71/song-62.ebm",
+      "reference_bytes": 1419,
+      "declared_count": 1415,
+      "declared_destination": "0x4800",
+      "payload_sha1": "e4194f1b9b08a70452568a96e5ec0d7f737bb551",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 113,
+          "pack_range": "ED:F183..ED:F710",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1415,
+          "payload_sha1": "e4194f1b9b08a70452568a96e5ec0d7f737bb551"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 99,
+      "track_name": "VS_MASTER_BELCH",
+      "contract_sequence_pack": 115,
+      "ebdecompile_song_pack": "0x73",
+      "ebdecompile_song_file": "song-63.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/73/song-63.ebm",
+      "reference_bytes": 1312,
+      "declared_count": 1308,
+      "declared_destination": "0x4800",
+      "payload_sha1": "93bcd056632b0270dd15d82bc0d5911fe54e8849",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 115,
+          "pack_range": "EE:0FB2..EE:14D4",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1308,
+          "payload_sha1": "93bcd056632b0270dd15d82bc0d5911fe54e8849"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 100,
+      "track_name": "VS_NEW_AGE_RETRO_HIPPIE",
+      "contract_sequence_pack": 117,
+      "ebdecompile_song_pack": "0x75",
+      "ebdecompile_song_file": "song-64.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/75/song-64.ebm",
+      "reference_bytes": 1536,
+      "declared_count": 1532,
+      "declared_destination": "0x4800",
+      "payload_sha1": "d98e61ca0a5aee3d2e9e22f313ff5474db8ec096",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 117,
+          "pack_range": "ED:C36C..ED:C96E",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1532,
+          "payload_sha1": "d98e61ca0a5aee3d2e9e22f313ff5474db8ec096"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 101,
+      "track_name": "VS_RUNAWAY_DOG",
+      "contract_sequence_pack": 119,
+      "ebdecompile_song_pack": "0x77",
+      "ebdecompile_song_file": "song-65.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/77/song-65.ebm",
+      "reference_bytes": 2309,
+      "declared_count": 2305,
+      "declared_destination": "0x4800",
+      "payload_sha1": "7abc8912721e96c7f9a6ca6f474de43d514023df",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 119,
+          "pack_range": "ED:3195..ED:3A9C",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2305,
+          "payload_sha1": "7abc8912721e96c7f9a6ca6f474de43d514023df"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 102,
+      "track_name": "VS_CAVE_BOY",
+      "contract_sequence_pack": 120,
+      "ebdecompile_song_pack": "0x78",
+      "ebdecompile_song_file": "song-66.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/78/song-66.ebm",
+      "reference_bytes": 2054,
+      "declared_count": 2050,
+      "declared_destination": "0x4800",
+      "payload_sha1": "6905aed597ffd5eb5ac5ef1304ab140adc17ae3a",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 120,
+          "pack_range": "ED:5C01..ED:6409",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2050,
+          "payload_sha1": "6905aed597ffd5eb5ac5ef1304ab140adc17ae3a"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 103,
+      "track_name": "VS_YOUR_SANCTUARY_BOSS",
+      "contract_sequence_pack": 121,
+      "ebdecompile_song_pack": "0x79",
+      "ebdecompile_song_file": "song-67.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/79/song-67.ebm",
+      "reference_bytes": 2565,
+      "declared_count": 2561,
+      "declared_destination": "0x4800",
+      "payload_sha1": "3647e855cd22a72442e65322e70a01eb2d98e7a1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 121,
+          "pack_range": "ED:0000..ED:0A07",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2561,
+          "payload_sha1": "3647e855cd22a72442e65322e70a01eb2d98e7a1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 104,
+      "track_name": "VS_KRAKEN",
+      "contract_sequence_pack": 123,
+      "ebdecompile_song_pack": "0x7B",
+      "ebdecompile_song_file": "song-68.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/7B/song-68.ebm",
+      "reference_bytes": 2671,
+      "declared_count": 2667,
+      "declared_destination": "0x4800",
+      "payload_sha1": "5e41e713ceda43bb729621038e87e6cdf69c44de",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 123,
+          "pack_range": "E1:F581..E1:FFF2",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 2667,
+          "payload_sha1": "5e41e713ceda43bb729621038e87e6cdf69c44de"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 105,
+      "track_name": "POKEY_MEANS_BUSINESS",
+      "contract_sequence_pack": 125,
+      "ebdecompile_song_pack": "0x7D",
+      "ebdecompile_song_file": "song-69.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/7D/song-69.ebm",
+      "reference_bytes": 3776,
+      "declared_count": 3772,
+      "declared_destination": "0x4800",
+      "payload_sha1": "2024956a4281ba06e395529a4a80103b0b6a1cb1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 125,
+          "pack_range": "E4:EED0..E4:FD92",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 3772,
+          "payload_sha1": "2024956a4281ba06e395529a4a80103b0b6a1cb1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 106,
+      "track_name": "INSIDE_THE_DUNGEON",
+      "contract_sequence_pack": 127,
+      "ebdecompile_song_pack": "0x7F",
+      "ebdecompile_song_file": "song-6A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/7F/song-6A.ebm",
+      "reference_bytes": 1061,
+      "declared_count": 1057,
+      "declared_destination": "0x5800",
+      "payload_sha1": "5524b93b079e4a57ecee89c5d84336bd57bf51ee",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 127,
+          "pack_range": "EE:3236..EE:365D",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1057,
+          "payload_sha1": "5524b93b079e4a57ecee89c5d84336bd57bf51ee"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 107,
+      "track_name": "MEGATON_WALK",
+      "contract_sequence_pack": 128,
+      "ebdecompile_song_pack": "0x80",
+      "ebdecompile_song_file": "song-6B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/80/song-6B.ebm",
+      "reference_bytes": 464,
+      "declared_count": 460,
+      "declared_destination": "0x5800",
+      "payload_sha1": "14208b63d88e3432b277ade4d63a0e26afa5dcec",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 128,
+          "pack_range": "EE:8466..EE:8638",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 460,
+          "payload_sha1": "14208b63d88e3432b277ade4d63a0e26afa5dcec"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 108,
+      "track_name": "SEA_OF_EDEN2",
+      "contract_sequence_pack": 129,
+      "ebdecompile_song_pack": "0x81",
+      "ebdecompile_song_file": "song-6C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/81/song-6C.ebm",
+      "reference_bytes": 606,
+      "declared_count": 602,
+      "declared_destination": "0x5800",
+      "payload_sha1": "8ccec4c80e32de4ebd10fc68d4aef5f68f19c7c4",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 129,
+          "pack_range": "EE:74D7..EE:7737",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 602,
+          "payload_sha1": "8ccec4c80e32de4ebd10fc68d4aef5f68f19c7c4"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 109,
+      "track_name": "EXPLOSION",
+      "contract_sequence_pack": 94,
+      "ebdecompile_song_pack": "0x5E",
+      "ebdecompile_song_file": "song-6D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5E/song-6D.ebm",
+      "reference_bytes": 405,
+      "declared_count": 401,
+      "declared_destination": "0x5100",
+      "payload_sha1": "9d3c0b98359df9ca53aecf308e15d4183a9e7a71",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 94,
+          "pack_range": "CF:F2B5..CF:FF38",
+          "block_index": 2,
+          "destination": "0x5100",
+          "bytes": 401,
+          "payload_sha1": "9d3c0b98359df9ca53aecf308e15d4183a9e7a71"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 110,
+      "track_name": "SKY_RUNNER_CRASH",
+      "contract_sequence_pack": 94,
+      "ebdecompile_song_pack": "0x5E",
+      "ebdecompile_song_file": "song-6E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/5E/song-6E.ebm",
+      "reference_bytes": 598,
+      "declared_count": 594,
+      "declared_destination": "0x5400",
+      "payload_sha1": "a8e14106277fc1a9f6f344df172ad162e7fa55e8",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 94,
+          "pack_range": "CF:F2B5..CF:FF38",
+          "block_index": 3,
+          "destination": "0x5400",
+          "bytes": 594,
+          "payload_sha1": "a8e14106277fc1a9f6f344df172ad162e7fa55e8"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 111,
+      "track_name": "MAGIC_CAKE",
+      "contract_sequence_pack": 130,
+      "ebdecompile_song_pack": "0x82",
+      "ebdecompile_song_file": "song-6F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/82/song-6F.ebm",
+      "reference_bytes": 315,
+      "declared_count": 311,
+      "declared_destination": "0x4800",
+      "payload_sha1": "8f5980eb009af4f621cea45c53811532bee36011",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 130,
+          "pack_range": "EE:8D65..EE:8EA2",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 311,
+          "payload_sha1": "8f5980eb009af4f621cea45c53811532bee36011"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 112,
+      "track_name": "POKEYS_HOUSE_BUZZ_BUZZ",
+      "contract_sequence_pack": 14,
+      "ebdecompile_song_pack": "0x0E",
+      "ebdecompile_song_file": "song-70.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0E/song-70.ebm",
+      "reference_bytes": 693,
+      "declared_count": 689,
+      "declared_destination": "0x6000",
+      "payload_sha1": "1c5c80f81019042f5a937b6cf7c32003538b93ee",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 14,
+          "pack_range": "ED:DAFD..ED:E0AE",
+          "block_index": 1,
+          "destination": "0x6000",
+          "bytes": 689,
+          "payload_sha1": "1c5c80f81019042f5a937b6cf7c32003538b93ee"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 113,
+      "track_name": "BUZZ_BUZZ_SWATTED",
+      "contract_sequence_pack": 14,
+      "ebdecompile_song_pack": "0x0E",
+      "ebdecompile_song_file": "song-71.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0E/song-71.ebm",
+      "reference_bytes": 149,
+      "declared_count": 145,
+      "declared_destination": "0x6400",
+      "payload_sha1": "152083859a9f50b543484e2d622868661acce1e2",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 14,
+          "pack_range": "ED:DAFD..ED:E0AE",
+          "block_index": 2,
+          "destination": "0x6400",
+          "bytes": 145,
+          "payload_sha1": "152083859a9f50b543484e2d622868661acce1e2"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 114,
+      "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ",
+      "contract_sequence_pack": 132,
+      "ebdecompile_song_pack": "0x84",
+      "ebdecompile_song_file": "song-72.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/84/song-72.ebm",
+      "reference_bytes": 749,
+      "declared_count": 745,
+      "declared_destination": "0x5800",
+      "payload_sha1": "a2ab249e10067238873d13e0378008d82d2a952f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 132,
+          "pack_range": "ED:1406..ED:1DFF",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 745,
+          "payload_sha1": "a2ab249e10067238873d13e0378008d82d2a952f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-73.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-73.ebm"
+      ]
+    },
+    {
+      "track_id": 116,
+      "track_name": "KNOCK_KNOCK_RIGHT",
+      "contract_sequence_pack": 133,
+      "ebdecompile_song_pack": "0x85",
+      "ebdecompile_song_file": "song-74.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/85/song-74.ebm",
+      "reference_bytes": 442,
+      "declared_count": 438,
+      "declared_destination": "0x5C00",
+      "payload_sha1": "f6d8e2ae5028f9d88358fa70b9573d3e3830a053",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 133,
+          "pack_range": "EC:B38A..EC:BF28",
+          "block_index": 1,
+          "destination": "0x5C00",
+          "bytes": 438,
+          "payload_sha1": "f6d8e2ae5028f9d88358fa70b9573d3e3830a053"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 117,
+      "track_name": "RABBIT_CAVE",
+      "contract_sequence_pack": 134,
+      "ebdecompile_song_pack": "0x86",
+      "ebdecompile_song_file": "song-75.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/86/song-75.ebm",
+      "reference_bytes": 1421,
+      "declared_count": 1417,
+      "declared_destination": "0x5800",
+      "payload_sha1": "eee433afbde81063198a5033223cdb52b0fdf492",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 134,
+          "pack_range": "ED:EBF4..ED:F183",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1417,
+          "payload_sha1": "eee433afbde81063198a5033223cdb52b0fdf492"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 118,
+      "track_name": "ONETT_AT_NIGHT_3",
+      "contract_sequence_pack": 132,
+      "ebdecompile_song_pack": "0x84",
+      "ebdecompile_song_file": "song-76.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/84/song-76.ebm",
+      "reference_bytes": 1317,
+      "declared_count": 1313,
+      "declared_destination": "0x5C00",
+      "payload_sha1": "96e25bec678edd938861e714415de92456251d3f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 132,
+          "pack_range": "ED:1406..ED:1DFF",
+          "block_index": 1,
+          "destination": "0x5C00",
+          "bytes": 1313,
+          "payload_sha1": "96e25bec678edd938861e714415de92456251d3f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 119,
+      "track_name": "APPLE_OF_ENLIGHTENMENT",
+      "contract_sequence_pack": 135,
+      "ebdecompile_song_pack": "0x87",
+      "ebdecompile_song_file": "song-77.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/87/song-77.ebm",
+      "reference_bytes": 687,
+      "declared_count": 683,
+      "declared_destination": "0x5800",
+      "payload_sha1": "1380642ee6dd233d0f1724103a1908f5e38db160",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 135,
+          "pack_range": "EE:6A85..EE:6D36",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 683,
+          "payload_sha1": "1380642ee6dd233d0f1724103a1908f5e38db160"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "contract_sequence_pack": 136,
+      "ebdecompile_song_pack": "0x88",
+      "ebdecompile_song_file": "song-78.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/88/song-78.ebm",
+      "reference_bytes": 528,
+      "declared_count": 524,
+      "declared_destination": "0x4800",
+      "payload_sha1": "bd9bf0fedcf43105026dcc4635e0389f19cf13b8",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 136,
+          "pack_range": "EE:0000..EE:0554",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 524,
+          "payload_sha1": "bd9bf0fedcf43105026dcc4635e0389f19cf13b8"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 121,
+      "track_name": "ONETT_INTRO",
+      "contract_sequence_pack": 132,
+      "ebdecompile_song_pack": "0x84",
+      "ebdecompile_song_file": "song-79.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/84/song-79.ebm",
+      "reference_bytes": 485,
+      "declared_count": 481,
+      "declared_destination": "0x6200",
+      "payload_sha1": "ff03743f54b61888b8b463b2b4db3b318e51536c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 132,
+          "pack_range": "ED:1406..ED:1DFF",
+          "block_index": 2,
+          "destination": "0x6200",
+          "bytes": 481,
+          "payload_sha1": "ff03743f54b61888b8b463b2b4db3b318e51536c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 122,
+      "track_name": "SUNRISE_ONETT",
+      "contract_sequence_pack": 34,
+      "ebdecompile_song_pack": "0x22",
+      "ebdecompile_song_file": "song-7A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/22/song-7A.ebm",
+      "reference_bytes": 2460,
+      "declared_count": 2456,
+      "declared_destination": "0x5800",
+      "payload_sha1": "869fa332189dcf7caf06669310504ab781804539",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 34,
+          "pack_range": "ED:27F7..ED:3195",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2456,
+          "payload_sha1": "869fa332189dcf7caf06669310504ab781804539"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 123,
+      "track_name": "SOMEONE_JOINS",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-7B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-7B.ebm"
+      ]
+    },
+    {
+      "track_id": 124,
+      "track_name": "ENTER_STARMAN_JR",
+      "contract_sequence_pack": 137,
+      "ebdecompile_song_pack": "0x89",
+      "ebdecompile_song_file": "song-7C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/89/song-7C.ebm",
+      "reference_bytes": 295,
+      "declared_count": 291,
+      "declared_destination": "0x4800",
+      "payload_sha1": "fbf201faacfb36eb0e114ec6398019bc8f4aa8f9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 137,
+          "pack_range": "EE:8FD6..EE:90FF",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 291,
+          "payload_sha1": "fbf201faacfb36eb0e114ec6398019bc8f4aa8f9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 125,
+      "track_name": "BOARDING_SCHOOL",
+      "contract_sequence_pack": 138,
+      "ebdecompile_song_pack": "0x8A",
+      "ebdecompile_song_file": "song-7D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/8A/song-7D.ebm",
+      "reference_bytes": 1127,
+      "declared_count": 1123,
+      "declared_destination": "0x5800",
+      "payload_sha1": "a2b52766dcf3ff080d5ab9fe4bb7ba7b3c9d01df",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 138,
+          "pack_range": "EE:2DCD..EE:3236",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1123,
+          "payload_sha1": "a2b52766dcf3ff080d5ab9fe4bb7ba7b3c9d01df"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 126,
+      "track_name": "PHASE_DISTORTER",
+      "contract_sequence_pack": 103,
+      "ebdecompile_song_pack": "0x67",
+      "ebdecompile_song_file": "song-7E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/67/song-7E.ebm",
+      "reference_bytes": 255,
+      "declared_count": 251,
+      "declared_destination": "0x4C00",
+      "payload_sha1": "792e4bbb04785bf07582327e26c5b55cfda59b53",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 103,
+          "pack_range": "EE:52E6..EE:56DF",
+          "block_index": 1,
+          "destination": "0x4C00",
+          "bytes": 251,
+          "payload_sha1": "792e4bbb04785bf07582327e26c5b55cfda59b53"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 127,
+      "track_name": "PHASE_DISTORTER_2",
+      "contract_sequence_pack": 103,
+      "ebdecompile_song_pack": "0x67",
+      "ebdecompile_song_file": "song-7F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/67/song-7F.ebm",
+      "reference_bytes": 334,
+      "declared_count": 330,
+      "declared_destination": "0x5200",
+      "payload_sha1": "efd7ceea36a77be584b95385c5d061347a8b968b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 103,
+          "pack_range": "EE:52E6..EE:56DF",
+          "block_index": 2,
+          "destination": "0x5200",
+          "bytes": 330,
+          "payload_sha1": "efd7ceea36a77be584b95385c5d061347a8b968b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 128,
+      "track_name": "BOY_MEETS_GIRL",
+      "contract_sequence_pack": 140,
+      "ebdecompile_song_pack": "0x8C",
+      "ebdecompile_song_file": "song-80.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/8C/song-80.ebm",
+      "reference_bytes": 3429,
+      "declared_count": 3425,
+      "declared_destination": "0x5800",
+      "payload_sha1": "7701cb800cd07215b48387ae08704cc5bf1c93c3",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 140,
+          "pack_range": "EA:F124..EA:FE8B",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 3425,
+          "payload_sha1": "7701cb800cd07215b48387ae08704cc5bf1c93c3"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 129,
+      "track_name": "HAPPY_THREED",
+      "contract_sequence_pack": 141,
+      "ebdecompile_song_pack": "0x8D",
+      "ebdecompile_song_file": "song-81.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/8D/song-81.ebm",
+      "reference_bytes": 2253,
+      "declared_count": 2249,
+      "declared_destination": "0x5800",
+      "payload_sha1": "b7fbf06e5b2c49116c038810008fa2be57fe8e14",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 141,
+          "pack_range": "ED:3A9C..ED:436B",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 2249,
+          "payload_sha1": "b7fbf06e5b2c49116c038810008fa2be57fe8e14"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 130,
+      "track_name": "RUNAWAY5_ARE_FREED",
+      "contract_sequence_pack": 87,
+      "ebdecompile_song_pack": "0x57",
+      "ebdecompile_song_file": "song-82.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/57/song-82.ebm",
+      "reference_bytes": 904,
+      "declared_count": 900,
+      "declared_destination": "0x5000",
+      "payload_sha1": "93292ac91218e225a236a475c5ab9bafbca6ac22",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 87,
+          "pack_range": "ED:0A07..ED:1406",
+          "block_index": 1,
+          "destination": "0x5000",
+          "bytes": 900,
+          "payload_sha1": "93292ac91218e225a236a475c5ab9bafbca6ac22"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 131,
+      "track_name": "FLYING_MAN",
+      "contract_sequence_pack": 142,
+      "ebdecompile_song_pack": "0x8E",
+      "ebdecompile_song_file": "song-83.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/8E/song-83.ebm",
+      "reference_bytes": 1039,
+      "declared_count": 1035,
+      "declared_destination": "0x4800",
+      "payload_sha1": "adf9847981c3196f802d6ffdfa6d27d55c574229",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 142,
+          "pack_range": "EE:46CE..EE:4ADF",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1035,
+          "payload_sha1": "adf9847981c3196f802d6ffdfa6d27d55c574229"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 132,
+      "track_name": "ONETT_AT_NIGHT_2",
+      "contract_sequence_pack": 143,
+      "ebdecompile_song_pack": "0x8F",
+      "ebdecompile_song_file": "song-84.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/8F/song-84.ebm",
+      "reference_bytes": 757,
+      "declared_count": 753,
+      "declared_destination": "0x5800",
+      "payload_sha1": "26962e5e57cae3b38f21977bca17d0e2d00c4db3",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 143,
+          "pack_range": "DE:FCDD..DE:FFD4",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 753,
+          "payload_sha1": "26962e5e57cae3b38f21977bca17d0e2d00c4db3"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 133,
+      "track_name": "HIDDEN_SONG",
+      "contract_sequence_pack": 144,
+      "ebdecompile_song_pack": "0x90",
+      "ebdecompile_song_file": "song-85.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/90/song-85.ebm",
+      "reference_bytes": 1275,
+      "declared_count": 1271,
+      "declared_destination": "0x5800",
+      "payload_sha1": "95d7894e6472271e5cf40775a93f93a806bd4638",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 144,
+          "pack_range": "EE:2401..EE:28FE",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1271,
+          "payload_sha1": "95d7894e6472271e5cf40775a93f93a806bd4638"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 134,
+      "track_name": "YOUR_SANCTUARY_BOSS",
+      "contract_sequence_pack": 145,
+      "ebdecompile_song_pack": "0x91",
+      "ebdecompile_song_file": "song-86.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/91/song-86.ebm",
+      "reference_bytes": 341,
+      "declared_count": 337,
+      "declared_destination": "0x4800",
+      "payload_sha1": "c5a9d62fde44e1b4573c9e6c65c1fcb126614d42",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 145,
+          "pack_range": "EA:FE8B..EA:FFE2",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 337,
+          "payload_sha1": "c5a9d62fde44e1b4573c9e6c65c1fcb126614d42"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 135,
+      "track_name": "TELEPORT_IN",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-87.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-87.ebm"
+      ]
+    },
+    {
+      "track_id": 136,
+      "track_name": "SATURN_VALLEY_CAVE",
+      "contract_sequence_pack": 38,
+      "ebdecompile_song_pack": "0x26",
+      "ebdecompile_song_file": "song-88.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/26/song-88.ebm",
+      "reference_bytes": 812,
+      "declared_count": 808,
+      "declared_destination": "0x6200",
+      "payload_sha1": "cc742eb19e8e697632f4ce7bb1dfc8a076daeabd",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 38,
+          "pack_range": "ED:6409..ED:6C06",
+          "block_index": 1,
+          "destination": "0x6200",
+          "bytes": 808,
+          "payload_sha1": "cc742eb19e8e697632f4ce7bb1dfc8a076daeabd"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 137,
+      "track_name": "ELEVATOR_DOWN",
+      "contract_sequence_pack": 10,
+      "ebdecompile_song_pack": "0x0A",
+      "ebdecompile_song_file": "song-89.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0A/song-89.ebm",
+      "reference_bytes": 412,
+      "declared_count": 408,
+      "declared_destination": "0x5C00",
+      "payload_sha1": "baf1e0a8770136784196791ee82e4d208add43a9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 10,
+          "pack_range": "ED:BD60..ED:C36C",
+          "block_index": 1,
+          "destination": "0x5C00",
+          "bytes": 408,
+          "payload_sha1": "baf1e0a8770136784196791ee82e4d208add43a9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 138,
+      "track_name": "ELEVATOR_UP",
+      "contract_sequence_pack": 10,
+      "ebdecompile_song_pack": "0x0A",
+      "ebdecompile_song_file": "song-8A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0A/song-8A.ebm",
+      "reference_bytes": 412,
+      "declared_count": 408,
+      "declared_destination": "0x6000",
+      "payload_sha1": "f402418a756fa85b36df651520d8a2c3b85857c1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 10,
+          "pack_range": "ED:BD60..ED:C36C",
+          "block_index": 2,
+          "destination": "0x6000",
+          "bytes": 408,
+          "payload_sha1": "f402418a756fa85b36df651520d8a2c3b85857c1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 139,
+      "track_name": "ELEVATOR_STOP",
+      "contract_sequence_pack": 10,
+      "ebdecompile_song_pack": "0x0A",
+      "ebdecompile_song_file": "song-8B.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/0A/song-8B.ebm",
+      "reference_bytes": 402,
+      "declared_count": 398,
+      "declared_destination": "0x6400",
+      "payload_sha1": "c2e553ad30dcb3fbe41ff3150e6ea3af5380ee7f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 10,
+          "pack_range": "ED:BD60..ED:C36C",
+          "block_index": 3,
+          "destination": "0x6400",
+          "bytes": 398,
+          "payload_sha1": "c2e553ad30dcb3fbe41ff3150e6ea3af5380ee7f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 140,
+      "track_name": "TOPOLLA_THEATRE",
+      "contract_sequence_pack": 146,
+      "ebdecompile_song_pack": "0x92",
+      "ebdecompile_song_file": "song-8C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/92/song-8C.ebm",
+      "reference_bytes": 1418,
+      "declared_count": 1414,
+      "declared_destination": "0x5800",
+      "payload_sha1": "7b05b4213d7d67d33b4dd25e51566843fc5ec415",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 146,
+          "pack_range": "ED:F710..ED:FC9C",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1414,
+          "payload_sha1": "7b05b4213d7d67d33b4dd25e51566843fc5ec415"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 141,
+      "track_name": "VS_MASTER_BARF",
+      "contract_sequence_pack": 115,
+      "ebdecompile_song_pack": null,
+      "ebdecompile_song_file": null,
+      "song_to_reference": "0x63",
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "song_references_another_track"
+    },
+    {
+      "track_id": 142,
+      "track_name": "GOING_TO_MAGICANT",
+      "contract_sequence_pack": 147,
+      "ebdecompile_song_pack": "0x93",
+      "ebdecompile_song_file": "song-8E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/93/song-8E.ebm",
+      "reference_bytes": 541,
+      "declared_count": 537,
+      "declared_destination": "0x4800",
+      "payload_sha1": "53c16b86bfafcb166904afb221df9df9fc55f7cf",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 147,
+          "pack_range": "EE:804D..EE:826C",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 537,
+          "payload_sha1": "53c16b86bfafcb166904afb221df9df9fc55f7cf"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "contract_sequence_pack": 148,
+      "ebdecompile_song_pack": "0x94",
+      "ebdecompile_song_file": "song-8F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/94/song-8F.ebm",
+      "reference_bytes": 1053,
+      "declared_count": 1049,
+      "declared_destination": "0x4800",
+      "payload_sha1": "0b978449a916ec792c3a587fd3b2ae153782e351",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 148,
+          "pack_range": "EE:3A7D..EE:3E9C",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1049,
+          "payload_sha1": "0b978449a916ec792c3a587fd3b2ae153782e351"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 144,
+      "track_name": "KRAKEN_DEFEATED",
+      "contract_sequence_pack": 55,
+      "ebdecompile_song_pack": "0x37",
+      "ebdecompile_song_file": "song-90.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/37/song-90.ebm",
+      "reference_bytes": 1698,
+      "declared_count": 1694,
+      "declared_destination": "0x6000",
+      "payload_sha1": "eba17dc7d122a597a976ed9a5b9aa1e145e67f44",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 55,
+          "pack_range": "EC:CAA1..EC:D5D8",
+          "block_index": 1,
+          "destination": "0x6000",
+          "bytes": 1694,
+          "payload_sha1": "eba17dc7d122a597a976ed9a5b9aa1e145e67f44"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 145,
+      "track_name": "STONEHENGE_DESTRUCTION",
+      "contract_sequence_pack": 28,
+      "ebdecompile_song_pack": "0x1C",
+      "ebdecompile_song_file": "song-91.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/1C/song-91.ebm",
+      "reference_bytes": 839,
+      "declared_count": 835,
+      "declared_destination": "0x6000",
+      "payload_sha1": "a3a3a5dcd1a31a10b7176716eff0f3fae134cf74",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 28,
+          "pack_range": "ED:B753..ED:BD60",
+          "block_index": 1,
+          "destination": "0x6000",
+          "bytes": 835,
+          "payload_sha1": "a3a3a5dcd1a31a10b7176716eff0f3fae134cf74"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 146,
+      "track_name": "TESSIE_SIGHTING",
+      "contract_sequence_pack": 97,
+      "ebdecompile_song_pack": "0x61",
+      "ebdecompile_song_file": "song-92.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/61/song-92.ebm",
+      "reference_bytes": 900,
+      "declared_count": 896,
+      "declared_destination": "0x5000",
+      "payload_sha1": "410628fc2effff03b36da5ce3ba1a699d3dfa9d6",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 97,
+          "pack_range": "EC:BF28..EC:CAA1",
+          "block_index": 1,
+          "destination": "0x5000",
+          "bytes": 896,
+          "payload_sha1": "410628fc2effff03b36da5ce3ba1a699d3dfa9d6"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 147,
+      "track_name": "METEOR_FALL",
+      "contract_sequence_pack": 149,
+      "ebdecompile_song_pack": "0x95",
+      "ebdecompile_song_file": "song-93.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/95/song-93.ebm",
+      "reference_bytes": 450,
+      "declared_count": 446,
+      "declared_destination": "0x5800",
+      "payload_sha1": "3bc55e696445c00d666283c99b840c09d1c943f1",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 149,
+          "pack_range": "E9:F8C8..E9:FF65",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 446,
+          "payload_sha1": "3bc55e696445c00d666283c99b840c09d1c943f1"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 148,
+      "track_name": "VS_STARMAN_JR",
+      "contract_sequence_pack": 150,
+      "ebdecompile_song_pack": "0x96",
+      "ebdecompile_song_file": "song-94.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/96/song-94.ebm",
+      "reference_bytes": 1554,
+      "declared_count": 1550,
+      "declared_destination": "0x4800",
+      "payload_sha1": "d46b234962abb33a607e83dd5e44f25f01f7b926",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 150,
+          "pack_range": "ED:53DF..ED:5C01",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1550,
+          "payload_sha1": "d46b234962abb33a607e83dd5e44f25f01f7b926"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 149,
+      "track_name": "RUNAWAY5_HELP_OUT",
+      "contract_sequence_pack": 150,
+      "ebdecompile_song_pack": "0x96",
+      "ebdecompile_song_file": "song-95.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/96/song-95.ebm",
+      "reference_bytes": 526,
+      "declared_count": 522,
+      "declared_destination": "0x5000",
+      "payload_sha1": "5b66e286669721c900ba13f65237b0b8d5122801",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 150,
+          "pack_range": "ED:53DF..ED:5C01",
+          "block_index": 1,
+          "destination": "0x5000",
+          "bytes": 522,
+          "payload_sha1": "5b66e286669721c900ba13f65237b0b8d5122801"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 150,
+      "track_name": "KNOCK_KNOCK",
+      "contract_sequence_pack": 133,
+      "ebdecompile_song_pack": "0x85",
+      "ebdecompile_song_file": "song-96.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/85/song-96.ebm",
+      "reference_bytes": 706,
+      "declared_count": 702,
+      "declared_destination": "0x5800",
+      "payload_sha1": "325bca851a92ba6b1d19ecd2c52fd7628cf45175",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 133,
+          "pack_range": "EC:B38A..EC:BF28",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 702,
+          "payload_sha1": "325bca851a92ba6b1d19ecd2c52fd7628cf45175"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 151,
+      "track_name": "ONETT_AFTER_METEOR1",
+      "contract_sequence_pack": 151,
+      "ebdecompile_song_pack": "0x97",
+      "ebdecompile_song_file": "song-97.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/97/song-97.ebm",
+      "reference_bytes": 809,
+      "declared_count": 805,
+      "declared_destination": "0x5800",
+      "payload_sha1": "6511264ea2f67b032c51517174ff4bd9720cea22",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 151,
+          "pack_range": "EE:648C..EE:67B7",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 805,
+          "payload_sha1": "6511264ea2f67b032c51517174ff4bd9720cea22"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 152,
+      "track_name": "ONETT_AFTER_METEOR2",
+      "contract_sequence_pack": 149,
+      "ebdecompile_song_pack": "0x95",
+      "ebdecompile_song_file": "song-98.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/95/song-98.ebm",
+      "reference_bytes": 417,
+      "declared_count": 413,
+      "declared_destination": "0x6200",
+      "payload_sha1": "d66ed30540723830b9675bbc8c3e205f76fd9fa6",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 149,
+          "pack_range": "E9:F8C8..E9:FF65",
+          "block_index": 2,
+          "destination": "0x6200",
+          "bytes": 413,
+          "payload_sha1": "d66ed30540723830b9675bbc8c3e205f76fd9fa6"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 153,
+      "track_name": "POKEY_THEME",
+      "contract_sequence_pack": 133,
+      "ebdecompile_song_pack": "0x85",
+      "ebdecompile_song_file": "song-99.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/85/song-99.ebm",
+      "reference_bytes": 1297,
+      "declared_count": 1293,
+      "declared_destination": "0x6000",
+      "payload_sha1": "a4cfc4753ff0b426ea05ac3cee70294270a2e755",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 133,
+          "pack_range": "EC:B38A..EC:BF28",
+          "block_index": 2,
+          "destination": "0x6000",
+          "bytes": 1293,
+          "payload_sha1": "a4cfc4753ff0b426ea05ac3cee70294270a2e755"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 154,
+      "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ2",
+      "contract_sequence_pack": 152,
+      "ebdecompile_song_pack": "0x98",
+      "ebdecompile_song_file": "song-9A.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/98/song-9A.ebm",
+      "reference_bytes": 504,
+      "declared_count": 500,
+      "declared_destination": "0x5800",
+      "payload_sha1": "86196ae95f9654fa86e66b5bd082f084617920fa",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 152,
+          "pack_range": "EE:826C..EE:8466",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 500,
+          "payload_sha1": "86196ae95f9654fa86e66b5bd082f084617920fa"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 155,
+      "track_name": "YOUR_SANCTUARY_BOSS2",
+      "contract_sequence_pack": 145,
+      "ebdecompile_song_pack": null,
+      "ebdecompile_song_file": null,
+      "song_to_reference": "0x86",
+      "instrument_pack_1": null,
+      "instrument_pack_2": "0xFF",
+      "alignment_status": "song_references_another_track"
+    },
+    {
+      "track_id": 156,
+      "track_name": "METEOR_STRIKE",
+      "contract_sequence_pack": 149,
+      "ebdecompile_song_pack": "0x95",
+      "ebdecompile_song_file": "song-9C.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/95/song-9C.ebm",
+      "reference_bytes": 824,
+      "declared_count": 820,
+      "declared_destination": "0x5C00",
+      "payload_sha1": "da53bdadda73f3b37cff4b3a93484eba6c3b3a30",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 149,
+          "pack_range": "E9:F8C8..E9:FF65",
+          "block_index": 1,
+          "destination": "0x5C00",
+          "bytes": 820,
+          "payload_sha1": "da53bdadda73f3b37cff4b3a93484eba6c3b3a30"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "contract_sequence_pack": 154,
+      "ebdecompile_song_pack": "0x9A",
+      "ebdecompile_song_file": "song-9D.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9A/song-9D.ebm",
+      "reference_bytes": 5180,
+      "declared_count": 5176,
+      "declared_destination": "0x4800",
+      "payload_sha1": "576c4834868c9558223b9e849e9da51cb7eb6ff7",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 154,
+          "pack_range": "EB:E9E4..EB:FE22",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 5176,
+          "payload_sha1": "576c4834868c9558223b9e849e9da51cb7eb6ff7"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 158,
+      "track_name": "NAME_CONFIRMATION",
+      "contract_sequence_pack": 4,
+      "ebdecompile_song_pack": "0x04",
+      "ebdecompile_song_file": "song-9E.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/04/song-9E.ebm",
+      "reference_bytes": 353,
+      "declared_count": 349,
+      "declared_destination": "0x6000",
+      "payload_sha1": "a164ff5fd635407b998116e14925887598a2de58",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 4,
+          "pack_range": "DF:EC46..DF:FFEE",
+          "block_index": 2,
+          "destination": "0x6000",
+          "bytes": 349,
+          "payload_sha1": "a164ff5fd635407b998116e14925887598a2de58"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 159,
+      "track_name": "PEACEFUL_REST_VALLEY2",
+      "contract_sequence_pack": 155,
+      "ebdecompile_song_pack": "0x9B",
+      "ebdecompile_song_file": "song-9F.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9B/song-9F.ebm",
+      "reference_bytes": 613,
+      "declared_count": 609,
+      "declared_destination": "0x5800",
+      "payload_sha1": "ec9b3c67989f70d6f6eaeba7b4b779446ac53e70",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 155,
+          "pack_range": "E4:FD92..E4:FFF9",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 609,
+          "payload_sha1": "ec9b3c67989f70d6f6eaeba7b4b779446ac53e70"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 160,
+      "track_name": "SOUNDSTONE_RECORDING_GIANT_STEP",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A0.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A0.ebm",
+      "reference_bytes": 326,
+      "declared_count": 322,
+      "declared_destination": "0x4900",
+      "payload_sha1": "20af29250dcdc9f69903d4b631ff80371cee5d54",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 1,
+          "destination": "0x4900",
+          "bytes": 322,
+          "payload_sha1": "20af29250dcdc9f69903d4b631ff80371cee5d54"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 161,
+      "track_name": "SOUNDSTONE_RECORDING_LILLIPUT_STEPS",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A1.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A1.ebm",
+      "reference_bytes": 293,
+      "declared_count": 289,
+      "declared_destination": "0x4AE0",
+      "payload_sha1": "37a977565f9751c993b34ab87510cf7fb570fe15",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 2,
+          "destination": "0x4AE0",
+          "bytes": 289,
+          "payload_sha1": "37a977565f9751c993b34ab87510cf7fb570fe15"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 162,
+      "track_name": "SOUNDSTONE_RECORDING_MILKY_WELL",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A2.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A2.ebm",
+      "reference_bytes": 300,
+      "declared_count": 296,
+      "declared_destination": "0x4CC0",
+      "payload_sha1": "ebf44838ad9be1721e32d3cd19cf36a91df7e87c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 3,
+          "destination": "0x4CC0",
+          "bytes": 296,
+          "payload_sha1": "ebf44838ad9be1721e32d3cd19cf36a91df7e87c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 163,
+      "track_name": "SOUNDSTONE_RECORDING_RAINY_CIRCLE",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A3.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A3.ebm",
+      "reference_bytes": 292,
+      "declared_count": 288,
+      "declared_destination": "0x4EA0",
+      "payload_sha1": "5f446add36abe04e0ddac32d4167d2cb0449c3cd",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 4,
+          "destination": "0x4EA0",
+          "bytes": 288,
+          "payload_sha1": "5f446add36abe04e0ddac32d4167d2cb0449c3cd"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 164,
+      "track_name": "SOUNDSTONE_RECORDING_MAGNET_HILL",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A4.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A4.ebm",
+      "reference_bytes": 311,
+      "declared_count": 307,
+      "declared_destination": "0x5080",
+      "payload_sha1": "34bd6d39b1824dff271654a76e84ced52a0973b6",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 5,
+          "destination": "0x5080",
+          "bytes": 307,
+          "payload_sha1": "34bd6d39b1824dff271654a76e84ced52a0973b6"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 165,
+      "track_name": "SOUNDSTONE_RECORDING_PINK_CLOUD",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A5.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A5.ebm",
+      "reference_bytes": 265,
+      "declared_count": 261,
+      "declared_destination": "0x5260",
+      "payload_sha1": "d4d8893e4b8cf4b157643836406a1705e6b4dfc9",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 6,
+          "destination": "0x5260",
+          "bytes": 261,
+          "payload_sha1": "d4d8893e4b8cf4b157643836406a1705e6b4dfc9"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 166,
+      "track_name": "SOUNDSTONE_RECORDING_LUMINE_HALL",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A6.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A6.ebm",
+      "reference_bytes": 330,
+      "declared_count": 326,
+      "declared_destination": "0x5440",
+      "payload_sha1": "a01ba6dcf9d139144b14adf2c474df35c90d9e0f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 7,
+          "destination": "0x5440",
+          "bytes": 326,
+          "payload_sha1": "a01ba6dcf9d139144b14adf2c474df35c90d9e0f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 167,
+      "track_name": "SOUNDSTONE_RECORDING_FIRE_SPRING",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A7.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A7.ebm",
+      "reference_bytes": 254,
+      "declared_count": 250,
+      "declared_destination": "0x5620",
+      "payload_sha1": "925b07469c3a483fedd4899deca4acc2abf21859",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 8,
+          "destination": "0x5620",
+          "bytes": 250,
+          "payload_sha1": "925b07469c3a483fedd4899deca4acc2abf21859"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 168,
+      "track_name": "SOUNDSTONE_BGM",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": "0x9D",
+      "ebdecompile_song_file": "song-A8.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9D/song-A8.ebm",
+      "reference_bytes": 215,
+      "declared_count": 211,
+      "declared_destination": "0x4800",
+      "payload_sha1": "c07125721820a012cbdf713ee77ec7ae32de846f",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 157,
+          "pack_range": "EC:F578..EC:FF94",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 211,
+          "payload_sha1": "c07125721820a012cbdf713ee77ec7ae32de846f"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 169,
+      "track_name": "EIGHT_MELODIES",
+      "contract_sequence_pack": 158,
+      "ebdecompile_song_pack": "0x9E",
+      "ebdecompile_song_file": "song-A9.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9E/song-A9.ebm",
+      "reference_bytes": 1452,
+      "declared_count": 1448,
+      "declared_destination": "0x4800",
+      "payload_sha1": "fbfb14bde4466eca65468220a648f3f277127c18",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 158,
+          "pack_range": "ED:E0AE..ED:E65C",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1448,
+          "payload_sha1": "fbfb14bde4466eca65468220a648f3f277127c18"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 170,
+      "track_name": "DALAAM_INTRO",
+      "contract_sequence_pack": 159,
+      "ebdecompile_song_pack": "0x9F",
+      "ebdecompile_song_file": "song-AA.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/9F/song-AA.ebm",
+      "reference_bytes": 401,
+      "declared_count": 397,
+      "declared_destination": "0x5800",
+      "payload_sha1": "56ff5a8dd72e46b499363e59bc91d87b1b7d2910",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 159,
+          "pack_range": "EE:8638..EE:87CB",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 397,
+          "payload_sha1": "56ff5a8dd72e46b499363e59bc91d87b1b7d2910"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "contract_sequence_pack": 160,
+      "ebdecompile_song_pack": "0xA0",
+      "ebdecompile_song_file": "song-AB.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A0/song-AB.ebm",
+      "reference_bytes": 1033,
+      "declared_count": 1029,
+      "declared_destination": "0x5800",
+      "payload_sha1": "204b46a2ae53ba15c5c426d0b08bad440990da50",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 160,
+          "pack_range": "EE:4ADF..EE:4EEA",
+          "block_index": 0,
+          "destination": "0x5800",
+          "bytes": 1029,
+          "payload_sha1": "204b46a2ae53ba15c5c426d0b08bad440990da50"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 172,
+      "track_name": "POKEY_ESCAPES",
+      "contract_sequence_pack": 162,
+      "ebdecompile_song_pack": "0xA2",
+      "ebdecompile_song_file": "song-AC.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A2/song-AC.ebm",
+      "reference_bytes": 1176,
+      "declared_count": 1172,
+      "declared_destination": "0x4800",
+      "payload_sha1": "527b92ab11cf7dbc0d0d8c91a6bdef1bfc594092",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 162,
+          "pack_range": "ED:A4D7..ED:AB12",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1172,
+          "payload_sha1": "527b92ab11cf7dbc0d0d8c91a6bdef1bfc594092"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "contract_sequence_pack": 136,
+      "ebdecompile_song_pack": "0x88",
+      "ebdecompile_song_file": "song-AD.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/88/song-AD.ebm",
+      "reference_bytes": 834,
+      "declared_count": 830,
+      "declared_destination": "0x5200",
+      "payload_sha1": "6a988d0727b1df6fb91b5971f89d64294e754389",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 136,
+          "pack_range": "EE:0000..EE:0554",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 830,
+          "payload_sha1": "6a988d0727b1df6fb91b5971f89d64294e754389"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "contract_sequence_pack": 1,
+      "ebdecompile_song_pack": "0x01",
+      "ebdecompile_song_file": "song-AE.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/01/song-AE.ebm",
+      "reference_bytes": 460,
+      "declared_count": 456,
+      "declared_destination": "0x4A3D",
+      "payload_sha1": "c05027a550fea32a0cbb3e9d1b3300a413f85cbb",
+      "matching_contract_blocks": [],
+      "alignment_status": "no_matching_contract_sequence_block"
+    },
+    {
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "contract_sequence_pack": 163,
+      "ebdecompile_song_pack": "0xA3",
+      "ebdecompile_song_file": "song-AF.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A3/song-AF.ebm",
+      "reference_bytes": 1317,
+      "declared_count": 1313,
+      "declared_destination": "0x4800",
+      "payload_sha1": "afff95f47b6d99cbff1daa6ba43675c1134e540c",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 163,
+          "pack_range": "EE:0A8B..EE:0FB2",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 1313,
+          "payload_sha1": "afff95f47b6d99cbff1daa6ba43675c1134e540c"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 176,
+      "track_name": "BATTLE_SWIRL4",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-B0.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-B0.ebm"
+      ]
+    },
+    {
+      "track_id": 177,
+      "track_name": "POKEY_INTRO",
+      "contract_sequence_pack": 133,
+      "ebdecompile_song_pack": "0x85",
+      "ebdecompile_song_file": "song-B1.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/85/song-B1.ebm",
+      "reference_bytes": 527,
+      "declared_count": 523,
+      "declared_destination": "0x6700",
+      "payload_sha1": "352fa2abf8df108ae49354430688ea7f9ab63176",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 133,
+          "pack_range": "EC:B38A..EC:BF28",
+          "block_index": 3,
+          "destination": "0x6700",
+          "bytes": 523,
+          "payload_sha1": "352fa2abf8df108ae49354430688ea7f9ab63176"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 178,
+      "track_name": "GOOD_MORNING_SCARABA",
+      "contract_sequence_pack": 164,
+      "ebdecompile_song_pack": "0xA4",
+      "ebdecompile_song_file": "song-B2.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A4/song-B2.ebm",
+      "reference_bytes": 830,
+      "declared_count": 826,
+      "declared_destination": "0x4800",
+      "payload_sha1": "9fbe3ed68ef79289db9ee405f4e3509779aa8dfa",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 164,
+          "pack_range": "EE:614C..EE:648C",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 826,
+          "payload_sha1": "9fbe3ed68ef79289db9ee405f4e3509779aa8dfa"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 179,
+      "track_name": "ROBOTOMY1",
+      "contract_sequence_pack": 166,
+      "ebdecompile_song_pack": "0xA6",
+      "ebdecompile_song_file": "song-B3.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A6/song-B3.ebm",
+      "reference_bytes": 164,
+      "declared_count": 160,
+      "declared_destination": "0x4800",
+      "payload_sha1": "2bc90f876657252ffd1fdb0ce01fc6976f708e9b",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 166,
+          "pack_range": "E5:FF38..E5:FFDE",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 160,
+          "payload_sha1": "2bc90f876657252ffd1fdb0ce01fc6976f708e9b"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 180,
+      "track_name": "POKEY_ESCAPES2",
+      "contract_sequence_pack": 162,
+      "ebdecompile_song_pack": "0xA2",
+      "ebdecompile_song_file": "song-B4.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A2/song-B4.ebm",
+      "reference_bytes": 417,
+      "declared_count": 413,
+      "declared_destination": "0x5000",
+      "payload_sha1": "403c77247d1054351d1a843266074e58da2a9a38",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 162,
+          "pack_range": "ED:A4D7..ED:AB12",
+          "block_index": 1,
+          "destination": "0x5000",
+          "bytes": 413,
+          "payload_sha1": "403c77247d1054351d1a843266074e58da2a9a38"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 181,
+      "track_name": "RETURN_TO_YOUR_BODY2",
+      "contract_sequence_pack": 102,
+      "ebdecompile_song_pack": "0x66",
+      "ebdecompile_song_file": "song-B5.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/66/song-B5.ebm",
+      "reference_bytes": 1137,
+      "declared_count": 1133,
+      "declared_destination": "0x5200",
+      "payload_sha1": "b95cc38aa19a6ccb0cdc50887bb1f4df91ded812",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 102,
+          "pack_range": "CE:F8C6..CE:FFAA",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 1133,
+          "payload_sha1": "b95cc38aa19a6ccb0cdc50887bb1f4df91ded812"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 182,
+      "track_name": "GIYGAS_STATIC",
+      "contract_sequence_pack": 83,
+      "ebdecompile_song_pack": "0x53",
+      "ebdecompile_song_file": "song-B6.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/53/song-B6.ebm",
+      "reference_bytes": 115,
+      "declared_count": 111,
+      "declared_destination": "0x5200",
+      "payload_sha1": "dc0f854b63aea5f1bf2fc6356f30b699ce814ff6",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 83,
+          "pack_range": "EE:6D36..EE:6FDD",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 111,
+          "payload_sha1": "dc0f854b63aea5f1bf2fc6356f30b699ce814ff6"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 183,
+      "track_name": "SUDDEN_VICTORY",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-B7.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-B7.ebm"
+      ]
+    },
+    {
+      "track_id": 184,
+      "track_name": "YOU_WON3",
+      "contract_sequence_pack": null,
+      "ebdecompile_song_pack": "in-engine",
+      "ebdecompile_song_file": "song-B8.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "in_engine_subsong_reference",
+      "candidate_ref_files": [
+        "refs/eb-decompile-4ef92/Music/Packs/01/song-B8.ebm"
+      ]
+    },
+    {
+      "track_id": 185,
+      "track_name": "GIYGAS_PHASE3",
+      "contract_sequence_pack": 79,
+      "ebdecompile_song_pack": "0x4F",
+      "ebdecompile_song_file": "song-B9.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4F/song-B9.ebm",
+      "reference_bytes": 1038,
+      "declared_count": 1034,
+      "declared_destination": "0x4B00",
+      "payload_sha1": "2817d0c4f5d2e1d9d267a5dc4c32a93d0bbe9c27",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 79,
+          "pack_range": "DC:F8BF..DC:FF92",
+          "block_index": 1,
+          "destination": "0x4B00",
+          "bytes": 1034,
+          "payload_sha1": "2817d0c4f5d2e1d9d267a5dc4c32a93d0bbe9c27"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 186,
+      "track_name": "GIYGAS_PHASE1",
+      "contract_sequence_pack": 167,
+      "ebdecompile_song_pack": "0xA7",
+      "ebdecompile_song_file": "song-BA.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A7/song-BA.ebm",
+      "reference_bytes": 325,
+      "declared_count": 321,
+      "declared_destination": "0x4800",
+      "payload_sha1": "229c4115734b861f2548c3d9c86e0ad3422c8391",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 167,
+          "pack_range": "EE:8C1E..EE:8D65",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 321,
+          "payload_sha1": "229c4115734b861f2548c3d9c86e0ad3422c8391"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 187,
+      "track_name": "GIVE_US_STRENGTH",
+      "contract_sequence_pack": 79,
+      "ebdecompile_song_pack": "0x4F",
+      "ebdecompile_song_file": "song-BB.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/4F/song-BB.ebm",
+      "reference_bytes": 433,
+      "declared_count": 429,
+      "declared_destination": "0x5400",
+      "payload_sha1": "ae1b591b9a9fd5ef76fe48e9270b411aa1d23af0",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 79,
+          "pack_range": "DC:F8BF..DC:FF92",
+          "block_index": 2,
+          "destination": "0x5400",
+          "bytes": 429,
+          "payload_sha1": "ae1b591b9a9fd5ef76fe48e9270b411aa1d23af0"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 188,
+      "track_name": "GOOD_MORNING2",
+      "contract_sequence_pack": 168,
+      "ebdecompile_song_pack": "0xA8",
+      "ebdecompile_song_file": "song-BC.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/A8/song-BC.ebm",
+      "reference_bytes": 306,
+      "declared_count": 302,
+      "declared_destination": "0x4800",
+      "payload_sha1": "a150414fc8fc4be2661154f481204318948bedda",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 168,
+          "pack_range": "EE:8EA2..EE:8FD6",
+          "block_index": 0,
+          "destination": "0x4800",
+          "bytes": 302,
+          "payload_sha1": "a150414fc8fc4be2661154f481204318948bedda"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 189,
+      "track_name": "SOUND_STONE",
+      "contract_sequence_pack": 157,
+      "ebdecompile_song_pack": null,
+      "ebdecompile_song_file": null,
+      "song_to_reference": "0xA8",
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "alignment_status": "song_references_another_track"
+    },
+    {
+      "track_id": 190,
+      "track_name": "GIYGAS_DEATH",
+      "contract_sequence_pack": 83,
+      "ebdecompile_song_pack": "0x53",
+      "ebdecompile_song_file": "song-BE.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/53/song-BE.ebm",
+      "reference_bytes": 311,
+      "declared_count": 307,
+      "declared_destination": "0x5300",
+      "payload_sha1": "68a6449d6c1a16fc430f82a2113664357bf0f561",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 83,
+          "pack_range": "EE:6D36..EE:6FDD",
+          "block_index": 2,
+          "destination": "0x5300",
+          "bytes": 307,
+          "payload_sha1": "68a6449d6c1a16fc430f82a2113664357bf0f561"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    },
+    {
+      "track_id": 191,
+      "track_name": "GIYGAS_WEAKENED",
+      "contract_sequence_pack": 81,
+      "ebdecompile_song_pack": "0x51",
+      "ebdecompile_song_file": "song-BF.ebm",
+      "song_to_reference": null,
+      "instrument_pack_1": null,
+      "instrument_pack_2": null,
+      "reference_song_path": "refs/eb-decompile-4ef92/Music/Packs/51/song-BF.ebm",
+      "reference_bytes": 273,
+      "declared_count": 269,
+      "declared_destination": "0x5200",
+      "payload_sha1": "5dddebcdc167f726941927ebdb5f0b0dce1f0a8d",
+      "matching_contract_blocks": [
+        {
+          "pack_id": 81,
+          "pack_range": "EE:7E29..EE:804D",
+          "block_index": 1,
+          "destination": "0x5200",
+          "bytes": 269,
+          "payload_sha1": "5dddebcdc167f726941927ebdb5f0b0dce1f0a8d"
+        }
+      ],
+      "alignment_status": "payload_matches_contract_sequence_block",
+      "contract_sequence_pack_matches_ref": true
+    }
+  ],
+  "findings": [
+    "Direct eb-decompile song files include a 4-byte load header followed by the sequence payload.",
+    "Matching direct song files corroborate our LOAD_SPC700_DATA block extraction, destination, and payload hashing.",
+    "In-engine songs are sub-song references inside pack 1 driver/runtime data rather than one file per top-level sequence pack, so they need a separate sub-song alignment pass.",
+    "Song-to-reference entries intentionally reuse another track's song data and should be resolved before exact export planning treats them as independent sequences."
+  ],
+  "next_work": [
+    "resolve in-engine song files against pack 1's runtime sequence area",
+    "use direct payload matches to seed future focused pack reports automatically",
+    "feed song-to-reference reuse into exact-duration export planning"
+  ]
+}

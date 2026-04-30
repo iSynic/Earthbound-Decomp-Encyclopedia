@@ -1,0 +1,84 @@
+{
+  "name": "earthbound-decomp-encyclopedia",
+  "version": "0.1.0",
+  "private": true,
+  "author": "EarthBound Decomp contributors",
+  "license": "UNLICENSED",
+  "description": "Local Electron encyclopedia for the EarthBound decomp knowledge base.",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "build:content": "node scripts/build-content.mjs",
+    "build:content:authored": "node scripts/build-content.mjs --mode authored --source-root \"F:\\Earthbound Decomp - Codex\"",
+    "build:content:codex": "node scripts/build-content.mjs --source-root \"F:\\Earthbound Decomp - Codex\"",
+    "sync:source-template": "node scripts/sync-source-template.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "audit:release": "node scripts/audit-release.mjs",
+    "audit:editorial": "node scripts/audit-editorial-tone.mjs",
+    "audit:workspace-split": "node scripts/audit-workspace-split.mjs",
+    "prepare:release": "npm run sync:source-template && npm run build:content:authored && npm run check:content && npm run audit:release",
+    "release:check": "npm run prepare:release && npm run audit:editorial",
+    "dist:win": "npm run prepare:release && electron-builder --win --x64",
+    "dist:linux": "npm run dist:linux:appimage",
+    "dist:linux:appimage": "npm run prepare:release && electron-builder --linux AppImage --x64",
+    "dist:linux:zip": "npm run prepare:release && electron-builder --linux zip --x64",
+    "start": "electron .",
+    "dev": "npm run build:content && electron .",
+    "dev:codex": "npm run build:content:codex && electron .",
+    "start:codex": "npm run dev:codex"
+  },
+  "devDependencies": {
+    "electron": "^41.3.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "org.earthbounddecomp.encyclopedia",
+    "productName": "EarthBound Decomp Encyclopedia",
+    "directories": {
+      "output": "dist"
+    },
+    "asarUnpack": [
+      "audio-backend/**/*"
+    ],
+    "files": [
+      "electron/**/*",
+      "public/**/*",
+      "asset-manifests/**/*",
+      "audio-backend/**/*",
+      "source-template/**/*",
+      "README.md",
+      "RELEASE-LICENSES.md",
+      "package.json",
+      "!public/generated/**/*.map",
+      "!**/*.sfc",
+      "!**/*.smc",
+      "!**/*.spc",
+      "!**/*.wav",
+      "!**/*.brr",
+      "!**/*.gfx",
+      "!**/*.pal",
+      "!**/*.arr",
+      "!**/*.bin",
+      "!**/*.lzhal",
+      "!src/**/*",
+      "!build/**/*",
+      "!dumps/**/*",
+      "!baserom/**/*",
+      "!cache/**/*"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "forceCodeSigning": false,
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Education"
+    }
+  }
+}

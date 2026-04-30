@@ -1,0 +1,222 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank EB asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-eb-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank2B.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 8,
+    "binary_assets_by_extension": {
+      "ebm": 8
+    },
+    "binary_asset_bytes": 65535,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 1,
+    "missing_payload_metadata": 0
+  },
+  "assets": [
+    {
+      "id": "asset.eb.audio_pack_44",
+      "title": "AUDIO_PACK_44",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:0000..EB:29E8",
+        "bytes": 10728,
+        "sha1": "faead9576d9ea4629085bf4ce69b041058369ca6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/44.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/44.ebm",
+        "Original file offset: 0x2B0000"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_21",
+      "title": "AUDIO_PACK_21",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:29E8..EB:520C",
+        "bytes": 10276,
+        "sha1": "cc61c17167c62b1cca6786e3d45d35366a3878f7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/21.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/21.ebm",
+        "Original file offset: 0x2B29E8"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_5",
+      "title": "AUDIO_PACK_5",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:520C..EB:78D6",
+        "bytes": 9930,
+        "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/5.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/5.ebm",
+        "Original file offset: 0x2B520C"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_40",
+      "title": "AUDIO_PACK_40",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:78D6..EB:9F8E",
+        "bytes": 9912,
+        "sha1": "a6f90c1d1502224a9c32effc6a191cae4fd51941"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/40.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/40.ebm",
+        "Original file offset: 0x2B78D6"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_33",
+      "title": "AUDIO_PACK_33",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:9F8E..EB:C4E8",
+        "bytes": 9562,
+        "sha1": "a026301994d029d0c7f5410d46b61cfa80350fe4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/33.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/33.ebm",
+        "Original file offset: 0x2B9F8E"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_105",
+      "title": "AUDIO_PACK_105",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:C4E8..EB:E9E4",
+        "bytes": 9468,
+        "sha1": "7a5453413be5cbcc8fc449ab605435f900320aa9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/105.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/105.ebm",
+        "Original file offset: 0x2BC4E8"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_154",
+      "title": "AUDIO_PACK_154",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:E9E4..EB:FE22",
+        "bytes": 5182,
+        "sha1": "53eecdb12605804d8228a78675a6d408f4e7b9aa"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/154.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/154.ebm",
+        "Original file offset: 0x2BE9E4"
+      ]
+    },
+    {
+      "id": "asset.eb.audio_pack_13",
+      "title": "AUDIO_PACK_13",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:FE22..EB:FFFF",
+        "bytes": 477,
+        "sha1": "ea56e7fae2ebdd328a88446baf82614aa8ee7c43"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/audiopacks/13.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/13.ebm",
+        "Original file offset: 0x2BFE22"
+      ]
+    },
+    {
+      "id": "gap.eb.eb_ffff",
+      "title": "Bank EB coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "EB:FFFF..EB:10000",
+        "bytes": 1,
+        "sha1": "5ba93c9db0cff93f52b521d7420e43f6eda2784f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "eb/gaps/01_eb_ffff.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x2BFFFF..0x2BFFFF"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,854 @@
+{
+  "schema": "earthbound-decomp.audio-oracle-comparison-plan.v1",
+  "status": "oracle_plan_ready_no_reference_captures_yet",
+  "playback_manifest": "build/audio/c0ab06-change-music-fusion-render-jobs-all/playback-export-manifest.json",
+  "playback_manifest_track_count": 190,
+  "playback_manifest_skipped_count": 1,
+  "job_scope": "representative_tracks",
+  "job_count": 20,
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_reference_outputs_are_ignored": true,
+    "generated_outputs_root": "build/audio/oracle-comparison",
+    "do_not_distribute_reference_spc_wav_or_rom_derived_audio": true
+  },
+  "reference_oracles": [
+    {
+      "id": "ares",
+      "role": "permissive accuracy-first in-process/out-of-tree reference capture runner",
+      "license_policy": "ISC/permissive core; keep notices reviewed before bundling",
+      "integration_policy": "preferred first implementation target because the project already has local ares harnesses",
+      "status": "runner_pending"
+    },
+    {
+      "id": "mesen2_or_bsnes_higan_or_mednafen",
+      "role": "external emulator validation oracle",
+      "license_policy": "GPL or mixed policies; optional out-of-process validation only",
+      "integration_policy": "use to corroborate ares/libgme output, not as a required app dependency",
+      "status": "optional_runner_pending"
+    }
+  ],
+  "comparison_policy": {
+    "spc_exactness": "compare signatures, header registers, selected APU RAM region hashes, and DSP register snapshots where the reference exposes them",
+    "pcm_exactness": "do not require byte-perfect PCM across independent renderers before alignment/timing has been characterized",
+    "minimum_first_gate": "all representative jobs produce reference captures and classify as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+    "promotion_gate": "expand the same comparison contract from representative_tracks to all_tracks after the runner is stable",
+    "recommended_pcm_thresholds": {
+      "sample_rate": 32000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "minimum_seconds": 30.0,
+      "minimum_normalized_correlation_after_alignment": 0.98,
+      "maximum_leading_silence_delta_samples": 4096
+    }
+  },
+  "release_gates": [
+    "Reference captures must be generated locally from a user-provided ROM.",
+    "Reference SPC/WAV/PCM outputs must stay under ignored build/audio paths.",
+    "Each mismatch must be classified as timing offset, renderer difference, snapshot-state difference, or unknown.",
+    "Representative-track oracle comparison must pass before claiming release-quality audio playback/export.",
+    "All-track oracle comparison should pass before claiming fully validated audio reconstruction."
+  ],
+  "jobs": [
+    {
+      "job_id": "oracle-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-001-gas_station-change-music-fusion-last-keyon.spc",
+        "sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-001-gas_station/diagnostic-libgme-render.wav",
+        "sha1": "83eb4c3ca147ddd1e045ac9e709437c15cd3abc7",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 7852,
+          "rms_sample": 1132.930561,
+          "nonzero_sample_count": 1850154,
+          "first_nonzero_sample_index": 116,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-001-gas_station/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-001-gas_station/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-001-gas_station/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-001-gas_station/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-002-naming_screen",
+      "track_id": 2,
+      "track_name": "NAMING_SCREEN",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-002-naming_screen-change-music-fusion-last-keyon.spc",
+        "sha1": "aad9bf4e6c1c524c0fecbb9f16ad2f8dfa218210",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-002-naming_screen/diagnostic-libgme-render.wav",
+        "sha1": "804ff0a723ab9632bac16ef52baacb9704a78233",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 18643,
+          "rms_sample": 2616.0779,
+          "nonzero_sample_count": 1883867,
+          "first_nonzero_sample_index": 130,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-002-naming_screen/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-002-naming_screen/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-002-naming_screen/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-002-naming_screen/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-046-onett",
+      "track_id": 46,
+      "track_name": "ONETT",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-046-onett-change-music-fusion-last-keyon.spc",
+        "sha1": "e29f838ead00bc07a10f3ae96778e1d50a68f489",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-046-onett/diagnostic-libgme-render.wav",
+        "sha1": "44b19d1739081566c2d2e5551ea78cda1bae3848",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 14042,
+          "rms_sample": 1990.00975,
+          "nonzero_sample_count": 1814909,
+          "first_nonzero_sample_index": 98,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-046-onett/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-046-onett/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-046-onett/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-046-onett/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-056-summers",
+      "track_id": 56,
+      "track_name": "SUMMERS",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-056-summers-change-music-fusion-last-keyon.spc",
+        "sha1": "9dd23034fabfa6ca3b409e7d1acb12fb1c15df73",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-056-summers/diagnostic-libgme-render.wav",
+        "sha1": "dbe31af9eb35c05e672162283effa50c62bbac5d",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 15003,
+          "rms_sample": 1641.789198,
+          "nonzero_sample_count": 1918857,
+          "first_nonzero_sample_index": 208,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-056-summers/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-056-summers/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-056-summers/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-056-summers/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-072-giygas_awakens",
+      "track_id": 72,
+      "track_name": "GIYGAS_AWAKENS",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-072-giygas_awakens-change-music-fusion-last-keyon.spc",
+        "sha1": "9b48c5e37584226f565947d405c0b4fdeb8c34db",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-072-giygas_awakens/diagnostic-libgme-render.wav",
+        "sha1": "eea5797531d60cf76a7e453dfa9db2b8865cd486",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 21855,
+          "rms_sample": 3297.843075,
+          "nonzero_sample_count": 1919557,
+          "first_nonzero_sample_index": 82,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-072-giygas_awakens/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-072-giygas_awakens/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-072-giygas_awakens/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-072-giygas_awakens/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-076-runaway5_concert_1",
+      "track_id": 76,
+      "track_name": "RUNAWAY5_CONCERT_1",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-076-runaway5_concert_1-change-music-fusion-last-keyon.spc",
+        "sha1": "b3c22a3585ca52bfc54bab6c9c53216ff74074c4",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-076-runaway5_concert_1/diagnostic-libgme-render.wav",
+        "sha1": "912f945e65edef4c7f796ecad91747d1529c6452",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 21383,
+          "rms_sample": 2082.726418,
+          "nonzero_sample_count": 1862164,
+          "first_nonzero_sample_index": 8,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-076-runaway5_concert_1/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-076-runaway5_concert_1/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-076-runaway5_concert_1/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-076-runaway5_concert_1/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-082-bicycle",
+      "track_id": 82,
+      "track_name": "BICYCLE",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-082-bicycle-change-music-fusion-last-keyon.spc",
+        "sha1": "fe811371c658d9114f15e06cfe181ecdb07e873f",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-082-bicycle/diagnostic-libgme-render.wav",
+        "sha1": "5d6e000444a204119baf033bb1479b8263abdd89",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 13689,
+          "rms_sample": 1874.43314,
+          "nonzero_sample_count": 1870224,
+          "first_nonzero_sample_index": 50,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-082-bicycle/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-082-bicycle/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-082-bicycle/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-082-bicycle/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-083-sky_runner",
+      "track_id": 83,
+      "track_name": "SKY_RUNNER",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+        "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+        "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 27914,
+          "rms_sample": 3667.79199,
+          "nonzero_sample_count": 1919670,
+          "first_nonzero_sample_index": 66,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-083-sky_runner/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-083-sky_runner/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-083-sky_runner/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-083-sky_runner/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-092-coffee_break",
+      "track_id": 92,
+      "track_name": "COFFEE_BREAK",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-092-coffee_break-change-music-fusion-last-keyon.spc",
+        "sha1": "63c830c06f212096d452e963a499cc6562ae27a4",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-092-coffee_break/diagnostic-libgme-render.wav",
+        "sha1": "999c8d063430bf1acbb7f4f847a62c705fa9add9",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 23769,
+          "rms_sample": 1899.64657,
+          "nonzero_sample_count": 1919225,
+          "first_nonzero_sample_index": 48,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-092-coffee_break/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-092-coffee_break/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-092-coffee_break/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-092-coffee_break/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-095-smiles_and_tears",
+      "track_id": 95,
+      "track_name": "SMILES_AND_TEARS",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-095-smiles_and_tears-change-music-fusion-last-keyon.spc",
+        "sha1": "0b4120d59886d4aece37926d189e512b8df61026",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-095-smiles_and_tears/diagnostic-libgme-render.wav",
+        "sha1": "1391031254c8a3a8436116cacf60a44c05a12c89",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 20637,
+          "rms_sample": 2429.226361,
+          "nonzero_sample_count": 1896051,
+          "first_nonzero_sample_index": 44,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-095-smiles_and_tears/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-095-smiles_and_tears/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-095-smiles_and_tears/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-095-smiles_and_tears/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-096-vs_cranky_lady",
+      "track_id": 96,
+      "track_name": "VS_CRANKY_LADY",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-096-vs_cranky_lady-change-music-fusion-last-keyon.spc",
+        "sha1": "dbfc5502dff59f667e96aa8209479454a99a729f",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-096-vs_cranky_lady/diagnostic-libgme-render.wav",
+        "sha1": "f8c009eb27df1a5545012f01dbc94c304a54ef68",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 20472,
+          "rms_sample": 2142.907615,
+          "nonzero_sample_count": 1883608,
+          "first_nonzero_sample_index": 50,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-096-vs_cranky_lady/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-096-vs_cranky_lady/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-096-vs_cranky_lady/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-096-vs_cranky_lady/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-100-vs_new_age_retro_hippie",
+      "track_id": 100,
+      "track_name": "VS_NEW_AGE_RETRO_HIPPIE",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-100-vs_new_age_retro_hippie-change-music-fusion-last-keyon.spc",
+        "sha1": "b60ba93d5eee552cc0361f79c8ef9aa6ca4c1637",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-100-vs_new_age_retro_hippie/diagnostic-libgme-render.wav",
+        "sha1": "7542084abeaaf1f61f8d0be5417c2d3e764d3290",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 18081,
+          "rms_sample": 2295.726602,
+          "nonzero_sample_count": 1915164,
+          "first_nonzero_sample_index": 42,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-100-vs_new_age_retro_hippie/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-100-vs_new_age_retro_hippie/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-100-vs_new_age_retro_hippie/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-100-vs_new_age_retro_hippie/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-105-pokey_means_business",
+      "track_id": 105,
+      "track_name": "POKEY_MEANS_BUSINESS",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-105-pokey_means_business-change-music-fusion-last-keyon.spc",
+        "sha1": "f8b2f408e78211cdca1c061e2e3466d1a9bac53a",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-105-pokey_means_business/diagnostic-libgme-render.wav",
+        "sha1": "f35382c762c5901689a77284d2c55da4fd3d9159",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 4440,
+          "rms_sample": 1361.403878,
+          "nonzero_sample_count": 1849905,
+          "first_nonzero_sample_index": 54,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-105-pokey_means_business/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-105-pokey_means_business/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-105-pokey_means_business/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-105-pokey_means_business/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-109-explosion",
+      "track_id": 109,
+      "track_name": "EXPLOSION",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+        "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+        "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 23404,
+          "rms_sample": 1290.34581,
+          "nonzero_sample_count": 440534,
+          "first_nonzero_sample_index": 871,
+          "last_nonzero_sample_index": 453709,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-109-explosion/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-109-explosion/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-109-explosion/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-109-explosion/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-121-onett_intro",
+      "track_id": 121,
+      "track_name": "ONETT_INTRO",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-121-onett_intro-change-music-fusion-last-keyon.spc",
+        "sha1": "a0c2d4bb34f5c82bc6ec4049b87113348e23d157",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-121-onett_intro/diagnostic-libgme-render.wav",
+        "sha1": "01c3f59dd8335de9e14275704ab380b664b0b4c0",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 5481,
+          "rms_sample": 1124.367486,
+          "nonzero_sample_count": 1919241,
+          "first_nonzero_sample_index": 52,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-121-onett_intro/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-121-onett_intro/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-121-onett_intro/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-121-onett_intro/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-133-hidden_song",
+      "track_id": 133,
+      "track_name": "HIDDEN_SONG",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-133-hidden_song-change-music-fusion-last-keyon.spc",
+        "sha1": "1065128a4cd9fcd76f423d598278fe27bb3cc5a4",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-133-hidden_song/diagnostic-libgme-render.wav",
+        "sha1": "293a257993160124dfcc29c700be34cadb369ffe",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 8738,
+          "rms_sample": 2541.565691,
+          "nonzero_sample_count": 1919636,
+          "first_nonzero_sample_index": 38,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-133-hidden_song/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-133-hidden_song/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-133-hidden_song/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-133-hidden_song/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-157-attract_mode",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-157-attract_mode-change-music-fusion-last-keyon.spc",
+        "sha1": "b25aaf397de85e82b3237feb9022cd4285ef0e41",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-157-attract_mode/diagnostic-libgme-render.wav",
+        "sha1": "ea4402b15cf6114ca8687e9e1c4083a763c13a73",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 20879,
+          "rms_sample": 3030.487514,
+          "nonzero_sample_count": 1918655,
+          "first_nonzero_sample_index": 50,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-157-attract_mode/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-157-attract_mode/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-157-attract_mode/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-157-attract_mode/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-175-title_screen-change-music-fusion-last-keyon.spc",
+        "sha1": "a356f345fd6867f365490b983463b568131ada7c",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-175-title_screen/diagnostic-libgme-render.wav",
+        "sha1": "17b03dab5d5b0b698cffb04dadd4d23d0f4c570e",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 24703,
+          "rms_sample": 2512.058169,
+          "nonzero_sample_count": 1353140,
+          "first_nonzero_sample_index": 30,
+          "last_nonzero_sample_index": 1919994,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-175-title_screen/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-175-title_screen/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-175-title_screen/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-175-title_screen/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-185-giygas_phase3",
+      "track_id": 185,
+      "track_name": "GIYGAS_PHASE3",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-185-giygas_phase3-change-music-fusion-last-keyon.spc",
+        "sha1": "4605c172f831191b4f4756d6cc78a4c99f841937",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-185-giygas_phase3/diagnostic-libgme-render.wav",
+        "sha1": "c98c1658c3d9b5b034dc5421cba0370d5e5f701d",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 19584,
+          "rms_sample": 2657.046351,
+          "nonzero_sample_count": 1919376,
+          "first_nonzero_sample_index": 44,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-185-giygas_phase3/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-185-giygas_phase3/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-185-giygas_phase3/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-185-giygas_phase3/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    },
+    {
+      "job_id": "oracle-track-190-giygas_death",
+      "track_id": 190,
+      "track_name": "GIYGAS_DEATH",
+      "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-190-giygas_death-change-music-fusion-last-keyon.spc",
+        "sha1": "61e0394cbee44fb68dac58b04017d0a29abf1451",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-190-giygas_death/diagnostic-libgme-render.wav",
+        "sha1": "9649cd7ac5c5d4baf69ac4184a95726bc22182ce",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 16722,
+          "rms_sample": 2711.242235,
+          "nonzero_sample_count": 1919443,
+          "first_nonzero_sample_index": 90,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison/track-190-giygas_death/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison/track-190-giygas_death/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison/track-190-giygas_death/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison/track-190-giygas_death/oracle-comparison-result.json"
+      },
+      "comparison_levels": [
+        "spc_container_signature",
+        "spc_header_registers",
+        "apu_ram_region_hashes",
+        "dsp_register_snapshot",
+        "pcm_feature_similarity",
+        "pcm_alignment_tolerant_similarity"
+      ]
+    }
+  ]
+}
