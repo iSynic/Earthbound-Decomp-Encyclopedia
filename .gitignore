@@ -5,6 +5,7 @@ node_modules/
 
 # Electron Builder and platform package output.
 dist/
+dist-*/
 out/
 *.AppImage
 *.dmg

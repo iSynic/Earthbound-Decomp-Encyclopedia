@@ -175,6 +175,24 @@ The Electron app exposes a `Local Workspace` flow for ROM-backed generated conte
 
 The static browser view can verify a selected ROM with Web Crypto, but filesystem generation requires Electron.
 
+### Required ROM Identity
+
+To generate local source, asset, map, table, and audio content, provide a legally obtained, headerless EarthBound ROM with this identity:
+
+| Field | Value |
+| --- | --- |
+| File type | Headerless `.sfc` |
+| Region/version | EarthBound (USA), internal title `EARTH BOUND`, version `0x00` |
+| Size | `3,145,728` bytes / `0x300000` / 24 Mbit |
+| Mapping | HiROM/FastROM, map mode `0x31` |
+| SHA-1 | `D67A8EF36EF616BC39306AA1B486E1BD3047815A` |
+| SHA-256 | `A8FE2226728002786D68C27DDDDF0B90A894DB52E4DFE268FDF72A68CAE5F02E` |
+| MD5 | `A864B2E5C141D2DEC1C4CBED75A42A85` |
+| CRC32 | `DC9BB451` |
+| SNES header checksum | `0x4048` |
+
+The app validates the headerless SHA-1 before generating content. Headered `.smc` copies may be accepted only after the app removes the copier header and the headerless payload matches the SHA-1 above.
+
 ## Current Scope
 
 The first catalog includes:
