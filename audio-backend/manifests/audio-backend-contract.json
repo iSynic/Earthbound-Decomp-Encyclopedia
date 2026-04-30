@@ -1,0 +1,256 @@
+{
+  "schema": "earthbound-decomp.audio-backend-contract.v1",
+  "status": "adapter_contract_ready_fused_snapshot_playback_export_implemented_oracle_comparison_pending",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "generated_audio_output_root": "build/audio"
+  },
+  "backend_selection": {
+    "default_accuracy_backend": "ares",
+    "default_lightweight_backend": "snes_spc_after_complete_spc_snapshots_exist",
+    "reference_backends": [
+      "bsnes_higan",
+      "mesen2",
+      "mednafen"
+    ],
+    "policy": "Use an external harness first. Do not vendor or carve emulator code until the prototype proves which pieces are necessary."
+  },
+  "input_artifacts": [
+    {
+      "name": "renderer_fixture",
+      "schema": "earthbound-decomp.audio-renderer-fixture.v1",
+      "path_pattern": "build/audio/renderer-fixtures/track-###-name.renderer-fixture.json",
+      "contains_rom_derived_bytes": false,
+      "references_rom_derived_bytes": true,
+      "purpose": "Points to the generated APU RAM seed and records the exact pack load transcript."
+    },
+    {
+      "name": "apu_ram_seed",
+      "schema": "raw_65536_byte_apu_ram_image",
+      "path_pattern": "build/audio/renderer-fixtures/track-###-name.apu-ram.bin",
+      "contains_rom_derived_bytes": true,
+      "purpose": "Diagnostic state seed after applying EarthBound audio load streams."
+    },
+    {
+      "name": "backend_job",
+      "schema": "earthbound-decomp.audio-backend-job-index.v1/jobs[]",
+      "path_pattern": "build/audio/backend-jobs/<job-id>/job.json",
+      "contains_rom_derived_bytes": false,
+      "references_rom_derived_bytes": true,
+      "purpose": "Per-track render/capture request consumed by an external backend harness."
+    }
+  ],
+  "job_schema": {
+    "required_fields": [
+      "job_id",
+      "backend_id",
+      "fixture_path",
+      "output_dir",
+      "render_options",
+      "expected_outputs",
+      "track_id",
+      "track_name",
+      "input_apu_ram_sha1",
+      "result_schema",
+      "job_path",
+      "result_path"
+    ],
+    "render_options": [
+      "seconds",
+      "fade_seconds",
+      "sample_rate",
+      "channels",
+      "output_format"
+    ],
+    "expected_output_kinds": [
+      "state_capture_json",
+      "complete_spc_snapshot",
+      "rendered_wav",
+      "rendered_pcm",
+      "render_hash_json",
+      "reference_capture_json"
+    ]
+  },
+  "result_schema": {
+    "schema": "earthbound-decomp.audio-backend-result.v1",
+    "required_fields": [
+      "job_id",
+      "backend_id",
+      "backend_version",
+      "status",
+      "input_fixture_path",
+      "input_apu_ram_sha1",
+      "outputs",
+      "diagnostics"
+    ],
+    "status_values": [
+      "ok",
+      "failed",
+      "unsupported",
+      "mismatch"
+    ],
+    "output_record_fields": [
+      "kind",
+      "path",
+      "sha1",
+      "bytes"
+    ],
+    "diagnostic_expectations": [
+      "Report whether the backend ran the real SNES/APU boot and load protocol or consumed a completed snapshot.",
+      "Report whether CPU/APU port handshakes were executed or mocked.",
+      "Report capture/render timing in frames, samples, or cycles."
+    ],
+    "output_validation": [
+      "rendered_wav outputs must have a RIFF/WAVE header.",
+      "playback/export WAV outputs must be 16-bit PCM stereo at the declared sample rate with data samples matching render metrics.",
+      "complete_spc_snapshot outputs must include the SNES-SPC700 signature.",
+      "JSON/PCM/hash outputs must be non-empty and match their declared SHA-1."
+    ]
+  },
+  "backend_catalog": [
+    {
+      "id": "ares",
+      "license_policy": "ISC/permissive candidate; review bundled third-party notices before vendoring",
+      "execution_policy": "external harness first; keep emulator code out of core tools until prototype proves the path",
+      "implemented": false,
+      "implementation_stage": "native diagnostic harness implemented; accurate PCM/WAV renderer pending"
+    },
+    {
+      "id": "snes_spc",
+      "license_policy": "LGPL-2.1; requires LGPL notice and linking/compliance policy",
+      "execution_policy": "snapshot renderer only after complete SPC state is available",
+      "implemented": true,
+      "implementation_stage": "libgme SPC renderer implemented out-of-tree; honors backend job render options; source snapshots are fused CHANGE_MUSIC/key-on captures pending emulator oracle comparison"
+    },
+    {
+      "id": "external_reference",
+      "license_policy": "GPL/noncommercial tools must remain optional and out-of-process unless project licensing changes",
+      "execution_policy": "optional validation oracle, never a required core dependency",
+      "implemented": false,
+      "implementation_stage": "not implemented"
+    }
+  ],
+  "native_ares_harness": {
+    "source": "tools/ares_audio_harness",
+    "build_dir": "build/audio/ares-audio-harness-msvc",
+    "executable": "build/audio/ares-audio-harness-msvc/RelWithDebInfo/earthbound_ares_audio_harness.exe",
+    "current_capability": "Consumes backend job JSON, verifies the generated APU RAM seed SHA-1, imports it into ares::SuperFamicom::dsp.apuram, captures public register preflight state, probes the $0500 driver entry with ares' SPC700 disassembler, runs an ares::SPC700 RAM/IO shim with rough timer0 progress, injects the diagnostic APUIO0 track command after timer enable or on the driver's first APUIO0 read, advances into track-specific driver update code, emits state_capture_json plus diagnostic complete_spc_snapshot outputs, records a real last-key-on SPC snapshot when the probe writes a nonzero DSP KON value, and records instruction/sequence evidence for IO, DSP writes, command injection, command first-read events, an ordered command mailbox IO window, and last-key-on timing. A separate ares SMP mailbox smoke now uses real ares SuperFamicom::smp, SuperFamicom::cpu, SuperFamicom::dsp, and WDC65816 instruction execution, delivers the command through smp.portWrite, CPU-side writeAPU($2140, track), a modeled C0:ABBD sep/sta.l $002140 prefix, the full modeled C0:ABBD sep/sta.l/rep/rtl routine, direct ROM-derived C0:ABBD bytes, a modeled JSL into ROM-derived C0:ABBD, the ROM-derived CHANGE_MUSIC tail, the full ROM-derived CHANGE_MUSIC body under a documented pre-satisfied pack state, the full ROM-derived CHANGE_MUSIC body with real pack-decision branches and stubbed LOAD_SPC700_DATA calls, or the full ROM-derived CHANGE_MUSIC body starting from bootstrap APU RAM and applying selected LOAD_SPC700_DATA payload streams at the $062A command-read boundary, writes key-on SPC snapshots, and feeds them to the same libgme render pipeline. A focused C0:AB06 loader harness now executes the ROM-derived LOAD_SPC700_DATA routine bytes against a modeled APUIO receiver and checks the selected pack stream byte/block/terminal counts.",
+    "current_result_status": "unsupported",
+    "why_not_ok_yet": "The SPC snapshot is structurally valid but diagnostic: the harness uses diagnostic command delivery instead of the real CPU/APU track-start handshake, does not use the full SMP scheduler/DSP timing path, does not finalize port state at a stable render boundary, and does not render PCM/WAV."
+  },
+  "libgme_harness": {
+    "source": "tools/libgme_audio_harness",
+    "external_checkout": "<local libgme checkout outside this repository>",
+    "observed_commit": "dd3182a8",
+    "build_dir": "build/audio/libgme-audio-harness-msvc",
+    "executable": "build/audio/libgme-audio-harness-msvc/RelWithDebInfo/earthbound_libgme_audio_harness.exe",
+    "linked_library": "<local libgme build>/gme/RelWithDebInfo/gme.lib",
+    "current_capability": "Consumes snes_spc backend job JSON, opens the matching fused CHANGE_MUSIC/key-on SPC snapshot through libgme, honors the job's seconds/sample-rate/channel render options, emits WAV/render metrics, and writes a schema-valid ok result.",
+    "current_result_status": "ok_for_fused_snapshot_playback_export",
+    "why_not_final": "The renderer path works across the all-track fused CHANGE_MUSIC/key-on corpus, but release-quality confidence still needs an emulator-captured oracle comparison and any loop/fade/export policy decisions."
+  },
+  "validation_tools": [
+    "tools/build_audio_renderer_fixtures.py",
+    "tools/validate_audio_renderer_fixtures.py",
+    "tools/build_audio_backend_jobs.py",
+    "tools/validate_audio_backend_jobs.py",
+    "tools/run_audio_backend_job.py",
+    "tools/run_audio_backend_batch.py",
+    "tools/audio_backend_stub_harness.py",
+    "tools/ares_audio_harness/CMakeLists.txt",
+    "tools/libgme_audio_harness/CMakeLists.txt",
+    "tools/collect_audio_backend_results.py",
+    "tools/validate_audio_backend_result_summary.py",
+    "tools/collect_audio_diagnostic_spc_snapshots.py",
+    "tools/validate_audio_diagnostic_spc_snapshots.py",
+    "tools/collect_audio_capture_metrics.py",
+    "tools/validate_audio_capture_metrics.py",
+    "tools/collect_audio_render_metrics.py",
+    "tools/validate_audio_render_metrics.py",
+    "tools/build_audio_keyon_primed_spc_experiment.py",
+    "tools/validate_audio_keyon_primed_spc_experiment.py",
+    "tools/build_audio_last_keyon_spc_experiment.py",
+    "tools/validate_audio_last_keyon_spc_experiment.py",
+    "tools/build_audio_cpu_mailbox_contract.py",
+    "tools/validate_audio_cpu_mailbox_contract.py",
+    "tools/build_audio_cpu_routine_fixtures.py",
+    "tools/validate_audio_cpu_routine_fixtures.py",
+    "tools/build_audio_bootstrap_snapshot_corpus.py",
+    "tools/collect_audio_change_music_load_stub_metrics.py",
+    "tools/validate_audio_change_music_load_stub_metrics.py",
+    "tools/collect_audio_load_stream_transfer_metrics.py",
+    "tools/validate_audio_load_stream_transfer_metrics.py",
+    "tools/collect_audio_c0ab06_loader_contract.py",
+    "tools/validate_audio_c0ab06_loader_contract.py",
+    "tools/ares_c0ab06_loader_handshake/CMakeLists.txt",
+    "tools/run_audio_c0ab06_loader_handshake_corpus.py",
+    "tools/validate_audio_c0ab06_loader_handshake_corpus.py",
+    "tools/collect_audio_c0ab06_real_ipl_frontier.py",
+    "tools/validate_audio_c0ab06_real_ipl_frontier.py",
+    "tools/collect_audio_c0ab06_post_bootstrap_frontier.py",
+    "tools/validate_audio_c0ab06_post_bootstrap_frontier.py",
+    "tools/collect_audio_c0ab06_continuous_track_load_frontier.py",
+    "tools/validate_audio_c0ab06_continuous_track_load_frontier.py",
+    "tools/collect_audio_change_music_continuous_sequence_contract.py",
+    "tools/validate_audio_change_music_continuous_sequence_contract.py",
+    "tools/collect_audio_c0ab06_change_music_fusion_frontier.py",
+    "tools/validate_audio_c0ab06_change_music_fusion_frontier.py",
+    "tools/build_audio_c0ab06_change_music_fusion_spc_index.py",
+    "tools/build_audio_backend_jobs_from_spc_index.py",
+    "tools/collect_audio_fusion_timing_metrics.py",
+    "tools/validate_audio_fusion_timing_metrics.py",
+    "tools/build_audio_playback_export_manifest.py",
+    "tools/validate_audio_playback_export_manifest.py",
+    "tools/build_audio_export_duration_policy.py",
+    "tools/validate_audio_export_duration_policy.py",
+    "tools/collect_audio_export_duration_measurements.py",
+    "tools/validate_audio_export_duration_measurements.py",
+    "tools/build_audio_export_plan.py",
+    "tools/validate_audio_export_plan.py",
+    "tools/build_audio_sequence_semantics_frontier.py",
+    "tools/validate_audio_sequence_semantics_frontier.py",
+    "tools/build_audio_sequence_control_flow_frontier.py",
+    "tools/validate_audio_sequence_control_flow_frontier.py",
+    "tools/build_audio_sequence_walk_frontier.py",
+    "tools/validate_audio_sequence_walk_frontier.py",
+    "tools/build_audio_exact_duration_triage.py",
+    "tools/validate_audio_exact_duration_triage.py",
+    "tools/build_audio_ebdecompile_ref_alignment.py",
+    "tools/validate_audio_ebdecompile_ref_alignment.py",
+    "tools/build_audio_oracle_comparison_plan.py",
+    "tools/validate_audio_oracle_comparison_plan.py",
+    "tools/import_audio_oracle_reference_capture.py",
+    "tools/populate_audio_oracle_self_reference.py",
+    "tools/import_audio_oracle_references_from_backend_summary.py",
+    "tools/collect_audio_oracle_comparison_results.py",
+    "tools/validate_audio_oracle_comparison_summary.py",
+    "tools/build_audio_oracle_verification_report.py",
+    "tools/validate_audio_oracle_verification_report.py",
+    "tools/build_audio_dependency_policy.py",
+    "tools/validate_audio_dependency_policy.py",
+    "tools/ares_smp_mailbox_smoke/CMakeLists.txt",
+    "tools/run_audio_ares_smp_mailbox_smoke.py",
+    "tools/validate_audio_ares_smp_mailbox_smoke.py",
+    "tools/build_audio_ares_smp_mailbox_spc_index.py",
+    "tools/validate_audio_ares_smp_mailbox_spc_index.py",
+    "tools/run_audio_last_keyon_experiment.py",
+    "tools/collect_audio_runtime_frontier.py",
+    "tools/validate_audio_runtime_frontier.py",
+    "tools/run_audio_ares_no_command_experiment.py",
+    "tools/collect_audio_no_command_frontier.py",
+    "tools/validate_audio_no_command_frontier.py",
+    "tools/run_audio_ares_command_timing_experiment.py",
+    "tools/collect_audio_command_timing_frontier.py",
+    "tools/validate_audio_command_timing_frontier.py",
+    "tools/collect_audio_mailbox_frontier.py",
+    "tools/validate_audio_mailbox_frontier.py",
+    "tools/compare_audio_render_metrics.py",
+    "tools/validate_audio_render_metrics_comparison.py",
+    "tools/snes_spc_diagnostic_harness.py",
+    "tools/check_ares_backend_prereq.py",
+    "tools/ares_link_smoke/CMakeLists.txt",
+    "tools/build_audio_backend_result_stub.py",
+    "tools/validate_audio_backend_result.py"
+  ]
+}

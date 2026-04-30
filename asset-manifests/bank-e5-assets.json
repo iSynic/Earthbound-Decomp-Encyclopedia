@@ -1,0 +1,159 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank E5 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-e5-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank25.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 5,
+    "binary_assets_by_extension": {
+      "ebm": 5
+    },
+    "binary_asset_bytes": 65502,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 34,
+    "missing_payload_metadata": 0
+  },
+  "assets": [
+    {
+      "id": "asset.e5.audio_pack_50",
+      "title": "AUDIO_PACK_50",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:0000..E5:4C4A",
+        "bytes": 19530,
+        "sha1": "617a17bd31f9756b610dc209c044d8156514f1f0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/audiopacks/50.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/50.ebm",
+        "Original file offset: 0x250000"
+      ]
+    },
+    {
+      "id": "asset.e5.audio_pack_92",
+      "title": "AUDIO_PACK_92",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:4C4A..E5:954E",
+        "bytes": 18692,
+        "sha1": "c2c10232cbb6df5bebce33210d483958bba1280d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/audiopacks/92.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/92.ebm",
+        "Original file offset: 0x254C4A"
+      ]
+    },
+    {
+      "id": "asset.e5.audio_pack_56",
+      "title": "AUDIO_PACK_56",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:954E..E5:DD32",
+        "bytes": 18404,
+        "sha1": "b3031ecdc67d72d0e6eb1c9e19d0755df514991b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/audiopacks/56.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/56.ebm",
+        "Original file offset: 0x25954E"
+      ]
+    },
+    {
+      "id": "asset.e5.audio_pack_122",
+      "title": "AUDIO_PACK_122",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:DD32..E5:FF38",
+        "bytes": 8710,
+        "sha1": "4cb9ea88de112b39f1977ef138467034822a70f2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/audiopacks/122.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/122.ebm",
+        "Original file offset: 0x25DD32"
+      ]
+    },
+    {
+      "id": "asset.e5.audio_pack_166",
+      "title": "AUDIO_PACK_166",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:FF38..E5:FFDE",
+        "bytes": 166,
+        "sha1": "c549ef9a92f2097c79ff841a7666f6402a81d63d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/audiopacks/166.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/166.ebm",
+        "Original file offset: 0x25FF38"
+      ]
+    },
+    {
+      "id": "gap.e5.e5_ffde",
+      "title": "Bank E5 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "E5:FFDE..E5:10000",
+        "bytes": 34,
+        "sha1": "3173532552077d0d796c3628ac35c76343dc3a04"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e5/gaps/01_e5_ffde.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x25FFDE..0x25FFFF"
+      ]
+    }
+  ]
+}

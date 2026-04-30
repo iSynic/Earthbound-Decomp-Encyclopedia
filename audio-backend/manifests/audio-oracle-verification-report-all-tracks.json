@@ -1,0 +1,4615 @@
+{
+  "schema": "earthbound-decomp.audio-oracle-verification-report.v1",
+  "status": "all_track_near_oracle_passed_independent_oracle_pending",
+  "summary_path": "build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+  "job_scope": "all_tracks",
+  "job_count": 190,
+  "status_counts": {
+    "audio_equivalent_state_delta": 190
+  },
+  "oracle_ids": {
+    "ares_full_change_music_load_apply_all_tracks_reference": 190
+  },
+  "oracle_kinds": {
+    "backend_result_summary_import": 190
+  },
+  "gate_results": {
+    "representative_oracle_gate_passed": true,
+    "independent_emulator_gate_passed": false,
+    "all_track_oracle_gate_passed": true,
+    "release_quality_playback_claim_ready": false
+  },
+  "audio_equivalence": {
+    "wav_byte_exact_match_count": 190,
+    "header_register_match_count": 190,
+    "dsp_register_match_count": 190,
+    "full_apu_ram_match_count": 0,
+    "minimum_normalized_pcm_correlation": 1.0,
+    "maximum_alignment_offset_samples": 0,
+    "apu_region_match_counts": {
+      "brr_sample_payloads": {
+        "matched": 190,
+        "total": 190
+      },
+      "driver_and_overlay": {
+        "matched": 0,
+        "total": 190
+      },
+      "full_apu_ram": {
+        "matched": 0,
+        "total": 190
+      },
+      "runtime_tables_and_sequences": {
+        "matched": 190,
+        "total": 190
+      }
+    }
+  },
+  "interpretation": {
+    "what_this_proves": "The full snapshot-backed playback corpus has reference captures at the planned paths and every compared job meets the accepted oracle status set. Current ares-managed references produce byte-identical PCM with matching header/DSP state across all rendered tracks.",
+    "why_not_final": "The current imported references are ares-managed near-oracle/backend-summary captures, not independent bsnes/Mesen/Mednafen captures. Release-quality playback should still wait for an independent external emulator gate or an explicit decision that the ares-managed gate is sufficient.",
+    "next_step": "Add an independent external-emulator capture path for a representative subset, then rerun collect/validate/report."
+  },
+  "records": [
+    {
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-001-gas_station/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 2,
+      "track_name": "NAMING_SCREEN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-002-naming_screen/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 3,
+      "track_name": "SETUP_SCREEN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-003-setup_screen/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 6,
+      "track_name": "LEVEL_UP",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-006-level_up/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 7,
+      "track_name": "YOU_LOSE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-007-you_lose/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 8,
+      "track_name": "BATTLE_SWIRL1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-008-battle_swirl1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 9,
+      "track_name": "BATTLE_SWIRL2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-009-battle_swirl2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 10,
+      "track_name": "WHAT_THE_HECK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-010-what_the_heck/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 11,
+      "track_name": "NEW_FRIEND",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-011-new_friend/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 12,
+      "track_name": "YOU_WON2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-012-you_won2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 13,
+      "track_name": "TELEPORT_OUT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-013-teleport_out/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 14,
+      "track_name": "TELEPORT_FAIL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-014-teleport_fail/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 15,
+      "track_name": "FALLING_UNDERGROUND",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-015-falling_underground/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 16,
+      "track_name": "DR_ANDONUTS_LAB",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-016-dr_andonuts_lab/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-017-monotoli_building/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 18,
+      "track_name": "SLOPPY_HOUSE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-018-sloppy_house/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 19,
+      "track_name": "NEIGHBOURS_HOUSE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-019-neighbours_house/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 20,
+      "track_name": "ARCADE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-020-arcade/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 21,
+      "track_name": "POKEYS_HOUSE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-021-pokeys_house/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 22,
+      "track_name": "HOSPITAL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-022-hospital/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 23,
+      "track_name": "NESSS_HOUSE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-023-nesss_house/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 24,
+      "track_name": "PAULAS_THEME",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-024-paulas_theme/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-025-chaos_theatre/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 26,
+      "track_name": "HOTEL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-026-hotel/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 27,
+      "track_name": "GOOD_MORNING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-027-good_morning/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 28,
+      "track_name": "DEPARTMENT_STORE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-028-department_store/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 29,
+      "track_name": "ONETT_AT_NIGHT_1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-029-onett_at_night_1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 30,
+      "track_name": "YOUR_SANCTUARY_1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-030-your_sanctuary_1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 31,
+      "track_name": "YOUR_SANCTUARY_2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-031-your_sanctuary_2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-032-giant_step/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-033-lilliput_steps/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-034-milky_well/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-035-rainy_circle/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-036-magnet_hill/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-037-pink_cloud/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-038-lumine_hall/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-039-fire_spring/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 40,
+      "track_name": "NEAR_A_BOSS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-040-near_a_boss/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 41,
+      "track_name": "ALIEN_INVESTIGATION",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-041-alien_investigation/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 42,
+      "track_name": "FIRE_SPRINGS_HALL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-042-fire_springs_hall/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 43,
+      "track_name": "BELCH_BASE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-043-belch_base/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 44,
+      "track_name": "ZOMBIE_THREED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-044-zombie_threed/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 45,
+      "track_name": "SPOOKY_CAVE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-045-spooky_cave/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 46,
+      "track_name": "ONETT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-046-onett/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 47,
+      "track_name": "FOURSIDE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-047-fourside/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 48,
+      "track_name": "SATURN_VALLEY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-048-saturn_valley/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 49,
+      "track_name": "MONKEY_CAVES",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-049-monkey_caves/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 50,
+      "track_name": "MOONSIDE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-050-moonside/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 51,
+      "track_name": "DUSTY_DUNES_DESERT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-051-dusty_dunes_desert/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 52,
+      "track_name": "PEACEFUL_REST_VALLEY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-052-peaceful_rest_valley/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 53,
+      "track_name": "ZOMBIE_THREED2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-053-zombie_threed2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 54,
+      "track_name": "WINTERS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-054-winters/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 55,
+      "track_name": "CAVE_NEAR_A_BOSS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-055-cave_near_a_boss/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 56,
+      "track_name": "SUMMERS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-056-summers/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 57,
+      "track_name": "JACKIES_CAFE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-057-jackies_cafe/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 58,
+      "track_name": "SAILING_TO_SCARABA",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-058-sailing_to_scaraba/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 59,
+      "track_name": "DALAAM",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-059-dalaam/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 60,
+      "track_name": "MU_TRAINING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-060-mu_training/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 61,
+      "track_name": "BAZAAR",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-061-bazaar/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 62,
+      "track_name": "SCARABA_DESERT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-062-scaraba_desert/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 63,
+      "track_name": "PYRAMID",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-063-pyramid/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 64,
+      "track_name": "DEEP_DARKNESS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-064-deep_darkness/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 65,
+      "track_name": "TENDA_VILLAGE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-065-tenda_village/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 66,
+      "track_name": "WELCOME_HOME",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-066-welcome_home/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 67,
+      "track_name": "SEA_OF_EDEN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-067-sea_of_eden/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 68,
+      "track_name": "LOST_UNDERWORLD",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-068-lost_underworld/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 69,
+      "track_name": "FIRST_STEP_BACK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-069-first_step_back/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 70,
+      "track_name": "SECOND_STEP_BACK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-070-second_step_back/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 71,
+      "track_name": "THE_PLACE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-071-the_place/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 72,
+      "track_name": "GIYGAS_AWAKENS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-072-giygas_awakens/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 73,
+      "track_name": "GIYGAS_PHASE2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-073-giygas_phase2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 74,
+      "track_name": "GIYGAS_WEAKENED2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-074-giygas_weakened2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 75,
+      "track_name": "GIYGAS_DEATH2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-075-giygas_death2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 76,
+      "track_name": "RUNAWAY5_CONCERT_1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-076-runaway5_concert_1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 77,
+      "track_name": "RUNAWAY5_TOUR_BUS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-077-runaway5_tour_bus/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 78,
+      "track_name": "RUNAWAY5_CONCERT_2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-078-runaway5_concert_2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 79,
+      "track_name": "POWER",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-079-power/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 80,
+      "track_name": "VENUS_CONCERT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-080-venus_concert/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 81,
+      "track_name": "YELLOW_SUBMARINE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-081-yellow_submarine/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 82,
+      "track_name": "BICYCLE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-082-bicycle/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 83,
+      "track_name": "SKY_RUNNER",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-083-sky_runner/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 84,
+      "track_name": "SKY_RUNNER_FALLING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-084-sky_runner_falling/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-085-bulldozer/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 86,
+      "track_name": "TESSIE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-086-tessie/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 87,
+      "track_name": "CITY_BUS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-087-city_bus/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 88,
+      "track_name": "FUZZY_PICKLES",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-088-fuzzy_pickles/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 89,
+      "track_name": "DELIVERY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-089-delivery/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 90,
+      "track_name": "RETURN_TO_YOUR_BODY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-090-return_to_your_body/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 91,
+      "track_name": "PHASE_DISTORTER_TIME_TRAVEL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-091-phase_distorter_time_travel/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 92,
+      "track_name": "COFFEE_BREAK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-092-coffee_break/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 93,
+      "track_name": "BECAUSE_I_LOVE_YOU",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-093-because_i_love_you/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-094-good_friends_bad_friends/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 95,
+      "track_name": "SMILES_AND_TEARS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-095-smiles_and_tears/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 96,
+      "track_name": "VS_CRANKY_LADY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-096-vs_cranky_lady/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 97,
+      "track_name": "VS_SPINNING_ROBO",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-097-vs_spinning_robo/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 98,
+      "track_name": "VS_STRUTTIN_EVIL_MUSHROOM",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-098-vs_struttin_evil_mushroom/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 99,
+      "track_name": "VS_MASTER_BELCH",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-099-vs_master_belch/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 100,
+      "track_name": "VS_NEW_AGE_RETRO_HIPPIE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-100-vs_new_age_retro_hippie/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 101,
+      "track_name": "VS_RUNAWAY_DOG",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-101-vs_runaway_dog/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 102,
+      "track_name": "VS_CAVE_BOY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-102-vs_cave_boy/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 103,
+      "track_name": "VS_YOUR_SANCTUARY_BOSS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-103-vs_your_sanctuary_boss/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 104,
+      "track_name": "VS_KRAKEN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-104-vs_kraken/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 105,
+      "track_name": "POKEY_MEANS_BUSINESS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-105-pokey_means_business/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 106,
+      "track_name": "INSIDE_THE_DUNGEON",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-106-inside_the_dungeon/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 107,
+      "track_name": "MEGATON_WALK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-107-megaton_walk/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 108,
+      "track_name": "SEA_OF_EDEN2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-108-sea_of_eden2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 109,
+      "track_name": "EXPLOSION",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-109-explosion/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 110,
+      "track_name": "SKY_RUNNER_CRASH",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-110-sky_runner_crash/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 111,
+      "track_name": "MAGIC_CAKE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-111-magic_cake/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 112,
+      "track_name": "POKEYS_HOUSE_BUZZ_BUZZ",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-112-pokeys_house_buzz_buzz/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 113,
+      "track_name": "BUZZ_BUZZ_SWATTED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-113-buzz_buzz_swatted/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 114,
+      "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-114-onett_at_night_buzz_buzz/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 116,
+      "track_name": "KNOCK_KNOCK_RIGHT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-116-knock_knock_right/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 117,
+      "track_name": "RABBIT_CAVE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-117-rabbit_cave/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 118,
+      "track_name": "ONETT_AT_NIGHT_3",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-118-onett_at_night_3/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 119,
+      "track_name": "APPLE_OF_ENLIGHTENMENT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-119-apple_of_enlightenment/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-120-hotel_of_the_living_dead/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 121,
+      "track_name": "ONETT_INTRO",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-121-onett_intro/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 122,
+      "track_name": "SUNRISE_ONETT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-122-sunrise_onett/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 123,
+      "track_name": "SOMEONE_JOINS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-123-someone_joins/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 124,
+      "track_name": "ENTER_STARMAN_JR",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-124-enter_starman_jr/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 125,
+      "track_name": "BOARDING_SCHOOL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-125-boarding_school/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 126,
+      "track_name": "PHASE_DISTORTER",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-126-phase_distorter/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 127,
+      "track_name": "PHASE_DISTORTER_2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-127-phase_distorter_2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 128,
+      "track_name": "BOY_MEETS_GIRL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-128-boy_meets_girl/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 129,
+      "track_name": "HAPPY_THREED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-129-happy_threed/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 130,
+      "track_name": "RUNAWAY5_ARE_FREED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-130-runaway5_are_freed/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 131,
+      "track_name": "FLYING_MAN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-131-flying_man/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 132,
+      "track_name": "ONETT_AT_NIGHT_2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-132-onett_at_night_2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 133,
+      "track_name": "HIDDEN_SONG",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-133-hidden_song/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 134,
+      "track_name": "YOUR_SANCTUARY_BOSS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-134-your_sanctuary_boss/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 135,
+      "track_name": "TELEPORT_IN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-135-teleport_in/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 136,
+      "track_name": "SATURN_VALLEY_CAVE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-136-saturn_valley_cave/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 137,
+      "track_name": "ELEVATOR_DOWN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-137-elevator_down/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 138,
+      "track_name": "ELEVATOR_UP",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-138-elevator_up/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 139,
+      "track_name": "ELEVATOR_STOP",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-139-elevator_stop/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 140,
+      "track_name": "TOPOLLA_THEATRE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-140-topolla_theatre/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 141,
+      "track_name": "VS_MASTER_BARF",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-141-vs_master_barf/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 142,
+      "track_name": "GOING_TO_MAGICANT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-142-going_to_magicant/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-143-leaving_magicant/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 144,
+      "track_name": "KRAKEN_DEFEATED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-144-kraken_defeated/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 145,
+      "track_name": "STONEHENGE_DESTRUCTION",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-145-stonehenge_destruction/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 146,
+      "track_name": "TESSIE_SIGHTING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-146-tessie_sighting/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 147,
+      "track_name": "METEOR_FALL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-147-meteor_fall/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 148,
+      "track_name": "VS_STARMAN_JR",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-148-vs_starman_jr/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 149,
+      "track_name": "RUNAWAY5_HELP_OUT",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-149-runaway5_help_out/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 150,
+      "track_name": "KNOCK_KNOCK",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-150-knock_knock/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 151,
+      "track_name": "ONETT_AFTER_METEOR1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-151-onett_after_meteor1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 152,
+      "track_name": "ONETT_AFTER_METEOR2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-152-onett_after_meteor2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 153,
+      "track_name": "POKEY_THEME",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-153-pokey_theme/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 154,
+      "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-154-onett_at_night_buzz_buzz2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 155,
+      "track_name": "YOUR_SANCTUARY_BOSS2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-155-your_sanctuary_boss2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 156,
+      "track_name": "METEOR_STRIKE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-156-meteor_strike/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-157-attract_mode/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 158,
+      "track_name": "NAME_CONFIRMATION",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-158-name_confirmation/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 159,
+      "track_name": "PEACEFUL_REST_VALLEY2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-159-peaceful_rest_valley2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 160,
+      "track_name": "SOUNDSTONE_RECORDING_GIANT_STEP",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-160-soundstone_recording_giant_step/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 161,
+      "track_name": "SOUNDSTONE_RECORDING_LILLIPUT_STEPS",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-161-soundstone_recording_lilliput_steps/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 162,
+      "track_name": "SOUNDSTONE_RECORDING_MILKY_WELL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-162-soundstone_recording_milky_well/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 163,
+      "track_name": "SOUNDSTONE_RECORDING_RAINY_CIRCLE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-163-soundstone_recording_rainy_circle/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 164,
+      "track_name": "SOUNDSTONE_RECORDING_MAGNET_HILL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-164-soundstone_recording_magnet_hill/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 165,
+      "track_name": "SOUNDSTONE_RECORDING_PINK_CLOUD",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-165-soundstone_recording_pink_cloud/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 166,
+      "track_name": "SOUNDSTONE_RECORDING_LUMINE_HALL",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-166-soundstone_recording_lumine_hall/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 167,
+      "track_name": "SOUNDSTONE_RECORDING_FIRE_SPRING",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-167-soundstone_recording_fire_spring/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 168,
+      "track_name": "SOUNDSTONE_BGM",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-168-soundstone_bgm/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 169,
+      "track_name": "EIGHT_MELODIES",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-169-eight_melodies/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 170,
+      "track_name": "DALAAM_INTRO",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-170-dalaam_intro/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-171-winters_intro/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 172,
+      "track_name": "POKEY_ESCAPES",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-172-pokey_escapes/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-173-good_morning_moonside/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-174-gas_station_2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-175-title_screen/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 176,
+      "track_name": "BATTLE_SWIRL4",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-176-battle_swirl4/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 177,
+      "track_name": "POKEY_INTRO",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-177-pokey_intro/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 178,
+      "track_name": "GOOD_MORNING_SCARABA",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-178-good_morning_scaraba/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 179,
+      "track_name": "ROBOTOMY1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-179-robotomy1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 180,
+      "track_name": "POKEY_ESCAPES2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-180-pokey_escapes2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 181,
+      "track_name": "RETURN_TO_YOUR_BODY2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-181-return_to_your_body2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 182,
+      "track_name": "GIYGAS_STATIC",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-182-giygas_static/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 183,
+      "track_name": "SUDDEN_VICTORY",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-183-sudden_victory/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 184,
+      "track_name": "YOU_WON3",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-184-you_won3/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 185,
+      "track_name": "GIYGAS_PHASE3",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-185-giygas_phase3/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 186,
+      "track_name": "GIYGAS_PHASE1",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-186-giygas_phase1/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 187,
+      "track_name": "GIVE_US_STRENGTH",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-187-give_us_strength/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 188,
+      "track_name": "GOOD_MORNING2",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-188-good_morning2/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 189,
+      "track_name": "SOUND_STONE",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-189-sound_stone/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 190,
+      "track_name": "GIYGAS_DEATH",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-190-giygas_death/oracle-comparison-result.json"
+    },
+    {
+      "track_id": 191,
+      "track_name": "GIYGAS_WEAKENED",
+      "status": "audio_equivalent_state_delta",
+      "oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "independent_emulator_capture": false,
+      "wav_byte_exact_match": true,
+      "pcm_alignment": {
+        "best_offset_samples": 0,
+        "normalized_correlation": 1.0
+      },
+      "spc_state": {
+        "header_registers_match": true,
+        "dsp_register_match": true,
+        "full_apu_ram_match": false,
+        "apu_region_matches": {
+          "driver_and_overlay": false,
+          "runtime_tables_and_sequences": true,
+          "brr_sample_payloads": true,
+          "full_apu_ram": false
+        }
+      },
+      "result_path": "build/audio/oracle-comparison-all-tracks/track-191-giygas_weakened/oracle-comparison-result.json"
+    }
+  ]
+}
