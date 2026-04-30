@@ -72,6 +72,7 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
     status = str(measurement_record.get("measurement_status")) if measurement_record else "missing_preview"
     measurement = measurement_record.get("measurement") if measurement_record else None
     candidate = measurement_record.get("candidate_duration") if measurement_record else None
+    target = policy_track.get("target_metadata", {})
 
     if duration_class == "no_audio_no_key_on":
         return {
@@ -82,6 +83,8 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
             "duration_seconds": 0.0,
             "fade_seconds": 0.0,
             "loop_count": 0,
+            "loop_metadata": None,
+            "finite_metadata": None,
             "needs_sequence_semantics": False,
         }
 
@@ -94,6 +97,13 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
             "duration_seconds": candidate["end_seconds"],
             "fade_seconds": 0.0,
             "loop_count": 0,
+            "loop_metadata": None,
+            "finite_metadata": {
+                "finite_end_sample": candidate["end_frame"],
+                "finite_end_seconds": candidate["end_seconds"],
+                "evidence": "sustained_tail_pcm_silence",
+                "measured_by": "audio_export_duration_measurement",
+            },
             "needs_sequence_semantics": False,
             "evidence": {
                 "end_frame": candidate["end_frame"],
@@ -111,6 +121,19 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
             "duration_seconds": 120.0 if measurement and float(measurement.get("total_seconds", 0.0)) >= 120 else 30.0,
             "fade_seconds": 5.0,
             "loop_count": 2,
+            "loop_metadata": {
+                "intro_samples": target.get("intro_samples"),
+                "loop_start_sample": target.get("loop_start_sample"),
+                "loop_end_sample": target.get("loop_end_sample"),
+                "measured_by": target.get("measured_by"),
+                "status": "loop_points_pending",
+                "preview_policy": {
+                    "mode": "loop_count_plus_fade_preview",
+                    "loop_count": 2,
+                    "fade_seconds": 5.0,
+                },
+            },
+            "finite_metadata": None,
             "needs_sequence_semantics": True,
         }
 
@@ -124,6 +147,13 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
             "duration_seconds": end_seconds,
             "fade_seconds": 0.0,
             "loop_count": 0,
+            "loop_metadata": None,
+            "finite_metadata": {
+                "finite_end_sample": candidate.get("end_frame") if candidate else None,
+                "finite_end_seconds": end_seconds,
+                "evidence": "trailing_pcm_silence_review_needed",
+                "measured_by": "audio_export_duration_measurement",
+            },
             "needs_sequence_semantics": True,
         }
 
@@ -136,6 +166,8 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
             "duration_seconds": 30.0,
             "fade_seconds": 5.0,
             "loop_count": 0,
+            "loop_metadata": None,
+            "finite_metadata": None,
             "needs_sequence_semantics": True,
         }
 
@@ -147,6 +179,8 @@ def export_decision(policy_track: dict[str, Any], measurement_record: dict[str, 
         "duration_seconds": None,
         "fade_seconds": None,
         "loop_count": None,
+        "loop_metadata": None,
+        "finite_metadata": None,
         "needs_sequence_semantics": track_id != 0,
     }
 
@@ -247,6 +281,7 @@ def render_markdown(plan: dict[str, Any]) -> str:
         )
         for record in plan["tracks"]
     ]
+    loop_metadata_count = sum(1 for record in plan["tracks"] if record.get("loop_metadata"))
     gates = [f"- {gate}" for gate in plan["release_gates"]]
     return "\n".join(
         [
@@ -259,6 +294,7 @@ def render_markdown(plan: dict[str, Any]) -> str:
             f"- export statuses: `{plan['summary']['export_status_counts']}`",
             f"- recommended modes: `{plan['summary']['recommended_mode_counts']}`",
             f"- tracks needing sequence semantics: `{plan['summary']['needs_sequence_semantics_count']}`",
+            f"- tracks with loop metadata placeholders: `{loop_metadata_count}`",
             "",
             "## Playback Confidence",
             "",

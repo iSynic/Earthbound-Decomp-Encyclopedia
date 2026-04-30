@@ -518,6 +518,12 @@ input {
   margin: 8px;
 }
 
+.audioPreviewMeta {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 8px 8px 0;
+}
+
 .buildStatusButton:hover {
   border-color: var(--line-strong);
   color: var(--text);
@@ -1462,6 +1468,28 @@ pre code {
 
 .asmString {
   color: #e0a986;
+}
+
+.codeBlock-json code {
+  color: #d8d8cf;
+}
+
+.jsonKey {
+  color: #9dbce5;
+  font-weight: 650;
+}
+
+.jsonString {
+  color: #e0a986;
+}
+
+.jsonNumber {
+  color: #a9d3c3;
+}
+
+.jsonLiteral {
+  color: #d3b56f;
+  font-weight: 650;
 }
 
 table {

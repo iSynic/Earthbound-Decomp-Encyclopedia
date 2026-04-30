@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-30T01:48:07.010Z",
+  "generatedAt": "2026-04-30T03:26:34.887Z",
   "buildMode": "authored",
   "sourceRoot": "authored-release-baseline",
   "appRoot": "packaged-app",
@@ -10,39 +10,57 @@
     "shortSha": "c0c0a9ccd032"
   },
   "counts": {
-    "notes": 934,
+    "notes": 936,
     "README.md": 1,
-    "tools": 259
+    "tools": 264
   },
-  "fileCount": 1194,
+  "fileCount": 1201,
   "changesSinceLastBuild": {
     "hasPreviousSnapshot": true,
-    "added": [],
-    "modified": [],
+    "added": [
+      "notes/audio-ff-terminator-review.md",
+      "notes/audio-spc700-driver-dispatch-frontier.md",
+      "tools/build_audio_ff_terminator_review.py",
+      "tools/build_audio_spc700_driver_dispatch_frontier.py",
+      "tools/build_coilsnake_project_inventory.py",
+      "tools/validate_audio_ff_terminator_review.py",
+      "tools/validate_audio_spc700_driver_dispatch_frontier.py"
+    ],
+    "modified": [
+      "notes/audio-backend-contract.md",
+      "notes/audio-exact-duration-triage.md",
+      "notes/audio-export-plan.md",
+      "notes/audio-sequence-walk-frontier.md",
+      "tools/build_audio_backend_contract.py",
+      "tools/build_audio_export_plan.py",
+      "tools/build_audio_playback_export_manifest.py",
+      "tools/validate_audio_export_plan.py",
+      "tools/validate_audio_playback_export_manifest.py"
+    ],
     "removed": [],
-    "total": 0
+    "total": 16
   },
   "latest": [
+    "tools/build_coilsnake_project_inventory.py",
+    "notes/audio-spc700-driver-dispatch-frontier.md",
+    "tools/validate_audio_spc700_driver_dispatch_frontier.py",
+    "tools/build_audio_spc700_driver_dispatch_frontier.py",
+    "notes/audio-backend-contract.md",
+    "tools/build_audio_backend_contract.py",
+    "notes/audio-ff-terminator-review.md",
+    "tools/build_audio_ff_terminator_review.py",
+    "notes/audio-sequence-walk-frontier.md",
+    "notes/audio-exact-duration-triage.md",
+    "tools/validate_audio_ff_terminator_review.py",
+    "notes/audio-export-plan.md",
+    "tools/validate_audio_export_plan.py",
+    "tools/build_audio_export_plan.py",
+    "tools/validate_audio_playback_export_manifest.py",
+    "tools/build_audio_playback_export_manifest.py",
     "README.md",
     "notes/readable-source-bank-closure.md",
     "notes/source-scaffold-status.md",
-    "notes/asset-data-contract-frontier.md",
-    "notes/map-milestone-closure.md",
-    "notes/localization-script-source-index.md",
-    "notes/legacy-reference-findings.md",
-    "notes/c2-battle-contract-workahead.md",
-    "notes/window-title-glyph-upload-c444fb.md",
-    "notes/window-flavour-palette-block-refresh-c47f87.md",
-    "notes/visual-selector-family-c0780f-c3f2b5.md",
-    "notes/visual-frame-selector-update-family-c4-62ff.md",
-    "notes/try-fix-item-callback-d0.md",
-    "notes/transition-landing-mode-family-9f3f-9f41.md",
-    "notes/timed-event-slot-block-7440-and-c20abc.md",
-    "notes/timed-event-callback-invoker-c187cc.md",
-    "notes/timed-event-callback-family-bank01.md",
-    "notes/timed-delivery-warning-text-gates.md",
-    "notes/timed-delivery-system-flags-754-779.md",
-    "notes/timed-delivery-state-helpers-ef0f60-fdb-ff6.md"
+    "notes/asset-data-contract-frontier.md"
   ],
   "files": [
     {
@@ -97,8 +115,8 @@
     },
     {
       "path": "notes/audio-backend-contract.md",
-      "size": 44621,
-      "mtimeMs": 1777507070226
+      "size": 45098,
+      "mtimeMs": 1777519107788
     },
     {
       "path": "notes/audio-cpu-mailbox-contract.md",
@@ -118,7 +136,7 @@
     {
       "path": "notes/audio-exact-duration-triage.md",
       "size": 7256,
-      "mtimeMs": 1777496130287
+      "mtimeMs": 1777519041914
     },
     {
       "path": "notes/audio-export-duration-policy.md",
@@ -127,8 +145,13 @@
     },
     {
       "path": "notes/audio-export-plan.md",
-      "size": 32169,
-      "mtimeMs": 1777507078701
+      "size": 32217,
+      "mtimeMs": 1777518728598
+    },
+    {
+      "path": "notes/audio-ff-terminator-review.md",
+      "size": 14581,
+      "mtimeMs": 1777519060269
     },
     {
       "path": "notes/audio-oracle-comparison-plan-all-tracks.md",
@@ -173,12 +196,17 @@
     {
       "path": "notes/audio-sequence-walk-frontier.md",
       "size": 5533,
-      "mtimeMs": 1777496059459
+      "mtimeMs": 1777519042001
     },
     {
       "path": "notes/audio-spc-state-frontier.md",
       "size": 37006,
       "mtimeMs": 1777496173166
+    },
+    {
+      "path": "notes/audio-spc700-driver-dispatch-frontier.md",
+      "size": 6967,
+      "mtimeMs": 1777519575369
     },
     {
       "path": "notes/bank-0-1-progress-audit.md",
@@ -4777,8 +4805,8 @@
     },
     {
       "path": "tools/build_audio_backend_contract.py",
-      "size": 59722,
-      "mtimeMs": 1777507056085
+      "size": 60227,
+      "mtimeMs": 1777519103968
     },
     {
       "path": "tools/build_audio_backend_jobs_from_spc_index.py",
@@ -4837,8 +4865,13 @@
     },
     {
       "path": "tools/build_audio_export_plan.py",
-      "size": 14250,
-      "mtimeMs": 1777507055873
+      "size": 15957,
+      "mtimeMs": 1777518713608
+    },
+    {
+      "path": "tools/build_audio_ff_terminator_review.py",
+      "size": 10893,
+      "mtimeMs": 1777519055779
     },
     {
       "path": "tools/build_audio_keyon_primed_spc_experiment.py",
@@ -4867,8 +4900,8 @@
     },
     {
       "path": "tools/build_audio_playback_export_manifest.py",
-      "size": 7859,
-      "mtimeMs": 1777485952417
+      "size": 12204,
+      "mtimeMs": 1777518663522
     },
     {
       "path": "tools/build_audio_renderer_fixtures.py",
@@ -4904,6 +4937,11 @@
       "path": "tools/build_audio_spc_state_frontier.py",
       "size": 75139,
       "mtimeMs": 1777496164804
+    },
+    {
+      "path": "tools/build_audio_spc700_driver_dispatch_frontier.py",
+      "size": 16217,
+      "mtimeMs": 1777519552211
     },
     {
       "path": "tools/build_audio_track_snapshot.py",
@@ -4989,6 +5027,11 @@
       "path": "tools/build_cf_table_splits.py",
       "size": 14136,
       "mtimeMs": 1777080191472
+    },
+    {
+      "path": "tools/build_coilsnake_project_inventory.py",
+      "size": 19938,
+      "mtimeMs": 1777519580082
     },
     {
       "path": "tools/build_d0_table_splits.py",
@@ -5867,8 +5910,13 @@
     },
     {
       "path": "tools/validate_audio_export_plan.py",
-      "size": 4911,
-      "mtimeMs": 1777493398170
+      "size": 6188,
+      "mtimeMs": 1777518724385
+    },
+    {
+      "path": "tools/validate_audio_ff_terminator_review.py",
+      "size": 4066,
+      "mtimeMs": 1777519036099
     },
     {
       "path": "tools/validate_audio_fusion_timing_metrics.py",
@@ -5922,8 +5970,8 @@
     },
     {
       "path": "tools/validate_audio_playback_export_manifest.py",
-      "size": 8632,
-      "mtimeMs": 1777486828055
+      "size": 11188,
+      "mtimeMs": 1777518677224
     },
     {
       "path": "tools/validate_audio_render_metrics_comparison.py",
@@ -5974,6 +6022,11 @@
       "path": "tools/validate_audio_spc_state_frontier.py",
       "size": 2874,
       "mtimeMs": 1777425905143
+    },
+    {
+      "path": "tools/validate_audio_spc700_driver_dispatch_frontier.py",
+      "size": 3459,
+      "mtimeMs": 1777519571283
     },
     {
       "path": "tools/validate_c3_assembler_contract.py",

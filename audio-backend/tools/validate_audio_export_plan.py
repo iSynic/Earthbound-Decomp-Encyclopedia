@@ -79,11 +79,28 @@ def validate(plan: dict[str, Any]) -> list[str]:
                 errors.append(f"track {track_id}: finite trim requires a positive duration")
             if record.get("needs_sequence_semantics"):
                 errors.append(f"track {track_id}: observed finite trim should not require sequence semantics")
+            finite = record.get("finite_metadata")
+            if not isinstance(finite, dict) or finite.get("finite_end_sample") is None:
+                errors.append(f"track {track_id}: finite trim requires finite_metadata.finite_end_sample")
         if mode == "loop_count_plus_fade_preview":
             if float(record.get("fade_seconds", 0.0)) <= 0:
                 errors.append(f"track {track_id}: loop preview requires fade seconds")
             if int(record.get("loop_count", 0)) <= 0:
                 errors.append(f"track {track_id}: loop preview requires loop count")
+            loop = record.get("loop_metadata")
+            if not isinstance(loop, dict):
+                errors.append(f"track {track_id}: loop preview requires loop_metadata")
+            else:
+                for key in ("intro_samples", "loop_start_sample", "loop_end_sample", "measured_by"):
+                    if key not in loop:
+                        errors.append(f"track {track_id}: loop_metadata missing {key}")
+                preview = loop.get("preview_policy", {})
+                if preview.get("mode") != "loop_count_plus_fade_preview":
+                    errors.append(f"track {track_id}: loop_metadata preview policy mode mismatch")
+                if int(preview.get("loop_count", 0)) != int(record.get("loop_count", -1)):
+                    errors.append(f"track {track_id}: loop_metadata loop_count mismatch")
+                if float(preview.get("fade_seconds", 0.0)) != float(record.get("fade_seconds", -1.0)):
+                    errors.append(f"track {track_id}: loop_metadata fade_seconds mismatch")
         if export_class == "skip_no_audio" and mode != "skip":
             errors.append(f"track {track_id}: no-audio class must use skip mode")
 

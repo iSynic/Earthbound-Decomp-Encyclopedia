@@ -1,0 +1,4025 @@
+{
+  "schema": "earthbound-decomp.audio-ff-terminator-review.v1",
+  "status": "ff_terminator_candidates_grouped_dispatch_pending",
+  "references": [
+    "manifests/audio-exact-duration-triage.json",
+    "manifests/audio-sequence-walk-frontier.json",
+    "manifests/audio-sequence-control-flow-frontier.json"
+  ],
+  "summary": {
+    "candidate_pack_count": 92,
+    "candidate_track_count": 123,
+    "promotion_class_pack_counts": {
+      "ff_can_confirm_existing_pcm_trim_candidate": 2,
+      "ff_can_promote_after_dispatch": 47,
+      "ff_can_promote_after_dispatch_and_track_review": 7,
+      "ff_present_but_loop_metadata_still_needed": 34,
+      "ff_present_with_fallthrough_roots": 2
+    },
+    "promotion_class_track_counts": {
+      "ff_can_confirm_existing_pcm_trim_candidate": 7,
+      "ff_can_promote_after_dispatch": 48,
+      "ff_can_promote_after_dispatch_and_track_review": 13,
+      "ff_present_but_loop_metadata_still_needed": 51,
+      "ff_present_with_fallthrough_roots": 4
+    },
+    "missing_walk_detail_pack_ids": [],
+    "semantic_status": "static_ff_candidates_ready_for_spc700_dispatch_corroboration"
+  },
+  "promotion_rules": [
+    "No record in this review has FD/FE blockers; those stay in the separate blocked lane.",
+    "FF can only be promoted to a true end/return command after SPC700 dispatch confirms its effect.",
+    "Finite/transition review tracks still need track-context review even when FF is confirmed.",
+    "Loop/held candidates with FF still require loop-point or hold/fade interpretation before release exactness."
+  ],
+  "candidates": [
+    {
+      "pack_id": 97,
+      "range": "EC:BF28..EC:CAA1",
+      "track_count": 2,
+      "track_ids": [
+        86,
+        146
+      ],
+      "tracks": [
+        {
+          "track_id": 86,
+          "track_name": "TESSIE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 146,
+          "track_name": "TESSIE_SIGHTING",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 42,
+        "terminates": 2
+      },
+      "ef_call_edges": 43,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 16,
+        "sampled_terminating_roots": 2,
+        "sampled_fallthrough_roots": 14,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x000C",
+            "terminator_offset": "0x000E",
+            "segment_end": "0x0014",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5000",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2
+        }
+      },
+      "promotion_class": "ff_present_with_fallthrough_roots"
+    },
+    {
+      "pack_id": 102,
+      "range": "CE:F8C6..CE:FFAA",
+      "track_count": 2,
+      "track_ids": [
+        90,
+        181
+      ],
+      "tracks": [
+        {
+          "track_id": 90,
+          "track_name": "RETURN_TO_YOUR_BODY",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 181,
+          "track_name": "RETURN_TO_YOUR_BODY2",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 2
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 37,
+        "terminates": 1
+      },
+      "ef_call_edges": 31,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 16,
+        "sampled_terminating_roots": 1,
+        "sampled_fallthrough_roots": 14,
+        "sampled_blocked_roots": 1,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0018",
+            "terminator_offset": "0x0026",
+            "segment_end": "0x0028",
+            "bytes_before_segment_end": 1
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "1": 1
+        }
+      },
+      "promotion_class": "ff_present_with_fallthrough_roots"
+    },
+    {
+      "pack_id": 133,
+      "range": "EC:B38A..EC:BF28",
+      "track_count": 4,
+      "track_ids": [
+        116,
+        150,
+        153,
+        177
+      ],
+      "tracks": [
+        {
+          "track_id": 116,
+          "track_name": "KNOCK_KNOCK_RIGHT",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 120.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 150,
+          "track_name": "KNOCK_KNOCK",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 120.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 153,
+          "track_name": "POKEY_THEME",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 177,
+          "track_name": "POKEY_INTRO",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 3.760531,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2,
+        "unknown_active_preview": 1,
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 40,
+        "terminates": 4
+      },
+      "ef_call_edges": 20,
+      "ff_terminator_candidates": 4,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 30,
+        "sampled_terminating_roots": 3,
+        "sampled_fallthrough_roots": 27,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0000",
+            "terminator_offset": "0x0002",
+            "segment_end": "0x0008",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5C00",
+            "root_offset": "0x0000",
+            "terminator_offset": "0x0002",
+            "segment_end": "0x0008",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x6000",
+            "root_offset": "0x0000",
+            "terminator_offset": "0x0008",
+            "segment_end": "0x000E",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 3
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 149,
+      "range": "E9:F8C8..E9:FF65",
+      "track_count": 3,
+      "track_ids": [
+        147,
+        152,
+        156
+      ],
+      "tracks": [
+        {
+          "track_id": 147,
+          "track_name": "METEOR_FALL",
+          "export_class": "finite_trim_candidate",
+          "recommended_mode": "trim_to_observed_end",
+          "duration_seconds": 18.651344,
+          "needs_sequence_semantics": false
+        },
+        {
+          "track_id": 152,
+          "track_name": "ONETT_AFTER_METEOR2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 156,
+          "track_name": "METEOR_STRIKE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 120.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_trim_candidate": 1,
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 52,
+        "terminates": 4
+      },
+      "ef_call_edges": 20,
+      "ff_terminator_candidates": 4,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 24,
+        "sampled_terminating_roots": 4,
+        "sampled_fallthrough_roots": 20,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5C00",
+            "root_offset": "0x0004",
+            "terminator_offset": "0x0006",
+            "segment_end": "0x000C",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x6200",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x6200",
+            "root_offset": "0x001A",
+            "terminator_offset": "0x0022",
+            "segment_end": "0x002A",
+            "bytes_before_segment_end": 7
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 3,
+          "7": 1
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 132,
+      "range": "ED:1406..ED:1DFF",
+      "track_count": 3,
+      "track_ids": [
+        114,
+        118,
+        121
+      ],
+      "tracks": [
+        {
+          "track_id": 114,
+          "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 118,
+          "track_name": "ONETT_AT_NIGHT_3",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 121,
+          "track_name": "ONETT_INTRO",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 3
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 57,
+        "terminates": 3
+      },
+      "ef_call_edges": 31,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 24,
+        "sampled_terminating_roots": 3,
+        "sampled_fallthrough_roots": 21,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0006",
+            "segment_end": "0x000C",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5C00",
+            "root_offset": "0x000A",
+            "terminator_offset": "0x000C",
+            "segment_end": "0x0012",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x6200",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 3
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 83,
+      "range": "EE:6D36..EE:6FDD",
+      "track_count": 3,
+      "track_ids": [
+        75,
+        182,
+        190
+      ],
+      "tracks": [
+        {
+          "track_id": 75,
+          "track_name": "GIYGAS_DEATH2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 182,
+          "track_name": "GIYGAS_STATIC",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 190,
+          "track_name": "GIYGAS_DEATH",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 3
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 44,
+        "terminates": 3
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 24,
+        "sampled_terminating_roots": 3,
+        "sampled_fallthrough_roots": 21,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5200",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x5300",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 3
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 79,
+      "range": "DC:F8BF..DC:FF92",
+      "track_count": 3,
+      "track_ids": [
+        73,
+        185,
+        187
+      ],
+      "tracks": [
+        {
+          "track_id": 73,
+          "track_name": "GIYGAS_PHASE2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 185,
+          "track_name": "GIYGAS_PHASE3",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 187,
+          "track_name": "GIVE_US_STRENGTH",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2,
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 22,
+        "terminates": 2
+      },
+      "ef_call_edges": 17,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 18,
+        "sampled_terminating_roots": 2,
+        "sampled_fallthrough_roots": 16,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x5400",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 55,
+      "range": "EC:CAA1..EC:D5D8",
+      "track_count": 2,
+      "track_ids": [
+        58,
+        144
+      ],
+      "tracks": [
+        {
+          "track_id": 58,
+          "track_name": "SAILING_TO_SCARABA",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 144,
+          "track_name": "KRAKEN_DEFEATED",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1,
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 39,
+        "terminates": 3
+      },
+      "ef_call_edges": 22,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 16,
+        "sampled_terminating_roots": 3,
+        "sampled_fallthrough_roots": 13,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0000",
+            "terminator_offset": "0x000A",
+            "segment_end": "0x0010",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0020",
+            "terminator_offset": "0x0026",
+            "segment_end": "0x0030",
+            "bytes_before_segment_end": 9
+          },
+          {
+            "block_index": 1,
+            "destination": "0x6000",
+            "root_offset": "0x000C",
+            "terminator_offset": "0x000E",
+            "segment_end": "0x0014",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2,
+          "9": 1
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 150,
+      "range": "ED:53DF..ED:5C01",
+      "track_count": 2,
+      "track_ids": [
+        148,
+        149
+      ],
+      "tracks": [
+        {
+          "track_id": 148,
+          "track_name": "VS_STARMAN_JR",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 149,
+          "track_name": "RUNAWAY5_HELP_OUT",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 36,
+        "terminates": 2
+      },
+      "ef_call_edges": 26,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 16,
+        "sampled_terminating_roots": 2,
+        "sampled_fallthrough_roots": 14,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x000E",
+            "segment_end": "0x0014",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5000",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 23,
+      "range": "EE:3E9C..EE:42BB",
+      "track_count": 2,
+      "track_ids": [
+        30,
+        31
+      ],
+      "tracks": [
+        {
+          "track_id": 30,
+          "track_name": "YOUR_SANCTUARY_1",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 31,
+          "track_name": "YOUR_SANCTUARY_2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 36,
+        "terminates": 2
+      },
+      "ef_call_edges": 16,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 16,
+        "sampled_terminating_roots": 2,
+        "sampled_fallthrough_roots": 14,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0006",
+            "segment_end": "0x000C",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x6000",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2
+        }
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 81,
+      "range": "EE:7E29..EE:804D",
+      "track_count": 2,
+      "track_ids": [
+        74,
+        191
+      ],
+      "tracks": [
+        {
+          "track_id": 74,
+          "track_name": "GIYGAS_WEAKENED2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 191,
+          "track_name": "GIYGAS_WEAKENED",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 22,
+        "terminates": 2
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 34,
+      "range": "ED:27F7..ED:3195",
+      "track_count": 2,
+      "track_ids": [
+        46,
+        122
+      ],
+      "tracks": [
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 122,
+          "track_name": "SUNRISE_ONETT",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 13,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 145,
+      "range": "EA:FE8B..EA:FFE2",
+      "track_count": 2,
+      "track_ids": [
+        134,
+        155
+      ],
+      "tracks": [
+        {
+          "track_id": 134,
+          "track_name": "YOUR_SANCTUARY_BOSS",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 155,
+          "track_name": "YOUR_SANCTUARY_BOSS2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 85,
+      "range": "ED:AB12..ED:B136",
+      "track_count": 1,
+      "track_ids": [
+        76
+      ],
+      "tracks": [
+        {
+          "track_id": 76,
+          "track_name": "RUNAWAY5_CONCERT_1",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 16,
+        "terminates": 3
+      },
+      "ef_call_edges": 25,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 36,
+      "range": "E2:ED2C..E2:FC88",
+      "track_count": 1,
+      "track_ids": [
+        47
+      ],
+      "tracks": [
+        {
+          "track_id": 47,
+          "track_name": "FOURSIDE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 18,
+        "terminates": 2
+      },
+      "ef_call_edges": 49,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 112,
+      "range": "EE:0554..EE:0A8B",
+      "track_count": 1,
+      "track_ids": [
+        97
+      ],
+      "tracks": [
+        {
+          "track_id": 97,
+          "track_name": "VS_SPINNING_ROBO",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 2
+      },
+      "ef_call_edges": 14,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 111,
+      "range": "DA:FB07..DA:FFEE",
+      "track_count": 1,
+      "track_ids": [
+        96
+      ],
+      "tracks": [
+        {
+          "track_id": 96,
+          "track_name": "VS_CRANKY_LADY",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 2
+      },
+      "ef_call_edges": 13,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 62,
+      "range": "EC:9B76..EC:A7D8",
+      "track_count": 1,
+      "track_ids": [
+        62
+      ],
+      "tracks": [
+        {
+          "track_id": 62,
+          "track_name": "SCARABA_DESERT",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 2
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 57,
+      "range": "ED:D539..ED:DAFD",
+      "track_count": 1,
+      "track_ids": [
+        59
+      ],
+      "tracks": [
+        {
+          "track_id": 59,
+          "track_name": "DALAAM",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 32,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 123,
+      "range": "E1:F581..E1:FFF2",
+      "track_count": 1,
+      "track_ids": [
+        104
+      ],
+      "tracks": [
+        {
+          "track_id": 104,
+          "track_name": "VS_KRAKEN",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 12,
+        "terminates": 1
+      },
+      "ef_call_edges": 27,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 119,
+      "range": "ED:3195..ED:3A9C",
+      "track_count": 1,
+      "track_ids": [
+        101
+      ],
+      "tracks": [
+        {
+          "track_id": 101,
+          "track_name": "VS_RUNAWAY_DOG",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 21,
+        "terminates": 1
+      },
+      "ef_call_edges": 25,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 67,
+      "range": "EE:19EE..EE:1EFE",
+      "track_count": 1,
+      "track_ids": [
+        65
+      ],
+      "tracks": [
+        {
+          "track_id": 65,
+          "track_name": "TENDA_VILLAGE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 22,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 117,
+      "range": "ED:C36C..ED:C96E",
+      "track_count": 1,
+      "track_ids": [
+        100
+      ],
+      "tracks": [
+        {
+          "track_id": 100,
+          "track_name": "VS_NEW_AGE_RETRO_HIPPIE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 21,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 120,
+      "range": "ED:5C01..ED:6409",
+      "track_count": 1,
+      "track_ids": [
+        102
+      ],
+      "tracks": [
+        {
+          "track_id": 102,
+          "track_name": "VS_CAVE_BOY",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 13,
+        "terminates": 1
+      },
+      "ef_call_edges": 20,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 48,
+      "range": "ED:436B..ED:4BA7",
+      "track_count": 1,
+      "track_ids": [
+        54
+      ],
+      "tracks": [
+        {
+          "track_id": 54,
+          "track_name": "WINTERS",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 16,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 121,
+      "range": "ED:0000..ED:0A07",
+      "track_count": 1,
+      "track_ids": [
+        103
+      ],
+      "tracks": [
+        {
+          "track_id": 103,
+          "track_name": "VS_YOUR_SANCTUARY_BOSS",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 16,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 151,
+      "range": "EE:648C..EE:67B7",
+      "track_count": 1,
+      "track_ids": [
+        151
+      ],
+      "tracks": [
+        {
+          "track_id": 151,
+          "track_name": "ONETT_AFTER_METEOR1",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 16,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 6,
+      "range": "E0:FCE1..E0:FFB3",
+      "track_count": 1,
+      "track_ids": [
+        7
+      ],
+      "tracks": [
+        {
+          "track_id": 7,
+          "track_name": "YOU_LOSE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 120.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 10,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 113,
+      "range": "ED:F183..ED:F710",
+      "track_count": 1,
+      "track_ids": [
+        98
+      ],
+      "tracks": [
+        {
+          "track_id": 98,
+          "track_name": "VS_STRUTTIN_EVIL_MUSHROOM",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 10,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 143,
+      "range": "DE:FCDD..DE:FFD4",
+      "track_count": 1,
+      "track_ids": [
+        132
+      ],
+      "tracks": [
+        {
+          "track_id": 132,
+          "track_name": "ONETT_AT_NIGHT_2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 9,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 159,
+      "range": "EE:8638..EE:87CB",
+      "track_count": 1,
+      "track_ids": [
+        170
+      ],
+      "tracks": [
+        {
+          "track_id": 170,
+          "track_name": "DALAAM_INTRO",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 8,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 152,
+      "range": "EE:826C..EE:8466",
+      "track_count": 1,
+      "track_ids": [
+        154
+      ],
+      "tracks": [
+        {
+          "track_id": 154,
+          "track_name": "ONETT_AT_NIGHT_BUZZ_BUZZ2",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 3,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 65,
+      "range": "DB:F2EB..DB:FF64",
+      "track_count": 1,
+      "track_ids": [
+        64
+      ],
+      "tracks": [
+        {
+          "track_id": 64,
+          "track_name": "DEEP_DARKNESS",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 41,
+      "range": "EE:90FF..EE:9201",
+      "track_count": 1,
+      "track_ids": [
+        50
+      ],
+      "tracks": [
+        {
+          "track_id": 50,
+          "track_name": "MOONSIDE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 164,
+      "range": "EE:614C..EE:648C",
+      "track_count": 1,
+      "track_ids": [
+        178
+      ],
+      "tracks": [
+        {
+          "track_id": 178,
+          "track_name": "GOOD_MORNING_SCARABA",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 12,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 167,
+      "range": "EE:8C1E..EE:8D65",
+      "track_count": 1,
+      "track_ids": [
+        186
+      ],
+      "tracks": [
+        {
+          "track_id": 186,
+          "track_name": "GIYGAS_PHASE1",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 11,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_present_but_loop_metadata_still_needed"
+    },
+    {
+      "pack_id": 103,
+      "range": "EE:52E6..EE:56DF",
+      "track_count": 3,
+      "track_ids": [
+        91,
+        126,
+        127
+      ],
+      "tracks": [
+        {
+          "track_id": 91,
+          "track_name": "PHASE_DISTORTER_TIME_TRAVEL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 16.832563,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 126,
+          "track_name": "PHASE_DISTORTER",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 3.56725,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 127,
+          "track_name": "PHASE_DISTORTER_2",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 3.553031,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 3
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 47,
+        "terminates": 3
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 24,
+        "sampled_terminating_roots": 3,
+        "sampled_fallthrough_roots": 21,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x4C00",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 2,
+            "destination": "0x5200",
+            "root_offset": "0x0002",
+            "terminator_offset": "0x0004",
+            "segment_end": "0x000A",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 3
+        }
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 4,
+      "range": "DF:EC46..DF:FFEE",
+      "track_count": 3,
+      "track_ids": [
+        2,
+        3,
+        158
+      ],
+      "tracks": [
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 3,
+          "track_name": "SETUP_SCREEN",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 158,
+          "track_name": "NAME_CONFIRMATION",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 6.951906,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 2,
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 47,
+        "terminates": 2
+      },
+      "ef_call_edges": 103,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 24,
+        "sampled_terminating_roots": 2,
+        "sampled_fallthrough_roots": 22,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0004",
+            "terminator_offset": "0x0008",
+            "segment_end": "0x000E",
+            "bytes_before_segment_end": 5
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5000",
+            "root_offset": "0x0000",
+            "terminator_offset": "0x0012",
+            "segment_end": "0x0018",
+            "bytes_before_segment_end": 5
+          }
+        ],
+        "terminator_tail_byte_counts": {
+          "5": 2
+        }
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 162,
+      "range": "ED:A4D7..ED:AB12",
+      "track_count": 2,
+      "track_ids": [
+        172,
+        180
+      ],
+      "tracks": [
+        {
+          "track_id": 172,
+          "track_name": "POKEY_ESCAPES",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 180,
+          "track_name": "POKEY_ESCAPES2",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 7.385187,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1,
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 29,
+        "terminates": 3
+      },
+      "ef_call_edges": 11,
+      "ff_terminator_candidates": 3,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 1,
+      "range": "E6:0000..E6:45D8",
+      "track_count": 2,
+      "track_ids": [
+        1,
+        174
+      ],
+      "tracks": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 174,
+          "track_name": "GAS_STATION_2",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 13.578563,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1,
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 9,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 137,
+      "range": "EE:8FD6..EE:90FF",
+      "track_count": 1,
+      "track_ids": [
+        124
+      ],
+      "tracks": [
+        {
+          "track_id": 124,
+          "track_name": "ENTER_STARMAN_JR",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 3.406875,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 6,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 147,
+      "range": "EE:804D..EE:826C",
+      "track_count": 1,
+      "track_ids": [
+        142
+      ],
+      "tracks": [
+        {
+          "track_id": 142,
+          "track_name": "GOING_TO_MAGICANT",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 11.8845,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 130,
+      "range": "EE:8D65..EE:8EA2",
+      "track_count": 1,
+      "track_ids": [
+        111
+      ],
+      "tracks": [
+        {
+          "track_id": 111,
+          "track_name": "MAGIC_CAKE",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 5.790375,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch_and_track_review"
+    },
+    {
+      "pack_id": 19,
+      "range": "ED:CF55..ED:D539",
+      "track_count": 2,
+      "track_ids": [
+        26,
+        27
+      ],
+      "tracks": [
+        {
+          "track_id": 26,
+          "track_name": "HOTEL",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 27,
+          "track_name": "GOOD_MORNING",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 2
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 39,
+        "terminates": 2
+      },
+      "ef_call_edges": 15,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 68,
+      "range": "ED:73E2..ED:7BB6",
+      "track_count": 1,
+      "track_ids": [
+        66
+      ],
+      "tracks": [
+        {
+          "track_id": 66,
+          "track_name": "WELCOME_HOME",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 2
+      },
+      "ef_call_edges": 60,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 146,
+      "range": "ED:F710..ED:FC9C",
+      "track_count": 1,
+      "track_ids": [
+        140
+      ],
+      "tracks": [
+        {
+          "track_id": 140,
+          "track_name": "TOPOLLA_THEATRE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 2
+      },
+      "ef_call_edges": 36,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 104,
+      "range": "ED:7BB6..ED:8389",
+      "track_count": 1,
+      "track_ids": [
+        92
+      ],
+      "tracks": [
+        {
+          "track_id": 92,
+          "track_name": "COFFEE_BREAK",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 2
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 61,
+      "range": "D8:F6B7..D8:FFE9",
+      "track_count": 1,
+      "track_ids": [
+        61
+      ],
+      "tracks": [
+        {
+          "track_id": 61,
+          "track_name": "BAZAAR",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 15,
+        "terminates": 2
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 15,
+      "range": "EC:EB51..EC:F578",
+      "track_count": 1,
+      "track_ids": [
+        22
+      ],
+      "tracks": [
+        {
+          "track_id": 22,
+          "track_name": "HOSPITAL",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 64,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 43,
+      "range": "ED:9E93..ED:A4D7",
+      "track_count": 1,
+      "track_ids": [
+        51
+      ],
+      "tracks": [
+        {
+          "track_id": 51,
+          "track_name": "DUSTY_DUNES_DESERT",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 21,
+        "terminates": 1
+      },
+      "ef_call_edges": 34,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 141,
+      "range": "ED:3A9C..ED:436B",
+      "track_count": 1,
+      "track_ids": [
+        129
+      ],
+      "tracks": [
+        {
+          "track_id": 129,
+          "track_name": "HAPPY_THREED",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 34,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 99,
+      "range": "ED:B136..ED:B753",
+      "track_count": 1,
+      "track_ids": [
+        87
+      ],
+      "tracks": [
+        {
+          "track_id": 87,
+          "track_name": "CITY_BUS",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 32,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 138,
+      "range": "EE:2DCD..EE:3236",
+      "track_count": 1,
+      "track_ids": [
+        125
+      ],
+      "tracks": [
+        {
+          "track_id": 125,
+          "track_name": "BOARDING_SCHOOL",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 28,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 127,
+      "range": "EE:3236..EE:365D",
+      "track_count": 1,
+      "track_ids": [
+        106
+      ],
+      "tracks": [
+        {
+          "track_id": 106,
+          "track_name": "INSIDE_THE_DUNGEON",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 21,
+        "terminates": 1
+      },
+      "ef_call_edges": 22,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 26,
+      "range": "ED:9824..ED:9E93",
+      "track_count": 1,
+      "track_ids": [
+        40
+      ],
+      "tracks": [
+        {
+          "track_id": 40,
+          "track_name": "NEAR_A_BOSS",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 21,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 53,
+      "range": "EE:14D4..EE:19EE",
+      "track_count": 1,
+      "track_ids": [
+        57
+      ],
+      "tracks": [
+        {
+          "track_id": 57,
+          "track_name": "JACKIES_CAFE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 21,
+        "terminates": 1
+      },
+      "ef_call_edges": 21,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 30,
+      "range": "ED:E65C..ED:EBF4",
+      "track_count": 1,
+      "track_ids": [
+        43
+      ],
+      "tracks": [
+        {
+          "track_id": 43,
+          "track_name": "BELCH_BASE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 20,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 93,
+      "range": "EE:5A99..EE:5DFA",
+      "track_count": 1,
+      "track_ids": [
+        82
+      ],
+      "tracks": [
+        {
+          "track_id": 82,
+          "track_name": "BICYCLE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 20,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 39,
+      "range": "ED:4BA7..ED:53DF",
+      "track_count": 1,
+      "track_ids": [
+        49
+      ],
+      "tracks": [
+        {
+          "track_id": 49,
+          "track_name": "MONKEY_CAVES",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 19,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 20,
+      "range": "EE:1EFE..EE:2401",
+      "track_count": 1,
+      "track_ids": [
+        28
+      ],
+      "tracks": [
+        {
+          "track_id": 28,
+          "track_name": "DEPARTMENT_STORE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 18,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 158,
+      "range": "ED:E0AE..ED:E65C",
+      "track_count": 1,
+      "track_ids": [
+        169
+      ],
+      "tracks": [
+        {
+          "track_id": 169,
+          "track_name": "EIGHT_MELODIES",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 18,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 142,
+      "range": "EE:46CE..EE:4ADF",
+      "track_count": 1,
+      "track_ids": [
+        131
+      ],
+      "tracks": [
+        {
+          "track_id": 131,
+          "track_name": "FLYING_MAN",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 15,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 46,
+      "range": "E8:F872..E8:FF1B",
+      "track_count": 1,
+      "track_ids": [
+        53
+      ],
+      "tracks": [
+        {
+          "track_id": 53,
+          "track_name": "ZOMBIE_THREED2",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 21,
+        "terminates": 1
+      },
+      "ef_call_edges": 14,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 88,
+      "range": "EE:6FDD..EE:7274",
+      "track_count": 1,
+      "track_ids": [
+        79
+      ],
+      "tracks": [
+        {
+          "track_id": 79,
+          "track_name": "POWER",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 14,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 134,
+      "range": "ED:EBF4..ED:F183",
+      "track_count": 1,
+      "track_ids": [
+        117
+      ],
+      "tracks": [
+        {
+          "track_id": 117,
+          "track_name": "RABBIT_CAVE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 14,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 106,
+      "range": "EC:D5D8..EC:E101",
+      "track_count": 1,
+      "track_ids": [
+        93
+      ],
+      "tracks": [
+        {
+          "track_id": 93,
+          "track_name": "BECAUSE_I_LOVE_YOU",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 13,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 11,
+      "range": "EE:42BB..EE:46CE",
+      "track_count": 1,
+      "track_ids": [
+        18
+      ],
+      "tracks": [
+        {
+          "track_id": 18,
+          "track_name": "SLOPPY_HOUSE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 12,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 49,
+      "range": "EE:87CB..EE:894F",
+      "track_count": 1,
+      "track_ids": [
+        55
+      ],
+      "tracks": [
+        {
+          "track_id": 55,
+          "track_name": "CAVE_NEAR_A_BOSS",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 14,
+        "terminates": 1
+      },
+      "ef_call_edges": 12,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 135,
+      "range": "EE:6A85..EE:6D36",
+      "track_count": 1,
+      "track_ids": [
+        119
+      ],
+      "tracks": [
+        {
+          "track_id": 119,
+          "track_name": "APPLE_OF_ENLIGHTENMENT",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 11,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 9,
+      "range": "EE:894F..EE:8ACA",
+      "track_count": 1,
+      "track_ids": [
+        16
+      ],
+      "tracks": [
+        {
+          "track_id": 16,
+          "track_name": "DR_ANDONUTS_LAB",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 10,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 32,
+      "range": "E3:FDCC..E3:FFF2",
+      "track_count": 1,
+      "track_ids": [
+        45
+      ],
+      "tracks": [
+        {
+          "track_id": 45,
+          "track_name": "SPOOKY_CAVE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 17,
+        "terminates": 1
+      },
+      "ef_call_edges": 9,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 91,
+      "range": "EE:7BDF..EE:7E29",
+      "track_count": 1,
+      "track_ids": [
+        81
+      ],
+      "tracks": [
+        {
+          "track_id": 81,
+          "track_name": "YELLOW_SUBMARINE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 8,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 101,
+      "range": "EE:4EEA..EE:52E6",
+      "track_count": 1,
+      "track_ids": [
+        89
+      ],
+      "tracks": [
+        {
+          "track_id": 89,
+          "track_name": "DELIVERY",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 7,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 29,
+      "range": "ED:FC9C..ED:FFFE",
+      "track_count": 1,
+      "track_ids": [
+        42
+      ],
+      "tracks": [
+        {
+          "track_id": 42,
+          "track_name": "FIRE_SPRINGS_HALL",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 15,
+        "terminates": 1
+      },
+      "ef_call_edges": 6,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 12,
+      "range": "EE:67B7..EE:6A85",
+      "track_count": 1,
+      "track_ids": [
+        19
+      ],
+      "tracks": [
+        {
+          "track_id": 19,
+          "track_name": "NEIGHBOURS_HOUSE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 15,
+        "terminates": 1
+      },
+      "ef_call_edges": 5,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 45,
+      "range": "D9:FC18..D9:FFE1",
+      "track_count": 1,
+      "track_ids": [
+        52
+      ],
+      "tracks": [
+        {
+          "track_id": 52,
+          "track_name": "PEACEFUL_REST_VALLEY",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 1
+      },
+      "ef_call_edges": 4,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 128,
+      "range": "EE:8466..EE:8638",
+      "track_count": 1,
+      "track_ids": [
+        107
+      ],
+      "tracks": [
+        {
+          "track_id": 107,
+          "track_name": "MEGATON_WALK",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 4,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 31,
+      "range": "EE:7274..EE:74D7",
+      "track_count": 1,
+      "track_ids": [
+        44
+      ],
+      "tracks": [
+        {
+          "track_id": 44,
+          "track_name": "ZOMBIE_THREED",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 20,
+        "terminates": 1
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 100,
+      "range": "ED:91AF..ED:9824",
+      "track_count": 1,
+      "track_ids": [
+        88
+      ],
+      "tracks": [
+        {
+          "track_id": 88,
+          "track_name": "FUZZY_PICKLES",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 1
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 129,
+      "range": "EE:74D7..EE:7737",
+      "track_count": 1,
+      "track_ids": [
+        108
+      ],
+      "tracks": [
+        {
+          "track_id": 108,
+          "track_name": "SEA_OF_EDEN2",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 15,
+        "terminates": 1
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 168,
+      "range": "EE:8EA2..EE:8FD6",
+      "track_count": 1,
+      "track_ids": [
+        188
+      ],
+      "tracks": [
+        {
+          "track_id": 188,
+          "track_name": "GOOD_MORNING2",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 11,
+        "terminates": 1
+      },
+      "ef_call_edges": 2,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 17,
+      "range": "EE:798E..EE:7BDF",
+      "track_count": 1,
+      "track_ids": [
+        24
+      ],
+      "tracks": [
+        {
+          "track_id": 24,
+          "track_name": "PAULAS_THEME",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 63,
+      "range": "EE:28FE..EE:2DCD",
+      "track_count": 1,
+      "track_ids": [
+        63
+      ],
+      "tracks": [
+        {
+          "track_id": 63,
+          "track_name": "PYRAMID",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 15,
+        "terminates": 1
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 155,
+      "range": "E4:FD92..E4:FFF9",
+      "track_count": 1,
+      "track_ids": [
+        159
+      ],
+      "tracks": [
+        {
+          "track_id": 159,
+          "track_name": "PEACEFUL_REST_VALLEY2",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 1,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 13,
+      "range": "EB:FE22..EB:FFFF",
+      "track_count": 1,
+      "track_ids": [
+        20
+      ],
+      "tracks": [
+        {
+          "track_id": 20,
+          "track_name": "ARCADE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 11,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 59,
+      "range": "CB:FEE2..CB:FFE4",
+      "track_count": 1,
+      "track_ids": [
+        60
+      ],
+      "tracks": [
+        {
+          "track_id": 60,
+          "track_name": "MU_TRAINING",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 69,
+      "range": "EE:8ACA..EE:8C1E",
+      "track_count": 1,
+      "track_ids": [
+        67
+      ],
+      "tracks": [
+        {
+          "track_id": 67,
+          "track_name": "SEA_OF_EDEN",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 73,
+      "range": "E6:FF18..E6:FFF5",
+      "track_count": 1,
+      "track_ids": [
+        69
+      ],
+      "tracks": [
+        {
+          "track_id": 69,
+          "track_name": "FIRST_STEP_BACK",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 16,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 75,
+      "range": "DD:FECE..DD:FFF8",
+      "track_count": 1,
+      "track_ids": [
+        70
+      ],
+      "tracks": [
+        {
+          "track_id": 70,
+          "track_name": "SECOND_STEP_BACK",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 8,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 166,
+      "range": "E5:FF38..E5:FFDE",
+      "track_count": 1,
+      "track_ids": [
+        179
+      ],
+      "tracks": [
+        {
+          "track_id": 179,
+          "track_name": "ROBOTOMY1",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 5,
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "ff_terminator_candidates": 1,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_promote_after_dispatch"
+    },
+    {
+      "pack_id": 10,
+      "range": "ED:BD60..ED:C36C",
+      "track_count": 4,
+      "track_ids": [
+        17,
+        137,
+        138,
+        139
+      ],
+      "tracks": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "export_class": "finite_trim_candidate",
+          "recommended_mode": "trim_to_observed_end",
+          "duration_seconds": 22.0855,
+          "needs_sequence_semantics": false
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "export_class": "finite_trim_candidate",
+          "recommended_mode": "trim_to_observed_end",
+          "duration_seconds": 22.081906,
+          "needs_sequence_semantics": false
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "export_class": "finite_trim_candidate",
+          "recommended_mode": "trim_to_observed_end",
+          "duration_seconds": 22.082031,
+          "needs_sequence_semantics": false
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1,
+        "finite_trim_candidate": 3
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 58,
+        "terminates": 4
+      },
+      "ef_call_edges": 37,
+      "ff_terminator_candidates": 4,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_confirm_existing_pcm_trim_candidate"
+    },
+    {
+      "pack_id": 14,
+      "range": "ED:DAFD..ED:E0AE",
+      "track_count": 3,
+      "track_ids": [
+        21,
+        112,
+        113
+      ],
+      "tracks": [
+        {
+          "track_id": 21,
+          "track_name": "POKEYS_HOUSE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 112,
+          "track_name": "POKEYS_HOUSE_BUZZ_BUZZ",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 113,
+          "track_name": "BUZZ_BUZZ_SWATTED",
+          "export_class": "finite_trim_candidate",
+          "recommended_mode": "trim_to_observed_end",
+          "duration_seconds": 2.246594,
+          "needs_sequence_semantics": false
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 2,
+        "finite_trim_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 37,
+        "terminates": 2
+      },
+      "ef_call_edges": 8,
+      "ff_terminator_candidates": 2,
+      "blocker_counts": {},
+      "review_detail": {
+        "sampled_root_count": 0,
+        "sampled_terminating_roots": 0,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_terminators": [],
+        "terminator_tail_byte_counts": {}
+      },
+      "promotion_class": "ff_can_confirm_existing_pcm_trim_candidate"
+    }
+  ],
+  "findings": [
+    "The no-FD/FE FF lane covers packs that are structurally ready for dispatch corroboration.",
+    "Candidate packs mix finite trims, finite/transition reviews, unknown active previews, and loop/held tracks, so FF confirmation alone is necessary but not sufficient for public exact exports.",
+    "Tracks whose export class is finite_trim_candidate can use FF as sequence corroboration for existing PCM silence evidence once the driver dispatch is named.",
+    "Loop/held packs with FF likely need intro/body loop modeling rather than simple finite-end promotion."
+  ],
+  "next_work": [
+    "inspect the SPC700 high-command dispatch path for FF and record whether it stops a channel, returns from EF, or ends a sequence",
+    "after FF dispatch is confirmed, promote finite_trim_candidate records to sequence-corroborated finite metadata",
+    "keep loop_or_held_candidate records in the loop-point lane even if FF is confirmed as a local terminator"
+  ]
+}
