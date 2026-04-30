@@ -51,7 +51,11 @@ const state = {
   firstRunDismissed: loadFirstRunDismissed(),
   workspaceMessage: "",
   workspaceFilePreviews: {},
-  workspaceMediaPreviews: {}
+  workspaceMediaPreviews: {},
+  assetBrowser: {
+    graphicsBank: "all",
+    graphicsShowAll: false
+  }
 };
 const KIND_ORDER = [
   "chapter",
@@ -499,6 +503,9 @@ function renderDocument() {
   documentEl.querySelectorAll("[data-workspace-media]").forEach((button) => {
     button.addEventListener("click", () => loadWorkspaceMediaPreview(button));
   });
+  documentEl.querySelectorAll("[data-asset-browser-action]").forEach((button) => {
+    button.addEventListener("click", () => handleAssetBrowserAction(button));
+  });
   enhanceCodeBlocks();
 
   renderRail(entry);
@@ -853,6 +860,16 @@ function filePreviewKind(filePath) {
 function prioritizeGeneratedMedia(files, familyId) {
   if (familyId === "graphics") {
     return [...files].sort((a, b) => {
+      const aGroup = /overworld-sprites\/groups\//i.test(a);
+      const bGroup = /overworld-sprites\/groups\//i.test(b);
+      if (aGroup !== bGroup) {
+        return aGroup ? -1 : 1;
+      }
+      const aSheet = /overworld-sprites\/sheets-preview\//i.test(a);
+      const bSheet = /overworld-sprites\/sheets-preview\//i.test(b);
+      if (aSheet !== bSheet) {
+        return aSheet ? -1 : 1;
+      }
       const aFrame = /frames/i.test(a) || /frames_2x3/i.test(a);
       const bFrame = /frames/i.test(b) || /frames_2x3/i.test(b);
       if (aFrame !== bFrame) {
@@ -869,7 +886,7 @@ function renderGeneratedAssetSurface(family) {
   const imageFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "image"), family.id);
   const audioFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "audio"), family.id);
   if (family.id === "graphics") {
-    return renderMediaFamilySurface(family, imageFiles, "Sprite And Graphics Previews", "Generated frame-sheet and tile-atlas PNGs will appear here after Graphics And Sprites generation.");
+    return renderGraphicsFamilySurface(family, imageFiles);
   }
   if (family.id === "maps") {
     return renderMediaFamilySurface(family, imageFiles, "Map And Tileset Previews", "Generated map, tileset, palette, and collision preview images will appear here when those renderer stages emit them. The current first-stage generator records map handoff manifests.");
@@ -878,6 +895,86 @@ function renderGeneratedAssetSurface(family) {
     return renderMediaFamilySurface(family, audioFiles, "Audio Playback", "Generated WAV previews will appear here after Music And Audio generation.");
   }
   return "";
+}
+
+function graphicsBankFromPath(filePath) {
+  const match = String(filePath || "").match(/\/(d[1-5])\//i);
+  return match ? match[1].toLowerCase() : "all";
+}
+
+function graphicsSpriteIdFromPath(filePath) {
+  const match = String(filePath || "").match(/(?:sprite-)?(\d{4})/i);
+  return match ? match[1] : "";
+}
+
+function graphicsMediaLabel(filePath) {
+  const bank = graphicsBankFromPath(filePath);
+  const spriteId = graphicsSpriteIdFromPath(filePath);
+  if (/overworld-sprites\/groups\/all/i.test(filePath)) {
+    return "All sprites contact sheet";
+  }
+  if (/overworld-sprites\/groups\/by-bank\//i.test(filePath)) {
+    return `${bank.toUpperCase()} contact sheet`;
+  }
+  if (/overworld-sprites\/sheets-preview\//i.test(filePath)) {
+    return `${bank.toUpperCase()} sprite ${spriteId || "sheet"}`;
+  }
+  if (/overworld-sprites\/frames\//i.test(filePath)) {
+    return `${bank.toUpperCase()} sprite ${spriteId || "frame"} candidate frames`;
+  }
+  if (/tiles\//i.test(filePath)) {
+    return `${bank.toUpperCase()} sprite ${spriteId || "tiles"} tile atlas`;
+  }
+  return filePath.split("/").pop() || filePath;
+}
+
+function renderGraphicsFamilySurface(family, imageFiles) {
+  const groupFiles = imageFiles.filter((filePath) => /overworld-sprites\/groups\//i.test(filePath));
+  const sheetFiles = imageFiles.filter((filePath) => /overworld-sprites\/sheets-preview\//i.test(filePath));
+  const frameFiles = imageFiles.filter((filePath) => /overworld-sprites\/frames\//i.test(filePath));
+  const tileFiles = imageFiles.filter((filePath) => /tiles\//i.test(filePath));
+  const selectedBank = state.assetBrowser.graphicsBank || "all";
+  const bankOptions = ["all", "d1", "d2", "d3", "d4", "d5"];
+  const filteredSheets = selectedBank === "all"
+    ? sheetFiles
+    : sheetFiles.filter((filePath) => graphicsBankFromPath(filePath) === selectedBank);
+  const visibleLimit = state.assetBrowser.graphicsShowAll ? filteredSheets.length : 120;
+  const visibleSheets = filteredSheets.slice(0, visibleLimit);
+  return `
+    <section class="mediaFamilySurface graphicsBrowser">
+      <div class="generatedFamilyHeader">
+        <h3>Sprite And Graphics Browser</h3>
+        <span>${sheetFiles.length ? `${sheetFiles.length} sprite sheet${sheetFiles.length === 1 ? "" : "s"}` : "renderer pending"}</span>
+      </div>
+      ${imageFiles.length ? `
+        <div class="graphicsBrowserControls">
+          <div class="segmentedControl" role="group" aria-label="Sprite bank filter">
+            ${bankOptions.map((bank) => `
+              <button type="button" class="${selectedBank === bank ? "active" : ""}" data-asset-browser-action="set-graphics-bank" data-bank="${escapeHtml(bank)}">${escapeHtml(bank === "all" ? "All" : bank.toUpperCase())}</button>
+            `).join("")}
+          </div>
+          <button type="button" class="secondaryAction" data-asset-browser-action="toggle-graphics-show-all">${state.assetBrowser.graphicsShowAll ? "Show fewer sprites" : "Show all sprites"}</button>
+          <button type="button" class="secondaryAction" data-asset-browser-action="load-visible-media" data-family-id="${escapeHtml(family.id)}">Load visible previews</button>
+        </div>
+        <div class="assetBrowserStats">
+          ${groupFiles.length} grouped sheet${groupFiles.length === 1 ? "" : "s"} - ${filteredSheets.length} ${selectedBank === "all" ? "sprite sheets" : `${selectedBank.toUpperCase()} sprite sheets`} - ${frameFiles.length} candidate frame preview${frameFiles.length === 1 ? "" : "s"} - ${tileFiles.length} tile atlas preview${tileFiles.length === 1 ? "" : "s"}
+        </div>
+        ${groupFiles.length ? `
+          <h4 class="mediaSubheading">Grouped Sheets</h4>
+          <div class="mediaPreviewGrid groupedSheets">
+            ${groupFiles.map((filePath) => renderMediaPreviewTile(family.id, filePath)).join("")}
+          </div>
+        ` : ""}
+        ${visibleSheets.length ? `
+          <h4 class="mediaSubheading">Individual Sprite Sheets</h4>
+          <div class="mediaPreviewGrid spriteSheetGrid">
+            ${visibleSheets.map((filePath) => renderMediaPreviewTile(family.id, filePath)).join("")}
+          </div>
+          ${filteredSheets.length > visibleSheets.length ? `<p class="workspaceNotice">Showing ${visibleSheets.length} of ${filteredSheets.length} sprite sheets. Use Show all sprites to expand this bank.</p>` : ""}
+        ` : `<p class="workspaceNotice">No generated sprite sheets match this bank filter yet.</p>`}
+      ` : `<p class="workspaceNotice">Generated sprite-sheet PNGs will appear here after Graphics And Sprites generation.</p>`}
+    </section>
+  `;
 }
 
 function renderMediaFamilySurface(family, mediaFiles, title, emptyMessage) {
@@ -900,9 +997,10 @@ function renderMediaPreviewTile(familyId, filePath) {
   const preview = state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)];
   const kind = filePreviewKind(filePath);
   const audioSource = preview?.fileUrl || preview?.dataUrl || "";
+  const label = familyId === "graphics" ? graphicsMediaLabel(filePath) : filePath;
   return `
     <div class="mediaPreviewTile">
-      <button type="button" class="generatedFileButton" data-workspace-media="true" data-family-id="${escapeHtml(familyId)}" data-file-path="${escapeHtml(filePath)}">${escapeHtml(filePath)}</button>
+      <button type="button" class="generatedFileButton" data-workspace-media="true" data-family-id="${escapeHtml(familyId)}" data-file-path="${escapeHtml(filePath)}" title="${escapeHtml(filePath)}">${escapeHtml(label)}</button>
       ${preview?.error ? `<p class="workspaceNotice">${escapeHtml(preview.error)}</p>` : ""}
       ${preview?.dataUrl && kind === "image" ? `<img src="${escapeHtml(preview.dataUrl)}" alt="${escapeHtml(filePath)}">` : ""}
       ${audioSource && kind === "audio" ? `
@@ -1061,6 +1159,60 @@ async function runWorkspaceJob(action, familyId = "") {
     state.workspaceMessage = `Workspace job failed: ${error?.message || error}`;
     render();
   }
+}
+
+async function handleAssetBrowserAction(button) {
+  const action = button?.getAttribute("data-asset-browser-action") || "";
+  if (action === "set-graphics-bank") {
+    state.assetBrowser.graphicsBank = button?.getAttribute("data-bank") || "all";
+    state.assetBrowser.graphicsShowAll = false;
+    render();
+    return;
+  }
+  if (action === "toggle-graphics-show-all") {
+    state.assetBrowser.graphicsShowAll = !state.assetBrowser.graphicsShowAll;
+    render();
+    return;
+  }
+  if (action === "load-visible-media") {
+    await loadVisibleMediaPreviews(button?.getAttribute("data-family-id") || "");
+  }
+}
+
+async function loadVisibleMediaPreviews(familyId) {
+  const manifest = workspaceManifest();
+  const workspaceRoot = manifest?.directories?.root;
+  if (!workspaceRoot || !familyId || !window.earthboundWorkspace?.readMedia) {
+    state.workspaceMessage = "Media previews require the Electron app and a generated workspace.";
+    render();
+    return;
+  }
+  const buttons = [...documentEl.querySelectorAll(`[data-workspace-media="true"][data-family-id="${CSS.escape(familyId)}"]`)];
+  const filePaths = buttons
+    .map((button) => button.getAttribute("data-file-path") || "")
+    .filter(Boolean)
+    .filter((filePath, index, list) => list.indexOf(filePath) === index)
+    .filter((filePath) => !state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)]?.dataUrl && !state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)]?.fileUrl);
+  if (!filePaths.length) {
+    state.workspaceMessage = "Visible previews are already loaded.";
+    render();
+    return;
+  }
+  state.workspaceMessage = `Loading ${filePaths.length} visible preview${filePaths.length === 1 ? "" : "s"}...`;
+  render();
+  for (const filePath of filePaths) {
+    const key = workspacePreviewKey(familyId, filePath);
+    try {
+      const result = await window.earthboundWorkspace.readMedia(workspaceRoot, familyId, filePath);
+      state.workspaceMediaPreviews[key] = result?.ok
+        ? result.media
+        : { error: result?.error || "Could not read generated media." };
+    } catch (error) {
+      state.workspaceMediaPreviews[key] = { error: error?.message || String(error) };
+    }
+  }
+  state.workspaceMessage = `Loaded ${filePaths.length} visible preview${filePaths.length === 1 ? "" : "s"}.`;
+  render();
 }
 
 async function loadWorkspaceFilePreview(button) {

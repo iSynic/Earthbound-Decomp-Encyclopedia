@@ -324,6 +324,146 @@ function writeSnes4bppFrameSheet(filePath, data, options = {}) {
   };
 }
 
+function spriteFrameLayout(data, options = {}) {
+  const frameTileColumns = options.frameTileColumns || 2;
+  const frameTileRows = options.frameTileRows || 3;
+  const tileCount = Math.floor(data.length / 32);
+  const tilesPerFrame = frameTileColumns * frameTileRows;
+  return {
+    tileCount,
+    tilesPerFrame,
+    frameTileColumns,
+    frameTileRows,
+    frameWidth: frameTileColumns * 8,
+    frameHeight: frameTileRows * 8,
+    frameCount: Math.max(1, Math.floor(tileCount / tilesPerFrame))
+  };
+}
+
+function drawSnes4bppSpriteFrame(rgba, width, data, frameIndex, left, top, options = {}) {
+  const scale = options.scale || 1;
+  const palette = options.palette || snesPaletteFromBytes(Buffer.alloc(0));
+  const layout = spriteFrameLayout(data, options);
+  for (let frameTileIndex = 0; frameTileIndex < layout.tilesPerFrame; frameTileIndex += 1) {
+    const tileIndex = frameIndex * layout.tilesPerFrame + frameTileIndex;
+    if (tileIndex >= layout.tileCount) {
+      continue;
+    }
+    const tile = decodeSnes4bppTile(data.subarray(tileIndex * 32, tileIndex * 32 + 32));
+    const tileLeft = left + (frameTileIndex % layout.frameTileColumns) * 8 * scale;
+    const tileTop = top + Math.floor(frameTileIndex / layout.frameTileColumns) * 8 * scale;
+    drawSnes4bppTile(rgba, width, tile, tileLeft, tileTop, scale, palette);
+  }
+}
+
+function writeSnes4bppSpriteSheet(filePath, data, options = {}) {
+  const layout = spriteFrameLayout(data, options);
+  const scale = options.scale || 1;
+  const palette = options.palette || snesPaletteFromBytes(Buffer.alloc(0));
+  const framesPerRow = options.framesPerRow || layout.frameCount;
+  const gutter = options.gutter ?? 0;
+  const frameWidth = layout.frameWidth * scale;
+  const frameHeight = layout.frameHeight * scale;
+  const frameRows = Math.max(1, Math.ceil(layout.frameCount / framesPerRow));
+  const width = framesPerRow * frameWidth + Math.max(0, framesPerRow - 1) * gutter;
+  const height = frameRows * frameHeight + Math.max(0, frameRows - 1) * gutter;
+  const rgba = Buffer.alloc(width * height * 4);
+  fillRgba(rgba, options.background || [0, 0, 0, 0]);
+  for (let frameIndex = 0; frameIndex < layout.frameCount; frameIndex += 1) {
+    const frameLeft = (frameIndex % framesPerRow) * (frameWidth + gutter);
+    const frameTop = Math.floor(frameIndex / framesPerRow) * (frameHeight + gutter);
+    drawSnes4bppSpriteFrame(rgba, width, data, frameIndex, frameLeft, frameTop, {
+      ...options,
+      scale,
+      palette
+    });
+  }
+  writePngRgba(filePath, width, height, rgba);
+  return {
+    width,
+    height,
+    tileCount: layout.tileCount,
+    frameCount: layout.frameCount,
+    frameWidth: layout.frameWidth,
+    frameHeight: layout.frameHeight,
+    frameTileColumns: layout.frameTileColumns,
+    frameTileRows: layout.frameTileRows,
+    framesPerRow,
+    scale,
+    layout: "overworld_sprite_2x3_frames_row_major"
+  };
+}
+
+function decodedSpriteFrameRows(data, options = {}) {
+  const layout = spriteFrameLayout(data, options);
+  const frames = [];
+  for (let frameIndex = 0; frameIndex < layout.frameCount; frameIndex += 1) {
+    const rows = Array.from({ length: layout.frameHeight }, () => Array.from({ length: layout.frameWidth }, () => 0));
+    for (let frameTileIndex = 0; frameTileIndex < layout.tilesPerFrame; frameTileIndex += 1) {
+      const tileIndex = frameIndex * layout.tilesPerFrame + frameTileIndex;
+      if (tileIndex >= layout.tileCount) {
+        continue;
+      }
+      const tile = decodeSnes4bppTile(data.subarray(tileIndex * 32, tileIndex * 32 + 32));
+      const tileLeft = (frameTileIndex % layout.frameTileColumns) * 8;
+      const tileTop = Math.floor(frameTileIndex / layout.frameTileColumns) * 8;
+      for (let y = 0; y < 8; y += 1) {
+        for (let x = 0; x < 8; x += 1) {
+          rows[tileTop + y][tileLeft + x] = tile[y][x];
+        }
+      }
+    }
+    frames.push({
+      index: frameIndex,
+      width: layout.frameWidth,
+      height: layout.frameHeight,
+      paletteIndexRows: rows.map((row) => row.map((value) => value.toString(16).toUpperCase()).join(""))
+    });
+  }
+  return frames;
+}
+
+function writeSpriteContactSheet(filePath, sprites, options = {}) {
+  const scale = options.scale || 2;
+  const palette = options.palette || snesPaletteFromBytes(Buffer.alloc(0));
+  const columns = options.columns || 8;
+  const framesPerSpriteRow = options.framesPerSpriteRow || 2;
+  const maxFrameRows = options.maxFrameRows || 2;
+  const frameWidth = 16 * scale;
+  const frameHeight = 24 * scale;
+  const frameGutter = options.frameGutter ?? 2;
+  const cellPadding = options.cellPadding ?? 4;
+  const cellWidth = cellPadding * 2 + framesPerSpriteRow * frameWidth + (framesPerSpriteRow - 1) * frameGutter;
+  const cellHeight = cellPadding * 2 + maxFrameRows * frameHeight + (maxFrameRows - 1) * frameGutter;
+  const rows = Math.max(1, Math.ceil(sprites.length / columns));
+  const width = columns * cellWidth;
+  const height = rows * cellHeight;
+  const rgba = Buffer.alloc(width * height * 4);
+  fillRgba(rgba, options.background || [13, 13, 12, 255]);
+  for (const [spriteIndex, sprite] of sprites.entries()) {
+    const cellLeft = (spriteIndex % columns) * cellWidth + cellPadding;
+    const cellTop = Math.floor(spriteIndex / columns) * cellHeight + cellPadding;
+    const layout = spriteFrameLayout(sprite.bytes);
+    const visibleFrames = Math.min(layout.frameCount, framesPerSpriteRow * maxFrameRows);
+    for (let frameIndex = 0; frameIndex < visibleFrames; frameIndex += 1) {
+      const frameLeft = cellLeft + (frameIndex % framesPerSpriteRow) * (frameWidth + frameGutter);
+      const frameTop = cellTop + Math.floor(frameIndex / framesPerSpriteRow) * (frameHeight + frameGutter);
+      drawSnes4bppSpriteFrame(rgba, width, sprite.bytes, frameIndex, frameLeft, frameTop, { scale, palette });
+    }
+  }
+  writePngRgba(filePath, width, height, rgba);
+  return {
+    width,
+    height,
+    spriteCount: sprites.length,
+    columns,
+    scale,
+    cellWidth,
+    cellHeight,
+    layout: "bank_contact_sheet_first_four_2x3_frames"
+  };
+}
+
 function appAssetManifestPath(bank) {
   return path.join(__dirname, "..", "asset-manifests", `bank-${bank.toLowerCase()}-assets.json`);
 }
@@ -415,6 +555,7 @@ function generateOverworldSpritePreviews(outputDir, payload) {
   const spriteDir = path.join(outputDir, "overworld-sprites");
   const palette = snesPaletteFromBytes(payload.subarray(fileOffsetFromSnesRange("C3:0000"), fileOffsetFromSnesRange("C3:0020")));
   const previewEntries = [];
+  const spritesByBank = new Map();
   writeJson(path.join(spriteDir, "palette-00.json"), {
     schema: "earthbound-decomp.generated-snes-palette.v1",
     generatedAt: new Date().toISOString(),
@@ -444,6 +585,9 @@ function generateOverworldSpritePreviews(outputDir, payload) {
       const rawRelativePath = rawOutput?.path ? `raw/${rawOutput.path}` : `raw/${bank}/overworld_sprites/gfx/${spriteId}.gfx`;
       const tileRelativePath = paletteOutput?.path ? `tiles/${paletteOutput.path}` : `tiles/${bank}/${spriteId}_palette_00_preview.png`;
       const frameRelativePath = `overworld-sprites/frames/${bank}/${spriteId}_palette_00_frames_2x3.png`;
+      const sheetRelativePath = `overworld-sprites/sheets/${bank}/${spriteId}_palette_00_sheet.png`;
+      const sheetPreviewRelativePath = `overworld-sprites/sheets-preview/${bank}/${spriteId}_palette_00_sheet_preview.png`;
+      const decodedRelativePath = `overworld-sprites/decoded/${bank}/${spriteId}_palette_00_sheet.json`;
       const rawPath = path.join(outputDir, rawRelativePath);
       ensureDir(path.dirname(rawPath));
       fs.writeFileSync(rawPath, spriteBytes);
@@ -459,7 +603,39 @@ function generateOverworldSpritePreviews(outputDir, payload) {
         scale: 4,
         palette
       });
-      previewEntries.push({
+      const spriteSheet = writeSnes4bppSpriteSheet(path.join(outputDir, sheetRelativePath), spriteBytes, {
+        scale: 1,
+        gutter: 0,
+        palette
+      });
+      const spriteSheetPreview = writeSnes4bppSpriteSheet(path.join(outputDir, sheetPreviewRelativePath), spriteBytes, {
+        scale: 4,
+        gutter: 4,
+        palette,
+        background: [13, 13, 12, 255]
+      });
+      writeJson(path.join(outputDir, decodedRelativePath), {
+        schema: "earthbound-decomp.generated-overworld-sprite-sheet.v1",
+        generatedAt: new Date().toISOString(),
+        id: asset.id,
+        title: asset.title,
+        bank: bank.toUpperCase(),
+        sourceRange: source.range,
+        rawPath: rawRelativePath,
+        sheetPath: sheetRelativePath,
+        previewPath: sheetPreviewRelativePath,
+        palette: {
+          sourceRange: "C3:0000..C3:0020",
+          colors: palette.map(([r, g, b, a], index) => ({
+            index,
+            rgba: [r, g, b, a],
+            hex: `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("").toUpperCase()}`
+          }))
+        },
+        sheet: spriteSheet,
+        frames: decodedSpriteFrameRows(spriteBytes)
+      });
+      const spriteRecord = {
         id: asset.id,
         title: asset.title,
         bank: bank.toUpperCase(),
@@ -468,16 +644,64 @@ function generateOverworldSpritePreviews(outputDir, payload) {
         rawPath: rawRelativePath,
         tileAtlasPath: tileRelativePath,
         frameSheetPath: frameRelativePath,
-        path: frameRelativePath,
+        sheetPath: sheetRelativePath,
+        sheetPreviewPath: sheetPreviewRelativePath,
+        decodedSheetPath: decodedRelativePath,
+        path: sheetPreviewRelativePath,
         palette: "C3:0000..C3:0020",
         tileAtlas: tileImage,
         frameSheet: frameImage,
-        width: frameImage.width,
-        height: frameImage.height,
-        tileCount: frameImage.tileCount,
-        layoutConfidence: "candidate_overworld_sprite_frame_sheet_from_24_tile_payload"
+        spriteSheet,
+        spriteSheetPreview,
+        width: spriteSheetPreview.width,
+        height: spriteSheetPreview.height,
+        tileCount: spriteSheet.tileCount,
+        frameCount: spriteSheet.frameCount,
+        layoutConfidence: "predigested_row_major_overworld_sprite_sheet_from_asset_payload"
+      };
+      if (!spritesByBank.has(bank)) {
+        spritesByBank.set(bank, []);
+      }
+      spritesByBank.get(bank).push({ ...spriteRecord, bytes: spriteBytes });
+      previewEntries.push({
+        ...spriteRecord,
+        bytes: range.length
       });
     }
+  }
+  const groupSheets = [];
+  for (const [bank, sprites] of spritesByBank.entries()) {
+    const bankSheetRelativePath = `overworld-sprites/groups/by-bank/${bank}_palette_00_contact_sheet.png`;
+    const contactSheet = writeSpriteContactSheet(path.join(outputDir, bankSheetRelativePath), sprites, {
+      scale: 2,
+      columns: 8,
+      palette
+    });
+    groupSheets.push({
+      id: `${bank}-palette-00-contact-sheet`,
+      title: `${bank.toUpperCase()} palette 00 sprite contact sheet`,
+      bank: bank.toUpperCase(),
+      path: bankSheetRelativePath,
+      spriteCount: sprites.length,
+      sheet: contactSheet
+    });
+  }
+  const allSprites = [...spritesByBank.values()].flat();
+  const allSheetRelativePath = "overworld-sprites/groups/all-overworld-sprites_palette_00_contact_sheet.png";
+  if (allSprites.length) {
+    const allSheet = writeSpriteContactSheet(path.join(outputDir, allSheetRelativePath), allSprites, {
+      scale: 2,
+      columns: 10,
+      palette
+    });
+    groupSheets.unshift({
+      id: "all-overworld-sprites-palette-00-contact-sheet",
+      title: "All overworld sprites palette 00 contact sheet",
+      bank: "ALL",
+      path: allSheetRelativePath,
+      spriteCount: allSprites.length,
+      sheet: allSheet
+    });
   }
   writeJson(path.join(spriteDir, "index.json"), {
     schema: "earthbound-decomp.generated-overworld-sprite-previews.v1",
@@ -487,7 +711,18 @@ function generateOverworldSpritePreviews(outputDir, payload) {
     generatedFiles: {
       rawGfx: previewEntries.length,
       tileAtlases: previewEntries.length,
-      candidateFrameSheets: previewEntries.length
+      candidateFrameSheets: previewEntries.length,
+      spriteSheets: previewEntries.length,
+      decodedSpriteSheets: previewEntries.length,
+      groupContactSheets: groupSheets.length
+    },
+    groups: {
+      byBank: [...spritesByBank.entries()].map(([bank, sprites]) => ({
+        bank: bank.toUpperCase(),
+        spriteCount: sprites.length,
+        sheetPath: `overworld-sprites/groups/by-bank/${bank}_palette_00_contact_sheet.png`
+      })),
+      sheets: groupSheets
     },
     previews: previewEntries
   });
@@ -1174,23 +1409,30 @@ function generateGraphicsFamily(manifest, family, payload) {
   writeJson(path.join(outputDir, "graphics-manifest.json"), {
     ...makeFamilyBaseManifest(manifest, family, payload),
     status: "rendered-local-assets",
-    decoderStatus: "Generated raw .gfx payloads, palette metadata, tile atlas PNGs, and candidate 2x3 overworld sprite frame sheets from D1-D5 sprite payload ranges.",
+    decoderStatus: "Generated raw .gfx payloads, palette metadata, decoded sprite-sheet JSON, individual sprite-sheet PNGs, bank contact sheets, tile atlas PNGs, and candidate 2x3 overworld sprite frame sheets from D1-D5 sprite payload ranges.",
     assetBankRange: "0xCA..0xEE",
     banks: assetBanks,
     generatedPreviews: {
       rawGfx: overworldSpritePreviews.length,
       overworldSpritePalette00TileAtlases: overworldSpritePreviews.length,
-      overworldSpriteCandidateFrameSheets: overworldSpritePreviews.length
+      overworldSpriteCandidateFrameSheets: overworldSpritePreviews.length,
+      overworldSpriteSheets: overworldSpritePreviews.length,
+      overworldSpriteDecodedSheets: overworldSpritePreviews.length,
+      overworldSpriteGroupContactSheets: "all plus per-bank"
     },
     previewIndex: "overworld-sprites/index.json"
   });
   writeText(path.join(outputDir, "README.md"), [
     "# Generated Graphics And Sprite Previews",
     "",
-    "This local workspace contains raw `.gfx` payloads, palette metadata, tile atlas PNGs, and candidate 2x3 frame-sheet PNGs generated from the verified ROM.",
+    "This local workspace contains raw `.gfx` payloads, palette metadata, decoded sprite-sheet JSON, individual sprite-sheet PNGs, bank contact sheets, tile atlas PNGs, and candidate 2x3 frame-sheet PNGs generated from the verified ROM.",
     "The current built-in renderer uses the source-safe D1-D5 sprite payload ranges and the ROM-backed palette-00 source at C3:0000..C3:0020.",
     "",
-    "The frame sheets are candidate overworld sprite compositions from 24-tile payloads. Battle graphics and exact object-aware animation metadata remain later renderer stages."
+    "`overworld-sprites/sheets/` contains unscaled transparent PNG sheets intended for downstream tools.",
+    "`overworld-sprites/sheets-preview/` and `overworld-sprites/groups/` are browseable convenience PNGs.",
+    "`overworld-sprites/decoded/` stores palette-index rows for each generated frame.",
+    "",
+    "The frame layout is still row-major 2x3-tile overworld sprite payload digestion. Battle graphics and exact object-aware animation metadata remain later renderer stages."
   ].join("\n") + "\n");
 }
 
