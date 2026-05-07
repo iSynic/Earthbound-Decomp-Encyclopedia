@@ -52,6 +52,7 @@ const ASM_KEYWORDS = new Set([
 const FULL_RESULTS_LIMIT = 1000;
 const NAV_STATE_KEY = "earthbound-encyclopedia-nav-v1";
 const FAVORITES_STATE_KEY = "earthbound-encyclopedia-favorites-v1";
+const READER_FOCUS_STATE_KEY = "earthbound-encyclopedia-reader-focus-v1";
 const state = {
   tabs: ["overview"],
   activeId: "overview",
@@ -59,6 +60,7 @@ const state = {
   railTab: "outline",
   searchFacet: "all",
   tableSort: {},
+  railExpanded: {},
 };
 const KIND_ORDER = [
   "chapter",
@@ -95,6 +97,7 @@ let currentDocumentOutline = [];
 let currentSearchResults = [];
 let searchSelectionIndex = 0;
 state.favorites = loadFavoriteIds();
+state.readerFocusMode = loadReaderFocusMode();
 state.scrollPositions = {};
 state.pendingScroll = null;
 if ("scrollRestoration" in window.history) {
@@ -134,6 +137,23 @@ function saveFavoriteIds() {
     window.localStorage.setItem(FAVORITES_STATE_KEY, JSON.stringify(state.favorites));
   } catch (error) {
     // Favorites are a convenience layer; the app still works if storage is unavailable.
+  }
+}
+
+function loadReaderFocusMode() {
+  try {
+    const value = window.localStorage.getItem(READER_FOCUS_STATE_KEY);
+    return ["auto", "focus", "details"].includes(value) ? value : "auto";
+  } catch {
+    return "auto";
+  }
+}
+
+function saveReaderFocusMode() {
+  try {
+    window.localStorage.setItem(READER_FOCUS_STATE_KEY, state.readerFocusMode || "auto");
+  } catch {
+    // Reader focus is a preference; the app remains usable without persistence.
   }
 }
 
@@ -352,7 +372,7 @@ function groupEntries() {
   const groups = configured.map((section) => {
     const sectionEntries = (section.ids || [])
       .map((id) => entries.get(id))
-      .filter((entry) => entry && entry.showInToc !== false && !seen.has(entry.id));
+      .filter((entry) => isContentVisible(entry) && entry.showInToc !== false && !seen.has(entry.id));
     for (const entry of sectionEntries) {
       seen.add(entry.id);
     }
@@ -361,7 +381,7 @@ function groupEntries() {
 
   const favorites = (state.favorites || [])
     .map((id) => entries.get(id))
-    .filter((entry) => entry && !seen.has(entry.id));
+    .filter((entry) => isContentVisible(entry) && !seen.has(entry.id));
   if (favorites.length) {
     groups.unshift({ title: "Pinned", entries: favorites });
   }
@@ -420,6 +440,7 @@ function renderTabs() {
 function renderDocument() {
   const entry = entries.get(state.activeId);
   if (!entry) {
+    applyReaderFocusLayout(false);
     documentEl.innerHTML = '<div class="emptyState">Entry not found.</div>';
     railEl.innerHTML = "";
     currentDocumentOutline = [];
@@ -427,13 +448,16 @@ function renderDocument() {
   }
 
   currentDocumentOutline = [];
+  const readerFocused = shouldUseReaderFocus(entry);
+  applyReaderFocusLayout(readerFocused);
   documentEl.innerHTML = `
-    <div class="docInner${isWideReaderEntry(entry) ? " wideDoc" : ""}">
+    <div class="docInner${isWideReaderEntry(entry) || readerFocused ? " wideDoc" : ""}">
       ${renderFirstRunPrompt()}
       <div class="entryKind">${escapeHtml(entry.kind)}</div>
       <div class="titleRow">
         <h1>${escapeHtml(entry.title)}</h1>
         ${renderFavoriteButton(entry)}
+        ${renderReaderFocusButton(readerFocused)}
       </div>
       ${renderMetaStrip(entry)}
       ${shouldRenderSummary(entry) ? `<p>${escapeHtml(entry.summary)}</p>` : ""}
@@ -447,6 +471,9 @@ function renderDocument() {
   bindEntryLinkClicks(documentEl);
   documentEl.querySelectorAll("[data-favorite-id]").forEach((button) => {
     button.addEventListener("click", () => toggleFavorite(button.getAttribute("data-favorite-id")));
+  });
+  documentEl.querySelectorAll("[data-reader-focus-toggle]").forEach((button) => {
+    button.addEventListener("click", () => toggleReaderFocusPreference(readerFocused));
   });
   documentEl.querySelectorAll("[data-graph-focus-id]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -496,10 +523,66 @@ function renderDocument() {
 
   renderRail(entry);
   applyPendingScroll();
+  scheduleDeferredBodyAutoLoad(entry);
 }
 
 function isWideReaderEntry(entry) {
   return Boolean(entry.sourceFile || entry.kind === "reference-script" || entry.kind === "source");
+}
+
+function isReaderFocusCandidate(entry) {
+  if (!entry) {
+    return false;
+  }
+  return Boolean(
+    entry.sourceFile
+    || entry.kind === "reference-script"
+    || entry.bodySize >= 12000
+    || (entry.fullBodyLoaded && String(entry.body || "").length >= 12000)
+  );
+}
+
+function shouldUseReaderFocus(entry) {
+  if (state.readerFocusMode === "focus") {
+    return true;
+  }
+  if (state.readerFocusMode === "details") {
+    return false;
+  }
+  return isReaderFocusCandidate(entry);
+}
+
+function applyReaderFocusLayout(isFocused) {
+  const shell = documentEl?.closest(".documentShell");
+  if (shell) {
+    shell.classList.toggle("readerFocus", Boolean(isFocused));
+  }
+}
+
+function renderReaderFocusButton(isFocused) {
+  return `
+    <button type="button" class="readerFocusButton" data-reader-focus-toggle title="${isFocused ? "Show the details rail" : "Hide the details rail and widen the reader"}">
+      ${isFocused ? "Show details" : "Focus"}
+    </button>
+  `;
+}
+
+function toggleReaderFocusPreference(isFocused) {
+  state.readerFocusMode = isFocused ? "details" : "focus";
+  saveReaderFocusMode();
+  renderDocument();
+}
+
+function scheduleDeferredBodyAutoLoad(entry) {
+  if (!entry.bodyChunk || entry.fullBodyLoaded || entry.bodyLoading || entry.bodyLoadError) {
+    return;
+  }
+  window.setTimeout(() => {
+    const activeEntry = entries.get(state.activeId);
+    if (activeEntry?.id === entry.id) {
+      loadDeferredBody(entry.id);
+    }
+  }, 0);
 }
 
 function shouldRenderSummary(entry) {
@@ -564,10 +647,10 @@ function renderNarrativeHub() {
   const chapterId = registerHubSection("Curated Chapters", headingCounts);
   const learningId = registerHubSection("Guided Learning", headingCounts);
   const chapters = catalog.entries
-    .filter((entry) => entry.kind === "narrative")
+    .filter((entry) => isContentVisible(entry) && entry.kind === "narrative")
     .sort((a, b) => (a.tocPriority ?? 50) - (b.tocPriority ?? 50) || a.title.localeCompare(b.title));
   const learningPaths = catalog.entries
-    .filter((entry) => entry.kind === "learning-path" && entry.id !== "learning-path-index" && entry.learningPath)
+    .filter((entry) => isContentVisible(entry) && entry.kind === "learning-path" && entry.id !== "learning-path-index" && entry.learningPath)
     .sort((a, b) => (a.tocPriority ?? 50) - (b.tocPriority ?? 50) || a.title.localeCompare(b.title));
   return `
     <section class="hubPage">
@@ -607,7 +690,7 @@ function renderTopicHub() {
   const topicSectionId = registerHubSection("Topic Areas", headingCounts);
   const supportingSectionId = registerHubSection("Supporting Indexes", headingCounts);
   const topics = catalog.entries
-    .filter((entry) => entry.kind === "topic" && entry.id !== "topic-index")
+    .filter((entry) => isContentVisible(entry) && entry.kind === "topic" && entry.id !== "topic-index")
     .sort((a, b) => (a.tocPriority ?? 50) - (b.tocPriority ?? 50) || (b.noteRefs?.length || 0) - (a.noteRefs?.length || 0) || a.title.localeCompare(b.title));
   const supportIds = ["narrative-index", "learning-path-index", "relationship-graph", "bank-map", "source-browser", "asset-manifest-index"];
   return `
@@ -631,7 +714,7 @@ function renderTopicHub() {
           <p>Navigation surfaces for switching from topic-level reading into banks, source, assets, and graph exploration.</p>
         </div>
         <div class="hubGrid compact">
-          ${supportIds.filter((id) => entries.has(id)).map((id) => renderHubCard(entries.get(id), {
+          ${supportIds.filter((id) => isContentVisible(entries.get(id))).map((id) => renderHubCard(entries.get(id), {
             eyebrow: entries.get(id).kind,
             meta: evidenceMeta(entries.get(id))
           })).join("")}
@@ -646,7 +729,7 @@ function renderSourceBrowserHub() {
   const bankSectionId = registerHubSection("Source Banks", headingCounts);
   const indexSectionId = registerHubSection("Source Indexes", headingCounts);
   const sourceBanks = catalog.entries
-    .filter((entry) => /^source-bank-[c-e][0-9a-f]$/i.test(entry.id))
+    .filter((entry) => isContentVisible(entry) && /^source-bank-[c-e][0-9a-f]$/i.test(entry.id))
     .sort((a, b) => (a.banks?.[0] || "").localeCompare(b.banks?.[0] || ""));
   const indexIds = ["source-tree", "routine-index", "bank-map", "relationship-graph", "workflows"];
   return `
@@ -664,7 +747,7 @@ function renderSourceBrowserHub() {
           <p>Higher-level maps for moving from source files into routines, workflows, validation, and relationships.</p>
         </div>
         <div class="hubGrid compact">
-          ${indexIds.filter((id) => entries.has(id)).map((id) => renderHubCard(entries.get(id), {
+          ${indexIds.filter((id) => isContentVisible(entries.get(id))).map((id) => renderHubCard(entries.get(id), {
             eyebrow: entries.get(id).kind,
             meta: evidenceMeta(entries.get(id))
           })).join("")}
@@ -738,8 +821,7 @@ function renderSystemsHub() {
     ["Overworld", "Entities, movement, camera, collision, teleport, doors, and map interaction.", ["topic-overworld-runtime", "bank-c0"]],
     ["Audio", "Music/audio packs, APU transfer evidence, and sound-data documentation.", ["topic-audio-data"]],
     ["UI/Windows", "Menus, windows, fonts, tile staging, presentation effects, and HDMA helpers.", ["topic-ui-rendering", "bank-c1", "bank-c4"]],
-    ["Data/Manifests", "Data contracts, tables, graphics/map/audio manifest documentation, and payload-free inventories.", ["asset-contracts", "asset-manifest-index", "topic-asset-pipeline"]],
-    ["Validation", "Byte-equivalence, source readiness, audits, and tool/workflow notes.", ["topic-validation-workflows", "workflows", "tool-index"]]
+    ["Data/Manifests", "Data contracts, tables, graphics/map/audio manifest documentation, and payload-free inventories.", ["asset-contracts", "asset-manifest-index", "topic-asset-pipeline"]]
   ];
   return `
     <section class="hubPage systemsHub">
@@ -757,14 +839,14 @@ function renderSystemsHub() {
           <h2>Dense Indexes</h2>
           <p>Use these when you need raw generated coverage.</p>
         </div>
-        ${renderCompactEntryList(["topic-index", "bank-map", "asset-manifest-index", "routine-index"].filter((id) => entries.has(id)).map((id) => entries.get(id)))}
+        ${renderCompactEntryList(["topic-index", "bank-map", "asset-manifest-index", "routine-index"].filter((id) => isContentVisible(entries.get(id))).map((id) => entries.get(id)))}
       </section>
     </section>
   `;
 }
 
 function renderDomainRow(title, summary, ids) {
-  const linked = ids.filter((id) => entries.has(id)).map((id) => entries.get(id));
+  const linked = ids.filter((id) => isContentVisible(entries.get(id))).map((id) => entries.get(id));
   const count = catalog.facets?.domainCounts?.[title] || linked.length;
   return `
     <article class="domainRow">
@@ -888,8 +970,8 @@ function renderSourceFileReader(entry) {
           ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand.</div>${renderDeferredBodyLoader(entry)}`}
         </div>
       </div>
-      ${renderRelatedNotesPanel(entry)}
-      ${renderRelatedSystemsPanel(entry)}
+      ${entry.deferredBody && !entry.fullBodyLoaded && !entry.bodyLoadError ? "" : renderRelatedNotesPanel(entry)}
+      ${entry.deferredBody && !entry.fullBodyLoaded && !entry.bodyLoadError ? "" : renderRelatedSystemsPanel(entry)}
     </section>
   `;
 }
@@ -926,7 +1008,7 @@ function sourceLabelAnchorsFromCode(code) {
 }
 
 function renderRelatedNotesPanel(entry) {
-  const notes = (entry.relatedNotes || []).filter((note) => entries.has(note.id)).slice(0, 12);
+  const notes = (entry.relatedNotes || []).filter((note) => isContentVisible(entries.get(note.id))).slice(0, 12);
   if (!notes.length) {
     return "";
   }
@@ -941,7 +1023,7 @@ function renderRelatedNotesPanel(entry) {
 function renderRelatedSystemsPanel(entry) {
   const systems = (entry.related || [])
     .map((id) => entries.get(id))
-    .filter((candidate) => candidate && ["topic", "chapter", "asset-contract", "bank"].includes(candidate.kind))
+    .filter((candidate) => isContentVisible(candidate) && ["topic", "chapter", "asset-contract", "bank"].includes(candidate.kind))
     .slice(0, 10);
   if (!systems.length) {
     return "";
@@ -960,12 +1042,13 @@ function sourceCodeFromBody(body) {
 }
 
 function renderCompactEntryList(items) {
-  if (!items.length) {
+  const visibleItems = (items || []).filter((entry) => isContentVisible(entry));
+  if (!visibleItems.length) {
     return "";
   }
   return `
     <div class="compactEntryList">
-      ${items.map((entry) => `<button type="button" class="compactEntryRow" data-entry-id="${escapeHtml(entry.id)}">
+      ${visibleItems.map((entry) => `<button type="button" class="compactEntryRow" data-entry-id="${escapeHtml(entry.id)}">
         <span>${escapeHtml(entry.title)}</span>
         <small>${escapeHtml([entry.matchReason, entry.kind, entry.banks?.length ? `Bank ${entry.banks.join(", ")}` : ""].filter(Boolean).join(" - "))}</small>
       </button>`).join("")}
@@ -1042,10 +1125,13 @@ function renderSourceBankCard(entry) {
 
 function learningPathForChapter(entry) {
   const inferred = entry.id.replace(/^chapter-/, "learning-");
-  if (entries.has(inferred)) {
+  if (isContentVisible(entries.get(inferred))) {
     return inferred;
   }
-  return (entry.related || []).find((id) => entries.get(id)?.kind === "learning-path") || "";
+  return (entry.related || []).find((id) => {
+    const candidate = entries.get(id);
+    return isContentVisible(candidate) && candidate.kind === "learning-path";
+  }) || "";
 }
 
 function learningPathMeta(entry) {
@@ -1078,7 +1164,7 @@ function renderLearningPathIndex() {
   const sectionId = uniqueHeadingId("Guided Routes", headingCounts);
   currentDocumentOutline.push({ id: sectionId, level: 2, title: "Guided Routes" });
   const paths = catalog.entries
-    .filter((entry) => entry.kind === "learning-path" && entry.id !== "learning-path-index" && entry.learningPath)
+    .filter((entry) => isContentVisible(entry) && entry.kind === "learning-path" && entry.id !== "learning-path-index" && entry.learningPath)
     .sort((a, b) => {
       const priority = (a.tocPriority ?? 50) - (b.tocPriority ?? 50);
       return priority || a.title.localeCompare(b.title);
@@ -1113,12 +1199,14 @@ function renderLearningPathGuide(entry) {
   const headingCounts = new Map();
   const steps = (path.steps || []).map((step, index) => {
     const title = step.title || `Step ${index + 1}`;
+    const role = learningStepRole(step, index);
     const sectionId = uniqueHeadingId(title, headingCounts);
     currentDocumentOutline.push({ id: sectionId, level: 2, title });
     return `
-      <section class="learningStep" id="${escapeHtml(sectionId)}">
+      <section class="learningStep learningRole-${escapeHtml(role.id)}" id="${escapeHtml(sectionId)}">
         <div class="learningStepMarker">${index + 1}</div>
         <div class="learningStepBody">
+          <div class="learningRoleLabel">${escapeHtml(role.label)}</div>
           <h2>${escapeHtml(title)}</h2>
           ${step.summary ? `<p>${escapeHtml(step.summary)}</p>` : ""}
           ${renderLearningConcepts(step.concepts || [])}
@@ -1129,6 +1217,18 @@ function renderLearningPathGuide(entry) {
     `;
   }).join("");
   return `<section class="learningPathGuide">${steps}</section>`;
+}
+
+function learningStepRole(step, index) {
+  const title = String(step?.title || "").toLowerCase();
+  if (/narrative|start/.test(title)) return { id: "narrative", label: "Narrative" };
+  if (/concept/.test(title)) return { id: "concepts", label: "Concepts" };
+  if (/primary/.test(title)) return { id: "primary-evidence", label: "Primary Evidence" };
+  if (/related evidence/.test(title)) return { id: "related-evidence", label: "Related Evidence" };
+  if (/practical|reference/.test(title)) return { id: "practical-reference", label: "Practical Reference" };
+  if (/search/.test(title)) return { id: "search-terms", label: "Search Terms" };
+  if (/question|uncertain|open/.test(title)) return { id: "open-questions", label: "Open Questions" };
+  return { id: index === 0 ? "narrative" : "practical-reference", label: index === 0 ? "Narrative" : "Reference" };
 }
 
 function renderLearningConcepts(concepts) {
@@ -1178,7 +1278,7 @@ function renderReferenceWorkbench(entry) {
     return "";
   }
   const sections = [];
-  const chapterEvidence = (entry.chapterEvidence || []).filter((item) => item.id && entries.has(item.id));
+  const chapterEvidence = (entry.chapterEvidence || []).filter((item) => item.id && item.id !== entry.id && isContentVisible(entries.get(item.id)));
   if (chapterEvidence.length) {
     sections.push(referenceSection("Chapter Evidence", chapterEvidence.slice(0, 12).map((item) => referenceCard({
       id: item.id,
@@ -1197,7 +1297,7 @@ function renderReferenceWorkbench(entry) {
   }
 
   const noteCards = (entry.noteRefs || [])
-    .filter((ref) => ref.entryId && entries.has(ref.entryId) && !chapterEvidence.some((item) => item.id === ref.entryId))
+    .filter((ref) => ref.entryId && ref.entryId !== entry.id && isContentVisible(entries.get(ref.entryId)) && !chapterEvidence.some((item) => item.id === ref.entryId))
     .slice(0, 10)
     .map((ref) => {
       const noteEntry = entries.get(ref.entryId);
@@ -1214,7 +1314,7 @@ function renderReferenceWorkbench(entry) {
   }
 
   const sourceCards = (entry.sourceRefs || [])
-    .filter((ref) => ref.entryId && entries.has(ref.entryId))
+    .filter((ref) => ref.entryId && ref.entryId !== entry.id && isContentVisible(entries.get(ref.entryId)))
     .slice(0, 10)
     .map((ref) => {
       const sourceEntry = entries.get(ref.entryId);
@@ -1231,7 +1331,7 @@ function renderReferenceWorkbench(entry) {
   }
 
   const relatedCards = (entry.related || [])
-    .filter((id) => entries.has(id))
+    .filter((id) => id !== entry.id && isContentVisible(entries.get(id)))
     .slice(0, 10)
     .map((id) => {
       const related = entries.get(id);
@@ -1249,7 +1349,7 @@ function renderReferenceWorkbench(entry) {
 
   const bankCards = (entry.banks || [])
     .map((bank) => `bank-${bank.toLowerCase()}`)
-    .filter((id) => entries.has(id))
+    .filter((id) => id !== entry.id && entries.has(id))
     .slice(0, 8)
     .map((id) => {
       const bankEntry = entries.get(id);
@@ -1268,7 +1368,7 @@ function renderReferenceWorkbench(entry) {
   const inboundCards = directedGraphNeighbors(entry.id, "in", 12)
     .filter((neighbor) => {
       const neighborEntry = entries.get(neighbor.id);
-      return neighborEntry && neighborEntry.kind !== "search";
+      return neighbor.id !== entry.id && neighborEntry && neighborEntry.kind !== "search";
     })
     .map((neighbor) => {
       const inboundEntry = entries.get(neighbor.id);
@@ -1302,6 +1402,9 @@ function renderReferenceWorkbench(entry) {
 
 function shouldShowReferenceWorkbench(entry) {
   if (entry.id === "relationship-graph" || entry.kind === "search") {
+    return false;
+  }
+  if (entry.deferredBody && !entry.fullBodyLoaded && !entry.bodyLoadError) {
     return false;
   }
   if (["note", "source", "source-file", "routine", "symbol", "asset", "tool"].includes(entry.kind)) {
@@ -1341,9 +1444,9 @@ function referenceCard({ id, title, meta, summary, tags = [] }) {
 }
 
 function renderRelationshipGraphDocument() {
-  const focusId = entries.has(state.graphFocusId) ? state.graphFocusId : "overview";
+  const focusId = isContentVisible(entries.get(state.graphFocusId)) ? state.graphFocusId : "overview";
   const focusEntry = entries.get(focusId) || entries.get("overview");
-  const hubs = (relationshipGraph.topHubs || []).filter((id) => entries.has(id));
+  const hubs = (relationshipGraph.topHubs || []).filter((id) => isContentVisible(entries.get(id)));
   const stats = relationshipGraph.stats || {};
   return `
     <section class="graphWorkbench">
@@ -1616,7 +1719,7 @@ function renderDeferredBodyLoader(entry) {
     <div class="deferredBody">
       <div>
         <div class="deferredTitle">Full Entry</div>
-        <div class="deferredText">${escapeHtml(size)} available on demand.</div>
+        <div class="deferredText">${entry.bodyLoading ? "Loading full entry..." : `${escapeHtml(size)} available on demand.`}</div>
         ${status}
       </div>
       <button type="button" class="loadBodyButton" data-load-body-id="${escapeHtml(entry.id)}" ${entry.bodyLoading ? "disabled" : ""}>
@@ -1709,9 +1812,17 @@ function enhanceCodeBlocks() {
     }
     const lineCount = pre.querySelectorAll(".codeLine").length || (pre.textContent || "").split("\n").length;
     const isLongBlock = lineCount >= 36;
+    const language = pre.querySelector("code")?.dataset?.language || "";
+    const textLines = (pre.textContent || "").split("\n");
+    const longestLine = textLines.reduce((longest, line) => Math.max(longest, line.length), 0);
+    const shouldWrapByDefault = shouldWrapCodeBlockByDefault(language, longestLine);
 
     const wrapper = document.createElement("div");
-    wrapper.className = isLongBlock ? "codeBlockWrap collapsed" : "codeBlockWrap";
+    wrapper.className = [
+      "codeBlockWrap",
+      isLongBlock ? "collapsed" : "",
+      shouldWrapByDefault ? "wrapCode" : ""
+    ].filter(Boolean).join(" ");
     const controls = document.createElement("div");
     controls.className = "codeControls";
 
@@ -1732,8 +1843,8 @@ function enhanceCodeBlocks() {
     const wrapButton = document.createElement("button");
     wrapButton.className = "codeToggle";
     wrapButton.type = "button";
-    wrapButton.textContent = "Wrap lines";
-    wrapButton.setAttribute("aria-pressed", "false");
+    wrapButton.textContent = shouldWrapByDefault ? "No wrap" : "Wrap lines";
+    wrapButton.setAttribute("aria-pressed", String(shouldWrapByDefault));
     wrapButton.addEventListener("click", () => {
       const isWrapped = wrapper.classList.toggle("wrapCode");
       wrapButton.textContent = isWrapped ? "No wrap" : "Wrap lines";
@@ -1752,6 +1863,17 @@ function enhanceCodeBlocks() {
     wrapper.appendChild(controls);
     wrapper.appendChild(pre);
   });
+}
+
+function shouldWrapCodeBlockByDefault(language, longestLine) {
+  const normalized = String(language || "").toLowerCase();
+  if (normalized === "msg") {
+    return true;
+  }
+  if (normalized === "asm" || normalized === "asar" || normalized === "json") {
+    return false;
+  }
+  return longestLine > 120;
 }
 
 function renderMetaStrip(entry) {
@@ -1798,7 +1920,7 @@ function renderRail(entry) {
     blocks.push(railOutlineBlock(currentDocumentOutline));
   }
   if (entry.aliases && entry.aliases.length) {
-    blocks.push(railBlock("Aliases", entry.aliases));
+    blocks.push(railBlock("Aliases", entry.aliases, { limit: 4, key: `${entry.id}:aliases` }));
   }
   if (entry.banks && entry.banks.length) {
     blocks.push(railBlock("Banks", entry.banks));
@@ -1819,21 +1941,21 @@ function renderRail(entry) {
     ].filter(Boolean)));
   }
   if (entry.sourceRefs && entry.sourceRefs.length) {
-    blocks.push(railRefBlock("Source Evidence", entry.sourceRefs));
+    blocks.push(railRefBlock("Source Evidence", entry.sourceRefs, entry, { limit: 6, key: `${entry.id}:source-evidence` }));
   }
   if (entry.noteRefs && entry.noteRefs.length) {
-    blocks.push(railRefBlock("Note Evidence", entry.noteRefs));
+    blocks.push(railRefBlock("Note Evidence", entry.noteRefs, entry, { limit: 6, key: `${entry.id}:note-evidence` }));
   }
   if (entry.related && entry.related.length) {
-    blocks.push(railEntryBlock("Related", entry.related));
+    blocks.push(railEntryBlock("Related", entry.related, entry, { limit: 6, key: `${entry.id}:related` }));
   }
-  const inboundLinks = directedGraphNeighbors(entry.id, "in", 10).map((neighbor) => neighbor.id);
+  const inboundLinks = directedGraphNeighbors(entry.id, "in", 10).map((neighbor) => neighbor.id).filter((id) => id !== entry.id);
   if (inboundLinks.length) {
-    blocks.push(railEntryBlock("Referenced By", inboundLinks));
+    blocks.push(railEntryBlock("Referenced By", inboundLinks, entry, { limit: 6, key: `${entry.id}:referenced-by` }));
   }
-  const graphLinks = graphNeighbors(entry.id, 8).map((neighbor) => neighbor.id);
+  const graphLinks = graphNeighbors(entry.id, 8).map((neighbor) => neighbor.id).filter((id) => id !== entry.id);
   if (graphLinks.length) {
-    blocks.push(railEntryBlock("Graph Neighbors", graphLinks));
+    blocks.push(railEntryBlock("Graph Neighbors", graphLinks, entry, { limit: 6, key: `${entry.id}:graph-neighbors` }));
   }
   const outlinePanel = blocks.join("") || '<div class="railBlock"><div class="railTitle">Entry</div><div class="railPill">No extra metadata yet.</div></div>';
   const favoritesPanel = renderFavoritesRail();
@@ -1858,10 +1980,17 @@ function renderRail(entry) {
   railEl.querySelectorAll("[data-scroll-target]").forEach((button) => {
     button.addEventListener("click", () => navigateToDocumentSection(button.getAttribute("data-scroll-target")));
   });
+  railEl.querySelectorAll("[data-rail-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const key = button.getAttribute("data-rail-toggle");
+      state.railExpanded[key] = !state.railExpanded[key];
+      renderRail(entry);
+    });
+  });
 }
 
 function renderFavoritesRail() {
-  const favorites = state.favorites.filter((id) => entries.has(id));
+  const favorites = state.favorites.filter((id) => isContentVisible(entries.get(id)));
   if (favorites.length !== state.favorites.length) {
     state.favorites = favorites;
     saveFavoriteIds();
@@ -2014,19 +2143,32 @@ function resetViewportScroll() {
   document.body.scrollTop = 0;
 }
 
-function railBlock(title, values) {
+function railBlock(title, values, options = {}) {
+  const key = options.key || `${state.activeId}:${slugText(title)}`;
+  const limit = options.limit || 18;
+  const expanded = Boolean(state.railExpanded[key]);
+  const visibleValues = expanded ? values : values.slice(0, limit);
   return `
     <section class="railBlock">
       <div class="railTitle">${escapeHtml(title)}</div>
       <div class="railList">
-        ${values.slice(0, 18).map((value) => `<div class="railPill">${escapeHtml(value)}</div>`).join("")}
+        ${visibleValues.map((value) => `<div class="railPill">${escapeHtml(value)}</div>`).join("")}
+        ${renderRailShowToggle(key, values.length, limit, expanded)}
       </div>
     </section>
   `;
 }
 
-function railRefBlock(title, refs) {
-  const values = refs.slice(0, 18).map((ref) => {
+function railRefBlock(title, refs, entry, options = {}) {
+  const filteredRefs = refs.filter((ref) => ref.entryId !== entry.id && (!ref.entryId || isContentVisible(entries.get(ref.entryId))));
+  const key = options.key || `${entry.id}:${slugText(title)}`;
+  const limit = options.limit || 18;
+  const expanded = Boolean(state.railExpanded[key]);
+  const visibleRefs = expanded ? filteredRefs : filteredRefs.slice(0, limit);
+  if (!filteredRefs.length) {
+    return "";
+  }
+  const values = visibleRefs.map((ref) => {
     const label = ref.label || ref.path;
     if (ref.entryId && entries.has(ref.entryId)) {
       return `<button type="button" class="railPill railButton" data-entry-id="${escapeHtml(ref.entryId)}">${escapeHtml(label)}</button>`;
@@ -2036,13 +2178,21 @@ function railRefBlock(title, refs) {
   return `
     <section class="railBlock">
       <div class="railTitle">${escapeHtml(title)}</div>
-      <div class="railList">${values.join("")}</div>
+      <div class="railList">${values.join("")}${renderRailShowToggle(key, filteredRefs.length, limit, expanded)}</div>
     </section>
   `;
 }
 
-function railEntryBlock(title, ids) {
-  const values = ids.slice(0, 18).map((id) => {
+function railEntryBlock(title, ids, entry, options = {}) {
+  const filteredIds = ids.filter((id) => id !== entry.id && isContentVisible(entries.get(id)));
+  const key = options.key || `${entry.id}:${slugText(title)}`;
+  const limit = options.limit || 18;
+  const expanded = Boolean(state.railExpanded[key]);
+  const visibleIds = expanded ? filteredIds : filteredIds.slice(0, limit);
+  if (!filteredIds.length) {
+    return "";
+  }
+  const values = visibleIds.map((id) => {
     const entry = entries.get(id);
     const label = entry ? entry.title : id;
     return entry
@@ -2052,9 +2202,16 @@ function railEntryBlock(title, ids) {
   return `
     <section class="railBlock">
       <div class="railTitle">${escapeHtml(title)}</div>
-      <div class="railList">${values.join("")}</div>
+      <div class="railList">${values.join("")}${renderRailShowToggle(key, filteredIds.length, limit, expanded)}</div>
     </section>
   `;
+}
+
+function renderRailShowToggle(key, count, limit, expanded) {
+  if (count <= limit) {
+    return "";
+  }
+  return `<button type="button" class="railPill railButton railShowToggle" data-rail-toggle="${escapeHtml(key)}">${expanded ? "Show less" : `Show all ${count}`}</button>`;
 }
 
 function renderMarkdown(markdown, options = {}) {
@@ -2294,7 +2451,7 @@ function formatInline(text) {
     } else {
       placeholders.push(renderExternalLink(label, href));
     }
-    return `@@LINK_${index}@@`;
+    return inlinePlaceholder(index);
   });
 
   const escaped = escapeHtml(withMarkdownLinks)
@@ -2304,17 +2461,22 @@ function formatInline(text) {
       const index = placeholders.length;
       const target = parseEntryTarget(rawId);
       placeholders.push(renderEntryButton(label, target));
-      return `@@LINK_${index}@@`;
+      return inlinePlaceholder(index);
     })
     .replace(/\[\[([^\]]+)\]\]/g, (_, rawId) => {
       const index = placeholders.length;
       const target = parseEntryTarget(rawId);
       const entry = entries.get(target.id);
       placeholders.push(renderEntryButton(entry ? entry.title : target.id, target));
-      return `@@LINK_${index}@@`;
+      return inlinePlaceholder(index);
     });
 
-  return placeholders.reduce((html, value, index) => html.replace(`@@LINK_${index}@@`, value), escaped);
+  const highlighted = semanticHighlightInline(escaped);
+  return placeholders.reduce((html, value, index) => html.split(inlinePlaceholder(index)).join(value), highlighted);
+}
+
+function inlinePlaceholder(index) {
+  return `%%ph${index}%%`;
 }
 
 function entryLinkTarget(value) {
@@ -2334,11 +2496,22 @@ function renderEntryButton(label, target) {
 function renderInlineCode(value, placeholders) {
   const entryId = resolveReference(value);
   if (!entryId) {
-    return `<code>${value}</code>`;
+    const index = placeholders.length;
+    placeholders.push(`<code>${value}</code>`);
+    return inlinePlaceholder(index);
   }
   const index = placeholders.length;
   placeholders.push(`<button type="button" class="docLink inlineCodeLink" data-entry-id="${escapeHtml(entryId)}"><code>${value}</code></button>`);
-  return `@@LINK_${index}@@`;
+  return inlinePlaceholder(index);
+}
+
+function semanticHighlightInline(html) {
+  return String(html)
+    .replace(/\b((?:src|notes|refs|manifests|asset-manifests)\/[A-Za-z0-9_./-]+)/g, '<span class="semanticMark semanticPath">$1</span>')
+    .replace(/\b([C-E][0-9]:[0-9A-F]{4}(?:\.\.[C-E][0-9]:[0-9A-F]{4})?|\$[0-9A-F]{4,6})\b/gi, '<span class="semanticMark semanticAddress">$1</span>')
+    .replace(/\b(Bank\s+[C-E][0-9A-F]|bank-[c-e][0-9a-f])\b/gi, '<span class="semanticMark semanticBank">$1</span>')
+    .replace(/\b([A-Z][A-Za-z0-9]*_[A-Za-z0-9_.$]+)\b/g, '<span class="semanticMark semanticLabel">$1</span>')
+    .replace(/\b(Status|Confidence|Validated|Pending|Planned|Unsupported|Unknown|Open question|Remaining uncertainty|Build-candidate)\b/gi, '<span class="semanticMark semanticStatus">$1</span>');
 }
 
 function renderExternalLink(label, href) {
@@ -2371,7 +2544,14 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))];
 }
 
+function isContentVisible(entry) {
+  return Boolean(entry) && !entry.metaSubject && !entry.excludeFromSearch;
+}
+
 function search(query, limit = 9, facetId = state.searchFacet || "all") {
+  if (isGuideMetaQuery(query)) {
+    return [];
+  }
   const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
   if (!terms.length) {
     return [];
@@ -2380,12 +2560,14 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
   const exactSourceQuery = /^(src\/[a-z0-9/_-]+|[c-e][0-9]:[0-9a-f]{4}|\$[0-9a-f]{4,6}|[a-z_.$][a-z0-9_.$]{4,}|[a-z0-9_.-]+\.asm)$/i.test(query.trim());
 
   return catalog.entries
+    .filter((entry) => isContentVisible(entry))
     .filter((entry) => !facet.kinds.length || facet.kinds.includes(entry.kind))
     .map((entry) => {
       const document = searchDocuments.get(entry.id);
       const haystack = document
         ? `${document.exact || ""} ${document.titleText || ""} ${document.metaText || ""} ${document.bodyText || ""}`
         : entry.searchText || "";
+      const allTermsMatch = terms.every((term) => haystack.includes(term));
       let score = 0;
       const reasons = [];
       for (const term of terms) {
@@ -2397,15 +2579,19 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
         if ((document?.bodyText || "").includes(term)) { score += 2; reasons.push("body/comment"); }
         if (!document && haystack.includes(term)) { score += 1; reasons.push("body"); }
       }
-      if (terms.every((term) => haystack.includes(term))) score += 10;
+      if (allTermsMatch) score += 10;
       if (exactSourceQuery && ["source", "source-file", "symbol", "routine", "bank"].includes(entry.kind)) {
         score += 30;
       }
-      return { entry, score, reason: unique(reasons).slice(0, 3).join(" / ") };
+      return { entry, score, allTermsMatch, reason: unique(reasons).slice(0, 3).join(" / ") };
     })
-    .filter((result) => result.score > 0)
+    .filter((result) => result.score > 0 && (result.allTermsMatch || exactSourceQuery))
     .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
     .slice(0, limit === Infinity ? undefined : limit);
+}
+
+function isGuideMetaQuery(query) {
+  return /^(public\s+(status\s+)?truthfulness|release\s+(readiness|checklist|artifact|policy)|catalog\s+build(\s+status)?|project\s+status|source\s+readiness)$/i.test(String(query || "").trim());
 }
 
 function matchReasonForTerm(entry, document, term) {
@@ -2446,7 +2632,7 @@ function renderSearchResults(results) {
     ...results.map(({ entry, reason }, index) => `
       <button type="button" class="searchItem${index === searchSelectionIndex ? " active" : ""}" data-entry-id="${escapeHtml(entry.id)}" data-search-index="${index}" aria-selected="${index === searchSelectionIndex ? "true" : "false"}">
         <div class="searchItemTitle">${escapeHtml(entry.title)}</div>
-        <div class="searchItemMeta">${escapeHtml([entry.kind, entry.banks && entry.banks.length ? `Bank ${entry.banks.join(", ")}` : "", reason ? `matched ${reason}` : ""].filter(Boolean).join(" - "))}</div>
+        <div class="searchItemMeta">${escapeHtml([displayKindLabel(entry), entry.banks && entry.banks.length ? `Bank ${entry.banks.join(", ")}` : "", reason ? `matched ${reason}` : ""].filter(Boolean).join(" - "))}</div>
       </button>
     `),
     `<button type="button" class="searchItem${searchSelectionIndex === results.length ? " active" : ""}" data-entry-id="${fullResultsId}" data-search-index="${results.length}" aria-selected="${searchSelectionIndex === results.length ? "true" : "false"}">
@@ -2473,8 +2659,8 @@ function renderSearchResults(results) {
       catalog.deferredBodyCount ? `Search includes a compact generated index for ${catalog.deferredBodyCount} deferred heavy entries. Open a result and load the full entry when you need the complete body.` : "",
       "",
       ...[...grouped.entries()].sort(([a], [b]) => kindRank(a) - kindRank(b)).map(([kind, group]) => [
-      `## ${kind}`,
-      group.map(({ entry, reason }) => `- [[${entry.id}|${entry.title}]] - ${[reason ? `matched ${reason}` : "", entry.summary || entry.kind].filter(Boolean).join("; ")}`).join("\n")
+      `## ${displayKindLabel({ kind })}`,
+      group.map(({ entry, reason }) => `- [[${entry.id}|${entry.title}]] - ${[displayKindLabel(entry), reason ? `matched ${reason}` : "", entry.summary || entry.kind].filter(Boolean).join("; ")}`).join("\n")
       ].join("\n"))
     ].join("\n\n");
   }
@@ -2517,6 +2703,43 @@ function openSearchSelection() {
 function kindRank(kind) {
   const index = KIND_ORDER.indexOf(kind);
   return index === -1 ? KIND_ORDER.length : index;
+}
+
+function displayKindLabel(entry) {
+  const kind = typeof entry === "string" ? entry : entry?.kind || "";
+  const text = typeof entry === "object"
+    ? `${entry.title || ""} ${entry.summary || ""} ${(entry.aliases || []).join(" ")}`.toLowerCase()
+    : "";
+  if (/(^|\b)(asset|sprite|graphics|palette|manifest|data contract|contract)(\b|$)/.test(text)) {
+    if (/data contract|contract/.test(text)) {
+      return "Data contract";
+    }
+    if (/manifest|asset|sprite|graphics|palette/.test(text)) {
+      return "Manifest documentation";
+    }
+  }
+  const labels = {
+    "asset": "Manifest documentation",
+    "asset-contract": "Data contract",
+    "asset-manifest": "Manifest documentation",
+    "bank": "Bank",
+    "chapter": "Chapter",
+    "learning-path": "Learning path",
+    "narrative": "Narrative chapter",
+    "note": "Note",
+    "reference-script": "MSG reference",
+    "routine": "Routine",
+    "script-vm": "Script VM",
+    "search": "Search",
+    "source": "Source index",
+    "source-file": "Source file",
+    "symbol": "Symbol",
+    "text-command": "Text command",
+    "tool": "Tool notes",
+    "topic": "System topic",
+    "workflow": "Validation/workflow"
+  };
+  return labels[kind] || kind;
 }
 
 searchInput.addEventListener("input", (event) => {
