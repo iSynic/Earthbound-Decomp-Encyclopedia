@@ -738,6 +738,10 @@ input {
   margin: 0 auto;
 }
 
+.docInner.wideDoc {
+  max-width: min(1320px, 100%);
+}
+
 .entryKind {
   color: var(--accent);
   font-size: 12px;
@@ -877,6 +881,12 @@ pre {
   margin: 18px 0;
 }
 
+.codeControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .codeBlockWrap pre {
   margin: 0;
 }
@@ -901,12 +911,16 @@ pre {
   background: var(--panel-hover);
 }
 
+.codeLineCount {
+  color: var(--faint);
+  font-size: 12px;
+  padding: 0 4px;
+}
+
 .deferredBody {
-  margin: 28px 0 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel-soft);
-  padding: 16px;
+  margin: 34px 0 0;
+  border-top: 1px solid var(--line);
+  padding: 16px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -977,22 +991,25 @@ pre {
   margin-top: 20px;
 }
 
-.referenceGrid {
+.referenceList,
+.learningList,
+.learningConceptList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 10px;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .referenceCard {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel-soft);
+  border-radius: 6px;
+  background: transparent;
   color: var(--text);
   cursor: pointer;
   display: grid;
-  gap: 6px;
+  grid-template-columns: minmax(180px, 1fr) minmax(130px, auto);
+  gap: 8px 14px;
   min-width: 0;
-  padding: 12px;
+  padding: 8px 10px;
   text-align: left;
 }
 
@@ -1004,7 +1021,7 @@ pre {
 .learningPathGuide {
   margin-top: 28px;
   display: grid;
-  gap: 18px;
+  gap: 24px;
 }
 
 .learningStep {
@@ -1015,11 +1032,11 @@ pre {
 }
 
 .learningStepMarker {
-  width: 34px;
-  height: 34px;
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  background: var(--accent-soft);
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
   color: var(--accent-strong);
   display: grid;
   place-items: center;
@@ -1035,10 +1052,8 @@ pre {
 }
 
 .learningStepBody {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel-soft);
-  padding: 16px;
+  border-left: 1px solid var(--line);
+  padding: 0 0 0 18px;
 }
 
 .learningStepBody h2 {
@@ -1049,25 +1064,22 @@ pre {
   margin-top: 0;
 }
 
-.learningCardGrid,
-.learningConceptGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 10px;
-  margin-top: 12px;
-}
-
 .learningCard,
 .learningConcept {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel);
+  border-radius: 6px;
+  background: transparent;
   color: var(--text);
   display: grid;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
-  padding: 12px;
+  padding: 8px 10px;
   text-align: left;
+}
+
+.learningCard {
+  grid-template-columns: minmax(180px, 1fr) minmax(120px, auto);
+  gap: 6px 14px;
 }
 
 .learningCard {
@@ -1103,7 +1115,8 @@ pre {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+  grid-column: 1 / -1;
 }
 
 .learningTerms {
@@ -1136,13 +1149,15 @@ pre {
   line-height: 1.45;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
+  grid-column: 1 / -1;
 }
 
 .referenceTags {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  grid-column: 1 / -1;
   margin-top: 2px;
 }
 
@@ -1774,6 +1789,22 @@ pre code {
   border-left: 1px solid #292924;
   padding-left: 12px;
   white-space: pre;
+}
+
+.codeBlockWrap.wrapCode pre {
+  overflow-x: hidden;
+}
+
+.codeBlockWrap.wrapCode .codeLine {
+  align-items: start;
+  grid-template-columns: 4.5ch minmax(0, 1fr);
+  min-width: 0;
+}
+
+.codeBlockWrap.wrapCode .lineText {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .codeBlock-asm code,
