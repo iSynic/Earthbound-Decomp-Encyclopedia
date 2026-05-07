@@ -1,0 +1,239 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D9 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d9-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank19.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 6,
+    "binary_assets_by_extension": {
+      "arr": 4,
+      "gfx": 1,
+      "ebm": 1
+    },
+    "binary_asset_bytes": 65505,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 31,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 7,
+    "output_recipe_count": 12,
+    "typed_output_kind_count": 2,
+    "decoder_output_recipe_count": 5,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "earthbound_lzhal": 5,
+      "raw": 7
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 5
+    },
+    "renderer_counts": {},
+    "smoke_fixture_count": 1,
+    "smoke_fixture_asset_ids": [
+      "asset.d9.map_data_tile_arrangement_1"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal": 1
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.d9.map_data_tile_arrangement_1",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_1",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:0000..D9:34E9",
+        "bytes": 13545,
+        "sha1": "672722f4a1d5c5ab33ad04f86648349ab1691018"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/maps/arrangements/1.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d9/maps/arrangements/1.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/1.arr.lzhal",
+        "Original file offset: 0x190000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d9.map_data_tile_arrangement_2",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_2",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:34E9..D9:68AB",
+        "bytes": 13250,
+        "sha1": "4c915a06151f25de4c4f68217ef7bf4cab306ccc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/maps/arrangements/2.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d9/maps/arrangements/2.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/2.arr.lzhal",
+        "Original file offset: 0x1934E9",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d9.map_data_tile_arrangement_3",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_3",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:68AB..D9:8DD5",
+        "bytes": 9514,
+        "sha1": "521f374f15fd0a5bfd7b58ba96fee5778faec1ae"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/maps/arrangements/3.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d9/maps/arrangements/3.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/3.arr.lzhal",
+        "Original file offset: 0x1968AB",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d9.map_data_tile_arrangement_4",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_4",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:8DD5..D9:CE52",
+        "bytes": 16509,
+        "sha1": "6c5fd8fde955a66015978f8ac48419a907414f00"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/maps/arrangements/4.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d9/maps/arrangements/4.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/4.arr.lzhal",
+        "Original file offset: 0x198DD5",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d9.map_data_tile_set_graphics_13",
+      "title": "MAP_DATA_TILE_SET_GRAPHICS_13",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:CE52..D9:FC18",
+        "bytes": 11718,
+        "sha1": "50802fb88a6c74e4680824e5b7dd7df47f7453dd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/maps/gfx/13.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d9/maps/gfx/13.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/gfx/13.gfx.lzhal",
+        "Original file offset: 0x19CE52",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d9.audio_pack_45",
+      "title": "AUDIO_PACK_45",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:FC18..D9:FFE1",
+        "bytes": 969,
+        "sha1": "3c1fdefdaf431dd6a8e04b324ef50312ad8f21ac"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/audiopacks/45.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/45.ebm",
+        "Original file offset: 0x19FC18"
+      ]
+    },
+    {
+      "id": "gap.d9.d9_ffe1",
+      "title": "Bank D9 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "D9:FFE1..D9:10000",
+        "bytes": 31,
+        "sha1": "6a4589599cd1c477e916474e7b029e9a4e92019b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d9/gaps/01_d9_ffe1.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x19FFE1..0x19FFFF"
+      ]
+    }
+  ]
+}

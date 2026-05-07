@@ -1,0 +1,2064 @@
+{
+  "evidence": [
+    "EBDecomp Project.snake maps eb.TilesetModule resources to Tilesets/*.fts.",
+    "ebsrc labels expose MAP_DATA_TILE_ARRANGEMENT_* and MAP_DATA_TILE_COLLISION_POINTERS_*.",
+    "community ROM map names the adjacent map construction range as Tile Arrangement Collision Data.",
+    "All present .fts exports have exactly 1024 96-character hex rows after the variable settings block.",
+    "Each 96-character row splits evenly into 16 three-byte cells, matching a 4x4 grid of 8x8 subtiles per map tile/metatile."
+  ],
+  "generator": "tools/build_map_fts_arrangement_contract.py",
+  "schema": "earthbound-decomp.map-fts-arrangement-contract.v1",
+  "source_policy": "Reference-derived structural contract. This records row hashes, counts, and decoded field statistics from the 96-character .fts rows; it does not commit raw rows or decoded ROM-derived payload arrays.",
+  "sources": {
+    "ref_labels": [
+      "refs/ebsrc-main/ebsrc-main/include/symbols/map.inc.asm",
+      "refs/community-earthbound-docs/ROM_map.txt"
+    ],
+    "tileset_dir": "refs/eb-decompile-4ef92/Tilesets"
+  },
+  "summary": {
+    "attribute_byte_counts": [
+      {
+        "count": 193583,
+        "value": "0x00"
+      },
+      {
+        "count": 7876,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 6874,
+        "value": "0x03"
+      },
+      {
+        "count": 4617,
+        "value": "0x04"
+      },
+      {
+        "count": 88,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 1666,
+        "value": "0x08"
+      },
+      {
+        "count": 357,
+        "value": "0x09"
+      },
+      {
+        "count": 324,
+        "value": "0x0B"
+      },
+      {
+        "count": 1064,
+        "value": "0x0C"
+      },
+      {
+        "count": 141,
+        "value": "0x0D"
+      },
+      {
+        "count": 403,
+        "value": "0x0F"
+      },
+      {
+        "count": 251,
+        "value": "0x10"
+      },
+      {
+        "count": 109335,
+        "value": "0x80"
+      },
+      {
+        "count": 468,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 611,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "attribute_byte_high_bit_cell_count": 110422,
+    "attribute_byte_unique_count": 20,
+    "bg_palette_counts": [
+      {
+        "count": 158563,
+        "value": 0
+      },
+      {
+        "count": 31370,
+        "value": 1
+      },
+      {
+        "count": 27722,
+        "value": 2
+      },
+      {
+        "count": 18306,
+        "value": 3
+      },
+      {
+        "count": 22638,
+        "value": 4
+      },
+      {
+        "count": 23023,
+        "value": 5
+      },
+      {
+        "count": 24341,
+        "value": 6
+      },
+      {
+        "count": 21717,
+        "value": 7
+      }
+    ],
+    "cell_count_total": 327680,
+    "hflip_cell_count": 99895,
+    "nonzero_cell_count_total": 198768,
+    "packed_byte_count_total": 983040,
+    "priority_cell_count": 94726,
+    "record_count_total": 20480,
+    "record_shape": "1024 records per tileset; each record is 16 cells in a 4x4 grid; each cell is 3 bytes",
+    "tile_index_range": [
+      0,
+      989
+    ],
+    "tileset_count": 20,
+    "vflip_cell_count": 96150,
+    "zero_record_count_total": 8057
+  },
+  "tilesets": [
+    {
+      "arrangement_collision_rows_sha1": "6bd4988e2473a0d620410312a1c556e90d5e72e8",
+      "attribute_byte_counts": [
+        {
+          "count": 7711,
+          "value": "0x00"
+        },
+        {
+          "count": 303,
+          "value": "0x01"
+        },
+        {
+          "count": 12,
+          "value": "0x03"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        },
+        {
+          "count": 8338,
+          "value": "0x80"
+        },
+        {
+          "count": 14,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 8352,
+      "attribute_byte_nonzero_cell_count": 8673,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 4881,
+          "value": 0
+        },
+        {
+          "count": 5319,
+          "value": 1
+        },
+        {
+          "count": 994,
+          "value": 2
+        },
+        {
+          "count": 939,
+          "value": 3
+        },
+        {
+          "count": 676,
+          "value": 4
+        },
+        {
+          "count": 648,
+          "value": 5
+        },
+        {
+          "count": 1982,
+          "value": 6
+        },
+        {
+          "count": 945,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 986,
+      "file_sha1": "3423a21ef38bb3b59c2de4aad236ea25bfee673a",
+      "hflip_cell_count": 9038,
+      "nonzero_cell_count": 13312,
+      "path": "refs/eb-decompile-4ef92/Tilesets/00.fts",
+      "priority_cell_count": 6474,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 972,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 77,
+      "tileset_id": 0,
+      "unique_record_count": 833,
+      "vflip_cell_count": 4498,
+      "zero_record_count": 192
+    },
+    {
+      "arrangement_collision_rows_sha1": "91c0aa155a6edbc618f4565a4849acc51f9930e8",
+      "attribute_byte_counts": [
+        {
+          "count": 7730,
+          "value": "0x00"
+        },
+        {
+          "count": 1035,
+          "value": "0x01"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        },
+        {
+          "count": 888,
+          "value": "0x03"
+        },
+        {
+          "count": 6667,
+          "value": "0x80"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 58,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 6729,
+      "attribute_byte_nonzero_cell_count": 8654,
+      "attribute_byte_unique_count": 8,
+      "bg_palette_counts": [
+        {
+          "count": 4235,
+          "value": 0
+        },
+        {
+          "count": 1354,
+          "value": 1
+        },
+        {
+          "count": 1133,
+          "value": 2
+        },
+        {
+          "count": 1505,
+          "value": 3
+        },
+        {
+          "count": 1218,
+          "value": 4
+        },
+        {
+          "count": 2108,
+          "value": 5
+        },
+        {
+          "count": 3866,
+          "value": 6
+        },
+        {
+          "count": 965,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1356,
+      "file_sha1": "c9126465c4f626042c9fb0d8f5995ff54b6fc62d",
+      "hflip_cell_count": 7364,
+      "nonzero_cell_count": 13520,
+      "path": "refs/eb-decompile-4ef92/Tilesets/01.fts",
+      "priority_cell_count": 7677,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 980,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 113,
+      "tileset_id": 1,
+      "unique_record_count": 843,
+      "vflip_cell_count": 7935,
+      "zero_record_count": 179
+    },
+    {
+      "arrangement_collision_rows_sha1": "dad02f8cc983deb42bd2293d7d62a683fae317e0",
+      "attribute_byte_counts": [
+        {
+          "count": 8853,
+          "value": "0x00"
+        },
+        {
+          "count": 1091,
+          "value": "0x01"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        },
+        {
+          "count": 964,
+          "value": "0x03"
+        },
+        {
+          "count": 5393,
+          "value": "0x80"
+        },
+        {
+          "count": 28,
+          "value": "0x82"
+        },
+        {
+          "count": 50,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 5471,
+      "attribute_byte_nonzero_cell_count": 7531,
+      "attribute_byte_unique_count": 7,
+      "bg_palette_counts": [
+        {
+          "count": 5010,
+          "value": 0
+        },
+        {
+          "count": 1011,
+          "value": 1
+        },
+        {
+          "count": 1588,
+          "value": 2
+        },
+        {
+          "count": 969,
+          "value": 3
+        },
+        {
+          "count": 1375,
+          "value": 4
+        },
+        {
+          "count": 4159,
+          "value": 5
+        },
+        {
+          "count": 925,
+          "value": 6
+        },
+        {
+          "count": 1347,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1312,
+      "file_sha1": "c91a382d1cf6bddb9f110901c306242f359af6e2",
+      "hflip_cell_count": 4750,
+      "nonzero_cell_count": 13232,
+      "path": "refs/eb-decompile-4ef92/Tilesets/02.fts",
+      "priority_cell_count": 5048,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 138,
+      "tileset_id": 2,
+      "unique_record_count": 827,
+      "vflip_cell_count": 5310,
+      "zero_record_count": 197
+    },
+    {
+      "arrangement_collision_rows_sha1": "11f270c238c2729cb170d2e3205fbd4a75bd686c",
+      "attribute_byte_counts": [
+        {
+          "count": 11166,
+          "value": "0x00"
+        },
+        {
+          "count": 943,
+          "value": "0x01"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        },
+        {
+          "count": 672,
+          "value": "0x03"
+        },
+        {
+          "count": 3548,
+          "value": "0x80"
+        },
+        {
+          "count": 1,
+          "value": "0x82"
+        },
+        {
+          "count": 49,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 3598,
+      "attribute_byte_nonzero_cell_count": 5218,
+      "attribute_byte_unique_count": 7,
+      "bg_palette_counts": [
+        {
+          "count": 8950,
+          "value": 0
+        },
+        {
+          "count": 2652,
+          "value": 1
+        },
+        {
+          "count": 1198,
+          "value": 2
+        },
+        {
+          "count": 608,
+          "value": 3
+        },
+        {
+          "count": 556,
+          "value": 4
+        },
+        {
+          "count": 755,
+          "value": 5
+        },
+        {
+          "count": 699,
+          "value": 6
+        },
+        {
+          "count": 966,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1461,
+      "file_sha1": "f392486a9a867f7d0170905f7c76084cf553b41b",
+      "hflip_cell_count": 5166,
+      "nonzero_cell_count": 8384,
+      "path": "refs/eb-decompile-4ef92/Tilesets/03.fts",
+      "priority_cell_count": 4810,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 977,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 123,
+      "tileset_id": 3,
+      "unique_record_count": 524,
+      "vflip_cell_count": 5047,
+      "zero_record_count": 500
+    },
+    {
+      "arrangement_collision_rows_sha1": "b9fd8afbf25a0624c679cbb0aa10fbb73edd639f",
+      "attribute_byte_counts": [
+        {
+          "count": 7937,
+          "value": "0x00"
+        },
+        {
+          "count": 785,
+          "value": "0x01"
+        },
+        {
+          "count": 2181,
+          "value": "0x03"
+        },
+        {
+          "count": 5,
+          "value": "0x10"
+        },
+        {
+          "count": 5451,
+          "value": "0x80"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 5476,
+      "attribute_byte_nonzero_cell_count": 8447,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 2780,
+          "value": 0
+        },
+        {
+          "count": 945,
+          "value": 1
+        },
+        {
+          "count": 2786,
+          "value": 2
+        },
+        {
+          "count": 1338,
+          "value": 3
+        },
+        {
+          "count": 3694,
+          "value": 4
+        },
+        {
+          "count": 1082,
+          "value": 5
+        },
+        {
+          "count": 2183,
+          "value": 6
+        },
+        {
+          "count": 1576,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1375,
+      "file_sha1": "7082547c7e0d68c40c3b5119783aee22b47923f2",
+      "hflip_cell_count": 7893,
+      "nonzero_cell_count": 14960,
+      "path": "refs/eb-decompile-4ef92/Tilesets/04.fts",
+      "priority_cell_count": 7908,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 140,
+      "tileset_id": 4,
+      "unique_record_count": 936,
+      "vflip_cell_count": 8686,
+      "zero_record_count": 89
+    },
+    {
+      "arrangement_collision_rows_sha1": "8951215708f6d550fbb14331bcf112b8a0d8bdd1",
+      "attribute_byte_counts": [
+        {
+          "count": 13149,
+          "value": "0x00"
+        },
+        {
+          "count": 250,
+          "value": "0x01"
+        },
+        {
+          "count": 178,
+          "value": "0x03"
+        },
+        {
+          "count": 2768,
+          "value": "0x80"
+        },
+        {
+          "count": 39,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 2807,
+      "attribute_byte_nonzero_cell_count": 3235,
+      "attribute_byte_unique_count": 5,
+      "bg_palette_counts": [
+        {
+          "count": 13692,
+          "value": 0
+        },
+        {
+          "count": 436,
+          "value": 1
+        },
+        {
+          "count": 540,
+          "value": 2
+        },
+        {
+          "count": 244,
+          "value": 3
+        },
+        {
+          "count": 320,
+          "value": 4
+        },
+        {
+          "count": 345,
+          "value": 5
+        },
+        {
+          "count": 176,
+          "value": 6
+        },
+        {
+          "count": 631,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 707,
+      "file_sha1": "f2f254cacb17aac35556c9020b95f291d9ac726d",
+      "hflip_cell_count": 1549,
+      "nonzero_cell_count": 4592,
+      "path": "refs/eb-decompile-4ef92/Tilesets/05.fts",
+      "priority_cell_count": 2647,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 980,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 86,
+      "tileset_id": 5,
+      "unique_record_count": 288,
+      "vflip_cell_count": 2739,
+      "zero_record_count": 737
+    },
+    {
+      "arrangement_collision_rows_sha1": "2872ba5d0a7e162d6f6a19c70f9b3fe5c4765498",
+      "attribute_byte_counts": [
+        {
+          "count": 6234,
+          "value": "0x00"
+        },
+        {
+          "count": 278,
+          "value": "0x01"
+        },
+        {
+          "count": 329,
+          "value": "0x03"
+        },
+        {
+          "count": 2,
+          "value": "0x04"
+        },
+        {
+          "count": 890,
+          "value": "0x08"
+        },
+        {
+          "count": 157,
+          "value": "0x09"
+        },
+        {
+          "count": 263,
+          "value": "0x0B"
+        },
+        {
+          "count": 1064,
+          "value": "0x0C"
+        },
+        {
+          "count": 141,
+          "value": "0x0D"
+        },
+        {
+          "count": 403,
+          "value": "0x0F"
+        },
+        {
+          "count": 26,
+          "value": "0x10"
+        },
+        {
+          "count": 6582,
+          "value": "0x80"
+        },
+        {
+          "count": 15,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 6597,
+      "attribute_byte_nonzero_cell_count": 10150,
+      "attribute_byte_unique_count": 13,
+      "bg_palette_counts": [
+        {
+          "count": 3440,
+          "value": 0
+        },
+        {
+          "count": 662,
+          "value": 1
+        },
+        {
+          "count": 1276,
+          "value": 2
+        },
+        {
+          "count": 1825,
+          "value": 3
+        },
+        {
+          "count": 2246,
+          "value": 4
+        },
+        {
+          "count": 1318,
+          "value": 5
+        },
+        {
+          "count": 3205,
+          "value": 6
+        },
+        {
+          "count": 2412,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1459,
+      "file_sha1": "59ee8f82be0e9dbc78ffd4a2175c3ccf79f6b03d",
+      "hflip_cell_count": 9047,
+      "nonzero_cell_count": 14000,
+      "path": "refs/eb-decompile-4ef92/Tilesets/06.fts",
+      "priority_cell_count": 5615,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 146,
+      "tileset_id": 6,
+      "unique_record_count": 876,
+      "vflip_cell_count": 9183,
+      "zero_record_count": 149
+    },
+    {
+      "arrangement_collision_rows_sha1": "377803b38aaa6aaff22aa5dc073136d7b95036fc",
+      "attribute_byte_counts": [
+        {
+          "count": 7071,
+          "value": "0x00"
+        },
+        {
+          "count": 154,
+          "value": "0x01"
+        },
+        {
+          "count": 301,
+          "value": "0x03"
+        },
+        {
+          "count": 11,
+          "value": "0x10"
+        },
+        {
+          "count": 8822,
+          "value": "0x80"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 22,
+          "value": "0x90"
+        },
+        {
+          "count": 1,
+          "value": "0x92"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 8847,
+      "attribute_byte_nonzero_cell_count": 9313,
+      "attribute_byte_unique_count": 8,
+      "bg_palette_counts": [
+        {
+          "count": 5414,
+          "value": 0
+        },
+        {
+          "count": 1018,
+          "value": 1
+        },
+        {
+          "count": 1704,
+          "value": 2
+        },
+        {
+          "count": 2332,
+          "value": 3
+        },
+        {
+          "count": 2720,
+          "value": 4
+        },
+        {
+          "count": 1341,
+          "value": 5
+        },
+        {
+          "count": 751,
+          "value": 6
+        },
+        {
+          "count": 1104,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 943,
+      "file_sha1": "0e1bffb0bca2b29f84147df4849487406c8ebf27",
+      "hflip_cell_count": 4529,
+      "nonzero_cell_count": 11984,
+      "path": "refs/eb-decompile-4ef92/Tilesets/07.fts",
+      "priority_cell_count": 4799,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 984,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 111,
+      "tileset_id": 7,
+      "unique_record_count": 750,
+      "vflip_cell_count": 6016,
+      "zero_record_count": 275
+    },
+    {
+      "arrangement_collision_rows_sha1": "10fa69a318161c8577f845a376f8538232888b7c",
+      "attribute_byte_counts": [
+        {
+          "count": 7771,
+          "value": "0x00"
+        },
+        {
+          "count": 475,
+          "value": "0x01"
+        },
+        {
+          "count": 245,
+          "value": "0x03"
+        },
+        {
+          "count": 2619,
+          "value": "0x04"
+        },
+        {
+          "count": 5234,
+          "value": "0x80"
+        },
+        {
+          "count": 3,
+          "value": "0x84"
+        },
+        {
+          "count": 35,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x94"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 5274,
+      "attribute_byte_nonzero_cell_count": 8613,
+      "attribute_byte_unique_count": 8,
+      "bg_palette_counts": [
+        {
+          "count": 7453,
+          "value": 0
+        },
+        {
+          "count": 912,
+          "value": 1
+        },
+        {
+          "count": 3840,
+          "value": 2
+        },
+        {
+          "count": 913,
+          "value": 3
+        },
+        {
+          "count": 754,
+          "value": 4
+        },
+        {
+          "count": 544,
+          "value": 5
+        },
+        {
+          "count": 887,
+          "value": 6
+        },
+        {
+          "count": 1081,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 799,
+      "file_sha1": "5976db1025831e2b096ca1a8c8826ce5a00f50bc",
+      "hflip_cell_count": 3903,
+      "nonzero_cell_count": 10048,
+      "path": "refs/eb-decompile-4ef92/Tilesets/08.fts",
+      "priority_cell_count": 4514,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 973,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 119,
+      "tileset_id": 8,
+      "unique_record_count": 629,
+      "vflip_cell_count": 7256,
+      "zero_record_count": 396
+    },
+    {
+      "arrangement_collision_rows_sha1": "ec262989e0a464e72e3221f37ce71dc35878ca35",
+      "attribute_byte_counts": [
+        {
+          "count": 9076,
+          "value": "0x00"
+        },
+        {
+          "count": 4,
+          "value": "0x03"
+        },
+        {
+          "count": 30,
+          "value": "0x10"
+        },
+        {
+          "count": 7267,
+          "value": "0x80"
+        },
+        {
+          "count": 7,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 7274,
+      "attribute_byte_nonzero_cell_count": 7308,
+      "attribute_byte_unique_count": 5,
+      "bg_palette_counts": [
+        {
+          "count": 2846,
+          "value": 0
+        },
+        {
+          "count": 1196,
+          "value": 1
+        },
+        {
+          "count": 5442,
+          "value": 2
+        },
+        {
+          "count": 1581,
+          "value": 3
+        },
+        {
+          "count": 758,
+          "value": 4
+        },
+        {
+          "count": 2708,
+          "value": 5
+        },
+        {
+          "count": 1301,
+          "value": 6
+        },
+        {
+          "count": 552,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 880,
+      "file_sha1": "c5dd57af0e32a20175179d3e53bf35dcacd3627d",
+      "hflip_cell_count": 7108,
+      "nonzero_cell_count": 14928,
+      "path": "refs/eb-decompile-4ef92/Tilesets/09.fts",
+      "priority_cell_count": 6430,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 134,
+      "tileset_id": 9,
+      "unique_record_count": 934,
+      "vflip_cell_count": 5648,
+      "zero_record_count": 91
+    },
+    {
+      "arrangement_collision_rows_sha1": "a5c093a9ded8cea103b3909cf4f7816570f554b6",
+      "attribute_byte_counts": [
+        {
+          "count": 6821,
+          "value": "0x00"
+        },
+        {
+          "count": 529,
+          "value": "0x01"
+        },
+        {
+          "count": 1,
+          "value": "0x10"
+        },
+        {
+          "count": 8878,
+          "value": "0x80"
+        },
+        {
+          "count": 71,
+          "value": "0x82"
+        },
+        {
+          "count": 84,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 9033,
+      "attribute_byte_nonzero_cell_count": 9563,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 5618,
+          "value": 0
+        },
+        {
+          "count": 5285,
+          "value": 1
+        },
+        {
+          "count": 1050,
+          "value": 2
+        },
+        {
+          "count": 1134,
+          "value": 3
+        },
+        {
+          "count": 909,
+          "value": 4
+        },
+        {
+          "count": 927,
+          "value": 5
+        },
+        {
+          "count": 570,
+          "value": 6
+        },
+        {
+          "count": 891,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1514,
+      "file_sha1": "e6b390107e93e4d4f7b0d01fe08ad33d6de7cf91",
+      "hflip_cell_count": 6130,
+      "nonzero_cell_count": 13936,
+      "path": "refs/eb-decompile-4ef92/Tilesets/10.fts",
+      "priority_cell_count": 7294,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 123,
+      "tileset_id": 10,
+      "unique_record_count": 872,
+      "vflip_cell_count": 6024,
+      "zero_record_count": 153
+    },
+    {
+      "arrangement_collision_rows_sha1": "4346f7b3db67ecca039edf137692e2bba586f98d",
+      "attribute_byte_counts": [
+        {
+          "count": 8124,
+          "value": "0x00"
+        },
+        {
+          "count": 362,
+          "value": "0x01"
+        },
+        {
+          "count": 407,
+          "value": "0x03"
+        },
+        {
+          "count": 7346,
+          "value": "0x80"
+        },
+        {
+          "count": 78,
+          "value": "0x82"
+        },
+        {
+          "count": 67,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 7491,
+      "attribute_byte_nonzero_cell_count": 8260,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 7683,
+          "value": 0
+        },
+        {
+          "count": 2622,
+          "value": 1
+        },
+        {
+          "count": 628,
+          "value": 2
+        },
+        {
+          "count": 835,
+          "value": 3
+        },
+        {
+          "count": 955,
+          "value": 4
+        },
+        {
+          "count": 886,
+          "value": 5
+        },
+        {
+          "count": 1459,
+          "value": 6
+        },
+        {
+          "count": 1316,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1043,
+      "file_sha1": "d5308cde48443092b7cfc171ee421b69bc628104",
+      "hflip_cell_count": 4368,
+      "nonzero_cell_count": 11408,
+      "path": "refs/eb-decompile-4ef92/Tilesets/11.fts",
+      "priority_cell_count": 6302,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 159,
+      "tileset_id": 11,
+      "unique_record_count": 714,
+      "vflip_cell_count": 4225,
+      "zero_record_count": 311
+    },
+    {
+      "arrangement_collision_rows_sha1": "937946a4d69bb9769ca5f7f0fe70b5a1968a479f",
+      "attribute_byte_counts": [
+        {
+          "count": 10497,
+          "value": "0x00"
+        },
+        {
+          "count": 272,
+          "value": "0x01"
+        },
+        {
+          "count": 83,
+          "value": "0x03"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        },
+        {
+          "count": 5324,
+          "value": "0x80"
+        },
+        {
+          "count": 186,
+          "value": "0x82"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 5522,
+      "attribute_byte_nonzero_cell_count": 5887,
+      "attribute_byte_unique_count": 7,
+      "bg_palette_counts": [
+        {
+          "count": 10229,
+          "value": 0
+        },
+        {
+          "count": 835,
+          "value": 1
+        },
+        {
+          "count": 386,
+          "value": 2
+        },
+        {
+          "count": 462,
+          "value": 3
+        },
+        {
+          "count": 610,
+          "value": 4
+        },
+        {
+          "count": 526,
+          "value": 5
+        },
+        {
+          "count": 840,
+          "value": 6
+        },
+        {
+          "count": 2496,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 977,
+      "file_sha1": "35a7e0a4e4ea2ad8b9d5a8ca2725083a5a017de9",
+      "hflip_cell_count": 3663,
+      "nonzero_cell_count": 7392,
+      "path": "refs/eb-decompile-4ef92/Tilesets/12.fts",
+      "priority_cell_count": 3787,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 989,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 116,
+      "tileset_id": 12,
+      "unique_record_count": 463,
+      "vflip_cell_count": 2850,
+      "zero_record_count": 562
+    },
+    {
+      "arrangement_collision_rows_sha1": "dbef16a1041d9eca8060629ba0ae2c90f5d769f9",
+      "attribute_byte_counts": [
+        {
+          "count": 6650,
+          "value": "0x00"
+        },
+        {
+          "count": 94,
+          "value": "0x01"
+        },
+        {
+          "count": 60,
+          "value": "0x03"
+        },
+        {
+          "count": 370,
+          "value": "0x08"
+        },
+        {
+          "count": 70,
+          "value": "0x09"
+        },
+        {
+          "count": 2,
+          "value": "0x0B"
+        },
+        {
+          "count": 121,
+          "value": "0x10"
+        },
+        {
+          "count": 8933,
+          "value": "0x80"
+        },
+        {
+          "count": 29,
+          "value": "0x82"
+        },
+        {
+          "count": 55,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 9017,
+      "attribute_byte_nonzero_cell_count": 9734,
+      "attribute_byte_unique_count": 10,
+      "bg_palette_counts": [
+        {
+          "count": 6001,
+          "value": 0
+        },
+        {
+          "count": 2473,
+          "value": 1
+        },
+        {
+          "count": 2943,
+          "value": 2
+        },
+        {
+          "count": 801,
+          "value": 3
+        },
+        {
+          "count": 738,
+          "value": 4
+        },
+        {
+          "count": 542,
+          "value": 5
+        },
+        {
+          "count": 1791,
+          "value": 6
+        },
+        {
+          "count": 1095,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 1178,
+      "file_sha1": "e385baccc44bdba789fd4e0d3a14fda4f683320b",
+      "hflip_cell_count": 8246,
+      "nonzero_cell_count": 14112,
+      "path": "refs/eb-decompile-4ef92/Tilesets/13.fts",
+      "priority_cell_count": 6753,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 985,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 133,
+      "tileset_id": 13,
+      "unique_record_count": 883,
+      "vflip_cell_count": 5225,
+      "zero_record_count": 142
+    },
+    {
+      "arrangement_collision_rows_sha1": "3b094da0ac89b71223d9bb8d55139e1a9b467504",
+      "attribute_byte_counts": [
+        {
+          "count": 14177,
+          "value": "0x00"
+        },
+        {
+          "count": 57,
+          "value": "0x01"
+        },
+        {
+          "count": 39,
+          "value": "0x03"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        },
+        {
+          "count": 2076,
+          "value": "0x80"
+        },
+        {
+          "count": 17,
+          "value": "0x82"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 2105,
+      "attribute_byte_nonzero_cell_count": 2207,
+      "attribute_byte_unique_count": 7,
+      "bg_palette_counts": [
+        {
+          "count": 13715,
+          "value": 0
+        },
+        {
+          "count": 230,
+          "value": 1
+        },
+        {
+          "count": 328,
+          "value": 2
+        },
+        {
+          "count": 139,
+          "value": 3
+        },
+        {
+          "count": 492,
+          "value": 4
+        },
+        {
+          "count": 232,
+          "value": 5
+        },
+        {
+          "count": 171,
+          "value": 6
+        },
+        {
+          "count": 1077,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 815,
+      "file_sha1": "58fb8dcb67961bce4e7fdeaf4ced0bbd72f103fe",
+      "hflip_cell_count": 1751,
+      "nonzero_cell_count": 3248,
+      "path": "refs/eb-decompile-4ef92/Tilesets/14.fts",
+      "priority_cell_count": 991,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 977,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 117,
+      "tileset_id": 14,
+      "unique_record_count": 204,
+      "vflip_cell_count": 1197,
+      "zero_record_count": 821
+    },
+    {
+      "arrangement_collision_rows_sha1": "16e752ef5589c77ee6354ae61e425d782bf499d8",
+      "attribute_byte_counts": [
+        {
+          "count": 14791,
+          "value": "0x00"
+        },
+        {
+          "count": 100,
+          "value": "0x01"
+        },
+        {
+          "count": 35,
+          "value": "0x03"
+        },
+        {
+          "count": 1437,
+          "value": "0x80"
+        },
+        {
+          "count": 12,
+          "value": "0x82"
+        },
+        {
+          "count": 9,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 1458,
+      "attribute_byte_nonzero_cell_count": 1593,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 14980,
+          "value": 0
+        },
+        {
+          "count": 150,
+          "value": 1
+        },
+        {
+          "count": 245,
+          "value": 2
+        },
+        {
+          "count": 198,
+          "value": 3
+        },
+        {
+          "count": 268,
+          "value": 4
+        },
+        {
+          "count": 171,
+          "value": 5
+        },
+        {
+          "count": 194,
+          "value": 6
+        },
+        {
+          "count": 178,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 487,
+      "file_sha1": "83e96520fbe7ef71c2a2b035ae0d9bc9a2b5bdf8",
+      "hflip_cell_count": 661,
+      "nonzero_cell_count": 2288,
+      "path": "refs/eb-decompile-4ef92/Tilesets/15.fts",
+      "priority_cell_count": 888,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 861,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 72,
+      "tileset_id": 15,
+      "unique_record_count": 144,
+      "vflip_cell_count": 746,
+      "zero_record_count": 881
+    },
+    {
+      "arrangement_collision_rows_sha1": "f7371982583c21fc59be7891d99063e25267b1a6",
+      "attribute_byte_counts": [
+        {
+          "count": 12169,
+          "value": "0x00"
+        },
+        {
+          "count": 262,
+          "value": "0x01"
+        },
+        {
+          "count": 5,
+          "value": "0x03"
+        },
+        {
+          "count": 3893,
+          "value": "0x80"
+        },
+        {
+          "count": 42,
+          "value": "0x82"
+        },
+        {
+          "count": 13,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 3948,
+      "attribute_byte_nonzero_cell_count": 4215,
+      "attribute_byte_unique_count": 6,
+      "bg_palette_counts": [
+        {
+          "count": 10878,
+          "value": 0
+        },
+        {
+          "count": 796,
+          "value": 1
+        },
+        {
+          "count": 682,
+          "value": 2
+        },
+        {
+          "count": 1134,
+          "value": 3
+        },
+        {
+          "count": 701,
+          "value": 4
+        },
+        {
+          "count": 744,
+          "value": 5
+        },
+        {
+          "count": 353,
+          "value": 6
+        },
+        {
+          "count": 1096,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 937,
+      "file_sha1": "77f399c5c8fa552f5ecf0acde51f27eea62984cf",
+      "hflip_cell_count": 2678,
+      "nonzero_cell_count": 6240,
+      "path": "refs/eb-decompile-4ef92/Tilesets/16.fts",
+      "priority_cell_count": 3595,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 984,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 123,
+      "tileset_id": 16,
+      "unique_record_count": 391,
+      "vflip_cell_count": 2831,
+      "zero_record_count": 634
+    },
+    {
+      "arrangement_collision_rows_sha1": "5d9631844a8ba00728cb530322e7599eec5d6936",
+      "attribute_byte_counts": [
+        {
+          "count": 12974,
+          "value": "0x00"
+        },
+        {
+          "count": 202,
+          "value": "0x01"
+        },
+        {
+          "count": 273,
+          "value": "0x03"
+        },
+        {
+          "count": 2923,
+          "value": "0x80"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 2935,
+      "attribute_byte_nonzero_cell_count": 3410,
+      "attribute_byte_unique_count": 5,
+      "bg_palette_counts": [
+        {
+          "count": 11573,
+          "value": 0
+        },
+        {
+          "count": 1914,
+          "value": 1
+        },
+        {
+          "count": 401,
+          "value": 2
+        },
+        {
+          "count": 393,
+          "value": 3
+        },
+        {
+          "count": 359,
+          "value": 4
+        },
+        {
+          "count": 798,
+          "value": 5
+        },
+        {
+          "count": 636,
+          "value": 6
+        },
+        {
+          "count": 310,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 562,
+      "file_sha1": "79e24649d80a6b415cb83986c75885f485fd6480",
+      "hflip_cell_count": 3199,
+      "nonzero_cell_count": 5488,
+      "path": "refs/eb-decompile-4ef92/Tilesets/17.fts",
+      "priority_cell_count": 2283,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 984,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 105,
+      "tileset_id": 17,
+      "unique_record_count": 344,
+      "vflip_cell_count": 3252,
+      "zero_record_count": 681
+    },
+    {
+      "arrangement_collision_rows_sha1": "410c4df2476c1e3462c2c9d546b3bbbf86f1c01f",
+      "attribute_byte_counts": [
+        {
+          "count": 10401,
+          "value": "0x00"
+        },
+        {
+          "count": 684,
+          "value": "0x01"
+        },
+        {
+          "count": 198,
+          "value": "0x03"
+        },
+        {
+          "count": 1996,
+          "value": "0x04"
+        },
+        {
+          "count": 88,
+          "value": "0x05"
+        },
+        {
+          "count": 2,
+          "value": "0x07"
+        },
+        {
+          "count": 9,
+          "value": "0x10"
+        },
+        {
+          "count": 2998,
+          "value": "0x80"
+        },
+        {
+          "count": 8,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 3006,
+      "attribute_byte_nonzero_cell_count": 5983,
+      "attribute_byte_unique_count": 9,
+      "bg_palette_counts": [
+        {
+          "count": 10484,
+          "value": 0
+        },
+        {
+          "count": 1115,
+          "value": 1
+        },
+        {
+          "count": 399,
+          "value": 2
+        },
+        {
+          "count": 597,
+          "value": 3
+        },
+        {
+          "count": 532,
+          "value": 4
+        },
+        {
+          "count": 1888,
+          "value": 5
+        },
+        {
+          "count": 758,
+          "value": 6
+        },
+        {
+          "count": 611,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 511,
+      "file_sha1": "88ca5988f635ae0a245606f54947baf6023d8268",
+      "hflip_cell_count": 4495,
+      "nonzero_cell_count": 7120,
+      "path": "refs/eb-decompile-4ef92/Tilesets/18.fts",
+      "priority_cell_count": 2857,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 981,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 111,
+      "tileset_id": 18,
+      "unique_record_count": 446,
+      "vflip_cell_count": 4152,
+      "zero_record_count": 579
+    },
+    {
+      "arrangement_collision_rows_sha1": "723e82c1111d5d4239a9a02031276aa1831beb22",
+      "attribute_byte_counts": [
+        {
+          "count": 10281,
+          "value": "0x00"
+        },
+        {
+          "count": 406,
+          "value": "0x08"
+        },
+        {
+          "count": 130,
+          "value": "0x09"
+        },
+        {
+          "count": 59,
+          "value": "0x0B"
+        },
+        {
+          "count": 26,
+          "value": "0x10"
+        },
+        {
+          "count": 5457,
+          "value": "0x80"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        }
+      ],
+      "attribute_byte_high_bit_cell_count": 5482,
+      "attribute_byte_nonzero_cell_count": 6103,
+      "attribute_byte_unique_count": 7,
+      "bg_palette_counts": [
+        {
+          "count": 8701,
+          "value": 0
+        },
+        {
+          "count": 445,
+          "value": 1
+        },
+        {
+          "count": 159,
+          "value": 2
+        },
+        {
+          "count": 359,
+          "value": 3
+        },
+        {
+          "count": 2757,
+          "value": 4
+        },
+        {
+          "count": 1301,
+          "value": 5
+        },
+        {
+          "count": 1594,
+          "value": 6
+        },
+        {
+          "count": 1068,
+          "value": 7
+        }
+      ],
+      "cell_count": 16384,
+      "cell_shape": {
+        "attribute_byte_layout": "tile collision/behavior byte; storage is ROM-verified by notes/map-collision-pointer-contract.json",
+        "bytes_per_cell": 3,
+        "cell_grid_height": 4,
+        "cell_grid_width": 4,
+        "cells_per_record": 16,
+        "descriptor_word_endian": "little",
+        "descriptor_word_layout": "SNES BG tilemap word candidate: tile index bits 0-9, palette bits 10-12, priority bit 13, hflip bit 14, vflip bit 15"
+      },
+      "descriptor_word_unique_count": 657,
+      "file_sha1": "579377f09a074d53602d89f0c60545c98b20c45b",
+      "hflip_cell_count": 4357,
+      "nonzero_cell_count": 8576,
+      "path": "refs/eb-decompile-4ef92/Tilesets/19.fts",
+      "priority_cell_count": 4054,
+      "record_byte_count_if_packed": 49152,
+      "record_count": 1024,
+      "tile_index_max": 973,
+      "tile_index_min": 0,
+      "tile_index_unique_count": 96,
+      "tileset_id": 19,
+      "unique_record_count": 537,
+      "vflip_cell_count": 3330,
+      "zero_record_count": 488
+    }
+  ],
+  "title": "Map FTS Arrangement/Collision Contract"
+}

@@ -1,0 +1,197 @@
+{
+  "schema": "earthbound-decomp.audio-finite-ending-tail-metrics.v1",
+  "status": "finite_ending_tail_metrics_ready_policy_preserved",
+  "references": [
+    "manifests/audio-finite-ending-evidence-plan.json",
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-export-plan.json",
+    "manifests/audio-oracle-comparison-plan-all-tracks.json"
+  ],
+  "source_plan_status": "finite_ending_evidence_plan_ready_preview_policy_preserved",
+  "unit_policy": {
+    "candidate_end_frame": "pcm_frame_32000hz",
+    "last_nonzero_frame_index": "interleaved source sample index divided by stereo channel count",
+    "render_boundary_active_tolerance_frames": 4
+  },
+  "summary": {
+    "record_count": 5,
+    "track_ids": [
+      8,
+      9,
+      11,
+      123,
+      176
+    ],
+    "tail_classification_counts": {
+      "active_through_render_boundary": 3,
+      "post_candidate_tail_nonzero": 2
+    },
+    "diagnostic_focus_counts": {
+      "active_through_preview_or_loop_candidate": 2,
+      "finite_tail_or_transition_end": 2,
+      "general_playback_equivalence": 1
+    },
+    "nonzero_after_candidate_end_count": 5,
+    "active_through_render_boundary_count": 3,
+    "public_exact_finite_export_ready": false,
+    "promotion_allowed_by_report": false
+  },
+  "decision_policy": [
+    "This report normalizes source-render sample indexes to 32 kHz PCM frames before comparing them to finite-end samples.",
+    "Post-candidate PCM activity is diagnostic evidence only; it does not change export trimming or playback behavior.",
+    "Tracks active through the render boundary need runtime/oracle state evidence before a true finite ending can be claimed.",
+    "Tracks with shorter post-candidate tails still need transition/stinger versus true-release classification."
+  ],
+  "records": [
+    {
+      "track_id": 8,
+      "track_name": "BATTLE_SWIRL1",
+      "job_id": "finite-ending-track-008-battle_swirl1",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "duration_seconds": 4.036187,
+      "candidate_end_frame": 129158,
+      "candidate_end_seconds": 4.036187,
+      "source_metric_units": {
+        "finite_end_sample": "pcm_frame_32000hz",
+        "source_render_nonzero_index": "interleaved_pcm_sample_index",
+        "normalized_tail_index": "pcm_frame_32000hz",
+        "assumed_channels": 2,
+        "assumed_sample_rate": 32000,
+        "inferred_sample_rate_from_finite_end": 32000
+      },
+      "last_nonzero_interleaved_sample_index": 281969,
+      "last_nonzero_frame_index": 140984,
+      "frames_after_candidate_end": 11826,
+      "seconds_after_candidate_end": 0.369563,
+      "rendered_frames": 960000,
+      "rendered_interleaved_samples": 1920000,
+      "trailing_silent_frames_at_render_end": 819015,
+      "peak_abs_sample": 15632,
+      "rms_sample": 1108.445182,
+      "voice_count": 8,
+      "tail_classification": "post_candidate_tail_nonzero",
+      "public_exact_export_allowed": false,
+      "exact_export_implication": "blocked_pending_runtime_tail_classification"
+    },
+    {
+      "track_id": 9,
+      "track_name": "BATTLE_SWIRL2",
+      "job_id": "finite-ending-track-009-battle_swirl2",
+      "diagnostic_focus": "general_playback_equivalence",
+      "duration_seconds": 4.094594,
+      "candidate_end_frame": 131027,
+      "candidate_end_seconds": 4.094594,
+      "source_metric_units": {
+        "finite_end_sample": "pcm_frame_32000hz",
+        "source_render_nonzero_index": "interleaved_pcm_sample_index",
+        "normalized_tail_index": "pcm_frame_32000hz",
+        "assumed_channels": 2,
+        "assumed_sample_rate": 32000,
+        "inferred_sample_rate_from_finite_end": 32000
+      },
+      "last_nonzero_interleaved_sample_index": 1919995,
+      "last_nonzero_frame_index": 959997,
+      "frames_after_candidate_end": 828970,
+      "seconds_after_candidate_end": 25.905313,
+      "rendered_frames": 960000,
+      "rendered_interleaved_samples": 1920000,
+      "trailing_silent_frames_at_render_end": 2,
+      "peak_abs_sample": 11579,
+      "rms_sample": 448.855922,
+      "voice_count": 8,
+      "tail_classification": "active_through_render_boundary",
+      "public_exact_export_allowed": false,
+      "exact_export_implication": "blocked_pending_runtime_tail_classification"
+    },
+    {
+      "track_id": 11,
+      "track_name": "NEW_FRIEND",
+      "job_id": "finite-ending-track-011-new_friend",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "duration_seconds": 7.910188,
+      "candidate_end_frame": 253126,
+      "candidate_end_seconds": 7.910188,
+      "source_metric_units": {
+        "finite_end_sample": "pcm_frame_32000hz",
+        "source_render_nonzero_index": "interleaved_pcm_sample_index",
+        "normalized_tail_index": "pcm_frame_32000hz",
+        "assumed_channels": 2,
+        "assumed_sample_rate": 32000,
+        "inferred_sample_rate_from_finite_end": 32000
+      },
+      "last_nonzero_interleaved_sample_index": 1919999,
+      "last_nonzero_frame_index": 959999,
+      "frames_after_candidate_end": 706873,
+      "seconds_after_candidate_end": 22.089781,
+      "rendered_frames": 960000,
+      "rendered_interleaved_samples": 1920000,
+      "trailing_silent_frames_at_render_end": 0,
+      "peak_abs_sample": 13849,
+      "rms_sample": 1075.18693,
+      "voice_count": 8,
+      "tail_classification": "active_through_render_boundary",
+      "public_exact_export_allowed": false,
+      "exact_export_implication": "blocked_pending_runtime_tail_classification"
+    },
+    {
+      "track_id": 123,
+      "track_name": "SOMEONE_JOINS",
+      "job_id": "finite-ending-track-123-someone_joins",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "duration_seconds": 2.624125,
+      "candidate_end_frame": 83972,
+      "candidate_end_seconds": 2.624125,
+      "source_metric_units": {
+        "finite_end_sample": "pcm_frame_32000hz",
+        "source_render_nonzero_index": "interleaved_pcm_sample_index",
+        "normalized_tail_index": "pcm_frame_32000hz",
+        "assumed_channels": 2,
+        "assumed_sample_rate": 32000,
+        "inferred_sample_rate_from_finite_end": 32000
+      },
+      "last_nonzero_interleaved_sample_index": 226232,
+      "last_nonzero_frame_index": 113116,
+      "frames_after_candidate_end": 29144,
+      "seconds_after_candidate_end": 0.91075,
+      "rendered_frames": 960000,
+      "rendered_interleaved_samples": 1920000,
+      "trailing_silent_frames_at_render_end": 846883,
+      "peak_abs_sample": 15794,
+      "rms_sample": 754.838444,
+      "voice_count": 8,
+      "tail_classification": "post_candidate_tail_nonzero",
+      "public_exact_export_allowed": false,
+      "exact_export_implication": "blocked_pending_runtime_tail_classification"
+    },
+    {
+      "track_id": 176,
+      "track_name": "BATTLE_SWIRL4",
+      "job_id": "finite-ending-track-176-battle_swirl4",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "duration_seconds": 5.327125,
+      "candidate_end_frame": 170468,
+      "candidate_end_seconds": 5.327125,
+      "source_metric_units": {
+        "finite_end_sample": "pcm_frame_32000hz",
+        "source_render_nonzero_index": "interleaved_pcm_sample_index",
+        "normalized_tail_index": "pcm_frame_32000hz",
+        "assumed_channels": 2,
+        "assumed_sample_rate": 32000,
+        "inferred_sample_rate_from_finite_end": 32000
+      },
+      "last_nonzero_interleaved_sample_index": 1919999,
+      "last_nonzero_frame_index": 959999,
+      "frames_after_candidate_end": 789531,
+      "seconds_after_candidate_end": 24.672844,
+      "rendered_frames": 960000,
+      "rendered_interleaved_samples": 1920000,
+      "trailing_silent_frames_at_render_end": 0,
+      "peak_abs_sample": 8776,
+      "rms_sample": 632.085969,
+      "voice_count": 8,
+      "tail_classification": "active_through_render_boundary",
+      "public_exact_export_allowed": false,
+      "exact_export_implication": "blocked_pending_runtime_tail_classification"
+    }
+  ]
+}

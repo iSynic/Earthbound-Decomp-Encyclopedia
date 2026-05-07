@@ -1,0 +1,4018 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank CD asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-cd-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank0D.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 55,
+    "binary_assets_by_extension": {
+      "gfx": 55
+    },
+    "binary_asset_bytes": 65536,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 0,
+    "coverage_gap_bytes": 0,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 55,
+    "output_recipe_count": 319,
+    "typed_output_kind_count": 5,
+    "decoder_output_recipe_count": 264,
+    "renderer_output_recipe_count": 209,
+    "preview_png_recipe_count": 209,
+    "output_kind_counts": {
+      "earthbound_lzhal": 55,
+      "earthbound_lzhal_battle_sprite_png": 77,
+      "earthbound_lzhal_snes_4bpp_tiles_palette_png": 77,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 55,
+      "raw": 55
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 55,
+      "earthbound_lzhal+snes_4bpp_tiles": 55,
+      "earthbound_lzhal+snes_4bpp_tiles+snes_palette": 154
+    },
+    "renderer_counts": {
+      "battle_sprite": 77,
+      "grayscale_tile_sheet": 55,
+      "palette_tile_sheet": 77
+    },
+    "smoke_fixture_count": 6,
+    "smoke_fixture_asset_ids": [
+      "asset.cd.battle_sprite_10"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_renderer": 1,
+      "family_renderer_geometry": 1,
+      "recipe_kind": 1,
+      "recipe_option": 2
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal_battle_sprite_png": 3,
+      "earthbound_lzhal_snes_4bpp_tiles_palette_png": 2,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 1
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.cd.battle_sprite_107",
+      "title": "BATTLE_SPRITE_107",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:0000..CD:0E26",
+        "bytes": 3622,
+        "sha1": "9df75f96bca7e9f863116b6aa062e4296151ca92"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/107.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/107.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/107_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/107_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 107,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/107_palette_01_sprite.png",
+          "width": 128,
+          "height": 128,
+          "colors": 16,
+          "sprite_id": 107,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/107.gfx.lzhal",
+        "Original file offset: 0x0D0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_64",
+      "title": "BATTLE_SPRITE_64",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:0E26..CD:185C",
+        "bytes": 2614,
+        "sha1": "c1be744589bcbd94ab31943935e2f84aacc197e9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/64.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/64.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/64_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/64_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 64,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/64_palette_03_sprite.png",
+          "width": 128,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 64,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/64.gfx.lzhal",
+        "Original file offset: 0x0D0E26",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_40",
+      "title": "BATTLE_SPRITE_40",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:185C..CD:2255",
+        "bytes": 2553,
+        "sha1": "a8618adc994bb08977bdb22ddd1907f37e2736d0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/40.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/40.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/40_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/40_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 40,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/40_palette_01_sprite.png",
+          "width": 128,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 40,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/40.gfx.lzhal",
+        "Original file offset: 0x0D185C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_97",
+      "title": "BATTLE_SPRITE_97",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:2255..CD:2B19",
+        "bytes": 2244,
+        "sha1": "2fc9eca5486578d5869f94a9542b2d8b06b19b87"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/97.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/97.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/97_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/97_palette_06_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 97,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/97_palette_06_sprite.png",
+          "width": 128,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 97,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/97.gfx.lzhal",
+        "Original file offset: 0x0D2255",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_41",
+      "title": "BATTLE_SPRITE_41",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:2B19..CD:328F",
+        "bytes": 1910,
+        "sha1": "a39f4fa2e25642787fa0f1f4dfa23f88f4c4c407"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/41.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/41.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/41_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/41_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 41,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/41_palette_01_sprite.png",
+          "width": 128,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 41,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/41_palette_24_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 41,
+          "palette_id": 24,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6814..CE:6834",
+            "bytes": 32,
+            "sha1": "39d102365fc59b61a3bd33d038103f17186d5d8a"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/41_palette_24_sprite.png",
+          "width": 128,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 41,
+          "palette_id": 24,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6814..CE:6834",
+            "bytes": 32,
+            "sha1": "39d102365fc59b61a3bd33d038103f17186d5d8a"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/41.gfx.lzhal",
+        "Original file offset: 0x0D2B19",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_86",
+      "title": "BATTLE_SPRITE_86",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:328F..CD:3959",
+        "bytes": 1738,
+        "sha1": "1661c053e4889c0183496867fe02129c71e4dba1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/86.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/86.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/86_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/86_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 86,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/86_palette_05_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 86,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/86_palette_30_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 86,
+          "palette_id": 30,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:68D4..CE:68F4",
+            "bytes": 32,
+            "sha1": "ff5ddd0bcd8163f6a1a19df39f9db728fbc3306d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/86_palette_30_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 86,
+          "palette_id": 30,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:68D4..CE:68F4",
+            "bytes": 32,
+            "sha1": "ff5ddd0bcd8163f6a1a19df39f9db728fbc3306d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/86.gfx.lzhal",
+        "Original file offset: 0x0D328F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_39",
+      "title": "BATTLE_SPRITE_39",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:3959..CD:3F94",
+        "bytes": 1595,
+        "sha1": "c22d32db3d97bcc1eab4b189c9fb77fc4bfe7d0f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/39.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/39.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/39_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/39_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 39,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/39_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 39,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/39.gfx.lzhal",
+        "Original file offset: 0x0D3959",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_38",
+      "title": "BATTLE_SPRITE_38",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:3F94..CD:45AA",
+        "bytes": 1558,
+        "sha1": "373aff83de3f7a0572ef725759730f6ba3b84fc4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/38.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/38.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/38_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/38_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 38,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/38_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 38,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/38.gfx.lzhal",
+        "Original file offset: 0x0D3F94",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_56",
+      "title": "BATTLE_SPRITE_56",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:45AA..CD:4B4B",
+        "bytes": 1441,
+        "sha1": "4a5f5b8791d3e8cb0adc92f10644a701d2ce5fc5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/56.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/56.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/56_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/56_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 56,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/56_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 56,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/56_palette_18_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 56,
+          "palette_id": 18,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6754..CE:6774",
+            "bytes": 32,
+            "sha1": "94e5d1621aa1890dfbec4f072166ec961a926c18"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/56_palette_18_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 56,
+          "palette_id": 18,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6754..CE:6774",
+            "bytes": 32,
+            "sha1": "94e5d1621aa1890dfbec4f072166ec961a926c18"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/56.gfx.lzhal",
+        "Original file offset: 0x0D45AA",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_100",
+      "title": "BATTLE_SPRITE_100",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:4B4B..CD:509D",
+        "bytes": 1362,
+        "sha1": "e549261e0c9b2f8b7548776eea0ceb996069bd83"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/100.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/100.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/100_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/100_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 100,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/100_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 100,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/100.gfx.lzhal",
+        "Original file offset: 0x0D4B4B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_96",
+      "title": "BATTLE_SPRITE_96",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:509D..CD:55EE",
+        "bytes": 1361,
+        "sha1": "fc1b53f979055757b4a548b7236393e4eab94607"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/96.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/96.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/96_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/96_palette_06_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 96,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/96_palette_06_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 96,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/96.gfx.lzhal",
+        "Original file offset: 0x0D509D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_36",
+      "title": "BATTLE_SPRITE_36",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:55EE..CD:5B3D",
+        "bytes": 1359,
+        "sha1": "090303a49d56ded1cd29b61c5fd3ac07799aab6a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/36.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/36.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/36_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/36_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 36,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/36_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 36,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/36_palette_26_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 36,
+          "palette_id": 26,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6854..CE:6874",
+            "bytes": 32,
+            "sha1": "35a357ca88721b79a221315c2c0292a55c0d7d88"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/36_palette_26_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 36,
+          "palette_id": 26,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6854..CE:6874",
+            "bytes": 32,
+            "sha1": "35a357ca88721b79a221315c2c0292a55c0d7d88"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/36.gfx.lzhal",
+        "Original file offset: 0x0D55EE",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_73",
+      "title": "BATTLE_SPRITE_73",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:5B3D..CD:6069",
+        "bytes": 1324,
+        "sha1": "3000bcfc14b87f54d8766f520b999f856d450c43"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/73.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/73.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/73_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/73_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 73,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/73_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 73,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/73_palette_04_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 73,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/73_palette_04_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 73,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/73.gfx.lzhal",
+        "Original file offset: 0x0D5B3D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_75",
+      "title": "BATTLE_SPRITE_75",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:6069..CD:6593",
+        "bytes": 1322,
+        "sha1": "34c23b656507814eaa4f023cdb43774841c8fe31"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/75.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/75.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/75_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/75_palette_04_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 75,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/75_palette_04_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 75,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/75.gfx.lzhal",
+        "Original file offset: 0x0D6069",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_35",
+      "title": "BATTLE_SPRITE_35",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:6593..CD:6AB6",
+        "bytes": 1315,
+        "sha1": "2ed48cbdb2129d35ee27365e75541f8ac9192413"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/35.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/35.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/35_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/35_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 35,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/35_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 35,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/35.gfx.lzhal",
+        "Original file offset: 0x0D6593",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_74",
+      "title": "BATTLE_SPRITE_74",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:6AB6..CD:6FD3",
+        "bytes": 1309,
+        "sha1": "050bf47a9657b9df898653db978bec677bc4db54"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/74.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/74.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/74_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/74_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 74,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/74_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 74,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/74.gfx.lzhal",
+        "Original file offset: 0x0D6AB6",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_101",
+      "title": "BATTLE_SPRITE_101",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:6FD3..CD:74DF",
+        "bytes": 1292,
+        "sha1": "41e7ae72e87f682f6f1c7b1bbb2afdb4953c80cd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/101.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/101.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/101_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/101_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 101,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/101_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 101,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/101.gfx.lzhal",
+        "Original file offset: 0x0D6FD3",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_94",
+      "title": "BATTLE_SPRITE_94",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:74DF..CD:79D7",
+        "bytes": 1272,
+        "sha1": "be5aa19d4025b2696049f146bd019ab1eeba5e90"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/94.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/94.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/94_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/94_palette_06_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 94,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/94_palette_06_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 94,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/94.gfx.lzhal",
+        "Original file offset: 0x0D74DF",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_37",
+      "title": "BATTLE_SPRITE_37",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:79D7..CD:7ECE",
+        "bytes": 1271,
+        "sha1": "852d795eb88f9fe518f04f50e98955a856f01fe0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/37.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/37.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/37_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/37_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 37,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/37_palette_01_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 37,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/37.gfx.lzhal",
+        "Original file offset: 0x0D79D7",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_87",
+      "title": "BATTLE_SPRITE_87",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:7ECE..CD:83AA",
+        "bytes": 1244,
+        "sha1": "2c02d25c4a62939efe4edd4b53bb90a264edb121"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/87.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/87.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/87_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/87_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 87,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/87_palette_05_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 87,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/87_palette_19_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 87,
+          "palette_id": 19,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6774..CE:6794",
+            "bytes": 32,
+            "sha1": "07e6e002e500fc8d75d7c7b543c7cdd7848aa07e"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/87_palette_19_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 87,
+          "palette_id": 19,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6774..CE:6794",
+            "bytes": 32,
+            "sha1": "07e6e002e500fc8d75d7c7b543c7cdd7848aa07e"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/87.gfx.lzhal",
+        "Original file offset: 0x0D7ECE",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_13",
+      "title": "BATTLE_SPRITE_13",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:83AA..CD:883F",
+        "bytes": 1173,
+        "sha1": "b0829ebccea4094a22a990fb459d39dfe6fc8d9e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/13.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/13.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/13_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/13_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 13,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/13_palette_09_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 13,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/13_palette_27_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 13,
+          "palette_id": 27,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6874..CE:6894",
+            "bytes": 32,
+            "sha1": "d3caf4539281e8b48fe16acbc5599c50aa02503d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/13_palette_27_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 13,
+          "palette_id": 27,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6874..CE:6894",
+            "bytes": 32,
+            "sha1": "d3caf4539281e8b48fe16acbc5599c50aa02503d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/13.gfx.lzhal",
+        "Original file offset: 0x0D83AA",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_104",
+      "title": "BATTLE_SPRITE_104",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:883F..CD:8CCB",
+        "bytes": 1164,
+        "sha1": "a930d423faf8c6617d158240d03b2a2218dd9c30"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/104.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/104.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/104_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/104_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 104,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/104_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 104,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/104_palette_21_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 104,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/104_palette_21_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 104,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/104.gfx.lzhal",
+        "Original file offset: 0x0D883F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_99",
+      "title": "BATTLE_SPRITE_99",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:8CCB..CD:9142",
+        "bytes": 1143,
+        "sha1": "5cd5b5a61bf43411a23bea70817b2938ff0a80e7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/99.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/99.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/99_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/99_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 99,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/99_palette_03_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 99,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/99_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 99,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/99_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 99,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/99.gfx.lzhal",
+        "Original file offset: 0x0D8CCB",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_55",
+      "title": "BATTLE_SPRITE_55",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:9142..CD:958A",
+        "bytes": 1096,
+        "sha1": "01c7030a0c7066546a15ed85fae248c28b7c23d9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/55.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/55.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/55_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/55_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/55_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/55_palette_12_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 12,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6694..CE:66B4",
+            "bytes": 32,
+            "sha1": "19412dc1602a92711a8cc367d3106088aa64b017"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/55_palette_12_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 12,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6694..CE:66B4",
+            "bytes": 32,
+            "sha1": "19412dc1602a92711a8cc367d3106088aa64b017"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/55_palette_26_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 26,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6854..CE:6874",
+            "bytes": 32,
+            "sha1": "35a357ca88721b79a221315c2c0292a55c0d7d88"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/55_palette_26_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 55,
+          "palette_id": 26,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6854..CE:6874",
+            "bytes": 32,
+            "sha1": "35a357ca88721b79a221315c2c0292a55c0d7d88"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/55.gfx.lzhal",
+        "Original file offset: 0x0D9142",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_95",
+      "title": "BATTLE_SPRITE_95",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:958A..CD:9984",
+        "bytes": 1018,
+        "sha1": "8f37162769ceac5e885665d1f5423bf560597768"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/95.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/95.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/95_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/95_palette_06_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 95,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/95_palette_06_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 95,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/95_palette_14_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 95,
+          "palette_id": 14,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:66D4..CE:66F4",
+            "bytes": 32,
+            "sha1": "2aa90d108ab0974e15807a692547fc4dfccd3680"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/95_palette_14_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 95,
+          "palette_id": 14,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:66D4..CE:66F4",
+            "bytes": 32,
+            "sha1": "2aa90d108ab0974e15807a692547fc4dfccd3680"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/95.gfx.lzhal",
+        "Original file offset: 0x0D958A",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_105",
+      "title": "BATTLE_SPRITE_105",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:9984..CD:9D65",
+        "bytes": 993,
+        "sha1": "62441711c105b18a24cb69725b5a9e65a1ba8c4c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/105.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/105.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/105_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/105_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 105,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/105_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 105,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/105_palette_24_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 105,
+          "palette_id": 24,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6814..CE:6834",
+            "bytes": 32,
+            "sha1": "39d102365fc59b61a3bd33d038103f17186d5d8a"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/105_palette_24_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 105,
+          "palette_id": 24,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6814..CE:6834",
+            "bytes": 32,
+            "sha1": "39d102365fc59b61a3bd33d038103f17186d5d8a"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/105.gfx.lzhal",
+        "Original file offset: 0x0D9984",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_72",
+      "title": "BATTLE_SPRITE_72",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:9D65..CD:A144",
+        "bytes": 991,
+        "sha1": "c522b17bf34cf0705319e818c95f089768aaac0c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/72.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/72.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/72_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/72_palette_04_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 72,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/72_palette_04_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 72,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/72_palette_10_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 72,
+          "palette_id": 10,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6654..CE:6674",
+            "bytes": 32,
+            "sha1": "355a7c5f2163479d337fe2879515720b1e08a734"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/72_palette_10_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 72,
+          "palette_id": 10,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6654..CE:6674",
+            "bytes": 32,
+            "sha1": "355a7c5f2163479d337fe2879515720b1e08a734"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/72.gfx.lzhal",
+        "Original file offset: 0x0D9D65",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_51",
+      "title": "BATTLE_SPRITE_51",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:A144..CD:A51D",
+        "bytes": 985,
+        "sha1": "834d0c06c07f6696def17d3adedf1b7232f071b9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/51.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/51.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/51_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/51_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 51,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/51_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 51,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/51.gfx.lzhal",
+        "Original file offset: 0x0DA144",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_22",
+      "title": "BATTLE_SPRITE_22",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:A51D..CD:A8F4",
+        "bytes": 983,
+        "sha1": "9bbd2a14ef05bee61190bb35fcc93cabd9bdce46"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/22.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/22.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/22_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/22_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 22,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/22_palette_01_sprite.png",
+          "width": 64,
+          "height": 32,
+          "colors": 16,
+          "sprite_id": 22,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/22.gfx.lzhal",
+        "Original file offset: 0x0DA51D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_102",
+      "title": "BATTLE_SPRITE_102",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:A8F4..CD:ACBF",
+        "bytes": 971,
+        "sha1": "7e89c28fb8e22bdaba1d3b471eda315452d65af1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/102.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/102.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/102_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/102_palette_07_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 102,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/102_palette_07_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 102,
+          "palette_id": 7,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65F4..CE:6614",
+            "bytes": 32,
+            "sha1": "fba1228947b1f03b034d5e88feaea203cd708735"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/102.gfx.lzhal",
+        "Original file offset: 0x0DA8F4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_84",
+      "title": "BATTLE_SPRITE_84",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:ACBF..CD:B087",
+        "bytes": 968,
+        "sha1": "dd8b5520898266d8ced23021887a32d1db261049"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/84.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/84.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/84_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/84_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/84_palette_03_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/84_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/84_palette_05_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/84_palette_21_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/84_palette_21_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 84,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/84.gfx.lzhal",
+        "Original file offset: 0x0DACBF",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_67",
+      "title": "BATTLE_SPRITE_67",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:B087..CD:B447",
+        "bytes": 960,
+        "sha1": "c7758b951ba18246166bee2a66c307a223edf349"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/67.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/67.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/67_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/67_palette_04_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 67,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/67_palette_04_sprite.png",
+          "width": 64,
+          "height": 32,
+          "colors": 16,
+          "sprite_id": 67,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/67.gfx.lzhal",
+        "Original file offset: 0x0DB087",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_63",
+      "title": "BATTLE_SPRITE_63",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:B447..CD:B802",
+        "bytes": 955,
+        "sha1": "217a8c05af6a539d963ced520a09820faf6754cc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/63.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/63.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/63_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/63_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 63,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/63_palette_03_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 63,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/63.gfx.lzhal",
+        "Original file offset: 0x0DB447",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_11",
+      "title": "BATTLE_SPRITE_11",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:B802..CD:BB82",
+        "bytes": 896,
+        "sha1": "30ef74a6effcaff2b115fe5b2010c51640fa8d06"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/11.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/11.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/11_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/11_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 11,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/11_palette_09_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 11,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/11.gfx.lzhal",
+        "Original file offset: 0x0DB802",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_106",
+      "title": "BATTLE_SPRITE_106",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:BB82..CD:BEFF",
+        "bytes": 893,
+        "sha1": "f80ead58a31e45d60d74a1f65a1fc89362d05bb2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/106.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/106.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/106_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/106_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 106,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/106_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 106,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/106_palette_16_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 106,
+          "palette_id": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6714..CE:6734",
+            "bytes": 32,
+            "sha1": "d4f8494c1599d76b8d0b4205d44ad95523d4085d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/106_palette_16_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 106,
+          "palette_id": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6714..CE:6734",
+            "bytes": 32,
+            "sha1": "d4f8494c1599d76b8d0b4205d44ad95523d4085d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/106.gfx.lzhal",
+        "Original file offset: 0x0DBB82",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_54",
+      "title": "BATTLE_SPRITE_54",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:BEFF..CD:C27B",
+        "bytes": 892,
+        "sha1": "88b835fc96261824fad941aa09c605385d26631d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/54.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/54.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/54_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/54_palette_02_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 54,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/54_palette_02_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 54,
+          "palette_id": 2,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6554..CE:6574",
+            "bytes": 32,
+            "sha1": "dfffb8e3eaaadc4d4439b161d653defcc655a9b1"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/54.gfx.lzhal",
+        "Original file offset: 0x0DBEFF",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_14",
+      "title": "BATTLE_SPRITE_14",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:C27B..CD:C5F0",
+        "bytes": 885,
+        "sha1": "9e7d1861c011887330e904e6520c972dcfc00a5c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/14.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/14.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/14_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/14_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 14,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/14_palette_09_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 14,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/14.gfx.lzhal",
+        "Original file offset: 0x0DC27B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_32",
+      "title": "BATTLE_SPRITE_32",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:C5F0..CD:C960",
+        "bytes": 880,
+        "sha1": "99839aee1552825d596a78a0b86414a509595333"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/32.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/32.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/32_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/32_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 32,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/32_palette_01_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 32,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/32.gfx.lzhal",
+        "Original file offset: 0x0DC5F0",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_81",
+      "title": "BATTLE_SPRITE_81",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:C960..CD:CCCF",
+        "bytes": 879,
+        "sha1": "031d49b5daf4a56fcc9d0e380e8f01ba189e6be8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/81.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/81.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/81_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/81_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 81,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/81_palette_05_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 81,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/81.gfx.lzhal",
+        "Original file offset: 0x0DC960",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_62",
+      "title": "BATTLE_SPRITE_62",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:CCCF..CD:D01D",
+        "bytes": 846,
+        "sha1": "c7c39eb23317f9489415a6c2eadf691c3b1d259d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/62.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/62.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/62_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/62_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 62,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/62_palette_03_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 62,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/62.gfx.lzhal",
+        "Original file offset: 0x0DCCCF",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_93",
+      "title": "BATTLE_SPRITE_93",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:D01D..CD:D36A",
+        "bytes": 845,
+        "sha1": "e1902020e4c8c1924f75c24f0ccc55a0070618a8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/93.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/93.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/93_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/93_palette_06_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 93,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/93_palette_06_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 93,
+          "palette_id": 6,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65D4..CE:65F4",
+            "bytes": 32,
+            "sha1": "76271cbf844387612f098e604748da8e6c14564d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/93.gfx.lzhal",
+        "Original file offset: 0x0DD01D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_83",
+      "title": "BATTLE_SPRITE_83",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:D36A..CD:D6A6",
+        "bytes": 828,
+        "sha1": "14851b9e9f61a17c0b659cc0ee5c55a4661fd489"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/83.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/83.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/83_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/83_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 83,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/83_palette_05_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 83,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/83_palette_21_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 83,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/83_palette_21_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 83,
+          "palette_id": 21,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:67B4..CE:67D4",
+            "bytes": 32,
+            "sha1": "49c383ce25f6d2e21a11e644a16ba9cc86e8a577"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/83.gfx.lzhal",
+        "Original file offset: 0x0DD36A",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_34",
+      "title": "BATTLE_SPRITE_34",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:D6A6..CD:D9E1",
+        "bytes": 827,
+        "sha1": "35993ea738bbf0f9a09e1f5199ff7978cd437431"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/34.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/34.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/34_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/34_palette_08_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 34,
+          "palette_id": 8,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6614..CE:6634",
+            "bytes": 32,
+            "sha1": "eda35c2802fad47d5e597b931e7bf415ddec5808"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/34_palette_08_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 34,
+          "palette_id": 8,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6614..CE:6634",
+            "bytes": 32,
+            "sha1": "eda35c2802fad47d5e597b931e7bf415ddec5808"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/34_palette_16_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 34,
+          "palette_id": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6714..CE:6734",
+            "bytes": 32,
+            "sha1": "d4f8494c1599d76b8d0b4205d44ad95523d4085d"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/34_palette_16_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 34,
+          "palette_id": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6714..CE:6734",
+            "bytes": 32,
+            "sha1": "d4f8494c1599d76b8d0b4205d44ad95523d4085d"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/34.gfx.lzhal",
+        "Original file offset: 0x0DD6A6",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_12",
+      "title": "BATTLE_SPRITE_12",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:D9E1..CD:DD18",
+        "bytes": 823,
+        "sha1": "6dfcd4cb83e2b0734112628a5fac7a9d2e4ce558"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/12.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/12.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/12_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/12_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 12,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/12_palette_03_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 12,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/12_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 12,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/12_palette_09_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 12,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/12.gfx.lzhal",
+        "Original file offset: 0x0DD9E1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_60",
+      "title": "BATTLE_SPRITE_60",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:DD18..CD:E04C",
+        "bytes": 820,
+        "sha1": "926e13a70ac812a15ed4ad395fe773c749fbaade"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/60.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/60.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/60_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/60_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 60,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/60_palette_03_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 60,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/60.gfx.lzhal",
+        "Original file offset: 0x0DDD18",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_71",
+      "title": "BATTLE_SPRITE_71",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:E04C..CD:E37C",
+        "bytes": 816,
+        "sha1": "020e42fc77036e8360918dbf42e4255d9955b11c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/71.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/71.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/71_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/71_palette_04_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 71,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/71_palette_04_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 71,
+          "palette_id": 4,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6594..CE:65B4",
+            "bytes": 32,
+            "sha1": "5c7726303be2b3b9a81d539001f1b6ee9150daa9"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/71.gfx.lzhal",
+        "Original file offset: 0x0DE04C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:E37C..CD:E6A8",
+        "bytes": 812,
+        "sha1": "b4d431fb34e26fede3c997caa8d0d5e99be9fe84"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/10.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/10.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/10_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/10_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 10,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/10_palette_09_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 10,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/10.gfx.lzhal",
+        "Original file offset: 0x0DE37C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_9",
+      "title": "BATTLE_SPRITE_9",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:E6A8..CD:E9D4",
+        "bytes": 812,
+        "sha1": "7153f5fac62b5030582b722cddfae505b1a5b69a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/9.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/9.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/9_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/9_palette_09_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 9,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/9_palette_09_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 9,
+          "palette_id": 9,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6634..CE:6654",
+            "bytes": 32,
+            "sha1": "d354b71f55d4f2022b74d12aade02e6ff0e9b48c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/9.gfx.lzhal",
+        "Original file offset: 0x0DE6A8",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_28",
+      "title": "BATTLE_SPRITE_28",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:E9D4..CD:ECF7",
+        "bytes": 803,
+        "sha1": "00f35343a13f60ae654bcf10e615dd195e30afc0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/28.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/28.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/28_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/28_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 28,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/28_palette_01_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 28,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/28_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 28,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/28_palette_03_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 28,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/28.gfx.lzhal",
+        "Original file offset: 0x0DE9D4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_108",
+      "title": "BATTLE_SPRITE_108",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:ECF7..CD:F018",
+        "bytes": 801,
+        "sha1": "26d59640ef5d21b133e74182f1fec996dc77e699"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/108.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/108.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/108_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/108_palette_20_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 108,
+          "palette_id": 20,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6794..CE:67B4",
+            "bytes": 32,
+            "sha1": "d9404ac51a34dbc3290ba74fa6c84063529e5375"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/108_palette_20_sprite.png",
+          "width": 64,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 108,
+          "palette_id": 20,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6794..CE:67B4",
+            "bytes": 32,
+            "sha1": "d9404ac51a34dbc3290ba74fa6c84063529e5375"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/108.gfx.lzhal",
+        "Original file offset: 0x0DECF7",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_79",
+      "title": "BATTLE_SPRITE_79",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:F018..CD:F337",
+        "bytes": 799,
+        "sha1": "b940428faf17064ca7e36a03d4c65294c400c8ce"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/79.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/79.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/79_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/79_palette_03_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 79,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/79_palette_03_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 79,
+          "palette_id": 3,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6574..CE:6594",
+            "bytes": 32,
+            "sha1": "15d98c5ecd990596d012d3b599a03e47a0ae2880"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/79_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 79,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/79_palette_05_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 79,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/79.gfx.lzhal",
+        "Original file offset: 0x0DF018",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_27",
+      "title": "BATTLE_SPRITE_27",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:F337..CD:F652",
+        "bytes": 795,
+        "sha1": "cbe103596370bd5177b9b795df99e1662bd4cd12"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/27.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/27.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/27_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/27_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 27,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/27_palette_01_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 27,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/27.gfx.lzhal",
+        "Original file offset: 0x0DF337",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_78",
+      "title": "BATTLE_SPRITE_78",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:F652..CD:F95F",
+        "bytes": 781,
+        "sha1": "7b44d8cf5df75164ff2150a79794e551e068f868"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/78.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/78.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/78_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/78_palette_05_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 78,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/78_palette_05_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 78,
+          "palette_id": 5,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:65B4..CE:65D4",
+            "bytes": 32,
+            "sha1": "82c2d62e04c790cf39e94432fb00cf29e7a722d1"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/78.gfx.lzhal",
+        "Original file offset: 0x0DF652",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_30",
+      "title": "BATTLE_SPRITE_30",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:F95F..CD:FC6C",
+        "bytes": 781,
+        "sha1": "956885a20a63380c352c80dc22fd374afb4ce6e2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/30.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/30.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/30_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/30_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 30,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/30_palette_01_sprite.png",
+          "width": 32,
+          "height": 64,
+          "colors": 16,
+          "sprite_id": 30,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/30.gfx.lzhal",
+        "Original file offset: 0x0DF95F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cd.battle_sprite_23",
+      "title": "BATTLE_SPRITE_23",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CD:FC6C..CD:10000",
+        "bytes": 916,
+        "sha1": "264fc808c13bae3fadd966059fd5a22acbccfb95"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cd/battle_sprites/23.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cd/battle_sprites/23.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cd/battle_sprites/23_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "cd/battle_sprites/23_palette_01_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "sprite_id": 23,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        },
+        {
+          "kind": "earthbound_lzhal_battle_sprite_png",
+          "path": "cd/battle_sprites/23_palette_01_sprite.png",
+          "width": 64,
+          "height": 32,
+          "colors": 16,
+          "sprite_id": 23,
+          "palette_id": 1,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CE:6534..CE:6554",
+            "bytes": 32,
+            "sha1": "8eb8eecf04e4d5115e4767f883b07b18d64ba98c"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_sprites/23.gfx.lzhal",
+        "Original file offset: 0x0DFC6C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    }
+  ]
+}

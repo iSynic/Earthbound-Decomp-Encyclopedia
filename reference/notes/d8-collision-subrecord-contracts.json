@@ -1,0 +1,552 @@
+{
+  "bit_family_summary": [
+    {
+      "d8_cells": 13822,
+      "mask": "0x00C0",
+      "observed_mask_values": [
+        "0x0000",
+        "0x0080"
+      ],
+      "observed_raw_values": [
+        "0x80",
+        "0x82",
+        "0x84",
+        "0x90",
+        "0x92",
+        "0x94"
+      ],
+      "pointer_expanded_cells": 110422,
+      "source_emission_note": "Preserve as numeric flag bits; 0x80 is observed and 0x40 is runtime-supported by C0 but absent from verified D8 data.",
+      "working_name": "high_collision_block_mask"
+    },
+    {
+      "d8_cells": 411,
+      "mask": "0x0010",
+      "observed_mask_values": [
+        "0x0000",
+        "0x0010"
+      ],
+      "observed_raw_values": [
+        "0x10",
+        "0x90",
+        "0x92",
+        "0x94"
+      ],
+      "pointer_expanded_cells": 867,
+      "source_emission_note": "Consumer-backed latch bit; name the mask, not individual gameplay surfaces.",
+      "working_name": "special_surface_coord_latch"
+    },
+    {
+      "d8_cells": 3853,
+      "mask": "0x000C",
+      "observed_mask_values": [
+        "0x0000",
+        "0x0004",
+        "0x0008",
+        "0x000C"
+      ],
+      "observed_raw_values": [
+        "0x04",
+        "0x05",
+        "0x07",
+        "0x08",
+        "0x09",
+        "0x0B",
+        "0x0C",
+        "0x0D",
+        "0x0F",
+        "0x84",
+        "0x94"
+      ],
+      "pointer_expanded_cells": 8667,
+      "source_emission_note": "Consumer-backed class bits from C0; keep class values numeric until caller evidence proves labels.",
+      "working_name": "entity_terrain_compatibility_class"
+    },
+    {
+      "d8_cells": 6871,
+      "mask": "0x0003",
+      "observed_mask_values": [
+        "0x0000",
+        "0x0001",
+        "0x0002",
+        "0x0003"
+      ],
+      "observed_raw_values": [
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x05",
+        "0x07",
+        "0x09",
+        "0x0B",
+        "0x0D",
+        "0x0F",
+        "0x82",
+        "0x92"
+      ],
+      "pointer_expanded_cells": 16548,
+      "source_emission_note": "Preserved through C0:5B7B's low-six-bit return path; final gameplay labels remain open.",
+      "working_name": "low_surface_modifier_bits"
+    }
+  ],
+  "generator": "tools/build_d8_collision_subrecord_contracts.py",
+  "pointer_table_shape": {
+    "fields": [
+      {
+        "field": "collision_record_offset",
+        "meaning": "16-byte-aligned offset into D8:0000 MAP_TILE_COLLISION_DATA; 0x0000 is a real collision record",
+        "offset": 0,
+        "size": 2
+      }
+    ],
+    "size": 2,
+    "struct": "map_tile_collision_record_offset"
+  },
+  "record_shape": {
+    "fields": [
+      {
+        "column": 0,
+        "field": "cell_r0_c0_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 0,
+        "row": 0,
+        "size": 1
+      },
+      {
+        "column": 1,
+        "field": "cell_r0_c1_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 1,
+        "row": 0,
+        "size": 1
+      },
+      {
+        "column": 2,
+        "field": "cell_r0_c2_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 2,
+        "row": 0,
+        "size": 1
+      },
+      {
+        "column": 3,
+        "field": "cell_r0_c3_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 3,
+        "row": 0,
+        "size": 1
+      },
+      {
+        "column": 0,
+        "field": "cell_r1_c0_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 4,
+        "row": 1,
+        "size": 1
+      },
+      {
+        "column": 1,
+        "field": "cell_r1_c1_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 5,
+        "row": 1,
+        "size": 1
+      },
+      {
+        "column": 2,
+        "field": "cell_r1_c2_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 6,
+        "row": 1,
+        "size": 1
+      },
+      {
+        "column": 3,
+        "field": "cell_r1_c3_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 7,
+        "row": 1,
+        "size": 1
+      },
+      {
+        "column": 0,
+        "field": "cell_r2_c0_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 8,
+        "row": 2,
+        "size": 1
+      },
+      {
+        "column": 1,
+        "field": "cell_r2_c1_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 9,
+        "row": 2,
+        "size": 1
+      },
+      {
+        "column": 2,
+        "field": "cell_r2_c2_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 10,
+        "row": 2,
+        "size": 1
+      },
+      {
+        "column": 3,
+        "field": "cell_r2_c3_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 11,
+        "row": 2,
+        "size": 1
+      },
+      {
+        "column": 0,
+        "field": "cell_r3_c0_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 12,
+        "row": 3,
+        "size": 1
+      },
+      {
+        "column": 1,
+        "field": "cell_r3_c1_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 13,
+        "row": 3,
+        "size": 1
+      },
+      {
+        "column": 2,
+        "field": "cell_r3_c2_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 14,
+        "row": 3,
+        "size": 1
+      },
+      {
+        "column": 3,
+        "field": "cell_r3_c3_surface_collision_flags",
+        "meaning": "one 4x4 metatile-cell surface/collision flag byte expanded from D8 through the tileset collision pointer table",
+        "offset": 15,
+        "row": 3,
+        "size": 1
+      }
+    ],
+    "size": 16,
+    "struct": "map_tile_collision_record"
+  },
+  "runtime_anchors": [
+    {
+      "address": "C0:54C9",
+      "mask": "0x0010",
+      "name": "Read_CollisionByteAndLatchBit10Coord",
+      "role": "latches $5DA8/$5DAA when the sampled byte has bit 0x10"
+    },
+    {
+      "address": "C0:5769",
+      "mask": "0x00C0",
+      "name": "Probe_SurfaceMaskCollisionSamples",
+      "role": "converts selected high-collision samples into a six-bit occupancy result and optionally stores raw OR in $5DA4"
+    },
+    {
+      "address": "C0:5B7B",
+      "mask": "0x003F",
+      "name": "Resolve_MovementSurfaceCollision",
+      "role": "returns low six raw collision bits after surface-mode resolution when movement can proceed"
+    },
+    {
+      "address": "C0:5DE7",
+      "mask": "0x000C",
+      "name": "Classify_EntityTerrainCompatibility",
+      "role": "maps raw collision bits 2-3 to an entity metadata permission check"
+    },
+    {
+      "address": "C0:5E3B/C0:5ECE and C0:A360/C0:A384",
+      "mask": "0x00D0",
+      "name": "Per-slot movement cache gate",
+      "role": "caches high collision plus special-surface bit and blocks regular slot movement when nonzero"
+    },
+    {
+      "address": "C0:3C4B, C0:460B, C0:4A11, C0:BA76, C0:D127, C0:E36A, C0:E57F",
+      "mask": "0x00C0",
+      "name": "High-collision consumers",
+      "role": "use high collision bits as current-position, player/bicycle, pathfinding, movement-script, or teleport obstruction checks"
+    }
+  ],
+  "runtime_masks": [
+    {
+      "d8_cells": 13822,
+      "full_fts_cells": 110422,
+      "mask": "0x00C0",
+      "runtime_role": "C0:5769, C0:3C4B, player/bicycle movement, pathfinding, teleport, and movement-script probes treat any selected bit as blocking/high collision.",
+      "scene_cells": 522397,
+      "working_name": "high_collision_block_mask"
+    },
+    {
+      "d8_cells": 13951,
+      "full_fts_cells": 110673,
+      "mask": "0x00D0",
+      "runtime_role": "Per-slot collision caches store and later gate movement on $5DA4 & #$00D0, combining the high collision family with the 0x10 special-surface latch bit.",
+      "scene_cells": 523258,
+      "working_name": "movement_cache_stop_mask"
+    },
+    {
+      "d8_cells": 411,
+      "full_fts_cells": 867,
+      "mask": "0x0010",
+      "runtime_role": "C0:54C9 stores the raw probed coordinates into $5DA8/$5DAA when this bit is present; player movement later calls C0:7526 with that latched coordinate pair.",
+      "scene_cells": 2618,
+      "working_name": "special_surface_coord_latch"
+    },
+    {
+      "d8_cells": 3853,
+      "full_fts_cells": 8667,
+      "mask": "0x000C",
+      "runtime_role": "C0:5DE7 maps A & #$000C into a three-way permission mask against the entity metadata byte at D5:9589 + mapped_offset + 0x20.",
+      "scene_cells": 28066,
+      "working_name": "entity_terrain_compatibility_class"
+    },
+    {
+      "d8_cells": 10423,
+      "full_fts_cells": 24762,
+      "mask": "0x003F",
+      "runtime_role": "C0:5B7B strips high collision bits before returning a movement/surface modifier byte to the player movement caller.",
+      "scene_cells": 82774,
+      "working_name": "returned_surface_modifier_mask"
+    }
+  ],
+  "schema": "earthbound-decomp.d8-collision-subrecord-contracts.v1",
+  "source_emission_rows": [
+    {
+      "count": 2293,
+      "family": "MAP_TILE_COLLISION_DATA",
+      "source_emission_note": "Emit as 2293 16-byte `map_tile_collision_record` rows; every cell byte is `surface_collision_flags` and all observed values must round-trip.",
+      "span": "D8:0000..D8:8F50",
+      "stride": 16
+    },
+    {
+      "count": 12423,
+      "family": "MAP_DATA_TILE_COLLISION_POINTERS_0..19",
+      "source_emission_note": "Emit as 20 exact word-offset tables into `MAP_TILE_COLLISION_DATA`; offsets are 16-byte aligned and `0x0000` is a real record, not null.",
+      "span": "D8:8F50..D8:F05D",
+      "stride": 2
+    },
+    {
+      "count": 8057,
+      "family": "implicit .fts zero tails",
+      "source_emission_note": "These all-zero trailing metatiles are synthesized by `.fts` coverage behavior; they are not extra D8 records.",
+      "span": "outside D8 collision pointer tables",
+      "stride": 16
+    }
+  ],
+  "source_policy": "Derived from checked-in D8 pointer and C0 runtime-bit contracts. This records field names, masks, counts, and interpretation boundaries only; it does not commit raw collision records.",
+  "sources": {
+    "collision_pointer_contract": "notes\\map-collision-pointer-contract.json",
+    "collision_runtime_bit_contract": "notes\\map-collision-runtime-bit-contract.json",
+    "d8_table_splits": "notes/d8-table-splits.md"
+  },
+  "summary": {
+    "all_data_records_referenced": true,
+    "collision_data_range": "D8:0000..D8:8F50",
+    "collision_record_count": 2293,
+    "collision_record_size": 16,
+    "d8_pool_value_counts": [
+      {
+        "count": 13040,
+        "value": "0x00"
+      },
+      {
+        "count": 3418,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 2419,
+        "value": "0x03"
+      },
+      {
+        "count": 1718,
+        "value": "0x04"
+      },
+      {
+        "count": 64,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 938,
+        "value": "0x08"
+      },
+      {
+        "count": 210,
+        "value": "0x09"
+      },
+      {
+        "count": 154,
+        "value": "0x0B"
+      },
+      {
+        "count": 485,
+        "value": "0x0C"
+      },
+      {
+        "count": 69,
+        "value": "0x0D"
+      },
+      {
+        "count": 208,
+        "value": "0x0F"
+      },
+      {
+        "count": 129,
+        "value": "0x10"
+      },
+      {
+        "count": 13225,
+        "value": "0x80"
+      },
+      {
+        "count": 312,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 277,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "implicit_zero_metatile_records": 8057,
+    "low_modifier_boundary": "0x01 and 0x02 are preserved through C0:5B7B's low-six-bit return path, but final human gameplay labels remain open.",
+    "observed_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x84",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "pointer_entries": 12423,
+    "pointer_entries_matched_fts": 12423,
+    "pointer_expanded_value_counts": [
+      {
+        "count": 64671,
+        "value": "0x00"
+      },
+      {
+        "count": 7876,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 6874,
+        "value": "0x03"
+      },
+      {
+        "count": 4617,
+        "value": "0x04"
+      },
+      {
+        "count": 88,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 1666,
+        "value": "0x08"
+      },
+      {
+        "count": 357,
+        "value": "0x09"
+      },
+      {
+        "count": 324,
+        "value": "0x0B"
+      },
+      {
+        "count": 1064,
+        "value": "0x0C"
+      },
+      {
+        "count": 141,
+        "value": "0x0D"
+      },
+      {
+        "count": 403,
+        "value": "0x0F"
+      },
+      {
+        "count": 251,
+        "value": "0x10"
+      },
+      {
+        "count": 109335,
+        "value": "0x80"
+      },
+      {
+        "count": 468,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 611,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "pointer_expanded_values_match_covered_fts": true,
+    "pointer_tables": 20,
+    "runtime_supported_but_unobserved_high_bit": "0x40",
+    "surface_flag_cells": 36688,
+    "trailing_nonzero_fts_cells": 0,
+    "unique_pointer_offsets": 2293
+  },
+  "title": "D8 Collision Subrecord Contracts"
+}

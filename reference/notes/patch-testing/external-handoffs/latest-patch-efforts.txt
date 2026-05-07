@@ -1,0 +1,194 @@
+**Scope**
+
+This thread shifted from decomp into patch-first investigation of EarthBound’s overworld walking microstutter. We are no longer trying to stay ROM-first here; refs and decomp notes are in play. The current state of the work is captured mainly in [rom-patch-overworld-stutter-plan.md](F:/Earthbound%20Decomp%20-%20Codex/notes/rom-patch-overworld-stutter-plan.md), [overworld-walking-stutter-producer-split-c01558-c01ca8.md](F:/Earthbound%20Decomp%20-%20Codex/notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md), and [overworld-timer-rerun-gate-a6e3-a794.md](F:/Earthbound%20Decomp%20-%20Codex/notes/overworld-timer-rerun-gate-a6e3-a794.md).
+
+**Big Picture**
+
+The original theory was “walking stutter is mostly tile/strip loading pressure.” That was partly right, but incomplete. The strongest current model is that the remaining hitch is caused by multiple legitimate movement-time visual update families piling up in the same frame, especially during diagonal scrolling.
+
+Two producer families are now clearly implicated:
+- The strip/tilemap family centered on `C0:0E16` and `C0:0FCB`
+- A companion visual/entity family centered upstream on `C0:255C/25CF/2A6B/2B55`, then `C0:2A50 -> C0:2957 -> C0:1E49`, and later `C0:1CA8` plus `C0:A4C4/A794`
+
+That split is the most important decomp result so far.
+
+**What We Now Understand Well**
+
+The queue and copy path is much better understood:
+- `C0:8616` is the strongest current fit for the generic `TRANSFER_TO_VRAM` path.
+- `C0:865F` is the key queue/immediate helper under it.
+- `C0:8240` is the NMI-side DMA queue consumer.
+- The queue is descriptor-based at WRAM `$0400+`, with 8-byte descriptors.
+
+The meaning of the scratch fields around `C0:865F..869D` is now much clearer:
+- `$92` is the transfer size in bytes
+- `$97` is the VRAM destination word
+- `$99` is the cumulative queued transfer-byte total for the current frame
+- `Y` is the descriptor write cursor
+
+That correction mattered a lot, because it fixed some earlier mistaken assumptions about what the emulator samples meant.
+
+**Movement Refresh Structure**
+
+`C0:1558` is still the strongest current fit for the incremental movement/scroll refresh controller. It splits naturally into two axis lanes:
+- Horizontal lane: `C0:0BDC`, `C0:0D7E`, `C0:0FCB`, `C0:25CF`, `C0:2B55`
+- Vertical lane: `C0:0AC5`, `C0:0CF3`, `C0:0E16`, `C0:255C`, `C0:2A6B`
+
+This gives a very straightforward explanation for why diagonal scrolling looks worst: both movement-refresh lanes can do work in the same overall update.
+
+**Strip/Tilemap Family Findings**
+
+The map-strip side is still real and important:
+- `C0:0E16` and `C0:0FCB` are the strongest current strip upload helpers.
+- They allocate scratch through `C0:86DE`, build payloads, then call `C0:8616`.
+- Their outputs align with the expected tilemap VRAM ranges:
+  - `38xx`
+  - `3Cxx`
+  - `58xx`
+  - `5Cxx`
+
+Observed busy-frame samples like `58A0`, `5A60`, `5B60`, `5C20`, and `5E60` fit this family very well.
+
+**Companion Visual/Entity Family Findings**
+
+The second producer family is the newer and more important discovery:
+- `C0:255C/25CF/2A6B/2B55` are movement-adjacent companion producers, not no-op cosmetics.
+- They feed `C0:2A50 -> C0:2957 -> C0:1E49`.
+- `C0:1E49` seeds per-entry tile bases into `$298E` using `C4:2F8C + #$4000`.
+- That directly supports observed VRAM destinations like:
+  - `4040`
+  - `4120`
+  - `42A0`
+
+Two downstream paths then make this family visible:
+- A narrow direct uploader at `C0:1CA8..1D37`, locally proving `0x4000 + offset` and `0x4100 + offset`
+- A broader descriptor family at `C0:A4C4` and `C0:A794`, which eventually queue through `C0:A56E -> C0:8643 -> C0:8677`
+
+This is the strongest explanation for the sampled `40xx/41xx/42xx` VRAM family.
+
+**What We Proved About A4C4 / A794**
+
+Both `C0:A4C4` and `C0:A794` are real descriptor producers over the companion visual lane:
+- Both load transfer size from `$2A7E`
+- Both load VRAM base from `$298E`
+- Both consume a descriptor stream rooted in `$29CA`
+- Both feed `C0:A56E`, which can split one logical update into two queued descriptors if a `0x0100` VRAM page boundary is crossed
+
+The important split between them is:
+- `A4C4` is the simpler selector-driven producer using `DATA_C0A60B` and `$2892`
+- `A794` is the active-entry, phase-biased producer using `DATA_C0A623`, `$2896`, and `$10F2`
+
+`$10F2` now looks like a small per-entry phase or variant offset. `A794` is the more likely “walking-time amplifier” because it is periodically rerun by the watcher at `C0:A6E3..A753`.
+
+**What We Tried as Actual Patches**
+
+The first real patch was the strip dedupe patch:
+- [overworld_stutter_dedupe_asar_sketch.asm](F:/Earthbound%20Decomp%20-%20Codex/asm/overworld_stutter_dedupe_asar_sketch.asm)
+- stable baseline ROM: [EarthBound-overworld-stutter-safe-v2.sfc](F:/Earthbound%20Decomp%20-%20Codex/build/EarthBound-overworld-stutter-safe-v2.sfc)
+
+This patch hooks the eight overworld-only `JSL C08616` strip upload callsites, caches 64-byte payloads, and skips exact duplicates. After fixing lazy runtime init, it became stable.
+
+User result:
+- no crashes
+- maybe somewhat smoother
+- single-axis scrolling seems smoother
+- diagonal microstutters remain
+
+That was an important success, but also showed strip redundancy is only part of the problem.
+
+The second conservative patch experiment was the timer-only `A794` gate:
+- [overworld_stutter_timer_gate_overlay.asm](F:/Earthbound%20-Decomp%20-%20Codex/asm/overworld_stutter_timer_gate_overlay.asm)
+- built test ROM: [EarthBound-overworld-stutter-safe-v3-timer-gate.sfc](F:/Earthbound%20Decomp%20-%20Codex/build/EarthBound-overworld-stutter-safe-v3-timer-gate.sfc)
+
+This patch hooked only the timer-expiry rerun leg at `C0:A723..A750`, derived the post-toggle raw header `A794` would use, compared it against `$341A`, and skipped the timer-only rerun if the header matched.
+
+User result:
+- no crashes
+- no meaningful improvement in visible microstutter
+
+That negative result matters a lot: it suggests the timer-only `A794` rerun path is not a dominant contributor to the visible hitch.
+
+**What We Learned From Stable Telemetry**
+
+The most useful stable telemetry builds were:
+- [EarthBound-overworld-stutter-debug-v2.sfc](F:/Earthbound%20Decomp%20-%20Codex/build/EarthBound-overworld-stutter-debug-v2.sfc)
+- [EarthBound-overworld-stutter-scheduler-debug-v2.sfc](F:/Earthbound%20Decomp%20-%20Codex/build/EarthBound-overworld-stutter-scheduler-debug-v2.sfc)
+
+From those, the user observed:
+- Vertical and horizontal eligible strip counters both climb during diagonal scrolling.
+- Strip-skip counters stay near zero in that case.
+- `F16A`, the queued-byte total sampled before reset, stays modest in calm cases and rises during diagonal scrolling.
+- Microstutters still happen even when the earlier strip counters are not moving much.
+
+Interpretation:
+- diagonal scrolling causes real work on both axes
+- the remaining issue correlates better with aggregate queue/load pressure than with missed strip dedupe alone
+
+**What We Ruled Out**
+
+One tempting theory was that the visible hitch was caused by the explicit queue-overflow spin-wait at `C0:8671..8673`. That no longer looks right.
+
+Evidence:
+- On the stable patched baseline, a breakpoint at `C0:8671` did not fire during visible stutter.
+- Claude’s later handoff says the same thing appears true on vanilla ROM too.
+
+That means the remaining visible hitch is probably not the literal “queue hit `$1200`, main thread spun waiting for NMI” case.
+
+We also rejected a couple of invasive debug builds:
+- `scheduler-debug-v3` destabilized rendering and produced corruption
+- `scheduler-debug-v5` made even menus lag badly
+- those builds should not be trusted for conclusions
+
+**What Emulator Sampling Showed**
+
+The best low-level emulator samples around `C0:8677` showed:
+- repeated `0x40`-byte transfers
+- busy-frame destinations clustering into two families:
+  - strip-like `58xx/5Axx/5Bxx/5Cxx/5Exx`
+  - companion-like `4040/4120/42A0`
+
+This is one of the strongest empirical results we have. The busy frames are not one giant transfer and not one oddball path. They are multiple normal 64-byte updates landing in a few destination families.
+
+**Current Confidence Levels**
+
+High confidence:
+- The strip family is real.
+- The companion visual/entity family is real.
+- Both families can be active during walking.
+- Diagonal movement is structurally the worst case because both axis lanes can contribute.
+- The timer-only `A794` rerun is safe to gate, but not impactful enough to explain the remaining stutter.
+
+Medium confidence:
+- The remaining microstutter is an aggregate per-frame workload problem rather than a single bad routine.
+- `A794` contributes, but is probably not the dominant remaining cause by itself.
+
+Low confidence:
+- That another `A794`-only patch will solve the problem.
+- That the remaining hitch is primarily “loading” rather than broader movement/display pacing.
+
+**Claude’s Latest Strongest Hypothesis**
+
+Claude’s latest handoff adds one important alternative explanation:
+- the queue may not be overflowing, but the main loop may still sometimes take longer than one NMI period during diagonal movement
+- in that model, the stutter comes from missing an expected scroll commit rather than from queue saturation
+
+I think that is a serious hypothesis now, not a fringe idea. It fits several observations:
+- diagonal is worst
+- cutscene camera panning and diagonal walking look similar
+- safe-v2 helps a bit by removing some CPU work
+- scheduler experiments help somewhat by reducing two-axis work
+
+That hypothesis is not fully proved in this thread yet, but it is now one of the leading explanations.
+
+**Bottom Line**
+
+We started by chasing tile loading. We now know the real situation is more complex.
+
+The strongest current summary is:
+- There are at least two legitimate movement-time producer families.
+- The strip family was worth patching, and the dedupe patch helped somewhat.
+- The remaining visible microstutter does not seem to be the explicit queue-overflow spin-wait.
+- The timer-only `A794` branch is safe to gate but was not important enough to matter visibly.
+- The dominant remaining problem is likely broader per-frame movement/render workload, especially when both axis lanes contribute during diagonal motion.
+
+So we have made substantial progress in understanding the system and in ruling things out, but we do not yet have a strong final fix for the residual microstutter.

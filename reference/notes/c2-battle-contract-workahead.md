@@ -1,0 +1,229 @@
+﻿# C1-to-C2 Battle Runtime Contract Workahead
+
+Scope: scout the strongest cross-bank runtime contracts connected to:
+
+- `C1:ADB4` (`DetermineBattleTargetting`)
+- `C1:CE85` (`ResolveSelectedBattleItemAction`)
+- `C1:CFC6` (`OpenBattleItemSelectionLoop`)
+- `C1:DC1C` (`DisplayBattleTextFromPointer`)
+- `C1:DC66` (`DisplayBattleTextWithSubstitutionPayload`)
+
+The goal is to tighten "who calls whom, with what data" between the C1 battle UI/text layer and the C2 battle engine/controller layer, with concrete `C2:XXXX` entrypoints, caller chains, evidence paths, and the best next source-promotion seams.
+
+## Pinned cross-bank contracts (C1 -> C2)
+
+### Targetting and selection snapshots: `C1:ADB4` -> `C2:BAC5` / `C2:B930`
+
+Pinned contract:
+
+- `C1:ADB4` calls `C2:BAC5` in the random-single-target lane (`target byte == 2`), after loading `A = #$0001`.
+- `C2:BAC5` returns a filtered row count in `A`; `C1:ADB4` then picks a random entry `1..count` via `dec A` + `JSL C45F7B` + `inc $01`.
+- The broader `C1:ADB4..B5B6` cluster also issues multiple `JSL C2:B930` calls to seed/refresh a larger "selection snapshot" block (commonly overlaying `$9FFA`, and sometimes targeting other destination bases like `$9FAC`) before building target-choice text and dispatching pointer-backed prompts.
+- `C2:B930` ABI (code-backed):
+  - inputs: `A = battler_index_1based`, `X = dest_base` (16-bit), `DB = dest_bank` (WRAM in practice)
+  - behavior: clears `0x4E` bytes at `dest_base`, then fills a candidate/snapshot record from `7E:99CE + (A-1)*0x5F`
+  - outputs: record fields include `+0x0C = 1` (active), `+0x0E = 0`, `+0x0F = 0`, and `+0x10 = (A-1)` (0-based battler index)
+
+Caller chain highlights (connected to requested entrypoints):
+
+- Item selection lane: `C1:DE33 -> C1:CFC6 -> C1:CE85 -> C1:ADB4 -> C2:BAC5`
+- PSI/menu lanes: `C1:CDBF -> C1:ADB4`, `C1:CF23 -> C1:ADB4`, `C1:CF88 -> C1:ADB4`
+
+Working name (stable for now):
+
+- `C2:BAC5` = `CountFilteredSecondStageRows`
+- `C2:B930` = `ExportBattleSelectionSnapshot` (alt: `InitializeCandidateRecordFromSource`, matching its role in `C2:4958`)
+
+Evidence:
+
+- `src\\c1\\c1_adb4_determine_battle_targetting.asm`
+- `notes\\battle-targetting-resolver-c1adb4-af50.md`
+- `notes\\class2-second-stage-selector-a970.md`
+- `src\\c2\\c2_b930_export_battle_selection_snapshot.asm`
+- `src\\c2\\c2_bac5_count_filtered_second_stage_rows.asm`
+- `src\\c2\\c2_4958_populate_candidate_pool_from_six_sources.asm` (names `C2:B930` as â€œInitializeCandidateRecordFromSourceâ€)
+- `src\\c2\\c2_6c82_mask_set_build_phase1_candidates.asm` (consumes `7E:9FAC` `+0x0E`/`+0x10` invariants)
+- `python tools/find_direct_callers.py C2:BAC5` (C1 call sites: `C1:AE61`, `C1:AF33`)
+- `python tools/find_direct_callers.py C2:B930` (C1 call sites anchored in the `C1:ADB4..B5B6` cluster: `C1:B3DB`, `C1:B462`, `C1:B505`, `C1:B859`, `C1:B9A9`, `C1:BA60`)
+
+### Item action selection (indirect): `C1:CFC6`/`C1:CE85` -> `C1:ADB4` -> `C2:BAC5`
+
+Pinned contract shape:
+
+- The battle engine calls into the C1 item-selection loop through a small far-call wrapper:
+  - `C2:3985 -> JSL C1:DE31 -> JSR C1:CFC6` (see â€œPinned cross-bank contracts (C2 -> C1)â€)
+- `C1:CFC6` drives the battle inventory selection loop and calls `C1:CE85` to resolve the chosen inventory slot into "action + target" state.
+- `C1:CE85` indexes `D5:5000` (`ITEM_CONFIGURATION_TABLE`, stride `0x27`), reads the item action word at `+0x1D`, then calls `C1:ADB4`.
+- `C1:ADB4` may call `C2:BAC5` depending on the targetting subtype (random target).
+- `C1:CFC6` and `C1:CE85` do not directly `JSL` into C2 themselves; their cross-bank surface is currently "transitively" pinned through `C1:ADB4`.
+
+Evidence:
+
+- `src\\c1\\c1_cfc6_open_battle_item_selection_loop.asm`
+- `src\\c1\\c1_ce85_resolve_selected_battle_item_action.asm`
+- `notes\\battle-item-action-selection-c1ce85-c1cfc6.md`
+- `python tools/find_direct_callers.py C1:DE31` (C2 call site: `C2:3985`)
+- `python tools/decode_snippet.py C2:3970 --count 80` (shows `JSL C1:DE31` with `A = #$A97D`)
+- `python tools/decode_snippet.py C1:DE10 --count 80` (shows the C1 far-call wrapper table, including `DE31 -> JSR CFC6 -> RTL`)
+
+### Battle text gate cleanup: `C1:DC1C`/`C1:DC66` -> `C2:0293`
+
+Pinned contract:
+
+- `C1:DC1C` and `C1:DC66` conditionally call `C2:0293` when `$98B1 != 0` and `$0065 & $8000 != 0`, after clearing `$98B1`.
+- `python tools/find_direct_callers.py C2:0293` reports only three direct call sites: `C1:DC46`, `C1:DC98`, and `C2:6175`.
+
+Working name proposal (reconcile the alias):
+
+- Canonical behavior name (now source-backed): `C2:0293` = `ClearDefaultTitleUploadTiles`
+- C1-side alias: keep `ClearBattleTextGateState` only as an explicit alias for the battle-text use case; otherwise converge the C1 import name on `ClearDefaultTitleUploadTiles`.
+
+Evidence:
+
+- `src\\c1\\c1_dc1c_display_battle_text_from_pointer.asm`
+- `src\\c1\\c1_dc66_display_battle_text_with_substitution_payload.asm`
+- `notes\\c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md`
+- `src\\c2\\c2_0266_load_default_title_upload_tiles.asm`
+- `src\\c2\\c2_0293_clear_default_title_upload_tiles.asm`
+- `python tools/find_direct_callers.py C2:0293`
+
+## Pinned cross-bank contracts (C2 -> C1)
+
+### Battle item selection RPC: `C2:3985` -> `C1:DE31` -> `C1:CFC6`/`C1:CE85`
+
+Pinned contract:
+
+- `C2:3985` calls `C1:DE31`, a far-call wrapper that immediately runs `C1:CFC6` and returns with `RTL`.
+- The `C2` caller passes `A = #$A97D` (a WRAM record base) into `C1:CFC6` via the wrapper; `C2` then consumes fields out of `$A97D..` after the call.
+- Return value: `C1:CFC6` returns `A = selected_slot` or `A = 0` (cancel/abort). `C2:3985` immediately tests the return value (`TAX; BNE ...`).
+
+Strongest current record-shape (needs naming/struct promotion):
+
+- `$A97D + 0` (byte): actor id (consumed by `C1:CFC6` and `C1:CE85`)
+- `$A97D + 1` (byte): selected inventory slot (written by `C1:CFC6`, then read by `C2:398F`)
+- `$A97D + 2` (word): battle action word (written by `C1:CE85`)
+- `$A97D + 4/+5` (bytes): target selection bytes (written by `C1:CE85` through `C0:9251`)
+
+Evidence:
+
+- `python tools/find_direct_callers.py C1:DE31`
+- `python tools/decode_snippet.py C2:3970 --count 80`
+- `python tools/decode_snippet.py C1:DE10 --count 80`
+- `src\\c1\\c1_cfc6_open_battle_item_selection_loop.asm`
+- `src\\c1\\c1_ce85_resolve_selected_battle_item_action.asm`
+
+### `C2 -> C1:DC1C` (battle text pointer dispatch)
+
+Pinned fact:
+
+- `python tools/find_direct_callers.py C1:DC1C` finds `182` direct `JSL` call sites, all in C2.
+
+Concrete status/text anchors already named in notes:
+
+- `C2:4F00` = `DisplayBattleEncounterText`
+- `C2:4F62` = `DisplayBattleStartStatusMessages`
+- `C2:7680` = `DisplayEnemyDeathText`
+
+Evidence:
+
+- `notes\\class2-concrete-battle-text-call-paths.md`
+- `notes\\battle-text-entry-family-c1dc1c-dd7c.md`
+- `python tools/find_direct_callers.py C1:DC1C`
+
+### `C2 -> C1:DC66` (battle text with substitution payload)
+
+Pinned fact:
+
+- `python tools/find_direct_callers.py C1:DC66` finds `39` direct `JSL` call sites in C2.
+- The most contract-tight, already-source-backed payload ABI anchors are:
+  - `C2:7294` (`ApplyBattlerHpRecoveryFeedback`): chooses between `C1:DC1C` and `C1:DC66` messages; the `DC66` lane passes a 16-bit "delta" payload and prints a number-substituted message.
+  - `C2:7318` (`ApplyBattlerPpRecoveryFeedback`): similarly calls `C1:DC66` with a 16-bit PP delta payload.
+
+Evidence:
+
+- `notes\\battle-action-stat-change-family-c2b2e0-b5d7.md`
+- `notes\\battle-text-entry-family-c1dc1c-dd7c.md`
+- `src\\c2\\c2_7294_apply_battler_hp_recovery_feedback.asm`
+- `src\\c2\\c2_7318_apply_battler_pp_recovery_feedback.asm`
+- `src\\c2\\c2_b43f_apply_battle_guts_increase_consequence.asm` (concrete `JSL C1:DC66` + immediate delta payload staging)
+- `python tools/find_direct_callers.py C1:DC66`
+
+## ABI snapshots (from checked-in C1 source scaffolds)
+
+These are the most actionable contract-pin facts for promotion.
+
+- `C1:ADB4` expects battle action id in `A` and acting slot in `X`; returns a packed targetting result word in `A`.
+  - Random-target lane calls `C2:BAC5` with `A = #$0001`, then chooses a random `1..count`.
+  - Evidence: `src\\c1\\c1_adb4_determine_battle_targetting.asm`
+- `C1:CE85` consumes a caller record pointer (in `A`, then `TAY`) with at least:
+  - byte `+0` = actor id, byte `+1` = chosen inventory slot
+  - word `+2` = action word (written on success), bytes `+4/+5` = target selection bytes (written on success)
+  - Evidence: `src\\c1\\c1_ce85_resolve_selected_battle_item_action.asm`
+- `C1:DE31` is the far-call wrapper used by C2 to invoke `C1:CFC6` for item selection; `C2:3985` passes `A = #$A97D` (WRAM record base) and tests the returned `A` for cancel/success.
+  - Evidence: `python tools/find_direct_callers.py C1:DE31`, `python tools/decode_snippet.py C2:3970 --count 80`
+- `C1:DC1C` / `C1:DC66` pointer ABI (matches concrete C2 call sites like `C2:4F03`, `C2:4F52`, `C2:7294`, `C2:7318`):
+  - callers stage the primary text pointer into direct-page `$0E/$10`, then `JSL C1:DC1C`
+  - `C1:DC66` callers stage a secondary payload pointer into direct-page `$12/$14`, then `JSL C1:DC66`
+  - inside C1, these pointers appear as `$20/$22` (text) and `$24/$26` (payload) because the C1 stubs shift `DP` by `-0x12` in their prologues
+  - `C1:DC66` additionally routes the payload through `C1:AD0A` (to `$9D12/$9D14`) before printing
+  - Evidence: `src\\c2\\c2_4f00_display_battle_encounter_text.asm`, `src\\c2\\c2_4f52_display_battle_start_status_messages_prelude.asm`, `src\\c1\\c1_dc1c_display_battle_text_from_pointer.asm`, `src\\c1\\c1_dc66_display_battle_text_with_substitution_payload.asm`
+
+## Contract-critical shared data shapes
+
+- `D5:7B68` (`BATTLE_ACTION_TABLE`, stride `0x0C`): `C1:ADB4` input table.
+- `D5:5000` (`ITEM_CONFIGURATION_TABLE`, stride `0x27`): `C1:CE85` item -> action/target rules.
+- `7E:9FAC` (stride `0x4E`, count `32`): candidate/snapshot records scanned by `C2:BAC5`; promoted row pointers land in `$A970/$A972`.
+  - pinned offsets: `+0x0C` active (byte), `+0x0E` filter/group (byte), `+0x0F` payload-kind/type (byte), `+0x10` battler index 0-based (byte)
+- `7E:9FFA`: base of the battle selection snapshot block seeded by `C2:B930` (overlaps the 6-byte `battle_menu_selection` header).
+
+Evidence:
+
+- `notes\\data-contracts-c0-c2.md`
+- `notes\\battle-selection-snapshot-export-c2b930.md`
+- `notes\\class2-second-stage-selector-a970.md`
+
+## Selection snapshot seam (C1 callers into `C2:B930`)
+
+Pinned contract:
+
+- `python tools/find_direct_callers.py C2:B930` reports 11 call sites (6 in C1, 5 in C2).
+- The C1 call sites are inside the `C1:ADB4..B5B6` battle-choice / target-choice prompt cluster (same scaffold as the `C1:ADB4` targetting resolver): `C1:B3DB`, `C1:B462`, `C1:B505`, `C1:B859`, `C1:B9A9`, `C1:BA60`.
+
+Working name:
+
+- `C2:B930..BAC4` = `ExportBattleSelectionSnapshot`
+
+Evidence:
+
+- `notes\\battle-selection-snapshot-export-c2b930.md`
+- `python tools/find_direct_callers.py C2:B930`
+
+## Best next manual source-promotion seams
+
+1. Reconcile `C2:0293` naming at its C1 import sites: the behavior is now source-backed as `ClearDefaultTitleUploadTiles`, so the remaining work is to decide whether C1 keeps an explicit battle-text alias or converges on the global name.
+2. Use already-source-backed C2 callers to pin the `C1:DC66` payload ABI precisely:
+   - `C2:7294` + `C2:7318` are the best "number substitution" exemplars.
+   - Once the delta/number payload struct is named, back-propagate that naming to the remaining `DC66` call sites (39 total).
+3. Continue from the now named `C2:311B..3B66` battle-start present/message controller:
+   - `$A97D..$A982` is now locally named as the shared battle action-selection record in the C2 controller
+   - local source now also names the C1 menu wrappers, C2 snapshot/count helpers, C4 target candidate helpers, party/snapshot strides, and Final Prayer phase/action rows
+   - good next work is to split any reusable target-result vocabulary back into smaller action-family source modules and decide which remaining menu branch literals deserve global enums
+
+Completed source-promotion seams:
+
+- `C2:3109..311B` (`BattleStartUfoPresentFallbackTable`) is now literal source data in `src/c2/c2_3109_battle_start_ufo_present_fallback_table.asm`.
+- `C2:311B..3B66` (`RunBattleStartPresentAndMessageController`) is now decoded source in `src/c2/c2_311b_run_battle_start_present_and_message_controller.asm`; this includes the `C1:DE31`, `C1:DE37`, and `C1:DE3D` wrapper-table RPC glue.
+- `C2:3985 -> C1:DE31 -> C1:CFC6/CE85` is now locally source-named on both sides of the contract: C2 names the `$A97D..$A982` battle action-selection record and C1 names the record offsets plus the `D5:5000` item-row fields used to resolve selected item actions.
+- `C2:311B..3B66` now has local source aliases for the surrounding C1 menu wrapper calls, C2 `B930/BAC5` selection snapshot/count joins, C4 PSI/target candidate helpers, and the Final Prayer `$A97A` phase-to-action map.
+- `C2:B930..BAC5` (`ExportBattleSelectionSnapshot`) is now decoded source in `src/c2/c2_b930_export_battle_selection_snapshot.asm`.
+- `C2:BAC5..BB18` (`CountFilteredSecondStageRows`) is now decoded source in `src/c2/c2_bac5_count_filtered_second_stage_rows.asm`.
+- `C2:BB18..BC5C` (`PromoteCandidateToCollapseAfflictionController`) is now decoded source in `src/c2/c2_bb18_promote_candidate_to_collapse_affliction_controller.asm`.
+- `C2:BC5C..BCB9` (`ClearInactiveCandidateLiveSlotTransientFields`) is now decoded source in `src/c2/c2_bc5c_clear_inactive_candidate_live_slot_transient_fields.asm`; it is split because `C2:6145` directly calls `C2:BC5C`.
+
+## Open questions (highest value to resolve during promotion)
+
+- `C2:B930` overlay usage: destination base is now pinned as `X`, but confirm which callers rely on the `$9FFA` overlay specifically (vs. `$9FAC` and friends) and which bytes of the `$9FFA` overlay are assumed valid past the 6-byte header.
+- `C2:BAC5` filter semantics: map the tested row bytes (`+0x0C`, `+0x0E`, subset gate by `+0x1D`) into stable named predicates/enums.
+- `$A97D..` record follow-through: local source naming now treats it as a shared battle action-selection record; remaining value is to confirm any branch-specific scratch meaning beyond `+0/+1/+2/+4/+5` before promoting a global struct/macro.
+- `C1:DC66` payload ABI: tighten the "number substitution" case using `C2:7294`/`C2:7318`, then confirm how that relates to the more general far-pointer substitution staging through `C1:AD0A` (`$9D12/$9D14`) and which text commands consume it.
+- `C2:0293` naming: decide whether battle text keeps a documented alias or converges on the global "title upload tiles" meaning.

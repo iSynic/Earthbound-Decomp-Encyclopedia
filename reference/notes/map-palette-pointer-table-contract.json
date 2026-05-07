@@ -1,0 +1,1268 @@
+{
+  "entries": [
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_0",
+        "bank": 218,
+        "bytes": 768,
+        "end": 32679,
+        "payload_path": "da/maps/palettes/0.pal",
+        "range": "DA:7CA7..DA:7FA7",
+        "sha1": "cde600ab548c0c12228af249e3064d437a1a4590",
+        "start": 31911,
+        "title": "MAP_DATA_PALETTE_0",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 0,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA7CA7",
+      "pointer_cpu": "DA:7CA7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 79,
+        "sector_palette_counts": [
+          {
+            "palette": 1,
+            "sector_count": 38
+          },
+          {
+            "palette": 0,
+            "sector_count": 31
+          },
+          {
+            "palette": 3,
+            "sector_count": 10
+          }
+        ],
+        "tileset_id": 0
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_1",
+        "bank": 218,
+        "bytes": 576,
+        "end": 33255,
+        "payload_path": "da/maps/palettes/1.pal",
+        "range": "DA:7FA7..DA:81E7",
+        "sha1": "7b59fd193df63393a3caea5c822fe80bbfe2fc15",
+        "start": 32679,
+        "title": "MAP_DATA_PALETTE_1",
+        "variant_count": 3,
+        "variant_remainder_bytes": 0
+      },
+      "index": 1,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA7FA7",
+      "pointer_cpu": "DA:7FA7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 3,
+        "sector_count": 191,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 185
+          },
+          {
+            "palette": 2,
+            "sector_count": 6
+          }
+        ],
+        "tileset_id": 1
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_2",
+        "bank": 218,
+        "bytes": 768,
+        "end": 34023,
+        "payload_path": "da/maps/palettes/2.pal",
+        "range": "DA:81E7..DA:84E7",
+        "sha1": "700b7ca40eb05ac61c552cd6207d517ce632361a",
+        "start": 33255,
+        "title": "MAP_DATA_PALETTE_2",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 2,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA81E7",
+      "pointer_cpu": "DA:81E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 0,
+        "sector_palette_counts": [],
+        "tileset_id": 2
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_3",
+        "bank": 218,
+        "bytes": 384,
+        "end": 34407,
+        "payload_path": "da/maps/palettes/3.pal",
+        "range": "DA:84E7..DA:8667",
+        "sha1": "b477fc541333ad67accf625dab5a6f6d9b72161a",
+        "start": 34023,
+        "title": "MAP_DATA_PALETTE_3",
+        "variant_count": 2,
+        "variant_remainder_bytes": 0
+      },
+      "index": 3,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA84E7",
+      "pointer_cpu": "DA:84E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 2,
+        "sector_count": 0,
+        "sector_palette_counts": [],
+        "tileset_id": 3
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_4",
+        "bank": 218,
+        "bytes": 384,
+        "end": 34791,
+        "payload_path": "da/maps/palettes/4.pal",
+        "range": "DA:8667..DA:87E7",
+        "sha1": "0555140377782a190fbd9f947e0d504cb751aaf1",
+        "start": 34407,
+        "title": "MAP_DATA_PALETTE_4",
+        "variant_count": 2,
+        "variant_remainder_bytes": 0
+      },
+      "index": 4,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA8667",
+      "pointer_cpu": "DA:8667",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 2,
+        "sector_count": 143,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 110
+          },
+          {
+            "palette": 1,
+            "sector_count": 33
+          }
+        ],
+        "tileset_id": 4
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_5",
+        "bank": 218,
+        "bytes": 768,
+        "end": 35559,
+        "payload_path": "da/maps/palettes/5.pal",
+        "range": "DA:87E7..DA:8AE7",
+        "sha1": "f97d3c9b8271b7de33768c9877f9ed5b5ac0a79c",
+        "start": 34791,
+        "title": "MAP_DATA_PALETTE_5",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 5,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA87E7",
+      "pointer_cpu": "DA:87E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 45
+          },
+          {
+            "palette": 1,
+            "sector_count": 6
+          },
+          {
+            "palette": 3,
+            "sector_count": 4
+          }
+        ],
+        "tileset_id": 5
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_6",
+        "bank": 218,
+        "bytes": 1344,
+        "end": 36903,
+        "payload_path": "da/maps/palettes/6.pal",
+        "range": "DA:8AE7..DA:9027",
+        "sha1": "4287d122d7d7a4cdb8bbacaad56e246daa5ae8ca",
+        "start": 35559,
+        "title": "MAP_DATA_PALETTE_6",
+        "variant_count": 7,
+        "variant_remainder_bytes": 0
+      },
+      "index": 6,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA8AE7",
+      "pointer_cpu": "DA:8AE7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 7,
+        "sector_count": 131,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 88
+          },
+          {
+            "palette": 1,
+            "sector_count": 43
+          }
+        ],
+        "tileset_id": 6
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_7",
+        "bank": 218,
+        "bytes": 192,
+        "end": 37095,
+        "payload_path": "da/maps/palettes/7.pal",
+        "range": "DA:9027..DA:90E7",
+        "sha1": "709896659de4d7f45c1fff0718f38f95839bb883",
+        "start": 36903,
+        "title": "MAP_DATA_PALETTE_7",
+        "variant_count": 1,
+        "variant_remainder_bytes": 0
+      },
+      "index": 7,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA9027",
+      "pointer_cpu": "DA:9027",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 1,
+        "sector_count": 81,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 81
+          }
+        ],
+        "tileset_id": 7
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_8",
+        "bank": 218,
+        "bytes": 384,
+        "end": 37479,
+        "payload_path": "da/maps/palettes/8.pal",
+        "range": "DA:90E7..DA:9267",
+        "sha1": "6e77cce1004adc82c125e4e82c151cbc606725f6",
+        "start": 37095,
+        "title": "MAP_DATA_PALETTE_8",
+        "variant_count": 2,
+        "variant_remainder_bytes": 0
+      },
+      "index": 8,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA90E7",
+      "pointer_cpu": "DA:90E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 2,
+        "sector_count": 8,
+        "sector_palette_counts": [
+          {
+            "palette": 1,
+            "sector_count": 8
+          }
+        ],
+        "tileset_id": 8
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_9",
+        "bank": 218,
+        "bytes": 1152,
+        "end": 38631,
+        "payload_path": "da/maps/palettes/9.pal",
+        "range": "DA:9267..DA:96E7",
+        "sha1": "639ad51dac0528739ead98f4ea347b02d7d9e96b",
+        "start": 37479,
+        "title": "MAP_DATA_PALETTE_9",
+        "variant_count": 6,
+        "variant_remainder_bytes": 0
+      },
+      "index": 9,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA9267",
+      "pointer_cpu": "DA:9267",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 6,
+        "sector_count": 43,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 31
+          },
+          {
+            "palette": 2,
+            "sector_count": 12
+          }
+        ],
+        "tileset_id": 9
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_10",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 40167,
+        "payload_path": "da/maps/palettes/10.pal",
+        "range": "DA:96E7..DA:9CE7",
+        "sha1": "5f737119da9da98ed841cb4bb1ee0733aa6b2735",
+        "start": 38631,
+        "title": "MAP_DATA_PALETTE_10",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 10,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA96E7",
+      "pointer_cpu": "DA:96E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 12,
+        "sector_palette_counts": [
+          {
+            "palette": 1,
+            "sector_count": 4
+          },
+          {
+            "palette": 6,
+            "sector_count": 4
+          },
+          {
+            "palette": 0,
+            "sector_count": 2
+          },
+          {
+            "palette": 7,
+            "sector_count": 2
+          }
+        ],
+        "tileset_id": 10
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_11",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 41703,
+        "payload_path": "da/maps/palettes/11.pal",
+        "range": "DA:9CE7..DA:A2E7",
+        "sha1": "0df9da360f40c48e62bbed055dcea853f866d390",
+        "start": 40167,
+        "title": "MAP_DATA_PALETTE_11",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 11,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DA9CE7",
+      "pointer_cpu": "DA:9CE7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 9,
+        "sector_palette_counts": [
+          {
+            "palette": 7,
+            "sector_count": 2
+          },
+          {
+            "palette": 0,
+            "sector_count": 1
+          },
+          {
+            "palette": 1,
+            "sector_count": 1
+          },
+          {
+            "palette": 2,
+            "sector_count": 1
+          },
+          {
+            "palette": 3,
+            "sector_count": 1
+          },
+          {
+            "palette": 4,
+            "sector_count": 1
+          },
+          {
+            "palette": 5,
+            "sector_count": 1
+          },
+          {
+            "palette": 6,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 11
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_12",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 43239,
+        "payload_path": "da/maps/palettes/12.pal",
+        "range": "DA:A2E7..DA:A8E7",
+        "sha1": "664fb498c535b7f1c0a157e701e108da330ca3be",
+        "start": 41703,
+        "title": "MAP_DATA_PALETTE_12",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 12,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAA2E7",
+      "pointer_cpu": "DA:A2E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 2
+          },
+          {
+            "palette": 7,
+            "sector_count": 1
+          },
+          {
+            "palette": 2,
+            "sector_count": 1
+          },
+          {
+            "palette": 6,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 12
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_13",
+        "bank": 218,
+        "bytes": 768,
+        "end": 44007,
+        "payload_path": "da/maps/palettes/13.pal",
+        "range": "DA:A8E7..DA:ABE7",
+        "sha1": "d52a73ed066458cbd903616ab830296c65906bab",
+        "start": 43239,
+        "title": "MAP_DATA_PALETTE_13",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 13,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAA8E7",
+      "pointer_cpu": "DA:A8E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 94,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 86
+          },
+          {
+            "palette": 1,
+            "sector_count": 8
+          }
+        ],
+        "tileset_id": 13
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_14",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 45543,
+        "payload_path": "da/maps/palettes/14.pal",
+        "range": "DA:ABE7..DA:B1E7",
+        "sha1": "f340212208d218529dcb238c584975381a323b74",
+        "start": 44007,
+        "title": "MAP_DATA_PALETTE_14",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 14,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAABE7",
+      "pointer_cpu": "DA:ABE7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 8,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 4
+          },
+          {
+            "palette": 4,
+            "sector_count": 2
+          },
+          {
+            "palette": 6,
+            "sector_count": 1
+          },
+          {
+            "palette": 5,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 14
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_15",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 47079,
+        "payload_path": "da/maps/palettes/15.pal",
+        "range": "DA:B1E7..DA:B7E7",
+        "sha1": "1e7c20eca1f9e4d1b25e6285ea9aa9d6de6897a8",
+        "start": 45543,
+        "title": "MAP_DATA_PALETTE_15",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 15,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAB1E7",
+      "pointer_cpu": "DA:B1E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 16,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 10
+          },
+          {
+            "palette": 1,
+            "sector_count": 2
+          },
+          {
+            "palette": 4,
+            "sector_count": 2
+          },
+          {
+            "palette": 3,
+            "sector_count": 2
+          }
+        ],
+        "tileset_id": 15
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_16",
+        "bank": 218,
+        "bytes": 768,
+        "end": 47847,
+        "payload_path": "da/maps/palettes/16.pal",
+        "range": "DA:B7E7..DA:BAE7",
+        "sha1": "dfd2a15e9237a8e5fe0323b9c0568ba2fed7959e",
+        "start": 47079,
+        "title": "MAP_DATA_PALETTE_16",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 16,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAB7E7",
+      "pointer_cpu": "DA:B7E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 6,
+        "sector_palette_counts": [
+          {
+            "palette": 3,
+            "sector_count": 3
+          },
+          {
+            "palette": 0,
+            "sector_count": 3
+          }
+        ],
+        "tileset_id": 16
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_17",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 49383,
+        "payload_path": "da/maps/palettes/17.pal",
+        "range": "DA:BAE7..DA:C0E7",
+        "sha1": "a267d5372b1c3417702990cfd26694ea28bf1ac5",
+        "start": 47847,
+        "title": "MAP_DATA_PALETTE_17",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 17,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DABAE7",
+      "pointer_cpu": "DA:BAE7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 8,
+        "sector_count": 14,
+        "sector_palette_counts": [
+          {
+            "palette": 5,
+            "sector_count": 7
+          },
+          {
+            "palette": 7,
+            "sector_count": 5
+          },
+          {
+            "palette": 3,
+            "sector_count": 1
+          },
+          {
+            "palette": 4,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 17
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_18",
+        "bank": 218,
+        "bytes": 192,
+        "end": 49575,
+        "payload_path": "da/maps/palettes/18.pal",
+        "range": "DA:C0E7..DA:C1A7",
+        "sha1": "46e116bbbf102cd5f55ca2aeef6ec06ac957545c",
+        "start": 49383,
+        "title": "MAP_DATA_PALETTE_18",
+        "variant_count": 1,
+        "variant_remainder_bytes": 0
+      },
+      "index": 18,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAC0E7",
+      "pointer_cpu": "DA:C0E7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 1,
+        "sector_count": 40,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 40
+          }
+        ],
+        "tileset_id": 18
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_19",
+        "bank": 218,
+        "bytes": 1344,
+        "end": 50919,
+        "payload_path": "da/maps/palettes/19.pal",
+        "range": "DA:C1A7..DA:C6E7",
+        "sha1": "4f18d286abe5494c62f551bc99de154f1328a611",
+        "start": 49575,
+        "title": "MAP_DATA_PALETTE_19",
+        "variant_count": 7,
+        "variant_remainder_bytes": 0
+      },
+      "index": 19,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAC1A7",
+      "pointer_cpu": "DA:C1A7",
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 7,
+        "sector_count": 15,
+        "sector_palette_counts": [
+          {
+            "palette": 2,
+            "sector_count": 9
+          },
+          {
+            "palette": 3,
+            "sector_count": 4
+          },
+          {
+            "palette": 4,
+            "sector_count": 2
+          }
+        ],
+        "tileset_id": 19
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_20",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 52455,
+        "payload_path": "da/maps/palettes/20.pal",
+        "range": "DA:C6E7..DA:CCE7",
+        "sha1": "264e098212e143b7d1ff3439fa82dcf51f439118",
+        "start": 50919,
+        "title": "MAP_DATA_PALETTE_20",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 20,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAC6E7",
+      "pointer_cpu": "DA:C6E7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "sector_palette_counts": [
+          {
+            "palette": 5,
+            "sector_count": 2
+          },
+          {
+            "palette": 4,
+            "sector_count": 1
+          },
+          {
+            "palette": 2,
+            "sector_count": 1
+          },
+          {
+            "palette": 7,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 20
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_21",
+        "bank": 218,
+        "bytes": 960,
+        "end": 53415,
+        "payload_path": "da/maps/palettes/21.pal",
+        "range": "DA:CCE7..DA:D0A7",
+        "sha1": "1198ea7168b471169ecdbaeacf1dd386baa119eb",
+        "start": 52455,
+        "title": "MAP_DATA_PALETTE_21",
+        "variant_count": 5,
+        "variant_remainder_bytes": 0
+      },
+      "index": 21,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DACCE7",
+      "pointer_cpu": "DA:CCE7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 5,
+        "sector_count": 0,
+        "sector_palette_counts": [],
+        "tileset_id": 21
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_22",
+        "bank": 218,
+        "bytes": 960,
+        "end": 54375,
+        "payload_path": "da/maps/palettes/22.pal",
+        "range": "DA:D0A7..DA:D467",
+        "sha1": "22266da0f7e398a1df3c460bc4c1e1b5414c60c6",
+        "start": 53415,
+        "title": "MAP_DATA_PALETTE_22",
+        "variant_count": 5,
+        "variant_remainder_bytes": 0
+      },
+      "index": 22,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAD0A7",
+      "pointer_cpu": "DA:D0A7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 5,
+        "sector_count": 14,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 12
+          },
+          {
+            "palette": 4,
+            "sector_count": 2
+          }
+        ],
+        "tileset_id": 22
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_23",
+        "bank": 218,
+        "bytes": 768,
+        "end": 55143,
+        "payload_path": "da/maps/palettes/23.pal",
+        "range": "DA:D467..DA:D767",
+        "sha1": "8875c7ac843a1e89e42f2b53decb79ced4e6a173",
+        "start": 54375,
+        "title": "MAP_DATA_PALETTE_23",
+        "variant_count": 4,
+        "variant_remainder_bytes": 0
+      },
+      "index": 23,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAD467",
+      "pointer_cpu": "DA:D467",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 4,
+        "sector_count": 7,
+        "sector_palette_counts": [
+          {
+            "palette": 1,
+            "sector_count": 6
+          },
+          {
+            "palette": 2,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 23
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_24",
+        "bank": 218,
+        "bytes": 960,
+        "end": 56103,
+        "payload_path": "da/maps/palettes/24.pal",
+        "range": "DA:D767..DA:DB27",
+        "sha1": "c10bc2a7f40b97e1a80df4aa33b49bcd30f5182b",
+        "start": 55143,
+        "title": "MAP_DATA_PALETTE_24",
+        "variant_count": 5,
+        "variant_remainder_bytes": 0
+      },
+      "index": 24,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAD767",
+      "pointer_cpu": "DA:D767",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 5,
+        "sector_count": 4,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 3
+          },
+          {
+            "palette": 3,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 24
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_25",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 57639,
+        "payload_path": "da/maps/palettes/25.pal",
+        "range": "DA:DB27..DA:E127",
+        "sha1": "fc37ff59f697449667cff5bbd7c6bc6aa35f23e5",
+        "start": 56103,
+        "title": "MAP_DATA_PALETTE_25",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 25,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DADB27",
+      "pointer_cpu": "DA:DB27",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 6,
+        "sector_palette_counts": [
+          {
+            "palette": 2,
+            "sector_count": 1
+          },
+          {
+            "palette": 1,
+            "sector_count": 1
+          },
+          {
+            "palette": 7,
+            "sector_count": 1
+          },
+          {
+            "palette": 3,
+            "sector_count": 1
+          },
+          {
+            "palette": 6,
+            "sector_count": 1
+          },
+          {
+            "palette": 5,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 25
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_26",
+        "bank": 218,
+        "bytes": 1152,
+        "end": 58791,
+        "payload_path": "da/maps/palettes/26.pal",
+        "range": "DA:E127..DA:E5A7",
+        "sha1": "34f7cc865ea2c9b7a2063ec0d122da8a21072ea7",
+        "start": 57639,
+        "title": "MAP_DATA_PALETTE_26",
+        "variant_count": 6,
+        "variant_remainder_bytes": 0
+      },
+      "index": 26,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAE127",
+      "pointer_cpu": "DA:E127",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 6,
+        "sector_count": 81,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 61
+          },
+          {
+            "palette": 1,
+            "sector_count": 9
+          },
+          {
+            "palette": 2,
+            "sector_count": 8
+          },
+          {
+            "palette": 3,
+            "sector_count": 3
+          }
+        ],
+        "tileset_id": 26
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_27",
+        "bank": 218,
+        "bytes": 960,
+        "end": 59751,
+        "payload_path": "da/maps/palettes/27.pal",
+        "range": "DA:E5A7..DA:E967",
+        "sha1": "92ce4f0f841b1d169cd3a7c67eb4a2ea32d7eb24",
+        "start": 58791,
+        "title": "MAP_DATA_PALETTE_27",
+        "variant_count": 5,
+        "variant_remainder_bytes": 0
+      },
+      "index": 27,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAE5A7",
+      "pointer_cpu": "DA:E5A7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 5,
+        "sector_count": 66,
+        "sector_palette_counts": [
+          {
+            "palette": 0,
+            "sector_count": 38
+          },
+          {
+            "palette": 3,
+            "sector_count": 23
+          },
+          {
+            "palette": 2,
+            "sector_count": 3
+          },
+          {
+            "palette": 1,
+            "sector_count": 2
+          }
+        ],
+        "tileset_id": 27
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_28",
+        "bank": 218,
+        "bytes": 1152,
+        "end": 60903,
+        "payload_path": "da/maps/palettes/28.pal",
+        "range": "DA:E967..DA:EDE7",
+        "sha1": "8523c3b72084c3d00626fdafe1fc670db0ae99cd",
+        "start": 59751,
+        "title": "MAP_DATA_PALETTE_28",
+        "variant_count": 6,
+        "variant_remainder_bytes": 0
+      },
+      "index": 28,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAE967",
+      "pointer_cpu": "DA:E967",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 6,
+        "sector_count": 76,
+        "sector_palette_counts": [
+          {
+            "palette": 4,
+            "sector_count": 32
+          },
+          {
+            "palette": 0,
+            "sector_count": 16
+          },
+          {
+            "palette": 1,
+            "sector_count": 15
+          },
+          {
+            "palette": 3,
+            "sector_count": 9
+          },
+          {
+            "palette": 2,
+            "sector_count": 4
+          }
+        ],
+        "tileset_id": 28
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_29",
+        "bank": 218,
+        "bytes": 1152,
+        "end": 62055,
+        "payload_path": "da/maps/palettes/29.pal",
+        "range": "DA:EDE7..DA:F267",
+        "sha1": "a45fe06b000df64f2cbefb83d6754a5cfafb00bc",
+        "start": 60903,
+        "title": "MAP_DATA_PALETTE_29",
+        "variant_count": 6,
+        "variant_remainder_bytes": 0
+      },
+      "index": 29,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAEDE7",
+      "pointer_cpu": "DA:EDE7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 6,
+        "sector_count": 25,
+        "sector_palette_counts": [
+          {
+            "palette": 4,
+            "sector_count": 8
+          },
+          {
+            "palette": 0,
+            "sector_count": 6
+          },
+          {
+            "palette": 3,
+            "sector_count": 6
+          },
+          {
+            "palette": 1,
+            "sector_count": 4
+          },
+          {
+            "palette": 2,
+            "sector_count": 1
+          }
+        ],
+        "tileset_id": 29
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_30",
+        "bank": 218,
+        "bytes": 576,
+        "end": 62631,
+        "payload_path": "da/maps/palettes/30.pal",
+        "range": "DA:F267..DA:F4A7",
+        "sha1": "9617315a052614474957a73222fd35f40e512c8e",
+        "start": 62055,
+        "title": "MAP_DATA_PALETTE_30",
+        "variant_count": 3,
+        "variant_remainder_bytes": 0
+      },
+      "index": 30,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAF267",
+      "pointer_cpu": "DA:F267",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 3,
+        "sector_count": 46,
+        "sector_palette_counts": [
+          {
+            "palette": 1,
+            "sector_count": 32
+          },
+          {
+            "palette": 2,
+            "sector_count": 14
+          }
+        ],
+        "tileset_id": 30
+      }
+    },
+    {
+      "expected_asset": {
+        "asset_id": "asset.da.map_data_palette_31",
+        "bank": 218,
+        "bytes": 1536,
+        "end": 64167,
+        "payload_path": "da/maps/palettes/31.pal",
+        "range": "DA:F4A7..DA:FAA7",
+        "sha1": "075f18c2e018d5fca5e73f13a19ba458fac247ea",
+        "start": 62631,
+        "title": "MAP_DATA_PALETTE_31",
+        "variant_count": 8,
+        "variant_remainder_bytes": 0
+      },
+      "index": 31,
+      "match_status": "matches_map_data_palette_asset",
+      "pointer": "DAF4A7",
+      "pointer_cpu": "DA:F4A7",
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "sector_palette_counts": [],
+        "tileset_id": 31
+      }
+    }
+  ],
+  "generator": "tools/build_map_palette_pointer_table_contract.py",
+  "schema": "earthbound-decomp.map-palette-pointer-table-contract.v1",
+  "source_policy": "ROM-verified pointer-table contract. This records pointer targets, asset IDs, hashes, byte counts, and usage counts only; it does not commit palette payload bytes.",
+  "sources": {
+    "manifest": "asset-manifests/bank-da-assets.json",
+    "pointer_table": "DA:FAA7..DA:FB07",
+    "tileset_bundles": "notes/map-tileset-bundles.json"
+  },
+  "summary": {
+    "direct_fts_palette_asset_count": 20,
+    "entry_count": 32,
+    "entry_size_bytes": 3,
+    "exact_pointer_asset_matches": 32,
+    "table_bytes": 96,
+    "used_palette_asset_count": 28,
+    "variant_count_mismatches": 0,
+    "variant_remainder_mismatches": 0,
+    "variant_size_bytes": 192
+  },
+  "title": "Map Palette Pointer Table Contract"
+}

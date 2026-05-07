@@ -1,0 +1,120 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D0 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d0-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank10.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 1,
+    "binary_assets_by_extension": {
+      "ebm": 1
+    },
+    "binary_asset_bytes": 8180,
+    "table_includes": 9,
+    "table_bytes": 57268,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 88,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 3,
+    "output_recipe_count": 3,
+    "typed_output_kind_count": 1,
+    "decoder_output_recipe_count": 0,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "raw": 3
+    },
+    "decoder_counts": {},
+    "renderer_counts": {},
+    "smoke_fixture_count": 0,
+    "smoke_fixture_asset_ids": [],
+    "smoke_fixture_type_counts": {},
+    "smoke_fixture_target_kind_counts": {}
+  },
+  "assets": [
+    {
+      "id": "asset.d0.audio_pack_139",
+      "title": "AUDIO_PACK_139",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "D0:DFB4..D0:FFA8",
+        "bytes": 8180,
+        "sha1": "c20cf02e14338f7b9bfb19aad161e7c701141a3b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d0/audiopacks/139.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/139.ebm",
+        "Original file offset: 0x10DFB4"
+      ]
+    },
+    {
+      "id": "table.d0.000_data_map_door_pointer_table_asm",
+      "title": "data/map/door_pointer_table.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "D0:0000..D0:DFB4",
+        "bytes": 57268,
+        "sha1": "5e6f43379cd903d52410600f5639a3cb4dc3441d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d0/tables/000_data_map_door_pointer_table_asm.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/door_pointer_table.asm",
+        "Original file offset: 0x100000",
+        "Size was inferred from the next known binary asset boundary."
+      ]
+    },
+    {
+      "id": "gap.d0.d0_ffa8",
+      "title": "Bank D0 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "D0:FFA8..D0:10000",
+        "bytes": 88,
+        "sha1": "5c0a9085206c2dafcf9c1cb2c0a8dabdc387c895"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d0/gaps/01_d0_ffa8.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x10FFA8..0x10FFFF"
+      ]
+    }
+  ]
+}

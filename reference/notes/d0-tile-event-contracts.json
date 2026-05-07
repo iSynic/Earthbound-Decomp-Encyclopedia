@@ -1,0 +1,4979 @@
+{
+  "schema": "earthbound-decomp.d0-tile-event-contracts.v1",
+  "title": "D0 Tile Event Contracts",
+  "generator": "tools/build_d0_tile_event_contracts.py",
+  "source_policy": "Derived from the byte-equivalent D0 source scaffold and the C0:062A consumer. This records chain boundaries, event-condition headers, replacement-pair rows, and consumer-backed field names only.",
+  "sources": {
+    "d0_source_scaffold": "src\\d0\\bank_d0_helpers_asar.asm",
+    "d0_table_splits": "notes/d0-table-splits.md",
+    "consumer": "src/c0/c0_062a_load_landing_hdma_dispatch_block.asm"
+  },
+  "spans": {
+    "event_control_pointer_table": {
+      "range": "D0:1598..D0:15C0",
+      "rows": 20,
+      "stride": 2
+    },
+    "map_tile_event_control_table": {
+      "range": "D0:15C0..D0:1880",
+      "bytes": 704
+    }
+  },
+  "record_shapes": {
+    "event_control_pointer_row": [
+      {
+        "offset": 0,
+        "field": "chain_pointer_low_word",
+        "size": 2,
+        "consumer": "C0:0703 indexes D0:1598 by tileset/event-control id and adds the low word to bank D0"
+      }
+    ],
+    "tile_event_condition_header": [
+      {
+        "offset": 0,
+        "field": "event_flag_condition_word",
+        "size": 2,
+        "consumer": "C0:0715 treats zero as chain terminator, masks 0x7FFF for C2:1628, and uses bit 15 as the expected flag state"
+      },
+      {
+        "offset": 2,
+        "field": "replacement_pair_count",
+        "size": 2,
+        "consumer": "C0:0722 uses this count to walk four-byte replacement pairs"
+      }
+    ],
+    "tile_event_replacement_pair": [
+      {
+        "offset": 0,
+        "field": "replacement_target_block_index",
+        "size": 2,
+        "consumer": "C0:074D passes this as A to REPLACE_BLOCK, selecting the destination active block/cache slot"
+      },
+      {
+        "offset": 2,
+        "field": "replacement_source_block_index",
+        "size": 2,
+        "consumer": "C0:074A passes this as X/Y to REPLACE_BLOCK, selecting the source active block/cache slot"
+      }
+    ]
+  },
+  "summary": {
+    "pointer_rows": 20,
+    "chains": 20,
+    "non_empty_chains": 6,
+    "event_condition_entries": 9,
+    "replacement_pairs": 157,
+    "terminal_boundary": "D0:1880",
+    "chain_event_entry_count_histogram": {
+      "0": 14,
+      "1": 3,
+      "2": 3
+    },
+    "chain_replacement_pair_count_histogram": {
+      "0": 14,
+      "3": 1,
+      "6": 1,
+      "10": 1,
+      "26": 1,
+      "28": 1,
+      "84": 1
+    },
+    "entry_replacement_pair_count_histogram": {
+      "2": 1,
+      "3": 3,
+      "4": 1,
+      "8": 1,
+      "24": 1,
+      "26": 1,
+      "84": 1
+    },
+    "event_flag_id_histogram": {
+      "0x000E": 1,
+      "0x0031": 1,
+      "0x0044": 2,
+      "0x0047": 1,
+      "0x0068": 2,
+      "0x00AE": 1,
+      "0x0137": 1
+    },
+    "expected_flag_state_histogram": {
+      "0": 4,
+      "1": 5
+    },
+    "replacement_target_block_index_range": [
+      1,
+      808
+    ],
+    "replacement_source_block_index_range": [
+      0,
+      91
+    ]
+  },
+  "event_control_pointer_rows": [
+    {
+      "chain_id": 0,
+      "address": "D0:1598",
+      "chain_pointer_low_word": 5568,
+      "target": "D0:15C0"
+    },
+    {
+      "chain_id": 1,
+      "address": "D0:159A",
+      "chain_pointer_low_word": 5570,
+      "target": "D0:15C2"
+    },
+    {
+      "chain_id": 2,
+      "address": "D0:159C",
+      "chain_pointer_low_word": 5604,
+      "target": "D0:15E4"
+    },
+    {
+      "chain_id": 3,
+      "address": "D0:159E",
+      "chain_pointer_low_word": 5606,
+      "target": "D0:15E6"
+    },
+    {
+      "chain_id": 4,
+      "address": "D0:15A0",
+      "chain_pointer_low_word": 5728,
+      "target": "D0:1660"
+    },
+    {
+      "chain_id": 5,
+      "address": "D0:15A2",
+      "chain_pointer_low_word": 5730,
+      "target": "D0:1662"
+    },
+    {
+      "chain_id": 6,
+      "address": "D0:15A4",
+      "chain_pointer_low_word": 5732,
+      "target": "D0:1664"
+    },
+    {
+      "chain_id": 7,
+      "address": "D0:15A6",
+      "chain_pointer_low_word": 5782,
+      "target": "D0:1696"
+    },
+    {
+      "chain_id": 8,
+      "address": "D0:15A8",
+      "chain_pointer_low_word": 5784,
+      "target": "D0:1698"
+    },
+    {
+      "chain_id": 9,
+      "address": "D0:15AA",
+      "chain_pointer_low_word": 5894,
+      "target": "D0:1706"
+    },
+    {
+      "chain_id": 10,
+      "address": "D0:15AC",
+      "chain_pointer_low_word": 5896,
+      "target": "D0:1708"
+    },
+    {
+      "chain_id": 11,
+      "address": "D0:15AE",
+      "chain_pointer_low_word": 5898,
+      "target": "D0:170A"
+    },
+    {
+      "chain_id": 12,
+      "address": "D0:15B0",
+      "chain_pointer_low_word": 5900,
+      "target": "D0:170C"
+    },
+    {
+      "chain_id": 13,
+      "address": "D0:15B2",
+      "chain_pointer_low_word": 5902,
+      "target": "D0:170E"
+    },
+    {
+      "chain_id": 14,
+      "address": "D0:15B4",
+      "chain_pointer_low_word": 5920,
+      "target": "D0:1720"
+    },
+    {
+      "chain_id": 15,
+      "address": "D0:15B6",
+      "chain_pointer_low_word": 5922,
+      "target": "D0:1722"
+    },
+    {
+      "chain_id": 16,
+      "address": "D0:15B8",
+      "chain_pointer_low_word": 5924,
+      "target": "D0:1724"
+    },
+    {
+      "chain_id": 17,
+      "address": "D0:15BA",
+      "chain_pointer_low_word": 6266,
+      "target": "D0:187A"
+    },
+    {
+      "chain_id": 18,
+      "address": "D0:15BC",
+      "chain_pointer_low_word": 6268,
+      "target": "D0:187C"
+    },
+    {
+      "chain_id": 19,
+      "address": "D0:15BE",
+      "chain_pointer_low_word": 6270,
+      "target": "D0:187E"
+    }
+  ],
+  "tile_event_chains": [
+    {
+      "chain_id": 0,
+      "address": "D0:15C0",
+      "end_exclusive": "D0:15C2",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:15C0",
+      "pointer_rows": [
+        0
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 1,
+      "address": "D0:15C2",
+      "end_exclusive": "D0:15E4",
+      "bytes": 34,
+      "event_entries": 2,
+      "replacement_pairs": 6,
+      "terminator": "D0:15E2",
+      "pointer_rows": [
+        1
+      ],
+      "entries": [
+        {
+          "entry_index": 0,
+          "entry_in_chain": 0,
+          "chain_id": 1,
+          "address": "D0:15C2",
+          "event_flag_condition_word": 32872,
+          "event_flag_id": 104,
+          "expected_flag_state": 1,
+          "replacement_pair_count": 3,
+          "first_replacement_pair_index": 0,
+          "pairs": [
+            {
+              "pair_index": 0,
+              "pair_in_entry": 0,
+              "entry_index": 0,
+              "chain_id": 1,
+              "address": "D0:15C6",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 4
+            },
+            {
+              "pair_index": 1,
+              "pair_in_entry": 1,
+              "entry_index": 0,
+              "chain_id": 1,
+              "address": "D0:15CA",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 5
+            },
+            {
+              "pair_index": 2,
+              "pair_in_entry": 2,
+              "entry_index": 0,
+              "chain_id": 1,
+              "address": "D0:15CE",
+              "replacement_target_block_index": 3,
+              "replacement_source_block_index": 6
+            }
+          ]
+        },
+        {
+          "entry_index": 1,
+          "entry_in_chain": 1,
+          "chain_id": 1,
+          "address": "D0:15D2",
+          "event_flag_condition_word": 32872,
+          "event_flag_id": 104,
+          "expected_flag_state": 1,
+          "replacement_pair_count": 3,
+          "first_replacement_pair_index": 3,
+          "pairs": [
+            {
+              "pair_index": 3,
+              "pair_in_entry": 0,
+              "entry_index": 1,
+              "chain_id": 1,
+              "address": "D0:15D6",
+              "replacement_target_block_index": 806,
+              "replacement_source_block_index": 0
+            },
+            {
+              "pair_index": 4,
+              "pair_in_entry": 1,
+              "entry_index": 1,
+              "chain_id": 1,
+              "address": "D0:15DA",
+              "replacement_target_block_index": 807,
+              "replacement_source_block_index": 0
+            },
+            {
+              "pair_index": 5,
+              "pair_in_entry": 2,
+              "entry_index": 1,
+              "chain_id": 1,
+              "address": "D0:15DE",
+              "replacement_target_block_index": 808,
+              "replacement_source_block_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 2,
+      "address": "D0:15E4",
+      "end_exclusive": "D0:15E6",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:15E4",
+      "pointer_rows": [
+        2
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 3,
+      "address": "D0:15E6",
+      "end_exclusive": "D0:1660",
+      "bytes": 122,
+      "event_entries": 2,
+      "replacement_pairs": 28,
+      "terminator": "D0:165E",
+      "pointer_rows": [
+        3
+      ],
+      "entries": [
+        {
+          "entry_index": 2,
+          "entry_in_chain": 0,
+          "chain_id": 3,
+          "address": "D0:15E6",
+          "event_flag_condition_word": 14,
+          "event_flag_id": 14,
+          "expected_flag_state": 0,
+          "replacement_pair_count": 4,
+          "first_replacement_pair_index": 6,
+          "pairs": [
+            {
+              "pair_index": 6,
+              "pair_in_entry": 0,
+              "entry_index": 2,
+              "chain_id": 3,
+              "address": "D0:15EA",
+              "replacement_target_block_index": 31,
+              "replacement_source_block_index": 35
+            },
+            {
+              "pair_index": 7,
+              "pair_in_entry": 1,
+              "entry_index": 2,
+              "chain_id": 3,
+              "address": "D0:15EE",
+              "replacement_target_block_index": 32,
+              "replacement_source_block_index": 36
+            },
+            {
+              "pair_index": 8,
+              "pair_in_entry": 2,
+              "entry_index": 2,
+              "chain_id": 3,
+              "address": "D0:15F2",
+              "replacement_target_block_index": 33,
+              "replacement_source_block_index": 37
+            },
+            {
+              "pair_index": 9,
+              "pair_in_entry": 3,
+              "entry_index": 2,
+              "chain_id": 3,
+              "address": "D0:15F6",
+              "replacement_target_block_index": 34,
+              "replacement_source_block_index": 38
+            }
+          ]
+        },
+        {
+          "entry_index": 3,
+          "entry_in_chain": 1,
+          "chain_id": 3,
+          "address": "D0:15FA",
+          "event_flag_condition_word": 49,
+          "event_flag_id": 49,
+          "expected_flag_state": 0,
+          "replacement_pair_count": 24,
+          "first_replacement_pair_index": 10,
+          "pairs": [
+            {
+              "pair_index": 10,
+              "pair_in_entry": 0,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:15FE",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 11,
+              "pair_in_entry": 1,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1602",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 12,
+              "pair_in_entry": 2,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1606",
+              "replacement_target_block_index": 3,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 13,
+              "pair_in_entry": 3,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:160A",
+              "replacement_target_block_index": 4,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 14,
+              "pair_in_entry": 4,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:160E",
+              "replacement_target_block_index": 5,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 15,
+              "pair_in_entry": 5,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1612",
+              "replacement_target_block_index": 6,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 16,
+              "pair_in_entry": 6,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1616",
+              "replacement_target_block_index": 7,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 17,
+              "pair_in_entry": 7,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:161A",
+              "replacement_target_block_index": 8,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 18,
+              "pair_in_entry": 8,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:161E",
+              "replacement_target_block_index": 9,
+              "replacement_source_block_index": 29
+            },
+            {
+              "pair_index": 19,
+              "pair_in_entry": 9,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1622",
+              "replacement_target_block_index": 10,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 20,
+              "pair_in_entry": 10,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1626",
+              "replacement_target_block_index": 11,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 21,
+              "pair_in_entry": 11,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:162A",
+              "replacement_target_block_index": 12,
+              "replacement_source_block_index": 29
+            },
+            {
+              "pair_index": 22,
+              "pair_in_entry": 12,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:162E",
+              "replacement_target_block_index": 13,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 23,
+              "pair_in_entry": 13,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1632",
+              "replacement_target_block_index": 14,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 24,
+              "pair_in_entry": 14,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1636",
+              "replacement_target_block_index": 15,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 25,
+              "pair_in_entry": 15,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:163A",
+              "replacement_target_block_index": 16,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 26,
+              "pair_in_entry": 16,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:163E",
+              "replacement_target_block_index": 17,
+              "replacement_source_block_index": 30
+            },
+            {
+              "pair_index": 27,
+              "pair_in_entry": 17,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1642",
+              "replacement_target_block_index": 18,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 28,
+              "pair_in_entry": 18,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1646",
+              "replacement_target_block_index": 19,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 29,
+              "pair_in_entry": 19,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:164A",
+              "replacement_target_block_index": 20,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 30,
+              "pair_in_entry": 20,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:164E",
+              "replacement_target_block_index": 21,
+              "replacement_source_block_index": 26
+            },
+            {
+              "pair_index": 31,
+              "pair_in_entry": 21,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1652",
+              "replacement_target_block_index": 22,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 32,
+              "pair_in_entry": 22,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:1656",
+              "replacement_target_block_index": 23,
+              "replacement_source_block_index": 25
+            },
+            {
+              "pair_index": 33,
+              "pair_in_entry": 23,
+              "entry_index": 3,
+              "chain_id": 3,
+              "address": "D0:165A",
+              "replacement_target_block_index": 24,
+              "replacement_source_block_index": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 4,
+      "address": "D0:1660",
+      "end_exclusive": "D0:1662",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1660",
+      "pointer_rows": [
+        4
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 5,
+      "address": "D0:1662",
+      "end_exclusive": "D0:1664",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1662",
+      "pointer_rows": [
+        5
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 6,
+      "address": "D0:1664",
+      "end_exclusive": "D0:1696",
+      "bytes": 50,
+      "event_entries": 2,
+      "replacement_pairs": 10,
+      "terminator": "D0:1694",
+      "pointer_rows": [
+        6
+      ],
+      "entries": [
+        {
+          "entry_index": 4,
+          "entry_in_chain": 0,
+          "chain_id": 6,
+          "address": "D0:1664",
+          "event_flag_condition_word": 71,
+          "event_flag_id": 71,
+          "expected_flag_state": 0,
+          "replacement_pair_count": 2,
+          "first_replacement_pair_index": 34,
+          "pairs": [
+            {
+              "pair_index": 34,
+              "pair_in_entry": 0,
+              "entry_index": 4,
+              "chain_id": 6,
+              "address": "D0:1668",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 3
+            },
+            {
+              "pair_index": 35,
+              "pair_in_entry": 1,
+              "entry_index": 4,
+              "chain_id": 6,
+              "address": "D0:166C",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 4
+            }
+          ]
+        },
+        {
+          "entry_index": 5,
+          "entry_in_chain": 1,
+          "chain_id": 6,
+          "address": "D0:1670",
+          "event_flag_condition_word": 32836,
+          "event_flag_id": 68,
+          "expected_flag_state": 1,
+          "replacement_pair_count": 8,
+          "first_replacement_pair_index": 36,
+          "pairs": [
+            {
+              "pair_index": 36,
+              "pair_in_entry": 0,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1674",
+              "replacement_target_block_index": 5,
+              "replacement_source_block_index": 13
+            },
+            {
+              "pair_index": 37,
+              "pair_in_entry": 1,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1678",
+              "replacement_target_block_index": 6,
+              "replacement_source_block_index": 14
+            },
+            {
+              "pair_index": 38,
+              "pair_in_entry": 2,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:167C",
+              "replacement_target_block_index": 7,
+              "replacement_source_block_index": 14
+            },
+            {
+              "pair_index": 39,
+              "pair_in_entry": 3,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1680",
+              "replacement_target_block_index": 8,
+              "replacement_source_block_index": 15
+            },
+            {
+              "pair_index": 40,
+              "pair_in_entry": 4,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1684",
+              "replacement_target_block_index": 9,
+              "replacement_source_block_index": 16
+            },
+            {
+              "pair_index": 41,
+              "pair_in_entry": 5,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1688",
+              "replacement_target_block_index": 10,
+              "replacement_source_block_index": 17
+            },
+            {
+              "pair_index": 42,
+              "pair_in_entry": 6,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:168C",
+              "replacement_target_block_index": 11,
+              "replacement_source_block_index": 17
+            },
+            {
+              "pair_index": 43,
+              "pair_in_entry": 7,
+              "entry_index": 5,
+              "chain_id": 6,
+              "address": "D0:1690",
+              "replacement_target_block_index": 12,
+              "replacement_source_block_index": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 7,
+      "address": "D0:1696",
+      "end_exclusive": "D0:1698",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1696",
+      "pointer_rows": [
+        7
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 8,
+      "address": "D0:1698",
+      "end_exclusive": "D0:1706",
+      "bytes": 110,
+      "event_entries": 1,
+      "replacement_pairs": 26,
+      "terminator": "D0:1704",
+      "pointer_rows": [
+        8
+      ],
+      "entries": [
+        {
+          "entry_index": 6,
+          "entry_in_chain": 0,
+          "chain_id": 8,
+          "address": "D0:1698",
+          "event_flag_condition_word": 174,
+          "event_flag_id": 174,
+          "expected_flag_state": 0,
+          "replacement_pair_count": 26,
+          "first_replacement_pair_index": 44,
+          "pairs": [
+            {
+              "pair_index": 44,
+              "pair_in_entry": 0,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:169C",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 45,
+              "pair_in_entry": 1,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16A0",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 46,
+              "pair_in_entry": 2,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16A4",
+              "replacement_target_block_index": 3,
+              "replacement_source_block_index": 29
+            },
+            {
+              "pair_index": 47,
+              "pair_in_entry": 3,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16A8",
+              "replacement_target_block_index": 4,
+              "replacement_source_block_index": 30
+            },
+            {
+              "pair_index": 48,
+              "pair_in_entry": 4,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16AC",
+              "replacement_target_block_index": 5,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 49,
+              "pair_in_entry": 5,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16B0",
+              "replacement_target_block_index": 6,
+              "replacement_source_block_index": 31
+            },
+            {
+              "pair_index": 50,
+              "pair_in_entry": 6,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16B4",
+              "replacement_target_block_index": 7,
+              "replacement_source_block_index": 32
+            },
+            {
+              "pair_index": 51,
+              "pair_in_entry": 7,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16B8",
+              "replacement_target_block_index": 8,
+              "replacement_source_block_index": 33
+            },
+            {
+              "pair_index": 52,
+              "pair_in_entry": 8,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16BC",
+              "replacement_target_block_index": 9,
+              "replacement_source_block_index": 34
+            },
+            {
+              "pair_index": 53,
+              "pair_in_entry": 9,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16C0",
+              "replacement_target_block_index": 10,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 54,
+              "pair_in_entry": 10,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16C4",
+              "replacement_target_block_index": 11,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 55,
+              "pair_in_entry": 11,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16C8",
+              "replacement_target_block_index": 12,
+              "replacement_source_block_index": 33
+            },
+            {
+              "pair_index": 56,
+              "pair_in_entry": 12,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16CC",
+              "replacement_target_block_index": 13,
+              "replacement_source_block_index": 29
+            },
+            {
+              "pair_index": 57,
+              "pair_in_entry": 13,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16D0",
+              "replacement_target_block_index": 14,
+              "replacement_source_block_index": 35
+            },
+            {
+              "pair_index": 58,
+              "pair_in_entry": 14,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16D4",
+              "replacement_target_block_index": 15,
+              "replacement_source_block_index": 34
+            },
+            {
+              "pair_index": 59,
+              "pair_in_entry": 15,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16D8",
+              "replacement_target_block_index": 16,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 60,
+              "pair_in_entry": 16,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16DC",
+              "replacement_target_block_index": 17,
+              "replacement_source_block_index": 33
+            },
+            {
+              "pair_index": 61,
+              "pair_in_entry": 17,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16E0",
+              "replacement_target_block_index": 18,
+              "replacement_source_block_index": 30
+            },
+            {
+              "pair_index": 62,
+              "pair_in_entry": 18,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16E4",
+              "replacement_target_block_index": 19,
+              "replacement_source_block_index": 28
+            },
+            {
+              "pair_index": 63,
+              "pair_in_entry": 19,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16E8",
+              "replacement_target_block_index": 20,
+              "replacement_source_block_index": 33
+            },
+            {
+              "pair_index": 64,
+              "pair_in_entry": 20,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16EC",
+              "replacement_target_block_index": 21,
+              "replacement_source_block_index": 29
+            },
+            {
+              "pair_index": 65,
+              "pair_in_entry": 21,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16F0",
+              "replacement_target_block_index": 22,
+              "replacement_source_block_index": 30
+            },
+            {
+              "pair_index": 66,
+              "pair_in_entry": 22,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16F4",
+              "replacement_target_block_index": 23,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 67,
+              "pair_in_entry": 23,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16F8",
+              "replacement_target_block_index": 24,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 68,
+              "pair_in_entry": 24,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:16FC",
+              "replacement_target_block_index": 25,
+              "replacement_source_block_index": 27
+            },
+            {
+              "pair_index": 69,
+              "pair_in_entry": 25,
+              "entry_index": 6,
+              "chain_id": 8,
+              "address": "D0:1700",
+              "replacement_target_block_index": 26,
+              "replacement_source_block_index": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 9,
+      "address": "D0:1706",
+      "end_exclusive": "D0:1708",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1706",
+      "pointer_rows": [
+        9
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 10,
+      "address": "D0:1708",
+      "end_exclusive": "D0:170A",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1708",
+      "pointer_rows": [
+        10
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 11,
+      "address": "D0:170A",
+      "end_exclusive": "D0:170C",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:170A",
+      "pointer_rows": [
+        11
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 12,
+      "address": "D0:170C",
+      "end_exclusive": "D0:170E",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:170C",
+      "pointer_rows": [
+        12
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 13,
+      "address": "D0:170E",
+      "end_exclusive": "D0:1720",
+      "bytes": 18,
+      "event_entries": 1,
+      "replacement_pairs": 3,
+      "terminator": "D0:171E",
+      "pointer_rows": [
+        13
+      ],
+      "entries": [
+        {
+          "entry_index": 7,
+          "entry_in_chain": 0,
+          "chain_id": 13,
+          "address": "D0:170E",
+          "event_flag_condition_word": 33079,
+          "event_flag_id": 311,
+          "expected_flag_state": 1,
+          "replacement_pair_count": 3,
+          "first_replacement_pair_index": 70,
+          "pairs": [
+            {
+              "pair_index": 70,
+              "pair_in_entry": 0,
+              "entry_index": 7,
+              "chain_id": 13,
+              "address": "D0:1712",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 4
+            },
+            {
+              "pair_index": 71,
+              "pair_in_entry": 1,
+              "entry_index": 7,
+              "chain_id": 13,
+              "address": "D0:1716",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 5
+            },
+            {
+              "pair_index": 72,
+              "pair_in_entry": 2,
+              "entry_index": 7,
+              "chain_id": 13,
+              "address": "D0:171A",
+              "replacement_target_block_index": 3,
+              "replacement_source_block_index": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 14,
+      "address": "D0:1720",
+      "end_exclusive": "D0:1722",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1720",
+      "pointer_rows": [
+        14
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 15,
+      "address": "D0:1722",
+      "end_exclusive": "D0:1724",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:1722",
+      "pointer_rows": [
+        15
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 16,
+      "address": "D0:1724",
+      "end_exclusive": "D0:187A",
+      "bytes": 342,
+      "event_entries": 1,
+      "replacement_pairs": 84,
+      "terminator": "D0:1878",
+      "pointer_rows": [
+        16
+      ],
+      "entries": [
+        {
+          "entry_index": 8,
+          "entry_in_chain": 0,
+          "chain_id": 16,
+          "address": "D0:1724",
+          "event_flag_condition_word": 32836,
+          "event_flag_id": 68,
+          "expected_flag_state": 1,
+          "replacement_pair_count": 84,
+          "first_replacement_pair_index": 73,
+          "pairs": [
+            {
+              "pair_index": 73,
+              "pair_in_entry": 0,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1728",
+              "replacement_target_block_index": 1,
+              "replacement_source_block_index": 85
+            },
+            {
+              "pair_index": 74,
+              "pair_in_entry": 1,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:172C",
+              "replacement_target_block_index": 2,
+              "replacement_source_block_index": 85
+            },
+            {
+              "pair_index": 75,
+              "pair_in_entry": 2,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1730",
+              "replacement_target_block_index": 3,
+              "replacement_source_block_index": 85
+            },
+            {
+              "pair_index": 76,
+              "pair_in_entry": 3,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1734",
+              "replacement_target_block_index": 4,
+              "replacement_source_block_index": 86
+            },
+            {
+              "pair_index": 77,
+              "pair_in_entry": 4,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1738",
+              "replacement_target_block_index": 5,
+              "replacement_source_block_index": 87
+            },
+            {
+              "pair_index": 78,
+              "pair_in_entry": 5,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:173C",
+              "replacement_target_block_index": 6,
+              "replacement_source_block_index": 87
+            },
+            {
+              "pair_index": 79,
+              "pair_in_entry": 6,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1740",
+              "replacement_target_block_index": 7,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 80,
+              "pair_in_entry": 7,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1744",
+              "replacement_target_block_index": 8,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 81,
+              "pair_in_entry": 8,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1748",
+              "replacement_target_block_index": 9,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 82,
+              "pair_in_entry": 9,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:174C",
+              "replacement_target_block_index": 10,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 83,
+              "pair_in_entry": 10,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1750",
+              "replacement_target_block_index": 11,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 84,
+              "pair_in_entry": 11,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1754",
+              "replacement_target_block_index": 12,
+              "replacement_source_block_index": 89
+            },
+            {
+              "pair_index": 85,
+              "pair_in_entry": 12,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1758",
+              "replacement_target_block_index": 13,
+              "replacement_source_block_index": 88
+            },
+            {
+              "pair_index": 86,
+              "pair_in_entry": 13,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:175C",
+              "replacement_target_block_index": 14,
+              "replacement_source_block_index": 90
+            },
+            {
+              "pair_index": 87,
+              "pair_in_entry": 14,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1760",
+              "replacement_target_block_index": 15,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 88,
+              "pair_in_entry": 15,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1764",
+              "replacement_target_block_index": 16,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 89,
+              "pair_in_entry": 16,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1768",
+              "replacement_target_block_index": 17,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 90,
+              "pair_in_entry": 17,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:176C",
+              "replacement_target_block_index": 18,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 91,
+              "pair_in_entry": 18,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1770",
+              "replacement_target_block_index": 19,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 92,
+              "pair_in_entry": 19,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1774",
+              "replacement_target_block_index": 20,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 93,
+              "pair_in_entry": 20,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1778",
+              "replacement_target_block_index": 21,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 94,
+              "pair_in_entry": 21,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:177C",
+              "replacement_target_block_index": 22,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 95,
+              "pair_in_entry": 22,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1780",
+              "replacement_target_block_index": 23,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 96,
+              "pair_in_entry": 23,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1784",
+              "replacement_target_block_index": 24,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 97,
+              "pair_in_entry": 24,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1788",
+              "replacement_target_block_index": 25,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 98,
+              "pair_in_entry": 25,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:178C",
+              "replacement_target_block_index": 26,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 99,
+              "pair_in_entry": 26,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1790",
+              "replacement_target_block_index": 27,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 100,
+              "pair_in_entry": 27,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1794",
+              "replacement_target_block_index": 28,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 101,
+              "pair_in_entry": 28,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1798",
+              "replacement_target_block_index": 29,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 102,
+              "pair_in_entry": 29,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:179C",
+              "replacement_target_block_index": 30,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 103,
+              "pair_in_entry": 30,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17A0",
+              "replacement_target_block_index": 31,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 104,
+              "pair_in_entry": 31,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17A4",
+              "replacement_target_block_index": 32,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 105,
+              "pair_in_entry": 32,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17A8",
+              "replacement_target_block_index": 33,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 106,
+              "pair_in_entry": 33,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17AC",
+              "replacement_target_block_index": 34,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 107,
+              "pair_in_entry": 34,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17B0",
+              "replacement_target_block_index": 35,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 108,
+              "pair_in_entry": 35,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17B4",
+              "replacement_target_block_index": 36,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 109,
+              "pair_in_entry": 36,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17B8",
+              "replacement_target_block_index": 37,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 110,
+              "pair_in_entry": 37,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17BC",
+              "replacement_target_block_index": 38,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 111,
+              "pair_in_entry": 38,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17C0",
+              "replacement_target_block_index": 39,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 112,
+              "pair_in_entry": 39,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17C4",
+              "replacement_target_block_index": 40,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 113,
+              "pair_in_entry": 40,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17C8",
+              "replacement_target_block_index": 41,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 114,
+              "pair_in_entry": 41,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17CC",
+              "replacement_target_block_index": 42,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 115,
+              "pair_in_entry": 42,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17D0",
+              "replacement_target_block_index": 43,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 116,
+              "pair_in_entry": 43,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17D4",
+              "replacement_target_block_index": 44,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 117,
+              "pair_in_entry": 44,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17D8",
+              "replacement_target_block_index": 45,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 118,
+              "pair_in_entry": 45,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17DC",
+              "replacement_target_block_index": 46,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 119,
+              "pair_in_entry": 46,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17E0",
+              "replacement_target_block_index": 47,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 120,
+              "pair_in_entry": 47,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17E4",
+              "replacement_target_block_index": 48,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 121,
+              "pair_in_entry": 48,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17E8",
+              "replacement_target_block_index": 49,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 122,
+              "pair_in_entry": 49,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17EC",
+              "replacement_target_block_index": 50,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 123,
+              "pair_in_entry": 50,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17F0",
+              "replacement_target_block_index": 51,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 124,
+              "pair_in_entry": 51,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17F4",
+              "replacement_target_block_index": 52,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 125,
+              "pair_in_entry": 52,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17F8",
+              "replacement_target_block_index": 53,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 126,
+              "pair_in_entry": 53,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:17FC",
+              "replacement_target_block_index": 54,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 127,
+              "pair_in_entry": 54,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1800",
+              "replacement_target_block_index": 55,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 128,
+              "pair_in_entry": 55,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1804",
+              "replacement_target_block_index": 56,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 129,
+              "pair_in_entry": 56,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1808",
+              "replacement_target_block_index": 57,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 130,
+              "pair_in_entry": 57,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:180C",
+              "replacement_target_block_index": 58,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 131,
+              "pair_in_entry": 58,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1810",
+              "replacement_target_block_index": 59,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 132,
+              "pair_in_entry": 59,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1814",
+              "replacement_target_block_index": 60,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 133,
+              "pair_in_entry": 60,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1818",
+              "replacement_target_block_index": 61,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 134,
+              "pair_in_entry": 61,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:181C",
+              "replacement_target_block_index": 62,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 135,
+              "pair_in_entry": 62,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1820",
+              "replacement_target_block_index": 63,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 136,
+              "pair_in_entry": 63,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1824",
+              "replacement_target_block_index": 64,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 137,
+              "pair_in_entry": 64,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1828",
+              "replacement_target_block_index": 65,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 138,
+              "pair_in_entry": 65,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:182C",
+              "replacement_target_block_index": 66,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 139,
+              "pair_in_entry": 66,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1830",
+              "replacement_target_block_index": 67,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 140,
+              "pair_in_entry": 67,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1834",
+              "replacement_target_block_index": 68,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 141,
+              "pair_in_entry": 68,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1838",
+              "replacement_target_block_index": 69,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 142,
+              "pair_in_entry": 69,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:183C",
+              "replacement_target_block_index": 70,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 143,
+              "pair_in_entry": 70,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1840",
+              "replacement_target_block_index": 71,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 144,
+              "pair_in_entry": 71,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1844",
+              "replacement_target_block_index": 72,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 145,
+              "pair_in_entry": 72,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1848",
+              "replacement_target_block_index": 73,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 146,
+              "pair_in_entry": 73,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:184C",
+              "replacement_target_block_index": 74,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 147,
+              "pair_in_entry": 74,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1850",
+              "replacement_target_block_index": 75,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 148,
+              "pair_in_entry": 75,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1854",
+              "replacement_target_block_index": 76,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 149,
+              "pair_in_entry": 76,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1858",
+              "replacement_target_block_index": 77,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 150,
+              "pair_in_entry": 77,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:185C",
+              "replacement_target_block_index": 78,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 151,
+              "pair_in_entry": 78,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1860",
+              "replacement_target_block_index": 79,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 152,
+              "pair_in_entry": 79,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1864",
+              "replacement_target_block_index": 80,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 153,
+              "pair_in_entry": 80,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1868",
+              "replacement_target_block_index": 81,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 154,
+              "pair_in_entry": 81,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:186C",
+              "replacement_target_block_index": 82,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 155,
+              "pair_in_entry": 82,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1870",
+              "replacement_target_block_index": 83,
+              "replacement_source_block_index": 91
+            },
+            {
+              "pair_index": 156,
+              "pair_in_entry": 83,
+              "entry_index": 8,
+              "chain_id": 16,
+              "address": "D0:1874",
+              "replacement_target_block_index": 84,
+              "replacement_source_block_index": 91
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chain_id": 17,
+      "address": "D0:187A",
+      "end_exclusive": "D0:187C",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:187A",
+      "pointer_rows": [
+        17
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 18,
+      "address": "D0:187C",
+      "end_exclusive": "D0:187E",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:187C",
+      "pointer_rows": [
+        18
+      ],
+      "entries": []
+    },
+    {
+      "chain_id": 19,
+      "address": "D0:187E",
+      "end_exclusive": "D0:1880",
+      "bytes": 2,
+      "event_entries": 0,
+      "replacement_pairs": 0,
+      "terminator": "D0:187E",
+      "pointer_rows": [
+        19
+      ],
+      "entries": []
+    }
+  ],
+  "tile_event_condition_entries": [
+    {
+      "entry_index": 0,
+      "entry_in_chain": 0,
+      "chain_id": 1,
+      "address": "D0:15C2",
+      "event_flag_condition_word": 32872,
+      "event_flag_id": 104,
+      "expected_flag_state": 1,
+      "replacement_pair_count": 3,
+      "first_replacement_pair_index": 0,
+      "pairs": [
+        {
+          "pair_index": 0,
+          "pair_in_entry": 0,
+          "entry_index": 0,
+          "chain_id": 1,
+          "address": "D0:15C6",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 4
+        },
+        {
+          "pair_index": 1,
+          "pair_in_entry": 1,
+          "entry_index": 0,
+          "chain_id": 1,
+          "address": "D0:15CA",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 5
+        },
+        {
+          "pair_index": 2,
+          "pair_in_entry": 2,
+          "entry_index": 0,
+          "chain_id": 1,
+          "address": "D0:15CE",
+          "replacement_target_block_index": 3,
+          "replacement_source_block_index": 6
+        }
+      ]
+    },
+    {
+      "entry_index": 1,
+      "entry_in_chain": 1,
+      "chain_id": 1,
+      "address": "D0:15D2",
+      "event_flag_condition_word": 32872,
+      "event_flag_id": 104,
+      "expected_flag_state": 1,
+      "replacement_pair_count": 3,
+      "first_replacement_pair_index": 3,
+      "pairs": [
+        {
+          "pair_index": 3,
+          "pair_in_entry": 0,
+          "entry_index": 1,
+          "chain_id": 1,
+          "address": "D0:15D6",
+          "replacement_target_block_index": 806,
+          "replacement_source_block_index": 0
+        },
+        {
+          "pair_index": 4,
+          "pair_in_entry": 1,
+          "entry_index": 1,
+          "chain_id": 1,
+          "address": "D0:15DA",
+          "replacement_target_block_index": 807,
+          "replacement_source_block_index": 0
+        },
+        {
+          "pair_index": 5,
+          "pair_in_entry": 2,
+          "entry_index": 1,
+          "chain_id": 1,
+          "address": "D0:15DE",
+          "replacement_target_block_index": 808,
+          "replacement_source_block_index": 0
+        }
+      ]
+    },
+    {
+      "entry_index": 2,
+      "entry_in_chain": 0,
+      "chain_id": 3,
+      "address": "D0:15E6",
+      "event_flag_condition_word": 14,
+      "event_flag_id": 14,
+      "expected_flag_state": 0,
+      "replacement_pair_count": 4,
+      "first_replacement_pair_index": 6,
+      "pairs": [
+        {
+          "pair_index": 6,
+          "pair_in_entry": 0,
+          "entry_index": 2,
+          "chain_id": 3,
+          "address": "D0:15EA",
+          "replacement_target_block_index": 31,
+          "replacement_source_block_index": 35
+        },
+        {
+          "pair_index": 7,
+          "pair_in_entry": 1,
+          "entry_index": 2,
+          "chain_id": 3,
+          "address": "D0:15EE",
+          "replacement_target_block_index": 32,
+          "replacement_source_block_index": 36
+        },
+        {
+          "pair_index": 8,
+          "pair_in_entry": 2,
+          "entry_index": 2,
+          "chain_id": 3,
+          "address": "D0:15F2",
+          "replacement_target_block_index": 33,
+          "replacement_source_block_index": 37
+        },
+        {
+          "pair_index": 9,
+          "pair_in_entry": 3,
+          "entry_index": 2,
+          "chain_id": 3,
+          "address": "D0:15F6",
+          "replacement_target_block_index": 34,
+          "replacement_source_block_index": 38
+        }
+      ]
+    },
+    {
+      "entry_index": 3,
+      "entry_in_chain": 1,
+      "chain_id": 3,
+      "address": "D0:15FA",
+      "event_flag_condition_word": 49,
+      "event_flag_id": 49,
+      "expected_flag_state": 0,
+      "replacement_pair_count": 24,
+      "first_replacement_pair_index": 10,
+      "pairs": [
+        {
+          "pair_index": 10,
+          "pair_in_entry": 0,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:15FE",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 11,
+          "pair_in_entry": 1,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1602",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 12,
+          "pair_in_entry": 2,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1606",
+          "replacement_target_block_index": 3,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 13,
+          "pair_in_entry": 3,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:160A",
+          "replacement_target_block_index": 4,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 14,
+          "pair_in_entry": 4,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:160E",
+          "replacement_target_block_index": 5,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 15,
+          "pair_in_entry": 5,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1612",
+          "replacement_target_block_index": 6,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 16,
+          "pair_in_entry": 6,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1616",
+          "replacement_target_block_index": 7,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 17,
+          "pair_in_entry": 7,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:161A",
+          "replacement_target_block_index": 8,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 18,
+          "pair_in_entry": 8,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:161E",
+          "replacement_target_block_index": 9,
+          "replacement_source_block_index": 29
+        },
+        {
+          "pair_index": 19,
+          "pair_in_entry": 9,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1622",
+          "replacement_target_block_index": 10,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 20,
+          "pair_in_entry": 10,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1626",
+          "replacement_target_block_index": 11,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 21,
+          "pair_in_entry": 11,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:162A",
+          "replacement_target_block_index": 12,
+          "replacement_source_block_index": 29
+        },
+        {
+          "pair_index": 22,
+          "pair_in_entry": 12,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:162E",
+          "replacement_target_block_index": 13,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 23,
+          "pair_in_entry": 13,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1632",
+          "replacement_target_block_index": 14,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 24,
+          "pair_in_entry": 14,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1636",
+          "replacement_target_block_index": 15,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 25,
+          "pair_in_entry": 15,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:163A",
+          "replacement_target_block_index": 16,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 26,
+          "pair_in_entry": 16,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:163E",
+          "replacement_target_block_index": 17,
+          "replacement_source_block_index": 30
+        },
+        {
+          "pair_index": 27,
+          "pair_in_entry": 17,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1642",
+          "replacement_target_block_index": 18,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 28,
+          "pair_in_entry": 18,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1646",
+          "replacement_target_block_index": 19,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 29,
+          "pair_in_entry": 19,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:164A",
+          "replacement_target_block_index": 20,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 30,
+          "pair_in_entry": 20,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:164E",
+          "replacement_target_block_index": 21,
+          "replacement_source_block_index": 26
+        },
+        {
+          "pair_index": 31,
+          "pair_in_entry": 21,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1652",
+          "replacement_target_block_index": 22,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 32,
+          "pair_in_entry": 22,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:1656",
+          "replacement_target_block_index": 23,
+          "replacement_source_block_index": 25
+        },
+        {
+          "pair_index": 33,
+          "pair_in_entry": 23,
+          "entry_index": 3,
+          "chain_id": 3,
+          "address": "D0:165A",
+          "replacement_target_block_index": 24,
+          "replacement_source_block_index": 25
+        }
+      ]
+    },
+    {
+      "entry_index": 4,
+      "entry_in_chain": 0,
+      "chain_id": 6,
+      "address": "D0:1664",
+      "event_flag_condition_word": 71,
+      "event_flag_id": 71,
+      "expected_flag_state": 0,
+      "replacement_pair_count": 2,
+      "first_replacement_pair_index": 34,
+      "pairs": [
+        {
+          "pair_index": 34,
+          "pair_in_entry": 0,
+          "entry_index": 4,
+          "chain_id": 6,
+          "address": "D0:1668",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 3
+        },
+        {
+          "pair_index": 35,
+          "pair_in_entry": 1,
+          "entry_index": 4,
+          "chain_id": 6,
+          "address": "D0:166C",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 4
+        }
+      ]
+    },
+    {
+      "entry_index": 5,
+      "entry_in_chain": 1,
+      "chain_id": 6,
+      "address": "D0:1670",
+      "event_flag_condition_word": 32836,
+      "event_flag_id": 68,
+      "expected_flag_state": 1,
+      "replacement_pair_count": 8,
+      "first_replacement_pair_index": 36,
+      "pairs": [
+        {
+          "pair_index": 36,
+          "pair_in_entry": 0,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1674",
+          "replacement_target_block_index": 5,
+          "replacement_source_block_index": 13
+        },
+        {
+          "pair_index": 37,
+          "pair_in_entry": 1,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1678",
+          "replacement_target_block_index": 6,
+          "replacement_source_block_index": 14
+        },
+        {
+          "pair_index": 38,
+          "pair_in_entry": 2,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:167C",
+          "replacement_target_block_index": 7,
+          "replacement_source_block_index": 14
+        },
+        {
+          "pair_index": 39,
+          "pair_in_entry": 3,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1680",
+          "replacement_target_block_index": 8,
+          "replacement_source_block_index": 15
+        },
+        {
+          "pair_index": 40,
+          "pair_in_entry": 4,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1684",
+          "replacement_target_block_index": 9,
+          "replacement_source_block_index": 16
+        },
+        {
+          "pair_index": 41,
+          "pair_in_entry": 5,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1688",
+          "replacement_target_block_index": 10,
+          "replacement_source_block_index": 17
+        },
+        {
+          "pair_index": 42,
+          "pair_in_entry": 6,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:168C",
+          "replacement_target_block_index": 11,
+          "replacement_source_block_index": 17
+        },
+        {
+          "pair_index": 43,
+          "pair_in_entry": 7,
+          "entry_index": 5,
+          "chain_id": 6,
+          "address": "D0:1690",
+          "replacement_target_block_index": 12,
+          "replacement_source_block_index": 18
+        }
+      ]
+    },
+    {
+      "entry_index": 6,
+      "entry_in_chain": 0,
+      "chain_id": 8,
+      "address": "D0:1698",
+      "event_flag_condition_word": 174,
+      "event_flag_id": 174,
+      "expected_flag_state": 0,
+      "replacement_pair_count": 26,
+      "first_replacement_pair_index": 44,
+      "pairs": [
+        {
+          "pair_index": 44,
+          "pair_in_entry": 0,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:169C",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 45,
+          "pair_in_entry": 1,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16A0",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 46,
+          "pair_in_entry": 2,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16A4",
+          "replacement_target_block_index": 3,
+          "replacement_source_block_index": 29
+        },
+        {
+          "pair_index": 47,
+          "pair_in_entry": 3,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16A8",
+          "replacement_target_block_index": 4,
+          "replacement_source_block_index": 30
+        },
+        {
+          "pair_index": 48,
+          "pair_in_entry": 4,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16AC",
+          "replacement_target_block_index": 5,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 49,
+          "pair_in_entry": 5,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16B0",
+          "replacement_target_block_index": 6,
+          "replacement_source_block_index": 31
+        },
+        {
+          "pair_index": 50,
+          "pair_in_entry": 6,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16B4",
+          "replacement_target_block_index": 7,
+          "replacement_source_block_index": 32
+        },
+        {
+          "pair_index": 51,
+          "pair_in_entry": 7,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16B8",
+          "replacement_target_block_index": 8,
+          "replacement_source_block_index": 33
+        },
+        {
+          "pair_index": 52,
+          "pair_in_entry": 8,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16BC",
+          "replacement_target_block_index": 9,
+          "replacement_source_block_index": 34
+        },
+        {
+          "pair_index": 53,
+          "pair_in_entry": 9,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16C0",
+          "replacement_target_block_index": 10,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 54,
+          "pair_in_entry": 10,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16C4",
+          "replacement_target_block_index": 11,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 55,
+          "pair_in_entry": 11,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16C8",
+          "replacement_target_block_index": 12,
+          "replacement_source_block_index": 33
+        },
+        {
+          "pair_index": 56,
+          "pair_in_entry": 12,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16CC",
+          "replacement_target_block_index": 13,
+          "replacement_source_block_index": 29
+        },
+        {
+          "pair_index": 57,
+          "pair_in_entry": 13,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16D0",
+          "replacement_target_block_index": 14,
+          "replacement_source_block_index": 35
+        },
+        {
+          "pair_index": 58,
+          "pair_in_entry": 14,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16D4",
+          "replacement_target_block_index": 15,
+          "replacement_source_block_index": 34
+        },
+        {
+          "pair_index": 59,
+          "pair_in_entry": 15,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16D8",
+          "replacement_target_block_index": 16,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 60,
+          "pair_in_entry": 16,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16DC",
+          "replacement_target_block_index": 17,
+          "replacement_source_block_index": 33
+        },
+        {
+          "pair_index": 61,
+          "pair_in_entry": 17,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16E0",
+          "replacement_target_block_index": 18,
+          "replacement_source_block_index": 30
+        },
+        {
+          "pair_index": 62,
+          "pair_in_entry": 18,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16E4",
+          "replacement_target_block_index": 19,
+          "replacement_source_block_index": 28
+        },
+        {
+          "pair_index": 63,
+          "pair_in_entry": 19,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16E8",
+          "replacement_target_block_index": 20,
+          "replacement_source_block_index": 33
+        },
+        {
+          "pair_index": 64,
+          "pair_in_entry": 20,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16EC",
+          "replacement_target_block_index": 21,
+          "replacement_source_block_index": 29
+        },
+        {
+          "pair_index": 65,
+          "pair_in_entry": 21,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16F0",
+          "replacement_target_block_index": 22,
+          "replacement_source_block_index": 30
+        },
+        {
+          "pair_index": 66,
+          "pair_in_entry": 22,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16F4",
+          "replacement_target_block_index": 23,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 67,
+          "pair_in_entry": 23,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16F8",
+          "replacement_target_block_index": 24,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 68,
+          "pair_in_entry": 24,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:16FC",
+          "replacement_target_block_index": 25,
+          "replacement_source_block_index": 27
+        },
+        {
+          "pair_index": 69,
+          "pair_in_entry": 25,
+          "entry_index": 6,
+          "chain_id": 8,
+          "address": "D0:1700",
+          "replacement_target_block_index": 26,
+          "replacement_source_block_index": 28
+        }
+      ]
+    },
+    {
+      "entry_index": 7,
+      "entry_in_chain": 0,
+      "chain_id": 13,
+      "address": "D0:170E",
+      "event_flag_condition_word": 33079,
+      "event_flag_id": 311,
+      "expected_flag_state": 1,
+      "replacement_pair_count": 3,
+      "first_replacement_pair_index": 70,
+      "pairs": [
+        {
+          "pair_index": 70,
+          "pair_in_entry": 0,
+          "entry_index": 7,
+          "chain_id": 13,
+          "address": "D0:1712",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 4
+        },
+        {
+          "pair_index": 71,
+          "pair_in_entry": 1,
+          "entry_index": 7,
+          "chain_id": 13,
+          "address": "D0:1716",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 5
+        },
+        {
+          "pair_index": 72,
+          "pair_in_entry": 2,
+          "entry_index": 7,
+          "chain_id": 13,
+          "address": "D0:171A",
+          "replacement_target_block_index": 3,
+          "replacement_source_block_index": 6
+        }
+      ]
+    },
+    {
+      "entry_index": 8,
+      "entry_in_chain": 0,
+      "chain_id": 16,
+      "address": "D0:1724",
+      "event_flag_condition_word": 32836,
+      "event_flag_id": 68,
+      "expected_flag_state": 1,
+      "replacement_pair_count": 84,
+      "first_replacement_pair_index": 73,
+      "pairs": [
+        {
+          "pair_index": 73,
+          "pair_in_entry": 0,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1728",
+          "replacement_target_block_index": 1,
+          "replacement_source_block_index": 85
+        },
+        {
+          "pair_index": 74,
+          "pair_in_entry": 1,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:172C",
+          "replacement_target_block_index": 2,
+          "replacement_source_block_index": 85
+        },
+        {
+          "pair_index": 75,
+          "pair_in_entry": 2,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1730",
+          "replacement_target_block_index": 3,
+          "replacement_source_block_index": 85
+        },
+        {
+          "pair_index": 76,
+          "pair_in_entry": 3,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1734",
+          "replacement_target_block_index": 4,
+          "replacement_source_block_index": 86
+        },
+        {
+          "pair_index": 77,
+          "pair_in_entry": 4,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1738",
+          "replacement_target_block_index": 5,
+          "replacement_source_block_index": 87
+        },
+        {
+          "pair_index": 78,
+          "pair_in_entry": 5,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:173C",
+          "replacement_target_block_index": 6,
+          "replacement_source_block_index": 87
+        },
+        {
+          "pair_index": 79,
+          "pair_in_entry": 6,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1740",
+          "replacement_target_block_index": 7,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 80,
+          "pair_in_entry": 7,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1744",
+          "replacement_target_block_index": 8,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 81,
+          "pair_in_entry": 8,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1748",
+          "replacement_target_block_index": 9,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 82,
+          "pair_in_entry": 9,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:174C",
+          "replacement_target_block_index": 10,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 83,
+          "pair_in_entry": 10,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1750",
+          "replacement_target_block_index": 11,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 84,
+          "pair_in_entry": 11,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1754",
+          "replacement_target_block_index": 12,
+          "replacement_source_block_index": 89
+        },
+        {
+          "pair_index": 85,
+          "pair_in_entry": 12,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1758",
+          "replacement_target_block_index": 13,
+          "replacement_source_block_index": 88
+        },
+        {
+          "pair_index": 86,
+          "pair_in_entry": 13,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:175C",
+          "replacement_target_block_index": 14,
+          "replacement_source_block_index": 90
+        },
+        {
+          "pair_index": 87,
+          "pair_in_entry": 14,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1760",
+          "replacement_target_block_index": 15,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 88,
+          "pair_in_entry": 15,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1764",
+          "replacement_target_block_index": 16,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 89,
+          "pair_in_entry": 16,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1768",
+          "replacement_target_block_index": 17,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 90,
+          "pair_in_entry": 17,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:176C",
+          "replacement_target_block_index": 18,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 91,
+          "pair_in_entry": 18,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1770",
+          "replacement_target_block_index": 19,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 92,
+          "pair_in_entry": 19,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1774",
+          "replacement_target_block_index": 20,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 93,
+          "pair_in_entry": 20,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1778",
+          "replacement_target_block_index": 21,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 94,
+          "pair_in_entry": 21,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:177C",
+          "replacement_target_block_index": 22,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 95,
+          "pair_in_entry": 22,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1780",
+          "replacement_target_block_index": 23,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 96,
+          "pair_in_entry": 23,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1784",
+          "replacement_target_block_index": 24,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 97,
+          "pair_in_entry": 24,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1788",
+          "replacement_target_block_index": 25,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 98,
+          "pair_in_entry": 25,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:178C",
+          "replacement_target_block_index": 26,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 99,
+          "pair_in_entry": 26,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1790",
+          "replacement_target_block_index": 27,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 100,
+          "pair_in_entry": 27,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1794",
+          "replacement_target_block_index": 28,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 101,
+          "pair_in_entry": 28,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1798",
+          "replacement_target_block_index": 29,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 102,
+          "pair_in_entry": 29,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:179C",
+          "replacement_target_block_index": 30,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 103,
+          "pair_in_entry": 30,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17A0",
+          "replacement_target_block_index": 31,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 104,
+          "pair_in_entry": 31,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17A4",
+          "replacement_target_block_index": 32,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 105,
+          "pair_in_entry": 32,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17A8",
+          "replacement_target_block_index": 33,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 106,
+          "pair_in_entry": 33,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17AC",
+          "replacement_target_block_index": 34,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 107,
+          "pair_in_entry": 34,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17B0",
+          "replacement_target_block_index": 35,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 108,
+          "pair_in_entry": 35,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17B4",
+          "replacement_target_block_index": 36,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 109,
+          "pair_in_entry": 36,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17B8",
+          "replacement_target_block_index": 37,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 110,
+          "pair_in_entry": 37,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17BC",
+          "replacement_target_block_index": 38,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 111,
+          "pair_in_entry": 38,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17C0",
+          "replacement_target_block_index": 39,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 112,
+          "pair_in_entry": 39,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17C4",
+          "replacement_target_block_index": 40,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 113,
+          "pair_in_entry": 40,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17C8",
+          "replacement_target_block_index": 41,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 114,
+          "pair_in_entry": 41,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17CC",
+          "replacement_target_block_index": 42,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 115,
+          "pair_in_entry": 42,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17D0",
+          "replacement_target_block_index": 43,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 116,
+          "pair_in_entry": 43,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17D4",
+          "replacement_target_block_index": 44,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 117,
+          "pair_in_entry": 44,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17D8",
+          "replacement_target_block_index": 45,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 118,
+          "pair_in_entry": 45,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17DC",
+          "replacement_target_block_index": 46,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 119,
+          "pair_in_entry": 46,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17E0",
+          "replacement_target_block_index": 47,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 120,
+          "pair_in_entry": 47,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17E4",
+          "replacement_target_block_index": 48,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 121,
+          "pair_in_entry": 48,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17E8",
+          "replacement_target_block_index": 49,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 122,
+          "pair_in_entry": 49,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17EC",
+          "replacement_target_block_index": 50,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 123,
+          "pair_in_entry": 50,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17F0",
+          "replacement_target_block_index": 51,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 124,
+          "pair_in_entry": 51,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17F4",
+          "replacement_target_block_index": 52,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 125,
+          "pair_in_entry": 52,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17F8",
+          "replacement_target_block_index": 53,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 126,
+          "pair_in_entry": 53,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:17FC",
+          "replacement_target_block_index": 54,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 127,
+          "pair_in_entry": 54,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1800",
+          "replacement_target_block_index": 55,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 128,
+          "pair_in_entry": 55,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1804",
+          "replacement_target_block_index": 56,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 129,
+          "pair_in_entry": 56,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1808",
+          "replacement_target_block_index": 57,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 130,
+          "pair_in_entry": 57,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:180C",
+          "replacement_target_block_index": 58,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 131,
+          "pair_in_entry": 58,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1810",
+          "replacement_target_block_index": 59,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 132,
+          "pair_in_entry": 59,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1814",
+          "replacement_target_block_index": 60,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 133,
+          "pair_in_entry": 60,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1818",
+          "replacement_target_block_index": 61,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 134,
+          "pair_in_entry": 61,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:181C",
+          "replacement_target_block_index": 62,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 135,
+          "pair_in_entry": 62,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1820",
+          "replacement_target_block_index": 63,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 136,
+          "pair_in_entry": 63,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1824",
+          "replacement_target_block_index": 64,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 137,
+          "pair_in_entry": 64,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1828",
+          "replacement_target_block_index": 65,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 138,
+          "pair_in_entry": 65,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:182C",
+          "replacement_target_block_index": 66,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 139,
+          "pair_in_entry": 66,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1830",
+          "replacement_target_block_index": 67,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 140,
+          "pair_in_entry": 67,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1834",
+          "replacement_target_block_index": 68,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 141,
+          "pair_in_entry": 68,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1838",
+          "replacement_target_block_index": 69,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 142,
+          "pair_in_entry": 69,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:183C",
+          "replacement_target_block_index": 70,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 143,
+          "pair_in_entry": 70,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1840",
+          "replacement_target_block_index": 71,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 144,
+          "pair_in_entry": 71,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1844",
+          "replacement_target_block_index": 72,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 145,
+          "pair_in_entry": 72,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1848",
+          "replacement_target_block_index": 73,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 146,
+          "pair_in_entry": 73,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:184C",
+          "replacement_target_block_index": 74,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 147,
+          "pair_in_entry": 74,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1850",
+          "replacement_target_block_index": 75,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 148,
+          "pair_in_entry": 75,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1854",
+          "replacement_target_block_index": 76,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 149,
+          "pair_in_entry": 76,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1858",
+          "replacement_target_block_index": 77,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 150,
+          "pair_in_entry": 77,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:185C",
+          "replacement_target_block_index": 78,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 151,
+          "pair_in_entry": 78,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1860",
+          "replacement_target_block_index": 79,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 152,
+          "pair_in_entry": 79,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1864",
+          "replacement_target_block_index": 80,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 153,
+          "pair_in_entry": 80,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1868",
+          "replacement_target_block_index": 81,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 154,
+          "pair_in_entry": 81,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:186C",
+          "replacement_target_block_index": 82,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 155,
+          "pair_in_entry": 82,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1870",
+          "replacement_target_block_index": 83,
+          "replacement_source_block_index": 91
+        },
+        {
+          "pair_index": 156,
+          "pair_in_entry": 83,
+          "entry_index": 8,
+          "chain_id": 16,
+          "address": "D0:1874",
+          "replacement_target_block_index": 84,
+          "replacement_source_block_index": 91
+        }
+      ]
+    }
+  ],
+  "tile_event_replacement_pairs": [
+    {
+      "pair_index": 0,
+      "pair_in_entry": 0,
+      "entry_index": 0,
+      "chain_id": 1,
+      "address": "D0:15C6",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 4
+    },
+    {
+      "pair_index": 1,
+      "pair_in_entry": 1,
+      "entry_index": 0,
+      "chain_id": 1,
+      "address": "D0:15CA",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 5
+    },
+    {
+      "pair_index": 2,
+      "pair_in_entry": 2,
+      "entry_index": 0,
+      "chain_id": 1,
+      "address": "D0:15CE",
+      "replacement_target_block_index": 3,
+      "replacement_source_block_index": 6
+    },
+    {
+      "pair_index": 3,
+      "pair_in_entry": 0,
+      "entry_index": 1,
+      "chain_id": 1,
+      "address": "D0:15D6",
+      "replacement_target_block_index": 806,
+      "replacement_source_block_index": 0
+    },
+    {
+      "pair_index": 4,
+      "pair_in_entry": 1,
+      "entry_index": 1,
+      "chain_id": 1,
+      "address": "D0:15DA",
+      "replacement_target_block_index": 807,
+      "replacement_source_block_index": 0
+    },
+    {
+      "pair_index": 5,
+      "pair_in_entry": 2,
+      "entry_index": 1,
+      "chain_id": 1,
+      "address": "D0:15DE",
+      "replacement_target_block_index": 808,
+      "replacement_source_block_index": 0
+    },
+    {
+      "pair_index": 6,
+      "pair_in_entry": 0,
+      "entry_index": 2,
+      "chain_id": 3,
+      "address": "D0:15EA",
+      "replacement_target_block_index": 31,
+      "replacement_source_block_index": 35
+    },
+    {
+      "pair_index": 7,
+      "pair_in_entry": 1,
+      "entry_index": 2,
+      "chain_id": 3,
+      "address": "D0:15EE",
+      "replacement_target_block_index": 32,
+      "replacement_source_block_index": 36
+    },
+    {
+      "pair_index": 8,
+      "pair_in_entry": 2,
+      "entry_index": 2,
+      "chain_id": 3,
+      "address": "D0:15F2",
+      "replacement_target_block_index": 33,
+      "replacement_source_block_index": 37
+    },
+    {
+      "pair_index": 9,
+      "pair_in_entry": 3,
+      "entry_index": 2,
+      "chain_id": 3,
+      "address": "D0:15F6",
+      "replacement_target_block_index": 34,
+      "replacement_source_block_index": 38
+    },
+    {
+      "pair_index": 10,
+      "pair_in_entry": 0,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:15FE",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 11,
+      "pair_in_entry": 1,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1602",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 12,
+      "pair_in_entry": 2,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1606",
+      "replacement_target_block_index": 3,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 13,
+      "pair_in_entry": 3,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:160A",
+      "replacement_target_block_index": 4,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 14,
+      "pair_in_entry": 4,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:160E",
+      "replacement_target_block_index": 5,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 15,
+      "pair_in_entry": 5,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1612",
+      "replacement_target_block_index": 6,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 16,
+      "pair_in_entry": 6,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1616",
+      "replacement_target_block_index": 7,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 17,
+      "pair_in_entry": 7,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:161A",
+      "replacement_target_block_index": 8,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 18,
+      "pair_in_entry": 8,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:161E",
+      "replacement_target_block_index": 9,
+      "replacement_source_block_index": 29
+    },
+    {
+      "pair_index": 19,
+      "pair_in_entry": 9,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1622",
+      "replacement_target_block_index": 10,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 20,
+      "pair_in_entry": 10,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1626",
+      "replacement_target_block_index": 11,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 21,
+      "pair_in_entry": 11,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:162A",
+      "replacement_target_block_index": 12,
+      "replacement_source_block_index": 29
+    },
+    {
+      "pair_index": 22,
+      "pair_in_entry": 12,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:162E",
+      "replacement_target_block_index": 13,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 23,
+      "pair_in_entry": 13,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1632",
+      "replacement_target_block_index": 14,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 24,
+      "pair_in_entry": 14,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1636",
+      "replacement_target_block_index": 15,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 25,
+      "pair_in_entry": 15,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:163A",
+      "replacement_target_block_index": 16,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 26,
+      "pair_in_entry": 16,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:163E",
+      "replacement_target_block_index": 17,
+      "replacement_source_block_index": 30
+    },
+    {
+      "pair_index": 27,
+      "pair_in_entry": 17,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1642",
+      "replacement_target_block_index": 18,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 28,
+      "pair_in_entry": 18,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1646",
+      "replacement_target_block_index": 19,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 29,
+      "pair_in_entry": 19,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:164A",
+      "replacement_target_block_index": 20,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 30,
+      "pair_in_entry": 20,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:164E",
+      "replacement_target_block_index": 21,
+      "replacement_source_block_index": 26
+    },
+    {
+      "pair_index": 31,
+      "pair_in_entry": 21,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1652",
+      "replacement_target_block_index": 22,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 32,
+      "pair_in_entry": 22,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:1656",
+      "replacement_target_block_index": 23,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 33,
+      "pair_in_entry": 23,
+      "entry_index": 3,
+      "chain_id": 3,
+      "address": "D0:165A",
+      "replacement_target_block_index": 24,
+      "replacement_source_block_index": 25
+    },
+    {
+      "pair_index": 34,
+      "pair_in_entry": 0,
+      "entry_index": 4,
+      "chain_id": 6,
+      "address": "D0:1668",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 3
+    },
+    {
+      "pair_index": 35,
+      "pair_in_entry": 1,
+      "entry_index": 4,
+      "chain_id": 6,
+      "address": "D0:166C",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 4
+    },
+    {
+      "pair_index": 36,
+      "pair_in_entry": 0,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1674",
+      "replacement_target_block_index": 5,
+      "replacement_source_block_index": 13
+    },
+    {
+      "pair_index": 37,
+      "pair_in_entry": 1,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1678",
+      "replacement_target_block_index": 6,
+      "replacement_source_block_index": 14
+    },
+    {
+      "pair_index": 38,
+      "pair_in_entry": 2,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:167C",
+      "replacement_target_block_index": 7,
+      "replacement_source_block_index": 14
+    },
+    {
+      "pair_index": 39,
+      "pair_in_entry": 3,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1680",
+      "replacement_target_block_index": 8,
+      "replacement_source_block_index": 15
+    },
+    {
+      "pair_index": 40,
+      "pair_in_entry": 4,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1684",
+      "replacement_target_block_index": 9,
+      "replacement_source_block_index": 16
+    },
+    {
+      "pair_index": 41,
+      "pair_in_entry": 5,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1688",
+      "replacement_target_block_index": 10,
+      "replacement_source_block_index": 17
+    },
+    {
+      "pair_index": 42,
+      "pair_in_entry": 6,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:168C",
+      "replacement_target_block_index": 11,
+      "replacement_source_block_index": 17
+    },
+    {
+      "pair_index": 43,
+      "pair_in_entry": 7,
+      "entry_index": 5,
+      "chain_id": 6,
+      "address": "D0:1690",
+      "replacement_target_block_index": 12,
+      "replacement_source_block_index": 18
+    },
+    {
+      "pair_index": 44,
+      "pair_in_entry": 0,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:169C",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 45,
+      "pair_in_entry": 1,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16A0",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 46,
+      "pair_in_entry": 2,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16A4",
+      "replacement_target_block_index": 3,
+      "replacement_source_block_index": 29
+    },
+    {
+      "pair_index": 47,
+      "pair_in_entry": 3,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16A8",
+      "replacement_target_block_index": 4,
+      "replacement_source_block_index": 30
+    },
+    {
+      "pair_index": 48,
+      "pair_in_entry": 4,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16AC",
+      "replacement_target_block_index": 5,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 49,
+      "pair_in_entry": 5,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16B0",
+      "replacement_target_block_index": 6,
+      "replacement_source_block_index": 31
+    },
+    {
+      "pair_index": 50,
+      "pair_in_entry": 6,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16B4",
+      "replacement_target_block_index": 7,
+      "replacement_source_block_index": 32
+    },
+    {
+      "pair_index": 51,
+      "pair_in_entry": 7,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16B8",
+      "replacement_target_block_index": 8,
+      "replacement_source_block_index": 33
+    },
+    {
+      "pair_index": 52,
+      "pair_in_entry": 8,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16BC",
+      "replacement_target_block_index": 9,
+      "replacement_source_block_index": 34
+    },
+    {
+      "pair_index": 53,
+      "pair_in_entry": 9,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16C0",
+      "replacement_target_block_index": 10,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 54,
+      "pair_in_entry": 10,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16C4",
+      "replacement_target_block_index": 11,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 55,
+      "pair_in_entry": 11,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16C8",
+      "replacement_target_block_index": 12,
+      "replacement_source_block_index": 33
+    },
+    {
+      "pair_index": 56,
+      "pair_in_entry": 12,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16CC",
+      "replacement_target_block_index": 13,
+      "replacement_source_block_index": 29
+    },
+    {
+      "pair_index": 57,
+      "pair_in_entry": 13,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16D0",
+      "replacement_target_block_index": 14,
+      "replacement_source_block_index": 35
+    },
+    {
+      "pair_index": 58,
+      "pair_in_entry": 14,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16D4",
+      "replacement_target_block_index": 15,
+      "replacement_source_block_index": 34
+    },
+    {
+      "pair_index": 59,
+      "pair_in_entry": 15,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16D8",
+      "replacement_target_block_index": 16,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 60,
+      "pair_in_entry": 16,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16DC",
+      "replacement_target_block_index": 17,
+      "replacement_source_block_index": 33
+    },
+    {
+      "pair_index": 61,
+      "pair_in_entry": 17,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16E0",
+      "replacement_target_block_index": 18,
+      "replacement_source_block_index": 30
+    },
+    {
+      "pair_index": 62,
+      "pair_in_entry": 18,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16E4",
+      "replacement_target_block_index": 19,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 63,
+      "pair_in_entry": 19,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16E8",
+      "replacement_target_block_index": 20,
+      "replacement_source_block_index": 33
+    },
+    {
+      "pair_index": 64,
+      "pair_in_entry": 20,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16EC",
+      "replacement_target_block_index": 21,
+      "replacement_source_block_index": 29
+    },
+    {
+      "pair_index": 65,
+      "pair_in_entry": 21,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16F0",
+      "replacement_target_block_index": 22,
+      "replacement_source_block_index": 30
+    },
+    {
+      "pair_index": 66,
+      "pair_in_entry": 22,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16F4",
+      "replacement_target_block_index": 23,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 67,
+      "pair_in_entry": 23,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16F8",
+      "replacement_target_block_index": 24,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 68,
+      "pair_in_entry": 24,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:16FC",
+      "replacement_target_block_index": 25,
+      "replacement_source_block_index": 27
+    },
+    {
+      "pair_index": 69,
+      "pair_in_entry": 25,
+      "entry_index": 6,
+      "chain_id": 8,
+      "address": "D0:1700",
+      "replacement_target_block_index": 26,
+      "replacement_source_block_index": 28
+    },
+    {
+      "pair_index": 70,
+      "pair_in_entry": 0,
+      "entry_index": 7,
+      "chain_id": 13,
+      "address": "D0:1712",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 4
+    },
+    {
+      "pair_index": 71,
+      "pair_in_entry": 1,
+      "entry_index": 7,
+      "chain_id": 13,
+      "address": "D0:1716",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 5
+    },
+    {
+      "pair_index": 72,
+      "pair_in_entry": 2,
+      "entry_index": 7,
+      "chain_id": 13,
+      "address": "D0:171A",
+      "replacement_target_block_index": 3,
+      "replacement_source_block_index": 6
+    },
+    {
+      "pair_index": 73,
+      "pair_in_entry": 0,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1728",
+      "replacement_target_block_index": 1,
+      "replacement_source_block_index": 85
+    },
+    {
+      "pair_index": 74,
+      "pair_in_entry": 1,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:172C",
+      "replacement_target_block_index": 2,
+      "replacement_source_block_index": 85
+    },
+    {
+      "pair_index": 75,
+      "pair_in_entry": 2,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1730",
+      "replacement_target_block_index": 3,
+      "replacement_source_block_index": 85
+    },
+    {
+      "pair_index": 76,
+      "pair_in_entry": 3,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1734",
+      "replacement_target_block_index": 4,
+      "replacement_source_block_index": 86
+    },
+    {
+      "pair_index": 77,
+      "pair_in_entry": 4,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1738",
+      "replacement_target_block_index": 5,
+      "replacement_source_block_index": 87
+    },
+    {
+      "pair_index": 78,
+      "pair_in_entry": 5,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:173C",
+      "replacement_target_block_index": 6,
+      "replacement_source_block_index": 87
+    },
+    {
+      "pair_index": 79,
+      "pair_in_entry": 6,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1740",
+      "replacement_target_block_index": 7,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 80,
+      "pair_in_entry": 7,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1744",
+      "replacement_target_block_index": 8,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 81,
+      "pair_in_entry": 8,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1748",
+      "replacement_target_block_index": 9,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 82,
+      "pair_in_entry": 9,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:174C",
+      "replacement_target_block_index": 10,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 83,
+      "pair_in_entry": 10,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1750",
+      "replacement_target_block_index": 11,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 84,
+      "pair_in_entry": 11,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1754",
+      "replacement_target_block_index": 12,
+      "replacement_source_block_index": 89
+    },
+    {
+      "pair_index": 85,
+      "pair_in_entry": 12,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1758",
+      "replacement_target_block_index": 13,
+      "replacement_source_block_index": 88
+    },
+    {
+      "pair_index": 86,
+      "pair_in_entry": 13,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:175C",
+      "replacement_target_block_index": 14,
+      "replacement_source_block_index": 90
+    },
+    {
+      "pair_index": 87,
+      "pair_in_entry": 14,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1760",
+      "replacement_target_block_index": 15,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 88,
+      "pair_in_entry": 15,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1764",
+      "replacement_target_block_index": 16,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 89,
+      "pair_in_entry": 16,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1768",
+      "replacement_target_block_index": 17,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 90,
+      "pair_in_entry": 17,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:176C",
+      "replacement_target_block_index": 18,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 91,
+      "pair_in_entry": 18,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1770",
+      "replacement_target_block_index": 19,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 92,
+      "pair_in_entry": 19,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1774",
+      "replacement_target_block_index": 20,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 93,
+      "pair_in_entry": 20,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1778",
+      "replacement_target_block_index": 21,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 94,
+      "pair_in_entry": 21,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:177C",
+      "replacement_target_block_index": 22,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 95,
+      "pair_in_entry": 22,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1780",
+      "replacement_target_block_index": 23,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 96,
+      "pair_in_entry": 23,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1784",
+      "replacement_target_block_index": 24,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 97,
+      "pair_in_entry": 24,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1788",
+      "replacement_target_block_index": 25,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 98,
+      "pair_in_entry": 25,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:178C",
+      "replacement_target_block_index": 26,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 99,
+      "pair_in_entry": 26,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1790",
+      "replacement_target_block_index": 27,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 100,
+      "pair_in_entry": 27,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1794",
+      "replacement_target_block_index": 28,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 101,
+      "pair_in_entry": 28,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1798",
+      "replacement_target_block_index": 29,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 102,
+      "pair_in_entry": 29,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:179C",
+      "replacement_target_block_index": 30,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 103,
+      "pair_in_entry": 30,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17A0",
+      "replacement_target_block_index": 31,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 104,
+      "pair_in_entry": 31,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17A4",
+      "replacement_target_block_index": 32,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 105,
+      "pair_in_entry": 32,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17A8",
+      "replacement_target_block_index": 33,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 106,
+      "pair_in_entry": 33,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17AC",
+      "replacement_target_block_index": 34,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 107,
+      "pair_in_entry": 34,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17B0",
+      "replacement_target_block_index": 35,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 108,
+      "pair_in_entry": 35,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17B4",
+      "replacement_target_block_index": 36,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 109,
+      "pair_in_entry": 36,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17B8",
+      "replacement_target_block_index": 37,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 110,
+      "pair_in_entry": 37,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17BC",
+      "replacement_target_block_index": 38,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 111,
+      "pair_in_entry": 38,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17C0",
+      "replacement_target_block_index": 39,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 112,
+      "pair_in_entry": 39,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17C4",
+      "replacement_target_block_index": 40,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 113,
+      "pair_in_entry": 40,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17C8",
+      "replacement_target_block_index": 41,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 114,
+      "pair_in_entry": 41,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17CC",
+      "replacement_target_block_index": 42,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 115,
+      "pair_in_entry": 42,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17D0",
+      "replacement_target_block_index": 43,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 116,
+      "pair_in_entry": 43,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17D4",
+      "replacement_target_block_index": 44,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 117,
+      "pair_in_entry": 44,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17D8",
+      "replacement_target_block_index": 45,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 118,
+      "pair_in_entry": 45,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17DC",
+      "replacement_target_block_index": 46,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 119,
+      "pair_in_entry": 46,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17E0",
+      "replacement_target_block_index": 47,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 120,
+      "pair_in_entry": 47,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17E4",
+      "replacement_target_block_index": 48,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 121,
+      "pair_in_entry": 48,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17E8",
+      "replacement_target_block_index": 49,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 122,
+      "pair_in_entry": 49,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17EC",
+      "replacement_target_block_index": 50,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 123,
+      "pair_in_entry": 50,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17F0",
+      "replacement_target_block_index": 51,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 124,
+      "pair_in_entry": 51,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17F4",
+      "replacement_target_block_index": 52,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 125,
+      "pair_in_entry": 52,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17F8",
+      "replacement_target_block_index": 53,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 126,
+      "pair_in_entry": 53,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:17FC",
+      "replacement_target_block_index": 54,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 127,
+      "pair_in_entry": 54,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1800",
+      "replacement_target_block_index": 55,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 128,
+      "pair_in_entry": 55,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1804",
+      "replacement_target_block_index": 56,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 129,
+      "pair_in_entry": 56,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1808",
+      "replacement_target_block_index": 57,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 130,
+      "pair_in_entry": 57,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:180C",
+      "replacement_target_block_index": 58,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 131,
+      "pair_in_entry": 58,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1810",
+      "replacement_target_block_index": 59,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 132,
+      "pair_in_entry": 59,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1814",
+      "replacement_target_block_index": 60,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 133,
+      "pair_in_entry": 60,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1818",
+      "replacement_target_block_index": 61,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 134,
+      "pair_in_entry": 61,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:181C",
+      "replacement_target_block_index": 62,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 135,
+      "pair_in_entry": 62,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1820",
+      "replacement_target_block_index": 63,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 136,
+      "pair_in_entry": 63,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1824",
+      "replacement_target_block_index": 64,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 137,
+      "pair_in_entry": 64,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1828",
+      "replacement_target_block_index": 65,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 138,
+      "pair_in_entry": 65,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:182C",
+      "replacement_target_block_index": 66,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 139,
+      "pair_in_entry": 66,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1830",
+      "replacement_target_block_index": 67,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 140,
+      "pair_in_entry": 67,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1834",
+      "replacement_target_block_index": 68,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 141,
+      "pair_in_entry": 68,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1838",
+      "replacement_target_block_index": 69,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 142,
+      "pair_in_entry": 69,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:183C",
+      "replacement_target_block_index": 70,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 143,
+      "pair_in_entry": 70,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1840",
+      "replacement_target_block_index": 71,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 144,
+      "pair_in_entry": 71,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1844",
+      "replacement_target_block_index": 72,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 145,
+      "pair_in_entry": 72,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1848",
+      "replacement_target_block_index": 73,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 146,
+      "pair_in_entry": 73,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:184C",
+      "replacement_target_block_index": 74,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 147,
+      "pair_in_entry": 74,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1850",
+      "replacement_target_block_index": 75,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 148,
+      "pair_in_entry": 75,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1854",
+      "replacement_target_block_index": 76,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 149,
+      "pair_in_entry": 76,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1858",
+      "replacement_target_block_index": 77,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 150,
+      "pair_in_entry": 77,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:185C",
+      "replacement_target_block_index": 78,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 151,
+      "pair_in_entry": 78,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1860",
+      "replacement_target_block_index": 79,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 152,
+      "pair_in_entry": 79,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1864",
+      "replacement_target_block_index": 80,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 153,
+      "pair_in_entry": 80,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1868",
+      "replacement_target_block_index": 81,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 154,
+      "pair_in_entry": 81,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:186C",
+      "replacement_target_block_index": 82,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 155,
+      "pair_in_entry": 82,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1870",
+      "replacement_target_block_index": 83,
+      "replacement_source_block_index": 91
+    },
+    {
+      "pair_index": 156,
+      "pair_in_entry": 83,
+      "entry_index": 8,
+      "chain_id": 16,
+      "address": "D0:1874",
+      "replacement_target_block_index": 84,
+      "replacement_source_block_index": 91
+    }
+  ]
+}

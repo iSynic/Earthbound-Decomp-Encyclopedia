@@ -1,0 +1,264 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank DB asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-db-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank1B.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 7,
+    "binary_assets_by_extension": {
+      "arr": 6,
+      "ebm": 1
+    },
+    "binary_asset_bytes": 65380,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 156,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 8,
+    "output_recipe_count": 14,
+    "typed_output_kind_count": 2,
+    "decoder_output_recipe_count": 6,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "earthbound_lzhal": 6,
+      "raw": 8
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 6
+    },
+    "renderer_counts": {},
+    "smoke_fixture_count": 1,
+    "smoke_fixture_asset_ids": [
+      "asset.db.map_data_tile_arrangement_10"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal": 1
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.db.map_data_tile_arrangement_8",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_8",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:0000..DB:26C1",
+        "bytes": 9921,
+        "sha1": "31aeaa0c7b46829f9f6e96c67ac538d7f05d6f2f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/8.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/8.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/8.arr.lzhal",
+        "Original file offset: 0x1B0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.map_data_tile_arrangement_9",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_9",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:26C1..DB:617F",
+        "bytes": 15038,
+        "sha1": "90b82f7c3532d26ea646d5afba6c84cbc89835e3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/9.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/9.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/9.arr.lzhal",
+        "Original file offset: 0x1B26C1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.map_data_tile_arrangement_16",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_16",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:617F..DB:7C22",
+        "bytes": 6819,
+        "sha1": "13cbdff19340d5991019793a462798aa1c07a68e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/16.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/16.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/16.arr.lzhal",
+        "Original file offset: 0x1B617F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.map_data_tile_arrangement_17",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_17",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:7C22..DB:9218",
+        "bytes": 5622,
+        "sha1": "6acf15c876ac6a0badec36934c795104974aaada"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/17.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/17.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/17.arr.lzhal",
+        "Original file offset: 0x1B7C22",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.map_data_tile_arrangement_10",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_10",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:9218..DB:C6CC",
+        "bytes": 13492,
+        "sha1": "a90fa0fb51d965c6ebf31570edab9bbe15e700d7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/10.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/10.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/10.arr.lzhal",
+        "Original file offset: 0x1B9218",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.map_data_tile_arrangement_11",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_11",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:C6CC..DB:F2EB",
+        "bytes": 11295,
+        "sha1": "ca3fe32b5c10f9a8a5f94e1992be233893ecaa49"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/maps/arrangements/11.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "db/maps/arrangements/11.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/11.arr.lzhal",
+        "Original file offset: 0x1BC6CC",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.db.audio_pack_65",
+      "title": "AUDIO_PACK_65",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:F2EB..DB:FF64",
+        "bytes": 3193,
+        "sha1": "a16dd088b886d9a4db614f4a0753a95461c87c59"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/audiopacks/65.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/65.ebm",
+        "Original file offset: 0x1BF2EB"
+      ]
+    },
+    {
+      "id": "gap.db.db_ff64",
+      "title": "Bank DB coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "DB:FF64..DB:10000",
+        "bytes": 156,
+        "sha1": "7686dac4e3d704c9cb83a73c261f94882bca141e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "db/gaps/01_db_ff64.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x1BFF64..0x1BFFFF"
+      ]
+    }
+  ]
+}

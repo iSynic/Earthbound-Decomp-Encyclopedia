@@ -1,0 +1,331 @@
+{
+  "generator": "tools/build_d5_timed_delivery_contracts.py",
+  "record_shape": [
+    {
+      "consumer": "EF:0EAD/EF:0EE8 pass this descriptor to C0:1E49, with placeholder fallback when zero",
+      "field": "sprite_object_descriptor",
+      "offset": 0,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0EE8 tests this through C2:1628 while scanning rows",
+      "field": "event_flag_gate",
+      "offset": 2,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0CA7 compares the row-local retry counter against this threshold",
+      "field": "retry_threshold",
+      "offset": 4,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0D23 returns this to the 499+500_common one-second retry loop",
+      "field": "retry_wait_seconds",
+      "offset": 6,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0D46 seeds the row-local countdown from this field",
+      "field": "delivery_time",
+      "offset": 8,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0D8D queues this far pointer as staged queue type 0x0008",
+      "field": "success_pointer",
+      "offset": 10,
+      "size": 3
+    },
+    {
+      "consumer": "EF:0DFA queues this far pointer as staged queue type 0x000A",
+      "field": "failure_pointer",
+      "offset": 13,
+      "size": 3
+    },
+    {
+      "consumer": "EF:0E67 returns this for the arrival-side movement branch",
+      "field": "enter_speed",
+      "offset": 16,
+      "size": 2
+    },
+    {
+      "consumer": "EF:0E8A returns this for the departure-side movement branch",
+      "field": "exit_speed",
+      "offset": 18,
+      "size": 2
+    }
+  ],
+  "rows": [
+    {
+      "address": "D5:F645",
+      "delivery_time": 180,
+      "enter_speed": 512,
+      "event_flag_gate": "0x00B4",
+      "exit_speed": 512,
+      "failure_pointer": "C6:4CF8",
+      "family": "pizza",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 0,
+      "selector_byte": 1,
+      "sprite_object_descriptor": 151,
+      "success_pointer": "C6:4BBF"
+    },
+    {
+      "address": "D5:F659",
+      "delivery_time": 10,
+      "enter_speed": 384,
+      "event_flag_gate": "0x00B5",
+      "exit_speed": 384,
+      "failure_pointer": "C6:4515",
+      "family": "escargo",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 1,
+      "selector_byte": 2,
+      "sprite_object_descriptor": 135,
+      "success_pointer": "C6:42A3"
+    },
+    {
+      "address": "D5:F66D",
+      "delivery_time": 10,
+      "enter_speed": 384,
+      "event_flag_gate": "0x0285",
+      "exit_speed": 384,
+      "failure_pointer": "C6:451A",
+      "family": "escargo_alternate",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 2,
+      "selector_byte": 3,
+      "sprite_object_descriptor": 135,
+      "success_pointer": "C6:3EB0"
+    },
+    {
+      "address": "D5:F681",
+      "delivery_time": 1,
+      "enter_speed": 640,
+      "event_flag_gate": "0x01BE",
+      "exit_speed": 640,
+      "failure_pointer": "C5:DDF1",
+      "family": "customer_a",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 3,
+      "selector_byte": 4,
+      "sprite_object_descriptor": 55,
+      "success_pointer": "C5:D844"
+    },
+    {
+      "address": "D5:F695",
+      "delivery_time": 2,
+      "enter_speed": 640,
+      "event_flag_gate": "0x0286",
+      "exit_speed": 640,
+      "failure_pointer": "C5:DDF1",
+      "family": "customer_b",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 4,
+      "selector_byte": 5,
+      "sprite_object_descriptor": 108,
+      "success_pointer": "C5:D858"
+    },
+    {
+      "address": "D5:F6A9",
+      "delivery_time": 3,
+      "enter_speed": 640,
+      "event_flag_gate": "0x0287",
+      "exit_speed": 640,
+      "failure_pointer": "C5:DDF1",
+      "family": "customer_c",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 5,
+      "selector_byte": 6,
+      "sprite_object_descriptor": 112,
+      "success_pointer": "C5:D86C"
+    },
+    {
+      "address": "D5:F6BD",
+      "delivery_time": 4,
+      "enter_speed": 640,
+      "event_flag_gate": "0x0288",
+      "exit_speed": 640,
+      "failure_pointer": "C5:DDF1",
+      "family": "customer_d",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 6,
+      "selector_byte": 7,
+      "sprite_object_descriptor": 85,
+      "success_pointer": "C5:D880"
+    },
+    {
+      "address": "D5:F6D1",
+      "delivery_time": 5,
+      "enter_speed": 384,
+      "event_flag_gate": "0x02A3",
+      "exit_speed": 384,
+      "failure_pointer": "C7:A7D9",
+      "family": "special_mach_pizza_zombie_paper",
+      "retry_threshold": 255,
+      "retry_wait_seconds": 255,
+      "row": 7,
+      "selector_byte": 8,
+      "sprite_object_descriptor": 151,
+      "success_pointer": "C7:A542"
+    },
+    {
+      "address": "D5:F6E5",
+      "delivery_time": 10,
+      "enter_speed": 384,
+      "event_flag_gate": "0x02B6",
+      "exit_speed": 384,
+      "failure_pointer": "C6:95AC",
+      "family": "special_escargo",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 8,
+      "selector_byte": 9,
+      "sprite_object_descriptor": 135,
+      "success_pointer": "C6:943A"
+    },
+    {
+      "address": "D5:F6F9",
+      "delivery_time": 10,
+      "enter_speed": 384,
+      "event_flag_gate": "0x02B7",
+      "exit_speed": 384,
+      "failure_pointer": "C6:95B3",
+      "family": "special_escargo",
+      "retry_threshold": 6,
+      "retry_wait_seconds": 15,
+      "row": 9,
+      "selector_byte": 10,
+      "sprite_object_descriptor": 135,
+      "success_pointer": "C6:94F4"
+    }
+  ],
+  "schema": "earthbound-decomp.d5-timed-delivery-row-contracts.v1",
+  "source": "src\\d5\\bank_d5_helpers_asar.asm",
+  "source_window_segments": [
+    {
+      "bytes": 4,
+      "controller_rows": "row 0 offsets +0x00..+0x03",
+      "field_coverage": "sprite_object_descriptor, event_flag_gate",
+      "range": "D5:F645..D5:F649",
+      "source": "tail of INITIAL_STATS"
+    },
+    {
+      "bytes": 196,
+      "controller_rows": "row 0 offsets +0x04..+0x13 and rows 1..9",
+      "field_coverage": "retry/wait/timer, success/failure pointers, enter/exit speeds, and rows 1..9 full records",
+      "range": "D5:F649..D5:F70D",
+      "source": "TIMED_DELIVERY_TABLE"
+    },
+    {
+      "bytes": 4,
+      "controller_rows": "not part of effective controller rows",
+      "field_coverage": "zero padding",
+      "range": "D5:F70D..D5:F711",
+      "source": "TIMED_DELIVERY_TABLE trailing bytes"
+    }
+  ],
+  "summary": {
+    "controller_bytes_from_initial_stats_tail": 4,
+    "controller_bytes_from_timed_delivery_table": 196,
+    "delivery_time_histogram": {
+      "0x0001": 1,
+      "0x0002": 1,
+      "0x0003": 1,
+      "0x0004": 1,
+      "0x0005": 1,
+      "0x000A": 4,
+      "0x00B4": 1
+    },
+    "effective_controller_base": "D5:F645",
+    "effective_controller_end_exclusive": "D5:F70D",
+    "enter_exit_speed_pair_histogram": {
+      "0x0180/0x0180": 5,
+      "0x0200/0x0200": 1,
+      "0x0280/0x0280": 4
+    },
+    "enter_speed_histogram": {
+      "0x0180": 5,
+      "0x0200": 1,
+      "0x0280": 4
+    },
+    "event_flag_gate_histogram": {
+      "0x00B4": 1,
+      "0x00B5": 1,
+      "0x01BE": 1,
+      "0x0285": 1,
+      "0x0286": 1,
+      "0x0287": 1,
+      "0x0288": 1,
+      "0x02A3": 1,
+      "0x02B6": 1,
+      "0x02B7": 1
+    },
+    "exit_speed_histogram": {
+      "0x0180": 5,
+      "0x0200": 1,
+      "0x0280": 4
+    },
+    "failure_pointer_bank_histogram": {
+      "C5": 4,
+      "C6": 5,
+      "C7": 1
+    },
+    "family_counts": {
+      "customer_a": 1,
+      "customer_b": 1,
+      "customer_c": 1,
+      "customer_d": 1,
+      "escargo": 1,
+      "escargo_alternate": 1,
+      "pizza": 1,
+      "special_escargo": 2,
+      "special_mach_pizza_zombie_paper": 1
+    },
+    "retry_threshold_histogram": {
+      "0x0006": 9,
+      "0x00FF": 1
+    },
+    "retry_wait_seconds_histogram": {
+      "0x000F": 9,
+      "0x00FF": 1
+    },
+    "row_7_retry_pair": {
+      "retry_threshold": 255,
+      "retry_wait_seconds": 255
+    },
+    "row_count": 10,
+    "row_size": 20,
+    "selector_max": 10,
+    "selector_min": 1,
+    "selector_rows_are_contiguous_1_based": true,
+    "source_split_base": "D5:F649",
+    "source_split_end_exclusive": "D5:F711",
+    "source_split_starts_at_controller_offset": 4,
+    "source_split_trailing_padding_all_zero": true,
+    "source_split_trailing_padding_bytes": 4,
+    "source_split_trailing_padding_range": "D5:F70D..D5:F711",
+    "sprite_descriptor_histogram": {
+      "0x0037": 1,
+      "0x0055": 1,
+      "0x006C": 1,
+      "0x0070": 1,
+      "0x0087": 4,
+      "0x0097": 2
+    },
+    "success_pointer_bank_histogram": {
+      "C5": 4,
+      "C6": 5,
+      "C7": 1
+    }
+  },
+  "title": "D5 Timed Delivery Row Contracts"
+}

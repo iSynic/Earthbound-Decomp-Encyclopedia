@@ -1,0 +1,217 @@
+{
+  "schema": "earthbound-decomp.coilsnake-runtime-anchor-hints.v1",
+  "safety_note": "Candidate local anchors only. These hints contain no CoilSnake project contents, rebuilt ROM bytes, or ROM-derived payload bytes, and must not be promoted beyond candidate status until a controlled diff identifies the changed span.",
+  "anchor_hints": {
+    "battle-action-pp-cost-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "BATTLE_ACTION_TABLE",
+          "range": "D5:7B68..D5:8A50",
+          "basis": "Local table split and class2 action-table note identify D5:7B68 as 12-byte battle action rows."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "PP Cost",
+          "candidate_local_field": "battle action row byte +0x03 cost",
+          "basis": "notes/class2-d57b68-battle-action-table-match.md maps the first four row bytes as direction, target, type, and cost."
+        }
+      ],
+      "source_anchor_paths": [
+        "src/d5/table_battle_action_table.asm",
+        "src/c1/c1_adb4_determine_battle_targetting.asm",
+        "src/c1/c1_b5b6_open_battle_psi_user_selection.asm",
+        "src/c1/c1_c8bc_format_battle_psi_menu_entry_row.asm"
+      ],
+      "note_anchor_paths": [
+        "notes/class2-d57b68-battle-action-table-match.md",
+        "notes/c2-battle-contract-workahead.md",
+        "notes/battle-psi-menu-controller-c1cc39-ce73.md",
+        "notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "C1:ADB4 targetting resolver",
+          "basis": "Consumes D5:7B68 action rows for targetting metadata."
+        },
+        {
+          "status": "candidate",
+          "consumer": "C1 battle PSI menu PP guard / row formatter",
+          "basis": "Existing PSI-menu notes describe PP availability and menu display as reading the associated D5:7B68 action row."
+        }
+      ]
+    },
+    "psi-ness-omega-level-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "PSI_ABILITY_TABLE",
+          "range": "D5:8A50..D5:8D7A",
+          "basis": "Local table split and PSI ability note identify D5:8A50 as 15-byte PSI ability rows."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "Level learned by Ness",
+          "candidate_local_field": "PSI ability row byte +0x06 Ness learn level",
+          "basis": "notes/battle-psi-ability-table-d58a50.md maps bytes +6..+8 to Ness, Paula, and Poo learn levels."
+        }
+      ],
+      "source_anchor_paths": [
+        "src/d5/table_psi_ability_table.asm",
+        "src/c1/c1_c452_build_shared_battle_psi_entry_list.asm",
+        "src/c1/c1_c165_current_character_knows_psi.asm",
+        "src/c4/glyph_scratch_psi_rng_direction_helpers.asm"
+      ],
+      "note_anchor_paths": [
+        "notes/battle-psi-ability-table-d58a50.md",
+        "notes/c1-battle-psi-runtime-polish.md",
+        "notes/battle-psi-menu-metadata-family-c1c853-c1c8bc.md",
+        "notes/battle-psi-menu-controller-c1cc39-ce73.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "C1:C452 shared PSI entry-list builder",
+          "basis": "Uses character-specific learn-level bytes while building PSI entry lists."
+        },
+        {
+          "status": "candidate",
+          "consumer": "C4 PSI learn/glyph helper cluster",
+          "basis": "C4 helper aliases D5:8A50 as PsiLearnTableD58A50 and reads per-character learn data."
+        }
+      ]
+    },
+    "enemy-insane-cultist-action1-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "ENEMY_CONFIGURATION_TABLE",
+          "range": "D5:9589..D5:EA5B",
+          "basis": "Local D5 source split and data-contract notes identify D5:9589 as the enemy configuration table."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "Action 1",
+          "candidate_local_field": "enemy row action slot; exact byte offset pending diff-confirmed join",
+          "basis": "CoilSnake YAML exposes action-slot vocabulary; local table range is known, but the field offset must wait for a changed span."
+        }
+      ],
+      "source_anchor_paths": [
+        "src/d5/table_enemy_configuration_table.asm"
+      ],
+      "note_anchor_paths": [
+        "notes/class2-d59589-enemy-data-crosswalk.md",
+        "notes/data-contracts-c0-c2.md",
+        "notes/c2-battle-contract-workahead.md",
+        "notes/c2-battle-sprite-runtime-polish.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "C2 battle enemy/record consumers",
+          "basis": "Existing C2 data-contract notes treat D5:9589 rows as battle-facing enemy records."
+        }
+      ]
+    },
+    "npc-config-first-text-pointer-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "NPC_CONFIG_TABLE",
+          "range": "D6:0000..DF:FFFF",
+          "basis": "The map-object contract joins NPC config rows to placed-object behavior, text pointers, event flags, sectors, and movement/actionscript pointers across the map data banks."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "Text Pointer 1",
+          "candidate_local_field": "primary placed-object text/actionscript pointer",
+          "basis": "notes/map-object-bundles.md records primary text pointers for placed NPC config rows."
+        }
+      ],
+      "source_anchor_paths": [],
+      "note_anchor_paths": [
+        "notes/map-object-bundles.md",
+        "notes/localization-map-object-crosswalk.md",
+        "notes/c3-actionscript-semantics-audit.md",
+        "notes/map-scene-composition-contract.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "map object interaction / actionscript dispatch path",
+          "basis": "Local map-object and localization crosswalk notes join placed-object rows to behavior scripts and text pointers."
+        }
+      ]
+    },
+    "map-door-first-destination-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "MAP_DOOR_DESTINATION_TABLES",
+          "range": "D6:0000..DF:FFFF",
+          "basis": "Map-sector and scene-composition contracts treat map doors as part of the D6-DF map runtime table family."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "Destination X",
+          "candidate_local_field": "door/warp destination X coordinate",
+          "basis": "CoilSnake map_doors.yml exposes door destination vocabulary; exact local table offset waits for the rebuild diff."
+        }
+      ],
+      "source_anchor_paths": [],
+      "note_anchor_paths": [
+        "notes/map-sector-bundles.md",
+        "notes/map-scene-composition-contract.md",
+        "notes/map-milestone-closure.md",
+        "notes/map-object-bundles.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "map transition / door runtime",
+          "basis": "Door destinations are tracked with sector and scene-composition contracts, but the exact runtime consumer remains open until the diff lands."
+        }
+      ]
+    },
+    "window-config-width-probe": {
+      "status": "candidate-until-diff-confirmed",
+      "candidate_local_ranges": [
+        {
+          "label": "TEXT_WINDOW_PROPERTIES",
+          "range": "E0:1FB9..E0:21A8",
+          "basis": "UI/font contract records E0 text-window graphics, property rows, and palette/font-colour data as the local window-facing table family."
+        }
+      ],
+      "field_hints": [
+        {
+          "coilsnake_field": "Width",
+          "candidate_local_field": "window configuration width or window-property row field",
+          "basis": "CoilSnake window_configuration_table.yml exposes editor width vocabulary; local E0 window-property row linkage needs a changed span."
+        }
+      ],
+      "source_anchor_paths": [
+        "src/e0/table_006_data_text_window_properties_asm.asm",
+        "src/e0/asset_text_window_gfx.asm"
+      ],
+      "note_anchor_paths": [
+        "notes/ui-font-town-map-asset-contracts.md",
+        "notes/text-window-skin-bundle-contracts.md",
+        "notes/text-window-rendering-primitives-c1078d-c10d7c.md",
+        "notes/window-flavour-palette-block-refresh-c47f87.md"
+      ],
+      "runtime_consumer_hints": [
+        {
+          "status": "candidate",
+          "consumer": "C0/C4 text-window setup and rendering helpers",
+          "basis": "Existing UI contracts identify C0/C4 callers for window graphics, palette flavor, and rendering primitives."
+        }
+      ]
+    }
+  }
+}

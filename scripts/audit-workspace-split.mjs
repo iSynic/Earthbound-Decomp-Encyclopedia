@@ -101,7 +101,20 @@ async function hashFile(filePath) {
 }
 
 async function scanPath(targetPath, rootPath = targetPath) {
-  const stats = await fs.stat(targetPath);
+  let stats;
+  try {
+    stats = await fs.stat(targetPath);
+  } catch (error) {
+    const rel = path.relative(rootPath, targetPath).replaceAll(path.sep, "/") || path.basename(targetPath);
+    return {
+      files: 0,
+      dirs: 0,
+      bytes: 0,
+      newestMtimeMs: 0,
+      entries: new Map(),
+      skipped: [{ path: rel, error: error.code || error.message }],
+    };
+  }
   if (stats.isFile()) {
     const rel = path.relative(rootPath, targetPath).replaceAll(path.sep, "/") || path.basename(targetPath);
     return {
@@ -110,6 +123,7 @@ async function scanPath(targetPath, rootPath = targetPath) {
       bytes: stats.size,
       newestMtimeMs: stats.mtimeMs,
       entries: new Map([[rel, { bytes: stats.size, sha1: await hashFile(targetPath), mtimeMs: stats.mtimeMs }]]),
+      skipped: [],
     };
   }
 
@@ -119,9 +133,17 @@ async function scanPath(targetPath, rootPath = targetPath) {
     bytes: 0,
     newestMtimeMs: stats.mtimeMs,
     entries: new Map(),
+    skipped: [],
   };
 
-  const children = await fs.readdir(targetPath, { withFileTypes: true });
+  let children;
+  try {
+    children = await fs.readdir(targetPath, { withFileTypes: true });
+  } catch (error) {
+    const rel = path.relative(rootPath, targetPath).replaceAll(path.sep, "/") || path.basename(targetPath);
+    result.skipped.push({ path: rel, error: error.code || error.message });
+    return result;
+  }
   for (const child of children) {
     if (child.isDirectory() && SKIP_DIRS.has(child.name)) continue;
     const childPath = path.join(targetPath, child.name);
@@ -133,6 +155,7 @@ async function scanPath(targetPath, rootPath = targetPath) {
     for (const [rel, entry] of childScan.entries) {
       result.entries.set(rel, entry);
     }
+    result.skipped.push(...(childScan.skipped || []));
   }
 
   return result;
@@ -158,6 +181,7 @@ function compareScans(workspaceScan, referenceScan, limit) {
       missingInReference: [],
       changedFromReference: [],
       extraInReference: [],
+      skipped: workspaceScan.skipped || [],
     };
   }
 
@@ -219,12 +243,16 @@ async function audit() {
     if (referenceAvailable && CONTENT_COMPARE_CATEGORIES.has(category)) {
       const referencePath = path.join(referenceRoot, child.name);
       if (await exists(referencePath)) {
-        const referenceScan = await scanPath(referencePath);
-        const comparison = compareScans(workspaceScan, referenceScan, options.limit);
-        row.referenceStatus = comparison.status;
-        row.missingInReference = comparison.missingInReference;
-        row.changedFromReference = comparison.changedFromReference;
-        row.extraInReference = comparison.extraInReference;
+      const referenceScan = await scanPath(referencePath);
+      const comparison = compareScans(workspaceScan, referenceScan, options.limit);
+      row.referenceStatus = comparison.status;
+      row.missingInReference = comparison.missingInReference;
+      row.changedFromReference = comparison.changedFromReference;
+      row.extraInReference = comparison.extraInReference;
+      row.skipped = [...(row.skipped || []), ...(referenceScan.skipped || []).map((item) => ({
+        ...item,
+        path: `reference:${item.path}`,
+      }))];
       } else {
         row.referenceStatus = "missing-in-reference";
       }
@@ -280,6 +308,22 @@ function renderMarkdown(report) {
       }
       if (row.extraInReference.length) {
         lines.push(`- Reference-only examples: ${row.extraInReference.map((rel) => `\`${rel}\``).join(", ")}`);
+      }
+    }
+  }
+
+  const skippedRows = report.rows.filter((row) => row.skipped?.length);
+  if (skippedRows.length) {
+    lines.push("");
+    lines.push("## Skipped During Scan");
+    for (const row of skippedRows) {
+      lines.push("");
+      lines.push(`### ${row.name}`);
+      for (const skipped of row.skipped.slice(0, 12)) {
+        lines.push(`- \`${skipped.path}\`: ${skipped.error}`);
+      }
+      if (row.skipped.length > 12) {
+        lines.push(`- ${row.skipped.length - 12} more skipped paths omitted.`);
       }
     }
   }

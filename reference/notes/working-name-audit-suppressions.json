@@ -1,0 +1,191 @@
+{
+  "schema": "earthbound-decomp.working-name-audit-suppressions.v1",
+  "suppressions": [
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:156B",
+      "kind": "instruction-anchor",
+      "reason": "Live write instruction inside C0:1558, useful for breakpoints but not a standalone routine symbol."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:1575",
+      "kind": "instruction-anchor",
+      "reason": "Live write instruction inside C0:1558, useful for breakpoints but not a standalone routine symbol."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:18A8",
+      "kind": "callsite-anchor",
+      "reason": "JSR site inside the C0:17EA camera-step accumulator, not a standalone entry."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:4026",
+      "kind": "callsite-anchor",
+      "reason": "JSR site used as caller evidence for C0:1558, not a standalone entry."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:8012",
+      "kind": "instruction-anchor",
+      "reason": "Startup-side instruction anchor explicitly ruled out as a recurring frame-sync routine."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:8B51",
+      "kind": "instruction-anchor",
+      "reason": "Runtime scroll-shadow publish instruction inside C0:8B20, not a standalone routine symbol."
+    },
+    {
+      "note": "notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md",
+      "address": "C0:8B57",
+      "kind": "instruction-anchor",
+      "reason": "Runtime scroll-shadow publish instruction inside C0:8B20, not a standalone routine symbol."
+    },
+    {
+      "note": "notes/collision-surface-probes-c052d4-c05e3a.md",
+      "address": "C0:5E3A",
+      "kind": "range-end",
+      "reason": "End boundary for the C0:52D4-C0:5E3A note; the next routine starts at C0:5E3B."
+    },
+    {
+      "note": "notes/entity-overlap-neighbor-cache-c05ece-c064d3.md",
+      "address": "C0:64D3",
+      "kind": "range-end",
+      "reason": "End boundary for the C0:5ECE-C0:64D3 note, not a standalone routine start."
+    },
+    {
+      "note": "notes/mushroomized-overlay-animation-scripts.md",
+      "address": "C0:AC59",
+      "kind": "internal-anchor",
+      "reason": "Heading uses C0:AC59+ for a gate branch inside the already named C0:AC43 dispatcher."
+    },
+    {
+      "note": "notes/ppu-colour-window-bg-offset-frontier-c0afcd-c0b3ff.md",
+      "address": "C0:B3FF",
+      "kind": "range-end",
+      "reason": "End of the clamp lookup table frontier before the C0:B400 cosine routine."
+    },
+    {
+      "note": "notes/teleport-mainloop-state-machines-c0e214-c0ebdf.md",
+      "address": "C0:EBDF",
+      "kind": "range-end",
+      "reason": "End boundary for the C0:E214-C0:EBDF teleport note, not a separate routine start."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:2B07",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:4DFA",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:002F, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:4E06",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:0085, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:4E10",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:0085, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:4E2D",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:002F, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:5AE7",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:904A",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:0085, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:93A7",
+      "kind": "callsite-anchor",
+      "reason": "Direct JSR site used as proof for C4:0085, not a standalone routine name."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:A28D",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:A2AE",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:A2CF",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
+      "address": "C4:A2F0",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:0000, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:629D",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:69C1",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:6A2E",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:6B04",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:8B99",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:8DE4",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    },
+    {
+      "note": "notes/c4-text-tile-staging-and-vector-helpers-1db6-213f.md",
+      "address": "C4:91DB",
+      "kind": "callsite-anchor",
+      "reason": "Direct caller evidence for C4:1EFF, not a standalone routine name from this note."
+    }
+  ]
+}

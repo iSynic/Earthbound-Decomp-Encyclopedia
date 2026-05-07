@@ -1,0 +1,61 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-ff-target-review.v1",
+  "status": "ff_outside_source_backed_vcmd_table_reader_effect_pending",
+  "references": [
+    "manifests/audio-spc700-driver-dispatch-frontier.json",
+    "manifests/audio-spc700-control-reader-frontier.json",
+    "refs/earthbound-sounddriver-byte-perfect/main.asm",
+    "https://sneslab.net/wiki/N-SPC_Engine"
+  ],
+  "dispatch_context": {
+    "source_backed_table_base": "0x0BE3",
+    "source_backed_arg_length_table_base": "0x0C21",
+    "source_backed_command_range": "0xE0..0xFE",
+    "source_backed_entry_count": 31,
+    "ff_in_source_backed_vcmd_table": false,
+    "source_role": "outside_vcmd_table"
+  },
+  "ff_review": {
+    "command": "0xFF",
+    "source_label": null,
+    "source_target": null,
+    "arg_length": null,
+    "source_role": "outside_vcmd_table",
+    "effect_proof_status": "outside_vcmd_table_reader_effect_pending",
+    "duration_promotion_status": "blocked_pending_local_effect_proof",
+    "reader_pc_records": [
+      {
+        "pc": "0x0957",
+        "source_label": "SkipByte",
+        "driver_offset": "0x0457",
+        "read_count": 10,
+        "sample_reads": []
+      }
+    ],
+    "required_next_evidence": [
+      "prove whether FF bytes are consumed as reachable EarthBound sequence control",
+      "record reader PC, sequence pointer, voice slot, and branch/effect immediately after read",
+      "classify each observation as unreachable padding, data-like table byte, or EarthBound-specific control effect",
+      "keep public exact-duration promotion blocked until a local effect is proven"
+    ]
+  },
+  "summary": {
+    "ff_in_source_backed_vcmd_table": false,
+    "source_backed_command_range": "0xE0..0xFE",
+    "source_backed_entry_count": 31,
+    "ff_reader_pc_count": 1,
+    "ff_runtime_read_count": 10,
+    "exact_duration_promotion_allowed": false,
+    "semantic_status": "outside_vcmd_table_reader_effect_pending"
+  },
+  "findings": [
+    "The checked-in byte-perfect source backs VCMD entries for 0xE0..0xFE only.",
+    "0xFF has no source-backed VCMD label, target, or argument length.",
+    "Runtime reader traces still observe FF bytes, so FF remains a focused reader-effect proof lane rather than a dispatch-table entry."
+  ],
+  "next_work": [
+    "trace reader PC 0x0957 FF observations and record the post-read effect",
+    "classify observed FF bytes as unreachable/data-like or EarthBound-specific control behavior",
+    "feed only locally proven FF effects back into sequence command semantics"
+  ]
+}

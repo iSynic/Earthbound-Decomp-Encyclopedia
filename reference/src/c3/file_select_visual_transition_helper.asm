@@ -1,0 +1,352 @@
+; EarthBound C3 file-select visual transition helper prototype.
+;
+; Source-emission status:
+; - Prototype level: build-candidate
+; - Assembler contract: pilot-ready
+; - Assembler-ready pilot; not yet linked into a full assembler ROM build.
+; - Generated from a state-aware linear ROM decode, then hand-polished to
+;   name the file-select/intro transition argument, entity-script wait latch,
+;   screen setup calls, and adjacent C3:F2B1..F3C5 data dependency.
+; - The C0:88B1 return path is width-sensitive; source signature validation
+;   forces the following C3:F453 immediate back to M=16.
+; - ROM byte range, SHA-1, and source signature are tracked by
+;   build/c3-build-candidate-ranges.json and
+;   build/c3-source-signature-validation.json.
+;
+; Source units covered:
+; - C3:F3C5..C3:F5F9 RunFileSelectVisualTransition
+
+; ---------------------------------------------------------------------------
+; External contracts used by this module
+
+C018F3_CloseOrResetPresentationState          = $C018F3
+C08726_BlankWaitAndDisableHdma                = $C08726
+C08744_OpenDisplayTransitionBracket           = $C08744
+C08756_WaitOneFrameAndPollInput               = $C08756
+C08814_SetDisplayTransitionMode               = $C08814
+C0886C_SetDisplayTransitionState              = $C0886C
+C088B1_ResetRendererFrameState                = $C088B1
+C08B26_FlushQueuedSpriteOrTileWork            = $C08B26
+C08D79_UpdateBgModeRegisterFromQueue          = $C08D79
+C08D92_UpdateObjSizeAndBaseRegister           = $C08D92
+C08D9E_UpdateBg1ScreenBaseRegistersFromQueue  = $C08D9E
+C08EFC_CommitTileBufferToStaging              = $C08EFC
+C0927C_PollOrRefreshInputState                = $C0927C
+C092F5_AllocateEntityOrSpriteSlot             = $C092F5
+C09C35_CleanupEntitySlotState                 = $C09C35
+C0EBE0_LoadTitleLogoGraphicsAndTilemap        = $C0EBE0
+C1004E_WaitWhileFileSelectEntityScriptBusy    = $C1004E
+C41A9E_GraphicsDecompressionRoutines_Main     = $C41A9E
+C426ED_ApplyPaletteComponentInterpolationStep = $C426ED
+C474A8_ResetWindowOrMenuState                 = $C474A8
+C4800B_RestoreWorldDisplayState               = $C4800B
+C496E7_StartPaletteFadeFromWorkBuffer         = $C496E7
+C496F9_MirrorCgramShadow0200To7f0000          = $C496F9
+EF04DC_RunOverworldEntitySnapshotTransition   = $EF04DC
+
+; ---------------------------------------------------------------------------
+; Local data contracts and WRAM fields
+
+FILE_SELECT_TRANSITION_ARGUMENT = $9F75
+FILE_SELECT_ENTITY_BUSY_STATE   = $9641
+INPUT_HELD_WORD                 = $006D
+DISPLAY_MODE_LATCH              = $001A
+DISPLAY_BRIGHTNESS_LATCH        = $0030
+ENTITY_SCRIPT_POINTER_FLAGS     = $116A
+LIVE_ENTITY_STATUS_TABLE        = $0A62
+
+TITLE_LOGO_GRAPHICS_LOW         = $AE7C
+TITLE_LOGO_GRAPHICS_BANK        = $00E1
+TILE_STAGING_BUFFER_LOW         = $0200
+PALETTE_FADE_FRAME_COUNT        = $003C
+FILE_SELECT_TRANSITION_ENTITY   = $0314
+LIVE_ENTITY_COUNT               = $001E
+
+; ---------------------------------------------------------------------------
+; C3:F3C5
+
+; RunFileSelectVisualTransition
+;
+; Entry:
+;   A = transition mode argument. Nonzero skips the title-logo asset reload
+;       and takes the shorter display-transition path.
+;
+; Return:
+;   A = 0 for normal completion, 1 for input abort, or the fallback result
+;       returned by EF:04DC when no file-select entity state is pending.
+;
+; Behavior:
+;   Sets up the file-select/intro still-image transition, optionally reloads
+;   the title-logo graphics and palette fade assets, waits on the file-select
+;   entity-script latch, then restores or releases the temporary visual slots.
+C3F3C5_RunFileSelectVisualTransition:
+    rep #$31
+    phd
+    pha
+    tdc
+    adc.w #$FFE4
+    tcd
+    pla
+    tax
+    stx FILE_SELECT_TRANSITION_ARGUMENT
+    lda.w #$0000
+    sta $04
+    jsl C08726_BlankWaitAndDisableHdma
+    jsl C0927C_PollOrRefreshInputState
+    bra C3F3FB_RunFileSelectVisualTransition_ConfigureScreen
+
+C3F3E2_RunFileSelectVisualTransition_HideEntityPointerLoop:
+    asl A
+    clc
+    adc.w #ENTITY_SCRIPT_POINTER_FLAGS
+    tax
+    lda $0000,X
+    ora.w #$8000
+    sta $0000,X
+    lda $1A
+    inc A
+    sta $1A
+    cmp.w #LIVE_ENTITY_COUNT
+    bcc C3F3E2_RunFileSelectVisualTransition_HideEntityPointerLoop
+
+C3F3FB_RunFileSelectVisualTransition_ConfigureScreen:
+    lda.w #$000B
+    jsl C08D79_UpdateBgModeRegisterFromQueue
+    lda.w #$0003
+    jsl C08D92_UpdateObjSizeAndBaseRegister
+    ldy.w #$0000
+    ldx.w #$5800
+    tya
+    jsl C08D9E_UpdateBg1ScreenBaseRegistersFromQueue
+    stz $0039
+    stz $003B
+    stz $0037
+    stz $0035
+    stz $0033
+    stz $0031
+    jsl C08B26_FlushQueuedSpriteOrTileWork
+    stz $0039
+    stz $003B
+    stz $0037
+    stz $0035
+    stz $0033
+    stz $0031
+    jsl C08B26_FlushQueuedSpriteOrTileWork
+    jsl C0EBE0_LoadTitleLogoGraphicsAndTilemap
+    sep #$20
+    lda.b #$11
+    sta DISPLAY_MODE_LATCH
+    jsl C088B1_ResetRendererFrameState
+    ldy.w #$0000
+    tyx
+    lda.w #FILE_SELECT_TRANSITION_ENTITY
+    jsl C092F5_AllocateEntityOrSpriteSlot
+    stz FILE_SELECT_ENTITY_BUSY_STATE
+    lda FILE_SELECT_TRANSITION_ARGUMENT
+    beq C3F465_RunFileSelectVisualTransition_LoadTitleLogoAssets
+    jmp.w C3F50A_RunFileSelectVisualTransition_SkipWorldReset
+
+C3F465_RunFileSelectVisualTransition_LoadTitleLogoAssets:
+    sep #$20
+    stz $0E
+    ldx.w #TILE_STAGING_BUFFER_LOW
+    rep #$20
+    lda.w #TILE_STAGING_BUFFER_LOW
+    jsl C08EFC_CommitTileBufferToStaging
+    sep #$20
+    lda.b #$18
+    sta DISPLAY_BRIGHTNESS_LATCH
+    jsl C08744_OpenDisplayTransitionBracket
+    sep #$20
+    lda.b #$0F
+    sta $000D
+    jsl C08756_WaitOneFrameAndPollInput
+    sep #$20
+    stz DISPLAY_BRIGHTNESS_LATCH
+    rep #$20
+    lda.w #TITLE_LOGO_GRAPHICS_LOW
+    sta $0E
+    lda.w #TITLE_LOGO_GRAPHICS_BANK
+    sta $10
+    lda.w #TILE_STAGING_BUFFER_LOW
+    sta $06
+    phb
+    sep #$20
+    pla
+    sta $08
+    stz $09
+    rep #$20
+    lda.w #$0100
+    clc
+    adc $06
+    sta $06
+    sta $12
+    lda $08
+    sta $14
+    jsl C41A9E_GraphicsDecompressionRoutines_Main
+    jsl C496F9_MirrorCgramShadow0200To7f0000
+    sep #$20
+    stz $0E
+    ldx.w #TILE_STAGING_BUFFER_LOW
+    rep #$20
+    lda.w #TILE_STAGING_BUFFER_LOW
+    jsl C08EFC_CommitTileBufferToStaging
+    ldx.w #$0100
+    lda.w #PALETTE_FADE_FRAME_COUNT
+    jsl C496E7_StartPaletteFadeFromWorkBuffer
+    sep #$20
+    lda.b #$18
+    sta DISPLAY_BRIGHTNESS_LATCH
+    ldx.w #$0000
+    stx $18
+    bra C3F4F6_RunFileSelectVisualTransition_TestInitialPaletteFadeLoop
+
+C3F4E9_RunFileSelectVisualTransition_StepInitialPaletteFadeLoop:
+    jsl C426ED_ApplyPaletteComponentInterpolationStep
+    jsl C1004E_WaitWhileFileSelectEntityScriptBusy
+    ldx $18
+    inx
+    stx $18
+C3F4F6_RunFileSelectVisualTransition_TestInitialPaletteFadeLoop:
+    stx $02
+    rep #$20
+    lda.w #PALETTE_FADE_FRAME_COUNT
+    clc
+    sbc $02
+    bvs C3F506_RunFileSelectVisualTransition_TestInitialPaletteFadeOverflow
+    bpl C3F4E9_RunFileSelectVisualTransition_StepInitialPaletteFadeLoop
+    bra C3F508_RunFileSelectVisualTransition_FinishInitialPaletteFade
+
+C3F506_RunFileSelectVisualTransition_TestInitialPaletteFadeOverflow:
+    bmi C3F4E9_RunFileSelectVisualTransition_StepInitialPaletteFadeLoop
+
+C3F508_RunFileSelectVisualTransition_FinishInitialPaletteFade:
+    bra C3F534_RunFileSelectVisualTransition_PollCompletion
+C3F50A_RunFileSelectVisualTransition_SkipWorldReset:
+    ldx.w #$0001
+    lda.w #$0004
+    jsl C0886C_SetDisplayTransitionState
+    ldx.w #$0000
+    stx $1A
+    bra C3F524_RunFileSelectVisualTransition_TestShortTransitionWait
+
+C3F51B_RunFileSelectVisualTransition_WaitShortTransitionFrame:
+    jsl C1004E_WaitWhileFileSelectEntityScriptBusy
+    ldx $1A
+    inx
+    stx $1A
+C3F524_RunFileSelectVisualTransition_TestShortTransitionWait:
+    stx $02
+    lda.w #PALETTE_FADE_FRAME_COUNT
+    clc
+    sbc $02
+    bvs C3F532_RunFileSelectVisualTransition_TestShortTransitionOverflow
+    bpl C3F51B_RunFileSelectVisualTransition_WaitShortTransitionFrame
+    bra C3F534_RunFileSelectVisualTransition_PollCompletion
+
+C3F532_RunFileSelectVisualTransition_TestShortTransitionOverflow:
+    bmi C3F51B_RunFileSelectVisualTransition_WaitShortTransitionFrame
+
+C3F534_RunFileSelectVisualTransition_PollCompletion:
+    lda.w #$0000
+    sta $02
+    bra C3F562_RunFileSelectVisualTransition_CheckBusyLatch
+
+C3F53B_RunFileSelectVisualTransition_PollInputAbortOrBusy:
+    lda $04
+    bne C3F55E_RunFileSelectVisualTransition_WaitBusyFrame
+    lda INPUT_HELD_WORD
+    and.w #$0080
+    bne C3F557_RunFileSelectVisualTransition_MarkInputAbort
+    lda INPUT_HELD_WORD
+    and.w #$8000
+    bne C3F557_RunFileSelectVisualTransition_MarkInputAbort
+    lda INPUT_HELD_WORD
+    and.w #$1000
+    beq C3F55E_RunFileSelectVisualTransition_WaitBusyFrame
+
+C3F557_RunFileSelectVisualTransition_MarkInputAbort:
+    lda.w #$0001
+    sta $02
+    bra C3F56F_RunFileSelectVisualTransition_MaybeFallbackSnapshotTransition
+
+C3F55E_RunFileSelectVisualTransition_WaitBusyFrame:
+    jsl C1004E_WaitWhileFileSelectEntityScriptBusy
+
+C3F562_RunFileSelectVisualTransition_CheckBusyLatch:
+    lda FILE_SELECT_ENTITY_BUSY_STATE
+    beq C3F53B_RunFileSelectVisualTransition_PollInputAbortOrBusy
+    lda FILE_SELECT_ENTITY_BUSY_STATE
+    cmp.w #$0002
+    beq C3F53B_RunFileSelectVisualTransition_PollInputAbortOrBusy
+
+C3F56F_RunFileSelectVisualTransition_MaybeFallbackSnapshotTransition:
+    lda FILE_SELECT_TRANSITION_ARGUMENT
+    bne C3F57F_RunFileSelectVisualTransition_CloseTransition
+    lda FILE_SELECT_ENTITY_BUSY_STATE
+    bne C3F57F_RunFileSelectVisualTransition_CloseTransition
+    jsl EF04DC_RunOverworldEntitySnapshotTransition
+    sta $02
+
+C3F57F_RunFileSelectVisualTransition_CloseTransition:
+    ldy.w #$0000
+    ldx.w #$0004
+    lda.w #$0001
+    jsl C08814_SetDisplayTransitionMode
+    lda $04
+    bne C3F5A2_RunFileSelectVisualTransition_RestoreHiddenEntities
+    stz FILE_SELECT_ENTITY_BUSY_STATE
+    lda.w #$0000
+    jsl C474A8_ResetWindowOrMenuState
+    jsl C0927C_PollOrRefreshInputState
+    lda $02
+    bra C3F5F7_RunFileSelectVisualTransition_Return
+
+C3F5A2_RunFileSelectVisualTransition_RestoreHiddenEntities:
+    ldy.w #$0000
+    sty $16
+    bra C3F5D5_RunFileSelectVisualTransition_TestRestoreEntityLoop
+
+C3F5A9_RunFileSelectVisualTransition_RestoreEntityLoop:
+    tya
+    asl A
+    tax
+    lda LIVE_ENTITY_STATUS_TABLE,X
+    cmp.w #FILE_SELECT_TRANSITION_ENTITY
+    bcc C3F5C0_RunFileSelectVisualTransition_ClearEntityPointerHiddenFlag
+    cmp.w #$031E
+    beq C3F5BB_RunFileSelectVisualTransition_CleanupTransitionEntitySlot
+    bcs C3F5C0_RunFileSelectVisualTransition_ClearEntityPointerHiddenFlag
+
+C3F5BB_RunFileSelectVisualTransition_CleanupTransitionEntitySlot:
+    tya
+    jsl C09C35_CleanupEntitySlotState
+
+C3F5C0_RunFileSelectVisualTransition_ClearEntityPointerHiddenFlag:
+    ldy $16
+    tya
+    asl A
+    clc
+    adc.w #ENTITY_SCRIPT_POINTER_FLAGS
+    tax
+    lda $0000,X
+    and.w #$7FFF
+    sta $0000,X
+    iny
+    sty $16
+C3F5D5_RunFileSelectVisualTransition_TestRestoreEntityLoop:
+    cpy.w #LIVE_ENTITY_COUNT
+    bcc C3F5A9_RunFileSelectVisualTransition_RestoreEntityLoop
+    jsl C08726_BlankWaitAndDisableHdma
+    jsl C018F3_CloseOrResetPresentationState
+    jsl C4800B_RestoreWorldDisplayState
+    sep #$20
+    lda.b #$17
+    sta DISPLAY_MODE_LATCH
+    ldx.w #$0001
+    rep #$20
+    txa
+    jsl C0886C_SetDisplayTransitionState
+C3F5F7_RunFileSelectVisualTransition_Return:
+    pld
+    rtl

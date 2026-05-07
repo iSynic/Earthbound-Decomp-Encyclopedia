@@ -1,0 +1,745 @@
+{
+  "schema": "earthbound-decomp.c3-preserved-gap-contracts.v1",
+  "generated_by": "tools/build_c3_preserved_gap_contracts.py",
+  "bank": "C3",
+  "inputs": {
+    "event_script_source_scaffold": "build/c3-event-script-source-scaffold.json",
+    "source_data_map": "build/c3-source-data-map.json",
+    "rom": "EarthBound (USA).sfc"
+  },
+  "summary": {
+    "preserved_groups": 3,
+    "preserved_bytes": 1930,
+    "segments": 41,
+    "status": "closed-by-contract"
+  },
+  "groups": [
+    {
+      "start": "C3:0000",
+      "end": "C3:0295",
+      "name": "C3BankPrefixPalettesSystemScreensAndEarlyScriptData",
+      "status": "closed-preserved-data-and-source-adjacent-prefix",
+      "summary": "C3's bank prefix is not an event/actionscript source-pilot gap. It is a mixed prefix containing file-select sprite palettes, two 65816 system-screen helpers, two event-flag words, a small event-221 prefix island, and the decoded EVENT_221 through EVENT_224 bytecode bundle.",
+      "evidence": [
+        "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:16",
+        "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44452",
+        "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44524",
+        "notes/c4-system-error-screen-render-0b51-0b75.md:55"
+      ],
+      "segments": [
+        {
+          "start": "C3:0000",
+          "end": "C3:0100",
+          "name": "FileSelectScreenSpritePalettes",
+          "classification": "overworld-sprite-palette-data",
+          "source_expectation": "asset/data corridor; keep as palette bytes or generated palette asset",
+          "evidence": [
+            "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:16",
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44452"
+          ],
+          "note": "Eight 0x20-byte file-select sprite palettes at the front of bank C3.",
+          "range": "C3:0000..C3:0100",
+          "size": 256,
+          "sha1": "680d36b590edba679fffa825e8d651bde649fd5a",
+          "first_bytes": "CE 39 DF 7B 37 67 33 4E C0 42 40 3A CA 31 55 7B",
+          "last_bytes": "18 32 A0 43 85 3A EA 31 DE 6B 58 4F 72 32 86 10"
+        },
+        {
+          "start": "C3:0100",
+          "end": "C3:0142",
+          "name": "DisplayAntiPiracyScreen",
+          "classification": "source-helper",
+          "source_expectation": "ordinary 65816 helper; already named, but outside the event/actionscript source-pilot corpus",
+          "evidence": [
+            "notes/c4-system-error-screen-render-0b51-0b75.md:55",
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44459"
+          ],
+          "note": "Loads/decompresses the copyright-protection graphics and tilemap through the C4 screen helpers.",
+          "range": "C3:0100..C3:0142",
+          "size": 66,
+          "sha1": "fea8814832d6715fdd5b388eb592c3d5e097666d",
+          "first_bytes": "C2 31 0B 7B 69 EA FF 5B 22 51 0B C4 A9 0D F2 85",
+          "last_bytes": "12 A9 7F 00 85 14 22 9E 1A C4 22 75 0B C4 2B 6B"
+        },
+        {
+          "start": "C3:0142",
+          "end": "C3:0184",
+          "name": "DisplayFaultyGamePakScreen",
+          "classification": "source-helper",
+          "source_expectation": "ordinary 65816 helper; already named, but outside the event/actionscript source-pilot corpus",
+          "evidence": [
+            "notes/c4-system-error-screen-render-0b51-0b75.md:56",
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44492"
+          ],
+          "note": "Loads/decompresses the incorrect-region/faulty Game Pak screen graphics and tilemap.",
+          "range": "C3:0142..C3:0184",
+          "size": 66,
+          "sha1": "61dd977515fc72cc72895463133880182c125398",
+          "first_bytes": "C2 31 0B 7B 69 EA FF 5B 22 51 0B C4 A9 C4 F5 85",
+          "last_bytes": "12 A9 7F 00 85 14 22 9E 1A C4 22 75 0B C4 2B 6B"
+        },
+        {
+          "start": "C3:0184",
+          "end": "C3:0186",
+          "name": "EventFlagNoContinueSelected",
+          "classification": "event-flag-word",
+          "source_expectation": "two-byte data constant; preserve or emit as a named word",
+          "evidence": [
+            "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:31",
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44524"
+          ],
+          "note": "Reference include is named data/event_flag_nocontinue_selected.asm.",
+          "range": "C3:0184..C3:0186",
+          "size": 2,
+          "sha1": "a4af5a8330d87be2250a7ad91cc51d6d4c7b432c",
+          "first_bytes": "DB 01",
+          "last_bytes": "DB 01"
+        },
+        {
+          "start": "C3:0186",
+          "end": "C3:0188",
+          "name": "NessPajamaFlag",
+          "classification": "event-flag-word",
+          "source_expectation": "two-byte data constant; preserve or emit as a named word",
+          "evidence": [
+            "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:33",
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44527"
+          ],
+          "note": "Reference include is named data/ness_pajama_flag.asm; legacy C0 callers read DATA_C30186.",
+          "range": "C3:0186..C3:0188",
+          "size": 2,
+          "sha1": "8c0efcd4bf4433b8c308c3c5071503a154164b0c",
+          "first_bytes": "ED 02",
+          "last_bytes": "ED 02"
+        },
+        {
+          "start": "C3:0188",
+          "end": "C3:0195",
+          "name": "Event221PreludeData",
+          "classification": "raw-or-named-data",
+          "source_expectation": "13-byte prefix before the EVENT_221 bytecode entry; preserve until exact consumer semantics are pinned",
+          "evidence": [
+            "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:35",
+            "notes/c3-event-222-224-movement-helper-cluster.md"
+          ],
+          "note": "The byte-exact EVENT_221 signature starts at C3:0195, leaving this leading prefix bounded but still semantically cautious.",
+          "range": "C3:0188..C3:0195",
+          "size": 13,
+          "sha1": "6eeb959f1ac54cf3bfbd7b083edee2502dc0b1d8",
+          "first_bytes": "3C 00 44 80 00 41 3C 00 49 3C 00 42 00",
+          "last_bytes": "3C 00 44 80 00 41 3C 00 49 3C 00 42 00"
+        },
+        {
+          "start": "C3:0195",
+          "end": "C3:0295",
+          "name": "Event221To224PaulaMovementScripts",
+          "classification": "event-bytecode-asset",
+          "source_expectation": "event/actionscript bytecode bundle containing EVENT_221 through EVENT_224",
+          "evidence": [
+            "notes/c3-event-222-224-movement-helper-cluster.md",
+            "notes/script-payloads-c3.md"
+          ],
+          "note": "Reference scripts 221-224 byte-match at C3:0195, C3:0235, C3:024A, and C3:0260.",
+          "range": "C3:0195..C3:0295",
+          "size": 256,
+          "sha1": "d81b6b1cd2b5204f23d8eaceecd80c4f133bbda6",
+          "first_bytes": "42 4C A8 C0 0C 00 0B AA A2 42 4C A8 C0 0D 00 0A",
+          "last_bytes": "1D 1A 59 AB 13 42 6E AA C0 06 00 42 46 6E C4 09"
+        }
+      ],
+      "range": "C3:0000..C3:0295",
+      "size": 661,
+      "sha1": "6c4f2dc229b2555a8facdd03c4196205d8f8d8d7",
+      "first_bytes": "CE 39 DF 7B 37 67 33 4E C0 42 40 3A CA 31 55 7B",
+      "last_bytes": "1D 1A 59 AB 13 42 6E AA C0 06 00 42 46 6E C4 09"
+    },
+    {
+      "start": "C3:9FF2",
+      "end": "C3:A07F",
+      "name": "IntroMovementPatternAndAntiPiracyGate",
+      "status": "closed-preserved-movement-pattern-and-decoded-bytecode",
+      "summary": "The mid-C3 preserved source-pilot gap is the documented intro movement-pattern table family plus a decoded intro bytecode tail that calls the C1 checksum/anti-piracy gate and C3:0100 display helper.",
+      "evidence": [
+        "notes/c3-intro-script-frontier-9ff2-a07f.md:90",
+        "notes/script-payloads-c3.md:383",
+        "notes/script-payloads-c3.md:435"
+      ],
+      "segments": [
+        {
+          "start": "C3:9FF2",
+          "end": "C3:A010",
+          "name": "IntroMovementPatternPointerTable",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern pointer table",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:90"
+          ],
+          "note": "Pointer table into the immediately following intro movement-pattern records.",
+          "range": "C3:9FF2..C3:A010",
+          "size": 30,
+          "sha1": "6df2940c1c54296ab265d883cc9f8860bd47195d",
+          "first_bytes": "10 A0 10 A0 10 A0 1B A0 26 A0 26 A0 26 A0 2D A0",
+          "last_bytes": "2D A0 2D A0 26 A0 10 A0 26 A0 26 A0 10 A0 38 A0"
+        },
+        {
+          "start": "C3:A010",
+          "end": "C3:A01B",
+          "name": "IntroMovementPattern09Loop",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern record",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:91"
+          ],
+          "note": "Movement loop record using step value 0x09.",
+          "range": "C3:A010..C3:A01B",
+          "size": 11,
+          "sha1": "28b0421bbcbc34a82d9fb32f50e8a22d524a21c2",
+          "first_bytes": "02 00 01 09 02 01 01 09 03 10 A0",
+          "last_bytes": "02 00 01 09 02 01 01 09 03 10 A0"
+        },
+        {
+          "start": "C3:A01B",
+          "end": "C3:A026",
+          "name": "IntroMovementPattern08Loop",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern record",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:92"
+          ],
+          "note": "Movement loop record using step value 0x08.",
+          "range": "C3:A01B..C3:A026",
+          "size": 11,
+          "sha1": "ac0c73b293f01851708bf9116f4c4e4a3515f6a5",
+          "first_bytes": "02 00 01 08 02 01 01 08 03 1B A0",
+          "last_bytes": "02 00 01 08 02 01 01 08 03 1B A0"
+        },
+        {
+          "start": "C3:A026",
+          "end": "C3:A02D",
+          "name": "IntroMovementPatternFFLoop",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern record",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:93"
+          ],
+          "note": "Movement loop record using step value 0xFF.",
+          "range": "C3:A026..C3:A02D",
+          "size": 7,
+          "sha1": "9f9cc08bbe5b461805afb32ae5ad40c270587f08",
+          "first_bytes": "02 00 01 FF 03 26 A0",
+          "last_bytes": "02 00 01 FF 03 26 A0"
+        },
+        {
+          "start": "C3:A02D",
+          "end": "C3:A038",
+          "name": "IntroMovementPattern08LoopAlt",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern record",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:94"
+          ],
+          "note": "Alternate movement loop record using step value 0x08.",
+          "range": "C3:A02D..C3:A038",
+          "size": 11,
+          "sha1": "92eba5dfc42d1823e232772874c54f54e0e93b2d",
+          "first_bytes": "02 00 01 08 02 01 01 08 03 2D A0",
+          "last_bytes": "02 00 01 08 02 01 01 08 03 2D A0"
+        },
+        {
+          "start": "C3:A038",
+          "end": "C3:A043",
+          "name": "IntroMovementPattern04Loop",
+          "classification": "movement-pattern-data",
+          "source_expectation": "compact movement-pattern record",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:95"
+          ],
+          "note": "Movement loop record using step value 0x04.",
+          "range": "C3:A038..C3:A043",
+          "size": 11,
+          "sha1": "39d6c75f175f17889aee606fbf3a94a84733d183",
+          "first_bytes": "02 00 01 04 02 01 01 04 03 38 A0",
+          "last_bytes": "02 00 01 04 02 01 01 04 03 38 A0"
+        },
+        {
+          "start": "C3:A043",
+          "end": "C3:A04E",
+          "name": "IntroCutsceneCameraPanGate",
+          "classification": "event-bytecode",
+          "source_expectation": "decoded event bytecode; not ordinary 65816 source",
+          "evidence": [
+            "notes/script-payloads-c3.md:435"
+          ],
+          "note": "Calls C1:FFD3, branches into the pan loop, and calls DisplayAntiPiracyScreen if the gate fails.",
+          "range": "C3:A043..C3:A04E",
+          "size": 11,
+          "sha1": "6c19edb72a73618b91ea9ee187cab8da7852cef6",
+          "first_bytes": "42 D3 FF C1 0A 4E A0 42 00 01 C3",
+          "last_bytes": "42 D3 FF C1 0A 4E A0 42 00 01 C3"
+        },
+        {
+          "start": "C3:A04E",
+          "end": "C3:A052",
+          "name": "StartIntroCameraPanTickLoop",
+          "classification": "event-bytecode-label",
+          "source_expectation": "decoded event branch label",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:97"
+          ],
+          "note": "Installs the C0:5200 overworld/player tick callback for the intro pan.",
+          "range": "C3:A04E..C3:A052",
+          "size": 4,
+          "sha1": "7b658c8a4a33bccd9175d8b621fc4871d608790e",
+          "first_bytes": "08 00 52 C0",
+          "last_bytes": "08 00 52 C0"
+        },
+        {
+          "start": "C3:A052",
+          "end": "C3:A05E",
+          "name": "LoopIntroCameraPanWaitAndC2Step",
+          "classification": "event-bytecode-label",
+          "source_expectation": "decoded event branch label",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:98"
+          ],
+          "note": "Wait loop that calls the C2 overworld step helper before jumping back.",
+          "range": "C3:A052..C3:A05E",
+          "size": 12,
+          "sha1": "dd3b273a407a85afcfb19245754a792c78ce20b3",
+          "first_bytes": "01 06 06 C8 02 42 00 00 C2 19 52 A0",
+          "last_bytes": "01 06 06 C8 02 42 00 00 C2 19 52 A0"
+        },
+        {
+          "start": "C3:A05E",
+          "end": "C3:A076",
+          "name": "IntroCutsceneSpriteObjectSetup",
+          "classification": "event-bytecode",
+          "source_expectation": "decoded event bytecode; not ordinary 65816 source",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:99"
+          ],
+          "note": "Initializes the intro sprite/object presentation path.",
+          "range": "C3:A05E..C3:A076",
+          "size": 24,
+          "sha1": "6dbbe413183a2023b9be91c17ff2b73f2335e1cb",
+          "first_bytes": "23 39 A0 25 6B A2 3B 00 42 AA 3D C0 42 F0 4E C0",
+          "last_bytes": "42 AA 3D C0 42 F0 4E C0 42 DA A6 C0 08 78 4D C0"
+        },
+        {
+          "start": "C3:A076",
+          "end": "C3:A07F",
+          "name": "LoopIntroCompanionVisualRefresh",
+          "classification": "event-bytecode-label",
+          "source_expectation": "decoded event branch label",
+          "evidence": [
+            "notes/c3-intro-script-frontier-9ff2-a07f.md:100"
+          ],
+          "note": "Refresh loop before the following C3:A07F HaltEventScript payload.",
+          "range": "C3:A076..C3:A07F",
+          "size": 9,
+          "sha1": "0dc7755f84a51e0c777006c6dfd3169d33585e20",
+          "first_bytes": "42 E3 A6 C0 06 01 19 76 A0",
+          "last_bytes": "42 E3 A6 C0 06 01 19 76 A0"
+        }
+      ],
+      "range": "C3:9FF2..C3:A07F",
+      "size": 141,
+      "sha1": "cb6efe39e4a4553eb026a3c48dfe2142e4aa4a09",
+      "first_bytes": "10 A0 10 A0 10 A0 1B A0 26 A0 26 A0 26 A0 2D A0",
+      "last_bytes": "DA A6 C0 08 78 4D C0 42 E3 A6 C0 06 01 19 76 A0"
+    },
+    {
+      "start": "C3:DFE8",
+      "end": "C3:E450",
+      "name": "MapInteractionMovementAndMenuDataTables",
+      "status": "closed-preserved-data-table-corridor",
+      "summary": "The late C3 preserved source-pilot gap is a packed data corridor: interaction/pathfinding tables, map movement direction tables, menu/title cursor tile words, and a four-byte prelude before the C3:E450 window helper.",
+      "evidence": [
+        "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1997",
+        "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45055",
+        "notes/input-direction-and-interaction-probes-c0402b-c04116.md:25",
+        "notes/c3-map-movement-parameter-table-e1d8-e240.md:37",
+        "notes/c3-menu-cursor-tile-data-e3f8-e450.md:25"
+      ],
+      "segments": [
+        {
+          "start": "C3:DFE8",
+          "end": "C3:DFF0",
+          "name": "PathfindingTileContextGateTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract PATHFINDING_TILE_CONTEXT_GATE_TABLE",
+          "evidence": [
+            "notes/c3-late-interaction-table-contracts.md"
+          ],
+          "note": "C0:C0B4 and C0:C19B mask the current tile context to 0..7, index these gate bytes, and abort the path consumer if the selected byte is zero.",
+          "range": "C3:DFE8..C3:DFF0",
+          "size": 8,
+          "sha1": "f71dfd56b84fd7994f67d60122445bbf67c33f7a",
+          "first_bytes": "01 01 01 00 01 01 00 00",
+          "last_bytes": "01 01 01 00 01 01 00 00"
+        },
+        {
+          "start": "C3:DFF0",
+          "end": "C3:E012",
+          "name": "PathfindingContextGatePrefixTail",
+          "classification": "raw-or-named-data",
+          "source_expectation": "table data; keep raw until the exact downstream pathfinding-context indexing is named",
+          "evidence": [
+            "notes/pathfinding-consumers-direction-helpers-c0bd96-c0c7db.md:68",
+            "notes/c3-late-interaction-table-contracts.md"
+          ],
+          "note": "The first eight gate bytes are promoted; this tail remains part of the larger pathfinding-context table family.",
+          "range": "C3:DFF0..C3:E012",
+          "size": 34,
+          "sha1": "2e2a68b3149580e18d4c313b132c13ec88ae4031",
+          "first_bytes": "01 00 02 00 03 00 04 00 05 00 06 00 07 00 08 00",
+          "last_bytes": "0A 00 0B 00 0C 00 0D 00 0E 00 0F 00 10 00 11 00"
+        },
+        {
+          "start": "C3:E012",
+          "end": "C3:E09A",
+          "name": "PathfindingContextGateTable",
+          "classification": "raw-or-named-data",
+          "source_expectation": "table data; preserve legacy sublabel until record semantics are exact",
+          "evidence": [
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45055"
+          ],
+          "note": "Legacy disassembly sublabels this word-pair corridor as DATA_C3E012.",
+          "range": "C3:E012..C3:E09A",
+          "size": 136,
+          "sha1": "bf14a0780f5bcf96f96f5e8999802c9ad73c06c5",
+          "first_bytes": "01 00 1B 00 02 00 18 00 02 00 1C 00 02 00 19 00",
+          "last_bytes": "33 00 23 00 02 00 1C 00 33 00 23 00 02 00 1C 00"
+        },
+        {
+          "start": "C3:E09A",
+          "end": "C3:E0BC",
+          "name": "PathfindingContextGatePaddingOrTail",
+          "classification": "raw-or-named-data",
+          "source_expectation": "table tail/padding; preserve until consumer indexing distinguishes it",
+          "evidence": [
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45076"
+          ],
+          "note": "Legacy marks C3:E09A as a distinct data anchor without payload comments.",
+          "range": "C3:E09A..C3:E0BC",
+          "size": 34,
+          "sha1": "02ae4fbbbf2291c5bb7ce1718a7500a71b7fb434",
+          "first_bytes": "00 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00",
+          "last_bytes": "0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+        },
+        {
+          "start": "C3:E0BC",
+          "end": "C3:E0F4",
+          "name": "PathfindingContextGateWordTableA",
+          "classification": "raw-or-named-data",
+          "source_expectation": "word table; preserve until the C0 consumer field names are promoted",
+          "evidence": [
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45082"
+          ],
+          "note": "Legacy sublabel DATA_C3E0BC; values are repeated 32-bit-looking word pairs.",
+          "range": "C3:E0BC..C3:E0F4",
+          "size": 56,
+          "sha1": "80f44ca9ad64f7717337c5eb273f34f4333dc088",
+          "first_bytes": "00 60 01 00 00 60 01 00 00 60 01 00 CC CC 01 00",
+          "last_bytes": "00 80 00 00 00 00 00 00 CC CC 00 00 CC CC 00 00"
+        },
+        {
+          "start": "C3:E0F4",
+          "end": "C3:E12C",
+          "name": "PathfindingContextGateWordTableB",
+          "classification": "raw-or-named-data",
+          "source_expectation": "word table; preserve until the C0 consumer field names are promoted",
+          "evidence": [
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45091"
+          ],
+          "note": "Legacy sublabel DATA_C3E0F4; same source-data-map include as C3:DFE8.",
+          "range": "C3:E0F4..C3:E12C",
+          "size": 56,
+          "sha1": "e5e9838b094c3ba4749ae68869e2c64ba2d47f30",
+          "first_bytes": "E6 F8 00 00 E6 F8 00 00 E6 F8 00 00 D5 45 01 00",
+          "last_bytes": "82 5A 00 00 00 00 00 00 D0 90 00 00 D0 90 00 00"
+        },
+        {
+          "start": "C3:E12C",
+          "end": "C3:E148",
+          "name": "InputDirectionPermissionMaskTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract INPUT_DIRECTION_PERMISSION_MASK_TABLE",
+          "evidence": [
+            "notes/input-direction-and-interaction-probes-c0402b-c04116.md:25"
+          ],
+          "note": "C0:404F maps active input nibbles through this permission-mask table.",
+          "range": "C3:E12C..C3:E148",
+          "size": 28,
+          "sha1": "436090b50654b8d414e40d24caf45f14b5aa8131",
+          "first_bytes": "FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 11 00",
+          "last_bytes": "FF 00 11 00 11 00 FF 00 FF 00 FF 00 00 00 FF 00"
+        },
+        {
+          "start": "C3:E148",
+          "end": "C3:E158",
+          "name": "InteractionProbeDirectionXOffsetTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract INTERACTION_PROBE_DIRECTION_X_OFFSETS",
+          "evidence": [
+            "notes/input-direction-and-interaction-probes-c0402b-c04116.md:26"
+          ],
+          "note": "Signed X offsets for one facing-direction interaction probe.",
+          "range": "C3:E148..C3:E158",
+          "size": 16,
+          "sha1": "aa56f62b68734e89bec1e6beb4f2b7194faea347",
+          "first_bytes": "00 00 00 00 0A 00 00 00 00 00 00 00 F6 FF 00 00",
+          "last_bytes": "00 00 00 00 0A 00 00 00 00 00 00 00 F6 FF 00 00"
+        },
+        {
+          "start": "C3:E158",
+          "end": "C3:E168",
+          "name": "InteractionProbeDirectionYOffsetTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract INTERACTION_PROBE_DIRECTION_Y_OFFSETS",
+          "evidence": [
+            "notes/input-direction-and-interaction-probes-c0402b-c04116.md:27"
+          ],
+          "note": "Signed Y offsets for one facing-direction interaction probe.",
+          "range": "C3:E158..C3:E168",
+          "size": 16,
+          "sha1": "47ef9f1546f615c7d169b979d1efec3f8da1b033",
+          "first_bytes": "FB FF FB FF 00 00 05 00 05 00 05 00 00 00 FB FF",
+          "last_bytes": "FB FF FB FF 00 00 05 00 05 00 05 00 00 00 FB FF"
+        },
+        {
+          "start": "C3:E168",
+          "end": "C3:E178",
+          "name": "InteractionResultFacingRemapTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract INTERACTION_RESULT_FACING_REMAP_TABLE",
+          "evidence": [
+            "notes/c3-late-interaction-table-contracts.md"
+          ],
+          "note": "C0:42C2 maps the player-facing value through these eight words and stores the result to $2AF6[target].",
+          "range": "C3:E168..C3:E178",
+          "size": 16,
+          "sha1": "1c11ce3e6f1c6f7ee23deebcaae71de4375b9f66",
+          "first_bytes": "04 00 04 00 06 00 00 00 00 00 00 00 02 00 04 00",
+          "last_bytes": "04 00 04 00 06 00 00 00 00 00 00 00 02 00 04 00"
+        },
+        {
+          "start": "C3:E178",
+          "end": "C3:E1D8",
+          "name": "InteractionFacingRemapAndResultTables",
+          "classification": "raw-or-named-data",
+          "source_expectation": "table data; consumer notes exist, but final field names remain cautious",
+          "evidence": [
+            "notes/interaction-result-classes.md:18",
+            "notes/interaction-result-consumers.md:106",
+            "notes/c3-late-interaction-table-contracts.md"
+          ],
+          "note": "The first eight class-1 remap words are promoted; this adjacent table tail remains cautious.",
+          "range": "C3:E178..C3:E1D8",
+          "size": 96,
+          "sha1": "77e81379cc8376f96689b25cd885a24e4a249879",
+          "first_bytes": "00 00 00 04 00 08 00 0C 00 02 00 06 00 0A 00 0E",
+          "last_bytes": "00 02 00 0A 00 06 00 0E 00 03 00 0B 00 07 00 0F"
+        },
+        {
+          "start": "C3:E1D8",
+          "end": "C3:E1E0",
+          "name": "MapEntityPlacementDirectionParamTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract MAP_ENTITY_PLACEMENT_DIRECTION_PARAM_TABLE",
+          "evidence": [
+            "notes/c3-map-movement-parameter-table-e1d8-e240.md:37"
+          ],
+          "note": "C0 entity placement/update path reads direction-like parameter words from this prefix.",
+          "range": "C3:E1D8..C3:E1E0",
+          "size": 8,
+          "sha1": "cb8509fab72283ba550cdd5208c3a152a7ac8dcc",
+          "first_bytes": "04 00 00 00 02 00 06 00",
+          "last_bytes": "04 00 00 00 02 00 06 00"
+        },
+        {
+          "start": "C3:E1E0",
+          "end": "C3:E200",
+          "name": "MapEntityPlacementDirectionParamTable_Page1",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract MAP_ENTITY_PLACEMENT_DIRECTION_PARAM_TABLE_PAGE1",
+          "evidence": [
+            "notes/c3-map-movement-parameter-table-e1d8-e240.md:45"
+          ],
+          "note": "Second page of C0 entity placement/update direction-like parameter words.",
+          "range": "C3:E1E0..C3:E200",
+          "size": 32,
+          "sha1": "70d872cb20d02b3e62be1d6643f195869980ef6b",
+          "first_bytes": "00 00 00 00 04 00 00 00 00 00 00 00 FC FF 00 00",
+          "last_bytes": "FC FF 00 00 00 00 00 00 04 00 00 00 00 00 00 00"
+        },
+        {
+          "start": "C3:E200",
+          "end": "C3:E230",
+          "name": "StagedMovementDirectionAndSubtileOffsetTables",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contracts for staged movement direction/subtile offsets",
+          "evidence": [
+            "notes/c3-map-movement-parameter-table-e1d8-e240.md:49"
+          ],
+          "note": "Primary/alternate direction parameter and 8-pixel subtile offset sets.",
+          "range": "C3:E200..C3:E230",
+          "size": 48,
+          "sha1": "ff28b78a7439480f41920b8d6c0f6df0ce801298",
+          "first_bytes": "07 00 01 00 05 00 03 00 02 00 06 00 02 00 06 00",
+          "last_bytes": "08 00 00 00 08 00 00 00 08 00 08 00 00 00 00 00"
+        },
+        {
+          "start": "C3:E230",
+          "end": "C3:E250",
+          "name": "DoorCandidateDirectionOffsetTables",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contracts DOOR_CANDIDATE_DIRECTION_OFFSET_X/Y",
+          "evidence": [
+            "notes/c3-map-movement-parameter-table-e1d8-e240.md:52",
+            "notes/c3-late-interaction-table-contracts.md"
+          ],
+          "note": "Coarse-cell X/Y direction offset tables for C4:334A door candidate probing.",
+          "range": "C3:E230..C3:E250",
+          "size": 32,
+          "sha1": "f7051eb36c33656cf03bd523d76e72e72e632b57",
+          "first_bytes": "00 00 01 00 01 00 01 00 00 00 FF FF FF FF FF FF",
+          "last_bytes": "FF FF FF FF 00 00 01 00 01 00 01 00 00 00 FF FF"
+        },
+        {
+          "start": "C3:E250",
+          "end": "C3:E3F8",
+          "name": "FileSelectOrNameEntryCharacterSpriteData",
+          "classification": "raw-or-named-data",
+          "source_expectation": "sprite/OAM-like data; preserve until exact UI consumer is pinned",
+          "evidence": [
+            "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45136"
+          ],
+          "note": "Legacy comment says this block is related to file select; later comments connect nearby data to name-entry character sprites.",
+          "range": "C3:E250..C3:E3F8",
+          "size": 424,
+          "sha1": "032d5b62f5dc5f614e2889dd6580dab27e1ae10d",
+          "first_bytes": "01 00 01 00 0D 00 08 00 0C 00 01 00 13 00 08 00",
+          "last_bytes": "16 00 08 00 09 00 04 00 07 00 09 00 12 00 12 00"
+        },
+        {
+          "start": "C3:E3F8",
+          "end": "C3:E406",
+          "name": "MenuCursorTilePrefixTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract MENU_CURSOR_TILE_PREFIX_TABLE",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:25"
+          ],
+          "note": "Seven tile/attribute words adjacent to the animated menu cursor tables.",
+          "range": "C3:E3F8..C3:E406",
+          "size": 14,
+          "sha1": "5ac9997a716d3f5217d44ae4df8420f97e38f7c5",
+          "first_bytes": "08 09 18 19 0A 09 1A 19 15 24 16 24 15 64",
+          "last_bytes": "08 09 18 19 0A 09 1A 19 15 24 16 24 15 64"
+        },
+        {
+          "start": "C3:E406",
+          "end": "C3:E40E",
+          "name": "AnimatedMenuCursorPointRightTiles",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract ANIMATED_MENU_CURSOR_POINT_RIGHT_TILES",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:35"
+          ],
+          "note": "Legacy right-pointing animated menu cursor tile run.",
+          "range": "C3:E406..C3:E40E",
+          "size": 8,
+          "sha1": "d19b7847ce32212f525598ba1e641bcb97c2a685",
+          "first_bytes": "41 24 8D 26 51 24 9D 26",
+          "last_bytes": "41 24 8D 26 51 24 9D 26"
+        },
+        {
+          "start": "C3:E40E",
+          "end": "C3:E416",
+          "name": "TitleNameBufferCursorTileRun",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract TITLE_NAME_BUFFER_CURSOR_TILE_RUN",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:38"
+          ],
+          "note": "Four title/name buffer cursor tile words copied by the C2 title/name buffer helper.",
+          "range": "C3:E40E..C3:E416",
+          "size": 8,
+          "sha1": "144fe62789ed263b06f6d0b416fd0a97c1e45366",
+          "first_bytes": "69 3A 6A 3A 6B 3A 6C 3A",
+          "last_bytes": "69 3A 6A 3A 6B 3A 6C 3A"
+        },
+        {
+          "start": "C3:E416",
+          "end": "C3:E41C",
+          "name": "BlinkingTriangleBaseTiles",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract BLINKING_TRIANGLE_BASE_TILES",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:42"
+          ],
+          "note": "Three base/down-cursor tile words before the blinking triangle wait frames.",
+          "range": "C3:E416..C3:E41C",
+          "size": 6,
+          "sha1": "10f8b632096a7bf07d91487dd0e4e9d4847e3a55",
+          "first_bytes": "14 3C 15 3C 11 BC",
+          "last_bytes": "14 3C 15 3C 11 BC"
+        },
+        {
+          "start": "C3:E41C",
+          "end": "C3:E43C",
+          "name": "BlinkingTriangleWaitFrameTiles",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract BLINKING_TRIANGLE_WAIT_FRAME_TILES",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:42"
+          ],
+          "note": "Four blinking/down-cursor tile frames.",
+          "range": "C3:E41C..C3:E43C",
+          "size": 32,
+          "sha1": "590d62706d7351569e5da09694cf4e16623d8fdd",
+          "first_bytes": "16 3C 6D 2E 6E 2E 16 7C 16 3C 7D 2E 7E 2E 16 7C",
+          "last_bytes": "16 3C 6D 2E 40 2C 16 7C 16 3C 40 2C 6E 2E 16 7C"
+        },
+        {
+          "start": "C3:E43C",
+          "end": "C3:E44C",
+          "name": "BlinkingTriangleWaitFramePointerTable",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract BLINKING_TRIANGLE_WAIT_FRAME_POINTER_TABLE",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:42"
+          ],
+          "note": "Long pointer table selecting the four blinking triangle wait frames.",
+          "range": "C3:E43C..C3:E44C",
+          "size": 16,
+          "sha1": "dd96e6babe9fe08239399b5b3e5c610853d4f42f",
+          "first_bytes": "1C E4 C3 00 24 E4 C3 00 2C E4 C3 00 34 E4 C3 00",
+          "last_bytes": "1C E4 C3 00 24 E4 C3 00 2C E4 C3 00 34 E4 C3 00"
+        },
+        {
+          "start": "C3:E44C",
+          "end": "C3:E450",
+          "name": "WindowTickTransferPreludeData",
+          "classification": "contract-backed-data",
+          "source_expectation": "rom-table contract WINDOW_TICK_TRANSFER_PRELUDE_WORDS",
+          "evidence": [
+            "notes/c3-menu-cursor-tile-data-e3f8-e450.md:51"
+          ],
+          "note": "Decoding as code is implausible; the true routine starts at C3:E450.",
+          "range": "C3:E44C..C3:E450",
+          "size": 4,
+          "sha1": "b62680165ca8d485f7feb588b9f91eea00925a29",
+          "first_bytes": "A4 A8 66 00",
+          "last_bytes": "A4 A8 66 00"
+        }
+      ],
+      "range": "C3:DFE8..C3:E450",
+      "size": 1128,
+      "sha1": "d4cdd297cde1819306be68c41ebb612f790aef1e",
+      "first_bytes": "01 01 01 00 01 01 00 00 01 00 02 00 03 00 04 00",
+      "last_bytes": "24 E4 C3 00 2C E4 C3 00 34 E4 C3 00 A4 A8 66 00"
+    }
+  ]
+}

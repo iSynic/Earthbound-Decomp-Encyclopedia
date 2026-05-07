@@ -1,0 +1,295 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D8 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d8-asset-data-map.md",
+    "notes/d8-table-splits.md",
+    "notes/d8-collision-subrecord-contracts.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank18.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 6,
+    "binary_assets_by_extension": {
+      "arr": 2,
+      "gfx": 2,
+      "pal": 1,
+      "ebm": 1
+    },
+    "binary_asset_bytes": 3979,
+    "table_includes": 21,
+    "table_bytes": 61534,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 23,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 8,
+    "output_recipe_count": 16,
+    "typed_output_kind_count": 5,
+    "decoder_output_recipe_count": 8,
+    "renderer_output_recipe_count": 3,
+    "preview_png_recipe_count": 3,
+    "output_kind_counts": {
+      "earthbound_lzhal": 4,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 2,
+      "raw": 8,
+      "snes_palette_json": 1,
+      "snes_palette_swatch_png": 1
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 4,
+      "earthbound_lzhal+snes_4bpp_tiles": 2,
+      "snes_palette": 2
+    },
+    "renderer_counts": {
+      "grayscale_tile_sheet": 2,
+      "palette_swatch": 1
+    },
+    "smoke_fixture_count": 7,
+    "smoke_fixture_asset_ids": [
+      "asset.d8.anti_piracy_notice_graphics",
+      "asset.d8.warning_palette"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 2,
+      "family_renderer": 2,
+      "family_renderer_geometry": 2
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal_snes_4bpp_tiles_png": 4,
+      "snes_palette_json": 1,
+      "snes_palette_swatch_png": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.d8.anti_piracy_notice_arrangement",
+      "title": "ANTI_PIRACY_NOTICE_ARRANGEMENT",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F05E..D8:F20D",
+        "bytes": 431,
+        "sha1": "505c8cc8270ec9b6a5b13970e88af646d1658c5f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/errors/antipiracy.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d8/errors/antipiracy.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: errors/antipiracy.arr.lzhal",
+        "Original file offset: 0x18F05E",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d8.anti_piracy_notice_graphics",
+      "title": "ANTI_PIRACY_NOTICE_GRAPHICS",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F20D..D8:F3BE",
+        "bytes": 433,
+        "sha1": "c1134a3447d6609c0421be2303ca6c7becb76ea6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/errors/antipiracy.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d8/errors/antipiracy.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "d8/errors/antipiracy_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: errors/antipiracy.gfx.lzhal",
+        "Original file offset: 0x18F20D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d8.warning_palette",
+      "title": "WARNING_PALETTE",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F3BE..D8:F3C6",
+        "bytes": 8,
+        "sha1": "d26fd507deca9839e8071e7c548608e370cdb345"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/errors/shared.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "d8/errors/shared_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "d8/errors/shared_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: errors/shared.pal",
+        "Original file offset: 0x18F3BE"
+      ]
+    },
+    {
+      "id": "asset.d8.faulty_game_pak_arrangement",
+      "title": "FAULTY_GAME_PAK_ARRANGEMENT",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F3C6..D8:F5C4",
+        "bytes": 510,
+        "sha1": "d333c748c40370eabd1fd8f1cd92b5877d74c551"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/errors/faulty.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d8/errors/faulty.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: errors/faulty.arr.lzhal",
+        "Original file offset: 0x18F3C6",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d8.faulty_game_pak_graphics",
+      "title": "FAULTY_GAME_PAK_GRAPHICS",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F5C4..D8:F6B7",
+        "bytes": 243,
+        "sha1": "35ea864e697ed9c0dc40d2c054e20ef809cf1c45"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/errors/faulty.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d8/errors/faulty.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "d8/errors/faulty_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: errors/faulty.gfx.lzhal",
+        "Original file offset: 0x18F5C4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.d8.audio_pack_61",
+      "title": "AUDIO_PACK_61",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:F6B7..D8:FFE9",
+        "bytes": 2354,
+        "sha1": "fec658e9671e7ddc04637974130236ce8c3fcbeb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/audiopacks/61.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/61.ebm",
+        "Original file offset: 0x18F6B7"
+      ]
+    },
+    {
+      "id": "table.d8.000_data_map_tile_collision_data_asm",
+      "title": "data/map/tile_collision_data.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:0000..D8:F05E",
+        "bytes": 61534,
+        "sha1": "432b255c983f2812347d2222d4216e6be8855399"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/tables/000_data_map_tile_collision_data_asm.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/tile_collision_data.asm",
+        "Original file offset: 0x180000",
+        "Size was inferred from the next known binary asset boundary.",
+        "Semantic split: MAP_TILE_COLLISION_DATA (2293 16-byte surface_collision_flags records) plus MAP_DATA_TILE_COLLISION_POINTERS_0..19 (12423 word offsets).",
+        "See notes/d8-collision-subrecord-contracts.md for source-emission rows, value counts, pointer handling, and runtime-backed bit-family summaries."
+      ]
+    },
+    {
+      "id": "gap.d8.d8_ffe9",
+      "title": "Bank D8 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "D8:FFE9..D8:10000",
+        "bytes": 23,
+        "sha1": "b92291c98ccdff52da0ca035f2086e45f64985b9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d8/gaps/01_d8_ffe9.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x18FFE9..0x18FFFF"
+      ]
+    }
+  ]
+}

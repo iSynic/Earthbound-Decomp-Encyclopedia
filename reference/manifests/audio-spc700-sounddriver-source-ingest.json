@@ -1,0 +1,74 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-sounddriver-source-ingest.v1",
+  "provenance": {
+    "source_archive": "C:/Users/Eric/Downloads/sounddriver.zip",
+    "archive_sha256": "1BB195F9C2C4BB5B9440B28C5110209F48826B6AE07955848964F02BC50742F2",
+    "import_date": "2026-04-30"
+  },
+  "extracted_root": "refs/earthbound-sounddriver-byte-perfect",
+  "files": [
+    {
+      "path": "refs/earthbound-sounddriver-byte-perfect/main.asm",
+      "size": 150086,
+      "sha256": "5C8C6C30E80F35B355DFFE86AEB920DF8A645A2806C4509CB2908FB20F63AEEE",
+      "role": "main_driver_disassembly"
+    },
+    {
+      "path": "refs/earthbound-sounddriver-byte-perfect/ram.asm",
+      "size": 2992,
+      "sha256": "21F396FA687509752BEBE8B27AF5078CDADCE20088AB818B3AD2A920CC68849F",
+      "role": "spc700_ram_layout"
+    },
+    {
+      "path": "refs/earthbound-sounddriver-byte-perfect/macros.asm",
+      "size": 1836,
+      "sha256": "BBF6E597ADE44B785941483CE7B23C03B96DA8C1B7170A7B5A7F01914F75BA5E",
+      "role": "assembler_macros_and_constants"
+    },
+    {
+      "path": "refs/earthbound-sounddriver-byte-perfect/sfx_sequences.asm",
+      "size": 77332,
+      "sha256": "188B5CF01DE8FA664D7706DF9860B789213F8CD018144D158E03B3EB36547F70",
+      "role": "sound_effect_sequence_data"
+    }
+  ],
+  "source_navigation": {
+    "main_path": "refs/earthbound-sounddriver-byte-perfect/main.asm",
+    "ram_path": "refs/earthbound-sounddriver-byte-perfect/ram.asm",
+    "vcmd_table": "0x0BE3",
+    "vcmd_arg_length_table": "0x0C21",
+    "get_next_byte": "0x0955",
+    "skip_byte": "0x0957",
+    "vcmd_command_range": "0xE0..0xFE",
+    "vcmd_entry_count": 31,
+    "ram_alias_count": 63
+  },
+  "source_backed_facts": [
+    {
+      "topic": "driver_base",
+      "value": "main.asm declares base $0500 and presents a byte-accurate engine.bin build path through asar"
+    },
+    {
+      "topic": "control_reader_labels",
+      "value": "0x0955 is GetNextByte and 0x0957 is SkipByte"
+    },
+    {
+      "topic": "vcmd_dispatch",
+      "value": "VCMD_Jump_Table starts at 0x0BE3 and names handlers for 0xE0..0xFE"
+    },
+    {
+      "topic": "vcmd_arg_lengths",
+      "value": "VCMD_Arg_Length starts at 0x0C21 and defines argument lengths for 0xE0..0xFE"
+    },
+    {
+      "topic": "refuted_static_guess",
+      "value": "0x16C7 is an SFX pointer table, not the music high-command dispatch table"
+    }
+  ],
+  "related_notes": [
+    "notes/audio-spc700-control-reader-frontier.md",
+    "notes/audio-spc700-driver-dispatch-frontier.md",
+    "notes/audio-sequence-command-semantics.md",
+    "notes/audio-sequence-control-flow-frontier.md"
+  ]
+}

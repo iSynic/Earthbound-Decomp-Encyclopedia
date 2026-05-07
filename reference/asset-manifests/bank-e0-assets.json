@@ -1,0 +1,512 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank E0 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-e0-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank20.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 14,
+    "binary_assets_by_extension": {
+      "gfx": 4,
+      "bin": 8,
+      "ebm": 2
+    },
+    "binary_asset_bytes": 64964,
+    "table_includes": 4,
+    "table_bytes": 495,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 77,
+    "missing_payload_metadata": 1
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 16,
+    "output_recipe_count": 30,
+    "typed_output_kind_count": 7,
+    "decoder_output_recipe_count": 14,
+    "renderer_output_recipe_count": 3,
+    "preview_png_recipe_count": 3,
+    "output_kind_counts": {
+      "earthbound_lzhal": 9,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 1,
+      "font_metric_widths_json": 1,
+      "raw": 16,
+      "snes_2bpp_tiles_png": 1,
+      "snes_4bpp_tiles_png": 1,
+      "text_window_properties_table_json": 1
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 9,
+      "earthbound_lzhal+snes_4bpp_tiles": 1,
+      "font_metric_widths": 1,
+      "snes_2bpp_tiles": 1,
+      "snes_4bpp_tiles": 1,
+      "text_window_properties_table": 1
+    },
+    "renderer_counts": {
+      "grayscale_tile_sheet": 3
+    },
+    "smoke_fixture_count": 14,
+    "smoke_fixture_asset_ids": [
+      "asset.e0.compressed_sram",
+      "asset.e0.mother2_romaji_font",
+      "asset.e0.mrsaturn_font_data",
+      "asset.e0.mrsaturn_font_gfx",
+      "asset.e0.text_window_gfx",
+      "table.e0.006_data_text_window_properties_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 6,
+      "family_renderer": 1,
+      "family_renderer_geometry": 2,
+      "recipe_kind": 3,
+      "recipe_option": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal": 1,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 2,
+      "font_metric_widths_json": 2,
+      "snes_2bpp_tiles_png": 6,
+      "snes_4bpp_tiles_png": 1,
+      "text_window_properties_table_json": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.e0.text_window_gfx",
+      "title": "TEXT_WINDOW_GFX",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:0000..E0:0754",
+        "bytes": 1876,
+        "sha1": "f86cf38637a73b38b39929e06f389521696a1364"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/graphics/text_window.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/graphics/text_window.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "e0/graphics/text_window_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/text_window.gfx.lzhal",
+        "Original file offset: 0x200000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.flavoured_text_gfx",
+      "title": "FLAVOURED_TEXT_GFX",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:0754..E0:07A0",
+        "bytes": 76,
+        "sha1": "d3028adb1b1111b0d5c70585f7d156a4ef854b94"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/graphics/flavoured_text.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/graphics/flavoured_text.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/flavoured_text.gfx.lzhal",
+        "Original file offset: 0x200754",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:07A0..E0:09B4",
+        "bytes": 532,
+        "sha1": "8cab1a236be6bd4a44b2ef45b2f34b6c46e1762b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/fonts/romaji.gfx"
+        },
+        {
+          "kind": "snes_2bpp_tiles_png",
+          "path": "e0/fonts/romaji_2bpp_preview.png",
+          "columns": 11,
+          "trim_trailing_bytes": 4
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: fonts/romaji.gfx",
+        "Original file offset: 0x2007A0",
+        "528 bytes after the 4-byte trailer decode as 33 SNES 2bpp-compatible 8x8 glyph records."
+      ]
+    },
+    {
+      "id": "asset.e0.compressed_sram",
+      "title": "COMPRESSED_SRAM",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:09B4..E0:1359",
+        "bytes": 2469,
+        "sha1": "f299c53926f4dde193574274bca00e246bf48dce"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/mystery_sram.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/mystery_sram.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: mystery_sram.bin.lzhal",
+        "Original file offset: 0x2009B4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension.",
+        "Span was inferred from the next known asset because yml metadata was missing.",
+        "Source-emission policy is tracked in notes/ui-font-town-map-asset-contracts.md and notes/sram-template-contracts.md as an eight-block SRAM save template with blocks 6/7 preserved as reserve records."
+      ]
+    },
+    {
+      "id": "asset.e0.mrsaturn_font_data",
+      "title": "MRSATURN_FONT_DATA",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:1359..E0:13B9",
+        "bytes": 96,
+        "sha1": "9dcdb1e85f8113b44d01717367d36b028091acd1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/fonts/mrsaturn.bin"
+        },
+        {
+          "kind": "font_metric_widths_json",
+          "path": "e0/fonts/mrsaturn_widths.json",
+          "font_id": 1,
+          "entry_count": 96,
+          "first_character_code": 80
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: fonts/mrsaturn.bin",
+        "Original file offset: 0x201359",
+        "Decoded as the first 96 one-byte font metric widths used by the text/window glyph measurement path; font id matches tools/build_font_bundle_contracts.py CORE_FONTS ref_width_id."
+      ]
+    },
+    {
+      "id": "asset.e0.mrsaturn_font_gfx",
+      "title": "MRSATURN_FONT_GFX",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:13B9..E0:1FB9",
+        "bytes": 3072,
+        "sha1": "e8c84354970e02afb08db511261918bd0b3829c3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/fonts/mrsaturn.gfx"
+        },
+        {
+          "kind": "snes_4bpp_tiles_png",
+          "path": "e0/fonts/mrsaturn_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: fonts/mrsaturn.gfx",
+        "Original file offset: 0x2013B9"
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_onett",
+      "title": "TOWN_MAP_ONETT",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:21A8..E0:4920",
+        "bytes": 10104,
+        "sha1": "6029152fc6edc70fda98155f8e3734d493b063cb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/0.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/0.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/0.bin.lzhal",
+        "Original file offset: 0x2021A8",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_twoson",
+      "title": "TOWN_MAP_TWOSON",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:4920..E0:6721",
+        "bytes": 7681,
+        "sha1": "56326d834b86218dff703ed6182fd7cba8a3a015"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/1.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/1.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/1.bin.lzhal",
+        "Original file offset: 0x204920",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_threed",
+      "title": "TOWN_MAP_THREED",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:6721..E0:8379",
+        "bytes": 7256,
+        "sha1": "6062db302d52fe851ead3a7cd2323da50ae8b5ab"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/2.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/2.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/2.bin.lzhal",
+        "Original file offset: 0x206721",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_fourside",
+      "title": "TOWN_MAP_FOURSIDE",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:8379..E0:ADB4",
+        "bytes": 10811,
+        "sha1": "b0fb80bb899b760924b283bab7a074f235940840"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/3.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/3.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/3.bin.lzhal",
+        "Original file offset: 0x208379",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_scaraba",
+      "title": "TOWN_MAP_SCARABA",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:ADB4..E0:C7F1",
+        "bytes": 6717,
+        "sha1": "72e7c29906134b7829c9c36625fe2b230a05770e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/4.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/4.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/4.bin.lzhal",
+        "Original file offset: 0x20ADB4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.town_map_summers",
+      "title": "TOWN_MAP_SUMMERS",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:C7F1..E0:ED03",
+        "bytes": 9490,
+        "sha1": "f295511ec28d62ed670d8d2b4ea4106e85970b92"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/town_maps/5.bin.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "e0/town_maps/5.bin"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: town_maps/5.bin.lzhal",
+        "Original file offset: 0x20C7F1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.e0.audio_pack_110",
+      "title": "AUDIO_PACK_110",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:ED03..E0:FCE1",
+        "bytes": 4062,
+        "sha1": "bb2842a87afb341dd46d05649413f2f8a12cb725"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/audiopacks/110.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/110.ebm",
+        "Original file offset: 0x20ED03"
+      ]
+    },
+    {
+      "id": "asset.e0.audio_pack_6",
+      "title": "AUDIO_PACK_6",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:FCE1..E0:FFB3",
+        "bytes": 722,
+        "sha1": "476368a2a121f94b69a9baa2e3ec52a1fa834bd1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/audiopacks/6.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/6.ebm",
+        "Original file offset: 0x20FCE1"
+      ]
+    },
+    {
+      "id": "table.e0.006_data_text_window_properties_asm",
+      "title": "data/text_window_properties.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:1FB9..E0:21A8",
+        "bytes": 495,
+        "sha1": "41b830b1870d5a4351fe5787af1e07ef862b4a50"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/tables/006_data_text_window_properties_asm.bin"
+        },
+        {
+          "kind": "text_window_properties_table_json",
+          "path": "e0/tables/006_data_text_window_properties_asm_decoded.json",
+          "selector_count": 5,
+          "palette_block_count": 7,
+          "town_map_pointer_count": 6
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/text_window_properties.asm",
+        "Original file offset: 0x201FB9",
+        "Size was inferred from the next known binary asset boundary.",
+        "Source-emission split is tracked in notes/ui-font-town-map-asset-contracts.md as text-window selector/palette rows plus the town-map graphics pointer table.",
+        "Decoded as the combined text-window flavor selector, palette-block, movement-text palette, and town-map graphics pointer table."
+      ]
+    },
+    {
+      "id": "gap.e0.e0_ffb3",
+      "title": "Bank E0 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "E0:FFB3..E0:10000",
+        "bytes": 77,
+        "sha1": "9898d25a214dba04ebd7e3030ac9e2e90ea7a369"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "e0/gaps/01_e0_ffb3.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x20FFB3..0x20FFFF"
+      ]
+    }
+  ]
+}

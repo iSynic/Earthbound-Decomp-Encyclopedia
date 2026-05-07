@@ -10,7 +10,9 @@ const cliArgs = process.argv.slice(2);
 const buildMode = resolveBuildMode();
 const sourceRoot = resolveSourceRoot();
 const repoRoot = sourceRoot;
-const catalogSourceRoot = buildMode === "authored" ? "authored-release-baseline" : sourceRoot;
+const privateMode = buildMode === "private";
+const sourceCatalogMode = buildMode !== "authored";
+const catalogSourceRoot = buildMode === "authored" ? "authored-release-baseline" : privateMode ? "bundled-private-reference" : sourceRoot;
 const catalogAppRoot = buildMode === "authored" ? "packaged-app" : appRoot;
 const contentDir = path.join(appRoot, "content");
 const generatedDir = path.join(appRoot, "public", "generated");
@@ -47,7 +49,7 @@ function resolveSourceRoot() {
   if (!fs.existsSync(candidate)) {
     throw new Error(`Source root does not exist: ${candidate}`);
   }
-  for (const required of ["notes", "src", "tools"]) {
+  for (const required of ["notes", "src"]) {
     if (!fs.existsSync(path.join(candidate, required))) {
       throw new Error(`Source root is missing required folder ${required}: ${candidate}`);
     }
@@ -64,8 +66,8 @@ function resolveBuildMode() {
       ? cliArgs[modeIndex + 1]
       : process.env.EB_ENCYCLOPEDIA_BUILD_MODE;
   const mode = configured || "local";
-  if (!["authored", "local"].includes(mode)) {
-    throw new Error(`Unsupported build mode: ${mode}. Expected "authored" or "local".`);
+  if (!["authored", "local", "private"].includes(mode)) {
+    throw new Error(`Unsupported build mode: ${mode}. Expected "authored", "local", or "private".`);
   }
   return mode;
 }
@@ -170,6 +172,11 @@ const topicConfigs = [
 
 function read(relativePath) {
   return fs.readFileSync(path.join(repoRoot, relativePath), "utf8");
+}
+
+function readShiftJis(relativePath) {
+  const buffer = fs.readFileSync(path.join(repoRoot, relativePath));
+  return new TextDecoder("shift_jis").decode(buffer);
 }
 
 function readContentJson(relativePath, fallback) {
@@ -296,7 +303,7 @@ function inferProvenance(entry) {
   if (["chapter", "narrative", "learning-path", "topic", "workflow", "script-vm", "asset-contract", "search"].includes(entry.kind)) {
     return "project-authored";
   }
-  if (entry.kind === "note") {
+  if (entry.kind === "note" || entry.kind === "reference-script") {
     return entry.sourcePath?.startsWith("refs/") ? "reference-imported" : "project-authored";
   }
   if (entry.kind === "source" || entry.kind === "source-file" || entry.kind === "routine" || entry.kind === "symbol") {
@@ -465,14 +472,51 @@ function gitInfo(root) {
   };
 }
 
+function readReferenceSync() {
+  const syncPath = path.join(sourceRoot, "reference-sync.json");
+  if (!privateMode || !fs.existsSync(syncPath)) {
+    return null;
+  }
+  try {
+    const sync = JSON.parse(fs.readFileSync(syncPath, "utf8"));
+    return {
+      schema: sync.schema,
+      generatedAt: sync.generatedAt,
+      sourceRoot: sync.sourceRootLabel || catalogSourceRoot,
+      copiedFiles: sync.copiedFiles || 0,
+      skippedEntries: sync.skippedEntries || 0,
+      includedRoots: sync.includedRoots || [],
+      excludedPolicy: sync.excludedPolicy || "ROMs, generated binary/media payloads, caches, dumps, tools/, and executable tool scripts are excluded.",
+      counts: sync.counts || {},
+      sourceGit: sync.sourceGit || { available: false }
+    };
+  } catch (error) {
+    return {
+      schema: "earthbound-decomp.private-reference-sync.v1",
+      generatedAt: "",
+      sourceRoot: catalogSourceRoot,
+      copiedFiles: 0,
+      skippedEntries: 0,
+      includedRoots: [],
+      excludedPolicy: "Reference sync metadata could not be read.",
+      counts: {},
+      sourceGit: { available: false, error: error.message }
+    };
+  }
+}
+
 function collectSourceFiles() {
   const roots = [
     ["notes", (filePath) => filePath.endsWith(".md")],
-    ["tools", (filePath) => filePath.endsWith(".py")],
-    ...(buildMode === "local"
+    ...(fs.existsSync(path.join(sourceRoot, "tools"))
+      ? [["tools", (filePath) => filePath.endsWith(".py")]]
+      : []),
+    ...(sourceCatalogMode
       ? [
           ["src", (filePath) => filePath.endsWith(".asm")],
-          ["asset-manifests", (filePath) => filePath.endsWith(".json")]
+          ["asset-manifests", (filePath) => filePath.endsWith(".json")],
+          ["manifests", (filePath) => filePath.endsWith(".json") || filePath.endsWith(".md")],
+          ["refs", (filePath) => filePath.endsWith(".md") || filePath.endsWith(".json") || filePath.endsWith(".txt") || filePath.toLowerCase().endsWith(".msg")]
         ]
       : [])
   ];
@@ -688,14 +732,107 @@ function compactSearchText(entry, fullBody) {
   return `${metadata} ${bodyTerms}`.replace(/\s+/g, " ").trim();
 }
 
+function searchIndexDocument(entry) {
+  const fullBody = String(entry.body || "");
+  const headings = markdownHeadings(fullBody, 120).join(" ");
+  const labels = [...fullBody.matchAll(/^([A-Za-z_][A-Za-z0-9_.$]*):/gm)]
+    .map((match) => match[1])
+    .slice(0, 600)
+    .join(" ");
+  const paths = [
+    ...(entry.sourceRefs || []).map((ref) => ref.path),
+    ...(entry.noteRefs || []).map((ref) => ref.path)
+  ].filter(Boolean).join(" ");
+  const exact = unique([
+    entry.id,
+    entry.title,
+    ...(entry.aliases || []),
+    ...(entry.addresses || []),
+    ...(entry.banks || []),
+    paths
+  ]).join(" ").toLowerCase();
+  return {
+    id: entry.id,
+    kind: entry.kind,
+    title: entry.title,
+    banks: entry.banks || [],
+    exact,
+    titleText: [entry.title, ...(entry.aliases || [])].filter(Boolean).join(" ").toLowerCase(),
+    metaText: [
+      entry.kind,
+      entry.summary,
+      paths,
+      headings,
+      labels,
+      ...(entry.addresses || []),
+      ...(entry.banks || [])
+    ].filter(Boolean).join(" ").toLowerCase(),
+    bodyText: uniqueSearchTerms(fullBody, privateMode ? 8000 : searchTextLimit)
+  };
+}
+
+function buildSearchIndex() {
+  return {
+    schema: "earthbound-decomp.encyclopedia-search-index.v2",
+    generatedAt: new Date().toISOString(),
+    strategy: "weighted-build-time-documents",
+    documents: entries.map((entry) => searchIndexDocument(entry))
+  };
+}
+
+function buildFacets() {
+  const kindCounts = {};
+  const bankCounts = {};
+  const domainCounts = {};
+  for (const entry of entries) {
+    kindCounts[entry.kind] = (kindCounts[entry.kind] || 0) + 1;
+    for (const bank of entry.banks || []) {
+      bankCounts[bank] = (bankCounts[bank] || 0) + 1;
+    }
+    const domain = entry.domain || inferDomain(entry);
+    if (domain) {
+      domainCounts[domain] = (domainCounts[domain] || 0) + 1;
+    }
+  }
+  return { kindCounts, bankCounts, domainCounts };
+}
+
+function buildNavSections() {
+  return [
+    { title: "Overview", ids: ["overview", "reference-snapshot", "catalog-build-status", "upstream-status", "narrative-index", "learning-path-index"] },
+    { title: "Source", ids: ["source-browser", "source-tree", "routine-index", "bank-map"] },
+    { title: "Notes", ids: ["note-index", "script-source-index"] },
+    { title: "Systems", ids: ["systems-hub", "topic-index"] },
+    { title: "Tools/Validation", ids: ["workflows", "tool-index", "topic-validation-workflows", "release-readiness-checklist", "release-artifact-policy"] }
+  ];
+}
+
+function inferDomain(entry) {
+  const text = [
+    entry.id,
+    entry.title,
+    entry.summary,
+    ...(entry.aliases || []),
+    ...(entry.banks || [])
+  ].join(" ").toLowerCase();
+  if (/text|script|actionscript|event|opcode|localization|command/.test(text)) return "Text/Scripting";
+  if (/battle|enemy|psi|combat|hp|pp|status/.test(text)) return "Battle";
+  if (/overworld|entity|movement|map|camera|collision|teleport|door/.test(text)) return "Overworld";
+  if (/audio|music|sound|apu|spc/.test(text)) return "Audio";
+  if (/ui|window|menu|font|tile|vram|presentation|hdma/.test(text)) return "UI/Windows";
+  if (/manifest|data|table|asset|contract|palette|sprite|graphics/.test(text)) return "Data/Manifests";
+  if (/validation|workflow|tool|audit|check|equivalence/.test(text)) return "Validation";
+  return "";
+}
+
 function uniqueSearchTerms(markdown, maxChars) {
   const clean = stripMarkdownForSearch(markdown).toLowerCase();
   const seen = new Set();
   const terms = [];
   let charCount = 0;
 
-  for (const match of clean.matchAll(/[a-z0-9_$:.]{2,}/g)) {
-    const term = match[0].replace(/^[._$:]+|[._$:]+$/g, "");
+  for (const match of clean.matchAll(/[a-z0-9_$:./-]{2,}/g)) {
+    const term = match[0].replace(/^[._:]+|[._:]+$/g, "");
     if (!term || seen.has(term)) {
       continue;
     }
@@ -727,6 +864,20 @@ function deferredBodyStub(entry, fullBody) {
   ].filter(Boolean).join("\n");
 }
 
+function writeDeferredDataChunk(key, value) {
+  const fileName = `${slug(key)}.js`;
+  fs.writeFileSync(
+    path.join(entryBodyDir, fileName),
+    [
+      "window.ENCYCLOPEDIA_DEFERRED_DATA = window.ENCYCLOPEDIA_DEFERRED_DATA || {};",
+      `window.ENCYCLOPEDIA_DEFERRED_DATA[${JSON.stringify(key)}] = ${JSON.stringify(value)};`,
+      ""
+    ].join("\n"),
+    "utf8"
+  );
+  return `generated/entry-bodies/${fileName}`;
+}
+
 function deferHeavyBodies() {
   const stats = {
     count: 0,
@@ -736,7 +887,8 @@ function deferHeavyBodies() {
   for (const entry of entries) {
     const fullBody = String(entry.body || "");
 
-    if (fullBody.length <= heavyBodyThreshold) {
+    const forceSourceDefer = privateMode && entry.sourceFile && fullBody.includes("## Source Code");
+    if (fullBody.length <= heavyBodyThreshold && !forceSourceDefer) {
       continue;
     }
 
@@ -901,7 +1053,7 @@ function fencedCode(language, value) {
   return ["```" + language, value.replace(/\s+$/g, ""), "```"].join("\n");
 }
 
-function sourceEmbed(text, maxChars = 30000) {
+function sourceEmbed(text, maxChars = privateMode ? Number.POSITIVE_INFINITY : 30000) {
   if (text.length <= maxChars) {
     return {
       note: "Full checked-in source module embedded.",
@@ -1027,7 +1179,9 @@ function upstreamStatusBody() {
   return [
     buildMode === "authored"
       ? "This catalog is the ROM-free authored release baseline. It is generated from source-safe project evidence and does not inspect local ROM paths."
-      : "The encyclopedia is generated from an upstream decomp workspace. The app code and generated encyclopedia output stay in this workspace; notes, source, tools, and manifests are read from the source root below.",
+      : privateMode
+        ? "The encyclopedia is generated from the bundled private reference folder. Notes, source, manifests, and source-safe reference metadata are packaged with the app; executable tools are intentionally left in the decomp repository."
+        : "The encyclopedia is generated from an upstream decomp workspace. The app code and generated encyclopedia output stay in this workspace; notes, source, tools, and manifests are read from the source root below.",
     "",
     "## Source Root",
     `\`${catalogSourceRoot}\``,
@@ -1489,7 +1643,7 @@ addEntry({
     noteRef("README.md", "Repository README"),
     noteRef("notes/project-status.md", "Project Status")
   ],
-  related: ["bank-map", "source-browser", "relationship-graph", "narrative-index", "topic-index", "catalog-build-status", "upstream-status", "rom-status", "semantic-frontiers", "workflows"],
+  related: unique(["bank-map", "source-browser", "note-index", "relationship-graph", "narrative-index", "topic-index", "systems-hub", "reference-snapshot", "catalog-build-status", "upstream-status", privateMode ? "" : "rom-status", "semantic-frontiers", "workflows"]),
   tocPriority: 0,
   body: [
     "The repository is structurally closed across all configured banks from `C0` through `EF`: every bank has a checked-in byte-equivalent source scaffold, and the audited source-heavy banks have no preserved native-source corridors left.",
@@ -1509,15 +1663,54 @@ addEntry({
     "- Open [[relationship-graph|Relationship Graph]] when you want to move through connected chapters, notes, banks, routines, symbols, and assets.",
     "- Start with [[bank-map|ROM And Bank Map]] for the whole scaffold.",
     "- Use [[topic-index|Topic Index]] when you want distilled knowledge areas instead of raw evidence-note files.",
+    "- Use [[systems-hub|Systems Hub]] for domain-focused navigation without the raw generated entry list.",
     "- Check [[upstream-status|Upstream Source Status]] to confirm which decomp workspace generated this encyclopedia build.",
+    privateMode ? "- Check [[reference-snapshot|Reference Snapshot]] to see the exact bundled notes/source snapshot." : "",
     "- Check [[catalog-build-status|Catalog Build Status]] to see build mode, provenance counts, and release readiness signals.",
-    "- Check [[rom-status|ROM And Generated Content Status]] before running ROM-backed extraction or validation.",
-    "- Check [[release-artifact-policy|Release Artifact Policy]] before deciding whether a generated output belongs in a distributable build.",
+    privateMode ? "- Use [[note-index|Note Index]] for direct access to the bundled markdown evidence archive." : "- Check [[rom-status|ROM And Generated Content Status]] before running ROM-backed extraction or validation.",
+    privateMode ? "- Tool scripts are not bundled; use [[tool-index|Tool Index]] for notes about validation/tool workflows and the decomp repo for executable tools." : "- Check [[release-artifact-policy|Release Artifact Policy]] before deciding whether a generated output belongs in a distributable build.",
     "- Use [[runtime-systems|Runtime Systems]] for C0/C1/C2/C4/EF source-heavy work.",
     "- Use [[script-and-text-vms|Script And Text VMs]] for C3 event/actionscript and text-command semantics.",
-    "- Use [[asset-contracts|Assets And Data Contracts]] for graphics, map, audio, and generated table banks."
+    "- Use [[asset-contracts|Data Contracts]] for graphics, map, audio, and generated table banks."
   ].join("\n")
 });
+
+const referenceSync = readReferenceSync();
+if (privateMode) {
+  const syncCounts = referenceSync?.counts || {};
+  addEntry({
+    id: "reference-snapshot",
+    title: "Reference Snapshot",
+    kind: "workflow",
+    summary: "Bundled private reference provenance: sync timestamp, source checkout, copied/skipped counts, and exclusion policy.",
+    aliases: ["provenance", "reference provenance", "sync snapshot", "private reference snapshot"],
+    related: ["overview", "catalog-build-status", "upstream-status", "release-artifact-policy"],
+    tocPriority: 3,
+    body: [
+      "This page records the bundled reference snapshot used to build the private guide.",
+      "",
+      "## Sync",
+      `- Synced at: \`${referenceSync?.generatedAt || "unknown"}\``,
+      `- Source root: \`${referenceSync?.sourceRoot || catalogSourceRoot}\``,
+      `- Copied files: ${(referenceSync?.copiedFiles || 0).toLocaleString("en-US")}`,
+      `- Skipped entries: ${(referenceSync?.skippedEntries || 0).toLocaleString("en-US")}`,
+      `- Included roots: ${(referenceSync?.includedRoots || []).map((root) => `\`${root}\``).join(", ") || "unknown"}`,
+      "",
+      "## Source Git",
+      referenceSync?.sourceGit?.available
+        ? `- Branch: \`${referenceSync.sourceGit.branch || "unknown"}\`\n- Commit: \`${referenceSync.sourceGit.shortSha || referenceSync.sourceGit.sha || "unknown"}\`\n- Dirty: ${referenceSync.sourceGit.dirty ? "yes" : "no"}`
+        : "- Git metadata was not available for the synced source checkout.",
+      "",
+      "## Reference Counts",
+      Object.entries(syncCounts).length
+        ? Object.entries(syncCounts).sort((a, b) => a[0].localeCompare(b[0])).map(([root, count]) => `- \`${root}\`: ${Number(count).toLocaleString("en-US")} files`).join("\n")
+        : "- No per-root counts were recorded.",
+      "",
+      "## Exclusion Policy",
+      referenceSync?.excludedPolicy || "ROMs, generated binary/media payloads, caches, dumps, tools/, and executable tool scripts are excluded."
+    ].join("\n")
+  });
+}
 
 addEntry({
   id: "terminology",
@@ -1554,6 +1747,21 @@ addEntry({
     "Use it as a navigation aid: start from a chapter or topic, inspect its neighborhood, then open linked evidence entries when you need the underlying notes, source modules, symbols, or asset manifests.",
     "",
     "The visual graph is rendered by the app from a compact generated index, so it does not need to load deferred heavy entry bodies."
+  ].join("\n")
+});
+
+addEntry({
+  id: "systems-hub",
+  title: "Systems Hub",
+  kind: "chapter",
+  summary: "Domain-oriented navigation for text, battle, overworld, audio, UI, data manifests, and validation evidence.",
+  aliases: ["systems", "domain hub", "systems index", "runtime domains"],
+  related: ["overview", "topic-index", "source-browser", "note-index", "asset-manifest-index", "tool-index"],
+  tocPriority: 8,
+  body: [
+    "Use this hub when the raw generated entry list is too noisy. It groups system knowledge by domain, then links outward to topics, notes, source, and manifest documentation.",
+    "",
+    "The app renders the domain buckets from generated catalog metadata so dense generated entries stay searchable without flooding the sidebar."
   ].join("\n")
 });
 
@@ -1693,98 +1901,100 @@ addEntry({
   ].join("\n")
 });
 
-addEntry({
-  id: "rom-status",
-  title: "ROM And Generated Content Status",
-  kind: "workflow",
-  summary: romStatus
-    ? `Detected ${romStatus.path}; SHA-1 ${romStatus.sha1Ok ? "matches" : "does not match"} the expected US headerless ROM.`
-    : "No ROM detected in the configured local paths.",
-  aliases: ["rom", "baserom", "rom status", "generated content", "extraction"],
-  related: ["workflows", "bank-map", "asset-contracts"],
-  provenance: buildMode === "local" ? "rom-derived-local" : "project-authored",
-  body: [
-    buildMode === "local"
-      ? "This page reports whether the local generator can safely run ROM-backed validation and extraction workflows."
-      : "This authored-mode catalog does not inspect local ROM paths. ROM verification belongs to the future first-run/local workspace flow.",
-    "",
-    "## Build Mode",
-    `- Mode: \`${buildMode}\``,
-    buildMode === "authored"
-      ? "- ROM-backed extraction and preview generation are disabled for this catalog."
-      : "- ROM-backed detection is enabled for this local catalog.",
-    "",
-    "## Detection",
-    buildMode === "authored"
-      ? "- Skipped in authored mode."
-      : romStatus
-      ? [
-          `- Path: \`${romStatus.path}\``,
-          `- Size: \`${romStatus.size}\` bytes (${romStatus.sizeOk ? "matches expected size" : "unexpected size"})`,
-          `- SHA-1: \`${romStatus.sha1}\` (${romStatus.sha1Ok ? "matches expected ROM" : "does not match expected ROM"})`
-        ].join("\n")
-      : romCandidates.map((candidate) => `- Missing: \`${candidate}\``).join("\n"),
-    "",
-    "## Policy",
-    "- The encyclopedia should use the ROM to verify and regenerate local manifests, source maps, and metadata.",
-    "- It should not commit generated copyrighted asset payloads into the repo by default.",
-    "- ROM-derived outputs should live under ignored build folders unless a specific source-safe artifact is intentionally promoted.",
-    "",
-    "## Next Implementation Hook",
-    "A future `build:from-rom` command can run validation and extraction tools when this page reports a matching ROM, then refresh the generated encyclopedia catalog."
-  ].join("\n")
-});
+if (!privateMode) {
+  addEntry({
+    id: "rom-status",
+    title: "ROM And Generated Content Status",
+    kind: "workflow",
+    summary: romStatus
+      ? `Detected ${romStatus.path}; SHA-1 ${romStatus.sha1Ok ? "matches" : "does not match"} the expected US headerless ROM.`
+      : "No ROM detected in the configured local paths.",
+    aliases: ["rom", "baserom", "rom status", "generated content", "extraction"],
+    related: ["workflows", "bank-map", "asset-contracts"],
+    provenance: buildMode === "local" ? "rom-derived-local" : "project-authored",
+    body: [
+      buildMode === "local"
+        ? "This page reports whether the local generator can safely run ROM-backed validation and extraction workflows."
+        : "This authored-mode catalog does not inspect local ROM paths. ROM verification belongs to the future first-run/local workspace flow.",
+      "",
+      "## Build Mode",
+      `- Mode: \`${buildMode}\``,
+      buildMode === "authored"
+        ? "- ROM-backed extraction and preview generation are disabled for this catalog."
+        : "- ROM-backed detection is enabled for this local catalog.",
+      "",
+      "## Detection",
+      buildMode === "authored"
+        ? "- Skipped in authored mode."
+        : romStatus
+        ? [
+            `- Path: \`${romStatus.path}\``,
+            `- Size: \`${romStatus.size}\` bytes (${romStatus.sizeOk ? "matches expected size" : "unexpected size"})`,
+            `- SHA-1: \`${romStatus.sha1}\` (${romStatus.sha1Ok ? "matches expected ROM" : "does not match expected ROM"})`
+          ].join("\n")
+        : romCandidates.map((candidate) => `- Missing: \`${candidate}\``).join("\n"),
+      "",
+      "## Policy",
+      "- The encyclopedia should use the ROM to verify and regenerate local manifests, source maps, and metadata.",
+      "- It should not commit generated copyrighted asset payloads into the repo by default.",
+      "- ROM-derived outputs should live under ignored build folders unless a specific source-safe artifact is intentionally promoted.",
+      "",
+      "## Next Implementation Hook",
+      "A future `build:from-rom` command can run validation and extraction tools when this page reports a matching ROM, then refresh the generated encyclopedia catalog."
+    ].join("\n")
+  });
 
-addEntry({
-  id: "local-workspace",
-  title: "Local Workspace",
-  kind: "workflow",
-  summary: "Select and verify a user-provided ROM, create a local app-data workspace, and generate ROM-derived artifacts outside the shipped app.",
-  aliases: ["first run", "add rom", "rom import", "workspace", "local generated content"],
-  related: ["asset-library", "rom-status", "release-artifact-policy", "catalog-build-status", "asset-contracts"],
-  provenance: "project-authored",
-  body: [
-    "The local workspace is the app boundary between source-safe knowledge and ROM-derived generated artifacts.",
-    "",
-    "## First Run",
-    "- Open the encyclopedia without a ROM to read project-authored notes and contracts.",
-    "- Select an EarthBound ROM to verify size, header status, and SHA-1.",
-    "- A verified ROM creates a hash-keyed app-data workspace for generated source, assets, audio, previews, manifests, cache files, and export bundles.",
-    "",
-    "## Verification Contract",
-    `- Expected headerless size: \`${localWorkspaceContract.expectedRom.headerlessSize}\` bytes.`,
-    `- Expected headered size: \`${localWorkspaceContract.expectedRom.headeredSize}\` bytes; the first 512 bytes are ignored for identity checks.`,
-    `- Expected headerless SHA-1: \`${localWorkspaceContract.expectedRom.headerlessSha1}\`.`,
-    "",
-    "## Policy",
-    `- Checked in: ${localWorkspaceContract.policy.checkedIn}`,
-    `- Generated locally: ${localWorkspaceContract.policy.generatedLocal}`,
-    `- Never distributed: ${localWorkspaceContract.policy.neverDistributed}`,
-    "",
-    "Use the live controls on this page in the Electron app to add or replace a ROM. The static browser build can still be used in notes-only mode."
-  ].join("\n")
-});
+  addEntry({
+    id: "local-workspace",
+    title: "Local Workspace",
+    kind: "workflow",
+    summary: "Select and verify a user-provided ROM, create a local app-data workspace, and generate ROM-derived artifacts outside the shipped app.",
+    aliases: ["first run", "add rom", "rom import", "workspace", "local generated content"],
+    related: ["asset-library", "rom-status", "release-artifact-policy", "catalog-build-status", "asset-contracts"],
+    provenance: "project-authored",
+    body: [
+      "The local workspace is the app boundary between source-safe knowledge and ROM-derived generated artifacts.",
+      "",
+      "## First Run",
+      "- Open the encyclopedia without a ROM to read project-authored notes and contracts.",
+      "- Select an EarthBound ROM to verify size, header status, and SHA-1.",
+      "- A verified ROM creates a hash-keyed app-data workspace for generated source, assets, audio, previews, manifests, cache files, and export bundles.",
+      "",
+      "## Verification Contract",
+      `- Expected headerless size: \`${localWorkspaceContract.expectedRom.headerlessSize}\` bytes.`,
+      `- Expected headered size: \`${localWorkspaceContract.expectedRom.headeredSize}\` bytes; the first 512 bytes are ignored for identity checks.`,
+      `- Expected headerless SHA-1: \`${localWorkspaceContract.expectedRom.headerlessSha1}\`.`,
+      "",
+      "## Policy",
+      `- Checked in: ${localWorkspaceContract.policy.checkedIn}`,
+      `- Generated locally: ${localWorkspaceContract.policy.generatedLocal}`,
+      `- Never distributed: ${localWorkspaceContract.policy.neverDistributed}`,
+      "",
+      "Use the live controls on this page in the Electron app to add or replace a ROM. The static browser build can still be used in notes-only mode."
+    ].join("\n")
+  });
 
-addEntry({
-  id: "asset-library",
-  title: "Asset Library",
-  kind: "asset-contract",
-  summary: "Browse local ROM-derived source, graphics, maps, tables, and audio exports by organized artifact family.",
-  aliases: ["generated assets", "asset browser", "export assets", "bulk export", "music exports", "sprite exports"],
-  related: ["local-workspace", "asset-contracts", "chapter-audio-pack-frontier", "chapter-audio-backend-adapter-contract", "release-artifact-policy"],
-  provenance: "project-authored",
-  body: [
-    "The Asset Library is the browsing and export surface for locally generated artifacts.",
-    "",
-    "## Families",
-    localWorkspaceContract.artifactFamilies.map((family) => `- **${family.label}**: ${family.summary}`).join("\n"),
-    "",
-    "## Export Rule",
-    "Exports are user-local only. Individual files and zip bundles may include ROM-derived payloads, so they belong outside distributed builds and outside the checked-in repository.",
-    "",
-    "Use the live controls on this page after adding a ROM to inspect family readiness, open related contracts, and prepare local export bundles."
-  ].join("\n")
-});
+  addEntry({
+    id: "asset-library",
+    title: "Asset Library",
+    kind: "asset-contract",
+    summary: "Browse local ROM-derived source, graphics, maps, tables, and audio exports by organized artifact family.",
+    aliases: ["generated assets", "asset browser", "export assets", "bulk export", "music exports", "sprite exports"],
+    related: ["local-workspace", "asset-contracts", "chapter-audio-pack-frontier", "chapter-audio-backend-adapter-contract", "release-artifact-policy"],
+    provenance: "project-authored",
+    body: [
+      "The Asset Library is the browsing and export surface for locally generated artifacts.",
+      "",
+      "## Families",
+      localWorkspaceContract.artifactFamilies.map((family) => `- **${family.label}**: ${family.summary}`).join("\n"),
+      "",
+      "## Export Rule",
+      "Exports are user-local only. Individual files and zip bundles may include ROM-derived payloads, so they belong outside distributed builds and outside the checked-in repository.",
+      "",
+      "Use the live controls on this page after adding a ROM to inspect family readiness, open related contracts, and prepare local export bundles."
+    ].join("\n")
+  });
+}
 
 addEntry({
   id: "release-artifact-policy",
@@ -1792,28 +2002,38 @@ addEntry({
   kind: "workflow",
   summary: "What belongs in the shipped encyclopedia app, what is generated locally, and what must never be distributed.",
   aliases: ["release policy", "artifact policy", "distribution policy", "copyright-safe release"],
-  related: ["overview", "catalog-build-status", "rom-status", "workflows", "asset-contracts", "upstream-status"],
+  related: unique(["overview", "catalog-build-status", privateMode ? "" : "rom-status", "workflows", "asset-contracts", "upstream-status"]),
   provenance: "project-authored",
   body: [
-    "The release boundary is intentionally conservative. The app should publish knowledge, contracts, generators, and validators; the user's ROM should produce protected payloads locally.",
+    privateMode
+      ? "The private app boundary is source-and-notes first: bundle the reference guide, keep executable tools in the decomp repo, and keep ROM/media payloads out."
+      : "The release boundary is intentionally conservative. The app should publish knowledge, contracts, generators, and validators; the user's ROM should produce protected payloads locally.",
     "",
-    "## Checked In",
-    "- Encyclopedia shell, curated chapters, schemas, public payload-free manifests, tools, validation logic, and source-generation code.",
+    privateMode ? "## Bundled" : "## Checked In",
+    privateMode
+      ? "- Electron shell, generated catalog, curated chapters, notes, commented source, source-safe manifests, and reference metadata."
+      : "- Encyclopedia shell, curated chapters, schemas, public payload-free manifests, tools, validation logic, and source-generation code.",
     "",
-    "## User Provided",
-    "- EarthBound ROM file and optional local decomp/source workspace paths.",
+    privateMode ? "## External" : "## User Provided",
+    privateMode
+      ? "- Executable Python tools remain in the decomp repository. This app includes notes about tool and validation workflows, not the scripts themselves."
+      : "- EarthBound ROM file and optional local decomp/source workspace paths.",
     "",
-    "## Generated Locally",
-    "- Byte-equivalent `src/`, local `asset-manifests/`, renderer fixtures, source snapshots, search catalogs, extracted references, preview sheets, SPC/WAV exports, and cache files.",
+    privateMode ? "## Removed From App" : "## Generated Locally",
+    privateMode
+      ? "- ROM import, local payload builders, sprite/asset browsing, media previews, and export ZIP workflows."
+      : "- Byte-equivalent `src/`, local `asset-manifests/`, renderer fixtures, source snapshots, search catalogs, extracted references, preview sheets, SPC/WAV exports, and cache files.",
     "",
     "## Never Distributed",
-    "- ROM bytes, raw extracted copyrighted assets, generated audio/images that contain ROM-derived content, or generated byte-equivalent source built from the user's ROM.",
+    privateMode
+      ? "- ROM bytes, raw extracted copyrighted assets, generated audio/images, binary asset payloads, and build/cache products."
+      : "- ROM bytes, raw extracted copyrighted assets, generated audio/images that contain ROM-derived content, or generated byte-equivalent source built from the user's ROM.",
     "",
     "## Release Shape",
-    "- The packaged app should be usable in authored mode without a ROM.",
-    "- Selecting a ROM should verify size and SHA-1, then generate local workspace artifacts under an app-data folder.",
-    "- Entries should keep provenance visible: project-authored, generated locally, ROM-derived local, or reference/imported.",
-    "- Run `npm run audit:release` before packaging."
+    privateMode ? "- Run `npm run prepare:private` before using or packaging this branch." : "- The packaged app should be usable in authored mode without a ROM.",
+    privateMode ? "- The catalog should report build mode `private` and use `reference/` as its source root." : "- Selecting a ROM should verify size and SHA-1, then generate local workspace artifacts under an app-data folder.",
+    privateMode ? "- Search should cover notes, source comments, labels, addresses, and manifest summaries." : "- Entries should keep provenance visible: project-authored, generated locally, ROM-derived local, or reference/imported.",
+    privateMode ? "- Run `npm run audit:private` before packaging." : "- Run `npm run audit:release` before packaging."
   ].join("\n")
 });
 
@@ -1823,17 +2043,17 @@ addEntry({
   kind: "workflow",
   summary: "Current release blockers and presentation gaps before publishing the standalone Electron app.",
   aliases: ["release checklist", "known missing content", "packaging status", "github release"],
-  related: ["release-artifact-policy", "local-workspace", "asset-library", "catalog-build-status", "chapter-known-limits"],
+  related: unique(["release-artifact-policy", privateMode ? "" : "local-workspace", privateMode ? "" : "asset-library", "catalog-build-status", "chapter-known-limits"]),
   provenance: "project-authored",
   chapterScope: "release-policy",
   showInToc: true,
   body: [
-    "This checklist keeps the release target visible inside the authored app.",
+    privateMode ? "This checklist tracks the private bundled-reference app boundary." : "This checklist keeps the release target visible inside the authored app.",
     "",
     "## Package Boundary",
-    "- Authored release builds must contain no ROM, source files, generated source entries, asset entries, raw extracted payloads, preview sheets, SPC/WAV exports, or cache files.",
-    "- The app package contains documentation, learning paths, ROM-knowledge chapters, source-safe workflow pages, and the first-run local workspace shell.",
-    "- ROM-backed source, graphics, maps, audio, table manifests, and ZIP exports are generated only under the user's app-data workspace after ROM verification.",
+    privateMode ? "- Private reference builds bundle notes, commented source, manifests, and source-safe metadata." : "- Authored release builds must contain no ROM, source files, generated source entries, asset entries, raw extracted payloads, preview sheets, SPC/WAV exports, or cache files.",
+    privateMode ? "- Tool scripts, ROM import, generated media, sprite viewers, and export workflows are outside this app." : "- The app package contains documentation, learning paths, ROM-knowledge chapters, source-safe workflow pages, and the first-run local workspace shell.",
+    privateMode ? "- ROM bytes and generated binary/media payloads remain excluded." : "- ROM-backed source, graphics, maps, audio, table manifests, and ZIP exports are generated only under the user's app-data workspace after ROM verification.",
     "",
     "## Binary Release Work",
     "- Windows unsigned NSIS and ZIP artifacts can be produced from this workspace.",
@@ -1841,14 +2061,14 @@ addEntry({
     "- Linux AppImage should be built on Linux/CI or on Windows with symlink privileges enabled.",
     "- A real app icon, publisher metadata, project license, and third-party notice bundle are still required before a public binary release.",
     "",
-    "## Generator Work",
-    "- Current Electron generator stages create local workspace manifests, source scaffolds, ROM/header/bank manifests, and family handoff manifests.",
-    "- Full renderer stages still need to attach compiled sprites, palette-applied sheets, map previews, SPC exports, WAV exports, and searchable generated catalog hydration.",
+    privateMode ? "## Reference Work" : "## Generator Work",
+    privateMode ? "- Keep `reference/` synced from the decomp checkout before rebuilding the private catalog." : "- Current Electron generator stages create local workspace manifests, source scaffolds, ROM/header/bank manifests, and family handoff manifests.",
+    privateMode ? "- Keep search tuned for note text, source comments, labels, addresses, and manifest summaries." : "- Full renderer stages still need to attach compiled sprites, palette-applied sheets, map previews, SPC exports, WAV exports, and searchable generated catalog hydration.",
     "",
     "## Content And Access Gaps",
     "- NPC AI bytes, concrete shop selector paths, encoded PSI menu row decoding, map preview/editor rules, audio runtime state capture, and asset-family editor rules remain the highest-value content polish targets.",
-    "- The Asset Library is the correct home for generated content, but it needs per-family browsers once the generator outputs real rendered artifacts.",
-    "- The Local Workspace and Release Artifact Policy pages should remain the clearest explanation of project-authored versus ROM-derived local material."
+    privateMode ? "- Asset knowledge remains documentation-only; generated asset viewing/export stays removed." : "- The Asset Library is the correct home for generated content, but it needs per-family browsers once the generator outputs real rendered artifacts.",
+    privateMode ? "- The private bundle should stay source/notes focused." : "- The Local Workspace and Release Artifact Policy pages should remain the clearest explanation of project-authored versus ROM-derived local material."
   ].join("\n")
 });
 
@@ -1858,7 +2078,7 @@ addEntry({
   kind: "workflow",
   summary: `Generated from ${catalogSourceRoot}.`,
   aliases: ["upstream", "source root", "import status", "decomp workspace", "codex workspace"],
-  related: ["overview", "topic-index", "workflows", "rom-status"],
+  related: unique(["overview", "topic-index", "workflows", privateMode ? "" : "rom-status"]),
   body: upstreamStatusBody()
 });
 
@@ -1997,9 +2217,10 @@ for (const row of commandRows) {
   });
 }
 
-const toolNames = fs.readdirSync(path.join(repoRoot, "tools"))
-  .filter((name) => name.endsWith(".py"))
-  .sort();
+const toolsDir = path.join(repoRoot, "tools");
+const toolNames = fs.existsSync(toolsDir)
+  ? fs.readdirSync(toolsDir).filter((name) => name.endsWith(".py")).sort()
+  : [];
 
 for (const name of toolNames) {
   const relativePath = `tools/${name}`;
@@ -2032,23 +2253,51 @@ for (const name of toolNames) {
   });
 }
 
+function toolDocumentationRefs() {
+  return walkFiles(notesDir, (filePath) => filePath.endsWith(".md"))
+    .map((filePath) => {
+      const relativePath = repoRelative(filePath);
+      const text = fs.readFileSync(filePath, "utf8");
+      const score = [
+        /tool/i.test(relativePath) ? 4 : 0,
+        /workflow|validation|byte-equivalence|source|build|manifest/i.test(relativePath) ? 2 : 0,
+        /tools\//i.test(text) ? 3 : 0,
+        /\bpython\b|validate_|build_|inspect_|find_/i.test(text) ? 2 : 0
+      ].reduce((sum, value) => sum + value, 0);
+      return { relativePath, score, title: markdownTitle(text, titleFromSlug(path.basename(relativePath))) };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || a.relativePath.localeCompare(b.relativePath))
+    .slice(0, 80);
+}
+
+const toolDocs = toolDocumentationRefs();
+
 addEntry({
   id: "tool-index",
   title: "Tool Index",
   kind: "workflow",
-  summary: "Generated index of local Python tools available to the decomp workflow.",
-  aliases: ["tools index", "python tools"],
+  summary: toolNames.length
+    ? "Generated index of local Python tools available to the decomp workflow."
+    : "Documentation index for decomp tools and validation workflows; tool scripts are not bundled in the private app.",
+  aliases: ["tools index", "python tools", "tool notes", "validation tools"],
   sourceRefs: toolNames.map((name) => sourceRef(`tools/${name}`, name)),
+  noteRefs: toolDocs.map((note) => noteRef(note.relativePath, note.title)),
   related: ["workflows"],
   body: [
-    "The repository includes local Python helpers for validation, manifest generation, source promotion, xref lookup, decoding, inspection, extraction, and rendering.",
+    toolNames.length
+      ? "The repository includes local Python helpers for validation, manifest generation, source promotion, xref lookup, decoding, inspection, extraction, and rendering."
+      : "Tool scripts are intentionally not bundled in this private reference app. Use the decomp repository for executable tools; this page keeps the tool and workflow notes searchable.",
     "",
-    "## Tools",
-    toolNames.map((name) => `- [[${entryIdForPath("tool", `tools/${name}`)}|${name}]]`).join("\n")
+    toolNames.length ? "## Tools" : "",
+    toolNames.map((name) => `- [[${entryIdForPath("tool", `tools/${name}`)}|${name}]]`).join("\n"),
+    "",
+    toolDocs.length ? "## Tool And Workflow Notes" : "",
+    toolDocs.map((note) => `- [[${entryIdForPath("note", note.relativePath)}|${note.title}]] - \`${note.relativePath}\``).join("\n")
   ].join("\n")
 });
 
-const srcBanks = buildMode === "local" && fs.existsSync(srcDir)
+const srcBanks = sourceCatalogMode && fs.existsSync(srcDir)
   ? fs.readdirSync(srcDir, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name.toUpperCase())
@@ -2058,18 +2307,18 @@ const srcBanks = buildMode === "local" && fs.existsSync(srcDir)
 addEntry({
   id: "source-tree",
   title: "Source Tree",
-  kind: buildMode === "local" ? "source" : "workflow",
-  summary: buildMode === "local"
+  kind: sourceCatalogMode ? "source" : "workflow",
+  summary: sourceCatalogMode
     ? "Generated overview of checked-in source scaffold directories."
     : "Release baseline workspace placeholder for source generated only after ROM verification.",
   aliases: ["src", "source scaffold", "source files"],
   related: ["source-browser", "routine-index", "bank-map"],
   body: [
-    buildMode === "local"
+    sourceCatalogMode
       ? "Each bank directory contains checked-in source scaffold modules that reproduce original ROM bytes."
       : "The authored release baseline does not distribute generated byte-equivalent `src/` modules. Source browsing becomes available after a local workspace is generated from a user-provided ROM or decomp source root.",
     "",
-    buildMode === "local"
+    sourceCatalogMode
       ? "Open [[source-browser|Source Browser]] for all checked-in `.asm` files, including data-heavy banks and scaffold files. Open [[routine-index|Routine Index]] for semantically richer source-heavy routine pages."
       : "Open [[release-artifact-policy|Release Artifact Policy]] for the distribution boundary.",
     "",
@@ -2138,6 +2387,7 @@ function addEvidenceNoteEntries() {
       headings,
       bank,
       topics,
+      searchText: stripMarkdownForSearch(markdown).toLowerCase(),
       topicScores: Object.fromEntries(topics.map((topicId) => {
         const topic = topicConfigs.find((candidate) => candidate.id === topicId);
         return [topicId, topic ? noteTopicScore(topic, relativePath, title, markdown) : 0];
@@ -2146,6 +2396,151 @@ function addEvidenceNoteEntries() {
     });
     addEntry(entry);
   }
+
+  addEntry({
+    id: "note-index",
+    title: "Note Index",
+    kind: "workflow",
+    summary: `Generated index of ${noteEntries.length.toLocaleString("en-US")} bundled notes and README evidence pages.`,
+    aliases: ["notes", "note browser", "evidence notes", "markdown notes"],
+    related: ["overview", "topic-index", "source-browser", "relationship-graph"],
+    body: [
+      "This page is the direct entry point into the bundled note archive.",
+      "",
+      "## By Bank",
+      [...noteEntries.reduce((counts, note) => {
+        if (note.bank) {
+          counts.set(note.bank, (counts.get(note.bank) || 0) + 1);
+        }
+        return counts;
+      }, new Map()).entries()]
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([bank, count]) => `- [[bank-${bank.toLowerCase()}|Bank ${bank}]]: ${count.toLocaleString("en-US")} notes`)
+        .join("\n"),
+      "",
+      "## Recent/Primary Entries",
+      noteEntries
+        .slice(0, 160)
+        .map((note) => `- [[${note.id}|${note.title}]] - \`${note.relativePath}\``)
+        .join("\n"),
+      noteEntries.length > 160 ? `- ${noteEntries.length - 160} more notes are indexed for search.` : ""
+    ].filter(Boolean).join("\n")
+  });
+}
+
+function relatedNotesForSourceFile(file, limit = 12) {
+  const pathTokens = [
+    file.relativePath.toLowerCase(),
+    file.fileName.toLowerCase(),
+    file.relativePath.replace(/^src\//, "").toLowerCase(),
+    ...(file.labels || []).slice(0, 24).map((label) => label.toLowerCase()),
+    ...(file.sourceUnits || []).slice(0, 16).map((unit) => `${unit.range} ${unit.name}`.toLowerCase())
+  ].filter(Boolean);
+  return noteEntries
+    .map((note) => {
+      let score = 0;
+      const text = `${note.relativePath} ${note.title} ${note.summary} ${note.searchText || ""}`.toLowerCase();
+      if (file.bank && note.bank === file.bank) score += 3;
+      for (const token of pathTokens) {
+        if (token.length >= 5 && text.includes(token)) {
+          score += token.includes("/") ? 8 : 4;
+        }
+      }
+      for (const topicId of note.topics || []) {
+        const topic = topicConfigs.find((candidate) => candidate.id === topicId);
+        if (topic && file.bank && (topic.banks || []).includes(file.bank)) {
+          score += 1;
+        }
+      }
+      return {
+        id: note.id,
+        title: note.title,
+        reason: text.includes(file.relativePath.toLowerCase()) ? "mentions source path" : file.bank && note.bank === file.bank ? `Bank ${file.bank}` : "shared source vocabulary",
+        score
+      };
+    })
+    .filter((note) => note.score > 0)
+    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
+    .slice(0, limit);
+}
+
+function messageLabels(text, limit = 80) {
+  return [...String(text || "").matchAll(/^([A-Za-z0-9_.$]+);/gm)]
+    .map((match) => match[1])
+    .slice(0, limit);
+}
+
+function addReferenceScriptEntries() {
+  const scriptRoot = path.join(repoRoot, "refs", "earthbound-script-source-1995-03-25");
+  if (!fs.existsSync(scriptRoot)) {
+    return;
+  }
+
+  const msgFiles = walkFiles(scriptRoot, (filePath) => filePath.toLowerCase().endsWith(".msg"))
+    .sort((a, b) => repoRelative(a).localeCompare(repoRelative(b)));
+  const scriptEntries = [];
+
+  for (const filePath of msgFiles) {
+    const relativePath = repoRelative(filePath);
+    const decoded = readShiftJis(relativePath).replace(/\r\n/g, "\n");
+    const labels = messageLabels(decoded, 120);
+    const id = entryIdForPath("reference-script", relativePath);
+    const title = titleFromSlug(path.basename(relativePath));
+    pathEntryIds.set(relativePath, id);
+    scriptEntries.push({
+      id,
+      title,
+      relativePath,
+      labels,
+      lineCount: lines(decoded).length,
+      size: fs.statSync(filePath).size
+    });
+    addEntry({
+      id,
+      title,
+      kind: "reference-script",
+      summary: `Shift-JIS decoded 1995 script source reference with ${lines(decoded).length.toLocaleString("en-US")} lines and ${labels.length.toLocaleString("en-US")} indexed labels.`,
+      maturity: "evidence-note",
+      provenance: "reference-imported",
+      domain: "Text/Scripting",
+      aliases: [relativePath, path.basename(relativePath), title, ...labels.slice(0, 12)],
+      noteRefs: [noteRef(relativePath, relativePath)],
+      related: unique(["script-source-index", "systems-hub", "topic-localization-authoring", "script-and-text-vms", "text-command-vm"]),
+      showInToc: false,
+      body: [
+        "This is a decoded reference-script source file from the 1995 EarthBound script source archive.",
+        "",
+        "## Source File",
+        `\`${relativePath}\``,
+        "",
+        "## Encoding",
+        "`Shift-JIS` decoded at build time for readable Japanese text in the app.",
+        "",
+        labels.length ? "## Message Labels" : "",
+        labels.slice(0, 80).map((label) => `- \`${label}\``).join("\n"),
+        labels.length > 80 ? `- ${labels.length - 80} more labels indexed for search.` : "",
+        "",
+        "## Message Source",
+        fencedCode("msg", decoded)
+      ].filter(Boolean).join("\n")
+    });
+  }
+
+  addEntry({
+    id: "script-source-index",
+    title: "1995 Script Source Index",
+    kind: "workflow",
+    summary: `Shift-JIS decoded index for ${scriptEntries.length.toLocaleString("en-US")} original .MSG script source reference files.`,
+    aliases: ["msg files", "script source", "1995 script source", "shift-jis", "japanese script source"],
+    related: ["overview", "systems-hub", "topic-localization-authoring", "script-and-text-vms", "text-command-vm"],
+    tocPriority: 24,
+    body: [
+      "These reference files are bundled from `refs/earthbound-script-source-1995-03-25` and decoded from Shift-JIS at build time.",
+      "",
+      "## Files",
+      scriptEntries.map((entry) => `- [[${entry.id}|${entry.title}]] - \`${entry.relativePath}\`; ${entry.lineCount.toLocaleString("en-US")} lines; ${entry.labels.length.toLocaleString("en-US")} labels`).join("\n")
+    ].join("\n")
+  });
 }
 
 function addTopicEntries() {
@@ -2593,14 +2988,16 @@ function addCatalogBuildStatusEntry() {
     kind: "workflow",
     summary: `This catalog was built in ${buildMode} mode with ${entries.length.toLocaleString("en-US")} entries before status finalization.`,
     aliases: ["build mode", "catalog status", "provenance status", "entry counts"],
-    related: ["overview", "release-artifact-policy", "rom-status", "upstream-status"],
+    related: unique(["overview", "release-artifact-policy", privateMode ? "" : "rom-status", "upstream-status"]),
     provenance: "project-authored",
     body: [
       "This page summarizes the generated encyclopedia catalog itself: build mode, provenance labels, and whether local workspace content is present.",
       "",
       "## Build Mode",
       `- Mode: \`${buildMode}\``,
-      authoredMode
+      privateMode
+        ? "- Private reference: bundled notes, source, comments, manifests, and asset documentation are included; ROM import and generated media workflows are removed."
+        : authoredMode
         ? "- Release baseline: source, routine, symbol, asset, and asset-manifest entries are omitted; local-workspace placeholders point to post-ROM generation."
         : "- Local workspace catalog: generated source, routine, symbol, asset, and asset-manifest entries are included.",
       "",
@@ -2611,13 +3008,13 @@ function addCatalogBuildStatusEntry() {
       countRows(kindCounts),
       "",
       "## Release Readiness Signals",
-      authoredMode ? "- Authored mode is enabled." : "- Local mode is enabled; run `npm run prepare:release` before packaging.",
+      privateMode ? "- Private mode is enabled; run `npm run prepare:private` before packaging." : authoredMode ? "- Authored mode is enabled." : "- Local mode is enabled; run `npm run prepare:release` before packaging.",
       generatedLocalCount ? `- Generated-local entries present: ${generatedLocalCount.toLocaleString("en-US")}.` : "- No generated-local entries are present.",
       romDerivedCount ? `- ROM-derived local entries present: ${romDerivedCount.toLocaleString("en-US")}.` : "- No ROM-derived local entries are present.",
       "",
       "## Related",
       "- [[release-artifact-policy|Release Artifact Policy]]",
-      "- [[rom-status|ROM And Generated Content Status]]",
+      privateMode ? "" : "- [[rom-status|ROM And Generated Content Status]]",
       "- [[upstream-status|Upstream Source Status]]"
     ].join("\n")
   });
@@ -2666,6 +3063,7 @@ function addSourceFileEntries() {
     const file = parseSourceFile(filePath);
     file.entryId = pathEntryIds.get(file.relativePath) || entryIdForPath("source-file", file.relativePath);
     file.hasRoutineEntry = pathEntryIds.has(file.relativePath);
+    file.relatedNotes = relatedNotesForSourceFile(file);
     return file;
   });
 
@@ -2675,6 +3073,37 @@ function addSourceFileEntries() {
       byBank.set(file.bank, [...(byBank.get(file.bank) || []), file]);
     }
     if (file.hasRoutineEntry) {
+      const existingEntry = entries.find((entry) => entry.id === file.entryId);
+      if (existingEntry) {
+        existingEntry.sourceFile = {
+          path: file.relativePath,
+          fileName: file.fileName,
+          bank: file.bank,
+          role: "routine/source-heavy",
+          lineCount: file.lineCount,
+          labelCount: file.labels.length,
+          labels: file.labels.slice(0, 120),
+          firstAddress: file.address,
+          sourceUnits: file.sourceUnits.slice(0, 80)
+        };
+        existingEntry.relatedNotes = file.relatedNotes;
+        existingEntry.noteRefs = unique([
+          ...(existingEntry.noteRefs || []),
+          ...file.relatedNotes.slice(0, 8).map((note) => {
+            const noteEntry = noteEntries.find((candidate) => candidate.id === note.id);
+            return {
+              path: noteEntry?.relativePath || note.id,
+              label: note.title,
+              entryId: note.id
+            };
+          })
+        ]);
+        existingEntry.related = unique([
+          ...(existingEntry.related || []),
+          file.bank ? sourceBankIndexId(file.bank) : "",
+          ...file.relatedNotes.slice(0, 4).map((note) => note.id)
+        ]);
+      }
       continue;
     }
     pathEntryIds.set(file.relativePath, file.entryId);
@@ -2684,6 +3113,7 @@ function addSourceFileEntries() {
       kind: "source-file",
       summary: `${file.bank || "Source"} ${file.kindLabel} file with ${file.lineCount.toLocaleString("en-US")} lines.`,
       maturity: "generated-source",
+      domain: inferDomain({ id: file.entryId, title: file.title, summary: file.kindLabel, aliases: [file.relativePath, ...file.labels], banks: file.bank ? [file.bank] : [] }),
       aliases: [
         file.relativePath,
         file.fileName,
@@ -2695,12 +3125,33 @@ function addSourceFileEntries() {
         ...file.sourceUnits.map((unit) => unit.range)
       ].filter(Boolean),
       banks: file.bank ? [file.bank] : [],
+      sourceFile: {
+        path: file.relativePath,
+        fileName: file.fileName,
+        bank: file.bank,
+        role: file.kindLabel,
+        lineCount: file.lineCount,
+        labelCount: file.labels.length,
+        labels: file.labels.slice(0, 120),
+        firstAddress: file.address,
+        sourceUnits: file.sourceUnits.slice(0, 80)
+      },
+      relatedNotes: file.relatedNotes,
       sourceRefs: [sourceRef(file.relativePath, file.relativePath)],
+      noteRefs: file.relatedNotes.slice(0, 8).map((note) => {
+        const noteEntry = noteEntries.find((candidate) => candidate.id === note.id);
+        return {
+          path: noteEntry?.relativePath || note.id,
+          label: note.title,
+          entryId: note.id
+        };
+      }),
       related: unique([
         file.bank ? `bank-${file.bank.toLowerCase()}` : "",
         file.bank ? sourceBankIndexId(file.bank) : "",
         "source-browser",
-        "source-tree"
+        "source-tree",
+        ...file.relatedNotes.slice(0, 4).map((note) => note.id)
       ]),
       showInToc: false,
       body: [
@@ -2741,6 +3192,18 @@ function addSourceFileEntries() {
     const routineCount = bankFiles.filter((file) => file.hasRoutineEntry).length;
     const scaffoldCount = bankFiles.length - routineCount;
     const sortedFiles = bankFiles.sort((a, b) => (a.address || "").localeCompare(b.address || "") || a.relativePath.localeCompare(b.relativePath));
+    const bankFileRows = sortedFiles.map((file) => ({
+      id: file.entryId,
+      path: file.relativePath,
+      title: file.title,
+      address: file.address || "",
+      role: file.hasRoutineEntry ? "routine" : file.kindLabel,
+      lineCount: file.lineCount,
+      labelCount: file.labels.length,
+      sourceUnitCount: file.sourceUnits.length,
+      relatedNoteCount: file.relatedNotes.length
+    }));
+    const bankFilesChunk = writeDeferredDataChunk(`${sourceBankIndexId(bank)}:bankFiles`, bankFileRows);
     addEntry({
       id: sourceBankIndexId(bank),
       title: `Bank ${bank} Source Files`,
@@ -2748,6 +3211,15 @@ function addSourceFileEntries() {
       summary: `Generated source browser for ${bankFiles.length} checked-in Bank ${bank} .asm files.`,
       aliases: [`bank ${bank} source`, `${bank} asm files`, `${bank} source files`, `src/${bankLower}`],
       banks: [bank],
+      sourceBank: {
+        bank,
+        fileCount: bankFiles.length,
+        routineCount,
+        scaffoldCount,
+        bankFilesChunk,
+        bankFilesKey: `${sourceBankIndexId(bank)}:bankFiles`,
+        previewFiles: bankFileRows.slice(0, 12)
+      },
       related: unique([
         `bank-${bankLower}`,
         "source-browser",
@@ -2764,11 +3236,10 @@ function addSourceFileEntries() {
         `- Scaffold/data source entries: ${scaffoldCount}`,
         "",
         "## Files",
-        sortedFiles.map((file) => {
-          const marker = file.hasRoutineEntry ? "routine" : file.kindLabel;
-          const label = [file.address, file.title].filter(Boolean).join(" ");
-          return `- [[${file.entryId}|${label || file.fileName}]] - ${marker}; \`${file.relativePath}\``;
-        }).join("\n")
+        "The app loads the full bank file table on demand. Search can still resolve source paths, labels, addresses, and filenames from the startup index.",
+        "",
+        bankFileRows.slice(0, 12).map((file) => `- [[${file.id}|${[file.address, file.title].filter(Boolean).join(" ") || file.path}]] - ${file.role}; \`${file.path}\``).join("\n"),
+        bankFileRows.length > 12 ? `- ${bankFileRows.length - 12} more files load in the bank table.` : ""
       ].join("\n")
     });
   }
@@ -2837,48 +3308,17 @@ function addAssetManifestEntries() {
           ? Object.entries(manifest.bank_summary).map(([key, value]) => `- \`${key}\`: ${value}`).join("\n")
           : `- Assets: ${assets.length}`,
         "",
-        assets.length ? "## Assets" : "",
-        assets.slice(0, 80).map((asset) => `- [[asset-${slug(asset.id || asset.title)}|${asset.title || asset.id}]]`).join("\n"),
-        assets.length > 80 ? `- ${assets.length - 80} more assets omitted from this compact manifest page; use search for exact asset IDs.` : ""
+        assets.length ? "## Asset Rows" : "",
+        assets.slice(0, 120).map((asset) => {
+          const range = asset.source?.range || "";
+          return `- \`${asset.id || asset.title || "asset"}\`${asset.title ? ` ${asset.title}` : ""}${asset.category ? ` - ${asset.category}` : ""}${range ? ` - \`${range}\`` : ""}`;
+        }).join("\n"),
+        assets.length > 120 ? `- ${assets.length - 120} more asset rows omitted from this compact manifest page; use search for exact asset IDs.` : ""
       ].filter(Boolean).join("\n")
     });
 
     for (const asset of assets) {
       assetCount += 1;
-      const assetId = `asset-${slug(asset.id || `${manifestName}-${asset.title}`)}`;
-      const range = asset.source?.range || "";
-      const assetBank = range.match(/^([C-E][0-9A-F]):/i)?.[1].toUpperCase() || bank;
-      addEntry({
-        id: assetId,
-        title: asset.title || asset.id || "Asset",
-        kind: "asset",
-        summary: `${asset.category || "asset"}${range ? ` at ${range}` : ""}.`,
-        maturity: "generated-asset",
-        aliases: [
-          asset.id,
-          asset.title,
-          asset.category,
-          range,
-          ...(asset.outputs || []).map((output) => output.path)
-        ].filter(Boolean),
-        addresses: range ? [range] : [],
-        banks: assetBank ? [assetBank] : [],
-        sourceRefs: [sourceRef(relativePath, manifestName)],
-        related: [id, "asset-contracts", ...(assetBank ? [`bank-${assetBank.toLowerCase()}`] : [])],
-        showInToc: false,
-        body: [
-          `Category: \`${asset.category || "unknown"}\`.`,
-          "",
-          range ? "## Source Range" : "",
-          range ? `\`${range}\`, ${asset.source?.bytes ?? "unknown"} bytes.` : "",
-          "",
-          asset.outputs?.length ? "## Outputs" : "",
-          (asset.outputs || []).map((output) => `- \`${output.kind}\`: \`${output.path}\``).join("\n"),
-          "",
-          asset.notes?.length ? "## Notes" : "",
-          (asset.notes || []).map((note) => `- ${note}`).join("\n")
-        ].filter(Boolean).join("\n")
-      });
     }
   }
 
@@ -2886,11 +3326,11 @@ function addAssetManifestEntries() {
     id: "asset-manifest-index",
     title: "Asset Manifest Index",
     kind: "asset-contract",
-    summary: `Generated index of ${manifestFiles.length} asset manifests and ${assetCount} asset entries.`,
+    summary: `Generated documentation index of ${manifestFiles.length} asset manifests covering ${assetCount} asset rows.`,
     aliases: ["asset manifest index", "asset extraction manifests"],
     related: ["asset-contracts"],
     body: [
-      "Asset manifests provide the current source-backed inventory for extractable graphics, map, text, table, debug, and audio payloads.",
+      "Asset manifests are bundled here as documentation and search evidence. Sprite/asset viewing, generation, and export workflows have been removed from this private reference app.",
       "",
       "## Manifests",
       manifestLinks.join("\n")
@@ -2899,8 +3339,9 @@ function addAssetManifestEntries() {
 }
 
 addEvidenceNoteEntries();
+addReferenceScriptEntries();
 addTopicEntries();
-if (buildMode === "local") {
+if (sourceCatalogMode) {
   addSourceModuleEntries();
   addSourceFileEntries();
   addAssetManifestEntries();
@@ -2922,7 +3363,7 @@ for (const entry of entries) {
         entry.body,
         "",
         "## Source Browser",
-        buildMode === "local"
+        sourceCatalogMode
           ? `Open [[${sourceIndexId}|Bank ${bank} Source Files]] for every checked-in \`src/${bank.toLowerCase()}\` source file, including scaffold/data files and routine entries.`
           : `Open [[${sourceIndexId}|Bank ${bank} Source Files]] for the local-workspace placeholder. Generated source files are not distributed in the authored release baseline.`
       ].join("\n");
@@ -3020,32 +3461,39 @@ entries.sort((a, b) => {
     routine: 14,
     tool: 15,
     note: 16,
-    search: 17
+    "reference-script": 17,
+    search: 18
   };
   return (order[a.kind] ?? 99) - (order[b.kind] ?? 99) || a.title.localeCompare(b.title);
 });
 
 const relationshipGraph = buildRelationshipGraph();
+const searchIndex = buildSearchIndex();
 const deferredBodyStats = deferHeavyBodies();
+const facets = buildFacets();
+const navSections = buildNavSections();
 
 const catalog = {
   generatedAt: new Date().toISOString(),
   buildMode,
   provenanceCatalog,
   chapterScopeCatalog,
+  referenceSync,
+  navSections,
+  facets,
   localWorkspaceContract,
   artifactPolicy: {
     checkedIn: [
       "encyclopedia shell",
       "curated docs",
-      "schemas and tools",
-      "public payload-free manifests",
-      "validation logic",
-      "source-generation code"
+      "bundled notes",
+      "commented source",
+      "source-safe manifests",
+      "validation notes"
     ],
-    userProvided: ["ROM file", "optional local decomp/source workspace"],
-    generatedLocally: ["src", "asset-manifests", "renderer fixtures", "source snapshots", "search catalog", "extracted references", "preview sheets", "SPC/WAV exports", "cache files"],
-    neverDistributed: ["ROM bytes", "raw extracted copyrighted assets", "ROM-derived audio/images", "generated byte-equivalent source"]
+    userProvided: ["optional local decomp/source workspace"],
+    generatedLocally: ["search catalog", "source snapshot metadata", "deferred reference chunks"],
+    neverDistributed: ["ROM bytes", "raw extracted copyrighted assets", "ROM-derived audio/images", "generated media payloads", "executable tool scripts"]
   },
   repoRoot: catalogSourceRoot,
   sourceRoot: catalogSourceRoot,
@@ -3067,6 +3515,7 @@ const catalog = {
   deferredBodyCount: deferredBodyStats.count,
   deferredBodyChars: deferredBodyStats.deferredChars,
   relationshipGraph,
+  searchIndex,
   entries
 };
 

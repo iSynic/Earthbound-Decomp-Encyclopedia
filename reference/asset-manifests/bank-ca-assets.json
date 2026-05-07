@@ -1,0 +1,1028 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank CA asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-ca-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank0A.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 20,
+    "binary_assets_by_extension": {
+      "gfx": 15,
+      "arr": 5
+    },
+    "binary_asset_bytes": 55201,
+    "table_includes": 6,
+    "table_bytes": 10334,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 1,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 27,
+    "output_recipe_count": 72,
+    "typed_output_kind_count": 9,
+    "decoder_output_recipe_count": 45,
+    "renderer_output_recipe_count": 19,
+    "preview_png_recipe_count": 19,
+    "output_kind_counts": {
+      "battle_bg_config_table_json": 1,
+      "battle_bg_distortion_table_json": 1,
+      "battle_bg_pointer_table_json": 3,
+      "battle_bg_scrolling_table_json": 1,
+      "earthbound_lzhal": 20,
+      "earthbound_lzhal_battle_bg_arrangement_png": 5,
+      "earthbound_lzhal_snes_4bpp_tiles_palette_png": 4,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 10,
+      "raw": 27
+    },
+    "decoder_counts": {
+      "battle_background_config_table": 1,
+      "battle_background_distortion_table": 1,
+      "battle_background_pointer_table": 3,
+      "battle_background_scrolling_table": 1,
+      "earthbound_lzhal": 20,
+      "earthbound_lzhal+snes_4bpp_tiles": 10,
+      "earthbound_lzhal+snes_4bpp_tiles+snes_palette": 4,
+      "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette": 5
+    },
+    "renderer_counts": {
+      "battle_background_arrangement": 5,
+      "grayscale_tile_sheet": 10,
+      "palette_tile_sheet": 4
+    },
+    "smoke_fixture_count": 24,
+    "smoke_fixture_asset_ids": [
+      "asset.ca.battle_background_arr_100",
+      "asset.ca.battle_background_gfx_38",
+      "table.ca.020_data_battle_backgrounds_graphics_pointers_asm",
+      "table.ca.023_data_battle_backgrounds_config_table_asm",
+      "table.ca.024_data_battle_backgrounds_scrolling_table_asm",
+      "table.ca.025_data_battle_backgrounds_distortion_table_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 8,
+      "family_renderer": 3,
+      "family_renderer_geometry": 3,
+      "recipe_kind": 9
+    },
+    "smoke_fixture_target_kind_counts": {
+      "battle_bg_config_table_json": 2,
+      "battle_bg_distortion_table_json": 2,
+      "battle_bg_pointer_table_json": 2,
+      "battle_bg_scrolling_table_json": 2,
+      "earthbound_lzhal": 2,
+      "earthbound_lzhal_battle_bg_arrangement_png": 5,
+      "earthbound_lzhal_snes_4bpp_tiles_palette_png": 4,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 4,
+      "raw": 1
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.ca.battle_background_gfx_63",
+      "title": "BATTLE_BACKGROUND_GFX_63",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:0000..CA:2042",
+        "bytes": 8258,
+        "sha1": "aa163e012dc23455ef7c49baae796df88d10fa6c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/63.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/63.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/63_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/63.gfx.lzhal",
+        "Original file offset: 0x0A0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_64",
+      "title": "BATTLE_BACKGROUND_GFX_64",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:2042..CA:382D",
+        "bytes": 6123,
+        "sha1": "c0b32c87a91a060e6bea5f71536d2612be152638"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/64.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/64.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/64_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/64.gfx.lzhal",
+        "Original file offset: 0x0A2042",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_61",
+      "title": "BATTLE_BACKGROUND_GFX_61",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:382D..CA:480F",
+        "bytes": 4066,
+        "sha1": "b4a9470faa0e7fe1508033c78f1152ba4c6b33fb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/61.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/61.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/61.gfx.lzhal",
+        "Original file offset: 0x0A382D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_60",
+      "title": "BATTLE_BACKGROUND_GFX_60",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:480F..CA:5723",
+        "bytes": 3860,
+        "sha1": "56f7b197c59069e00d68fa0170c44c4e9da52da1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/60.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/60.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/60_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/60.gfx.lzhal",
+        "Original file offset: 0x0A480F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_42",
+      "title": "BATTLE_BACKGROUND_GFX_42",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:5723..CA:65D3",
+        "bytes": 3760,
+        "sha1": "fc083cada58e86186930360e238fa8e9981d59e9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/42.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/42.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/42.gfx.lzhal",
+        "Original file offset: 0x0A5723",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:65D3..CA:7314",
+        "bytes": 3393,
+        "sha1": "f80daeee2439c1e7d08be94b93c204bc1aa1f2a2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/38.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/38.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/38_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "ca/battle_bgs/graphics/38_palette_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D214..CB:D234",
+            "bytes": 32,
+            "sha1": "47080439f0564dc4e27bdc9c04303533580adab8"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/38.gfx.lzhal",
+        "Original file offset: 0x0A65D3",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_37",
+      "title": "BATTLE_BACKGROUND_GFX_37",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:7314..CA:7F6C",
+        "bytes": 3160,
+        "sha1": "524f9b898bfe240cdbb8ad398934ffa12852030f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/37.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/37.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/37.gfx.lzhal",
+        "Original file offset: 0x0A7314",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_43",
+      "title": "BATTLE_BACKGROUND_GFX_43",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:7F6C..CA:8B4F",
+        "bytes": 3043,
+        "sha1": "fc18c790715ec20a52e2ab65aeadcca9e996d8b7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/43.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/43.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/43.gfx.lzhal",
+        "Original file offset: 0x0A7F6C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_39",
+      "title": "BATTLE_BACKGROUND_GFX_39",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:8B4F..CA:965F",
+        "bytes": 2832,
+        "sha1": "d860b0da53d11c280d02635eb0454d555c2be6f1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/39.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/39.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/39_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "ca/battle_bgs/graphics/39_palette_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D1F4..CB:D214",
+            "bytes": 32,
+            "sha1": "1cf12627d389de875783eea144a9f3788f3197e3"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/39.gfx.lzhal",
+        "Original file offset: 0x0A8B4F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_41",
+      "title": "BATTLE_BACKGROUND_GFX_41",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:965F..CA:A049",
+        "bytes": 2538,
+        "sha1": "537609553448e59e023ceb5fbcf8e1205cb41156"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/41.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/41.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/41.gfx.lzhal",
+        "Original file offset: 0x0A965F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_62",
+      "title": "BATTLE_BACKGROUND_GFX_62",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:A049..CA:A8F9",
+        "bytes": 2224,
+        "sha1": "9c838eb175446d5c33933b7db890d8fac7305f72"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/62.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/62.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/62_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/62.gfx.lzhal",
+        "Original file offset: 0x0AA049",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_40",
+      "title": "BATTLE_BACKGROUND_GFX_40",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:A8F9..CA:B092",
+        "bytes": 1945,
+        "sha1": "16e33487eafb660a2bef9caf21d15e955dee8fa0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/40.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/40.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/40_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "ca/battle_bgs/graphics/40_palette_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D1D4..CB:D1F4",
+            "bytes": 32,
+            "sha1": "86c7cf4b520ce9d9cb14e335b6545cc47912e47e"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/40.gfx.lzhal",
+        "Original file offset: 0x0AA8F9",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_arr_37",
+      "title": "BATTLE_BACKGROUND_ARR_37",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:B092..CA:B75B",
+        "bytes": 1737,
+        "sha1": "ee3af5f1d000aae177629e0f6ed1aa663f6643e2"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/arrangements/37.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/arrangements/37.arr"
+        },
+        {
+          "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+          "path": "ca/battle_bgs/arrangements/37_composed_preview.png",
+          "width_tiles": 32,
+          "height_tiles": 32,
+          "bpp": 2,
+          "colors": 4,
+          "arrangement_id": 37,
+          "graphics_id": 37,
+          "palette_id": 37,
+          "graphics_source": {
+            "type": "rom-range",
+            "range": "CA:7314..CA:7F6C",
+            "bytes": 3160,
+            "sha1": "524f9b898bfe240cdbb8ad398934ffa12852030f",
+            "compression": "earthbound_lzhal"
+          },
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D234..CB:D254",
+            "bytes": 32,
+            "sha1": "4a0913d7fe0b4cdec1d9ce1712437d04af7c3e6e"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/arrangements/37.arr.lzhal",
+        "Original file offset: 0x0AB092",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_66",
+      "title": "BATTLE_BACKGROUND_GFX_66",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:B75B..CA:BE1E",
+        "bytes": 1731,
+        "sha1": "87c4398cbc305d89c080c249baaeefe1377608f5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/66.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/66.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/66_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/66.gfx.lzhal",
+        "Original file offset: 0x0AB75B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_arr_38",
+      "title": "BATTLE_BACKGROUND_ARR_38",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:BE1E..CA:C4A1",
+        "bytes": 1667,
+        "sha1": "f86d1995b75f12aaefa6a518ace4b17a05ceaa61"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/arrangements/38.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/arrangements/38.arr"
+        },
+        {
+          "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+          "path": "ca/battle_bgs/arrangements/38_composed_preview.png",
+          "width_tiles": 32,
+          "height_tiles": 32,
+          "bpp": 2,
+          "colors": 4,
+          "arrangement_id": 38,
+          "graphics_id": 38,
+          "palette_id": 38,
+          "graphics_source": {
+            "type": "rom-range",
+            "range": "CA:65D3..CA:7314",
+            "bytes": 3393,
+            "sha1": "f80daeee2439c1e7d08be94b93c204bc1aa1f2a2",
+            "compression": "earthbound_lzhal"
+          },
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D214..CB:D234",
+            "bytes": 32,
+            "sha1": "47080439f0564dc4e27bdc9c04303533580adab8"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/arrangements/38.arr.lzhal",
+        "Original file offset: 0x0ABE1E",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_arr_39",
+      "title": "BATTLE_BACKGROUND_ARR_39",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:C4A1..CA:CB09",
+        "bytes": 1640,
+        "sha1": "f3268eb48867081a934618e8b14240a4f16da8e4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/arrangements/39.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/arrangements/39.arr"
+        },
+        {
+          "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+          "path": "ca/battle_bgs/arrangements/39_composed_preview.png",
+          "width_tiles": 32,
+          "height_tiles": 32,
+          "bpp": 2,
+          "colors": 4,
+          "arrangement_id": 39,
+          "graphics_id": 39,
+          "palette_id": 39,
+          "graphics_source": {
+            "type": "rom-range",
+            "range": "CA:8B4F..CA:965F",
+            "bytes": 2832,
+            "sha1": "d860b0da53d11c280d02635eb0454d555c2be6f1",
+            "compression": "earthbound_lzhal"
+          },
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D1F4..CB:D214",
+            "bytes": 32,
+            "sha1": "1cf12627d389de875783eea144a9f3788f3197e3"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/arrangements/39.arr.lzhal",
+        "Original file offset: 0x0AC4A1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_arr_42",
+      "title": "BATTLE_BACKGROUND_ARR_42",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:CB09..CA:D149",
+        "bytes": 1600,
+        "sha1": "694610ba87dbb91e1905631831a0caa0e4119423"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/arrangements/42.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/arrangements/42.arr"
+        },
+        {
+          "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+          "path": "ca/battle_bgs/arrangements/42_composed_preview.png",
+          "width_tiles": 32,
+          "height_tiles": 32,
+          "bpp": 2,
+          "colors": 4,
+          "arrangement_id": 42,
+          "graphics_id": 42,
+          "palette_id": 42,
+          "graphics_source": {
+            "type": "rom-range",
+            "range": "CA:5723..CA:65D3",
+            "bytes": 3760,
+            "sha1": "fc083cada58e86186930360e238fa8e9981d59e9",
+            "compression": "earthbound_lzhal"
+          },
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:D194..CB:D1B4",
+            "bytes": 32,
+            "sha1": "f5b615fa054e2a7c060b14d909307cfe75edf00a"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/arrangements/42.arr.lzhal",
+        "Original file offset: 0x0ACB09",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:D149..CA:D755",
+        "bytes": 1548,
+        "sha1": "09332fea4e239ea099e0e0c568f7a17053ae2de8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/arrangements/100.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/arrangements/100.arr"
+        },
+        {
+          "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+          "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+          "width_tiles": 32,
+          "height_tiles": 32,
+          "bpp": 4,
+          "colors": 16,
+          "arrangement_id": 100,
+          "graphics_id": 100,
+          "palette_id": 100,
+          "graphics_source": {
+            "type": "rom-range",
+            "range": "CB:C2C9..CB:C32C",
+            "bytes": 99,
+            "sha1": "9b6f11ee05489628ecede47ee7ea2b5ee8998be9",
+            "compression": "earthbound_lzhal"
+          },
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:CD54..CB:CD74",
+            "bytes": 32,
+            "sha1": "3219172e174e5329f9b33f29398ff909b94ea8c8"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/arrangements/100.arr.lzhal",
+        "Original file offset: 0x0AD149",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_56",
+      "title": "BATTLE_BACKGROUND_GFX_56",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:D755..CA:D79E",
+        "bytes": 73,
+        "sha1": "2dd52782c3bcb90683dbbaeef3a86f7089985171"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/56.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/56.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/56_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/56.gfx.lzhal",
+        "Original file offset: 0x0AD755",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.ca.battle_background_gfx_90",
+      "title": "BATTLE_BACKGROUND_GFX_90",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:D79E..CA:D7A1",
+        "bytes": 3,
+        "sha1": "10b259281dd14bb3c191075c14d5d6fa0debfc56"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/battle_bgs/graphics/90.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "ca/battle_bgs/graphics/90.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "ca/battle_bgs/graphics/90_4bpp_preview.png",
+          "columns": 8
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+          "path": "ca/battle_bgs/graphics/90_palette_preview.png",
+          "columns": 8,
+          "colors": 16,
+          "palette_source": {
+            "type": "rom-range",
+            "range": "CB:CE54..CB:CE74",
+            "bytes": 32,
+            "sha1": "259f34cef5d70b3ca18a9332121e16ef09deee8e"
+          }
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: battle_bgs/graphics/90.gfx.lzhal",
+        "Original file offset: 0x0AD79E",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "table.ca.020_data_battle_backgrounds_graphics_pointers_asm",
+      "title": "data/battle/backgrounds/graphics_pointers.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:D7A1..CA:D93D",
+        "bytes": 412,
+        "sha1": "44af7fd95db064ec77f55717568087b104c3f73e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/020_data_battle_backgrounds_graphics_pointers_asm.bin"
+        },
+        {
+          "kind": "battle_bg_pointer_table_json",
+          "path": "ca/tables/020_data_battle_backgrounds_graphics_pointers_asm_decoded.json",
+          "entry_count": 103,
+          "table_id": 0,
+          "table_role": "graphics"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/graphics_pointers.asm",
+        "Original file offset: 0x0AD7A1",
+        "Decoded as a 4-byte little-endian battle background pointer table for graphics payload targets."
+      ]
+    },
+    {
+      "id": "table.ca.021_data_battle_backgrounds_arrangement_pointers_asm",
+      "title": "data/battle/backgrounds/arrangement_pointers.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:D93D..CA:DAD9",
+        "bytes": 412,
+        "sha1": "1691042b7bc9efab709ec49550061b72fa52cb30"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/021_data_battle_backgrounds_arrangement_pointers_asm.bin"
+        },
+        {
+          "kind": "battle_bg_pointer_table_json",
+          "path": "ca/tables/021_data_battle_backgrounds_arrangement_pointers_asm_decoded.json",
+          "entry_count": 103,
+          "table_id": 1,
+          "table_role": "arrangement"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/arrangement_pointers.asm",
+        "Original file offset: 0x0AD93D",
+        "Decoded as a 4-byte little-endian battle background pointer table for tile arrangement payload targets."
+      ]
+    },
+    {
+      "id": "table.ca.022_data_battle_backgrounds_palette_pointers_asm",
+      "title": "data/battle/backgrounds/palette_pointers.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:DAD9..CA:DCA1",
+        "bytes": 456,
+        "sha1": "474dfb01c72f2caf1f271a3e81f0cb6c8e74d4a8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/022_data_battle_backgrounds_palette_pointers_asm.bin"
+        },
+        {
+          "kind": "battle_bg_pointer_table_json",
+          "path": "ca/tables/022_data_battle_backgrounds_palette_pointers_asm_decoded.json",
+          "entry_count": 114,
+          "table_id": 2,
+          "table_role": "palette"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/palette_pointers.asm",
+        "Original file offset: 0x0ADAD9",
+        "Decoded as a 4-byte little-endian battle background pointer table for palette payload targets."
+      ]
+    },
+    {
+      "id": "table.ca.023_data_battle_backgrounds_config_table_asm",
+      "title": "data/battle/backgrounds/config_table.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:DCA1..CA:F258",
+        "bytes": 5559,
+        "sha1": "ebe6f07c19c2c3698c31539d1c902cf926bd0e78"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/023_data_battle_backgrounds_config_table_asm.bin"
+        },
+        {
+          "kind": "battle_bg_config_table_json",
+          "path": "ca/tables/023_data_battle_backgrounds_config_table_asm_decoded.json",
+          "row_count": 327
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/config_table.asm",
+        "Original file offset: 0x0ADCA1",
+        "Decoded as the 327-row battle background layer config table."
+      ]
+    },
+    {
+      "id": "table.ca.024_data_battle_backgrounds_scrolling_table_asm",
+      "title": "data/battle/backgrounds/scrolling_table.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:F258..CA:F708",
+        "bytes": 1200,
+        "sha1": "8cd0dd1d806dba75867d3e8b1567f9846db33d23"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/024_data_battle_backgrounds_scrolling_table_asm.bin"
+        },
+        {
+          "kind": "battle_bg_scrolling_table_json",
+          "path": "ca/tables/024_data_battle_backgrounds_scrolling_table_asm_decoded.json",
+          "row_count": 120
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/scrolling_table.asm",
+        "Original file offset: 0x0AF258",
+        "Decoded as the 120-row battle background scrolling movement table."
+      ]
+    },
+    {
+      "id": "table.ca.025_data_battle_backgrounds_distortion_table_asm",
+      "title": "data/battle/backgrounds/distortion_table.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:F708..CA:FFFF",
+        "bytes": 2295,
+        "sha1": "3ddf4070f3eb98fd4ee9bd1d5ab23591fdf831b5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/tables/025_data_battle_backgrounds_distortion_table_asm.bin"
+        },
+        {
+          "kind": "battle_bg_distortion_table_json",
+          "path": "ca/tables/025_data_battle_backgrounds_distortion_table_asm_decoded.json",
+          "row_count": 135
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/battle/backgrounds/distortion_table.asm",
+        "Original file offset: 0x0AF708",
+        "Decoded as the 135-row battle background distortion effect table."
+      ]
+    },
+    {
+      "id": "gap.ca.ca_ffff",
+      "title": "Bank CA coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "CA:FFFF..CA:10000",
+        "bytes": 1,
+        "sha1": "5ba93c9db0cff93f52b521d7420e43f6eda2784f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "ca/gaps/01_ca_ffff.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x0AFFFF..0x0AFFFF"
+      ]
+    }
+  ]
+}

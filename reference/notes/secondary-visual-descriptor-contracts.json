@@ -1,0 +1,4653 @@
+{
+  "descriptors": [
+    {
+      "address": "C4:2B51",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "F8 00 00 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "F8 00 40 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 12,
+      "header": {
+        "first_priority_band_count": 0,
+        "piece_count_per_pass": 1,
+        "runtime_2be6_packed_counts": "$0001",
+        "second_priority_band_count": 1,
+        "total_copied_piece_records": 2
+      },
+      "label": "SecondaryVisualDescriptor1Piece",
+      "range": "C4:2B51..C4:2B5D",
+      "sha1": "0f40bada51f26a6b1e9dc73159d583e0afda8bef"
+    },
+    {
+      "address": "C4:2B5D",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "F8 00 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "F8 02 00 04 80",
+            "relative_x": 4,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "F8 00 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "F8 02 40 EC 80",
+            "relative_x": 236,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 22,
+      "header": {
+        "first_priority_band_count": 0,
+        "piece_count_per_pass": 2,
+        "runtime_2be6_packed_counts": "$0002",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 4
+      },
+      "label": "SecondaryVisualDescriptor2PieceNarrow",
+      "range": "C4:2B5D..C4:2B73",
+      "sha1": "0115fafab84e46e156835f98d9487d44c72c3b27"
+    },
+    {
+      "address": "C4:2B73",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "F8 00 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "F8 02 00 00 80",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "F8 00 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "F8 02 40 F0 80",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 22,
+      "header": {
+        "first_priority_band_count": 0,
+        "piece_count_per_pass": 2,
+        "runtime_2be6_packed_counts": "$0002",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 4
+      },
+      "label": "SecondaryVisualDescriptor2PieceWide",
+      "range": "C4:2B73..C4:2B89",
+      "sha1": "7db29694a7d4d1ed7938935039302e6345fa165c"
+    },
+    {
+      "address": "C4:2B89",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "F8 00 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "F8 02 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "F8 04 00 08 80",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "F8 00 40 08 00",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "F8 02 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "F8 04 40 E8 80",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 32,
+      "header": {
+        "first_priority_band_count": 0,
+        "piece_count_per_pass": 3,
+        "runtime_2be6_packed_counts": "$0003",
+        "second_priority_band_count": 3,
+        "total_copied_piece_records": 6
+      },
+      "label": "SecondaryVisualDescriptor3PieceColumn",
+      "range": "C4:2B89..C4:2BA9",
+      "sha1": "5c8f506e81075cea1afbc2234400c87db7609d2a"
+    },
+    {
+      "address": "C4:2BA9",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E8 00 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "F8 02 00 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E8 00 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "F8 02 40 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 22,
+      "header": {
+        "first_priority_band_count": 1,
+        "piece_count_per_pass": 2,
+        "runtime_2be6_packed_counts": "$0101",
+        "second_priority_band_count": 1,
+        "total_copied_piece_records": 4
+      },
+      "label": "SecondaryVisualDescriptor2PieceBandSplit",
+      "range": "C4:2BA9..C4:2BBF",
+      "sha1": "975ace1b21c57820d200d8fb12f1f4a3c05e7728"
+    },
+    {
+      "address": "C4:2BBF",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E8 00 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "E8 02 00 04 00",
+            "relative_x": 4,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "F8 04 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "F8 06 00 04 80",
+            "relative_x": 4,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E8 00 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "E8 02 40 EC 00",
+            "relative_x": 236,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "F8 04 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "F8 06 40 EC 80",
+            "relative_x": 236,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 42,
+      "header": {
+        "first_priority_band_count": 2,
+        "piece_count_per_pass": 4,
+        "runtime_2be6_packed_counts": "$0202",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 8
+      },
+      "label": "SecondaryVisualDescriptor4Piece2x2",
+      "range": "C4:2BBF..C4:2BE9",
+      "sha1": "ff1f0c38c0cae78e4559d15139836bccc8f95968"
+    },
+    {
+      "address": "C4:2BE9",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E8 00 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "F8 02 00 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E8 00 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "F8 02 40 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 22,
+      "header": {
+        "first_priority_band_count": 1,
+        "piece_count_per_pass": 2,
+        "runtime_2be6_packed_counts": "$0101",
+        "second_priority_band_count": 1,
+        "total_copied_piece_records": 4
+      },
+      "label": "SecondaryVisualDescriptor2PieceBandSplitAlt",
+      "range": "C4:2BE9..C4:2BFF",
+      "sha1": "975ace1b21c57820d200d8fb12f1f4a3c05e7728"
+    },
+    {
+      "address": "C4:2BFF",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E8 00 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "E8 02 00 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "F8 04 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "F8 06 00 00 80",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E8 00 40 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "E8 02 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "F8 04 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "F8 06 40 F0 80",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 42,
+      "header": {
+        "first_priority_band_count": 2,
+        "piece_count_per_pass": 4,
+        "runtime_2be6_packed_counts": "$0202",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 8
+      },
+      "label": "SecondaryVisualDescriptor4Piece2x2Wide",
+      "range": "C4:2BFF..C4:2C29",
+      "sha1": "d8166ba40576d4d7b93604df40e422348125f0cd"
+    },
+    {
+      "address": "C4:2C29",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E8 00 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "E8 02 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "E8 04 00 08 00",
+            "relative_x": 8,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "F8 06 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "F8 08 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "F8 0A 00 08 80",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E8 00 40 08 00",
+            "relative_x": 8,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "E8 02 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "E8 04 40 E8 00",
+            "relative_x": 232,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "F8 06 40 08 00",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "F8 08 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "F8 0A 40 E8 80",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 62,
+      "header": {
+        "first_priority_band_count": 3,
+        "piece_count_per_pass": 6,
+        "runtime_2be6_packed_counts": "$0303",
+        "second_priority_band_count": 3,
+        "total_copied_piece_records": 12
+      },
+      "label": "SecondaryVisualDescriptor6Piece3x2",
+      "range": "C4:2C29..C4:2C67",
+      "sha1": "0f5d318e1fed91f838f162c275b953d76da6f3da"
+    },
+    {
+      "address": "C4:2C67",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "E0 00 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 224,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "E0 02 00 04 00",
+            "relative_x": 4,
+            "relative_y": 224,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "F0 04 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 240,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "F0 06 00 04 00",
+            "relative_x": 4,
+            "relative_y": 240,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "00 08 00 F4 00",
+            "relative_x": 244,
+            "relative_y": 0,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "00 0A 00 04 80",
+            "relative_x": 4,
+            "relative_y": 0,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "E0 00 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 224,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "E0 02 40 EC 00",
+            "relative_x": 236,
+            "relative_y": 224,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "F0 04 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 240,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "F0 06 40 EC 00",
+            "relative_x": 236,
+            "relative_y": 240,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "00 08 40 FC 00",
+            "relative_x": 252,
+            "relative_y": 0,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "00 0A 40 EC 80",
+            "relative_x": 236,
+            "relative_y": 0,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 62,
+      "header": {
+        "first_priority_band_count": 4,
+        "piece_count_per_pass": 6,
+        "runtime_2be6_packed_counts": "$0402",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 12
+      },
+      "label": "SecondaryVisualDescriptor6Piece3x2Tall",
+      "range": "C4:2C67..C4:2CA5",
+      "sha1": "120c6385cb187e3d80bfb8be2d3811cdb553030a"
+    },
+    {
+      "address": "C4:2CA5",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "D8 00 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "E8 02 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "F8 04 00 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "D8 00 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "E8 02 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "F8 04 40 F8 80",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 32,
+      "header": {
+        "first_priority_band_count": 2,
+        "piece_count_per_pass": 3,
+        "runtime_2be6_packed_counts": "$0201",
+        "second_priority_band_count": 1,
+        "total_copied_piece_records": 6
+      },
+      "label": "SecondaryVisualDescriptor3Piece1x3",
+      "range": "C4:2CA5..C4:2CC5",
+      "sha1": "054c580ddb2b110834616ab38037113d0cca55c6"
+    },
+    {
+      "address": "C4:2CC5",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "D8 00 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "D8 02 00 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "E8 04 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "E8 06 00 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "F8 08 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "F8 0A 00 00 80",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "D8 00 40 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "D8 02 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "E8 04 40 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "E8 06 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "F8 08 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "F8 0A 40 F0 80",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 62,
+      "header": {
+        "first_priority_band_count": 4,
+        "piece_count_per_pass": 6,
+        "runtime_2be6_packed_counts": "$0402",
+        "second_priority_band_count": 2,
+        "total_copied_piece_records": 12
+      },
+      "label": "SecondaryVisualDescriptor6Piece2x3Wide",
+      "range": "C4:2CC5..C4:2D03",
+      "sha1": "4d00064d67c1d7ce4192812c03fb659bbb617370"
+    },
+    {
+      "address": "C4:2D03",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "D8 00 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "D8 02 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "D8 04 00 08 00",
+            "relative_x": 8,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "E8 06 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "E8 08 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "E8 0A 00 08 00",
+            "relative_x": 8,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 6,
+            "pass_index": 0,
+            "raw": "F8 0C 00 E8 00",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 7,
+            "pass_index": 0,
+            "raw": "F8 0E 00 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 8,
+            "pass_index": 0,
+            "raw": "F8 10 00 08 80",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "D8 00 40 08 00",
+            "relative_x": 8,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "D8 02 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "D8 04 40 E8 00",
+            "relative_x": 232,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "E8 06 40 08 00",
+            "relative_x": 8,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "E8 08 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "E8 0A 40 E8 00",
+            "relative_x": 232,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 6,
+            "pass_index": 1,
+            "raw": "F8 0C 40 08 00",
+            "relative_x": 8,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 7,
+            "pass_index": 1,
+            "raw": "F8 0E 40 F8 00",
+            "relative_x": 248,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 8,
+            "pass_index": 1,
+            "raw": "F8 10 40 E8 80",
+            "relative_x": 232,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 92,
+      "header": {
+        "first_priority_band_count": 6,
+        "piece_count_per_pass": 9,
+        "runtime_2be6_packed_counts": "$0603",
+        "second_priority_band_count": 3,
+        "total_copied_piece_records": 18
+      },
+      "label": "SecondaryVisualDescriptor9Piece3x3",
+      "range": "C4:2D03..C4:2D5F",
+      "sha1": "03e6d25591a7a77aefdfa443c20379058a1a3904"
+    },
+    {
+      "address": "C4:2D5F",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "D8 00 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "D8 02 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "D8 04 00 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "D8 06 00 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "E8 08 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "E8 0A 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 6,
+            "pass_index": 0,
+            "raw": "E8 0C 00 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 7,
+            "pass_index": 0,
+            "raw": "E8 0E 00 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 8,
+            "pass_index": 0,
+            "raw": "F8 10 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 9,
+            "pass_index": 0,
+            "raw": "F8 12 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 10,
+            "pass_index": 0,
+            "raw": "F8 14 00 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 11,
+            "pass_index": 0,
+            "raw": "F8 16 00 10 80",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "D8 00 40 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "D8 02 40 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "D8 04 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "D8 06 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "E8 08 40 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "E8 0A 40 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 6,
+            "pass_index": 1,
+            "raw": "E8 0C 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 7,
+            "pass_index": 1,
+            "raw": "E8 0E 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 8,
+            "pass_index": 1,
+            "raw": "F8 10 40 10 00",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 9,
+            "pass_index": 1,
+            "raw": "F8 12 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 10,
+            "pass_index": 1,
+            "raw": "F8 14 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 11,
+            "pass_index": 1,
+            "raw": "F8 16 40 E0 80",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 122,
+      "header": {
+        "first_priority_band_count": 8,
+        "piece_count_per_pass": 12,
+        "runtime_2be6_packed_counts": "$0804",
+        "second_priority_band_count": 4,
+        "total_copied_piece_records": 24
+      },
+      "label": "SecondaryVisualDescriptor12Piece4x3",
+      "range": "C4:2D5F..C4:2DD9",
+      "sha1": "7c34ccc3c579297c04c86f3cb650e68a2d3ae766"
+    },
+    {
+      "address": "C4:2DD9",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "C8 00 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "C8 02 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "C8 04 00 00 00",
+            "relative_x": 0,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "C8 06 00 10 00",
+            "relative_x": 16,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "D8 08 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "D8 0A 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 6,
+            "pass_index": 0,
+            "raw": "D8 0C 00 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 7,
+            "pass_index": 0,
+            "raw": "D8 0E 00 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 8,
+            "pass_index": 0,
+            "raw": "E8 10 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 9,
+            "pass_index": 0,
+            "raw": "E8 12 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 10,
+            "pass_index": 0,
+            "raw": "E8 14 00 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 11,
+            "pass_index": 0,
+            "raw": "E8 16 00 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 12,
+            "pass_index": 0,
+            "raw": "F8 18 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 24,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 13,
+            "pass_index": 0,
+            "raw": "F8 1A 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 26,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 14,
+            "pass_index": 0,
+            "raw": "F8 1C 00 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 28,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 15,
+            "pass_index": 0,
+            "raw": "F8 1E 00 10 80",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 30,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "C8 00 40 10 00",
+            "relative_x": 16,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "C8 02 40 00 00",
+            "relative_x": 0,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "C8 04 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "C8 06 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "D8 08 40 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "D8 0A 40 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 6,
+            "pass_index": 1,
+            "raw": "D8 0C 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 7,
+            "pass_index": 1,
+            "raw": "D8 0E 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 8,
+            "pass_index": 1,
+            "raw": "E8 10 40 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 9,
+            "pass_index": 1,
+            "raw": "E8 12 40 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 10,
+            "pass_index": 1,
+            "raw": "E8 14 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 11,
+            "pass_index": 1,
+            "raw": "E8 16 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 12,
+            "pass_index": 1,
+            "raw": "F8 18 40 10 00",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 24,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 13,
+            "pass_index": 1,
+            "raw": "F8 1A 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 26,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 14,
+            "pass_index": 1,
+            "raw": "F8 1C 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 28,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 15,
+            "pass_index": 1,
+            "raw": "F8 1E 40 E0 80",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 30,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 162,
+      "header": {
+        "first_priority_band_count": 8,
+        "piece_count_per_pass": 16,
+        "runtime_2be6_packed_counts": "$0808",
+        "second_priority_band_count": 8,
+        "total_copied_piece_records": 32
+      },
+      "label": "SecondaryVisualDescriptor16Piece4x4",
+      "range": "C4:2DD9..C4:2E7B",
+      "sha1": "ddcbba082b6e2b8b4f3b8ccd67c71aa1954fcac3"
+    },
+    {
+      "address": "C4:2E7B",
+      "body_passes": [
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 0,
+            "pass_index": 0,
+            "raw": "B8 00 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 1,
+            "pass_index": 0,
+            "raw": "B8 02 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 2,
+            "pass_index": 0,
+            "raw": "B8 04 00 00 00",
+            "relative_x": 0,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 3,
+            "pass_index": 0,
+            "raw": "B8 06 00 10 00",
+            "relative_x": 16,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 4,
+            "pass_index": 0,
+            "raw": "C8 08 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 5,
+            "pass_index": 0,
+            "raw": "C8 0A 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 6,
+            "pass_index": 0,
+            "raw": "C8 0C 00 00 00",
+            "relative_x": 0,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 7,
+            "pass_index": 0,
+            "raw": "C8 0E 00 10 00",
+            "relative_x": 16,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 8,
+            "pass_index": 0,
+            "raw": "D8 10 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 9,
+            "pass_index": 0,
+            "raw": "D8 12 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 10,
+            "pass_index": 0,
+            "raw": "D8 14 00 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 11,
+            "pass_index": 0,
+            "raw": "D8 16 00 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 12,
+            "pass_index": 0,
+            "raw": "E8 18 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 24,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 13,
+            "pass_index": 0,
+            "raw": "E8 1A 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 26,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 14,
+            "pass_index": 0,
+            "raw": "E8 1C 00 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 28,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 15,
+            "pass_index": 0,
+            "raw": "E8 1E 00 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 30,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 16,
+            "pass_index": 0,
+            "raw": "F8 20 00 E0 00",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 32,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 17,
+            "pass_index": 0,
+            "raw": "F8 22 00 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 34,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 18,
+            "pass_index": 0,
+            "raw": "F8 24 00 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 36,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": false,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$00",
+            "ordinal": 19,
+            "pass_index": 0,
+            "raw": "F8 26 00 10 80",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 38,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ],
+        [
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 0,
+            "pass_index": 1,
+            "raw": "B8 00 40 10 00",
+            "relative_x": 16,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 0,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 1,
+            "pass_index": 1,
+            "raw": "B8 02 40 00 00",
+            "relative_x": 0,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 2,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 2,
+            "pass_index": 1,
+            "raw": "B8 04 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 4,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 3,
+            "pass_index": 1,
+            "raw": "B8 06 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 184,
+            "source_tile_low_or_spatial_byte": 6,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 4,
+            "pass_index": 1,
+            "raw": "C8 08 40 10 00",
+            "relative_x": 16,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 8,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 5,
+            "pass_index": 1,
+            "raw": "C8 0A 40 00 00",
+            "relative_x": 0,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 10,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 6,
+            "pass_index": 1,
+            "raw": "C8 0C 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 12,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 7,
+            "pass_index": 1,
+            "raw": "C8 0E 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 200,
+            "source_tile_low_or_spatial_byte": 14,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 8,
+            "pass_index": 1,
+            "raw": "D8 10 40 10 00",
+            "relative_x": 16,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 16,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 9,
+            "pass_index": 1,
+            "raw": "D8 12 40 00 00",
+            "relative_x": 0,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 18,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 10,
+            "pass_index": 1,
+            "raw": "D8 14 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 20,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 11,
+            "pass_index": 1,
+            "raw": "D8 16 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 216,
+            "source_tile_low_or_spatial_byte": 22,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 12,
+            "pass_index": 1,
+            "raw": "E8 18 40 10 00",
+            "relative_x": 16,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 24,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 13,
+            "pass_index": 1,
+            "raw": "E8 1A 40 00 00",
+            "relative_x": 0,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 26,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 14,
+            "pass_index": 1,
+            "raw": "E8 1C 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 28,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 15,
+            "pass_index": 1,
+            "raw": "E8 1E 40 E0 00",
+            "relative_x": 224,
+            "relative_y": 232,
+            "source_tile_low_or_spatial_byte": 30,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 16,
+            "pass_index": 1,
+            "raw": "F8 20 40 10 00",
+            "relative_x": 16,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 32,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 17,
+            "pass_index": 1,
+            "raw": "F8 22 40 00 00",
+            "relative_x": 0,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 34,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 18,
+            "pass_index": 1,
+            "raw": "F8 24 40 F0 00",
+            "relative_x": 240,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 36,
+            "trailing_attribute": "$00",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": false,
+              "unknown_low_bits_raw": 0
+            }
+          },
+          {
+            "attribute_bits": {
+              "horizontal_flip": true,
+              "low_attribute_bits_raw": 0,
+              "priority_bits_raw": 0,
+              "tile_high_bit": false,
+              "vertical_flip": false
+            },
+            "attribute_byte": "$40",
+            "ordinal": 19,
+            "pass_index": 1,
+            "raw": "F8 26 40 E0 80",
+            "relative_x": 224,
+            "relative_y": 248,
+            "source_tile_low_or_spatial_byte": 38,
+            "trailing_attribute": "$80",
+            "trailing_attribute_bits": {
+              "pass_terminal_piece_marker": true,
+              "unknown_low_bits_raw": 0
+            }
+          }
+        ]
+      ],
+      "bytes": 202,
+      "header": {
+        "first_priority_band_count": 8,
+        "piece_count_per_pass": 20,
+        "runtime_2be6_packed_counts": "$080C",
+        "second_priority_band_count": 12,
+        "total_copied_piece_records": 40
+      },
+      "label": "SecondaryVisualDescriptor20Piece4x5",
+      "range": "C4:2E7B..C4:2F45",
+      "sha1": "4501b77cfbec2ef0a9bf65f271fbceea61145b1d"
+    }
+  ],
+  "game": "earthbound-us",
+  "generator": {
+    "tool": "tools/build_secondary_visual_descriptor_contract.py"
+  },
+  "pointer_entries": [
+    {
+      "address": "C4:2B0D..C4:2B11",
+      "alias_count_for_target": 2,
+      "index": 0,
+      "padding": "$00",
+      "target": "C4:2B51",
+      "target_label": "SecondaryVisualDescriptor1Piece"
+    },
+    {
+      "address": "C4:2B11..C4:2B15",
+      "alias_count_for_target": 2,
+      "index": 1,
+      "padding": "$00",
+      "target": "C4:2B51",
+      "target_label": "SecondaryVisualDescriptor1Piece"
+    },
+    {
+      "address": "C4:2B15..C4:2B19",
+      "alias_count_for_target": 1,
+      "index": 2,
+      "padding": "$00",
+      "target": "C4:2B5D",
+      "target_label": "SecondaryVisualDescriptor2PieceNarrow"
+    },
+    {
+      "address": "C4:2B19..C4:2B1D",
+      "alias_count_for_target": 1,
+      "index": 3,
+      "padding": "$00",
+      "target": "C4:2B73",
+      "target_label": "SecondaryVisualDescriptor2PieceWide"
+    },
+    {
+      "address": "C4:2B1D..C4:2B21",
+      "alias_count_for_target": 1,
+      "index": 4,
+      "padding": "$00",
+      "target": "C4:2B89",
+      "target_label": "SecondaryVisualDescriptor3PieceColumn"
+    },
+    {
+      "address": "C4:2B21..C4:2B25",
+      "alias_count_for_target": 1,
+      "index": 5,
+      "padding": "$00",
+      "target": "C4:2BA9",
+      "target_label": "SecondaryVisualDescriptor2PieceBandSplit"
+    },
+    {
+      "address": "C4:2B25..C4:2B29",
+      "alias_count_for_target": 1,
+      "index": 6,
+      "padding": "$00",
+      "target": "C4:2BBF",
+      "target_label": "SecondaryVisualDescriptor4Piece2x2"
+    },
+    {
+      "address": "C4:2B29..C4:2B2D",
+      "alias_count_for_target": 1,
+      "index": 7,
+      "padding": "$00",
+      "target": "C4:2BE9",
+      "target_label": "SecondaryVisualDescriptor2PieceBandSplitAlt"
+    },
+    {
+      "address": "C4:2B2D..C4:2B31",
+      "alias_count_for_target": 1,
+      "index": 8,
+      "padding": "$00",
+      "target": "C4:2BFF",
+      "target_label": "SecondaryVisualDescriptor4Piece2x2Wide"
+    },
+    {
+      "address": "C4:2B31..C4:2B35",
+      "alias_count_for_target": 1,
+      "index": 9,
+      "padding": "$00",
+      "target": "C4:2C29",
+      "target_label": "SecondaryVisualDescriptor6Piece3x2"
+    },
+    {
+      "address": "C4:2B35..C4:2B39",
+      "alias_count_for_target": 1,
+      "index": 10,
+      "padding": "$00",
+      "target": "C4:2C67",
+      "target_label": "SecondaryVisualDescriptor6Piece3x2Tall"
+    },
+    {
+      "address": "C4:2B39..C4:2B3D",
+      "alias_count_for_target": 1,
+      "index": 11,
+      "padding": "$00",
+      "target": "C4:2CA5",
+      "target_label": "SecondaryVisualDescriptor3Piece1x3"
+    },
+    {
+      "address": "C4:2B3D..C4:2B41",
+      "alias_count_for_target": 1,
+      "index": 12,
+      "padding": "$00",
+      "target": "C4:2CC5",
+      "target_label": "SecondaryVisualDescriptor6Piece2x3Wide"
+    },
+    {
+      "address": "C4:2B41..C4:2B45",
+      "alias_count_for_target": 1,
+      "index": 13,
+      "padding": "$00",
+      "target": "C4:2D03",
+      "target_label": "SecondaryVisualDescriptor9Piece3x3"
+    },
+    {
+      "address": "C4:2B45..C4:2B49",
+      "alias_count_for_target": 1,
+      "index": 14,
+      "padding": "$00",
+      "target": "C4:2D5F",
+      "target_label": "SecondaryVisualDescriptor12Piece4x3"
+    },
+    {
+      "address": "C4:2B49..C4:2B4D",
+      "alias_count_for_target": 1,
+      "index": 15,
+      "padding": "$00",
+      "target": "C4:2DD9",
+      "target_label": "SecondaryVisualDescriptor16Piece4x4"
+    },
+    {
+      "address": "C4:2B4D..C4:2B51",
+      "alias_count_for_target": 1,
+      "index": 16,
+      "padding": "$00",
+      "target": "C4:2E7B",
+      "target_label": "SecondaryVisualDescriptor20Piece4x5"
+    }
+  ],
+  "references": [
+    "notes/secondary-visual-descriptor-c42b0d.md",
+    "notes/c4-visual-frame-copy-and-footprint-tables-283f-2b0d.md",
+    "src/c0/c0_1d38_build_entity_visual_records467_e.asm",
+    "src/c0/c0_a3a4_build_display_record_from_current_task_data.asm"
+  ],
+  "rom": {
+    "sha1": "d67a8ef36ef616bc39306aa1b486e1bd3047815a",
+    "verified": true
+  },
+  "schema": "earthbound-decomp.secondary-visual-descriptor-contract.v1",
+  "source_policy": {
+    "do_not_commit_generated_outputs": true,
+    "requires_user_supplied_rom_for_outputs": true
+  },
+  "summary": {
+    "adjacent_ranges": [
+      {
+        "name": "SetPartyTickCallbacks",
+        "range": "C4:2F45..C4:2F65",
+        "source": "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank04.asm overworld/set_party_tick_callbacks.asm"
+      },
+      {
+        "name": "MapTileTableChunksTable",
+        "range": "C4:2F65..C4:2F8C",
+        "source": "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank04.asm data/map/tile_table_chunks_table.asm"
+      }
+    ],
+    "descriptor_count": 16,
+    "descriptor_region": {
+      "decoded_record_end": "C4:2F45",
+      "range": "C4:2B51..C4:2F45"
+    },
+    "piece_count_models": {
+      "1": 1,
+      "12": 1,
+      "16": 1,
+      "2": 4,
+      "20": 1,
+      "3": 2,
+      "4": 2,
+      "6": 3,
+      "9": 1
+    },
+    "pointer_table": {
+      "aliased_entries": 1,
+      "entries": 17,
+      "range": "C4:2B0D..C4:2B51",
+      "record_width_bytes": 4,
+      "unique_targets": 16
+    },
+    "tile_base_vram_offset_table": {
+      "entries": 88,
+      "range": "C4:2F8C..C4:303C"
+    },
+    "trailing_attribute_counts": {
+      "$00": 164,
+      "$80": 32
+    },
+    "trailing_attribute_invariant": {
+      "confidence": "high",
+      "mismatches": 0,
+      "name": "pass_terminal_piece_marker",
+      "observed_pattern": "Only bit 7 is used; it is set exactly on the final piece of each descriptor body pass."
+    },
+    "visual_piece_tile_word_ladder": {
+      "entries": 72,
+      "range": "C4:303C..C4:30CC"
+    }
+  },
+  "title": "Secondary visual descriptor contract"
+}

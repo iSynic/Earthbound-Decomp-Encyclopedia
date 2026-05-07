@@ -1,0 +1,629 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-driver-dispatch-frontier.v1",
+  "status": "source_backed_vcmd_table_ingested_ff_reader_effect_pending",
+  "references": [
+    "manifests/audio-pack-contracts.json",
+    "manifests/audio-spc700-sounddriver-source-ingest.json",
+    "manifests/audio-sequence-semantics-frontier.json",
+    "refs/earthbound-sounddriver-byte-perfect/main.asm"
+  ],
+  "driver": {
+    "pack_id": 1,
+    "asset_id": "asset.e6.audio_pack_1_custom_inline",
+    "range": "E6:0000..E6:45D8",
+    "block_index": 2,
+    "destination": "0x0500",
+    "count": 16779,
+    "sha1": "86dd8a4ed492ba7522557b56a8400b883ab276ce",
+    "role_guess": "main_spc700_driver_or_driver_overlay"
+  },
+  "summary": {
+    "driver_base": "0x0500",
+    "driver_bytes": 16779,
+    "high_command_table_base": "0x0BE3",
+    "high_command_entry_count": 31,
+    "arg_length_table_base": "0x0C21",
+    "get_next_byte": "0x0955",
+    "skip_byte": "0x0957",
+    "ram_alias_count": 63,
+    "unresolved_control_bytes": [
+      "0x00",
+      "0xFF"
+    ],
+    "semantic_status": "source_backed_vcmd_labels_known_ff_reader_effect_unconfirmed"
+  },
+  "source_navigation": {
+    "main_path": "refs/earthbound-sounddriver-byte-perfect/main.asm",
+    "ram_path": "refs/earthbound-sounddriver-byte-perfect/ram.asm",
+    "vcmd_table": "0x0BE3",
+    "vcmd_arg_length_table": "0x0C21",
+    "get_next_byte": "0x0955",
+    "skip_byte": "0x0957",
+    "vcmd_command_range": "0xE0..0xFE",
+    "vcmd_entry_count": 31,
+    "ram_alias_count": 63
+  },
+  "high_command_dispatch_candidate": {
+    "status": "source_backed_vcmd_jump_table_ingested",
+    "table_base": "0x0BE3",
+    "arg_length_table_base": "0x0C21",
+    "command_range": "0xE0..0xFE",
+    "entry_count": 31,
+    "entries": [
+      {
+        "command": "0xE0",
+        "hypothesis": "instrument",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Instrument",
+        "source_target": "0x095F",
+        "source_role": "source_backed_vcmd",
+        "target": "0x095F",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x095F",
+          "inside_driver": true,
+          "target_offset": "0x045F",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE1",
+        "hypothesis": "pan",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Pan",
+        "source_target": "0x09B8",
+        "source_role": "source_backed_vcmd",
+        "target": "0x09B8",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x09B8",
+          "inside_driver": true,
+          "target_offset": "0x04B8",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xE2",
+        "hypothesis": "pan_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_PanFade",
+        "source_target": "0x09D8",
+        "source_role": "source_backed_vcmd",
+        "target": "0x09D8",
+        "arg_length": 2,
+        "target_profile": {
+          "target": "0x09D8",
+          "inside_driver": true,
+          "target_offset": "0x04D8",
+          "first_byte": "0x2D",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE3",
+        "hypothesis": "vibrato",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Vibrato",
+        "source_target": "0x09FD",
+        "source_role": "source_backed_vcmd",
+        "target": "0x09FD",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x09FD",
+          "inside_driver": true,
+          "target_offset": "0x04FD",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE4",
+        "hypothesis": "vibrato_off",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VibratoOff",
+        "source_target": "0x0A09",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A09",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0A09",
+          "inside_driver": true,
+          "target_offset": "0x0509",
+          "first_byte": "0xD4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE5",
+        "hypothesis": "volume",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Volume",
+        "source_target": "0x0A24",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A24",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A24",
+          "inside_driver": true,
+          "target_offset": "0x0524",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE6",
+        "hypothesis": "volume_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VolumeFade",
+        "source_target": "0x0A29",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A29",
+        "arg_length": 2,
+        "target_profile": {
+          "target": "0x0A29",
+          "inside_driver": true,
+          "target_offset": "0x0529",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xE7",
+        "hypothesis": "tempo",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Tempo",
+        "source_target": "0x0A3B",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A3B",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A3B",
+          "inside_driver": true,
+          "target_offset": "0x053B",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xE8",
+        "hypothesis": "tempo_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_TempoFade",
+        "source_target": "0x0A40",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A40",
+        "arg_length": 2,
+        "target_profile": {
+          "target": "0x0A40",
+          "inside_driver": true,
+          "target_offset": "0x0540",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xE9",
+        "hypothesis": "transpose",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Transpose",
+        "source_target": "0x0A52",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A52",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A52",
+          "inside_driver": true,
+          "target_offset": "0x0552",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xEA",
+        "hypothesis": "voice_transpose",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VoiceTranspose",
+        "source_target": "0x0A55",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A55",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A55",
+          "inside_driver": true,
+          "target_offset": "0x0555",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEB",
+        "hypothesis": "tremolo",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Tremolo",
+        "source_target": "0x0A59",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A59",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0A59",
+          "inside_driver": true,
+          "target_offset": "0x0559",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEC",
+        "hypothesis": "tremolo_off",
+        "confidence": "source_backed",
+        "source_label": "VCMD_TremoloOff",
+        "source_target": "0x0A65",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A65",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0A65",
+          "inside_driver": true,
+          "target_offset": "0x0565",
+          "first_byte": "0xD4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xED",
+        "hypothesis": "voice_volume",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VoiceVolume",
+        "source_target": "0x0A86",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A86",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A86",
+          "inside_driver": true,
+          "target_offset": "0x0586",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEE",
+        "hypothesis": "voice_volume_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VoiceVolumeFade",
+        "source_target": "0x0A8F",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A8F",
+        "arg_length": 2,
+        "target_profile": {
+          "target": "0x0A8F",
+          "inside_driver": true,
+          "target_offset": "0x058F",
+          "first_byte": "0xD4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xEF",
+        "hypothesis": "subroutine",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Subroutine",
+        "source_target": "0x0AAC",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0AAC",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0AAC",
+          "inside_driver": true,
+          "target_offset": "0x05AC",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF0",
+        "hypothesis": "vibrato_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_VibratoFade",
+        "source_target": "0x0A14",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A14",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0A14",
+          "inside_driver": true,
+          "target_offset": "0x0514",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF1",
+        "hypothesis": "portamento_to",
+        "confidence": "source_backed",
+        "source_label": "VCMD_PortamentoTo",
+        "source_target": "0x0A68",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A68",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0A68",
+          "inside_driver": true,
+          "target_offset": "0x0568",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF2",
+        "hypothesis": "portamento_from",
+        "confidence": "source_backed",
+        "source_label": "VCMD_PortamentoFrom",
+        "source_target": "0x0A6C",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A6C",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0A6C",
+          "inside_driver": true,
+          "target_offset": "0x056C",
+          "first_byte": "0xE8",
+          "first_byte_is_sequence_high_command_candidate": true,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF3",
+        "hypothesis": "portamento_off",
+        "confidence": "source_backed",
+        "source_label": "VCMD_PortamentoOff",
+        "source_target": "0x0A82",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0A82",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0A82",
+          "inside_driver": true,
+          "target_offset": "0x0582",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF4",
+        "hypothesis": "detune",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Detune",
+        "source_target": "0x0AA8",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0AA8",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0AA8",
+          "inside_driver": true,
+          "target_offset": "0x05A8",
+          "first_byte": "0xD5",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF5",
+        "hypothesis": "echo_volume",
+        "confidence": "source_backed",
+        "source_label": "VCMD_EchoVolume",
+        "source_target": "0x0ACF",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0ACF",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0ACF",
+          "inside_driver": true,
+          "target_offset": "0x05CF",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xF6",
+        "hypothesis": "echo_off",
+        "confidence": "source_backed",
+        "source_label": "VCMD_EchoOff",
+        "source_target": "0x0B03",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B03",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0B03",
+          "inside_driver": true,
+          "target_offset": "0x0603",
+          "first_byte": "0xDA",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF7",
+        "hypothesis": "echo_parameters",
+        "confidence": "source_backed",
+        "source_label": "VCMD_EchoParameters",
+        "source_target": "0x0B0A",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B0A",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0B0A",
+          "inside_driver": true,
+          "target_offset": "0x060A",
+          "first_byte": "0x3F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xF8",
+        "hypothesis": "echo_volume_fade",
+        "confidence": "source_backed",
+        "source_label": "VCMD_EchoVolumeFade",
+        "source_target": "0x0AE2",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0AE2",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0AE2",
+          "inside_driver": true,
+          "target_offset": "0x05E2",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xF9",
+        "hypothesis": "note_slide",
+        "confidence": "source_backed",
+        "source_label": "VCMD_NoteSlide",
+        "source_target": "0x0B94",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B94",
+        "arg_length": 3,
+        "target_profile": {
+          "target": "0x0B94",
+          "inside_driver": true,
+          "target_offset": "0x0694",
+          "first_byte": "0xD4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFA",
+        "hypothesis": "percussion_instrument",
+        "confidence": "source_backed",
+        "source_label": "VCMD_PercussionInstrument",
+        "source_target": "0x0B72",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B72",
+        "arg_length": 1,
+        "target_profile": {
+          "target": "0x0B72",
+          "inside_driver": true,
+          "target_offset": "0x0672",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xFB",
+        "hypothesis": "nop",
+        "confidence": "source_backed",
+        "source_label": "VCMD_Nop",
+        "source_target": "0x0B75",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B75",
+        "arg_length": 2,
+        "target_profile": {
+          "target": "0x0B75",
+          "inside_driver": true,
+          "target_offset": "0x0675",
+          "first_byte": "0x3F",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": false
+        }
+      },
+      {
+        "command": "0xFC",
+        "hypothesis": "mute_voice",
+        "confidence": "source_backed",
+        "source_label": "VCMD_MuteVoice",
+        "source_target": "0x0B79",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B79",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0B79",
+          "inside_driver": true,
+          "target_offset": "0x0679",
+          "first_byte": "0xBC",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xFD",
+        "hypothesis": "fast_forward",
+        "confidence": "source_backed",
+        "source_label": "VCMD_FastForward",
+        "source_target": "0x0B7E",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B7E",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0B7E",
+          "inside_driver": true,
+          "target_offset": "0x067E",
+          "first_byte": "0xBC",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      },
+      {
+        "command": "0xFE",
+        "hypothesis": "fast_forward_off",
+        "confidence": "source_backed",
+        "source_label": "VCMD_FastForwardOff",
+        "source_target": "0x0B7F",
+        "source_role": "source_backed_vcmd",
+        "target": "0x0B7F",
+        "arg_length": 0,
+        "target_profile": {
+          "target": "0x0B7F",
+          "inside_driver": true,
+          "target_offset": "0x067F",
+          "first_byte": "0xC4",
+          "first_byte_is_sequence_high_command_candidate": false,
+          "first_byte_is_note_or_rest_candidate": true
+        }
+      }
+    ],
+    "unresolved_control_bytes": [
+      "0x00",
+      "0xFF"
+    ]
+  },
+  "indirect_jump_candidates": [],
+  "findings": [
+    "The ingested byte-perfect source labels the VCMD jump table directly at 0x0BE3 and the argument-length table at 0x0C21.",
+    "Commands 0xE0..0xFE now have source-backed labels and handler targets rather than heuristic candidate names.",
+    "0x16C7 is refuted as a music high-command dispatch table; the checked-in source shows it is an SFX pointer table.",
+    "0xFF remains unresolved because the source-backed VCMD table ends at 0xFE, so FF still needs reader-path proof."
+  ],
+  "next_work": [
+    "align project-local sequence command names with the source-backed VCMD labels",
+    "trace 0xFF reader behavior relative to the source-backed 0xE0..0xFE VCMD table",
+    "feed the updated labels into the sequence-control and exact-duration lanes"
+  ]
+}

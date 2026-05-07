@@ -1,0 +1,431 @@
+{
+  "schema": "earthbound-decomp.df-landing-palette-animation-contracts.v1",
+  "source_manifest": "build/data-contracts-c0-c4.json",
+  "evidence": [
+    "build/data-contracts-c0-c4.json",
+    "notes/bank-df-first-pass.md",
+    "notes/landing-profile-cache-436e-4474.md",
+    "src/c0/c0_023f_build_landing_profile_step_sequencer.asm",
+    "src/c0/c0_030f_advance_landing_profile_step_sequencer.asm"
+  ],
+  "summary": {
+    "pointer_table": "DF:E4E1",
+    "pointer_count": 31,
+    "profile_count": 31,
+    "non_empty_profiles": 8,
+    "empty_profiles": 23,
+    "profile_span": "DF:E55D..DF:E61A",
+    "profile_bytes": 190,
+    "payload_count": 8,
+    "payload_span": "DF:E61B..DF:EC45",
+    "payload_bytes": 1579,
+    "zero_step_sentinel": "DF:EC46",
+    "step_counts": [
+      4,
+      4,
+      6,
+      3,
+      4,
+      3,
+      3,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "nonzero_step_bytes": 35
+  },
+  "source_emission_rows": [
+    {
+      "id": "landing_palette_profile_pointer_table",
+      "range": "DF:E4E1..DF:E55C",
+      "status": "runtime-indexed-source-row",
+      "emission_contract": "Emit 31 four-byte far pointers indexed by C0:023F from the landing profile selector value `$02A0 - 1`.",
+      "preserve_policy": "Pointer targets remain numeric profile-row addresses until human-facing profile labels are proven."
+    },
+    {
+      "id": "landing_palette_profile_records",
+      "range": "DF:E55D..DF:E61A",
+      "status": "consumer-backed-variable-records",
+      "emission_contract": "Emit 31 variable profile records totaling 190 bytes: a compressed payload pointer, one step_count byte, and step_count one-byte duration values copied into `$4460`.",
+      "preserve_policy": "Profiles with zero steps keep the `DF:EC46` sentinel target as a numeric no-decompress target; active profile meanings remain optional labels."
+    },
+    {
+      "id": "landing_palette_compressed_payloads",
+      "range": "DF:E61B..DF:EC45",
+      "status": "profile-selected-compressed-payloads",
+      "emission_contract": "Emit eight compressed palette-animation payload rows selected by the eight non-empty profile records; C0:023F decompresses these to 7E:B800.",
+      "preserve_policy": "Do not name the decompressed palette-row format until a renderer-side consumer proves row fields; preserve payloads as compressed source assets with profile joins."
+    },
+    {
+      "id": "landing_palette_empty_sentinel_boundary",
+      "range": "DF:EC46",
+      "status": "zero-step-sentinel-over-audio-boundary",
+      "emission_contract": "Treat DF:EC46 as the zero-step target for 23 empty profiles; no decompression occurs because step_count is zero.",
+      "preserve_policy": "Do not carve DF:EC46 out as a palette payload: it is also the start of AUDIO_PACK_4, so source emission should preserve the numeric sentinel/address overlap."
+    }
+  ],
+  "record_shape": [
+    {
+      "offset": "0x00",
+      "name": "compressed_palette_payload_pointer",
+      "size": 4,
+      "meaning": "C0:023F decompresses this payload to 7E:B800."
+    },
+    {
+      "offset": "0x04",
+      "name": "step_count",
+      "size": 1,
+      "meaning": "Zero skips sequencer setup; otherwise bounds the C0:023F copy into $4460."
+    },
+    {
+      "offset": "0x05",
+      "name": "step_durations",
+      "size": "step_count",
+      "meaning": "One-byte sequencer values copied into $4460 and consumed by C0:030F."
+    }
+  ],
+  "profiles": [
+    {
+      "profile": 0,
+      "address": "DF:E55D",
+      "payload": "DF:E61B",
+      "step_count": 4,
+      "profile_bytes": 9,
+      "status": "active-payload"
+    },
+    {
+      "profile": 1,
+      "address": "DF:E566",
+      "payload": "DF:E6B2",
+      "step_count": 4,
+      "profile_bytes": 9,
+      "status": "active-payload"
+    },
+    {
+      "profile": 2,
+      "address": "DF:E56F",
+      "payload": "DF:E73D",
+      "step_count": 6,
+      "profile_bytes": 11,
+      "status": "active-payload"
+    },
+    {
+      "profile": 3,
+      "address": "DF:E57A",
+      "payload": "DF:E8E0",
+      "step_count": 3,
+      "profile_bytes": 8,
+      "status": "active-payload"
+    },
+    {
+      "profile": 4,
+      "address": "DF:E582",
+      "payload": "DF:E96C",
+      "step_count": 4,
+      "profile_bytes": 9,
+      "status": "active-payload"
+    },
+    {
+      "profile": 5,
+      "address": "DF:E58B",
+      "payload": "DF:EA56",
+      "step_count": 3,
+      "profile_bytes": 8,
+      "status": "active-payload"
+    },
+    {
+      "profile": 6,
+      "address": "DF:E593",
+      "payload": "DF:EB31",
+      "step_count": 3,
+      "profile_bytes": 8,
+      "status": "active-payload"
+    },
+    {
+      "profile": 7,
+      "address": "DF:E59B",
+      "payload": "DF:EBAC",
+      "step_count": 8,
+      "profile_bytes": 13,
+      "status": "active-payload"
+    },
+    {
+      "profile": 8,
+      "address": "DF:E5A8",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 9,
+      "address": "DF:E5AD",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 10,
+      "address": "DF:E5B2",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 11,
+      "address": "DF:E5B7",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 12,
+      "address": "DF:E5BC",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 13,
+      "address": "DF:E5C1",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 14,
+      "address": "DF:E5C6",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 15,
+      "address": "DF:E5CB",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 16,
+      "address": "DF:E5D0",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 17,
+      "address": "DF:E5D5",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 18,
+      "address": "DF:E5DA",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 19,
+      "address": "DF:E5DF",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 20,
+      "address": "DF:E5E4",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 21,
+      "address": "DF:E5E9",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 22,
+      "address": "DF:E5EE",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 23,
+      "address": "DF:E5F3",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 24,
+      "address": "DF:E5F8",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 25,
+      "address": "DF:E5FD",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 26,
+      "address": "DF:E602",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 27,
+      "address": "DF:E607",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 28,
+      "address": "DF:E60C",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 29,
+      "address": "DF:E611",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    },
+    {
+      "profile": 30,
+      "address": "DF:E616",
+      "payload": "DF:EC46",
+      "step_count": 0,
+      "profile_bytes": 5,
+      "status": "empty-sentinel"
+    }
+  ],
+  "payloads": [
+    {
+      "payload": 0,
+      "range": "DF:E61B..DF:E6B1",
+      "bytes": 151,
+      "selected_by_profiles": [
+        0
+      ]
+    },
+    {
+      "payload": 1,
+      "range": "DF:E6B2..DF:E73C",
+      "bytes": 139,
+      "selected_by_profiles": [
+        1
+      ]
+    },
+    {
+      "payload": 2,
+      "range": "DF:E73D..DF:E8DF",
+      "bytes": 419,
+      "selected_by_profiles": [
+        2
+      ]
+    },
+    {
+      "payload": 3,
+      "range": "DF:E8E0..DF:E96B",
+      "bytes": 140,
+      "selected_by_profiles": [
+        3
+      ]
+    },
+    {
+      "payload": 4,
+      "range": "DF:E96C..DF:EA55",
+      "bytes": 234,
+      "selected_by_profiles": [
+        4
+      ]
+    },
+    {
+      "payload": 5,
+      "range": "DF:EA56..DF:EB30",
+      "bytes": 219,
+      "selected_by_profiles": [
+        5
+      ]
+    },
+    {
+      "payload": 6,
+      "range": "DF:EB31..DF:EBAB",
+      "bytes": 123,
+      "selected_by_profiles": [
+        6
+      ]
+    },
+    {
+      "payload": 7,
+      "range": "DF:EBAC..DF:EC45",
+      "bytes": 154,
+      "selected_by_profiles": [
+        7
+      ]
+    }
+  ],
+  "interpretation_boundary": [
+    "C0:023F proves the far-pointer table, compressed payload pointer, step_count, and step_durations fields.",
+    "C0:023F decompresses active payloads to 7E:B800, seeds $445C/$445E, and marks $4474 active.",
+    "C0:030F consumes the $4460 sequencer values and advances the landing palette animation.",
+    "DF:EC46 is the zero-step terminal sentinel used by empty profiles, not a named compressed payload here.",
+    "Human-facing profile meanings and the decompressed palette-row format remain intentionally unnamed."
+  ]
+}

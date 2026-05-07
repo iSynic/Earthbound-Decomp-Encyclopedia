@@ -1,0 +1,172 @@
+{
+  "schema": "earthbound-decomp.audio-duration-readiness-rollup.v1",
+  "status": "audio_duration_readiness_blocked_policy_preserved",
+  "references": [
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-finite-ending-tail-metrics.json",
+    "manifests/audio-loop-point-tail-metrics.json",
+    "manifests/audio-oracle-verification-report-all-tracks.json",
+    "manifests/audio-independent-oracle-campaign-plan.json",
+    "manifests/audio-independent-oracle-coverage-report.json",
+    "manifests/audio-probe-campaign-plan.json",
+    "manifests/audio-nonzero-control-coverage-report.json",
+    "manifests/audio-zero-runtime-coverage-report.json",
+    "manifests/audio-residual-uncertainty-coverage-report.json",
+    "manifests/audio-zero-ef-return-frontier.json",
+    "manifests/audio-fd-fe-timing-frontier.json",
+    "manifests/audio-spc700-ff-target-review.json"
+  ],
+  "summary": {
+    "track_count": 192,
+    "public_exact_duration_track_count": 21,
+    "blocking_track_count": 171,
+    "primary_uncertainty_track_counts": {
+      "active_preview_classification_pending": 1,
+      "finite_transition_review_pending": 5,
+      "loop_point_metadata_pending": 5,
+      "measurement_missing": 1,
+      "no_duration_uncertainty_for_current_export": 1,
+      "non_zero_control_semantics_pending": 155,
+      "pcm_trim_usable_sequence_intent_open": 5,
+      "zero_runtime_probe_pending": 19
+    },
+    "near_oracle_passed": true,
+    "independent_oracle_passed": false,
+    "independent_oracle_representative_missing": 16,
+    "finite_tail_records": 5,
+    "loop_tail_records": 5,
+    "probe_campaign_jobs": 26,
+    "nonzero_coverage_probe_jobs": 7,
+    "nonzero_blocker_tracks_without_source_candidate": 146,
+    "zero_coverage_probe_jobs": 19,
+    "zero_runtime_reader_pc_targets": 10,
+    "zero_ef_frontier_candidate_packs": 10,
+    "fd_fe_frontier_runtime_reads": 6,
+    "ff_review_runtime_reads": 10,
+    "residual_uncertainty_records": 8,
+    "residual_public_exact_blocked": 2,
+    "release_ready": false,
+    "current_playback_export_behavior_preserved": true
+  },
+  "gates": {
+    "public_exact_duration_gate": {
+      "passed": false,
+      "public_exact_duration_track_count": 21,
+      "track_count": 192,
+      "blocking_track_count": 171
+    },
+    "finite_ending_tail_gate": {
+      "passed": false,
+      "records": 5,
+      "tail_classification_counts": {
+        "active_through_render_boundary": 3,
+        "post_candidate_tail_nonzero": 2
+      },
+      "active_through_render_boundary_count": 3,
+      "nonzero_after_candidate_end_count": 5
+    },
+    "loop_point_tail_gate": {
+      "passed": false,
+      "records": 5,
+      "tail_classification_counts": {
+        "active_through_diagnostic_render_boundary": 5
+      },
+      "missing_exact_loop_field_count": 20,
+      "active_through_render_boundary_count": 5
+    },
+    "near_oracle_gate": {
+      "passed": true,
+      "status_counts": {
+        "audio_equivalent_state_delta": 190
+      }
+    },
+    "independent_oracle_gate": {
+      "passed": false,
+      "independent_capture_count": 0,
+      "missing_independent_capture_count": 190,
+      "representative_campaign_job_count": 16,
+      "representative_missing_independent_capture_count": 16
+    },
+    "sequence_promotion_gate": {
+      "passed": false,
+      "uncertainty_register_allows_sequence_promotion": false,
+      "probe_campaign_allows_sequence_promotion": false
+    },
+    "nonzero_control_coverage_gate": {
+      "passed": false,
+      "blocker_track_count": 155,
+      "probe_job_count": 7,
+      "source_candidate_record_count": 56,
+      "unique_source_candidate_track_count": 10,
+      "blocker_tracks_without_source_candidate_count": 146
+    },
+    "zero_runtime_coverage_gate": {
+      "passed": false,
+      "blocker_track_count": 19,
+      "probe_job_count": 19,
+      "job_track_coverage_exact": true,
+      "reader_pc_target_count": 10,
+      "runtime_zero_read_count": 5931,
+      "pre_promotion_blocker_counts": {
+        "ef_return_stack_model": 15,
+        "zero_runtime_effect_proof": 19
+      }
+    },
+    "residual_uncertainty_coverage_gate": {
+      "passed": false,
+      "record_count": 8,
+      "public_exact_allowed_count": 6,
+      "public_exact_blocked_count": 2,
+      "pcm_trim_sequence_intent_open_count": 5,
+      "primary_uncertainty_counts": {
+        "active_preview_classification_pending": 1,
+        "measurement_missing": 1,
+        "no_duration_uncertainty_for_current_export": 1,
+        "pcm_trim_usable_sequence_intent_open": 5
+      }
+    }
+  },
+  "blocker_lanes": [
+    {
+      "lane": "non_zero_control_semantics",
+      "blocking_count": 155,
+      "current_contract": "audio-probe-campaign-plan",
+      "next_action": "run/import nonzero control probe evidence and refresh duration uncertainty"
+    },
+    {
+      "lane": "zero_runtime_probe",
+      "blocking_count": 19,
+      "current_contract": "audio-zero-runtime-probe-plan",
+      "next_action": "run/import 0x00 runtime probe evidence and refresh duration uncertainty"
+    },
+    {
+      "lane": "finite_transition_review",
+      "blocking_count": 5,
+      "current_contract": "audio-finite-ending-tail-metrics",
+      "next_action": "classify true finite endings versus transition/stinger policy"
+    },
+    {
+      "lane": "loop_point_metadata",
+      "blocking_count": 5,
+      "current_contract": "audio-loop-point-tail-metrics",
+      "next_action": "collect exact loop points or held-policy/no-exact-loop classification"
+    },
+    {
+      "lane": "independent_oracle",
+      "blocking_count": 190,
+      "current_contract": "audio-independent-oracle-campaign-plan",
+      "next_action": "import external emulator reference captures for representative campaign first"
+    }
+  ],
+  "decision_policy": [
+    "This rollup is diagnostic only and does not promote sequence-derived durations or exact loop exports.",
+    "Near-oracle equivalence is treated separately from independent external-emulator capture.",
+    "Independent oracle coverage records the representative campaign gap before all-track capture expansion.",
+    "Finite and loop tail metrics prove current diagnostic activity patterns, not final exact-duration policy.",
+    "Nonzero control coverage maps representative probe anchors but does not replace imported runtime probe outputs.",
+    "Zero runtime coverage maps every current zero blocker to a probe job but still requires imported runtime classifications.",
+    "Residual uncertainty coverage keeps PCM-trim public readiness separate from sequence-intent promotion.",
+    "Source-backed zero/EF, FD/FE, and FF frontiers identify proof targets but do not promote exact duration.",
+    "Release-quality exact-duration readiness requires public exact duration coverage plus independent oracle and lane-specific runtime evidence."
+  ]
+}

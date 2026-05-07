@@ -1,0 +1,55 @@
+{
+  "experiment_count": 2,
+  "experiments": [
+    {
+      "comparison_base": "build/coilsnake/scriptdump-rebuild.sfc",
+      "compile": {
+        "returncode": 0,
+        "timed_out": false
+      },
+      "diff": {
+        "changed_bytes": 1,
+        "contiguous_changed_runs": 1,
+        "first_changed_hirom": "F8:96F6",
+        "first_changed_offset": "0x3896F6",
+        "last_changed_hirom_exclusive": "F8:96F7",
+        "last_changed_offset_exclusive": "0x3896F7",
+        "status": "different"
+      },
+      "edit": "ccscript body control-code argument 19 to 1A",
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "ccscript-body-command-byte-probe",
+      "report": "build/coilsnake/edit-experiments/ccscript-body-command-byte-probe/experiment-report.json",
+      "resource_family": "text-script",
+      "source_file": "ccscript/data_07.ccs",
+      "status": "diffed"
+    },
+    {
+      "comparison_base": "build/coilsnake/scriptdump-rebuild.sfc",
+      "compile": {
+        "returncode": 0,
+        "timed_out": false
+      },
+      "diff": {
+        "changed_bytes": 2,
+        "contiguous_changed_runs": 1,
+        "first_changed_hirom": "C5:0001",
+        "first_changed_offset": "0x050001",
+        "last_changed_hirom_exclusive": "C5:0003",
+        "last_changed_offset_exclusive": "0x050003",
+        "status": "different"
+      },
+      "edit": "ccscript main ROM hook label target c50000 to c50198",
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "ccscript-rom-goto-label-probe",
+      "report": "build/coilsnake/edit-experiments/ccscript-rom-goto-label-probe/experiment-report.json",
+      "resource_family": "text-script",
+      "source_file": "ccscript/main.ccs",
+      "status": "diffed"
+    }
+  ],
+  "experiments_dir": "build/coilsnake/edit-experiments",
+  "generated_by": "tools/build_coilsnake_ccscript_experiment_summary.py",
+  "safety_note": "This manifest stores CCScript experiment metadata and ROM diff spans only; it does not store generated CCScript payload text.",
+  "schema": "earthbound-decomp.coilsnake-ccscript-experiments.v1"
+}

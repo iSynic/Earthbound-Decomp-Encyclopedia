@@ -1,0 +1,1944 @@
+{
+  "schema": "earthbound-decomp.audio-nonzero-control-probe-packet.v1",
+  "status": "nonzero_control_probe_packet_ready_external_harness_required",
+  "references": [
+    "manifests/audio-nonzero-control-probe-plan.json",
+    "manifests/audio-nonzero-control-coverage-report.json",
+    "manifests/audio-probe-campaign-plan.json",
+    "manifests/audio-nonzero-control-probe-results-summary.json",
+    "manifests/audio-duration-next-actions-plan.json"
+  ],
+  "source_plan_status": "nonzero_control_probe_jobs_ready_runner_extension_pending",
+  "source_coverage_status": "nonzero_control_coverage_ready_probe_outputs_pending",
+  "source_campaign_status": "probe_campaign_ready_for_external_harness_runs",
+  "source_results_status": "nonzero_control_probe_results_collected",
+  "source_next_action_lane": "nonzero_control_probe_import",
+  "summary": {
+    "packet_job_count": 7,
+    "blocker_track_count": 155,
+    "probe_job_count": 7,
+    "source_candidate_record_count": 56,
+    "unique_source_candidate_track_count": 10,
+    "blocker_tracks_without_source_candidate_count": 146,
+    "command_job_counts": {
+      "0xEF": 3,
+      "0xFD": 1,
+      "0xFE": 2,
+      "0xFF": 1
+    },
+    "reader_pc_job_counts": {
+      "0x0847": 2,
+      "0x0957": 3,
+      "0x0B8A": 1,
+      "0x0D12": 1
+    },
+    "affected_kind_job_counts": {
+      "return_stack_context": 3,
+      "static_walk_blocker": 1,
+      "timing_toggle_context": 3
+    },
+    "phase_job_counts": {
+      "nonzero-0957-command-mix": 3,
+      "nonzero-reader-coverage": 4
+    },
+    "result_count": 0,
+    "valid_result_count": 0,
+    "remaining_blocker_job_counts": {
+      "earthbound_variant_ff_effect": 1,
+      "ef_call_return_effect": 3,
+      "non_zero_control_semantics_pending": 7,
+      "timing_toggle_effect": 3
+    },
+    "accepted_control_effect_classifications": [
+      "ef_call_return",
+      "timing_toggle",
+      "earthbound_variant_ff",
+      "unreachable",
+      "unresolved"
+    ],
+    "generated_outputs_root": "build/audio/nonzero-control-probe",
+    "sequence_promotion_allowed": false,
+    "public_exact_promotion_allowed": false,
+    "promotion_allowed_by_packet": false,
+    "behavior_change_allowed": false
+  },
+  "operator_batches": {
+    "by_phase": [
+      {
+        "phase": "nonzero-0957-command-mix",
+        "job_count": 3,
+        "execution_orders": [
+          1,
+          2,
+          3
+        ],
+        "job_ids": [
+          "nonzero-probe-ff-pc-0957",
+          "nonzero-probe-ef-pc-0957",
+          "nonzero-probe-fe-pc-0957"
+        ],
+        "commands": [
+          "0xFF",
+          "0xEF",
+          "0xFE"
+        ],
+        "reader_pcs": [
+          "0x0957",
+          "0x0957",
+          "0x0957"
+        ]
+      },
+      {
+        "phase": "nonzero-reader-coverage",
+        "job_count": 4,
+        "execution_orders": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "job_ids": [
+          "nonzero-probe-ef-pc-0b8a",
+          "nonzero-probe-ef-pc-0d12",
+          "nonzero-probe-fd-pc-0847",
+          "nonzero-probe-fe-pc-0847"
+        ],
+        "commands": [
+          "0xEF",
+          "0xEF",
+          "0xFD",
+          "0xFE"
+        ],
+        "reader_pcs": [
+          "0x0B8A",
+          "0x0D12",
+          "0x0847",
+          "0x0847"
+        ]
+      }
+    ],
+    "by_command": [
+      {
+        "command": "0xFF",
+        "job_count": 1,
+        "execution_orders": [
+          1
+        ],
+        "job_ids": [
+          "nonzero-probe-ff-pc-0957"
+        ],
+        "commands": [
+          "0xFF"
+        ],
+        "reader_pcs": [
+          "0x0957"
+        ]
+      },
+      {
+        "command": "0xEF",
+        "job_count": 3,
+        "execution_orders": [
+          2,
+          4,
+          5
+        ],
+        "job_ids": [
+          "nonzero-probe-ef-pc-0957",
+          "nonzero-probe-ef-pc-0b8a",
+          "nonzero-probe-ef-pc-0d12"
+        ],
+        "commands": [
+          "0xEF",
+          "0xEF",
+          "0xEF"
+        ],
+        "reader_pcs": [
+          "0x0957",
+          "0x0B8A",
+          "0x0D12"
+        ]
+      },
+      {
+        "command": "0xFE",
+        "job_count": 2,
+        "execution_orders": [
+          3,
+          7
+        ],
+        "job_ids": [
+          "nonzero-probe-fe-pc-0957",
+          "nonzero-probe-fe-pc-0847"
+        ],
+        "commands": [
+          "0xFE",
+          "0xFE"
+        ],
+        "reader_pcs": [
+          "0x0957",
+          "0x0847"
+        ]
+      },
+      {
+        "command": "0xFD",
+        "job_count": 1,
+        "execution_orders": [
+          6
+        ],
+        "job_ids": [
+          "nonzero-probe-fd-pc-0847"
+        ],
+        "commands": [
+          "0xFD"
+        ],
+        "reader_pcs": [
+          "0x0847"
+        ]
+      }
+    ],
+    "by_reader_pc": [
+      {
+        "reader_pc": "0x0957",
+        "job_count": 3,
+        "execution_orders": [
+          1,
+          2,
+          3
+        ],
+        "job_ids": [
+          "nonzero-probe-ff-pc-0957",
+          "nonzero-probe-ef-pc-0957",
+          "nonzero-probe-fe-pc-0957"
+        ],
+        "commands": [
+          "0xFF",
+          "0xEF",
+          "0xFE"
+        ],
+        "reader_pcs": [
+          "0x0957",
+          "0x0957",
+          "0x0957"
+        ]
+      },
+      {
+        "reader_pc": "0x0B8A",
+        "job_count": 1,
+        "execution_orders": [
+          4
+        ],
+        "job_ids": [
+          "nonzero-probe-ef-pc-0b8a"
+        ],
+        "commands": [
+          "0xEF"
+        ],
+        "reader_pcs": [
+          "0x0B8A"
+        ]
+      },
+      {
+        "reader_pc": "0x0D12",
+        "job_count": 1,
+        "execution_orders": [
+          5
+        ],
+        "job_ids": [
+          "nonzero-probe-ef-pc-0d12"
+        ],
+        "commands": [
+          "0xEF"
+        ],
+        "reader_pcs": [
+          "0x0D12"
+        ]
+      },
+      {
+        "reader_pc": "0x0847",
+        "job_count": 2,
+        "execution_orders": [
+          6,
+          7
+        ],
+        "job_ids": [
+          "nonzero-probe-fd-pc-0847",
+          "nonzero-probe-fe-pc-0847"
+        ],
+        "commands": [
+          "0xFD",
+          "0xFE"
+        ],
+        "reader_pcs": [
+          "0x0847",
+          "0x0847"
+        ]
+      }
+    ]
+  },
+  "source_candidate_tracks": [
+    {
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "job_count": 1,
+      "is_primary_nonzero_blocker": false
+    },
+    {
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 83,
+      "track_name": "SKY_RUNNER",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 84,
+      "track_name": "SKY_RUNNER_FALLING",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 109,
+      "track_name": "EXPLOSION",
+      "job_count": 6,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 110,
+      "track_name": "SKY_RUNNER_CRASH",
+      "job_count": 6,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 133,
+      "track_name": "HIDDEN_SONG",
+      "job_count": 1,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 137,
+      "track_name": "ELEVATOR_DOWN",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 138,
+      "track_name": "ELEVATOR_UP",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 139,
+      "track_name": "ELEVATOR_STOP",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    }
+  ],
+  "probe_packet_policy": [
+    "This packet is an operator checklist for external nonzero-control harness evidence; it does not run a real harness.",
+    "Generated traces, results, SPCs, WAVs, and evidence markdown must stay under ignored build/audio paths.",
+    "Dry-run and stub-shape commands prove runner/result schema only; they do not resolve sequence semantics.",
+    "Only validated external results with accepted control-effect classifications may feed sequence semantics intake.",
+    "This packet cannot directly promote sequence commands, public exact durations, or release-quality playback claims."
+  ],
+  "records": [
+    {
+      "execution_order": 1,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-ff-pc-0957",
+      "job_id": "nonzero-probe-ff-pc-0957",
+      "phase": "nonzero-0957-command-mix",
+      "priority_score": 11010,
+      "priority_rank": 100,
+      "priority_reason": "0xFF blocks the broad static walk lane and contradicts stock N-SPC semantics until EarthBound effect is decoded.",
+      "command": "0xFF",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 10,
+      "affected_kind": "static_walk_blocker",
+      "trace_focus": "static_walk_blocker",
+      "semantic_status": "contradicted_by_stock_n_spc_pending_earthbound_variant_proof",
+      "promotion_question": "Is FF an EarthBound-specific control effect, unreachable data, or a static-walk blocker only?",
+      "remaining_uncertainty": [
+        "contradicted_by_stock_n_spc_pending_earthbound_variant_proof"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ff-pc-0957 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ff-pc-0957 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ff-pc-0957 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ff-pc-0957 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "earthbound_variant_ff_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 2,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-ef-pc-0957",
+      "job_id": "nonzero-probe-ef-pc-0957",
+      "phase": "nonzero-0957-command-mix",
+      "priority_score": 10923,
+      "priority_rank": 90,
+      "priority_reason": "0xEF call/return behavior controls whether later terminators are true ends or subroutine returns.",
+      "command": "0xEF",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 23,
+      "affected_kind": "return_stack_context",
+      "trace_focus": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does EF establish call/return state that changes end-vs-return duration decisions?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0957 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0957 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0957 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0957 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "ef_call_return_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 3,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-fe-pc-0957",
+      "job_id": "nonzero-probe-fe-pc-0957",
+      "phase": "nonzero-0957-command-mix",
+      "priority_score": 10904,
+      "priority_rank": 90,
+      "priority_reason": "FD/FE are rare runtime-observed timing toggles; exact duration needs local timing-effect proof before use.",
+      "command": "0xFE",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 4,
+      "affected_kind": "timing_toggle_context",
+      "trace_focus": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does FE restore fast-forward/timing state in a way exact duration math must model?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fe-pc-0957 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fe-pc-0957 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fe-pc-0957 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fe-pc-0957 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "timing_toggle_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 4,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-ef-pc-0b8a",
+      "job_id": "nonzero-probe-ef-pc-0b8a",
+      "phase": "nonzero-reader-coverage",
+      "priority_score": 10795,
+      "priority_rank": 70,
+      "priority_reason": "0xEF call/return behavior controls whether later terminators are true ends or subroutine returns.",
+      "command": "0xEF",
+      "reader_pc": "0x0B8A",
+      "driver_offset": "0x068A",
+      "read_count": 95,
+      "affected_kind": "return_stack_context",
+      "trace_focus": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does EF establish call/return state that changes end-vs-return duration decisions?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        1,
+        17,
+        83,
+        84,
+        133,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        133,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "oracle_job_id": "oracle-track-001-gas_station",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-001-gas_station-change-music-fusion-last-keyon.spc",
+            "sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-001-gas_station/diagnostic-libgme-render.wav",
+            "sha1": "83eb4c3ca147ddd1e045ac9e709437c15cd3abc7",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 133,
+          "track_name": "HIDDEN_SONG",
+          "oracle_job_id": "oracle-track-133-hidden_song",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-133-hidden_song-change-music-fusion-last-keyon.spc",
+            "sha1": "1065128a4cd9fcd76f423d598278fe27bb3cc5a4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-133-hidden_song/diagnostic-libgme-render.wav",
+            "sha1": "293a257993160124dfcc29c700be34cadb369ffe",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0b8a --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0b8a --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0b8a --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0b8a --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "ef_call_return_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 5,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-ef-pc-0d12",
+      "job_id": "nonzero-probe-ef-pc-0d12",
+      "phase": "nonzero-reader-coverage",
+      "priority_score": 10701,
+      "priority_rank": 70,
+      "priority_reason": "0xEF call/return behavior controls whether later terminators are true ends or subroutine returns.",
+      "command": "0xEF",
+      "reader_pc": "0x0D12",
+      "driver_offset": "0x0812",
+      "read_count": 1,
+      "affected_kind": "return_stack_context",
+      "trace_focus": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does EF establish call/return state that changes end-vs-return duration decisions?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0d12 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-ef-pc-0d12 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0d12 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-ef-pc-0d12 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "ef_call_return_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 6,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-fd-pc-0847",
+      "job_id": "nonzero-probe-fd-pc-0847",
+      "phase": "nonzero-reader-coverage",
+      "priority_score": 10601,
+      "priority_rank": 60,
+      "priority_reason": "FD/FE are rare runtime-observed timing toggles; exact duration needs local timing-effect proof before use.",
+      "command": "0xFD",
+      "reader_pc": "0x0847",
+      "driver_offset": "0x0347",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "trace_focus": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does FD change fast-forward/timing state in a way exact duration math must model?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fd-pc-0847 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fd-pc-0847 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fd-pc-0847 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fd-pc-0847 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "timing_toggle_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 7,
+      "campaign_job_id": "campaign-nonzero-nonzero-probe-fe-pc-0847",
+      "job_id": "nonzero-probe-fe-pc-0847",
+      "phase": "nonzero-reader-coverage",
+      "priority_score": 10601,
+      "priority_rank": 60,
+      "priority_reason": "FD/FE are rare runtime-observed timing toggles; exact duration needs local timing-effect proof before use.",
+      "command": "0xFE",
+      "reader_pc": "0x0847",
+      "driver_offset": "0x0347",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "trace_focus": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "promotion_question": "Does FE restore fast-forward/timing state in a way exact duration math must model?",
+      "remaining_uncertainty": [
+        "runtime_interpreter_read_observed_dispatch_decode_pending"
+      ],
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "source_candidates": [
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING",
+          "oracle_job_id": "oracle-track-017-monotoli_building",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+            "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+            "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN",
+          "oracle_job_id": "oracle-track-137-elevator_down",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-137-elevator_down-change-music-fusion-last-keyon.spc",
+            "sha1": "2e95f6b1abe3f680faffea275627e4cb871447aa",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-137-elevator_down/diagnostic-libgme-render.wav",
+            "sha1": "43a84b63995596b3850cfe6d19b6912c9282ec1b",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP",
+          "oracle_job_id": "oracle-track-138-elevator_up",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-138-elevator_up-change-music-fusion-last-keyon.spc",
+            "sha1": "e0d67d167e1e04cce59d7f61924d83d2169bdf44",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-138-elevator_up/diagnostic-libgme-render.wav",
+            "sha1": "1ec7392d6415787594d6411c66e13a8e69c14330",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP",
+          "oracle_job_id": "oracle-track-139-elevator_stop",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-139-elevator_stop-change-music-fusion-last-keyon.spc",
+            "sha1": "90a6b7ac49d3efa8496dad2d0056b6dc4ff0aae3",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-139-elevator_stop/diagnostic-libgme-render.wav",
+            "sha1": "3a841f77cee0eafaed7f4fba2db90ad42fc42506",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "oracle_job_id": "oracle-track-083-sky_runner",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-083-sky_runner-change-music-fusion-last-keyon.spc",
+            "sha1": "021bfb610537ea8cb1b3bbda5ce8ae6499a1e249",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-083-sky_runner/diagnostic-libgme-render.wav",
+            "sha1": "edd1c48716eb1247e42abacfa4d51dc7ac6ce954",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING",
+          "oracle_job_id": "oracle-track-084-sky_runner_falling",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-084-sky_runner_falling-change-music-fusion-last-keyon.spc",
+            "sha1": "10a94532bf280177400d89353cfffabd76e7c03a",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-084-sky_runner_falling/diagnostic-libgme-render.wav",
+            "sha1": "33739ec6b8dcd3001bc861fc4b3ceb760a40e919",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION",
+          "oracle_job_id": "oracle-track-109-explosion",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-109-explosion-change-music-fusion-last-keyon.spc",
+            "sha1": "5b25a023c85b9c1691a26742b2242ad8c8e416b4",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-109-explosion/diagnostic-libgme-render.wav",
+            "sha1": "fd2bae39851fb3ca680b26a2969405fdc0f9c0e3",
+            "bytes": 3840044
+          }
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH",
+          "oracle_job_id": "oracle-track-110-sky_runner_crash",
+          "source_spc": {
+            "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-110-sky_runner_crash-change-music-fusion-last-keyon.spc",
+            "sha1": "110b7772c6ce9614a4728b2d04e15420b36478d2",
+            "bytes": 66048
+          },
+          "source_render": {
+            "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-110-sky_runner_crash/diagnostic-libgme-render.wav",
+            "sha1": "1f0c838ebe02765b496c9ba70e7b6fac3896db08",
+            "bytes": 3840044
+          }
+        }
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "command",
+        "reader_pc",
+        "sequence_address",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "post_read_pc",
+        "post_read_branch_or_effect",
+        "voice_slot_state",
+        "phrase_or_subroutine_stack_state",
+        "timing_counter_state",
+        "tempo_or_fast_forward_state",
+        "control_effect_classification",
+        "classification_evidence"
+      ],
+      "success_criteria": [
+        "capture at least one matching command read at the targeted reader PC or explain why the source state cannot reach it",
+        "record command pointer, post-read PC/branch, channel/voice state, and stack/timing state as applicable",
+        "classify the command effect as ef_call_return, timing_toggle, earthbound_variant_ff, unreachable, or unresolved",
+        "leave sequence-derived public exact-duration promotion blocked unless a later command-semantics validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fe-pc-0847 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane nonzero --job-id nonzero-probe-fe-pc-0847 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fe-pc-0847 --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_nonzero_control_probe_batch.py --job-id nonzero-probe-fe-pc-0847 --force --mode external --external python tools/audio_nonzero_control_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_nonzero_control_probe_result.py build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof-result.json",
+        "collect_results": "python tools/collect_audio_nonzero_control_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "control_effect_classification": "pending",
+        "remaining_blockers": [
+          "non_zero_control_semantics_pending",
+          "timing_toggle_effect"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    }
+  ],
+  "post_packet_validation_commands": [
+    "python tools/validate_audio_nonzero_control_probe_packet.py",
+    "python tools/run_audio_probe_campaign.py --lane nonzero --mode dry-run-stub --force",
+    "python tools/validate_audio_probe_campaign_run_summary.py",
+    "python tools/run_audio_probe_campaign.py --lane nonzero --mode stub-shape --force",
+    "python tools/validate_audio_probe_campaign_run_summary.py",
+    "python tools/collect_audio_nonzero_control_probe_results.py",
+    "python tools/validate_audio_nonzero_control_probe_results_summary.py",
+    "python tools/build_audio_sequence_semantics_intake_plan.py",
+    "python tools/validate_audio_sequence_semantics_intake_plan.py",
+    "python tools/validate_audio_duration_uncertainty_register.py",
+    "python tools/validate_audio_nonzero_control_coverage_report.py",
+    "python tools/build_audio_duration_readiness_rollup.py",
+    "python tools/validate_audio_duration_readiness_rollup.py"
+  ]
+}

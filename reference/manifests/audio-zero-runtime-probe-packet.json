@@ -1,0 +1,2985 @@
+{
+  "schema": "earthbound-decomp.audio-zero-runtime-probe-packet.v1",
+  "status": "zero_runtime_probe_packet_ready_external_harness_required",
+  "references": [
+    "manifests/audio-zero-runtime-probe-plan.json",
+    "manifests/audio-zero-runtime-coverage-report.json",
+    "manifests/audio-probe-campaign-plan.json",
+    "manifests/audio-zero-runtime-probe-results-summary.json",
+    "manifests/audio-duration-next-actions-plan.json"
+  ],
+  "source_plan_status": "zero_runtime_probe_jobs_ready_runner_extension_pending",
+  "source_coverage_status": "zero_runtime_coverage_ready_probe_outputs_pending",
+  "source_campaign_status": "probe_campaign_ready_for_external_harness_runs",
+  "source_results_status": "zero_runtime_probe_results_collected",
+  "source_next_action_lane": "zero_runtime_probe_import",
+  "summary": {
+    "packet_job_count": 19,
+    "blocker_track_count": 19,
+    "probe_job_count": 19,
+    "job_track_coverage_exact": true,
+    "candidate_pack_count": 10,
+    "runtime_zero_read_count": 5931,
+    "reader_pc_target_count": 10,
+    "reader_pc_target_read_counts": {
+      "0x0782": 8,
+      "0x07A6": 8,
+      "0x0847": 73,
+      "0x0957": 114,
+      "0x0B8A": 84,
+      "0x0D12": 1,
+      "0x2DB0": 957,
+      "0x2DDA": 955,
+      "0x2DF8": 955,
+      "0x2E3D": 952
+    },
+    "export_class_counts": {
+      "finite_or_transition_review_candidate": 10,
+      "loop_or_held_candidate": 2,
+      "unknown_active_preview": 7
+    },
+    "trace_focus_job_counts": {
+      "prove_zero_effect_but_loop_points_remain_required": 2,
+      "prove_zero_effect_then_classify_active_preview": 5,
+      "prove_zero_end_effect_then_review_finite_candidate": 1,
+      "trace_zero_reader_with_ef_stack_state": 11
+    },
+    "pack_context_job_counts": {
+      "needs_ef_return_stack_model": 11,
+      "zero_phrase_end_candidate_runtime_pending": 8
+    },
+    "post_zero_proof_action_job_counts": {
+      "classify_active_preview_before_exact_export": 7,
+      "decode_loop_points_before_exact_export": 2,
+      "review_observed_silence_as_finite_or_transition": 10
+    },
+    "phase_job_counts": {
+      "zero-active-preview-followup": 6,
+      "zero-ef-return-stack": 11,
+      "zero-finite-transition-followup": 1,
+      "zero-loop-point-followup": 1
+    },
+    "pre_promotion_blocker_counts": {
+      "ef_return_stack_model": 15,
+      "zero_runtime_effect_proof": 19
+    },
+    "result_count": 0,
+    "valid_result_count": 0,
+    "remaining_blocker_track_counts": {
+      "active_preview_classification": 7,
+      "ef_return_stack_model": 15,
+      "finite_transition_review": 10,
+      "loop_point_metadata": 2,
+      "zero_runtime_effect_proof": 19
+    },
+    "accepted_zero_effect_classifications": [
+      "true_end",
+      "ef_return",
+      "loop_or_hold_continues",
+      "unreachable_from_source_state",
+      "unresolved"
+    ],
+    "generated_outputs_root": "build/audio/zero-runtime-probe",
+    "sequence_promotion_allowed": false,
+    "public_exact_promotion_allowed": false,
+    "promotion_allowed_by_packet": false,
+    "behavior_change_allowed": false
+  },
+  "reader_pc_targets": [
+    {
+      "pc": "0x2DB0",
+      "read_count": 957,
+      "driver_offset": "0x28B0",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2DDA",
+      "read_count": 955,
+      "driver_offset": "0x28DA",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2DF8",
+      "read_count": 955,
+      "driver_offset": "0x28F8",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2E3D",
+      "read_count": 952,
+      "driver_offset": "0x293D",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0957",
+      "read_count": 114,
+      "driver_offset": "0x0457",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0B8A",
+      "read_count": 84,
+      "driver_offset": "0x068A",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0847",
+      "read_count": 73,
+      "driver_offset": "0x0347",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0782",
+      "read_count": 8,
+      "driver_offset": "0x0282",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x07A6",
+      "read_count": 8,
+      "driver_offset": "0x02A6",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0D12",
+      "read_count": 1,
+      "driver_offset": "0x0812",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    }
+  ],
+  "operator_batches": {
+    "by_phase": [
+      {
+        "phase": "zero-ef-return-stack",
+        "job_count": 11,
+        "execution_orders": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "track_ids": [
+          174,
+          38,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          39,
+          171,
+          1
+        ],
+        "job_ids": [
+          "zero-probe-track-174-gas_station_2",
+          "zero-probe-track-038-lumine_hall",
+          "zero-probe-track-032-giant_step",
+          "zero-probe-track-033-lilliput_steps",
+          "zero-probe-track-034-milky_well",
+          "zero-probe-track-035-rainy_circle",
+          "zero-probe-track-036-magnet_hill",
+          "zero-probe-track-037-pink_cloud",
+          "zero-probe-track-039-fire_spring",
+          "zero-probe-track-171-winters_intro",
+          "zero-probe-track-001-gas_station"
+        ]
+      },
+      {
+        "phase": "zero-finite-transition-followup",
+        "job_count": 1,
+        "execution_orders": [
+          19
+        ],
+        "track_ids": [
+          175
+        ],
+        "job_ids": [
+          "zero-probe-track-175-title_screen"
+        ]
+      },
+      {
+        "phase": "zero-loop-point-followup",
+        "job_count": 1,
+        "execution_orders": [
+          20
+        ],
+        "track_ids": [
+          173
+        ],
+        "job_ids": [
+          "zero-probe-track-173-good_morning_moonside"
+        ]
+      },
+      {
+        "phase": "zero-active-preview-followup",
+        "job_count": 6,
+        "execution_orders": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "track_ids": [
+          94,
+          143,
+          157,
+          25,
+          85,
+          120
+        ],
+        "job_ids": [
+          "zero-probe-track-094-good_friends_bad_friends",
+          "zero-probe-track-143-leaving_magicant",
+          "zero-probe-track-157-attract_mode",
+          "zero-probe-track-025-chaos_theatre",
+          "zero-probe-track-085-bulldozer",
+          "zero-probe-track-120-hotel_of_the_living_dead"
+        ]
+      }
+    ],
+    "by_trace_focus": [
+      {
+        "trace_focus": "trace_zero_reader_with_ef_stack_state",
+        "job_count": 11,
+        "execution_orders": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "track_ids": [
+          174,
+          38,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          39,
+          171,
+          1
+        ],
+        "job_ids": [
+          "zero-probe-track-174-gas_station_2",
+          "zero-probe-track-038-lumine_hall",
+          "zero-probe-track-032-giant_step",
+          "zero-probe-track-033-lilliput_steps",
+          "zero-probe-track-034-milky_well",
+          "zero-probe-track-035-rainy_circle",
+          "zero-probe-track-036-magnet_hill",
+          "zero-probe-track-037-pink_cloud",
+          "zero-probe-track-039-fire_spring",
+          "zero-probe-track-171-winters_intro",
+          "zero-probe-track-001-gas_station"
+        ]
+      },
+      {
+        "trace_focus": "prove_zero_end_effect_then_review_finite_candidate",
+        "job_count": 1,
+        "execution_orders": [
+          19
+        ],
+        "track_ids": [
+          175
+        ],
+        "job_ids": [
+          "zero-probe-track-175-title_screen"
+        ]
+      },
+      {
+        "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+        "job_count": 2,
+        "execution_orders": [
+          20,
+          26
+        ],
+        "track_ids": [
+          173,
+          120
+        ],
+        "job_ids": [
+          "zero-probe-track-173-good_morning_moonside",
+          "zero-probe-track-120-hotel_of_the_living_dead"
+        ]
+      },
+      {
+        "trace_focus": "prove_zero_effect_then_classify_active_preview",
+        "job_count": 5,
+        "execution_orders": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "track_ids": [
+          94,
+          143,
+          157,
+          25,
+          85
+        ],
+        "job_ids": [
+          "zero-probe-track-094-good_friends_bad_friends",
+          "zero-probe-track-143-leaving_magicant",
+          "zero-probe-track-157-attract_mode",
+          "zero-probe-track-025-chaos_theatre",
+          "zero-probe-track-085-bulldozer"
+        ]
+      }
+    ],
+    "by_post_zero_proof_action": [
+      {
+        "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+        "job_count": 10,
+        "execution_orders": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          19
+        ],
+        "track_ids": [
+          174,
+          38,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          39,
+          175
+        ],
+        "job_ids": [
+          "zero-probe-track-174-gas_station_2",
+          "zero-probe-track-038-lumine_hall",
+          "zero-probe-track-032-giant_step",
+          "zero-probe-track-033-lilliput_steps",
+          "zero-probe-track-034-milky_well",
+          "zero-probe-track-035-rainy_circle",
+          "zero-probe-track-036-magnet_hill",
+          "zero-probe-track-037-pink_cloud",
+          "zero-probe-track-039-fire_spring",
+          "zero-probe-track-175-title_screen"
+        ]
+      },
+      {
+        "post_zero_proof_action": "decode_loop_points_before_exact_export",
+        "job_count": 2,
+        "execution_orders": [
+          17,
+          20
+        ],
+        "track_ids": [
+          171,
+          173
+        ],
+        "job_ids": [
+          "zero-probe-track-171-winters_intro",
+          "zero-probe-track-173-good_morning_moonside"
+        ]
+      },
+      {
+        "post_zero_proof_action": "classify_active_preview_before_exact_export",
+        "job_count": 7,
+        "execution_orders": [
+          18,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "track_ids": [
+          1,
+          94,
+          143,
+          157,
+          25,
+          85,
+          120
+        ],
+        "job_ids": [
+          "zero-probe-track-001-gas_station",
+          "zero-probe-track-094-good_friends_bad_friends",
+          "zero-probe-track-143-leaving_magicant",
+          "zero-probe-track-157-attract_mode",
+          "zero-probe-track-025-chaos_theatre",
+          "zero-probe-track-085-bulldozer",
+          "zero-probe-track-120-hotel_of_the_living_dead"
+        ]
+      }
+    ],
+    "by_pack_context_class": [
+      {
+        "pack_context_class": "needs_ef_return_stack_model",
+        "job_count": 11,
+        "execution_orders": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "track_ids": [
+          174,
+          38,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          39,
+          171,
+          1
+        ],
+        "job_ids": [
+          "zero-probe-track-174-gas_station_2",
+          "zero-probe-track-038-lumine_hall",
+          "zero-probe-track-032-giant_step",
+          "zero-probe-track-033-lilliput_steps",
+          "zero-probe-track-034-milky_well",
+          "zero-probe-track-035-rainy_circle",
+          "zero-probe-track-036-magnet_hill",
+          "zero-probe-track-037-pink_cloud",
+          "zero-probe-track-039-fire_spring",
+          "zero-probe-track-171-winters_intro",
+          "zero-probe-track-001-gas_station"
+        ]
+      },
+      {
+        "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+        "job_count": 8,
+        "execution_orders": [
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "track_ids": [
+          175,
+          173,
+          94,
+          143,
+          157,
+          25,
+          85,
+          120
+        ],
+        "job_ids": [
+          "zero-probe-track-175-title_screen",
+          "zero-probe-track-173-good_morning_moonside",
+          "zero-probe-track-094-good_friends_bad_friends",
+          "zero-probe-track-143-leaving_magicant",
+          "zero-probe-track-157-attract_mode",
+          "zero-probe-track-025-chaos_theatre",
+          "zero-probe-track-085-bulldozer",
+          "zero-probe-track-120-hotel_of_the_living_dead"
+        ]
+      }
+    ]
+  },
+  "probe_packet_policy": [
+    "This packet is an operator checklist for external 0x00 runtime harness evidence; it does not run a real harness.",
+    "Generated traces, results, SPCs, WAVs, and evidence markdown must stay under ignored build/audio paths.",
+    "Dry-run and stub-shape commands prove runner/result schema only; they do not resolve zero-runtime semantics.",
+    "Every job must observe the same ten reader PCs so EF-return and true-end classifications are comparable.",
+    "Validated zero-effect results route to active-preview, finite/transition, or loop-point follow-up before public exact export changes.",
+    "This packet cannot directly promote sequence commands, public exact durations, or release-quality playback claims."
+  ],
+  "records": [
+    {
+      "execution_order": 8,
+      "campaign_job_id": "campaign-zero-zero-probe-track-174-gas_station_2",
+      "job_id": "zero-probe-track-174-gas_station_2",
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5847,
+      "pack_id": 1,
+      "pack_track_ids": [
+        1,
+        174
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 13.578563,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-174-gas_station_2",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-174-gas_station_2-change-music-fusion-last-keyon.spc",
+          "sha1": "e047c8b136197918db6c191ebe3f47ec2b1061d4",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-174-gas_station_2/diagnostic-libgme-render.wav",
+          "sha1": "1c6102a1e2e0f81bc3b442ddf52e7928c60321ec",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "e047c8b136197918db6c191ebe3f47ec2b1061d4",
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-174-gas_station_2 --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-174-gas_station_2 --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-174-gas_station_2 --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-174-gas_station_2 --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 9,
+      "campaign_job_id": "campaign-zero-zero-probe-track-038-lumine_hall",
+      "job_id": "zero-probe-track-038-lumine_hall",
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5841,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 19.2455,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-038-lumine_hall",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-038-lumine_hall-change-music-fusion-last-keyon.spc",
+          "sha1": "c77a0d38d9764ebbafdda9eaafbcbbdcbc47414b",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-038-lumine_hall/diagnostic-libgme-render.wav",
+          "sha1": "21e3ca66d579b52843c97baacf24121438f357e7",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "c77a0d38d9764ebbafdda9eaafbcbbdcbc47414b",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-038-lumine_hall --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-038-lumine_hall --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-038-lumine_hall --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-038-lumine_hall --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 10,
+      "campaign_job_id": "campaign-zero-zero-probe-track-032-giant_step",
+      "job_id": "zero-probe-track-032-giant_step",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.003219,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-032-giant_step",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-032-giant_step-change-music-fusion-last-keyon.spc",
+          "sha1": "90b619f650e7e7fc17f13c86d69cb8a2bcef6bcb",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-032-giant_step/diagnostic-libgme-render.wav",
+          "sha1": "0def15cbfbec1cf417320249ba033d29286c7ec0",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "90b619f650e7e7fc17f13c86d69cb8a2bcef6bcb",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-032-giant_step --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-032-giant_step --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-032-giant_step --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-032-giant_step --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 11,
+      "campaign_job_id": "campaign-zero-zero-probe-track-033-lilliput_steps",
+      "job_id": "zero-probe-track-033-lilliput_steps",
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.004906,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-033-lilliput_steps",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-033-lilliput_steps-change-music-fusion-last-keyon.spc",
+          "sha1": "593aada85bf3781f556bfbf5391e127dce99aacf",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-033-lilliput_steps/diagnostic-libgme-render.wav",
+          "sha1": "4f8b87eb5305ae1a56f2187cb55a35149a6048bd",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "593aada85bf3781f556bfbf5391e127dce99aacf",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-033-lilliput_steps --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-033-lilliput_steps --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-033-lilliput_steps --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-033-lilliput_steps --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 12,
+      "campaign_job_id": "campaign-zero-zero-probe-track-034-milky_well",
+      "job_id": "zero-probe-track-034-milky_well",
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.002375,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-034-milky_well",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-034-milky_well-change-music-fusion-last-keyon.spc",
+          "sha1": "e4ba0950e7765e1f8346ee0a2b184cecb3432eca",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-034-milky_well/diagnostic-libgme-render.wav",
+          "sha1": "9be185081ed6ae49d97001ddd7cc5bebf01da7e8",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "e4ba0950e7765e1f8346ee0a2b184cecb3432eca",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-034-milky_well --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-034-milky_well --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-034-milky_well --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-034-milky_well --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 13,
+      "campaign_job_id": "campaign-zero-zero-probe-track-035-rainy_circle",
+      "job_id": "zero-probe-track-035-rainy_circle",
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.001938,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-035-rainy_circle",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-035-rainy_circle-change-music-fusion-last-keyon.spc",
+          "sha1": "7963f0f754013571ac396b06bfd3829b0fa7ecf6",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-035-rainy_circle/diagnostic-libgme-render.wav",
+          "sha1": "9502926333e04802ba63ae9f55e8b384082ced27",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "7963f0f754013571ac396b06bfd3829b0fa7ecf6",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-035-rainy_circle --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-035-rainy_circle --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-035-rainy_circle --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-035-rainy_circle --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 14,
+      "campaign_job_id": "campaign-zero-zero-probe-track-036-magnet_hill",
+      "job_id": "zero-probe-track-036-magnet_hill",
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.000875,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-036-magnet_hill",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-036-magnet_hill-change-music-fusion-last-keyon.spc",
+          "sha1": "75db10f1057bc7c33093572d37c5d94b966efca3",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-036-magnet_hill/diagnostic-libgme-render.wav",
+          "sha1": "751f797a83958e36d98e16b849cc95da77a8be00",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "75db10f1057bc7c33093572d37c5d94b966efca3",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-036-magnet_hill --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-036-magnet_hill --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-036-magnet_hill --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-036-magnet_hill --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 15,
+      "campaign_job_id": "campaign-zero-zero-probe-track-037-pink_cloud",
+      "job_id": "zero-probe-track-037-pink_cloud",
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.005312,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-037-pink_cloud",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-037-pink_cloud-change-music-fusion-last-keyon.spc",
+          "sha1": "e3d061821ffed20f0e0ba64316c2db32d60d15a3",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-037-pink_cloud/diagnostic-libgme-render.wav",
+          "sha1": "e7ded98feff2546bffb22d596cd4ace9c8f54b59",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "e3d061821ffed20f0e0ba64316c2db32d60d15a3",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-037-pink_cloud --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-037-pink_cloud --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-037-pink_cloud --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-037-pink_cloud --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 16,
+      "campaign_job_id": "campaign-zero-zero-probe-track-039-fire_spring",
+      "job_id": "zero-probe-track-039-fire_spring",
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5839,
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.005406,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-039-fire_spring",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-039-fire_spring-change-music-fusion-last-keyon.spc",
+          "sha1": "7b5e43293127a023e8e379335dfc1745a3c61442",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-039-fire_spring/diagnostic-libgme-render.wav",
+          "sha1": "026667238c80f9cdb9f2a48116abbc4ca1800594",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "7b5e43293127a023e8e379335dfc1745a3c61442",
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-039-fire_spring --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-039-fire_spring --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-039-fire_spring --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-039-fire_spring --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 17,
+      "campaign_job_id": "campaign-zero-zero-probe-track-171-winters_intro",
+      "job_id": "zero-probe-track-171-winters_intro",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5790,
+      "pack_id": 160,
+      "pack_track_ids": [
+        171
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "loop_or_held_candidate",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-171-winters_intro",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-171-winters_intro-change-music-fusion-last-keyon.spc",
+          "sha1": "f5fa80b3a0ace476fe39433cddcc6700b74d22aa",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-171-winters_intro/diagnostic-libgme-render.wav",
+          "sha1": "72c88d31616160d5085212c316376f4f11888cf9",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "f5fa80b3a0ace476fe39433cddcc6700b74d22aa",
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 20,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-171-winters_intro --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-171-winters_intro --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-171-winters_intro --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-171-winters_intro --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "loop_point_metadata"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 18,
+      "campaign_job_id": "campaign-zero-zero-probe-track-001-gas_station",
+      "job_id": "zero-probe-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "phase": "zero-ef-return-stack",
+      "priority_score": 5750,
+      "pack_id": 1,
+      "pack_track_ids": [
+        1,
+        174
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-001-gas_station",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-001-gas_station-change-music-fusion-last-keyon.spc",
+          "sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-001-gas_station/diagnostic-libgme-render.wav",
+          "sha1": "83eb4c3ca147ddd1e045ac9e709437c15cd3abc7",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-001-gas_station --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-001-gas_station --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-001-gas_station --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-001-gas_station --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 19,
+      "campaign_job_id": "campaign-zero-zero-probe-track-175-title_screen",
+      "job_id": "zero-probe-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "phase": "zero-finite-transition-followup",
+      "priority_score": 5767,
+      "pack_id": 163,
+      "pack_track_ids": [
+        175
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_end_effect_then_review_finite_candidate",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 13.774594,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "promotion_question": "Does 0x00 produce a real finite end before the observed tail/silence review?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-175-title_screen",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-175-title_screen-change-music-fusion-last-keyon.spc",
+          "sha1": "a356f345fd6867f365490b983463b568131ada7c",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-175-title_screen/diagnostic-libgme-render.wav",
+          "sha1": "17b03dab5d5b0b698cffb04dadd4d23d0f4c570e",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "a356f345fd6867f365490b983463b568131ada7c",
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 4,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-175-title_screen --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-175-title_screen --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-175-title_screen --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-175-title_screen --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "finite_transition_review"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 20,
+      "campaign_job_id": "campaign-zero-zero-probe-track-173-good_morning_moonside",
+      "job_id": "zero-probe-track-173-good_morning_moonside",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "phase": "zero-loop-point-followup",
+      "priority_score": 5210,
+      "pack_id": 136,
+      "pack_track_ids": [
+        120,
+        173
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "export_class": "loop_or_held_candidate",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "promotion_question": "Does 0x00 have a proven effect while loop entry/exit metadata remains the release blocker?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-173-good_morning_moonside",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-173-good_morning_moonside-change-music-fusion-last-keyon.spc",
+          "sha1": "4ce844b38b2658560ca64ce22a52a630e91a197e",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-173-good_morning_moonside/diagnostic-libgme-render.wav",
+          "sha1": "929aca70df441599805d9618c641c373ddebc7fb",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "4ce844b38b2658560ca64ce22a52a630e91a197e",
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-173-good_morning_moonside --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-173-good_morning_moonside --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-173-good_morning_moonside --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-173-good_morning_moonside --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "loop_point_metadata"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 21,
+      "campaign_job_id": "campaign-zero-zero-probe-track-094-good_friends_bad_friends",
+      "job_id": "zero-probe-track-094-good_friends_bad_friends",
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5670,
+      "pack_id": 107,
+      "pack_track_ids": [
+        94
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-094-good_friends_bad_friends",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-094-good_friends_bad_friends-change-music-fusion-last-keyon.spc",
+          "sha1": "234d173c38d0e9260f2d6c3ae797d2d95a3ecba8",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-094-good_friends_bad_friends/diagnostic-libgme-render.wav",
+          "sha1": "4bebe27e18c0809d040089c17ee8c23a4309da74",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "234d173c38d0e9260f2d6c3ae797d2d95a3ecba8",
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 3,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-094-good_friends_bad_friends --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-094-good_friends_bad_friends --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-094-good_friends_bad_friends --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-094-good_friends_bad_friends --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 22,
+      "campaign_job_id": "campaign-zero-zero-probe-track-143-leaving_magicant",
+      "job_id": "zero-probe-track-143-leaving_magicant",
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5670,
+      "pack_id": 148,
+      "pack_track_ids": [
+        143
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-143-leaving_magicant",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-143-leaving_magicant-change-music-fusion-last-keyon.spc",
+          "sha1": "ac648a81221c904235831c2146d1286efabca196",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-143-leaving_magicant/diagnostic-libgme-render.wav",
+          "sha1": "2424cf7b21d334c43ad7b904d8630a30a6bfb333",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "ac648a81221c904235831c2146d1286efabca196",
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 12,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 2
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-143-leaving_magicant --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-143-leaving_magicant --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-143-leaving_magicant --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-143-leaving_magicant --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 23,
+      "campaign_job_id": "campaign-zero-zero-probe-track-157-attract_mode",
+      "job_id": "zero-probe-track-157-attract_mode",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5670,
+      "pack_id": 154,
+      "pack_track_ids": [
+        157
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-157-attract_mode",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-157-attract_mode-change-music-fusion-last-keyon.spc",
+          "sha1": "b25aaf397de85e82b3237feb9022cd4285ef0e41",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-157-attract_mode/diagnostic-libgme-render.wav",
+          "sha1": "ea4402b15cf6114ca8687e9e1c4083a763c13a73",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "b25aaf397de85e82b3237feb9022cd4285ef0e41",
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 6,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-157-attract_mode --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-157-attract_mode --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-157-attract_mode --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-157-attract_mode --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "ef_return_stack_model",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 24,
+      "campaign_job_id": "campaign-zero-zero-probe-track-025-chaos_theatre",
+      "job_id": "zero-probe-track-025-chaos_theatre",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5170,
+      "pack_id": 18,
+      "pack_track_ids": [
+        25
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-025-chaos_theatre",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-025-chaos_theatre-change-music-fusion-last-keyon.spc",
+          "sha1": "d0152ff61b3aa2b40b69a473436f4530fc3f69d2",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-025-chaos_theatre/diagnostic-libgme-render.wav",
+          "sha1": "b93ca9345a7ab9fba131f15a25e7efbb85832abb",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "d0152ff61b3aa2b40b69a473436f4530fc3f69d2",
+      "zero_static_context": {
+        "zero_terminator_candidates": 3,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-025-chaos_theatre --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-025-chaos_theatre --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-025-chaos_theatre --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-025-chaos_theatre --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 25,
+      "campaign_job_id": "campaign-zero-zero-probe-track-085-bulldozer",
+      "job_id": "zero-probe-track-085-bulldozer",
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5170,
+      "pack_id": 96,
+      "pack_track_ids": [
+        85
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-085-bulldozer",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-085-bulldozer-change-music-fusion-last-keyon.spc",
+          "sha1": "5202d8560f2a621c2b1a2c0ae28042ea58d69eda",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-085-bulldozer/diagnostic-libgme-render.wav",
+          "sha1": "4e384468d3d5060ddfbe192f372141d232fcaee3",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "5202d8560f2a621c2b1a2c0ae28042ea58d69eda",
+      "zero_static_context": {
+        "zero_terminator_candidates": 1,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-085-bulldozer --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-085-bulldozer --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-085-bulldozer --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-085-bulldozer --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "execution_order": 26,
+      "campaign_job_id": "campaign-zero-zero-probe-track-120-hotel_of_the_living_dead",
+      "job_id": "zero-probe-track-120-hotel_of_the_living_dead",
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "phase": "zero-active-preview-followup",
+      "priority_score": 5170,
+      "pack_id": 136,
+      "pack_track_ids": [
+        120,
+        173
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "promotion_question": "Does 0x00 have a proven effect while loop entry/exit metadata remains the release blocker?",
+      "remaining_uncertainty": [
+        "zero_runtime_effect_proof"
+      ],
+      "source": {
+        "oracle_job_id": "oracle-track-120-hotel_of_the_living_dead",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-120-hotel_of_the_living_dead-change-music-fusion-last-keyon.spc",
+          "sha1": "73be11fb4051967065e440474707376a29fc8a5c",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-120-hotel_of_the_living_dead/diagnostic-libgme-render.wav",
+          "sha1": "f96442ece762ab30c0a7d4aa32e44a83fbc4be7b",
+          "bytes": 3840044
+        }
+      },
+      "source_spc_sha1": "73be11fb4051967065e440474707376a29fc8a5c",
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof.md"
+      },
+      "commands": {
+        "campaign_dry_run": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-120-hotel_of_the_living_dead --mode dry-run-stub --force",
+        "campaign_stub_shape": "python tools/run_audio_probe_campaign.py --lane zero --job-id zero-probe-track-120-hotel_of_the_living_dead --mode stub-shape --force",
+        "external_run": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-120-hotel_of_the_living_dead --force --mode external --external <zero-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "stub_shape": "python tools/run_audio_zero_runtime_probe_batch.py --job-id zero-probe-track-120-hotel_of_the_living_dead --force --mode external --external python tools/audio_zero_runtime_probe_stub_harness.py --job \"{job}\" --result \"{result}\"",
+        "validate_result": "python tools/validate_audio_zero_runtime_probe_result.py build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+        "collect_results": "python tools/collect_audio_zero_runtime_probe_results.py",
+        "refresh_intake": "python tools/build_audio_sequence_semantics_intake_plan.py"
+      },
+      "current_result_status": {
+        "result_exists": false,
+        "status": "pending",
+        "valid": false,
+        "zero_effect_classification": "pending",
+        "remaining_blockers": [
+          "zero_runtime_effect_proof",
+          "active_preview_classification"
+        ]
+      },
+      "promotion_allowed_by_packet": false,
+      "behavior_change_allowed": false
+    }
+  ],
+  "post_packet_validation_commands": [
+    "python tools/validate_audio_zero_runtime_probe_packet.py",
+    "python tools/run_audio_probe_campaign.py --lane zero --mode dry-run-stub --force",
+    "python tools/validate_audio_probe_campaign_run_summary.py",
+    "python tools/run_audio_probe_campaign.py --lane zero --mode stub-shape --force",
+    "python tools/validate_audio_probe_campaign_run_summary.py",
+    "python tools/collect_audio_zero_runtime_probe_results.py",
+    "python tools/validate_audio_zero_runtime_probe_results_summary.py",
+    "python tools/build_audio_sequence_semantics_intake_plan.py",
+    "python tools/validate_audio_sequence_semantics_intake_plan.py",
+    "python tools/validate_audio_duration_uncertainty_register.py",
+    "python tools/validate_audio_zero_runtime_coverage_report.py",
+    "python tools/build_audio_duration_readiness_rollup.py",
+    "python tools/validate_audio_duration_readiness_rollup.py"
+  ]
+}

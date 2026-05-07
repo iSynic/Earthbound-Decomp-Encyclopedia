@@ -1,0 +1,548 @@
+# Bank C0/C1 Decompilation Progress Audit
+
+This report cross-checks the local `notes/*.md` corpus against the quarantined `ebsrc-main` US bank include maps and symbol lists.
+
+Treat reference names as corroboration only: a bank entry is not considered understood here just because a side reference gave it a label.
+
+## Bank `C0` / reference bank `00`
+
+- Reference include entries: `666`
+- Reference named include entries without an address in the path: `278`
+- Reference address-bearing include entries: `386`
+- Address-bearing unknown include entries: `385`
+- Reference symbols: `579` (`270` semantic-ish, `309` placeholder/redirect/null)
+- Local notes mention `3670` distinct `C0:xxxx` addresses
+- Reference addresses mentioned by local notes: `391` / `391`
+- Unknown include entries not directly mentioned in local notes: `0`
+
+### Reference-Named Include Families
+
+These are already semantically grouped by `ebsrc-main`; use them as corroborating names, not as final local proof.
+
+- `common.asm`
+- `config.asm`
+- `eventmacros.asm`
+- `structs.asm`
+- `symbols/bank00.inc.asm`
+- `symbols/bank01.inc.asm`
+- `symbols/bank02.inc.asm`
+- `symbols/bank03.inc.asm`
+- `symbols/bank04.inc.asm`
+- `symbols/bank2f.inc.asm`
+- `symbols/doors.inc.asm`
+- `symbols/globals.inc.asm`
+- `symbols/map.inc.asm`
+- `symbols/misc.inc.asm`
+- `symbols/sram.inc.asm`
+- `symbols/text.inc.asm`
+- `overworld/actionscript/clear_entity_draw_sorting_table.asm`
+- `overworld/setup_vram.asm`
+- `overworld/initialize.asm`
+- `system/load_tileset_anim.asm`
+- `system/animate_tileset.asm`
+- `system/load_palette_anim.asm`
+- `system/animate_palette.asm`
+- `system/get_colour_average.asm`
+- `overworld/adjust_single_colour.asm`
+- `overworld/adjust_sprite_palettes_by_average.asm`
+- `overworld/prepare_average_for_sprite_palettes.asm`
+- `overworld/load_tile_collision.asm`
+- `overworld/replace_block.asm`
+- `overworld/load_map_block_event_changes.asm`
+- `overworld/load_special_sprite_palette.asm`
+- `overworld/load_map_palette.asm`
+- `overworld/load_map_at_sector.asm`
+- `overworld/load_sector_attributes.asm`
+- `overworld/load_map_row.asm`
+- `overworld/load_map_column.asm`
+- `overworld/load_collision_row.asm`
+- `overworld/load_collision_column.asm`
+- `overworld/reload_map_at_position.asm`
+- `overworld/load_map_at_position.asm`
+- `overworld/refresh_map_at_position.asm`
+- `overworld/reload_map.asm`
+- `overworld/initialize_map.asm`
+- `overworld/initialize_misc_object_data.asm`
+- `overworld/find_free_space_7E4682.asm`
+- `system/alloc_sprite_mem.asm`
+- `overworld/create_entity.asm`
+- `overworld/spawn_horizontal.asm`
+- `overworld/spawn_vertical.asm`
+- `overworld/reset_mushroomized_walking.asm`
+- `overworld/mushroomization_movement_swap.asm`
+- `overworld/adjust_position_horizontal.asm`
+- `overworld/adjust_position_vertical.asm`
+- `overworld/update_party.asm`
+- `overworld/get_on_bicycle.asm`
+- `system/center_screen.asm`
+- `overworld/map_input_to_direction.asm`
+- `overworld/find_nearby_checkable_tpt_entry.asm`
+- `overworld/find_nearby_talkable_tpt_entry.asm`
+- `battle/init_common.asm`
+- `overworld/npc_collision_check.asm`
+- `overworld/screen_transition.asm`
+- `overworld/get_screen_transition_sound_effect.asm`
+- `overworld/change_music_5DD6.asm`
+- `overworld/spawn_buzz_buzz.asm`
+- `overworld/door_transition.asm`
+- `overworld/disable_hotspot.asm`
+- `overworld/reload_hotspots.asm`
+- `overworld/activate_hotspot.asm`
+- `overworld/process_queued_interactions.asm`
+- `system/strcat.asm`
+- `system/reset.asm`
+- `system/reset_vector.asm`
+- `system/nmi_vector.asm`
+- `system/irq_vector.asm`
+- `system/irq_nmi.asm`
+- `system/test_sram_size.asm`
+- `system/read_joypad.asm`
+- `system/process_sfx_queue.asm`
+- `system/execute_irq_callback.asm`
+- ... 198 more
+
+### Locally Corroborated Reference Addresses
+
+- `C0:035B` -> notes/bank-c0-entry-notes.md
+- `C0:0E16` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/overworld-stutter-current-truth-state.md, notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, +1 more
+- `C0:0FCB` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:1181` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:122A` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:1731` -> notes/c4-window-color-math-and-palette-helpers-23dc-26ed.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:17EA` -> notes/input-direction-and-interaction-probes-c0402b-c04116.md, notes/overworld-camera-step-accumulator-c017ea-c018f2.md, notes/overworld-stutter-current-truth-state.md, +1 more
+- `C0:19E2` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/entity-pool-allocation-and-release-c01a9d-c020f1.md
+- `C0:1A63` -> notes/early-entity-map-reset-family-c019e2-c01a86.md
+- `C0:1A86` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/entity-pool-allocation-and-release-c01a9d-c020f1.md, notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md, +1 more
+- `C0:1B15` -> notes/bank-c0-entry-notes.md, notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/entity-pool-allocation-and-release-c01a9d-c020f1.md
+- `C0:1B96` -> notes/bank-c0-entry-notes.md, notes/entity-pool-allocation-and-release-c01a9d-c020f1.md
+- `C0:1C52` -> notes/entity-pool-allocation-and-release-c01a9d-c020f1.md
+- `C0:1D38` -> notes/entity-pool-allocation-and-release-c01a9d-c020f1.md, notes/secondary-visual-descriptor-c42b0d.md, notes/sprite-pose-descriptor-header-bytes-2-7.md
+- `C0:1DED` -> notes/entity-pool-allocation-and-release-c01a9d-c020f1.md, notes/secondary-visual-descriptor-c42b0d.md
+- `C0:20F1` -> notes/bank-c0-entry-notes.md, notes/c3-temporary-actor-movement-and-release-scripts.md, notes/early-entity-map-reset-family-c019e2-c01a86.md, +2 more
+- `C0:2140` -> notes/bank-c0-entry-notes.md, notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/early-entity-map-reset-family-c019e2-c01a86.md, +3 more
+- `C0:2194` -> notes/bank-c0-entry-notes.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:21E6` -> notes/bank-c0-entry-notes.md
+- `C0:222B` -> notes/bank-c0-entry-notes.md
+- `C0:255C` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:25CF` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:263D` -> notes/bank-c0-entry-notes.md, notes/entity-placement-probe-c0263d-c02668.md
+- `C0:2668` -> notes/bank-c0-entry-notes.md, notes/entity-placement-probe-c0263d-c02668.md
+- `C0:2C3E` -> notes/entity-placement-probe-c0263d-c02668.md, notes/mushroomized-walking-builders-34de-37d0.md
+- `C0:2D29` -> notes/class2-c1-display-text-substitution-handler-7af3.md, notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md, notes/intro-overworld-position-init-c0b65f-c0b67f.md
+- `C0:329F` -> notes/bank-c0-entry-notes.md, notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/c4-party-state-reset-and-callback-tables-30ec-3317.md, +3 more
+- `C0:32EC` -> notes/character-affliction-clear-c0329f.md, notes/mushroomized-walking-builders-34de-37d0.md
+- `C0:369B` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md, notes/class2-cc19-20-eshop2-single-use.md, notes/mushroomized-walking-builders-34de-37d0.md, +1 more
+- `C0:3903` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md, notes/teddy-bear-and-egg-item-cleanup-branches.md
+- `C0:39E5` -> notes/bank-c0-entry-notes.md, notes/intro-overworld-position-init-c0b65f-c0b67f.md, notes/mushroomized-walking-builders-34de-37d0.md
+- `C0:3A24` -> notes/class2-cc19-20-eshop2-single-use.md, notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md, notes/intro-overworld-position-init-c0b65f-c0b67f.md, +2 more
+- `C0:3A94` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/class3-doorway-transition-context.md, notes/landing-destination-table-d57880.md, +2 more
+- `C0:3C25` -> notes/bank-c0-entry-notes.md, notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md, +2 more
+- `C0:3C4B` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/collision-surface-probes-c052d4-c05e3a.md, notes/seam-scout-c0-gap-cluster-329f-3f1e.md
+- `C0:3CFD` -> notes/bank-c0-entry-notes.md, notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/class3-doorway-transition-context.md, +2 more
+- `C0:3DAA` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/c3-intro-script-frontier-9ff2-a07f.md, notes/seam-scout-c0-gap-cluster-329f-3f1e.md
+- `C0:3E25` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/overworld-entity-type-registry-9887-98a4.md, notes/seam-scout-c0-gap-cluster-329f-3f1e.md
+- `C0:3E5A` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/overworld-entity-type-registry-9887-98a4.md, notes/seam-scout-c0-gap-cluster-329f-3f1e.md
+- `C0:3E9D` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/overworld-entity-type-registry-9887-98a4.md, notes/seam-scout-c0-gap-cluster-329f-3f1e.md
+- `C0:3EC3` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/overworld-entity-type-registry-9887-98a4.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md, +2 more
+- `C0:3F1E` -> notes/bank-c0-entry-notes.md, notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/collision-surface-probes-c052d4-c05e3a.md, +3 more
+- `C0:3FA9` -> notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md, notes/c3-map-movement-parameter-table-e1d8-e240.md, notes/collision-surface-probes-c052d4-c05e3a.md, +3 more
+- `C0:402B` -> notes/bank-c0-entry-notes.md, notes/input-direction-and-interaction-probes-c0402b-c04116.md, notes/staged-movement-pulse-and-tracked-item-registry-c48c59-c48f98.md
+- `C0:4049` -> notes/bank-c0-entry-notes.md, notes/input-direction-and-interaction-probes-c0402b-c04116.md
+- `C0:4116` -> notes/bank-c0-entry-notes.md, notes/front-interaction-flow.md, notes/input-direction-and-interaction-probes-c0402b-c04116.md
+- `C0:41E3` -> notes/bank-c0-entry-notes.md, notes/bank-c0-first-pass.md, notes/front-interaction-flow.md, +1 more
+- `C0:42C2` -> notes/bank-c0-first-pass.md, notes/interaction-result-classes.md, notes/interaction-result-consumers.md
+- `C0:42EF` -> notes/bank-c0-first-pass.md, notes/front-interaction-flow.md, notes/input-direction-and-interaction-probes-c0402b-c04116.md
+- `C0:43BC` -> notes/bank-c0-first-pass.md, notes/front-interaction-flow.md, notes/input-direction-and-interaction-probes-c0402b-c04116.md, +1 more
+- `C0:449B` -> notes/bank-c0-entry-notes.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md, notes/saved-coordinate-reload-path-c4c718-c0b967.md
+- `C0:476D` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:47CF` -> notes/bank-c0-entry-notes.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:48D3` -> notes/bank-c0-entry-notes.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4A7B` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4A88` -> notes/npc-attention-path-coordinator-c0d19b-c0d98f.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4AAD` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4B53` -> notes/bank-c0-entry-notes.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4C45` -> notes/bank-c0-entry-notes.md, notes/collision-surface-probes-c052d4-c05e3a.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4D78` -> notes/bank-c0-entry-notes.md, notes/c3-intro-script-frontier-9ff2-a07f.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md, +1 more
+- `C0:4EF0` -> notes/bank-c0-entry-notes.md, notes/c3-intro-script-frontier-9ff2-a07f.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4F47` -> notes/delayed-action-timer-callers.md
+- `C0:4F60` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4F9F` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:4FFE` -> notes/position-snapshot-and-movement-tick-c0449b-c05200.md, notes/saved-coordinate-reload-path-c4c718-c0b967.md
+- `C0:5200` -> notes/bank-c0-entry-notes.md, notes/c3-intro-script-frontier-9ff2-a07f.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md, +2 more
+- `C0:52D4` -> notes/bank-c0-entry-notes.md, notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md, +2 more
+- `C0:546B` -> notes/bank-c0-entry-notes.md, notes/collision-surface-probes-c052d4-c05e3a.md, notes/pathfinding-consumers-direction-helpers-c0bd96-c0c7db.md
+- `C0:54C9` -> notes/bank-c0-entry-notes.md, notes/collision-surface-probes-c052d4-c05e3a.md, notes/entity-overlap-neighbor-cache-c05ece-c064d3.md, +1 more
+- `C0:5503` -> notes/collision-surface-probes-c052d4-c05e3a.md, notes/entity-overlap-neighbor-cache-c05ece-c064d3.md
+- `C0:559C` -> notes/collision-surface-probes-c052d4-c05e3a.md, notes/entity-overlap-neighbor-cache-c05ece-c064d3.md
+- `C0:5639` -> notes/collision-surface-probes-c052d4-c05e3a.md, notes/entity-overlap-neighbor-cache-c05ece-c064d3.md
+- `C0:56D0` -> notes/collision-surface-probes-c052d4-c05e3a.md, notes/entity-overlap-neighbor-cache-c05ece-c064d3.md
+- `C0:5769` -> notes/bank-c0-entry-notes.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:57E8` -> notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:583C` -> notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:5890` -> notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:59EF` -> notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:5B4E` -> notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md
+- `C0:5B7B` -> notes/bank-c0-entry-notes.md, notes/class4-class6-surface-contexts.md, notes/collision-surface-probes-c052d4-c05e3a.md, +2 more
+- ... 311 more
+
+### Local-Only Address Mentions
+
+These may be derived local discoveries, cross-bank targets, or address forms absent from the reference include/symbol map.
+
+- `C0:0085` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-profile-bundles-ef121b-43dc.md, notes/landing-profile-cache-436e-4474.md
+- `C0:0172` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md, notes/landing-profile-bundles-ef121b-43dc.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:023F` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-profile-cache-436e-4474.md
+- `C0:030F` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-profile-cache-436e-4474.md, notes/position-snapshot-and-movement-tick-c0449b-c05200.md
+- `C0:0391` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-palette-interpolation-export-c4958e-c426ed.md
+- `C0:0480` -> notes/landing-and-coffee-tea-visual-helpers-c492d2-c49d1e.md, notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-display-profile-overview.md, +1 more
+- `C0:062A` -> notes/landing-hdma-dispatch-family-ef117b-c00d7e.md, notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:0778` -> notes/landing-and-coffee-tea-visual-helpers-c492d2-c49d1e.md, notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-display-profile-overview.md
+- `C0:07B6` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md, notes/landing-display-control-words-2baa-2e7a.md, notes/landing-display-profile-overview.md, +3 more
+- `C0:08CF` -> notes/landing-destination-table-d57880.md, notes/landing-display-profile-overview.md, notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md, +3 more
+- `C0:090E` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:091A` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:0968` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:0974` -> notes/landing-profile-cache-436e-4474.md
+- `C0:097B` -> notes/landing-profile-cache-436e-4474.md
+- `C0:097E` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:09BE` -> notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:09D1` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:09EA` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:09FA` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md
+- `C0:0A0B` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md
+- `C0:0A12` -> notes/landing-display-assembly-cluster-c007b6-c4b26b.md
+- `C0:0A25` -> notes/window-flavour-palette-block-refresh-c47f87.md
+- `C0:0A95` -> notes/landing-profile-cache-436e-4474.md
+- `C0:0A9A` -> notes/landing-profile-cache-436e-4474.md
+- `C0:0AA1` -> notes/c2-battle-sprite-render-and-palette-tail-c2eee7-c2ff9a.md, notes/class3-doorway-transition-context.md, notes/landing-destination-table-d57880.md, +5 more
+- `C0:0AC5` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:0B8C` -> notes/task-freeze-position-callbacks-maplookup-c09f3b-c0a26b.md
+- `C0:0BDC` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:0C9C` -> notes/task-freeze-position-callbacks-maplookup-c09f3b-c0a26b.md
+- `C0:0CF3` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:0D39` -> notes/landing-hdma-dispatch-family-ef117b-c00d7e.md, notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:0D7E` -> notes/landing-display-profile-overview.md, notes/landing-hdma-dispatch-family-ef117b-c00d7e.md, notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md, +2 more
+- `C0:0DB7` -> notes/landing-hdma-dispatch-family-ef117b-c00d7e.md, notes/landing-profile-asset-families-ef105b-10ab-11cb-121b.md
+- `C0:0F40` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:0F6C` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:0F99` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:0FC5` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:10FA` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:1122` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:1153` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:117B` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:13F6` -> notes/intro-overworld-position-init-c0b65f-c0b67f.md, notes/overworld-camera-step-accumulator-c017ea-c018f2.md, notes/post-transition-deferred-script-queue-c06b21-c06bff.md, +2 more
+- `C0:1404` -> notes/overworld-a794-watcher-gate-safe-v4.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:1533` -> notes/entity-placement-probe-c0263d-c02668.md
+- `C0:1558` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md, notes/overworld-companion-family-priority-a794.md, notes/overworld-stutter-current-truth-state.md, +4 more
+- `C0:1566` -> notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md
+- `C0:156B` -> notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md
+- `C0:1570` -> notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md
+- `C0:1575` -> notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md
+- `C0:15B0` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:15F4` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:1606` -> notes/entity-placement-probe-c0263d-c02668.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:1659` -> notes/entity-placement-probe-c0263d-c02668.md
+- `C0:165D` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:166B` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:16B2` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:16C4` -> notes/entity-placement-probe-c0263d-c02668.md, notes/rom-patch-overworld-stutter-plan.md
+- `C0:1716` -> notes/entity-placement-probe-c0263d-c02668.md
+- `C0:171A` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:1725` -> notes/rom-patch-overworld-stutter-plan.md
+- `C0:17C4` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md
+- `C0:17D3` -> notes/overworld-walking-stutter-producer-split-c01558-c01ca8.md
+- `C0:187E` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:1882` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:1887` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:188C` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:188F` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:1894` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18A8` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md, notes/overworld-timing-scroll-commit-slice-c08b20-c08284.md
+- `C0:18E5` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18E8` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18EB` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18EE` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18F1` -> notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:18F2` -> notes/input-direction-and-interaction-probes-c0402b-c04116.md, notes/overworld-camera-step-accumulator-c017ea-c018f2.md
+- `C0:19B2` -> notes/landing-destination-table-d57880.md, notes/saved-coordinate-reload-path-c4c718-c0b967.md, notes/teleport-freeze-vector-frontier-c0dd0f-c0e196.md, +1 more
+- `C0:1A65` -> notes/early-entity-map-reset-family-c019e2-c01a86.md
+- `C0:1A68` -> notes/early-entity-map-reset-family-c019e2-c01a86.md
+- `C0:1A69` -> notes/early-entity-map-reset-family-c019e2-c01a86.md, notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md, notes/intro-overworld-position-init-c0b65f-c0b67f.md
+- ... 3199 more
+
+## Bank `C1` / reference bank `01`
+
+- Reference include entries: `427`
+- Reference named include entries without an address in the path: `281`
+- Reference address-bearing include entries: `132`
+- Address-bearing unknown include entries: `131`
+- Reference symbols: `89` (`34` semantic-ish, `55` placeholder/redirect/null)
+- Local notes mention `637` distinct `C1:xxxx` addresses
+- Reference addresses mentioned by local notes: `132` / `132`
+- Unknown include entries not directly mentioned in local notes: `0`
+
+### Reference-Named Include Families
+
+These are already semantically grouped by `ebsrc-main`; use them as corroborating names, not as final local proof.
+
+- `common.asm`
+- `config.asm`
+- `structs.asm`
+- `symbols/bank00.inc.asm`
+- `symbols/bank01.inc.asm`
+- `symbols/bank02.inc.asm`
+- `symbols/bank03.inc.asm`
+- `symbols/bank04.inc.asm`
+- `symbols/bank2f.inc.asm`
+- `symbols/globals.inc.asm`
+- `symbols/misc.inc.asm`
+- `symbols/text.inc.asm`
+- `text/enable_blinking_triangle.asm`
+- `text/clear_blinking_prompt.asm`
+- `text/get_blinking_prompt.asm`
+- `text/set_text_sound_mode.asm`
+- `text/get_window_focus.asm`
+- `text/set_window_focus.asm`
+- `text/close_focus_window.asm`
+- `text/lock_input.asm`
+- `text/unlock_input.asm`
+- `text/ccs/halt.asm`
+- `text/get_active_window_address.asm`
+- `text/transfer_active_mem_storage.asm`
+- `text/transfer_storage_mem_active.asm`
+- `text/get_argument_memory.asm`
+- `text/get_secondary_memory.asm`
+- `text/get_working_memory.asm`
+- `text/increment_secondary_memory.asm`
+- `text/set_secondary_memory.asm`
+- `text/set_working_memory.asm`
+- `text/set_argument_memory.asm`
+- `text/get_text_x.asm`
+- `text/get_text_y.asm`
+- `text/create_window.asm`
+- `text/show_hppp_windows.asm`
+- `text/hide_hppp_windows.asm`
+- `text/ccs/clear_line.asm`
+- `text/print_newline_redirect.asm`
+- `text/print_letter_redirect.asm`
+- `text/print_string_redirect.asm`
+- `text/print_letter.asm`
+- `text/print_number.asm`
+- `text/print_string.asm`
+- `text/change_current_window_font.asm`
+- `text/num_select_prompt.asm`
+- `text/print_menu_items.asm`
+- `text/move_cursor.asm`
+- `text/selection_menu.asm`
+- `text/character_select_prompt.asm`
+- `text/window_tick.asm`
+- `system/debug/y_button_menu.asm`
+- `overworld/talk_to.asm`
+- `overworld/check.asm`
+- `overworld/open_menu.asm`
+- `text/open_hppp_display.asm`
+- `overworld/show_town_map.asm`
+- `overworld/debug/y_button_flag.asm`
+- `overworld/debug/y_button_guide.asm`
+- `overworld/debug/set_char_level.asm`
+- `overworld/debug/y_button_goods.asm`
+- `text/ccs/print_stat.asm`
+- `text/ccs/print_party_or_hint_new_line.asm`
+- `text/ccs/unknown_1C_09.asm`
+- `text/ccs/text_effects.asm`
+- `text/ccs/jump.asm`
+- `text/ccs/jump_multi.asm`
+- `text/ccs/set_event_flag.asm`
+- `text/ccs/clear_event_flag.asm`
+- `text/ccs/jump_event_flag.asm`
+- `text/ccs/get_event_flag.asm`
+- `text/ccs/print_special_graphics.asm`
+- `text/ccs/open_window.asm`
+- `text/ccs/switch_to_window.asm`
+- `text/ccs/call.asm`
+- `text/ccs/create_number_selector.asm`
+- `text/ccs/force_text_alignment.asm`
+- `text/ccs/check_equal.asm`
+- `text/ccs/check_not_equal.asm`
+- `text/ccs/print_horizontal_strings.asm`
+- ... 201 more
+
+### Locally Corroborated Reference Addresses
+
+- `C1:0000` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0004` -> notes/bank-c0-first-pass.md, notes/delivery-row-helpers-ef0e67-ef0ead.md, notes/post-transition-deferred-script-queue-c06b21-c06bff.md, +4 more
+- `C1:004E` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/file-select-entity-scripts-and-swirl-transition-c4d830-c4d989.md, +1 more
+- `C1:008E` -> notes/battle-text-entry-family-c1dc1c-dd7c.md, notes/text-command-family-18-windows-and-selection.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md, +1 more
+- `C1:00D6` -> notes/text-command-10-parameterized-pause.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:00FE` -> notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:02D0` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:078D` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:07AF` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0A85` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0BA1` -> notes/battle-psi-menu-table-helpers-c1c046-c1c165.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0BFE` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C55` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0D60` -> notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0D7C` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0EB4` -> notes/jeff-repair-item-name-bridge.md
+- `C1:0EE3` -> notes/jeff-repair-item-name-bridge.md
+- `C1:0F40` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:0FA3` -> notes/battle-text-entry-family-c1dc1c-dd7c.md, notes/text-command-family-18-windows-and-selection.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:0FEA` -> notes/battle-psi-selection-refresh-c1ca72.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/jeff-repair-item-name-bridge.md
+- `C1:134B` -> notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:1354` -> notes/text-entry-builder-c113d1-89d4.md
+- `C1:1383` -> notes/text-command-family-1a-menus.md, notes/text-commands-11-and-12-menu-and-line-control.md
+- `C1:138D` -> notes/jeff-repair-item-name-bridge.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:13D1` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/short-text-staging-buffer-9c9f.md, +5 more
+- `C1:14B1` -> notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:153B` -> notes/battle-psi-ability-table-d58a50.md, notes/battle-psi-category-list-family-c1caf5-c1cb7f.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md, +1 more
+- `C1:1596` -> notes/open-menu-prelude-helpers-c1339e-c133b0.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:15F4` -> notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/teleport-menu-wrapper-c1bb71-bcab.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:17E2` -> notes/text-entry-record-builder-neighbors-c10f40-c11887.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:180D` -> notes/jeff-repair-item-name-bridge.md
+- `C1:181B` -> notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:1887` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:1F5A` -> notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:1F8A` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:1FBC` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:1FD4` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:2012` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:2070` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:20D6` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:21B8` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:2362` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md
+- `C1:242E` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:244C` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md, notes/jeff-repair-item-name-bridge.md
+- `C1:2BD5` -> notes/jeff-repair-item-name-bridge.md, notes/text-command-family-19-data-and-substitution.md
+- `C1:2BF3` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md
+- `C1:2C36` -> notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md
+- `C1:2CCC` -> notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md
+- `C1:2D17` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-command-1f41-special-event-dispatch-c1befc.md
+- `C1:2E42` -> notes/character-selection-prompt-cluster-c11f8a-c1242e.md, notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md, notes/text-command-10-parameterized-pause.md, +1 more
+- `C1:339E` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/open-menu-prelude-helpers-c1339e-c133b0.md
+- `C1:33A7` -> notes/open-menu-prelude-helpers-c1339e-c133b0.md
+- `C1:33B0` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/open-menu-prelude-helpers-c1339e-c133b0.md
+- `C1:4012` -> notes/timed-delivery-row-index-command-1f-d3.md, notes/timed-event-slot-block-7440-and-c20abc.md
+- `C1:4049` -> notes/timed-event-slot-block-7440-and-c20abc.md
+- `C1:4070` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/deferred-text-byte-queue-97ba-97ca.md, notes/text-command-family-1d-inventory-money.md, +1 more
+- `C1:5FB1` -> notes/text-command-family-19-data-and-substitution.md
+- `C1:621F` -> notes/text-command-1f-c0-jump-multi2-c1621f.md
+- `C1:7796` -> notes/text-command-load-string-pointer-c17796-c17889.md
+- `C1:7889` -> notes/text-command-family-19-data-and-substitution.md, notes/text-command-load-string-pointer-c17796-c17889.md
+- `C1:866D` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/timed-delivery-row-index-command-1f-d3.md, notes/timed-event-slot-block-7440-and-c20abc.md
+- `C1:869D` -> notes/timed-delivery-row-index-command-1f-d3.md, notes/timed-event-slot-block-7440-and-c20abc.md
+- `C1:90E6` -> notes/overworld-registry-accessor-c190e6.md
+- `C1:90F1` -> notes/text-command-family-1d-inventory-money.md
+- `C1:91B0` -> notes/pending-item-queue-984b.md
+- `C1:91F8` -> notes/pending-item-queue-984b.md, notes/text-command-family-1d-inventory-money.md
+- `C1:9216` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/battle-item-action-selection-c1ce85-c1cfc6.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:9249` -> notes/statistic-selector-family-c4550f-c3ee7a.md
+- `C1:931B` -> notes/file-select-action-copy-delete-menus-c1f07e-f14f-f2a8.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:93E7` -> notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:9437` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/battle-item-action-selection-c1ce85-c1cfc6.md, notes/item-psi-name-display-and-target-prompt-c19216-c19437.md
+- `C1:9441` -> notes/text-command-family-1a-menus.md
+- `C1:952F` -> notes/teleport-menu-wrapper-c1bb71-bcab.md, notes/text-command-family-18-windows-and-selection.md
+- `C1:9A11` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md, +1 more
+- `C1:9A43` -> notes/jeff-repair-item-name-bridge.md, notes/text-command-15-compressed-bank-1-pseudo-opcode.md, notes/text-command-16-compressed-bank-2-pseudo-opcode.md, +2 more
+- `C1:9CDD` -> notes/equipment-comparison-markers-9a1d.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/equipment-preview-and-derived-state-cluster.md
+- `C1:9D49` -> notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/window-flavour-palette-block-refresh-c47f87.md
+- `C1:9DB5` -> notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/text-command-family-1a-menus.md
+- `C1:9F29` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md, +1 more
+- `C1:A1D8` -> notes/bank-c1-subsystem-and-symbol-synthesis.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md, +3 more
+- ... 52 more
+
+### Local-Only Address Mentions
+
+These may be derived local discoveries, cross-bank targets, or address forms absent from the reference include/symbol map.
+
+- `C1:0036` -> notes/battle-text-display-mode-latch-964d.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:003C` -> notes/battle-text-display-mode-latch-964d.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0042` -> notes/battle-text-display-mode-latch-964d.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0048` -> notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0058` -> notes/c3-menu-cursor-tile-data-e3f8-e450.md
+- `C1:0078` -> notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:007E` -> notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md, notes/text-input-dialog-option-helpers-c1e48d-c1e4be.md
+- `C1:0084` -> notes/battle-item-action-selection-c1ce85-c1cfc6.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md, notes/file-select-action-copy-delete-menus-c1f07e-f14f-f2a8.md, +3 more
+- `C1:00C2` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:00C7` -> notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:00D0` -> notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0166` -> notes/bank01-text-command-map-00-1f.md, notes/lower-bank01-text-control-strip-00-17.md, notes/text-command-03-halt-with-prompt.md, +2 more
+- `C1:0301` -> notes/class2-c1-display-text-substitution-handler-7af3.md, notes/interaction-context-and-event-flags.md, notes/interaction-result-classes.md, +4 more
+- `C1:0324` -> notes/jeff-repair-item-name-bridge.md
+- `C1:0326` -> notes/interaction-context-and-event-flags.md
+- `C1:0327` -> notes/jeff-repair-item-name-bridge.md
+- `C1:0380` -> notes/interaction-context-and-event-flags.md, notes/jeff-repair-item-name-bridge.md
+- `C1:0381` -> notes/jeff-repair-item-name-bridge.md
+- `C1:03DC` -> notes/interaction-context-and-event-flags.md, notes/item-category-classifier-c19ee6.md, notes/jeff-repair-item-name-bridge.md, +4 more
+- `C1:0400` -> notes/jeff-repair-item-name-bridge.md, notes/statistic-selector-family-c4550f-c3ee7a.md, notes/text-command-0d-parameterized-copy-to-argmem.md, +2 more
+- `C1:040A` -> notes/jeff-repair-item-name-bridge.md, notes/text-command-09-jump-multi.md, notes/text-command-0b-parameterized-test-if-workmem-true.md, +5 more
+- `C1:0410` -> notes/interaction-context-and-event-flags.md
+- `C1:042E` -> notes/text-command-0f-parameterized-workmem-increment.md, notes/text-command-family-19-data-and-substitution.md
+- `C1:0443` -> notes/jeff-repair-item-name-bridge.md, notes/text-command-0e-parameterized-store-to-argmem.md
+- `C1:0450` -> notes/interaction-context-and-event-flags.md
+- `C1:045D` -> notes/bank-deposit-accumulator-98b9-98bb.md, notes/class2-c1-display-text-substitution-handler-7af3.md, notes/class2-c1acf8-substitution-byte-family.md, +21 more
+- `C1:0489` -> notes/interaction-context-and-event-flags.md, notes/interaction-result-classes.md, notes/interaction-result-consumers.md, +4 more
+- `C1:04B5` -> notes/battle-psi-menu-table-helpers-c1c046-c1c165.md, notes/interaction-context-and-event-flags.md, notes/text-command-00-line-break.md, +1 more
+- `C1:04D8` -> notes/battle-psi-menu-table-helpers-c1c046-c1c165.md, notes/battle-psi-selection-refresh-c1ca72.md, notes/interaction-context-and-event-flags.md
+- `C1:04EE` -> notes/text-input-dialog-option-helpers-c1e48d-c1e4be.md
+- `C1:0A04` -> notes/text-entry-record-builder-neighbors-c10f40-c11887.md
+- `C1:0A1D` -> notes/battle-text-entry-family-c1dc1c-dd7c.md, notes/text-command-family-18-windows-and-selection.md, notes/text-engine-entry-waits-window-gates-c10000-c102d0.md
+- `C1:0ADC` -> notes/battle-text-display-mode-latch-964d.md
+- `C1:0B8A` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0BD3` -> notes/text-commands-11-and-12-menu-and-line-control.md
+- `C1:0BF8` -> notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C49` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C4F` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C72` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C79` -> notes/class2-reflected-hit-side-token-consumers.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C80` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C86` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0C8C` -> notes/class2-reflected-hit-side-token-consumers.md, notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0CAF` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0CB6` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:0DF6` -> notes/battle-psi-menu-metadata-family-c1c853-c1c8bc.md, notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md, notes/equipped-item-derived-cache-family-c21857-c21e03.md, +1 more
+- `C1:0EFC` -> notes/battle-psi-menu-metadata-family-c1c853-c1c8bc.md, notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md, +3 more
+- `C1:1388` -> notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md
+- `C1:14F8` -> notes/text-entry-builder-c113d1-89d4.md
+- `C1:1629` -> notes/text-entry-builder-c113d1-89d4.md
+- `C1:163C` -> notes/battle-psi-selection-refresh-c1ca72.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, notes/file-select-action-copy-delete-menus-c1f07e-f14f-f2a8.md, +2 more
+- `C1:169F` -> notes/text-window-rendering-primitives-c1078d-c10d7c.md
+- `C1:1914` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:192F` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:196A` -> notes/battle-item-action-selection-c1ce85-c1cfc6.md, notes/battle-psi-menu-controller-c1cc39-ce73.md, notes/equipment-menu-display-fringe-c19a11-c19f29.md, +7 more
+- `C1:1CBB` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:1CE8` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:1D12` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:1D3F` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:2180` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:27EF` -> notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md, notes/equipment-menu-top-level-flow-c1a778-c1aa5d.md
+- `C1:2DD5` -> notes/battle-text-entry-family-c1dc1c-dd7c.md, notes/c3-shared-helper-working-name-promotion.md, notes/character-selection-prompt-cluster-c11f8a-c1242e.md, +7 more
+- `C1:2E14` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:2E28` -> notes/file-select-tail-helpers-c1ff2c-ff6b-ff99.md
+- `C1:2E30` -> notes/window-flavour-palette-block-refresh-c47f87.md
+- `C1:2E37` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:2E44` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:2EB2` -> notes/text-entry-builder-c113d1-89d4.md
+- `C1:2FB2` -> notes/respawn-warp-target-snapshot-helper-c230f3.md
+- `C1:3032` -> notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md
+- `C1:3187` -> notes/interaction-result-classes.md, notes/interaction-result-consumers.md
+- `C1:323B` -> notes/interaction-result-classes.md, notes/interaction-result-consumers.md
+- `C1:366B` -> notes/class2-dispatch-family.md
+- `C1:39FC` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3A42` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3A66` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3A8A` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3ACD` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3AF0` -> notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md
+- `C1:3B89` -> notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md
+- ... 425 more
+
+## Suggested Workflow
+
+1. Pick an unmentioned `unknown/...` chunk from this report.
+2. Run `tools/decode_snippet.py` or a targeted helper around the address.
+3. Cross-check `refs/ebsrc-main` symbols, `refs/earthbound-disasm-legacy`, and any data table in `refs/eb-decompile-4ef92` that the routine touches.
+4. Write a focused note that states byte-level evidence, borrowed reference names, remaining uncertainty, and direct callers/xrefs.
+5. Rerun this audit and promote the next gap.
+

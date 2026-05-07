@@ -1,0 +1,131 @@
+{
+  "assessment_counts": {
+    "authoring-lowering-only": 2,
+    "defer-original-runtime-promotion": 4,
+    "promote-to-local-contract": 2
+  },
+  "assessments": [
+    {
+      "assessment": "authoring-lowering-only",
+      "behavior": "script-lowering",
+      "changed_bytes": 1,
+      "changed_span": "0x3896F6 (F8:96F6)..0x3896F7 (F8:96F7)",
+      "experiment_id": "ccscript-body-command-byte-probe",
+      "local_docs": [
+        "notes/coilsnake-ccscript-experiments.md",
+        "notes/text-script-assets-frontier.md"
+      ],
+      "local_result": "CCScript body argument lowering is isolated in the scriptdump rebuild, but text VM semantics remain owned by local C1 parser/handler evidence.",
+      "phase2c_promotion_lane": "authoring-lowering-only",
+      "recommended_action": "keep-as-oracle-evidence",
+      "resource_family": "text-script"
+    },
+    {
+      "assessment": "authoring-lowering-only",
+      "behavior": "script-lowering",
+      "changed_bytes": 2,
+      "changed_span": "0x050001 (C5:0001)..0x050003 (C5:0003)",
+      "experiment_id": "ccscript-rom-goto-label-probe",
+      "local_docs": [
+        "notes/coilsnake-ccscript-experiments.md",
+        "notes/text-script-assets-frontier.md"
+      ],
+      "local_result": "CCScript label reference lowering is isolated in the scriptdump rebuild, but it is not a runtime command semantic.",
+      "phase2c_promotion_lane": "authoring-lowering-only",
+      "recommended_action": "keep-as-oracle-evidence",
+      "resource_family": "text-script"
+    },
+    {
+      "assessment": "defer-original-runtime-promotion",
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x0F60DC (CF:60DC)..0x0F60DD (CF:60DD)",
+      "experiment_id": "font0-width5-probe",
+      "local_docs": [
+        "notes/font-bundle-contracts.md",
+        "notes/ui-font-town-map-asset-contracts.md"
+      ],
+      "local_result": "The CoilSnake rebuild byte lands at CF:60DC, which is inside the original ROM's CF event-music/table corridor rather than the checked E0/E1 font metric ranges.",
+      "phase2c_promotion_lane": "candidate-local-contract-update",
+      "recommended_action": "record-as-rebuilt-layout-evidence",
+      "resource_family": "ui-font"
+    },
+    {
+      "assessment": "promote-to-local-contract",
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x0ADCD0 (CA:DCD0)..0x0ADCD1 (CA:DCD1)",
+      "experiment_id": "bg-data-distortion1-probe",
+      "local_docs": [
+        "notes/battle-background-scene-bundles.md",
+        "notes/battle-visual-asset-contracts.md"
+      ],
+      "local_result": "The byte lands at CA:DCD0, inside the original CA battle-background config table. Relative to CA:DCA1, this is row 2 offset +0x2F overall / row offset +0x0D, matching the first distortion reference slot documented for BG_DATA_TABLE rows.",
+      "phase2c_promotion_lane": "candidate-local-contract-update",
+      "recommended_action": "promote-runtime-correlated-field",
+      "resource_family": "battle-visual"
+    },
+    {
+      "assessment": "defer-original-runtime-promotion",
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x2011A4 (E0:11A4)..0x2011A5 (E0:11A5)",
+      "experiment_id": "town-map-first-icon-x-probe",
+      "local_docs": [
+        "notes/town-map-selection-rendering-c4d274-c4d744.md",
+        "notes/ui-font-town-map-asset-contracts.md"
+      ],
+      "local_result": "The CoilSnake rebuild byte lands at E0:11A4, which is inside the original ROM's compressed SRAM template range, while original town-map icon placement records live in E1:F4A9..E1:F581.",
+      "phase2c_promotion_lane": "candidate-local-contract-update",
+      "recommended_action": "record-as-rebuilt-layout-evidence",
+      "resource_family": "ui-town-map"
+    },
+    {
+      "assessment": "promote-to-local-contract",
+      "behavior": "bounded-insertion",
+      "changed_bytes": 27,
+      "changed_span": "0x201FCB (E0:1FCB)..0x202000 (E0:2000)",
+      "experiment_id": "windowgraphics-windows1-copy-probe",
+      "local_docs": [
+        "notes/text-window-skin-bundle-contracts.md",
+        "notes/ui-font-town-map-asset-contracts.md"
+      ],
+      "local_result": "The bounded changed span E0:1FCB..E0:2000 sits inside the original text-window palette-block contract E0:1FC8..E0:2188.",
+      "phase2c_promotion_lane": "candidate-local-contract-update",
+      "recommended_action": "promote-bounded-insertion-evidence",
+      "resource_family": "ui-window-graphics"
+    },
+    {
+      "assessment": "defer-original-runtime-promotion",
+      "behavior": "broad-repack",
+      "changed_bytes": 121244,
+      "changed_span": "0x00EBF3 (C0:EBF3)..0x2F11C8 (EF:11C8)",
+      "experiment_id": "battlesprite-001-copy-probe",
+      "local_docs": [
+        "notes/battle-sprite-bundle-contracts.md"
+      ],
+      "local_result": "The broad changed span reflects compression/repacking behavior across many ROM regions, so it should constrain editor/tool expectations rather than name a stable runtime field.",
+      "phase2c_promotion_lane": "defer-runtime-promotion",
+      "recommended_action": "keep-as-compiler-behavior-constraint",
+      "resource_family": "battle-sprite"
+    },
+    {
+      "assessment": "defer-original-runtime-promotion",
+      "behavior": "broad-repack",
+      "changed_bytes": 21693,
+      "changed_span": "0x188F7B (D8:8F7B)..0x2F10B8 (EF:10B8)",
+      "experiment_id": "tileset00-fts-nibble-probe",
+      "local_docs": [
+        "notes/map-tileset-bundles.md"
+      ],
+      "local_result": "The broad changed span reflects tileset compression/repacking behavior, so it should constrain editor/tool expectations rather than name a stable runtime field.",
+      "phase2c_promotion_lane": "defer-runtime-promotion",
+      "recommended_action": "keep-as-compiler-behavior-constraint",
+      "resource_family": "map-tileset"
+    }
+  ],
+  "generated_by": "tools/build_coilsnake_phase2c_promotion_assessment.py",
+  "input_status": "manifests/coilsnake-phase2c-status.json",
+  "safety_note": "This assessment stores only experiment metadata, addresses, and local documentation decisions; it stores no ROM, image, or script payloads.",
+  "schema": "earthbound-decomp.coilsnake-phase2c-promotion-assessment.v1"
+}

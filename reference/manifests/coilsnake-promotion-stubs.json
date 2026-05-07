@@ -1,0 +1,13 @@
+{
+  "generated_by": "tools/build_coilsnake_promotion_stubs.py",
+  "promotion_stubs": [],
+  "safety_note": "This manifest stores promotion workflow metadata only; it does not contain CoilSnake project contents, rebuilt ROMs, or ROM-derived payload bytes.",
+  "schema": "earthbound-decomp.coilsnake-promotion-stubs.v1",
+  "source_anchor_hints": "manifests/coilsnake-runtime-anchor-hints.json",
+  "source_prejoin_report": "build/coilsnake/reports/coilsnake-experiment-prejoin-report.json",
+  "summary": {
+    "ready_to_run_count": 0,
+    "stub_count": 0,
+    "tooling_blocked_count": 0
+  }
+}

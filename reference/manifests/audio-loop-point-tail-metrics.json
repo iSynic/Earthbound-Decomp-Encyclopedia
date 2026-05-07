@@ -1,0 +1,286 @@
+{
+  "schema": "earthbound-decomp.audio-loop-point-tail-metrics.v1",
+  "status": "loop_point_tail_metrics_ready_preview_policy_preserved",
+  "references": [
+    "manifests/audio-loop-point-evidence-plan.json",
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-export-plan.json",
+    "manifests/audio-pack-contracts.json",
+    "manifests/audio-oracle-comparison-plan-all-tracks.json"
+  ],
+  "source_plan_status": "loop_point_evidence_plan_ready_preview_policy_preserved",
+  "unit_policy": {
+    "source_render_nonzero_index": "interleaved_pcm_sample_index",
+    "normalized_nonzero_index": "pcm_frame_32000hz",
+    "render_boundary_active_tolerance_frames": 4,
+    "diagnostic_render_seconds": 30.0,
+    "public_preview_duration_seconds": 120.0
+  },
+  "summary": {
+    "record_count": 5,
+    "track_ids": [
+      5,
+      6,
+      115,
+      183,
+      184
+    ],
+    "tail_classification_counts": {
+      "active_through_diagnostic_render_boundary": 5
+    },
+    "diagnostic_focus_counts": {
+      "active_through_preview_or_loop_candidate": 4,
+      "general_playback_equivalence": 1
+    },
+    "primary_sample_pack_counts": {
+      "5": 5
+    },
+    "active_through_render_boundary_count": 5,
+    "missing_exact_loop_field_count": 20,
+    "public_exact_loop_export_ready": false,
+    "promotion_allowed_by_report": false
+  },
+  "decision_policy": [
+    "This report measures diagnostic render tails only; it does not derive sample-accurate intro/start/end loop points.",
+    "All source-render nonzero indexes are normalized from interleaved stereo sample indexes to 32 kHz PCM frames.",
+    "Activity through the diagnostic render boundary supports loop/held prioritization but does not prove exact loop points.",
+    "Public loop export remains loop-count-plus-fade preview until exact loop points or a held-policy classification are validated."
+  ],
+  "records": [
+    {
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "job_id": "loop-point-track-005-you_won1",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_sample_pack": 5,
+      "no_dedicated_sequence_pack": true,
+      "current_public_preview_duration_seconds": 120.0,
+      "current_public_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "recommended_mode": "loop_count_plus_fade_preview"
+      },
+      "diagnostic_render": {
+        "unit_policy": {
+          "source_render_nonzero_index": "interleaved_pcm_sample_index",
+          "normalized_nonzero_index": "pcm_frame_32000hz",
+          "assumed_channels": 2,
+          "assumed_sample_rate": 32000,
+          "render_boundary_active_tolerance_frames": 4
+        },
+        "peak_abs_sample": 15821,
+        "rms_sample": 937.109588,
+        "nonzero_sample_count": 1917595,
+        "first_nonzero_sample_index": 56,
+        "first_nonzero_frame_index": 28,
+        "last_nonzero_sample_index": 1919999,
+        "last_nonzero_frame_index": 959999,
+        "rendered_samples": 1920000,
+        "rendered_frames": 960000,
+        "render_seconds": 30.0,
+        "trailing_silent_frames_at_render_end": 0,
+        "active_through_render_boundary": true,
+        "voice_count": 8,
+        "warning": ""
+      },
+      "loop_gap_status": "placeholder_only_exact_loop_points_pending",
+      "missing_loop_fields": [
+        "intro_samples",
+        "loop_start_sample",
+        "loop_end_sample",
+        "measured_by"
+      ],
+      "tail_classification": "active_through_diagnostic_render_boundary",
+      "exact_loop_export_implication": "blocked_pending_loop_or_hold_classification",
+      "promotion_allowed_by_report": false
+    },
+    {
+      "track_id": 6,
+      "track_name": "LEVEL_UP",
+      "job_id": "loop-point-track-006-level_up",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_sample_pack": 5,
+      "no_dedicated_sequence_pack": true,
+      "current_public_preview_duration_seconds": 120.0,
+      "current_public_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "recommended_mode": "loop_count_plus_fade_preview"
+      },
+      "diagnostic_render": {
+        "unit_policy": {
+          "source_render_nonzero_index": "interleaved_pcm_sample_index",
+          "normalized_nonzero_index": "pcm_frame_32000hz",
+          "assumed_channels": 2,
+          "assumed_sample_rate": 32000,
+          "render_boundary_active_tolerance_frames": 4
+        },
+        "peak_abs_sample": 7196,
+        "rms_sample": 630.61243,
+        "nonzero_sample_count": 1907096,
+        "first_nonzero_sample_index": 35,
+        "first_nonzero_frame_index": 17,
+        "last_nonzero_sample_index": 1919999,
+        "last_nonzero_frame_index": 959999,
+        "rendered_samples": 1920000,
+        "rendered_frames": 960000,
+        "render_seconds": 30.0,
+        "trailing_silent_frames_at_render_end": 0,
+        "active_through_render_boundary": true,
+        "voice_count": 8,
+        "warning": ""
+      },
+      "loop_gap_status": "placeholder_only_exact_loop_points_pending",
+      "missing_loop_fields": [
+        "intro_samples",
+        "loop_start_sample",
+        "loop_end_sample",
+        "measured_by"
+      ],
+      "tail_classification": "active_through_diagnostic_render_boundary",
+      "exact_loop_export_implication": "blocked_pending_loop_or_hold_classification",
+      "promotion_allowed_by_report": false
+    },
+    {
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "job_id": "loop-point-track-115-phone_call",
+      "diagnostic_focus": "general_playback_equivalence",
+      "primary_sample_pack": 5,
+      "no_dedicated_sequence_pack": true,
+      "current_public_preview_duration_seconds": 120.0,
+      "current_public_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "recommended_mode": "loop_count_plus_fade_preview"
+      },
+      "diagnostic_render": {
+        "unit_policy": {
+          "source_render_nonzero_index": "interleaved_pcm_sample_index",
+          "normalized_nonzero_index": "pcm_frame_32000hz",
+          "assumed_channels": 2,
+          "assumed_sample_rate": 32000,
+          "render_boundary_active_tolerance_frames": 4
+        },
+        "peak_abs_sample": 6317,
+        "rms_sample": 1412.467934,
+        "nonzero_sample_count": 1338379,
+        "first_nonzero_sample_index": 22,
+        "first_nonzero_frame_index": 11,
+        "last_nonzero_sample_index": 1919997,
+        "last_nonzero_frame_index": 959998,
+        "rendered_samples": 1920000,
+        "rendered_frames": 960000,
+        "render_seconds": 30.0,
+        "trailing_silent_frames_at_render_end": 1,
+        "active_through_render_boundary": true,
+        "voice_count": 8,
+        "warning": ""
+      },
+      "loop_gap_status": "placeholder_only_exact_loop_points_pending",
+      "missing_loop_fields": [
+        "intro_samples",
+        "loop_start_sample",
+        "loop_end_sample",
+        "measured_by"
+      ],
+      "tail_classification": "active_through_diagnostic_render_boundary",
+      "exact_loop_export_implication": "blocked_pending_loop_or_hold_classification",
+      "promotion_allowed_by_report": false
+    },
+    {
+      "track_id": 183,
+      "track_name": "SUDDEN_VICTORY",
+      "job_id": "loop-point-track-183-sudden_victory",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_sample_pack": 5,
+      "no_dedicated_sequence_pack": true,
+      "current_public_preview_duration_seconds": 120.0,
+      "current_public_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "recommended_mode": "loop_count_plus_fade_preview"
+      },
+      "diagnostic_render": {
+        "unit_policy": {
+          "source_render_nonzero_index": "interleaved_pcm_sample_index",
+          "normalized_nonzero_index": "pcm_frame_32000hz",
+          "assumed_channels": 2,
+          "assumed_sample_rate": 32000,
+          "render_boundary_active_tolerance_frames": 4
+        },
+        "peak_abs_sample": 14640,
+        "rms_sample": 751.693228,
+        "nonzero_sample_count": 1904379,
+        "first_nonzero_sample_index": 75,
+        "first_nonzero_frame_index": 37,
+        "last_nonzero_sample_index": 1919999,
+        "last_nonzero_frame_index": 959999,
+        "rendered_samples": 1920000,
+        "rendered_frames": 960000,
+        "render_seconds": 30.0,
+        "trailing_silent_frames_at_render_end": 0,
+        "active_through_render_boundary": true,
+        "voice_count": 8,
+        "warning": ""
+      },
+      "loop_gap_status": "placeholder_only_exact_loop_points_pending",
+      "missing_loop_fields": [
+        "intro_samples",
+        "loop_start_sample",
+        "loop_end_sample",
+        "measured_by"
+      ],
+      "tail_classification": "active_through_diagnostic_render_boundary",
+      "exact_loop_export_implication": "blocked_pending_loop_or_hold_classification",
+      "promotion_allowed_by_report": false
+    },
+    {
+      "track_id": 184,
+      "track_name": "YOU_WON3",
+      "job_id": "loop-point-track-184-you_won3",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_sample_pack": 5,
+      "no_dedicated_sequence_pack": true,
+      "current_public_preview_duration_seconds": 120.0,
+      "current_public_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "recommended_mode": "loop_count_plus_fade_preview"
+      },
+      "diagnostic_render": {
+        "unit_policy": {
+          "source_render_nonzero_index": "interleaved_pcm_sample_index",
+          "normalized_nonzero_index": "pcm_frame_32000hz",
+          "assumed_channels": 2,
+          "assumed_sample_rate": 32000,
+          "render_boundary_active_tolerance_frames": 4
+        },
+        "peak_abs_sample": 21278,
+        "rms_sample": 1221.156455,
+        "nonzero_sample_count": 1915498,
+        "first_nonzero_sample_index": 1239,
+        "first_nonzero_frame_index": 619,
+        "last_nonzero_sample_index": 1919999,
+        "last_nonzero_frame_index": 959999,
+        "rendered_samples": 1920000,
+        "rendered_frames": 960000,
+        "render_seconds": 30.0,
+        "trailing_silent_frames_at_render_end": 0,
+        "active_through_render_boundary": true,
+        "voice_count": 8,
+        "warning": ""
+      },
+      "loop_gap_status": "placeholder_only_exact_loop_points_pending",
+      "missing_loop_fields": [
+        "intro_samples",
+        "loop_start_sample",
+        "loop_end_sample",
+        "measured_by"
+      ],
+      "tail_classification": "active_through_diagnostic_render_boundary",
+      "exact_loop_export_implication": "blocked_pending_loop_or_hold_classification",
+      "promotion_allowed_by_report": false
+    }
+  ]
+}

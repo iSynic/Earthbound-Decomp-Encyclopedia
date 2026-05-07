@@ -1,0 +1,258 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D7 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d7-asset-data-map.md",
+    "notes/d7-sector-metadata-contracts.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank17.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 5,
+    "binary_assets_by_extension": {
+      "bin": 4,
+      "arr": 1
+    },
+    "binary_asset_bytes": 56808,
+    "table_includes": 2,
+    "table_bytes": 7680,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 1048,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 7,
+    "output_recipe_count": 13,
+    "typed_output_kind_count": 4,
+    "decoder_output_recipe_count": 6,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "earthbound_lzhal": 1,
+      "map_global_tileset_palette_data_json": 1,
+      "map_tile_chunk_index_json": 4,
+      "raw": 7
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 1,
+      "map_global_tileset_palette_data": 1,
+      "map_tile_chunk_index": 4
+    },
+    "renderer_counts": {},
+    "smoke_fixture_count": 4,
+    "smoke_fixture_asset_ids": [
+      "asset.d7.map_data_tile_arrangement_0",
+      "table.d7.004_data_map_global_tileset_palette_data_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 2,
+      "recipe_kind": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal": 2,
+      "map_global_tileset_palette_data_json": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.d7.map_data_tile_table_chunk_7",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_7",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:0000..D7:2800",
+        "bytes": 10240,
+        "sha1": "c7c9148643ef1f5ee80ee94e8c48dede409f91c5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/maps/tiles/chunk_07.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d7/maps/tiles/chunk_07_tile_index.json",
+          "chunk_index": 7
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_07.bin",
+        "Original file offset: 0x170000"
+      ]
+    },
+    {
+      "id": "asset.d7.map_data_tile_table_chunk_8",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_8",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:2800..D7:5000",
+        "bytes": 10240,
+        "sha1": "24cb7ad33ad37398c1f108a46e2e5ad4382a6d76"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/maps/tiles/chunk_08.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d7/maps/tiles/chunk_08_tile_index.json",
+          "chunk_index": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_08.bin",
+        "Original file offset: 0x172800"
+      ]
+    },
+    {
+      "id": "asset.d7.map_data_tile_table_chunk_9",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_9",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:5000..D7:8000",
+        "bytes": 12288,
+        "sha1": "687ee959d90ac2e71d6fdf9cefc04623cb1f46ce"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/maps/tiles/chunk_09.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d7/maps/tiles/chunk_09_tile_index.json",
+          "chunk_index": 9
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_09.bin",
+        "Original file offset: 0x175000"
+      ]
+    },
+    {
+      "id": "asset.d7.map_data_tile_table_chunk_10",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_10",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:8000..D7:A800",
+        "bytes": 10240,
+        "sha1": "2cd15e1cb29fa5e82f6a11dd66ca7273a86754da"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/maps/tiles/chunk_10.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d7/maps/tiles/chunk_10_tile_index.json",
+          "chunk_index": 10
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_10.bin",
+        "Original file offset: 0x178000"
+      ]
+    },
+    {
+      "id": "asset.d7.map_data_tile_arrangement_0",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_0",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:C600..D7:FBE8",
+        "bytes": 13800,
+        "sha1": "465e11aa8083186a3a1bdda2c7905fea3c022387"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/maps/arrangements/0.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "d7/maps/arrangements/0.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/0.arr.lzhal",
+        "Original file offset: 0x17C600",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "table.d7.004_data_map_global_tileset_palette_data_asm",
+      "title": "data/map/global_tileset_palette_data.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:A800..D7:C600",
+        "bytes": 7680,
+        "sha1": "7ffd1908fedae0a615922dc29e990826026b75fe"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/tables/004_data_map_global_tileset_palette_data_asm.bin"
+        },
+        {
+          "kind": "map_global_tileset_palette_data_json",
+          "path": "d7/tables/004_data_map_global_tileset_palette_data_asm_decoded.json",
+          "column_count": 80,
+          "row_count": 32,
+          "attribute_word_table_offset": 2560
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/global_tileset_palette_data.asm",
+        "Original file offset: 0x17A800",
+        "Size was inferred from the next known binary asset boundary.",
+        "Semantic split: D7_SECTOR_TILESET_PALETTE_TABLE, D7_UNRESOLVED_METADATA_BYTE_PLANE, D7_SECTOR_CONTEXT_WORD_TABLE, and D7_UNRESOLVED_METADATA_WORD_PLANE.",
+        "See notes/d7-sector-metadata-contracts.md for source-emission rows, value counts, and numeric-preserve policies for unnamed planes and context-word high bits.",
+        "Decoded as the 80-by-32 D7:A800 context-byte table plus the 80-by-32 D7:B200 per-sector attribute word table consumed by C0/C4 map loaders."
+      ]
+    },
+    {
+      "id": "gap.d7.d7_fbe8",
+      "title": "Bank D7 coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "D7:FBE8..D7:10000",
+        "bytes": 1048,
+        "sha1": "bbd2127f72da799ae078cf1f3e17afb5c82c19a8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d7/gaps/01_d7_fbe8.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x17FBE8..0x17FFFF"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3901 @@
+{
+  "generator": "tools/build_map_tileset_bundle_contract.py",
+  "schema": "earthbound-decomp.map-tileset-bundles.v1",
+  "source_policy": "Reference-derived tileset inventory. The contract records .fts file hashes, line profiles, palette settings, and sector dependencies; it does not commit decoded graphics/collision payloads.",
+  "sources": {
+    "json_out": "notes/map-tileset-bundles.json",
+    "palette_settings": "refs/eb-decompile-4ef92/map_palette_settings.yml",
+    "sector_bundles": "notes/map-sector-bundles.json",
+    "tileset_dir": "refs/eb-decompile-4ef92/Tilesets"
+  },
+  "summary": {
+    "direct_fts_export_count": 20,
+    "palette_setting_tileset_count": 32,
+    "palette_setting_variant_count": 168,
+    "tileset_id_domain": 32,
+    "tileset_ids_used_by_sectors": 28,
+    "top_tilesets_by_sector_count": [
+      {
+        "sector_count": 191,
+        "status": "direct_fts_export",
+        "tileset_id": 1
+      },
+      {
+        "sector_count": 143,
+        "status": "direct_fts_export",
+        "tileset_id": 4
+      },
+      {
+        "sector_count": 131,
+        "status": "direct_fts_export",
+        "tileset_id": 6
+      },
+      {
+        "sector_count": 94,
+        "status": "direct_fts_export",
+        "tileset_id": 13
+      },
+      {
+        "sector_count": 81,
+        "status": "direct_fts_export",
+        "tileset_id": 7
+      },
+      {
+        "sector_count": 81,
+        "status": "palette_settings_only",
+        "tileset_id": 26
+      },
+      {
+        "sector_count": 79,
+        "status": "direct_fts_export",
+        "tileset_id": 0
+      },
+      {
+        "sector_count": 76,
+        "status": "palette_settings_only",
+        "tileset_id": 28
+      },
+      {
+        "sector_count": 66,
+        "status": "palette_settings_only",
+        "tileset_id": 27
+      },
+      {
+        "sector_count": 55,
+        "status": "direct_fts_export",
+        "tileset_id": 5
+      },
+      {
+        "sector_count": 46,
+        "status": "palette_settings_only",
+        "tileset_id": 30
+      },
+      {
+        "sector_count": 43,
+        "status": "direct_fts_export",
+        "tileset_id": 9
+      },
+      {
+        "sector_count": 40,
+        "status": "direct_fts_export",
+        "tileset_id": 18
+      },
+      {
+        "sector_count": 25,
+        "status": "palette_settings_only",
+        "tileset_id": 29
+      },
+      {
+        "sector_count": 16,
+        "status": "direct_fts_export",
+        "tileset_id": 15
+      },
+      {
+        "sector_count": 15,
+        "status": "direct_fts_export",
+        "tileset_id": 19
+      },
+      {
+        "sector_count": 14,
+        "status": "direct_fts_export",
+        "tileset_id": 17
+      },
+      {
+        "sector_count": 14,
+        "status": "palette_settings_only",
+        "tileset_id": 22
+      },
+      {
+        "sector_count": 12,
+        "status": "direct_fts_export",
+        "tileset_id": 10
+      },
+      {
+        "sector_count": 9,
+        "status": "direct_fts_export",
+        "tileset_id": 11
+      }
+    ],
+    "unused_direct_fts_export_ids": [
+      2,
+      3
+    ],
+    "unused_tileset_ids": [
+      2,
+      3,
+      21,
+      31
+    ],
+    "used_tileset_ids_with_direct_fts_export": 18,
+    "used_tileset_ids_without_direct_fts_export": 10,
+    "used_tileset_ids_without_direct_fts_export_list": [
+      20,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  "tilesets": [
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 169895,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 12,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 12,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2060,
+        "path": "refs/eb-decompile-4ef92/Tilesets/00.fts",
+        "sha1": "3423a21ef38bb3b59c2de4aad236ea25bfee673a"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 2,
+          "variant": 3
+        }
+      ],
+      "sector_count": 79,
+      "sector_ids": [
+        208,
+        240,
+        272,
+        304,
+        321,
+        322,
+        336,
+        344,
+        353,
+        368,
+        376,
+        400,
+        408,
+        432,
+        440,
+        464,
+        472,
+        496,
+        504,
+        565,
+        566,
+        567,
+        584,
+        585,
+        586,
+        587,
+        597,
+        598,
+        599,
+        616,
+        617,
+        618,
+        619,
+        630,
+        647,
+        648,
+        649,
+        650,
+        651,
+        679,
+        680,
+        681,
+        682,
+        683,
+        711,
+        712,
+        713,
+        714,
+        715,
+        743,
+        744,
+        745,
+        746,
+        747,
+        775,
+        776,
+        777,
+        778,
+        779,
+        783,
+        807,
+        808,
+        809,
+        810,
+        811,
+        815,
+        816,
+        852,
+        853,
+        857,
+        884,
+        887,
+        888,
+        889,
+        899,
+        931,
+        1136,
+        1200,
+        1264
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 1,
+          "sector_count": 38
+        },
+        {
+          "palette": 0,
+          "sector_count": 31
+        },
+        {
+          "palette": 3,
+          "sector_count": 10
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.00",
+      "tileset_id": 0,
+      "town_map_counts": [
+        {
+          "sector_count": 79,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 167276,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 3,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 3,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2051,
+        "path": "refs/eb-decompile-4ef92/Tilesets/01.fts",
+        "sha1": "c9126465c4f626042c9fb0d8f5995ff54b6fc62d"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 3,
+      "palette_settings": [
+        {
+          "Event Flag": 422,
+          "Event Palette Colors": "000gnmdkhbcdhkidb06gih7d0de0ac189kvphpkdjgacb444000gnmdkh17ecfg6dg078h7d0de0ac1898de8bc7aa788444000gnmkvpchidjghpvbfmh7d0de0ac189dimcfhaddadd444000gnm9de8bc79a0v06feh7d0de0ac189dfjbdgabd889444000gnmdkhkkdjfhjndbchh7d0de0ac189dimcfhadd9a8444000gnmdkh0v0kkd0v0bbd0af0de0ac189dimcfhadd9a8444",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 2
+        }
+      ],
+      "sector_count": 191,
+      "sector_ids": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        152,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        184,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        216,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        248,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        280,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        312,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        517,
+        518,
+        519,
+        549,
+        550,
+        551,
+        581,
+        582,
+        583,
+        613,
+        614,
+        615,
+        645,
+        646,
+        677,
+        678,
+        708,
+        709,
+        710,
+        740,
+        741,
+        742,
+        772,
+        773,
+        774,
+        804,
+        805,
+        806
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 185
+        },
+        {
+          "palette": 2,
+          "sector_count": 6
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.01",
+      "tileset_id": 1,
+      "town_map_counts": [
+        {
+          "sector_count": 185,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 6,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 167567,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 4,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 4,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2052,
+        "path": "refs/eb-decompile-4ef92/Tilesets/02.fts",
+        "sha1": "c91a382d1cf6bddb9f110901c306242f359af6e2"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 32781,
+          "Event Palette Colors": "000uuqorldfbkofvv9elcvcdircilcifbvlbqf9lc7ga8666000uuqorleohcihvr6jlsv1bircilcifbvlbqf9lc7ga8666000uuqorleohogckf8b95vcdircilcifbvvpoojkkdghb668000uuqorldfbkofvv9elcvcdircilcifbvlbqf9lc7ga8666000uuqorlv99koidu0elcvcdircilcifbukfslhlcerng666000uuqorlkkdjjodu0kc7vcdircilcifbvrcqnbmf9hc9666",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 5,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "has_event_palette": true,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        }
+      ],
+      "sector_count": 0,
+      "sector_ids": [],
+      "sector_palette_counts": [],
+      "tileset_bundle_id": "map_tileset.02",
+      "tileset_id": 2,
+      "town_map_counts": []
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 166985,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 2,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 2,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2050,
+        "path": "refs/eb-decompile-4ef92/Tilesets/03.fts",
+        "sha1": "f392486a9a867f7d0170905f7c76084cf553b41b"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 2,
+      "palette_settings": [
+        {
+          "Event Flag": 32839,
+          "Event Palette Colors": "000uuqoqjcdcumipsoehmv1bmnfcicce7uuqoojkkdghb666000uuqoqjcbifsogfleeuv1bmnfcicce7plbkg9ic6cb7666000uuqoqjgcaikgvqimbdv6bmnfcicce7slfofakc7ja6666000uuqoqjc8fb95und9jcv6bmnfcicce7mksihnedhaac666000uuqoqjbadvj8vhicbpr68mnfcicbc5vretp8oh4ie6666000uuqoqja9esq7vfpvdgkkumnfcicce7vq7vj8vdasb7666",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        }
+      ],
+      "sector_count": 0,
+      "sector_ids": [],
+      "sector_palette_counts": [],
+      "tileset_bundle_id": "map_tileset.03",
+      "tileset_id": 3,
+      "town_map_counts": []
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 166985,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 2,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 2,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2050,
+        "path": "refs/eb-decompile-4ef92/Tilesets/04.fts",
+        "sha1": "7082547c7e0d68c40c3b5119783aee22b47923f2"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 2,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 2,
+          "Sprite Palette": 0,
+          "variant": 1
+        }
+      ],
+      "sector_count": 143,
+      "sector_ids": [
+        840,
+        841,
+        842,
+        843,
+        844,
+        845,
+        846,
+        872,
+        873,
+        874,
+        875,
+        876,
+        877,
+        878,
+        879,
+        904,
+        905,
+        906,
+        907,
+        908,
+        909,
+        910,
+        911,
+        924,
+        925,
+        926,
+        927,
+        936,
+        937,
+        938,
+        939,
+        940,
+        941,
+        942,
+        943,
+        956,
+        957,
+        958,
+        959,
+        968,
+        969,
+        970,
+        971,
+        972,
+        973,
+        974,
+        975,
+        988,
+        989,
+        990,
+        991,
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1020,
+        1021,
+        1022,
+        1023,
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039,
+        1052,
+        1053,
+        1054,
+        1055,
+        1064,
+        1065,
+        1066,
+        1067,
+        1068,
+        1069,
+        1070,
+        1071,
+        1085,
+        1086,
+        1087,
+        1096,
+        1097,
+        1098,
+        1099,
+        1100,
+        1101,
+        1102,
+        1103,
+        1117,
+        1118,
+        1119,
+        1128,
+        1129,
+        1130,
+        1131,
+        1132,
+        1133,
+        1134,
+        1135,
+        1149,
+        1150,
+        1151,
+        1160,
+        1161,
+        1162,
+        1163,
+        1164,
+        1165,
+        1166,
+        1167,
+        1181,
+        1182,
+        1192,
+        1193,
+        1194,
+        1195,
+        1196,
+        1197,
+        1198,
+        1199,
+        1213,
+        1214,
+        1224,
+        1225,
+        1226,
+        1227,
+        1228,
+        1229,
+        1230,
+        1231,
+        1256,
+        1257,
+        1258,
+        1259,
+        1260,
+        1261,
+        1262
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 110
+        },
+        {
+          "palette": 1,
+          "sector_count": 33
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.04",
+      "tileset_id": 4,
+      "town_map_counts": [
+        {
+          "sector_count": 110,
+          "town_map": "fourside"
+        },
+        {
+          "sector_count": 33,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 167567,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 4,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 4,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2052,
+        "path": "refs/eb-decompile-4ef92/Tilesets/05.fts",
+        "sha1": "f2f254cacb17aac35556c9020b95f291d9ac726d"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        }
+      ],
+      "sector_count": 55,
+      "sector_ids": [
+        24,
+        25,
+        26,
+        444,
+        446,
+        508,
+        510,
+        854,
+        855,
+        856,
+        916,
+        917,
+        918,
+        919,
+        948,
+        949,
+        950,
+        951,
+        980,
+        981,
+        982,
+        983,
+        1012,
+        1013,
+        1014,
+        1015,
+        1044,
+        1046,
+        1047,
+        1076,
+        1077,
+        1078,
+        1079,
+        1107,
+        1108,
+        1110,
+        1111,
+        1112,
+        1139,
+        1140,
+        1141,
+        1142,
+        1143,
+        1144,
+        1171,
+        1172,
+        1173,
+        1174,
+        1175,
+        1176,
+        1203,
+        1204,
+        1206,
+        1207,
+        1208
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 45
+        },
+        {
+          "palette": 1,
+          "sector_count": 6
+        },
+        {
+          "palette": 3,
+          "sector_count": 4
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.05",
+      "tileset_id": 5,
+      "town_map_counts": [
+        {
+          "sector_count": 55,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168440,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 7,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 7,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2055,
+        "path": "refs/eb-decompile-4ef92/Tilesets/06.fts",
+        "sha1": "59ee8f82be0e9dbc78ffd4a2175c3ccf79f6b03d"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 7,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 6,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 288,
+          "Event Palette Colors": "000oqmoqmqf9koiglkbfeabbdkecgbac8mkeigbcc8985333000nofehubek7bhjovbfi7bhdkecgbac8mndjkbfg9cd7333000oogbfgjfageaglkbfeabbdkecgbac8mndjkbfg9cd7333000oqmoqmnf8b95tm8bfebcbdkecgbac8tm8nf8q58m35333000000bfedke000000000000000000000000000000000000000000bfedkegeaglkbfeabb000000000mndjkbfg9cd7000",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "has_event_palette": true,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        }
+      ],
+      "sector_count": 131,
+      "sector_ids": [
+        56,
+        57,
+        58,
+        88,
+        89,
+        90,
+        120,
+        121,
+        122,
+        153,
+        154,
+        185,
+        186,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        217,
+        218,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        249,
+        250,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        281,
+        282,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        313,
+        314,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        345,
+        346,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        377,
+        378,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        409,
+        410,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        441,
+        442,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        473,
+        474,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        503,
+        505,
+        506,
+        528,
+        529,
+        530,
+        531,
+        532,
+        533,
+        534,
+        536,
+        537,
+        538,
+        560,
+        561,
+        562,
+        563,
+        564,
+        568,
+        569,
+        570,
+        592,
+        593,
+        594,
+        595,
+        596,
+        600,
+        601,
+        624,
+        625,
+        626,
+        632,
+        633
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 88
+        },
+        {
+          "palette": 1,
+          "sector_count": 43
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.06",
+      "tileset_id": 6,
+      "town_map_counts": [
+        {
+          "sector_count": 131,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 166694,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 1,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 1,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2049,
+        "path": "refs/eb-decompile-4ef92/Tilesets/07.fts",
+        "sha1": "0e1bffb0bca2b29f84147df4849487406c8ebf27"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 1,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        }
+      ],
+      "sector_count": 81,
+      "sector_ids": [
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666,
+        667,
+        668,
+        669,
+        688,
+        689,
+        690,
+        691,
+        692,
+        693,
+        694,
+        695,
+        696,
+        697,
+        698,
+        699,
+        700,
+        701,
+        720,
+        721,
+        722,
+        723,
+        724,
+        725,
+        726,
+        727,
+        728,
+        729,
+        730,
+        731,
+        732,
+        733,
+        752,
+        753,
+        754,
+        755,
+        756,
+        757,
+        758,
+        759,
+        760,
+        761,
+        762,
+        763,
+        764,
+        765,
+        784,
+        785,
+        786,
+        787,
+        788,
+        789,
+        790,
+        791,
+        792,
+        793,
+        794,
+        795,
+        796,
+        797,
+        817,
+        818,
+        819,
+        820,
+        821,
+        822,
+        823,
+        824,
+        825,
+        827,
+        828
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 81
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.07",
+      "tileset_id": 7,
+      "town_map_counts": [
+        {
+          "sector_count": 81,
+          "town_map": "summers"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 166985,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 2,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 2,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2050,
+        "path": "refs/eb-decompile-4ef92/Tilesets/08.fts",
+        "sha1": "5976db1025831e2b096ca1a8c8826ce5a00f50bc"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 2,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        }
+      ],
+      "sector_count": 8,
+      "sector_ids": [
+        520,
+        521,
+        522,
+        523,
+        552,
+        553,
+        554,
+        555
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 1,
+          "sector_count": 8
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.08",
+      "tileset_id": 8,
+      "town_map_counts": [
+        {
+          "sector_count": 8,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168149,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 6,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 6,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2054,
+        "path": "refs/eb-decompile-4ef92/Tilesets/09.fts",
+        "sha1": "c5dd57af0e32a20175179d3e53bf35dcacd3627d"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 6,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 6,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        }
+      ],
+      "sector_count": 43,
+      "sector_ids": [
+        21,
+        22,
+        23,
+        53,
+        54,
+        55,
+        85,
+        86,
+        87,
+        117,
+        118,
+        119,
+        849,
+        850,
+        851,
+        880,
+        881,
+        882,
+        883,
+        912,
+        913,
+        914,
+        915,
+        944,
+        945,
+        946,
+        947,
+        976,
+        977,
+        978,
+        979,
+        1008,
+        1009,
+        1010,
+        1011,
+        1040,
+        1041,
+        1042,
+        1043,
+        1072,
+        1073,
+        1074,
+        1075
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 31
+        },
+        {
+          "palette": 2,
+          "sector_count": 12
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.09",
+      "tileset_id": 9,
+      "town_map_counts": [
+        {
+          "sector_count": 43,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 181535,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 52,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 52,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2100,
+        "path": "refs/eb-decompile-4ef92/Tilesets/10.fts",
+        "sha1": "e6b390107e93e4d4f7b0d01fe08ad33d6de7cf91"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 12,
+      "sector_ids": [
+        29,
+        30,
+        155,
+        156,
+        219,
+        220,
+        284,
+        383,
+        1236,
+        1239,
+        1244,
+        1245
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 1,
+          "sector_count": 4
+        },
+        {
+          "palette": 6,
+          "sector_count": 4
+        },
+        {
+          "palette": 0,
+          "sector_count": 2
+        },
+        {
+          "palette": 7,
+          "sector_count": 2
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.10",
+      "tileset_id": 10,
+      "town_map_counts": [
+        {
+          "sector_count": 8,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "fourside"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 170477,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 14,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 14,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2062,
+        "path": "refs/eb-decompile-4ef92/Tilesets/11.fts",
+        "sha1": "d5308cde48443092b7cfc171ee421b69bc628104"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 33140,
+          "Event Palette   Colors": "00046b04825b13513515846a23424935d23735813602511100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13513515846a23459g37e34735813602511100046b04825b13513515846a25625725d23935813602511100046b04825b13513515846a23436c25b137358136025111",
+          "Event Palette   Event Flag": 0,
+          "Event Palette   Flash Effect": 0,
+          "Event Palette   Sprite Palette": 4,
+          "Event Palette Colors": "000kr9vvrtrnnidvqksmfpk9je5ck5sl6lg8of9ld7ia4888000vtovvrtrnnidvqksmfpk9je5rjbodhgc5uuvutqpli888000er0vvs0vvnidvqksmfpk9je5luvqvvbg70vv0vv0vv888000plivvrtrnnidtspsmfpk9je5qjaje7d94of9ld7ia4888000qkduuuqqqmmuihsvtfvmbpf6vtpqpmkjgof9ld7ia4888000prquuusqqmoshjnvtkpk9je5vtotpmlifof9ld7ia4888",
+          "Event Palette Event Flag": 517,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 5,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 7
+        }
+      ],
+      "sector_count": 9,
+      "sector_ids": [
+        95,
+        157,
+        221,
+        251,
+        285,
+        315,
+        349,
+        535,
+        1205
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 7,
+          "sector_count": 2
+        },
+        {
+          "palette": 0,
+          "sector_count": 1
+        },
+        {
+          "palette": 1,
+          "sector_count": 1
+        },
+        {
+          "palette": 2,
+          "sector_count": 1
+        },
+        {
+          "palette": 3,
+          "sector_count": 1
+        },
+        {
+          "palette": 4,
+          "sector_count": 1
+        },
+        {
+          "palette": 5,
+          "sector_count": 1
+        },
+        {
+          "palette": 6,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.11",
+      "tileset_id": 11,
+      "town_map_counts": [
+        {
+          "sector_count": 7,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168731,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 8,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 8,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2056,
+        "path": "refs/eb-decompile-4ef92/Tilesets/12.fts",
+        "sha1": "35a7e0a4e4ea2ad8b9d5a8ca2725083a5a017de9"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 517,
+          "Event Palette Colors": "00046b04825b13513515846a23424935d23735813602511100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13513515846a23459g37e34735813602511100046b04825b13513515846a25625725d23935813602511100046b04825b13513515846a23436c25b137358136025111",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 4,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "has_event_palette": true,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 5,
+      "sector_ids": [
+        61,
+        189,
+        252,
+        287,
+        380
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 2
+        },
+        {
+          "palette": 7,
+          "sector_count": 1
+        },
+        {
+          "palette": 2,
+          "sector_count": 1
+        },
+        {
+          "palette": 6,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.12",
+      "tileset_id": 12,
+      "town_map_counts": [
+        {
+          "sector_count": 5,
+          "town_map": "onett"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 172223,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 20,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 20,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2068,
+        "path": "refs/eb-decompile-4ef92/Tilesets/13.fts",
+        "sha1": "e385baccc44bdba789fd4e0d3a14fda4f683320b"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 287,
+          "Event Palette Colors": "000uuqoqjvvnlohkkdghb0v0rvugoo7gddnlekh7rkv1b000000jklfijfggkmja99b780v0efivrl9ab0v0pdbnbajaa0000000v00v0eechgfcaajjj0v0efibcg9ab0v00v07ln0v0000000cee0ni0bf09e0dgegi111efibcg9abacccccaaa88b000000lllefihhheegaac89acbeefiabg9abccccccaaa88b000000hhhdedkknbcbdedbbb0v0efibcg9ab0v00v09a9787000",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "has_event_palette": true,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 3
+        }
+      ],
+      "sector_count": 94,
+      "sector_ids": [
+        512,
+        513,
+        514,
+        515,
+        544,
+        545,
+        546,
+        547,
+        576,
+        577,
+        578,
+        579,
+        608,
+        609,
+        610,
+        611,
+        640,
+        641,
+        642,
+        643,
+        672,
+        673,
+        674,
+        675,
+        704,
+        705,
+        706,
+        707,
+        736,
+        737,
+        738,
+        739,
+        768,
+        769,
+        770,
+        771,
+        800,
+        801,
+        802,
+        803,
+        832,
+        833,
+        834,
+        835,
+        864,
+        865,
+        866,
+        867,
+        896,
+        897,
+        898,
+        928,
+        929,
+        930,
+        960,
+        961,
+        962,
+        963,
+        992,
+        993,
+        994,
+        995,
+        1024,
+        1025,
+        1026,
+        1027,
+        1056,
+        1057,
+        1058,
+        1059,
+        1088,
+        1089,
+        1090,
+        1091,
+        1120,
+        1121,
+        1122,
+        1123,
+        1152,
+        1153,
+        1154,
+        1155,
+        1184,
+        1185,
+        1186,
+        1187,
+        1216,
+        1217,
+        1218,
+        1219,
+        1248,
+        1249,
+        1250,
+        1251
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 86
+        },
+        {
+          "palette": 1,
+          "sector_count": 8
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.13",
+      "tileset_id": 13,
+      "town_map_counts": [
+        {
+          "sector_count": 94,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168731,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 8,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 8,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2056,
+        "path": "refs/eb-decompile-4ef92/Tilesets/14.fts",
+        "sha1": "58fb8dcb67961bce4e7fdeaf4ced0bbd72f103fe"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 3,
+          "variant": 5
+        },
+        {
+          "Event Flag": 32781,
+          "Event Palette Colors": "000hr7vusppnolktqkkhckfagd7fi9nhaeb7vussroonk888000pqkvusppnolkjhbhmvmnnfgkmkfgd6id8uuuutsrnh888000kr9vusppnolk0vvkhckfagd7fosisu9i6vvunrvifm8880000vvuqeppnolknnl0vv0vv0vvtqnolhge9vussroonk8880000vvvusppnmlgljfkhckfamjfifbqmije9vussroonk8880000vvjhd0vvgfcba8fca0vv0vvsojpi9gd7vussroonk888",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 8,
+      "sector_ids": [
+        254,
+        316,
+        318,
+        445,
+        541,
+        1265,
+        1269,
+        1270
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 4
+        },
+        {
+          "palette": 4,
+          "sector_count": 2
+        },
+        {
+          "palette": 6,
+          "sector_count": 1
+        },
+        {
+          "palette": 5,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.14",
+      "tileset_id": 14,
+      "town_map_counts": [
+        {
+          "sector_count": 3,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 3,
+          "town_map": "fourside"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 167858,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 5,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 5,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2053,
+        "path": "refs/eb-decompile-4ef92/Tilesets/15.fts",
+        "sha1": "83e96520fbe7ef71c2a2b035ae0d9bc9a2b5bdf8"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 32781,
+          "Event Palette Colors": "0000vvvvttrnrmiurnpmjqi8jd9okbhb5lfbsnkqlglgd8880000vvtvvtrnsnlurnpmjqi80vv0vvvkjpecsnkqlglgd888000gn9vvttrnmmmurnpmjqi8jd9hqukuv9g6vvvpqqiih8880000vv0vvtrnvlj0vvpmjqi8jd9vroqlfgfbsnkqlglgd888000ekgvvttrnfiekpmpqntohlgegebvsltlcsnkqlglgd888000qqkvvstrnvposikvnbsi8ld9uuutqqrmmsnkqlglgd888",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 16,
+      "sector_ids": [
+        27,
+        28,
+        59,
+        60,
+        62,
+        63,
+        158,
+        159,
+        222,
+        286,
+        350,
+        411,
+        413,
+        415,
+        511,
+        543
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 10
+        },
+        {
+          "palette": 1,
+          "sector_count": 2
+        },
+        {
+          "palette": 4,
+          "sector_count": 2
+        },
+        {
+          "palette": 3,
+          "sector_count": 2
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.15",
+      "tileset_id": 15,
+      "town_map_counts": [
+        {
+          "sector_count": 12,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 4,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168440,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 7,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 7,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2055,
+        "path": "refs/eb-decompile-4ef92/Tilesets/16.fts",
+        "sha1": "77f399c5c8fa552f5ecf0acde51f27eea62984cf"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 517,
+          "Event Palette Colors": "00046b04825b13513515846a23424935d23735813602511100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13503515846a23426c35d23743h34c33911100046b04825b13513515846a23459g37e34735813602511100046b04825b13513515846a25625725d23935813602511100046b04825b13513515846a23436c25b137358136025111",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 4,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "has_event_palette": true,
+          "variant": 3
+        }
+      ],
+      "sector_count": 6,
+      "sector_ids": [
+        93,
+        94,
+        253,
+        1045,
+        1237,
+        1238
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 3,
+          "sector_count": 3
+        },
+        {
+          "palette": 0,
+          "sector_count": 3
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.16",
+      "tileset_id": 16,
+      "town_map_counts": [
+        {
+          "sector_count": 3,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "fourside"
+        },
+        {
+          "sector_count": 1,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 167567,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 4,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 4,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2052,
+        "path": "refs/eb-decompile-4ef92/Tilesets/17.fts",
+        "sha1": "79e24649d80a6b415cb83986c75885f485fd6480"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 33323,
+          "Event Palette Colors": "00046b01314442313434345923432435734323435834911100079c0130vv423134343a7c0iv56b15i3340vv0vv0vv111000cf50131446221343434592340vtisu4c675g89h7691110000vv0vv1446221343434592347ad3574362343580vv1110000vv0131440vv13434345956a0vv3573430vv0vv0vv1110000vv0vv14425c13434356723477a55734423435865b111",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 2,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 14,
+      "sector_ids": [
+        31,
+        91,
+        92,
+        123,
+        124,
+        126,
+        127,
+        187,
+        188,
+        223,
+        283,
+        347,
+        1268,
+        1271
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 5,
+          "sector_count": 7
+        },
+        {
+          "palette": 7,
+          "sector_count": 5
+        },
+        {
+          "palette": 3,
+          "sector_count": 1
+        },
+        {
+          "palette": 4,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.17",
+      "tileset_id": 17,
+      "town_map_counts": [
+        {
+          "sector_count": 12,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "fourside"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 166694,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 1,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 1,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2049,
+        "path": "refs/eb-decompile-4ef92/Tilesets/18.fts",
+        "sha1": "88ca5988f635ae0a245606f54947baf6023d8268"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 1,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        }
+      ],
+      "sector_count": 40,
+      "sector_ids": [
+        964,
+        965,
+        966,
+        967,
+        996,
+        997,
+        998,
+        999,
+        1028,
+        1029,
+        1030,
+        1031,
+        1060,
+        1061,
+        1062,
+        1063,
+        1092,
+        1093,
+        1094,
+        1095,
+        1124,
+        1125,
+        1126,
+        1127,
+        1156,
+        1157,
+        1158,
+        1159,
+        1188,
+        1189,
+        1190,
+        1191,
+        1220,
+        1221,
+        1222,
+        1223,
+        1252,
+        1253,
+        1254,
+        1255
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 40
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.18",
+      "tileset_id": 18,
+      "town_map_counts": [
+        {
+          "sector_count": 40,
+          "town_map": "scaraba"
+        }
+      ]
+    },
+    {
+      "dependency_status": "direct_fts_export",
+      "direct_fts_export": {
+        "blank_line_count": 515,
+        "byte_count": 168149,
+        "inferred_component_counts": {
+          "arrangement_collision_rows_96_hex_chars": 1024,
+          "tile_animation_settings_rows_290_chars": 6,
+          "tile_graphic_rows_64_hex_chars": 1024
+        },
+        "line_length_counts": {
+          "290": 6,
+          "64": 1024,
+          "96": 1024
+        },
+        "nonblank_line_count": 2054,
+        "path": "refs/eb-decompile-4ef92/Tilesets/19.fts",
+        "sha1": "579377f09a074d53602d89f0c60545c98b20c45b"
+      },
+      "has_direct_fts_export": true,
+      "palette_setting_count": 7,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 2,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        }
+      ],
+      "sector_count": 15,
+      "sector_ids": [
+        447,
+        477,
+        509,
+        573,
+        574,
+        575,
+        605,
+        606,
+        607,
+        1109,
+        1234,
+        1235,
+        1241,
+        1266,
+        1267
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 2,
+          "sector_count": 9
+        },
+        {
+          "palette": 3,
+          "sector_count": 4
+        },
+        {
+          "palette": 4,
+          "sector_count": 2
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.19",
+      "tileset_id": 19,
+      "town_map_counts": [
+        {
+          "sector_count": 11,
+          "town_map": "none"
+        },
+        {
+          "sector_count": 4,
+          "town_map": "fourside"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 33323,
+          "Event Palette Colors": "00034701312777b35578b45bcjh48b013002muugno7ac11100034701312777b35578b45bbcj87d0130027aa57724411100034701312777bb5478b45b957a8101300215602422511100034701312789cefs11212875307301300262546938c111000789013127991bbcg00500640b44ga00bj600300100111000789013127e60bbc78b45b547a908b749a075042011111",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 5,
+      "sector_ids": [
+        125,
+        348,
+        382,
+        443,
+        637
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 5,
+          "sector_count": 2
+        },
+        {
+          "palette": 4,
+          "sector_count": 1
+        },
+        {
+          "palette": 2,
+          "sector_count": 1
+        },
+        {
+          "palette": 7,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.20",
+      "tileset_id": 20,
+      "town_map_counts": [
+        {
+          "sector_count": 3,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 5,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        }
+      ],
+      "sector_count": 0,
+      "sector_ids": [],
+      "sector_palette_counts": [],
+      "tileset_bundle_id": "map_tileset.21",
+      "tileset_id": 21,
+      "town_map_counts": []
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 5,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 6,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        }
+      ],
+      "sector_count": 14,
+      "sector_ids": [
+        412,
+        414,
+        476,
+        478,
+        638,
+        639,
+        670,
+        671,
+        766,
+        767,
+        798,
+        799,
+        1048,
+        1080
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 12
+        },
+        {
+          "palette": 4,
+          "sector_count": 2
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.22",
+      "tileset_id": 22,
+      "town_map_counts": [
+        {
+          "sector_count": 14,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 4,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        }
+      ],
+      "sector_count": 7,
+      "sector_ids": [
+        475,
+        507,
+        702,
+        703,
+        734,
+        735,
+        1233
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 1,
+          "sector_count": 6
+        },
+        {
+          "palette": 2,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.23",
+      "tileset_id": 23,
+      "town_map_counts": [
+        {
+          "sector_count": 6,
+          "town_map": "none"
+        },
+        {
+          "sector_count": 1,
+          "town_map": "fourside"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 5,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 33323,
+          "Event Palette Colors": "00046b01314442313434345923432435734323435834911100079c0130vv423134343a7c0iv56b15i3340vv0vv0vv111000cf50131446221343434592340vtisu4c675g89h7691110000vv0vv1446221343434592347ad3574362343580vv1110000vv0131440vv13434345956a0vv3573430vv0vv0vv1110000vv0vv14425c13434356723477a55734423435865b111",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 4
+        }
+      ],
+      "sector_count": 4,
+      "sector_ids": [
+        190,
+        191,
+        255,
+        319
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 3
+        },
+        {
+          "palette": 3,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.24",
+      "tileset_id": 24,
+      "town_map_counts": [
+        {
+          "sector_count": 4,
+          "town_map": "onett"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 6,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 2,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 6,
+      "sector_ids": [
+        317,
+        351,
+        379,
+        381,
+        479,
+        542
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 2,
+          "sector_count": 1
+        },
+        {
+          "palette": 1,
+          "sector_count": 1
+        },
+        {
+          "palette": 7,
+          "sector_count": 1
+        },
+        {
+          "palette": 3,
+          "sector_count": 1
+        },
+        {
+          "palette": 6,
+          "sector_count": 1
+        },
+        {
+          "palette": 5,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.25",
+      "tileset_id": 25,
+      "town_map_counts": [
+        {
+          "sector_count": 4,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 6,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 5,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 4,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 1,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 3,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        }
+      ],
+      "sector_count": 81,
+      "sector_ids": [
+        12,
+        13,
+        14,
+        15,
+        44,
+        45,
+        46,
+        47,
+        76,
+        77,
+        78,
+        79,
+        108,
+        109,
+        110,
+        111,
+        140,
+        141,
+        142,
+        143,
+        172,
+        173,
+        174,
+        175,
+        204,
+        205,
+        206,
+        207,
+        236,
+        237,
+        238,
+        239,
+        526,
+        527,
+        556,
+        557,
+        558,
+        559,
+        588,
+        589,
+        590,
+        602,
+        620,
+        621,
+        622,
+        623,
+        627,
+        628,
+        634,
+        635,
+        652,
+        653,
+        654,
+        655,
+        684,
+        685,
+        686,
+        687,
+        716,
+        717,
+        718,
+        719,
+        748,
+        749,
+        750,
+        751,
+        826,
+        829,
+        830,
+        831,
+        847,
+        848,
+        890,
+        1177,
+        1178,
+        1179,
+        1180,
+        1209,
+        1210,
+        1211,
+        1212
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 61
+        },
+        {
+          "palette": 1,
+          "sector_count": 9
+        },
+        {
+          "palette": 2,
+          "sector_count": 8
+        },
+        {
+          "palette": 3,
+          "sector_count": 3
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.26",
+      "tileset_id": 26,
+      "town_map_counts": [
+        {
+          "sector_count": 81,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 5,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 32838,
+          "Event Palette Colors": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b48223102405000vrquvvjqmeli8hd3c9dacaaa777000000b4f426102216002laaf9boalf6gdafa78dacaaa777000000b4f426102216002laaf9boalf6gdafa78dacaaa777000000000000000000000000000000000000000000000000000",
+          "Event Palette Event Flag": 0,
+          "Event Palette Flash Effect": 0,
+          "Event Palette Sprite Palette": 0,
+          "Flash Effect": 5,
+          "Sprite Palette": 0,
+          "has_event_palette": true,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        }
+      ],
+      "sector_count": 66,
+      "sector_ids": [
+        16,
+        17,
+        18,
+        48,
+        49,
+        50,
+        80,
+        81,
+        82,
+        112,
+        113,
+        114,
+        128,
+        129,
+        130,
+        144,
+        145,
+        146,
+        160,
+        161,
+        162,
+        176,
+        177,
+        178,
+        192,
+        193,
+        194,
+        209,
+        224,
+        225,
+        226,
+        241,
+        256,
+        257,
+        258,
+        288,
+        289,
+        290,
+        524,
+        525,
+        591,
+        629,
+        885,
+        920,
+        921,
+        922,
+        952,
+        953,
+        954,
+        984,
+        985,
+        986,
+        987,
+        1016,
+        1017,
+        1018,
+        1019,
+        1051,
+        1083,
+        1084,
+        1115,
+        1116,
+        1147,
+        1148,
+        1183,
+        1215
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 0,
+          "sector_count": 38
+        },
+        {
+          "palette": 3,
+          "sector_count": 23
+        },
+        {
+          "palette": 2,
+          "sector_count": 3
+        },
+        {
+          "palette": 1,
+          "sector_count": 2
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.27",
+      "tileset_id": 27,
+      "town_map_counts": [
+        {
+          "sector_count": 61,
+          "town_map": "none"
+        },
+        {
+          "sector_count": 3,
+          "town_map": "onett"
+        },
+        {
+          "sector_count": 2,
+          "town_map": "threed"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 6,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 4,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        }
+      ],
+      "sector_count": 76,
+      "sector_ids": [
+        19,
+        20,
+        51,
+        52,
+        83,
+        84,
+        115,
+        116,
+        268,
+        269,
+        270,
+        271,
+        300,
+        301,
+        302,
+        303,
+        332,
+        333,
+        334,
+        335,
+        364,
+        365,
+        366,
+        367,
+        396,
+        397,
+        398,
+        399,
+        428,
+        429,
+        430,
+        431,
+        460,
+        461,
+        462,
+        463,
+        492,
+        493,
+        494,
+        495,
+        539,
+        540,
+        571,
+        572,
+        603,
+        604,
+        636,
+        836,
+        837,
+        838,
+        839,
+        868,
+        869,
+        870,
+        871,
+        900,
+        901,
+        902,
+        903,
+        923,
+        932,
+        933,
+        934,
+        935,
+        955,
+        1169,
+        1170,
+        1201,
+        1202,
+        1240,
+        1242,
+        1272,
+        1273,
+        1274,
+        1276,
+        1277
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 4,
+          "sector_count": 32
+        },
+        {
+          "palette": 0,
+          "sector_count": 16
+        },
+        {
+          "palette": 1,
+          "sector_count": 15
+        },
+        {
+          "palette": 3,
+          "sector_count": 9
+        },
+        {
+          "palette": 2,
+          "sector_count": 4
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.28",
+      "tileset_id": 28,
+      "town_map_counts": [
+        {
+          "sector_count": 76,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 6,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 8,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 7,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        }
+      ],
+      "sector_count": 25,
+      "sector_ids": [
+        516,
+        548,
+        580,
+        612,
+        631,
+        858,
+        1049,
+        1050,
+        1081,
+        1082,
+        1105,
+        1106,
+        1113,
+        1114,
+        1137,
+        1138,
+        1145,
+        1146,
+        1243,
+        1246,
+        1247,
+        1263,
+        1275,
+        1278,
+        1279
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 4,
+          "sector_count": 8
+        },
+        {
+          "palette": 0,
+          "sector_count": 6
+        },
+        {
+          "palette": 3,
+          "sector_count": 6
+        },
+        {
+          "palette": 1,
+          "sector_count": 4
+        },
+        {
+          "palette": 2,
+          "sector_count": 1
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.29",
+      "tileset_id": 29,
+      "town_map_counts": [
+        {
+          "sector_count": 19,
+          "town_map": "none"
+        },
+        {
+          "sector_count": 6,
+          "town_map": "onett"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 3,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        }
+      ],
+      "sector_count": 46,
+      "sector_ids": [
+        0,
+        1,
+        2,
+        32,
+        33,
+        34,
+        64,
+        65,
+        66,
+        96,
+        97,
+        98,
+        147,
+        148,
+        149,
+        150,
+        151,
+        179,
+        180,
+        181,
+        182,
+        183,
+        320,
+        352,
+        644,
+        676,
+        780,
+        781,
+        782,
+        812,
+        813,
+        814,
+        859,
+        860,
+        861,
+        862,
+        863,
+        886,
+        891,
+        892,
+        893,
+        894,
+        895,
+        1104,
+        1168,
+        1232
+      ],
+      "sector_palette_counts": [
+        {
+          "palette": 1,
+          "sector_count": 32
+        },
+        {
+          "palette": 2,
+          "sector_count": 14
+        }
+      ],
+      "tileset_bundle_id": "map_tileset.30",
+      "tileset_id": 30,
+      "town_map_counts": [
+        {
+          "sector_count": 32,
+          "town_map": "fourside"
+        },
+        {
+          "sector_count": 14,
+          "town_map": "none"
+        }
+      ]
+    },
+    {
+      "dependency_status": "palette_settings_only",
+      "direct_fts_export": null,
+      "has_direct_fts_export": false,
+      "palette_setting_count": 8,
+      "palette_settings": [
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 0
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 1
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 2
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 3
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 4
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 5
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 6
+        },
+        {
+          "Event Flag": 0,
+          "Flash Effect": 0,
+          "Sprite Palette": 0,
+          "variant": 7
+        }
+      ],
+      "sector_count": 0,
+      "sector_ids": [],
+      "sector_palette_counts": [],
+      "tileset_bundle_id": "map_tileset.31",
+      "tileset_id": 31,
+      "town_map_counts": []
+    }
+  ],
+  "title": "Map Tileset Bundle Contract"
+}

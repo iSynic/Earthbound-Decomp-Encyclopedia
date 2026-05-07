@@ -1,0 +1,360 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-source-effect-frontier.v1",
+  "status": "source_effect_facts_ready_runtime_proof_pending",
+  "references": [
+    "refs/earthbound-sounddriver-byte-perfect/main.asm",
+    "refs/earthbound-sounddriver-byte-perfect/ram.asm",
+    "manifests/audio-spc700-sounddriver-source-ingest.json",
+    "manifests/audio-sequence-command-semantics.json"
+  ],
+  "summary": {
+    "command_count": 5,
+    "source_backed_vcmd_count": 3,
+    "zero_control_pending_count": 1,
+    "outside_vcmd_table_count": 1,
+    "runtime_effect_pending_count": 5,
+    "exact_duration_promotion_allowed": false,
+    "semantic_status": "source_navigation_proven_runtime_effects_not_promoted"
+  },
+  "source_landmarks": {
+    "get_next_byte": "0x0955",
+    "skip_byte": "0x0957",
+    "voice_zero_reader": "0x0882",
+    "pattern_zero_reader": "0x081A",
+    "ef_subroutine_handler": "0x0AAC",
+    "ef_target_loader": "0x0AC4",
+    "fd_handler": "0x0B7E",
+    "fe_handler": "0x0B7F",
+    "fd_fe_post_write_helper": "0x0787",
+    "music_effect_fastforward_tick": "0x2DAB",
+    "music_effect_fastforward_start": "0x2DC6"
+  },
+  "effects": {
+    "0x00": {
+      "command": "0x00",
+      "source_role": "zero_control_pending",
+      "source_effect_status": "source_backed_zero_reader_paths_effect_pending_runtime_context",
+      "voice_reader": {
+        "source_span": {
+          "start_label": "L_0882",
+          "start_address": "0x0882",
+          "end_label": "L_089C",
+          "end_address": "0x089C"
+        },
+        "reader_label": "L_0882",
+        "reader_address": "0x0882",
+        "entry_action": "GetNextByte reads the next voice-stream byte; zero falls into loop/return/end routing.",
+        "zero_branches": [
+          {
+            "condition": "$80+x == 0",
+            "target_label": "L_081A",
+            "target_address": "0x081A",
+            "effect": "no active EF repeat count remains; advance to the pattern pointer reader instead of treating voice-byte 0x00 as a standalone finite end"
+          },
+          {
+            "condition": "$80+x != 0",
+            "target_label": "L_0AC4",
+            "target_address": "0x0AC4",
+            "effect": "reload the EF subroutine target into the voice pointer, decrement $80+x, and either loop or restore the saved return pointer"
+          },
+          {
+            "condition": "decremented $80+x == 0",
+            "target_label": "L_0892",
+            "target_address": "0x0892",
+            "effect": "copy $0230+x/$0231+x back into $30+x/$31+x before continuing the reader loop"
+          }
+        ],
+        "state_slots": {
+          "ef_loop_counter": {
+            "address": "0x0080",
+            "expression": "$80+x"
+          },
+          "voice_pointer": {
+            "low": {
+              "address": "0x0030",
+              "expression": "$30+x"
+            },
+            "high": {
+              "address": "0x0031",
+              "expression": "$31+x"
+            }
+          },
+          "ef_return_pointer": {
+            "low": {
+              "address": "0x0230",
+              "expression": "$0230+x"
+            },
+            "high": {
+              "address": "0x0231",
+              "expression": "$0231+x"
+            }
+          },
+          "ef_subroutine_target": {
+            "low": {
+              "address": "0x0240",
+              "expression": "$0240+x"
+            },
+            "high": {
+              "address": "0x0241",
+              "expression": "$0241+x"
+            }
+          }
+        },
+        "runtime_capture_requirements": [
+          "$80+x before and after the zero read",
+          "$30+x/$31+x before the zero read and after the post-zero branch",
+          "$0230+x/$0231+x and $0240+x/$0241+x for active EF context",
+          "whether post-zero execution branches to L_081A, L_0AC4, L_0882, or restored-return flow"
+        ]
+      },
+      "pattern_reader": {
+        "source_span": {
+          "start_label": "L_081A",
+          "start_address": "0x081A",
+          "end_label": "L_083F",
+          "end_address": "0x083F"
+        },
+        "reader_label": "L_081A",
+        "reader_address": "0x081A",
+        "zero_pair_branches": [
+          {
+            "pattern_byte": "0x00",
+            "target_label": "StopMusic",
+            "target_address": "0x07EA",
+            "effect": "pattern-level 0x00 0x00 reaches StopMusic"
+          },
+          {
+            "pattern_byte": "0x80",
+            "target_label": "L_082C",
+            "target_address": "0x082C",
+            "effect": "write 0x80 to fast_forward_flag and continue reading pattern pointers"
+          },
+          {
+            "pattern_byte": "0x81",
+            "target_label": "L_082C",
+            "target_address": "0x082C",
+            "effect": "normalize to 0x00, write fast_forward_flag off, and continue reading pattern pointers"
+          },
+          {
+            "pattern_byte": "0x01..0x7F or 0x82..0xFF",
+            "target_label": "L_0830",
+            "target_address": "0x0830",
+            "effect": "pattern jump/repeat handling updates $40/$41 when its counter allows the jump target"
+          }
+        ],
+        "state_slots": {
+          "pattern_pointer": {
+            "low": {
+              "address": "0x0040",
+              "expression": "$40"
+            },
+            "high": {
+              "address": "0x0041",
+              "expression": "$41"
+            }
+          },
+          "pattern_repeat_counter": {
+            "address": "0x0042",
+            "expression": "$42"
+          },
+          "fast_forward_flag": {
+            "name": "fast_forward_flag",
+            "address": "0x001B",
+            "comment": null
+          }
+        },
+        "runtime_capture_requirements": [
+          "distinguish voice-stream zero reads from pattern-pointer 0x00 control pairs",
+          "capture the byte following pattern-level 0x00 before classifying StopMusic or fast-forward behavior",
+          "capture $1B when the 0x80/0x81 pattern-control path is taken"
+        ]
+      }
+    },
+    "0xEF": {
+      "command": "0xEF",
+      "source_label": "VCMD_Subroutine",
+      "source_target": "0x0AAC",
+      "arg_length": 3,
+      "source_role": "source_backed_vcmd",
+      "source_effect_status": "source_backed_call_return_slots_runtime_effect_pending",
+      "source_span": {
+        "start_label": "VCMD_Subroutine",
+        "start_address": "0x0AAC",
+        "end_label": "L_0ACE",
+        "end_address": "0x0ACE"
+      },
+      "handler_flow": [
+        "stores the first EF operand/current A into $0240+x",
+        "reads the second EF operand into $0241+x",
+        "reads the loop/repeat count into $80+x",
+        "saves $30+x/$31+x into $0230+x/$0231+x as the return pointer",
+        "copies $0240+x/$0241+x into $30+x/$31+x via L_0AC4"
+      ],
+      "state_slots": {
+        "ef_loop_counter": {
+          "address": "0x0080",
+          "expression": "$80+x"
+        },
+        "voice_pointer": {
+          "low": {
+            "address": "0x0030",
+            "expression": "$30+x"
+          },
+          "high": {
+            "address": "0x0031",
+            "expression": "$31+x"
+          }
+        },
+        "ef_return_pointer": {
+          "low": {
+            "address": "0x0230",
+            "expression": "$0230+x"
+          },
+          "high": {
+            "address": "0x0231",
+            "expression": "$0231+x"
+          }
+        },
+        "ef_subroutine_target": {
+          "low": {
+            "address": "0x0240",
+            "expression": "$0240+x"
+          },
+          "high": {
+            "address": "0x0241",
+            "expression": "$0241+x"
+          }
+        }
+      },
+      "runtime_capture_requirements": [
+        "EF operands and resulting $0240+x/$0241+x subroutine target",
+        "$80+x call count after EF",
+        "$0230+x/$0231+x saved return pointer",
+        "later 0x00 branch result that consumes or restores this EF state"
+      ]
+    },
+    "0xFD": {
+      "command": "0xFD",
+      "source_label": "VCMD_FastForward",
+      "source_target": "0x0B7E",
+      "arg_length": 0,
+      "source_role": "source_backed_vcmd",
+      "source_effect_status": "source_backed_fast_forward_flag_write_runtime_timing_pending",
+      "source_span": {
+        "start_label": "VCMD_FastForward",
+        "start_address": "0x0B7E",
+        "end_label": "L_0B81",
+        "end_address": "0x0B81"
+      },
+      "handler_flow": [
+        "increments A before falling through to VCMD_FastForwardOff",
+        "writes A into fast_forward_flag ($1B)",
+        "jumps to L_0787, which clears $0491/$04B1/$04B5 and ORs the non-SFX voice mask into $0046"
+      ],
+      "state_slots": {
+        "fast_forward_flag": {
+          "name": "fast_forward_flag",
+          "address": "0x001B",
+          "comment": null
+        },
+        "sfx_voices": {
+          "name": "sfx_voices",
+          "address": "0x001A",
+          "comment": "Voices currently playing sound effects"
+        },
+        "helper_reset_slots": [
+          "0x0491",
+          "0x04B1",
+          "0x04B5",
+          "0x0046"
+        ],
+        "music_effect_fastforward_timer": {
+          "name": "mfx_fastforward_timer",
+          "address": "0x0438",
+          "comment": null
+        }
+      },
+      "runtime_capture_requirements": [
+        "$1B before and after FD",
+        "$0491/$04B1/$04B5/$0046 before and after the L_0787 helper",
+        "tempo/tick counters around the affected phrase",
+        "separate VCMD fast_forward_flag behavior from MFX_05 mfx_fastforward_timer behavior"
+      ]
+    },
+    "0xFE": {
+      "command": "0xFE",
+      "source_label": "VCMD_FastForwardOff",
+      "source_target": "0x0B7F",
+      "arg_length": 0,
+      "source_role": "source_backed_vcmd",
+      "source_effect_status": "source_backed_fast_forward_flag_write_runtime_timing_pending",
+      "source_span": {
+        "start_label": "VCMD_FastForwardOff",
+        "start_address": "0x0B7F",
+        "end_label": "L_0B81",
+        "end_address": "0x0B81"
+      },
+      "handler_flow": [
+        "writes A into fast_forward_flag ($1B)",
+        "jumps to L_0787, which clears $0491/$04B1/$04B5 and ORs the non-SFX voice mask into $0046"
+      ],
+      "state_slots": {
+        "fast_forward_flag": {
+          "name": "fast_forward_flag",
+          "address": "0x001B",
+          "comment": null
+        },
+        "sfx_voices": {
+          "name": "sfx_voices",
+          "address": "0x001A",
+          "comment": "Voices currently playing sound effects"
+        },
+        "helper_reset_slots": [
+          "0x0491",
+          "0x04B1",
+          "0x04B5",
+          "0x0046"
+        ],
+        "music_effect_fastforward_timer": {
+          "name": "mfx_fastforward_timer",
+          "address": "0x0438",
+          "comment": null
+        }
+      },
+      "runtime_capture_requirements": [
+        "$1B before and after FE",
+        "$0491/$04B1/$04B5/$0046 before and after the L_0787 helper",
+        "tempo/tick counters around the affected phrase",
+        "separate VCMD fast_forward_flag behavior from MFX_05 mfx_fastforward_timer behavior"
+      ]
+    },
+    "0xFF": {
+      "command": "0xFF",
+      "source_role": "outside_vcmd_table",
+      "source_label": null,
+      "source_target": null,
+      "arg_length": null,
+      "source_effect_status": "outside_vcmd_table_no_source_handler",
+      "handler_flow": [
+        "the source-backed VCMD table covers 0xE0..0xFE only",
+        "0xFF must stay classified as outside the VCMD table unless local reader-path evidence proves an EarthBound-specific effect"
+      ],
+      "runtime_capture_requirements": [
+        "reader PC and post-read branch for any observed 0xFF byte",
+        "prove whether 0xFF is unreachable data, static-walk overrun, or an EarthBound-specific reader-path effect"
+      ]
+    }
+  },
+  "promotion_policy": [
+    "Source labels and state slots identify proof targets, but do not promote exact-duration exports.",
+    "0x00 proof must distinguish voice-stream loop/return behavior from pattern-level StopMusic and fast-forward control pairs.",
+    "EF proof must join the call target, loop count, saved return pointer, and later 0x00 behavior.",
+    "FD/FE proof must capture fast_forward_flag and timing counters before duration math can model affected regions.",
+    "0xFF remains outside the VCMD table unless an EarthBound reader path proves otherwise."
+  ],
+  "next_work": [
+    "feed these source-effect requirements into zero and nonzero probe plans",
+    "capture EF/0x00 state transitions at runtime before unblocking finite end candidates",
+    "capture FD/FE fast-forward flag and helper reset effects before timing promotion"
+  ]
+}

@@ -1,0 +1,1255 @@
+{
+  "schema": "earthbound-decomp.audio-zero-terminator-review.v1",
+  "status": "zero_terminator_candidates_grouped_effect_proof_pending",
+  "references": [
+    "https://sneslab.net/wiki/N-SPC_Engine",
+    "manifests/audio-exact-duration-triage.json",
+    "manifests/audio-sequence-walk-frontier.json",
+    "manifests/audio-sequence-command-semantics.json"
+  ],
+  "summary": {
+    "candidate_pack_count": 10,
+    "candidate_track_count": 19,
+    "promotion_class_pack_counts": {
+      "zero_runtime_effect_pending": 10
+    },
+    "promotion_class_track_counts": {
+      "zero_runtime_effect_pending": 19
+    },
+    "post_zero_proof_action_track_counts": {
+      "classify_active_preview_before_exact_export": 7,
+      "decode_loop_points_before_exact_export": 2,
+      "review_observed_silence_as_finite_or_transition": 10
+    },
+    "pre_promotion_blocker_track_counts": {
+      "ef_return_stack_model": 15,
+      "zero_runtime_effect_proof": 19
+    },
+    "semantic_status": "zero_terminators_need_end_vs_return_proof",
+    "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+    "zero_exact_duration_promotion_allowed": false
+  },
+  "command_semantics": {
+    "schema": "earthbound-decomp.audio-sequence-command-semantics.v1",
+    "status": "runtime_command_semantics_promotion_blocked",
+    "zero": {
+      "command": "0x00",
+      "hypothesis": "phrase_termination_or_end_of_subroutine",
+      "n_spc_reference_semantics": "phrase_termination_or_end_of_subroutine",
+      "source_label": null,
+      "source_target": null,
+      "arg_length": null,
+      "source_role": "zero_control_pending",
+      "source_effect_status": "source_backed_zero_reader_paths_effect_pending_runtime_context",
+      "source_effect_capture_requirements": [
+        "$0230+x/$0231+x and $0240+x/$0241+x for active EF context",
+        "$30+x/$31+x before the zero read and after the post-zero branch",
+        "$80+x before and after the zero read",
+        "capture $1B when the 0x80/0x81 pattern-control path is taken",
+        "capture the byte following pattern-level 0x00 before classifying StopMusic or fast-forward behavior",
+        "distinguish voice-stream zero reads from pattern-pointer 0x00 control pairs",
+        "whether post-zero execution branches to L_081A, L_0AC4, L_0882, or restored-return flow"
+      ],
+      "static_dispatch_target": null,
+      "static_dispatch_target_source": null,
+      "semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "effect_proof_status": "zero_control_pending",
+      "duration_promotion_status": "blocked_pending_local_effect_proof",
+      "exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "status_reason": "Stock N-SPC treats VCMD 0x00 as phrase termination/end-of-subroutine and phrase $00 $00 as end-of-song, but EarthBound exact-duration promotion still needs local effect proof.",
+      "trace_evidence": {
+        "sequence_control_read_count": 5931,
+        "execution_fetch_control_read_count": 5520,
+        "control_reader_pc_counts": {
+          "0x0782": 8,
+          "0x07A6": 8,
+          "0x0847": 73,
+          "0x0957": 114,
+          "0x0B8A": 84,
+          "0x0D12": 1,
+          "0x2DB0": 957,
+          "0x2DDA": 955,
+          "0x2DF8": 955,
+          "0x2E3D": 952
+        },
+        "mapped_dispatch_hit_count": 0,
+        "post_dispatch_pc_counts": {}
+      },
+      "static_walk_policy": {
+        "candidate_terminator": true,
+        "blocks_static_walk": false,
+        "terminator_promoted": false,
+        "reason": "N-SPC-family 0x00 is the primary phrase termination/end-of-subroutine candidate; promotion waits for EarthBound-local effect proof."
+      }
+    }
+  },
+  "promotion_rules": [
+    "0x00 is the N-SPC-family phrase termination/end-of-subroutine candidate, not automatic public exact-duration proof.",
+    "EF context must distinguish subroutine return from true phrase/song end.",
+    "Finite trim candidates may use 0x00 as corroboration only after EarthBound-local effect proof.",
+    "Loop/held candidates remain preview exports until loop entry/exit semantics are decoded."
+  ],
+  "candidates": [
+    {
+      "pack_id": 25,
+      "range": "EC:E101..EC:EB51",
+      "track_count": 8,
+      "track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "tracks": [
+        {
+          "track_id": 32,
+          "track_name": "GIANT_STEP",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.003219,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 33,
+          "track_name": "LILLIPUT_STEPS",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.004906,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 34,
+          "track_name": "MILKY_WELL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.002375,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 35,
+          "track_name": "RAINY_CIRCLE",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.001938,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 36,
+          "track_name": "MAGNET_HILL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.000875,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 37,
+          "track_name": "PINK_CLOUD",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.005312,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 38,
+          "track_name": "LUMINE_HALL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 19.2455,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 39,
+          "track_name": "FIRE_SPRING",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.005406,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 8
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 80,
+        "terminates": 32
+      },
+      "ef_call_edges": 44,
+      "zero_terminator_candidates": 32,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 64,
+        "sampled_zero_terminating_roots": 16,
+        "sampled_fallthrough_roots": 48,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 1,
+            "destination": "0x4A00",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 1,
+            "destination": "0x4A00",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 2,
+            "destination": "0x4C00",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 2,
+            "destination": "0x4C00",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 3,
+            "destination": "0x4E00",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 3,
+            "destination": "0x4E00",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 4,
+            "destination": "0x5000",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 4,
+            "destination": "0x5000",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 5,
+            "destination": "0x5200",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 5,
+            "destination": "0x5200",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 6,
+            "destination": "0x5400",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 6,
+            "destination": "0x5400",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002F",
+            "segment_end": "0x0030",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 7,
+            "destination": "0x5600",
+            "root_offset": "0x0016",
+            "terminator_offset": "0x001F",
+            "segment_end": "0x0026",
+            "bytes_before_segment_end": 6,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 7,
+            "destination": "0x5600",
+            "root_offset": "0x0026",
+            "terminator_offset": "0x002E",
+            "segment_end": "0x002F",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "0": 8,
+          "6": 1,
+          "7": 7
+        },
+        "zero_at_segment_end_count": 8,
+        "zero_with_trailing_bytes_count": 8,
+        "minimum_tail_bytes": 0,
+        "maximum_tail_bytes": 7
+      },
+      "track_review_actions": [
+        {
+          "track_id": 32,
+          "track_name": "GIANT_STEP",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.003219,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 33,
+          "track_name": "LILLIPUT_STEPS",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.004906,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 34,
+          "track_name": "MILKY_WELL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.002375,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 35,
+          "track_name": "RAINY_CIRCLE",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.001938,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 36,
+          "track_name": "MAGNET_HILL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.000875,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 37,
+          "track_name": "PINK_CLOUD",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.005312,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 38,
+          "track_name": "LUMINE_HALL",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 19.2455,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 39,
+          "track_name": "FIRE_SPRING",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 21.005406,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 5
+    },
+    {
+      "pack_id": 1,
+      "range": "E6:0000..E6:45D8",
+      "track_count": 2,
+      "track_ids": [
+        1,
+        174
+      ],
+      "tracks": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 174,
+          "track_name": "GAS_STATION_2",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 13.578563,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1,
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 7,
+        "terminates": 2
+      },
+      "ef_call_edges": 9,
+      "zero_terminator_candidates": 2,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 1,
+        "sampled_fallthrough_roots": 7,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 3,
+            "destination": "0x4800",
+            "root_offset": "0x0014",
+            "terminator_offset": "0x004A",
+            "segment_end": "0x004B",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "0": 1
+        },
+        "zero_at_segment_end_count": 1,
+        "zero_with_trailing_bytes_count": 0,
+        "minimum_tail_bytes": 0,
+        "maximum_tail_bytes": 0
+      },
+      "track_review_actions": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 174,
+          "track_name": "GAS_STATION_2",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 13.578563,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 5
+    },
+    {
+      "pack_id": 163,
+      "range": "EE:0A8B..EE:0FB2",
+      "track_count": 1,
+      "track_ids": [
+        175
+      ],
+      "tracks": [
+        {
+          "track_id": 175,
+          "track_name": "TITLE_SCREEN",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 13.774594,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "finite_or_transition_review_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 7,
+        "terminates": 2
+      },
+      "ef_call_edges": 4,
+      "zero_terminator_candidates": 2,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 1,
+        "sampled_fallthrough_roots": 7,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0014",
+            "terminator_offset": "0x01D2",
+            "segment_end": "0x01D3",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "0": 1
+        },
+        "zero_at_segment_end_count": 1,
+        "zero_with_trailing_bytes_count": 0,
+        "minimum_tail_bytes": 0,
+        "maximum_tail_bytes": 0
+      },
+      "track_review_actions": [
+        {
+          "track_id": 175,
+          "track_name": "TITLE_SCREEN",
+          "export_class": "finite_or_transition_review_candidate",
+          "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+          "duration_seconds": 13.774594,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 5
+    },
+    {
+      "pack_id": 148,
+      "range": "EE:3A7D..EE:3E9C",
+      "track_count": 1,
+      "track_ids": [
+        143
+      ],
+      "tracks": [
+        {
+          "track_id": 143,
+          "track_name": "LEAVING_MAGICANT",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 18,
+        "terminates": 5
+      },
+      "ef_call_edges": 12,
+      "zero_terminator_candidates": 5,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 2,
+        "sampled_fallthrough_roots": 6,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0028",
+            "terminator_offset": "0x0032",
+            "segment_end": "0x0038",
+            "bytes_before_segment_end": 5,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0038",
+            "terminator_offset": "0x006D",
+            "segment_end": "0x006E",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "0": 1,
+          "5": 1
+        },
+        "zero_at_segment_end_count": 1,
+        "zero_with_trailing_bytes_count": 1,
+        "minimum_tail_bytes": 0,
+        "maximum_tail_bytes": 5
+      },
+      "track_review_actions": [
+        {
+          "track_id": 143,
+          "track_name": "LEAVING_MAGICANT",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 4
+    },
+    {
+      "pack_id": 160,
+      "range": "EE:4ADF..EE:4EEA",
+      "track_count": 1,
+      "track_ids": [
+        171
+      ],
+      "tracks": [
+        {
+          "track_id": 171,
+          "track_name": "WINTERS_INTRO",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 10,
+        "terminates": 4
+      },
+      "ef_call_edges": 20,
+      "zero_terminator_candidates": 4,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 2,
+        "sampled_fallthrough_roots": 6,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0018",
+            "terminator_offset": "0x001E",
+            "segment_end": "0x0028",
+            "bytes_before_segment_end": 9,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x0028",
+            "terminator_offset": "0x0051",
+            "segment_end": "0x0052",
+            "bytes_before_segment_end": 0,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "0": 1,
+          "9": 1
+        },
+        "zero_at_segment_end_count": 1,
+        "zero_with_trailing_bytes_count": 1,
+        "minimum_tail_bytes": 0,
+        "maximum_tail_bytes": 9
+      },
+      "track_review_actions": [
+        {
+          "track_id": 171,
+          "track_name": "WINTERS_INTRO",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "decode_loop_points_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 4
+    },
+    {
+      "pack_id": 154,
+      "range": "EB:E9E4..EB:FE22",
+      "track_count": 1,
+      "track_ids": [
+        157
+      ],
+      "tracks": [
+        {
+          "track_id": 157,
+          "track_name": "ATTRACT_MODE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 19,
+        "terminates": 4
+      },
+      "ef_call_edges": 6,
+      "zero_terminator_candidates": 4,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 1,
+        "sampled_fallthrough_roots": 7,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x009A",
+            "terminator_offset": "0x00AC",
+            "segment_end": "0x00BA",
+            "bytes_before_segment_end": 13,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "13": 1
+        },
+        "zero_at_segment_end_count": 0,
+        "zero_with_trailing_bytes_count": 1,
+        "minimum_tail_bytes": 13,
+        "maximum_tail_bytes": 13
+      },
+      "track_review_actions": [
+        {
+          "track_id": 157,
+          "track_name": "ATTRACT_MODE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 4
+    },
+    {
+      "pack_id": 107,
+      "range": "EC:4592..EC:6700",
+      "track_count": 1,
+      "track_ids": [
+        94
+      ],
+      "tracks": [
+        {
+          "track_id": 94,
+          "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "blocked": 1,
+        "falls_through_segment": 15,
+        "terminates": 4
+      },
+      "ef_call_edges": 3,
+      "zero_terminator_candidates": 4,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 8,
+        "sampled_zero_terminating_roots": 3,
+        "sampled_fallthrough_roots": 5,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0090",
+            "terminator_offset": "0x0098",
+            "segment_end": "0x00A0",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x00A0",
+            "terminator_offset": "0x00A8",
+            "segment_end": "0x00B0",
+            "bytes_before_segment_end": 7,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x00B0",
+            "terminator_offset": "0x00BE",
+            "segment_end": "0x00C0",
+            "bytes_before_segment_end": 1,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "1": 1,
+          "7": 2
+        },
+        "zero_at_segment_end_count": 0,
+        "zero_with_trailing_bytes_count": 3,
+        "minimum_tail_bytes": 1,
+        "maximum_tail_bytes": 7
+      },
+      "track_review_actions": [
+        {
+          "track_id": 94,
+          "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof",
+            "ef_return_stack_model"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 4
+    },
+    {
+      "pack_id": 136,
+      "range": "EE:0000..EE:0554",
+      "track_count": 2,
+      "track_ids": [
+        120,
+        173
+      ],
+      "tracks": [
+        {
+          "track_id": 120,
+          "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        },
+        {
+          "track_id": 173,
+          "track_name": "GOOD_MORNING_MOONSIDE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1,
+        "loop_or_held_candidate": 1
+      },
+      "walk_status_counts": {
+        "falls_through_segment": 1,
+        "terminates": 5
+      },
+      "ef_call_edges": 0,
+      "zero_terminator_candidates": 5,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 6,
+        "sampled_zero_terminating_roots": 5,
+        "sampled_fallthrough_roots": 1,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x000C",
+            "terminator_offset": "0x001A",
+            "segment_end": "0x001C",
+            "bytes_before_segment_end": 1,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x001C",
+            "terminator_offset": "0x001C",
+            "segment_end": "0x002C",
+            "bytes_before_segment_end": 15,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x002C",
+            "terminator_offset": "0x003A",
+            "segment_end": "0x020C",
+            "bytes_before_segment_end": 465,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5200",
+            "root_offset": "0x001C",
+            "terminator_offset": "0x002A",
+            "segment_end": "0x002C",
+            "bytes_before_segment_end": 1,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 1,
+            "destination": "0x5200",
+            "root_offset": "0x002C",
+            "terminator_offset": "0x003A",
+            "segment_end": "0x033E",
+            "bytes_before_segment_end": 771,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "1": 2,
+          "15": 1,
+          "465": 1,
+          "771": 1
+        },
+        "zero_at_segment_end_count": 0,
+        "zero_with_trailing_bytes_count": 5,
+        "minimum_tail_bytes": 1,
+        "maximum_tail_bytes": 771
+      },
+      "track_review_actions": [
+        {
+          "track_id": 120,
+          "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        },
+        {
+          "track_id": 173,
+          "track_name": "GOOD_MORNING_MOONSIDE",
+          "export_class": "loop_or_held_candidate",
+          "recommended_mode": "loop_count_plus_fade_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof"
+          ],
+          "post_zero_proof_action": "decode_loop_points_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 2
+    },
+    {
+      "pack_id": 18,
+      "range": "E2:FC88..E2:FFFD",
+      "track_count": 1,
+      "track_ids": [
+        25
+      ],
+      "tracks": [
+        {
+          "track_id": 25,
+          "track_name": "CHAOS_THEATRE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "terminates": 3
+      },
+      "ef_call_edges": 0,
+      "zero_terminator_candidates": 3,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 3,
+        "sampled_zero_terminating_roots": 3,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x000E",
+            "terminator_offset": "0x001C",
+            "segment_end": "0x001E",
+            "bytes_before_segment_end": 1,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x001E",
+            "terminator_offset": "0x0022",
+            "segment_end": "0x002E",
+            "bytes_before_segment_end": 11,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          },
+          {
+            "block_index": 0,
+            "destination": "0x5800",
+            "root_offset": "0x002E",
+            "terminator_offset": "0x003C",
+            "segment_end": "0x036F",
+            "bytes_before_segment_end": 818,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "1": 1,
+          "11": 1,
+          "818": 1
+        },
+        "zero_at_segment_end_count": 0,
+        "zero_with_trailing_bytes_count": 3,
+        "minimum_tail_bytes": 1,
+        "maximum_tail_bytes": 818
+      },
+      "track_review_actions": [
+        {
+          "track_id": 25,
+          "track_name": "CHAOS_THEATRE",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 1
+    },
+    {
+      "pack_id": 96,
+      "range": "CF:FF38..CF:FFF9",
+      "track_count": 1,
+      "track_ids": [
+        85
+      ],
+      "tracks": [
+        {
+          "track_id": 85,
+          "track_name": "BULLDOZER",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "needs_sequence_semantics": true
+        }
+      ],
+      "export_class_counts": {
+        "unknown_active_preview": 1
+      },
+      "walk_status_counts": {
+        "terminates": 1
+      },
+      "ef_call_edges": 0,
+      "zero_terminator_candidates": 1,
+      "blocker_counts": {},
+      "zero_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "zero_exact_duration_promotion_allowed": false,
+      "eligible_next_export_action": "keep_public_exact_promotion_blocked",
+      "review_detail": {
+        "sampled_root_count": 1,
+        "sampled_zero_terminating_roots": 1,
+        "sampled_fallthrough_roots": 0,
+        "sampled_blocked_roots": 0,
+        "sampled_zero_terminators": [
+          {
+            "block_index": 0,
+            "destination": "0x4800",
+            "root_offset": "0x0008",
+            "terminator_offset": "0x000E",
+            "segment_end": "0x00BB",
+            "bytes_before_segment_end": 172,
+            "semantic_status": "pending_earthbound_zero_control_effect_proof"
+          }
+        ],
+        "zero_terminator_tail_byte_counts": {
+          "172": 1
+        },
+        "zero_at_segment_end_count": 0,
+        "zero_with_trailing_bytes_count": 1,
+        "minimum_tail_bytes": 172,
+        "maximum_tail_bytes": 172
+      },
+      "track_review_actions": [
+        {
+          "track_id": 85,
+          "track_name": "BULLDOZER",
+          "export_class": "unknown_active_preview",
+          "recommended_mode": "diagnostic_preview",
+          "duration_seconds": 30.0,
+          "pre_promotion_blockers": [
+            "zero_runtime_effect_proof"
+          ],
+          "post_zero_proof_action": "classify_active_preview_before_exact_export",
+          "public_exact_export_after_zero_proof": false
+        }
+      ],
+      "promotion_class": "zero_runtime_effect_pending",
+      "priority_rank": 1
+    }
+  ],
+  "findings": [
+    "The focused 0x00 lane replaces the former FF-centered terminator review for N-SPC-family evidence.",
+    "Candidate records include offsets, counts, hashes inherited from the walk frontier, and derived statuses only.",
+    "No candidate is promoted for public sequence exact-duration export until local EarthBound effect proof is added."
+  ],
+  "next_work": [
+    "trace or disassemble EarthBound 0x00 handling and record end-vs-EF-return behavior",
+    "join 0x00 observations with EF call-stack context for finite candidate packs",
+    "feed confirmed finite/return semantics back into audio-export-plan duration_semantics"
+  ]
+}

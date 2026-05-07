@@ -1,0 +1,294 @@
+{
+  "schema": "earthbound-decomp.audio-oracle-source-regeneration-plan.v1",
+  "status": "oracle_source_regeneration_plan_ready_policy_preserved",
+  "references": [
+    "manifests/audio-oracle-source-evidence-preflight.json",
+    "manifests/audio-independent-oracle-handoff-matrix.json",
+    "manifests/audio-duration-next-actions-plan.json",
+    "notes/audio-backend-contract.md"
+  ],
+  "source_preflight_status": "oracle_source_evidence_preflight_blocked_missing_ignored_artifacts",
+  "source_handoff_status": "independent_oracle_handoff_matrix_ready_external_inputs_required",
+  "source_next_action_lane": "independent_oracle_representative_capture",
+  "summary": {
+    "stage_count": 6,
+    "current_collector_ready_jobs": 0,
+    "current_source_blocked_jobs": 190,
+    "current_source_spc_present_count": 0,
+    "current_source_render_wav_present_count": 0,
+    "all_track_oracle_jobs": 190,
+    "representative_capture_jobs": 16,
+    "expected_source_spc_after_regeneration": 190,
+    "expected_source_render_wav_after_regeneration": 190,
+    "expected_known_no_keyon_skips": 1,
+    "behavior_change_allowed": false,
+    "promotion_allowed_by_plan": false
+  },
+  "representative_handoff_tracks": [
+    {
+      "execution_order": 1,
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 2,
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 3,
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 21.003219
+    },
+    {
+      "execution_order": 4,
+      "track_id": 46,
+      "track_name": "ONETT",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 5,
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 6,
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 7,
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "phase": "independent-representative-core",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 13.774594
+    },
+    {
+      "execution_order": 8,
+      "track_id": 10,
+      "track_name": "WHAT_THE_HECK",
+      "phase": "independent-duration-uncertainty-coverage",
+      "primary_uncertainty": "active_preview_classification_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 9,
+      "track_id": 8,
+      "track_name": "BATTLE_SWIRL1",
+      "phase": "independent-duration-uncertainty-coverage",
+      "primary_uncertainty": "finite_transition_review_pending",
+      "planned_duration_seconds": 4.036187
+    },
+    {
+      "execution_order": 10,
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "phase": "independent-duration-uncertainty-coverage",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "planned_duration_seconds": 120.0
+    },
+    {
+      "execution_order": 11,
+      "track_id": 12,
+      "track_name": "YOU_WON2",
+      "phase": "independent-duration-uncertainty-coverage",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "planned_duration_seconds": 3.390938
+    },
+    {
+      "execution_order": 12,
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "phase": "independent-probe-source-coverage",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "planned_duration_seconds": 30.0
+    },
+    {
+      "execution_order": 13,
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "phase": "independent-probe-source-coverage",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "planned_duration_seconds": 120.0
+    },
+    {
+      "execution_order": 14,
+      "track_id": 123,
+      "track_name": "SOMEONE_JOINS",
+      "phase": "independent-probe-source-coverage",
+      "primary_uncertainty": "finite_transition_review_pending",
+      "planned_duration_seconds": 2.624125
+    },
+    {
+      "execution_order": 15,
+      "track_id": 135,
+      "track_name": "TELEPORT_IN",
+      "phase": "independent-probe-source-coverage",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "planned_duration_seconds": 4.744781
+    },
+    {
+      "execution_order": 16,
+      "track_id": 161,
+      "track_name": "SOUNDSTONE_RECORDING_LILLIPUT_STEPS",
+      "phase": "independent-probe-source-coverage",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "planned_duration_seconds": 3.840281
+    }
+  ],
+  "regeneration_policy": [
+    "This plan regenerates ignored local source evidence and committed diagnostics only; it does not change playback/export behavior.",
+    "All generated SPC/WAV/backend outputs remain under ignored build/audio paths and must not be distributed.",
+    "The source regeneration lane must complete before collecting oracle comparison summaries in a clean workspace.",
+    "Independent external-emulator captures remain a separate operator-provided evidence step after source SPC/WAV evidence exists.",
+    "Exact durations, loop metadata, and release-quality playback claims remain blocked until their existing gates pass."
+  ],
+  "stages": [
+    {
+      "stage_id": "preflight_current_gap",
+      "rank": 1,
+      "purpose": "Confirm whether the oracle collector is blocked by missing local source/reference artifacts before regeneration.",
+      "expected_state_now": {
+        "collector_ready_job_count": 0,
+        "collector_blocked_missing_source_evidence_count": 190,
+        "source_spc_present_count": 0,
+        "source_render_wav_present_count": 0
+      },
+      "commands": [
+        "python tools/build_audio_oracle_source_evidence_preflight.py",
+        "python tools/validate_audio_oracle_source_evidence_preflight.py"
+      ],
+      "completion_gate": "The preflight records the current collector readiness state without creating comparison results.",
+      "behavior_change_allowed": false
+    },
+    {
+      "stage_id": "all_track_fusion_source_spc",
+      "rank": 2,
+      "purpose": "Regenerate all-track fused CHANGE_MUSIC/C0:AB06 last-key-on source SPC snapshots under ignored build/audio.",
+      "expected_outputs": {
+        "frontier_json": "build/audio/c0ab06-change-music-fusion-frontier-all/c0ab06-change-music-fusion-frontier-all.json",
+        "expected_load_paths": 191,
+        "expected_payload_matches": 191,
+        "expected_key_on_snapshots": 190,
+        "known_no_key_on_track": {
+          "track_id": 4,
+          "track_name": "NONE2"
+        }
+      },
+      "commands": [
+        "python tools/collect_audio_c0ab06_change_music_fusion_frontier.py --all-tracks --output build/audio/c0ab06-change-music-fusion-frontier-all/c0ab06-change-music-fusion-frontier-all.json",
+        "python tools/validate_audio_c0ab06_change_music_fusion_frontier.py build/audio/c0ab06-change-music-fusion-frontier-all/c0ab06-change-music-fusion-frontier-all.json"
+      ],
+      "completion_gate": "All CHANGE_MUSIC load paths validate, payload regions match, and all snapshot-backed tracks have valid last-key-on SPC files.",
+      "behavior_change_allowed": false
+    },
+    {
+      "stage_id": "spc_index_and_renderer_jobs",
+      "rank": 3,
+      "purpose": "Index the regenerated SPC snapshots and build the all-track libgme/snes_spc renderer job queue.",
+      "expected_outputs": {
+        "snapshot_index": "build/audio/c0ab06-change-music-fusion-spc-all/c0ab06-change-music-fusion-spc-all-snapshots.json",
+        "renderer_jobs": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-jobs.json",
+        "expected_renderer_jobs": 190,
+        "expected_skipped_records": 1
+      },
+      "commands": [
+        "python tools/build_audio_c0ab06_change_music_fusion_spc_index.py --frontier build/audio/c0ab06-change-music-fusion-frontier-all/c0ab06-change-music-fusion-frontier-all.json --output build/audio/c0ab06-change-music-fusion-spc-all/c0ab06-change-music-fusion-spc-all-snapshots.json",
+        "python tools/build_audio_backend_jobs_from_spc_index.py --snapshot-index build/audio/c0ab06-change-music-fusion-spc-all/c0ab06-change-music-fusion-spc-all-snapshots.json --out build/audio/c0ab06-change-music-fusion-render-jobs-all",
+        "python tools/validate_audio_backend_jobs.py build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-jobs.json"
+      ],
+      "completion_gate": "The job index contains 190 renderable snes_spc jobs and preserves the single no-key-on skip.",
+      "behavior_change_allowed": false
+    },
+    {
+      "stage_id": "libgme_render_and_metrics",
+      "rank": 4,
+      "purpose": "Render source WAVs from regenerated SPC snapshots, collect backend statuses, and refresh render metrics.",
+      "expected_outputs": {
+        "backend_summary": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-result-summary.json",
+        "render_metrics": "build/audio/c0ab06-change-music-fusion-render-jobs-all/libgme-render-metrics.json",
+        "expected_ok_results": 190,
+        "expected_audible_metrics": 190
+      },
+      "commands": [
+        "cmake -S tools/libgme_audio_harness -B build/audio/libgme-audio-harness-msvc -G \"Visual Studio 17 2022\" -DLIBGME_ROOT=<local-libgme-checkout>",
+        "cmake --build build/audio/libgme-audio-harness-msvc --config RelWithDebInfo",
+        "python tools/run_audio_backend_batch.py --jobs build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-jobs.json --summary build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-result-summary.json --mode external --force --external build/audio/libgme-audio-harness-msvc/RelWithDebInfo/earthbound_libgme_audio_harness.exe --job \"{job}\" --result \"{result}\"",
+        "python tools/validate_audio_backend_result_summary.py build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-result-summary.json",
+        "python tools/collect_audio_render_metrics.py --jobs build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-jobs.json --output build/audio/c0ab06-change-music-fusion-render-jobs-all/libgme-render-metrics.json",
+        "python tools/validate_audio_render_metrics.py build/audio/c0ab06-change-music-fusion-render-jobs-all/libgme-render-metrics.json"
+      ],
+      "completion_gate": "Every snapshot-backed track has a valid backend result and audible libgme render metrics.",
+      "behavior_change_allowed": false
+    },
+    {
+      "stage_id": "playback_oracle_plan_refresh",
+      "rank": 5,
+      "purpose": "Rebuild committed metadata that points to the regenerated source SPC/WAV evidence.",
+      "expected_outputs": {
+        "playback_manifest": "build/audio/c0ab06-change-music-fusion-render-jobs-all/playback-export-manifest.json",
+        "oracle_comparison_plan": "manifests/audio-oracle-comparison-plan-all-tracks.json",
+        "expected_oracle_jobs": 190
+      },
+      "commands": [
+        "python tools/build_audio_playback_export_manifest.py",
+        "python tools/validate_audio_playback_export_manifest.py",
+        "python tools/build_audio_oracle_comparison_plan.py --all-tracks --json manifests/audio-oracle-comparison-plan-all-tracks.json --markdown notes/audio-oracle-comparison-plan-all-tracks.md --output-root build/audio/oracle-comparison-all-tracks",
+        "python tools/validate_audio_oracle_comparison_plan.py manifests/audio-oracle-comparison-plan-all-tracks.json --allow-missing-source-outputs",
+        "python tools/build_audio_oracle_source_evidence_preflight.py",
+        "python tools/validate_audio_oracle_source_evidence_preflight.py"
+      ],
+      "completion_gate": "The preflight no longer reports missing source SPC/WAV artifacts for the 190 oracle jobs.",
+      "behavior_change_allowed": false
+    },
+    {
+      "stage_id": "reference_capture_and_collection",
+      "rank": 6,
+      "purpose": "After source evidence exists, import independent external-emulator captures and collect comparison results.",
+      "expected_outputs": {
+        "representative_jobs": 16,
+        "all_track_jobs": 190,
+        "comparison_summary": "build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json"
+      },
+      "commands": [
+        "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id <track-id> --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+        "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id <track-id>",
+        "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+        "python tools/validate_audio_oracle_comparison_summary.py build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+        "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+        "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass"
+      ],
+      "completion_gate": "Representative independent captures pass before release-quality playback is claimed.",
+      "behavior_change_allowed": false
+    }
+  ],
+  "post_plan_validation_commands": [
+    "python tools/build_audio_oracle_source_regeneration_plan.py",
+    "python tools/validate_audio_oracle_source_regeneration_plan.py",
+    "python tools/validate_audio_oracle_source_evidence_preflight.py",
+    "python tools/validate_audio_oracle_comparison_plan.py manifests/audio-oracle-comparison-plan-all-tracks.json --allow-missing-source-outputs",
+    "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+    "python tools/validate_audio_independent_oracle_handoff_matrix.py",
+    "python tools/validate_audio_independent_oracle_capture_packet.py",
+    "python tools/validate_audio_duration_next_actions_plan.py",
+    "git diff --check"
+  ]
+}

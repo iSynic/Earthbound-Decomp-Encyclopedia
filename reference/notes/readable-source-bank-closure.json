@@ -1,0 +1,73 @@
+{
+  "schema": "earthbound-decomp.readable-source-bank-closure.v1",
+  "generated_by": "tools/build_readable_source_bank_closure.py",
+  "summary": {
+    "banks": 5,
+    "bank_list": [
+      "C0",
+      "C1",
+      "C2",
+      "C4",
+      "EF"
+    ],
+    "total_bytes": 327680,
+    "decoded_asm_bytes": 255171,
+    "known_data_or_asset_bytes": 72509,
+    "preserved_corridor_bytes": 0,
+    "source_like_bytes": 255171,
+    "readable_source_percent": 100.0
+  },
+  "banks": [
+    {
+      "bank": "C0",
+      "decoded_asm_bytes": 63484,
+      "known_data_or_asset_bytes": 2052,
+      "preserved_corridor_bytes": 0,
+      "total_bytes": 65536,
+      "source_like_bytes": 63484,
+      "readable_source_percent": 100.0,
+      "largest_preserved_corridors": []
+    },
+    {
+      "bank": "C1",
+      "decoded_asm_bytes": 65536,
+      "known_data_or_asset_bytes": 0,
+      "preserved_corridor_bytes": 0,
+      "total_bytes": 65536,
+      "source_like_bytes": 65536,
+      "readable_source_percent": 100.0,
+      "largest_preserved_corridors": []
+    },
+    {
+      "bank": "C2",
+      "decoded_asm_bytes": 65276,
+      "known_data_or_asset_bytes": 260,
+      "preserved_corridor_bytes": 0,
+      "total_bytes": 65536,
+      "source_like_bytes": 65276,
+      "readable_source_percent": 100.0,
+      "largest_preserved_corridors": []
+    },
+    {
+      "bank": "C4",
+      "decoded_asm_bytes": 51376,
+      "known_data_or_asset_bytes": 14160,
+      "preserved_corridor_bytes": 0,
+      "total_bytes": 65536,
+      "source_like_bytes": 51376,
+      "readable_source_percent": 100.0,
+      "largest_preserved_corridors": []
+    },
+    {
+      "bank": "EF",
+      "decoded_asm_bytes": 9499,
+      "known_data_or_asset_bytes": 56037,
+      "preserved_corridor_bytes": 0,
+      "total_bytes": 65536,
+      "source_like_bytes": 9499,
+      "readable_source_percent": 100.0,
+      "largest_preserved_corridors": []
+    }
+  ],
+  "largest_preserved_corridors": []
+}

@@ -1,0 +1,667 @@
+{
+  "schema": "earthbound-decomp.audio-loop-point-evidence-plan.v1",
+  "status": "loop_point_evidence_plan_ready_preview_policy_preserved",
+  "references": [
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-export-plan.json",
+    "manifests/audio-pack-contracts.json",
+    "manifests/audio-oracle-comparison-plan-all-tracks.json"
+  ],
+  "summary": {
+    "job_count": 5,
+    "track_names": [
+      "LEVEL_UP",
+      "PHONE_CALL",
+      "SUDDEN_VICTORY",
+      "YOU_WON1",
+      "YOU_WON3"
+    ],
+    "primary_sample_pack_counts": {
+      "5": 5
+    },
+    "no_dedicated_sequence_pack_count": 5,
+    "diagnostic_focus_counts": {
+      "active_through_preview_or_loop_candidate": 4,
+      "general_playback_equivalence": 1
+    },
+    "preview_policy_loop_count": 2,
+    "preview_policy_fade_seconds": 5.0,
+    "promotion_allowed_by_plan": false,
+    "public_exact_loop_export_ready": false
+  },
+  "decision_policy": [
+    "Current playback/export behavior stays loop-count-plus-fade preview until loop or hold evidence is explicit.",
+    "These five tracks are not blocked by broad sequence-pack command promotion; they share primary sample pack 5 with no dedicated sequence pack.",
+    "Exact loop export requires sample-accurate intro, loop start, loop end, and measured_by evidence.",
+    "A held/SFX classification is valid evidence only if it keeps public exact loop export blocked or defines a separate held-policy export."
+  ],
+  "accepted_evidence_statuses": [
+    "exact_loop_points_available",
+    "held_policy_no_exact_loop_points",
+    "unresolved_loop_or_hold_policy"
+  ],
+  "post_evidence_validation_commands": [
+    "python tools/run_audio_loop_point_evidence_plan.py --mode audit-current-export",
+    "python tools/validate_audio_loop_point_evidence_run_summary.py",
+    "python tools/validate_audio_loop_point_evidence_plan.py",
+    "python tools/validate_audio_export_plan.py",
+    "python tools/validate_audio_duration_uncertainty_register.py"
+  ],
+  "jobs": [
+    {
+      "job_id": "loop-point-track-005-you_won1",
+      "execution_order": 1,
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "export_status": "preview_policy_ready_exact_loop_pending",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 120.0,
+      "loop_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "current_public_mode": "loop_count_plus_fade_preview"
+      },
+      "pack_context": {
+        "primary_sample_pack": 5,
+        "secondary_sample_pack": null,
+        "sequence_pack": null,
+        "no_dedicated_sequence_pack": true,
+        "load_order": [
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "cold_start_load_order": [
+          {
+            "role": "initialize_music_subsystem_sequence_pack",
+            "pack_id": 1,
+            "asset_id": "asset.e6.audio_pack_1_custom_inline"
+          },
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "primary_pack_source": {
+          "asset_id": "asset.eb.audio_pack_5",
+          "range": "EB:520C..EB:78D6",
+          "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a",
+          "stream_summary": {
+            "block_count": 4,
+            "payload_bytes": 9916,
+            "destination_roles": {
+              "brr_sample_or_high_apu_payload": 3,
+              "terminal_entry_handshake": 1
+            }
+          }
+        }
+      },
+      "source_candidate": {
+        "oracle_job_id": "oracle-track-005-you_won1",
+        "diagnostic_focus": "active_through_preview_or_loop_candidate",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-005-you_won1-change-music-fusion-last-keyon.spc",
+          "sha1": "2cc824379df1dcd4fdfac8f3d2d7279fe70669bd",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-005-you_won1/diagnostic-libgme-render.wav",
+          "sha1": "39653fa96d5ba571a995b0da517d6aafcfe8789f",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 15821,
+            "rms_sample": 937.109588,
+            "nonzero_sample_count": 1917595,
+            "first_nonzero_sample_index": 56,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        },
+        "reference_capture_outputs": {
+          "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-capture.spc",
+          "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-render.wav",
+          "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-capture.json",
+          "comparison_result": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/oracle-comparison-result.json"
+        }
+      },
+      "loop_gap": {
+        "status": "placeholder_only_exact_loop_points_pending",
+        "missing_fields": [
+          "intro_samples",
+          "loop_start_sample",
+          "loop_end_sample",
+          "measured_by"
+        ],
+        "required_evidence": [
+          "decoded sequence loop/fallthrough control flow",
+          "runtime confirmation of loop restart or held-note policy",
+          "sample-accurate loop start/end once the sequence semantics are promoted"
+        ],
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "evidence_questions": [
+        "Does the track sustain by held DSP voice state, BRR sample loop flags, or an actual driver loop?",
+        "If it loops, what are the sample-accurate intro, loop start, and loop end positions?",
+        "If it is held or policy-only, should public export remain loop-count/fade preview rather than exact loop metadata?"
+      ],
+      "required_runtime_evidence": [
+        "DSP voice envelope/key-on/key-off state across the preview tail",
+        "BRR/sample-loop evidence for voices active at the proposed loop boundary",
+        "rendered PCM repeat/hold evidence over at least the existing 120-second preview window",
+        "classification as exact_loop_points_available, held_policy_no_exact_loop_points, or unresolved"
+      ],
+      "dry_run_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-005-you_won1 --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-005-you_won1 --mode audit-current-export",
+      "promotion_allowed_by_plan": false,
+      "post_evidence_commands": [
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ]
+    },
+    {
+      "job_id": "loop-point-track-006-level_up",
+      "execution_order": 2,
+      "track_id": 6,
+      "track_name": "LEVEL_UP",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "export_status": "preview_policy_ready_exact_loop_pending",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 120.0,
+      "loop_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "current_public_mode": "loop_count_plus_fade_preview"
+      },
+      "pack_context": {
+        "primary_sample_pack": 5,
+        "secondary_sample_pack": null,
+        "sequence_pack": null,
+        "no_dedicated_sequence_pack": true,
+        "load_order": [
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "cold_start_load_order": [
+          {
+            "role": "initialize_music_subsystem_sequence_pack",
+            "pack_id": 1,
+            "asset_id": "asset.e6.audio_pack_1_custom_inline"
+          },
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "primary_pack_source": {
+          "asset_id": "asset.eb.audio_pack_5",
+          "range": "EB:520C..EB:78D6",
+          "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a",
+          "stream_summary": {
+            "block_count": 4,
+            "payload_bytes": 9916,
+            "destination_roles": {
+              "brr_sample_or_high_apu_payload": 3,
+              "terminal_entry_handshake": 1
+            }
+          }
+        }
+      },
+      "source_candidate": {
+        "oracle_job_id": "oracle-track-006-level_up",
+        "diagnostic_focus": "active_through_preview_or_loop_candidate",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-006-level_up-change-music-fusion-last-keyon.spc",
+          "sha1": "6317b2f671f599f6b009bfa76d8cee95a632ef63",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-006-level_up/diagnostic-libgme-render.wav",
+          "sha1": "743437aae2145723bd9cde9586380c1457068333",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 7196,
+            "rms_sample": 630.61243,
+            "nonzero_sample_count": 1907096,
+            "first_nonzero_sample_index": 35,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        },
+        "reference_capture_outputs": {
+          "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-006-level_up/reference-capture.spc",
+          "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-006-level_up/reference-render.wav",
+          "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-006-level_up/reference-capture.json",
+          "comparison_result": "build/audio/oracle-comparison-all-tracks/track-006-level_up/oracle-comparison-result.json"
+        }
+      },
+      "loop_gap": {
+        "status": "placeholder_only_exact_loop_points_pending",
+        "missing_fields": [
+          "intro_samples",
+          "loop_start_sample",
+          "loop_end_sample",
+          "measured_by"
+        ],
+        "required_evidence": [
+          "decoded sequence loop/fallthrough control flow",
+          "runtime confirmation of loop restart or held-note policy",
+          "sample-accurate loop start/end once the sequence semantics are promoted"
+        ],
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "evidence_questions": [
+        "Does the track sustain by held DSP voice state, BRR sample loop flags, or an actual driver loop?",
+        "If it loops, what are the sample-accurate intro, loop start, and loop end positions?",
+        "If it is held or policy-only, should public export remain loop-count/fade preview rather than exact loop metadata?"
+      ],
+      "required_runtime_evidence": [
+        "DSP voice envelope/key-on/key-off state across the preview tail",
+        "BRR/sample-loop evidence for voices active at the proposed loop boundary",
+        "rendered PCM repeat/hold evidence over at least the existing 120-second preview window",
+        "classification as exact_loop_points_available, held_policy_no_exact_loop_points, or unresolved"
+      ],
+      "dry_run_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-006-level_up --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-006-level_up --mode audit-current-export",
+      "promotion_allowed_by_plan": false,
+      "post_evidence_commands": [
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ]
+    },
+    {
+      "job_id": "loop-point-track-115-phone_call",
+      "execution_order": 3,
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "export_status": "preview_policy_ready_exact_loop_pending",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 120.0,
+      "loop_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "current_public_mode": "loop_count_plus_fade_preview"
+      },
+      "pack_context": {
+        "primary_sample_pack": 5,
+        "secondary_sample_pack": null,
+        "sequence_pack": null,
+        "no_dedicated_sequence_pack": true,
+        "load_order": [
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "cold_start_load_order": [
+          {
+            "role": "initialize_music_subsystem_sequence_pack",
+            "pack_id": 1,
+            "asset_id": "asset.e6.audio_pack_1_custom_inline"
+          },
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "primary_pack_source": {
+          "asset_id": "asset.eb.audio_pack_5",
+          "range": "EB:520C..EB:78D6",
+          "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a",
+          "stream_summary": {
+            "block_count": 4,
+            "payload_bytes": 9916,
+            "destination_roles": {
+              "brr_sample_or_high_apu_payload": 3,
+              "terminal_entry_handshake": 1
+            }
+          }
+        }
+      },
+      "source_candidate": {
+        "oracle_job_id": "oracle-track-115-phone_call",
+        "diagnostic_focus": "general_playback_equivalence",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-115-phone_call-change-music-fusion-last-keyon.spc",
+          "sha1": "d5d7795020ec462c3047f7d2e3a957baabc8392c",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-115-phone_call/diagnostic-libgme-render.wav",
+          "sha1": "29345f074325fdb2434673530835c5321faab3d4",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 6317,
+            "rms_sample": 1412.467934,
+            "nonzero_sample_count": 1338379,
+            "first_nonzero_sample_index": 22,
+            "last_nonzero_sample_index": 1919997,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        },
+        "reference_capture_outputs": {
+          "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-capture.spc",
+          "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-render.wav",
+          "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-capture.json",
+          "comparison_result": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/oracle-comparison-result.json"
+        }
+      },
+      "loop_gap": {
+        "status": "placeholder_only_exact_loop_points_pending",
+        "missing_fields": [
+          "intro_samples",
+          "loop_start_sample",
+          "loop_end_sample",
+          "measured_by"
+        ],
+        "required_evidence": [
+          "decoded sequence loop/fallthrough control flow",
+          "runtime confirmation of loop restart or held-note policy",
+          "sample-accurate loop start/end once the sequence semantics are promoted"
+        ],
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "evidence_questions": [
+        "Does the track sustain by held DSP voice state, BRR sample loop flags, or an actual driver loop?",
+        "If it loops, what are the sample-accurate intro, loop start, and loop end positions?",
+        "If it is held or policy-only, should public export remain loop-count/fade preview rather than exact loop metadata?"
+      ],
+      "required_runtime_evidence": [
+        "DSP voice envelope/key-on/key-off state across the preview tail",
+        "BRR/sample-loop evidence for voices active at the proposed loop boundary",
+        "rendered PCM repeat/hold evidence over at least the existing 120-second preview window",
+        "classification as exact_loop_points_available, held_policy_no_exact_loop_points, or unresolved"
+      ],
+      "dry_run_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-115-phone_call --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-115-phone_call --mode audit-current-export",
+      "promotion_allowed_by_plan": false,
+      "post_evidence_commands": [
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ]
+    },
+    {
+      "job_id": "loop-point-track-183-sudden_victory",
+      "execution_order": 4,
+      "track_id": 183,
+      "track_name": "SUDDEN_VICTORY",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "export_status": "preview_policy_ready_exact_loop_pending",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 120.0,
+      "loop_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "current_public_mode": "loop_count_plus_fade_preview"
+      },
+      "pack_context": {
+        "primary_sample_pack": 5,
+        "secondary_sample_pack": null,
+        "sequence_pack": null,
+        "no_dedicated_sequence_pack": true,
+        "load_order": [
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "cold_start_load_order": [
+          {
+            "role": "initialize_music_subsystem_sequence_pack",
+            "pack_id": 1,
+            "asset_id": "asset.e6.audio_pack_1_custom_inline"
+          },
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "primary_pack_source": {
+          "asset_id": "asset.eb.audio_pack_5",
+          "range": "EB:520C..EB:78D6",
+          "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a",
+          "stream_summary": {
+            "block_count": 4,
+            "payload_bytes": 9916,
+            "destination_roles": {
+              "brr_sample_or_high_apu_payload": 3,
+              "terminal_entry_handshake": 1
+            }
+          }
+        }
+      },
+      "source_candidate": {
+        "oracle_job_id": "oracle-track-183-sudden_victory",
+        "diagnostic_focus": "active_through_preview_or_loop_candidate",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-183-sudden_victory-change-music-fusion-last-keyon.spc",
+          "sha1": "581e06da148338f95541e96ac341aa6c5e1bd629",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-183-sudden_victory/diagnostic-libgme-render.wav",
+          "sha1": "be281fab7ce439f15ce3d034a13d815fea9f2236",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 14640,
+            "rms_sample": 751.693228,
+            "nonzero_sample_count": 1904379,
+            "first_nonzero_sample_index": 75,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        },
+        "reference_capture_outputs": {
+          "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-183-sudden_victory/reference-capture.spc",
+          "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-183-sudden_victory/reference-render.wav",
+          "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-183-sudden_victory/reference-capture.json",
+          "comparison_result": "build/audio/oracle-comparison-all-tracks/track-183-sudden_victory/oracle-comparison-result.json"
+        }
+      },
+      "loop_gap": {
+        "status": "placeholder_only_exact_loop_points_pending",
+        "missing_fields": [
+          "intro_samples",
+          "loop_start_sample",
+          "loop_end_sample",
+          "measured_by"
+        ],
+        "required_evidence": [
+          "decoded sequence loop/fallthrough control flow",
+          "runtime confirmation of loop restart or held-note policy",
+          "sample-accurate loop start/end once the sequence semantics are promoted"
+        ],
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "evidence_questions": [
+        "Does the track sustain by held DSP voice state, BRR sample loop flags, or an actual driver loop?",
+        "If it loops, what are the sample-accurate intro, loop start, and loop end positions?",
+        "If it is held or policy-only, should public export remain loop-count/fade preview rather than exact loop metadata?"
+      ],
+      "required_runtime_evidence": [
+        "DSP voice envelope/key-on/key-off state across the preview tail",
+        "BRR/sample-loop evidence for voices active at the proposed loop boundary",
+        "rendered PCM repeat/hold evidence over at least the existing 120-second preview window",
+        "classification as exact_loop_points_available, held_policy_no_exact_loop_points, or unresolved"
+      ],
+      "dry_run_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-183-sudden_victory --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-183-sudden_victory --mode audit-current-export",
+      "promotion_allowed_by_plan": false,
+      "post_evidence_commands": [
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ]
+    },
+    {
+      "job_id": "loop-point-track-184-you_won3",
+      "execution_order": 5,
+      "track_id": 184,
+      "track_name": "YOU_WON3",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "export_status": "preview_policy_ready_exact_loop_pending",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 120.0,
+      "loop_preview_policy": {
+        "loop_count": 2,
+        "fade_seconds": 5.0,
+        "current_public_mode": "loop_count_plus_fade_preview"
+      },
+      "pack_context": {
+        "primary_sample_pack": 5,
+        "secondary_sample_pack": null,
+        "sequence_pack": null,
+        "no_dedicated_sequence_pack": true,
+        "load_order": [
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "cold_start_load_order": [
+          {
+            "role": "initialize_music_subsystem_sequence_pack",
+            "pack_id": 1,
+            "asset_id": "asset.e6.audio_pack_1_custom_inline"
+          },
+          {
+            "role": "primary_sample_pack",
+            "pack_id": 5,
+            "asset_id": "asset.eb.audio_pack_5"
+          }
+        ],
+        "primary_pack_source": {
+          "asset_id": "asset.eb.audio_pack_5",
+          "range": "EB:520C..EB:78D6",
+          "sha1": "58306ac46054da72ab8437097ed945849d2f8c8a",
+          "stream_summary": {
+            "block_count": 4,
+            "payload_bytes": 9916,
+            "destination_roles": {
+              "brr_sample_or_high_apu_payload": 3,
+              "terminal_entry_handshake": 1
+            }
+          }
+        }
+      },
+      "source_candidate": {
+        "oracle_job_id": "oracle-track-184-you_won3",
+        "diagnostic_focus": "active_through_preview_or_loop_candidate",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-184-you_won3-change-music-fusion-last-keyon.spc",
+          "sha1": "73ec8d0878149f9e97a60bb1237d928308086f66",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-184-you_won3/diagnostic-libgme-render.wav",
+          "sha1": "c5536b342fe59bb3f970381d8ebe8dd720902541",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 21278,
+            "rms_sample": 1221.156455,
+            "nonzero_sample_count": 1915498,
+            "first_nonzero_sample_index": 1239,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        },
+        "reference_capture_outputs": {
+          "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-184-you_won3/reference-capture.spc",
+          "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-184-you_won3/reference-render.wav",
+          "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-184-you_won3/reference-capture.json",
+          "comparison_result": "build/audio/oracle-comparison-all-tracks/track-184-you_won3/oracle-comparison-result.json"
+        }
+      },
+      "loop_gap": {
+        "status": "placeholder_only_exact_loop_points_pending",
+        "missing_fields": [
+          "intro_samples",
+          "loop_start_sample",
+          "loop_end_sample",
+          "measured_by"
+        ],
+        "required_evidence": [
+          "decoded sequence loop/fallthrough control flow",
+          "runtime confirmation of loop restart or held-note policy",
+          "sample-accurate loop start/end once the sequence semantics are promoted"
+        ],
+        "preview_policy": {
+          "mode": "loop_count_plus_fade_preview",
+          "loop_count": 2,
+          "fade_seconds": 5.0
+        }
+      },
+      "evidence_questions": [
+        "Does the track sustain by held DSP voice state, BRR sample loop flags, or an actual driver loop?",
+        "If it loops, what are the sample-accurate intro, loop start, and loop end positions?",
+        "If it is held or policy-only, should public export remain loop-count/fade preview rather than exact loop metadata?"
+      ],
+      "required_runtime_evidence": [
+        "DSP voice envelope/key-on/key-off state across the preview tail",
+        "BRR/sample-loop evidence for voices active at the proposed loop boundary",
+        "rendered PCM repeat/hold evidence over at least the existing 120-second preview window",
+        "classification as exact_loop_points_available, held_policy_no_exact_loop_points, or unresolved"
+      ],
+      "dry_run_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-184-you_won3 --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_loop_point_evidence_plan.py --job-id loop-point-track-184-you_won3 --mode audit-current-export",
+      "promotion_allowed_by_plan": false,
+      "post_evidence_commands": [
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ]
+    }
+  ]
+}

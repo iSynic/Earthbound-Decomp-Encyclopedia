@@ -1,0 +1,163 @@
+{
+  "schema": "earthbound-decomp.audio-residual-uncertainty-coverage-report.v1",
+  "status": "residual_uncertainty_coverage_ready_policy_preserved",
+  "references": [
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-export-plan.json"
+  ],
+  "summary": {
+    "record_count": 8,
+    "track_ids": [
+      0,
+      4,
+      10,
+      12,
+      13,
+      14,
+      15,
+      135
+    ],
+    "primary_uncertainty_counts": {
+      "active_preview_classification_pending": 1,
+      "measurement_missing": 1,
+      "no_duration_uncertainty_for_current_export": 1,
+      "pcm_trim_usable_sequence_intent_open": 5
+    },
+    "export_class_counts": {
+      "finite_trim_candidate": 5,
+      "skip_no_audio": 1,
+      "unknown_active_preview": 1,
+      "unmeasured_or_missing": 1
+    },
+    "current_policy_state_counts": {
+      "public_exact_blocked": 2,
+      "public_exact_ready": 1,
+      "public_exact_ready_with_sequence_intent_open": 5
+    },
+    "public_exact_allowed_count": 6,
+    "public_exact_blocked_count": 2,
+    "pcm_trim_sequence_intent_open_count": 5,
+    "behavior_change_allowed": false,
+    "promotion_allowed_by_report": false
+  },
+  "coverage_policy": [
+    "This report covers residual duration lanes not already owned by control, loop, finite-tail, or independent-oracle coverage reports.",
+    "Public PCM-trim readiness is distinct from semantic sequence-intent promotion.",
+    "Measurement-missing and active-preview residual tracks remain public-exact blockers.",
+    "The no-audio skip track is recorded as ready and should not be treated as an audio duration blocker."
+  ],
+  "records": [
+    {
+      "track_id": 0,
+      "track_name": "NONE",
+      "primary_uncertainty": "measurement_missing",
+      "export_class": "unmeasured_or_missing",
+      "export_status": "blocked_or_skip_until_measured",
+      "recommended_mode": "do_not_public_export",
+      "duration_seconds": null,
+      "public_exact_export_allowed": false,
+      "duration_semantics_classification": "unknown_or_preview",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_blocked",
+      "recommended_action": "measure_or_confirm_skip_policy_before_public_export"
+    },
+    {
+      "track_id": 4,
+      "track_name": "NONE2",
+      "primary_uncertainty": "no_duration_uncertainty_for_current_export",
+      "export_class": "skip_no_audio",
+      "export_status": "ready",
+      "recommended_mode": "skip",
+      "duration_seconds": 0.0,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "skip",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready",
+      "recommended_action": "retain_ready_skip_no_audio_policy"
+    },
+    {
+      "track_id": 10,
+      "track_name": "WHAT_THE_HECK",
+      "primary_uncertainty": "active_preview_classification_pending",
+      "export_class": "unknown_active_preview",
+      "export_status": "preview_only",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "public_exact_export_allowed": false,
+      "duration_semantics_classification": "unknown_or_preview",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_blocked",
+      "recommended_action": "classify_active_preview_or_find_exact_end_before_public_exact_export"
+    },
+    {
+      "track_id": 12,
+      "track_name": "YOU_WON2",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "export_status": "usable_with_pcm_silence_evidence",
+      "recommended_mode": "trim_to_observed_end",
+      "duration_seconds": 3.390938,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "finite",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready_with_sequence_intent_open",
+      "recommended_action": "keep_public_pcm_trim_but_collect_sequence_intent_evidence_before_semantic_promotion"
+    },
+    {
+      "track_id": 13,
+      "track_name": "TELEPORT_OUT",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "export_status": "usable_with_pcm_silence_evidence",
+      "recommended_mode": "trim_to_observed_end",
+      "duration_seconds": 10.202156,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "finite",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready_with_sequence_intent_open",
+      "recommended_action": "keep_public_pcm_trim_but_collect_sequence_intent_evidence_before_semantic_promotion"
+    },
+    {
+      "track_id": 14,
+      "track_name": "TELEPORT_FAIL",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "export_status": "usable_with_pcm_silence_evidence",
+      "recommended_mode": "trim_to_observed_end",
+      "duration_seconds": 0.667156,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "finite",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready_with_sequence_intent_open",
+      "recommended_action": "keep_public_pcm_trim_but_collect_sequence_intent_evidence_before_semantic_promotion"
+    },
+    {
+      "track_id": 15,
+      "track_name": "FALLING_UNDERGROUND",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "export_status": "usable_with_pcm_silence_evidence",
+      "recommended_mode": "trim_to_observed_end",
+      "duration_seconds": 6.393813,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "finite",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready_with_sequence_intent_open",
+      "recommended_action": "keep_public_pcm_trim_but_collect_sequence_intent_evidence_before_semantic_promotion"
+    },
+    {
+      "track_id": 135,
+      "track_name": "TELEPORT_IN",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "export_status": "usable_with_pcm_silence_evidence",
+      "recommended_mode": "trim_to_observed_end",
+      "duration_seconds": 4.744781,
+      "public_exact_export_allowed": true,
+      "duration_semantics_classification": "finite",
+      "sequence_command_promotion_allowed": false,
+      "current_policy_state": "public_exact_ready_with_sequence_intent_open",
+      "recommended_action": "keep_public_pcm_trim_but_collect_sequence_intent_evidence_before_semantic_promotion"
+    }
+  ]
+}

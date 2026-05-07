@@ -1,0 +1,6 @@
+{
+  "schema": "earthbound-decomp.coilsnake-experiment-plan.v1",
+  "default_compile_timeout_seconds": 600,
+  "safety_note": "This manifest stores planned tiny CoilSnake project edits, expected text-match counts, and promotion targets only; generated projects and rebuilt ROMs stay under ignored build/coilsnake.",
+  "planned_experiments": []
+}

@@ -1,0 +1,1373 @@
+{
+  "files": [
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 169895,
+      "file_sha1": "3423a21ef38bb3b59c2de4aad236ea25bfee673a",
+      "line_count": 2575,
+      "line_length_counts": {
+        "290": 12,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2060,
+      "path": "refs/eb-decompile-4ef92/Tilesets/00.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "df59af787133cd6a2607f6577eacc88bae812bf8",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "0dcb5d35acef3f9760a56e13b99f47f762d45c48",
+          "unique_row_count": 544
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 12,
+          "row_length": 290,
+          "text_sha1": "6d143410dea6a64b4a306ebabe57048ccdd85696",
+          "unique_row_count": 12
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "ce2f44f399c3e239b25f87115f068f7d4cf9ac29",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "6bd4988e2473a0d620410312a1c556e90d5e72e8",
+          "unique_row_count": 833
+        }
+      ],
+      "tileset_id": 0
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 167276,
+      "file_sha1": "c9126465c4f626042c9fb0d8f5995ff54b6fc62d",
+      "line_count": 2566,
+      "line_length_counts": {
+        "290": 3,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2051,
+      "path": "refs/eb-decompile-4ef92/Tilesets/01.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "09bf34dc3b1b6a1fffc84afedeb3ce4d68edefa6",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "162d36c41c212c6e74e59790d586029a43feeb4e",
+          "unique_row_count": 586
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "012456789abcdefghijklmnopqrsuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 3,
+          "row_length": 290,
+          "text_sha1": "f7b87fa6123356a89b3329792b0e8483299d797d",
+          "unique_row_count": 3
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "194b18c231064a2962f39405ce79276df5af9bb3",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "91c0aa155a6edbc618f4565a4849acc51f9930e8",
+          "unique_row_count": 843
+        }
+      ],
+      "tileset_id": 1
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 167567,
+      "file_sha1": "c91a382d1cf6bddb9f110901c306242f359af6e2",
+      "line_count": 2567,
+      "line_length_counts": {
+        "290": 4,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2052,
+      "path": "refs/eb-decompile-4ef92/Tilesets/02.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "038aa93e7f94c174016494fbd31f8f88b73ad8c8",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "a71c9f8bbd3127da9f0b385aa276889aedaf4eb8",
+          "unique_row_count": 611
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 4,
+          "row_length": 290,
+          "text_sha1": "e7eccb031d7a1b7caf9c8af464bbe2dbf543d57e",
+          "unique_row_count": 4
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "e560f62c5dd8e7492c9240debf439d7063f82762",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "dad02f8cc983deb42bd2293d7d62a683fae317e0",
+          "unique_row_count": 827
+        }
+      ],
+      "tileset_id": 2
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 166985,
+      "file_sha1": "f392486a9a867f7d0170905f7c76084cf553b41b",
+      "line_count": 2565,
+      "line_length_counts": {
+        "290": 2,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2050,
+      "path": "refs/eb-decompile-4ef92/Tilesets/03.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "408efd4bbac87657c27bb739dd936fec211c1bfd",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "bbbd00d3c333f2111e1072c4dd81701d4e8a6b7d",
+          "unique_row_count": 592
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "013456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 2,
+          "row_length": 290,
+          "text_sha1": "b64560fd43526be1c848ccea2642e2756bd9c50e",
+          "unique_row_count": 2
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "cb01815e90b90eb00633229468a1e411e15143ae",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "11f270c238c2729cb170d2e3205fbd4a75bd686c",
+          "unique_row_count": 524
+        }
+      ],
+      "tileset_id": 3
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 166985,
+      "file_sha1": "7082547c7e0d68c40c3b5119783aee22b47923f2",
+      "line_count": 2565,
+      "line_length_counts": {
+        "290": 2,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2050,
+      "path": "refs/eb-decompile-4ef92/Tilesets/04.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "04401f2d5f469e75f898d40a96b017ddddca4389",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "171a605d5911677b5ee81e3dcfc4b107aa146eeb",
+          "unique_row_count": 547
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "013456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 2,
+          "row_length": 290,
+          "text_sha1": "4d2e490f13ffbfa62592e2a63eefa93fdcb05c04",
+          "unique_row_count": 2
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "72bb62ab87679b86fff5f4fceb17670089f20dbc",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "b9fd8afbf25a0624c679cbb0aa10fbb73edd639f",
+          "unique_row_count": 936
+        }
+      ],
+      "tileset_id": 4
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 167567,
+      "file_sha1": "f2f254cacb17aac35556c9020b95f291d9ac726d",
+      "line_count": 2567,
+      "line_length_counts": {
+        "290": 4,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2052,
+      "path": "refs/eb-decompile-4ef92/Tilesets/05.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "25c4eca9dd0b5a75ac985ea92d3cfc0971c8c860",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "36cb9da69e98ab1f6be9d2f08ef9e37941c71e08",
+          "unique_row_count": 410
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 4,
+          "row_length": 290,
+          "text_sha1": "545d2910810d18da3fe48c6ab06797ca6df5aab7",
+          "unique_row_count": 4
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "a591a45dd7fdfe196893f6e998afd51f00e23cac",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "8951215708f6d550fbb14331bcf112b8a0d8bdd1",
+          "unique_row_count": 288
+        }
+      ],
+      "tileset_id": 5
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168440,
+      "file_sha1": "59ee8f82be0e9dbc78ffd4a2175c3ccf79f6b03d",
+      "line_count": 2570,
+      "line_length_counts": {
+        "290": 7,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2055,
+      "path": "refs/eb-decompile-4ef92/Tilesets/06.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "9dc214c93d094ae04a09e758fa803f8d8e3ad091",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "71a0b3d6875a4a89b2b8dce04a255dcaf0c282e6",
+          "unique_row_count": 605
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 7,
+          "row_length": 290,
+          "text_sha1": "5d64e3b3b251c37ab545b5a565bb889592b8dca2",
+          "unique_row_count": 7
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "442052ad6dd5b25a4e6364fc344de5ab735b4234",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "2872ba5d0a7e162d6f6a19c70f9b3fe5c4765498",
+          "unique_row_count": 876
+        }
+      ],
+      "tileset_id": 6
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 166694,
+      "file_sha1": "0e1bffb0bca2b29f84147df4849487406c8ebf27",
+      "line_count": 2564,
+      "line_length_counts": {
+        "290": 1,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2049,
+      "path": "refs/eb-decompile-4ef92/Tilesets/07.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "c6e6cacdb9ee1fcfb575f42468c45bd40b1afbdb",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "43a0fa2bdab0044779b91909e9a8d378915af3cc",
+          "unique_row_count": 425
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "04789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 1,
+          "row_length": 290,
+          "text_sha1": "37cc82517b16a3a48dbede07d1febc862fe1efc7",
+          "unique_row_count": 1
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "1623b5837bc9a7919aebd05e36d49f22805fbed8",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "377803b38aaa6aaff22aa5dc073136d7b95036fc",
+          "unique_row_count": 750
+        }
+      ],
+      "tileset_id": 7
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 166985,
+      "file_sha1": "5976db1025831e2b096ca1a8c8826ce5a00f50bc",
+      "line_count": 2565,
+      "line_length_counts": {
+        "290": 2,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2050,
+      "path": "refs/eb-decompile-4ef92/Tilesets/08.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "a34186c1956e57643fc5b9e7ec472234d74bda94",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "b8ba50d60383d0572deef20f3b8cf8319689d3e9",
+          "unique_row_count": 417
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "01456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 2,
+          "row_length": 290,
+          "text_sha1": "d7fca2c668035122ae2e723009f5cb4c83b01e94",
+          "unique_row_count": 2
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "9d7ac8e5bb7a03125be6fc0dafe50722154e94ec",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "10fa69a318161c8577f845a376f8538232888b7c",
+          "unique_row_count": 629
+        }
+      ],
+      "tileset_id": 8
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168149,
+      "file_sha1": "c5dd57af0e32a20175179d3e53bf35dcacd3627d",
+      "line_count": 2569,
+      "line_length_counts": {
+        "290": 6,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2054,
+      "path": "refs/eb-decompile-4ef92/Tilesets/09.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "7d8d269b7c740720793dd71d0c0b8258a14b27c8",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "5b993ea89252b6f3942cd0a0554ab371f78b821f",
+          "unique_row_count": 504
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 6,
+          "row_length": 290,
+          "text_sha1": "36053f4c9a4de82a966d52b8bdf7b913d690dee8",
+          "unique_row_count": 6
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "b2aba9d466eafd9aa0183cafc43e3b9133e3b3d0",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "ec262989e0a464e72e3221f37ce71dc35878ca35",
+          "unique_row_count": 934
+        }
+      ],
+      "tileset_id": 9
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 181535,
+      "file_sha1": "e6b390107e93e4d4f7b0d01fe08ad33d6de7cf91",
+      "line_count": 2615,
+      "line_length_counts": {
+        "290": 52,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2100,
+      "path": "refs/eb-decompile-4ef92/Tilesets/10.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "c283de239922861c842125102f187fc917ce1029",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "3fc881a1fa3c14f1bb0c9ae6a1c5330235122b49",
+          "unique_row_count": 551
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 52,
+          "row_length": 290,
+          "text_sha1": "0f91d8ea0b9030c11c1d1e4777285ce5b0b732ff",
+          "unique_row_count": 52
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "1ce86c8ac23dbe69d4a1b522c6d26d774f4a3131",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "a5c093a9ded8cea103b3909cf4f7816570f554b6",
+          "unique_row_count": 872
+        }
+      ],
+      "tileset_id": 10
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 170477,
+      "file_sha1": "d5308cde48443092b7cfc171ee421b69bc628104",
+      "line_count": 2577,
+      "line_length_counts": {
+        "290": 14,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2062,
+      "path": "refs/eb-decompile-4ef92/Tilesets/11.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "e494561ed428681d407409e6a0422c58d6d59bf8",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "2ca5fdd96294e7015e6b531f772d230b760ca082",
+          "unique_row_count": 447
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 14,
+          "row_length": 290,
+          "text_sha1": "fdcf420bf3d5bc53060f9f44fda45f355890ce44",
+          "unique_row_count": 14
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "e05d4b85fea0425d0479cd9e76250d67554f4176",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "4346f7b3db67ecca039edf137692e2bba586f98d",
+          "unique_row_count": 714
+        }
+      ],
+      "tileset_id": 11
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168731,
+      "file_sha1": "35a7e0a4e4ea2ad8b9d5a8ca2725083a5a017de9",
+      "line_count": 2571,
+      "line_length_counts": {
+        "290": 8,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2056,
+      "path": "refs/eb-decompile-4ef92/Tilesets/12.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "f63f16f81ab5e7c2641d56656bf5427f3945ebcd",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "82453560922e04fd110567793e4bf959639a969b",
+          "unique_row_count": 522
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 8,
+          "row_length": 290,
+          "text_sha1": "17aae9cf3aa0630b2e7aa56d5de27f9b8becf4f9",
+          "unique_row_count": 8
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "00b4424748bfe2894e94dbc35419c5d5095eeb7e",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "937946a4d69bb9769ca5f7f0fe70b5a1968a479f",
+          "unique_row_count": 463
+        }
+      ],
+      "tileset_id": 12
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 172223,
+      "file_sha1": "e385baccc44bdba789fd4e0d3a14fda4f683320b",
+      "line_count": 2583,
+      "line_length_counts": {
+        "290": 20,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2068,
+      "path": "refs/eb-decompile-4ef92/Tilesets/13.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "38737a67638ba0603dcd1cacdd5a9e69dd41c693",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "ff8a92c44991a92b4c442016c95ddcb5b6c1b1db",
+          "unique_row_count": 527
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 20,
+          "row_length": 290,
+          "text_sha1": "d6516f29c25ed4d9435ae0ccc998ea43458e2347",
+          "unique_row_count": 20
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "e369f29c508fe6dc7ca299dcbbafeaf05ccd71e1",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "dbef16a1041d9eca8060629ba0ae2c90f5d769f9",
+          "unique_row_count": 883
+        }
+      ],
+      "tileset_id": 13
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168731,
+      "file_sha1": "58fb8dcb67961bce4e7fdeaf4ced0bbd72f103fe",
+      "line_count": 2571,
+      "line_length_counts": {
+        "290": 8,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2056,
+      "path": "refs/eb-decompile-4ef92/Tilesets/14.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "84928bb672923413e993c860ffe1966d27378579",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "8d76b0b0023dd1b424f4b53ece059ae7b2b8ce9d",
+          "unique_row_count": 457
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 8,
+          "row_length": 290,
+          "text_sha1": "7f65be74b84cc242ff9c0af61a916186157893dc",
+          "unique_row_count": 8
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "333ec538776bab0b876473f9dac914628f0a2288",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "3b094da0ac89b71223d9bb8d55139e1a9b467504",
+          "unique_row_count": 204
+        }
+      ],
+      "tileset_id": 14
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 167858,
+      "file_sha1": "83e96520fbe7ef71c2a2b035ae0d9bc9a2b5bdf8",
+      "line_count": 2568,
+      "line_length_counts": {
+        "290": 5,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2053,
+      "path": "refs/eb-decompile-4ef92/Tilesets/15.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "c06cba7bf99b5cd40ee60d8cfbb9190a2666dad3",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "1ea3213ad78229b97ef64b25022911007dc478a6",
+          "unique_row_count": 394
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 5,
+          "row_length": 290,
+          "text_sha1": "1bcfdb516de1a8339b9bcd2c517767ae4a837908",
+          "unique_row_count": 5
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "1b07e8a0c9fd6803f456f961ab9b455616482fd7",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "16e752ef5589c77ee6354ae61e425d782bf499d8",
+          "unique_row_count": 144
+        }
+      ],
+      "tileset_id": 15
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168440,
+      "file_sha1": "77f399c5c8fa552f5ecf0acde51f27eea62984cf",
+      "line_count": 2570,
+      "line_length_counts": {
+        "290": 7,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2055,
+      "path": "refs/eb-decompile-4ef92/Tilesets/16.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "b10f68e2bc1859ee61b33b293d10f64e0de7b936",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "a32284905eafeb2dd9d84abf98352db1d70b045c",
+          "unique_row_count": 473
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 7,
+          "row_length": 290,
+          "text_sha1": "d0c698b4321bd7d317f25566445709bc8908016c",
+          "unique_row_count": 7
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "faa79bb8434bb74773ee2fa11365fdf34dfb8fe3",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "f7371982583c21fc59be7891d99063e25267b1a6",
+          "unique_row_count": 391
+        }
+      ],
+      "tileset_id": 16
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 167567,
+      "file_sha1": "79e24649d80a6b415cb83986c75885f485fd6480",
+      "line_count": 2567,
+      "line_length_counts": {
+        "290": 4,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2052,
+      "path": "refs/eb-decompile-4ef92/Tilesets/17.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "70c79c70a4789e06f6c7f5e626119d3abea2f119",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "fda23c3752a2ab801ca5f029f24c695faddd7247",
+          "unique_row_count": 331
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 4,
+          "row_length": 290,
+          "text_sha1": "19d9be08af733b0cceba668a09dafb305e5b579a",
+          "unique_row_count": 4
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "4239b6e57bc7da83eb4f5b5da2594fe68401248a",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "5d9631844a8ba00728cb530322e7599eec5d6936",
+          "unique_row_count": 344
+        }
+      ],
+      "tileset_id": 17
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 166694,
+      "file_sha1": "88ca5988f635ae0a245606f54947baf6023d8268",
+      "line_count": 2564,
+      "line_length_counts": {
+        "290": 1,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2049,
+      "path": "refs/eb-decompile-4ef92/Tilesets/18.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "59cc9f8bd72c695c34dd6fbd8033f806577ec72b",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "bfdfb024823317b763e756feb1da351986ec15f8",
+          "unique_row_count": 245
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "045789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 1,
+          "row_length": 290,
+          "text_sha1": "4f5661e6c36a9c844c270305bff1c5e947beb94a",
+          "unique_row_count": 1
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "913fb1f98043b46328f45cdc5e7c0ea9a1689abc",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "410c4df2476c1e3462c2c9d546b3bbbf86f1c01f",
+          "unique_row_count": 446
+        }
+      ],
+      "tileset_id": 18
+    },
+    {
+      "blank_line_count": 515,
+      "file_byte_count": 168149,
+      "file_sha1": "579377f09a074d53602d89f0c60545c98b20c45b",
+      "line_count": 2569,
+      "line_length_counts": {
+        "290": 6,
+        "64": 1024,
+        "96": 1024
+      },
+      "matches_current_export_shape": true,
+      "nonblank_line_count": 2054,
+      "path": "refs/eb-decompile-4ef92/Tilesets/19.fts",
+      "section_count": 3,
+      "sections": [
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [
+            [
+              1,
+              511
+            ]
+          ],
+          "character_set": "0123456789abcdef",
+          "component": "tile_pixel_rows_64_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 32768,
+          "hex_bytes_sha1": "33ed67decdb84cd97addc2f96976a75909c8fbd6",
+          "interpretation": "8x8 indexed tile rows; 64 hex-like nibbles per row, packable as 32 bytes/tile",
+          "row_count": 1024,
+          "row_length": 64,
+          "text_sha1": "3f2149a46d330a9d3328dec957f08107dde9e588",
+          "unique_row_count": 328
+        },
+        {
+          "all_rows_hex_like": false,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdefghijklmnopqrstuv",
+          "component": "tile_animation_settings_rows_290_chars",
+          "confidence": "medium",
+          "hex_byte_count_if_packed": null,
+          "hex_bytes_sha1": null,
+          "interpretation": "base32-like tile-animation/settings rows; 5 blocks of 58 characters per row",
+          "row_count": 6,
+          "row_length": 290,
+          "text_sha1": "64352346aed18876168296dd17c0e54bee98caa7",
+          "unique_row_count": 6
+        },
+        {
+          "all_rows_hex_like": true,
+          "blank_runs_inside_section": [],
+          "character_set": "0123456789abcdef",
+          "component": "arrangement_collision_rows_96_chars",
+          "confidence": "high",
+          "hex_byte_count_if_packed": 49152,
+          "hex_bytes_sha1": "b4f6d29cf37c773b88f606b04e5818bb12f0455b",
+          "interpretation": "arrangement/collision cell records; 16 three-byte cells per row",
+          "row_count": 1024,
+          "row_length": 96,
+          "text_sha1": "723e82c1111d5d4239a9a02031276aa1831beb22",
+          "unique_row_count": 537
+        }
+      ],
+      "tileset_id": 19
+    }
+  ],
+  "generator": "tools/build_map_fts_format_audit.py",
+  "schema": "earthbound-decomp.map-fts-format-audit.v1",
+  "source_policy": "Reference-derived format audit. This records file hashes, section shapes, row counts, character sets, and section hashes only; it does not commit raw .fts rows or decoded ROM-derived payloads.",
+  "sources": {
+    "tileset_dir": "refs/eb-decompile-4ef92/Tilesets"
+  },
+  "summary": {
+    "direct_fts_export_count": 20,
+    "matching_current_export_shape_count": 20,
+    "section_totals": {
+      "arrangement_collision_rows_96_chars": {
+        "all_files_hex_like": true,
+        "character_set": "0123456789abcdef",
+        "files": 20,
+        "hex_byte_count_total_if_packed": 983040,
+        "row_count_max": 1024,
+        "row_count_min": 1024,
+        "row_count_total": 20480,
+        "row_length": 96
+      },
+      "tile_animation_settings_rows_290_chars": {
+        "all_files_hex_like": false,
+        "character_set": "0123456789abcdefghijklmnopqrstuv",
+        "files": 20,
+        "hex_byte_count_total_if_packed": null,
+        "row_count_max": 52,
+        "row_count_min": 1,
+        "row_count_total": 168,
+        "row_length": 290
+      },
+      "tile_pixel_rows_64_chars": {
+        "all_files_hex_like": true,
+        "character_set": "0123456789abcdef",
+        "files": 20,
+        "hex_byte_count_total_if_packed": 655360,
+        "row_count_max": 1024,
+        "row_count_min": 1024,
+        "row_count_total": 20480,
+        "row_length": 64
+      }
+    },
+    "tile_animation_settings_row_count_range": [
+      1,
+      52
+    ],
+    "tileset_ids_with_exports": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "title": "Map FTS Format Audit"
+}

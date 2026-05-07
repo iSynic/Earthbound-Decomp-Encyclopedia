@@ -1,0 +1,158 @@
+{
+  "behavior_counts": {
+    "bounded-insertion": 1,
+    "broad-repack": 2,
+    "fixed-byte": 3,
+    "script-lowering": 2
+  },
+  "experiment_count": 8,
+  "experiments": [
+    {
+      "behavior": "script-lowering",
+      "changed_bytes": 1,
+      "changed_span": "0x3896F6 (F8:96F6)..0x3896F7 (F8:96F7)",
+      "comparison_base": "build/coilsnake/scriptdump-rebuild.sfc",
+      "contiguous_changed_runs": 1,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "ccscript-body-command-byte-probe",
+      "kind": "ccscript",
+      "promotion_lane": "authoring-lowering-only",
+      "replacement_file": null,
+      "resource_family": "text-script",
+      "source_file": "ccscript/data_07.ccs"
+    },
+    {
+      "behavior": "script-lowering",
+      "changed_bytes": 2,
+      "changed_span": "0x050001 (C5:0001)..0x050003 (C5:0003)",
+      "comparison_base": "build/coilsnake/scriptdump-rebuild.sfc",
+      "contiguous_changed_runs": 1,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "ccscript-rom-goto-label-probe",
+      "kind": "ccscript",
+      "promotion_lane": "authoring-lowering-only",
+      "replacement_file": null,
+      "resource_family": "text-script",
+      "source_file": "ccscript/main.ccs"
+    },
+    {
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x0F60DC (CF:60DC)..0x0F60DD (CF:60DD)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 1,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "font0-width5-probe",
+      "kind": "format",
+      "promotion_lane": "candidate-local-contract-update",
+      "replacement_file": null,
+      "resource_family": "ui-font",
+      "source_file": "Fonts/0_widths.yml"
+    },
+    {
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x0ADCD0 (CA:DCD0)..0x0ADCD1 (CA:DCD1)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 1,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "bg-data-distortion1-probe",
+      "kind": "format",
+      "promotion_lane": "candidate-local-contract-update",
+      "replacement_file": null,
+      "resource_family": "battle-visual",
+      "source_file": "bg_data_table.yml"
+    },
+    {
+      "behavior": "fixed-byte",
+      "changed_bytes": 1,
+      "changed_span": "0x2011A4 (E0:11A4)..0x2011A5 (E0:11A5)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 1,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "town-map-first-icon-x-probe",
+      "kind": "format",
+      "promotion_lane": "candidate-local-contract-update",
+      "replacement_file": null,
+      "resource_family": "ui-town-map",
+      "source_file": "TownMaps/icon_positions.yml"
+    },
+    {
+      "behavior": "bounded-insertion",
+      "changed_bytes": 27,
+      "changed_span": "0x201FCB (E0:1FCB)..0x202000 (E0:2000)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 7,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "windowgraphics-windows1-copy-probe",
+      "kind": "format",
+      "promotion_lane": "candidate-local-contract-update",
+      "replacement_file": "WindowGraphics/Windows1_1.png",
+      "resource_family": "ui-window-graphics",
+      "source_file": "WindowGraphics/Windows1_0.png"
+    },
+    {
+      "behavior": "broad-repack",
+      "changed_bytes": 121244,
+      "changed_span": "0x00EBF3 (C0:EBF3)..0x2F11C8 (EF:11C8)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 5766,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "battlesprite-001-copy-probe",
+      "kind": "format",
+      "promotion_lane": "defer-runtime-promotion",
+      "replacement_file": "BattleSprites/002.png",
+      "resource_family": "battle-sprite",
+      "source_file": "BattleSprites/001.png"
+    },
+    {
+      "behavior": "broad-repack",
+      "changed_bytes": 21693,
+      "changed_span": "0x188F7B (D8:8F7B)..0x2F10B8 (EF:10B8)",
+      "comparison_base": "build/coilsnake/baseline-rebuild.sfc",
+      "contiguous_changed_runs": 957,
+      "evidence_level": "diff-confirmed",
+      "experiment_id": "tileset00-fts-nibble-probe",
+      "kind": "format",
+      "promotion_lane": "defer-runtime-promotion",
+      "replacement_file": null,
+      "resource_family": "map-tileset",
+      "source_file": "Tilesets/00.fts"
+    }
+  ],
+  "generated_by": "tools/build_coilsnake_phase2c_status.py",
+  "inputs": {
+    "ccscript_experiments": "manifests/coilsnake-ccscript-experiments.json",
+    "format_experiments": "manifests/coilsnake-format-experiments.json",
+    "scriptdump": "manifests/coilsnake-scriptdump-summary.json"
+  },
+  "promotion_lane_counts": {
+    "authoring-lowering-only": 2,
+    "candidate-local-contract-update": 4,
+    "defer-runtime-promotion": 2
+  },
+  "remaining_phase2c_actions": [
+    {
+      "action": "promote fixed-byte and bounded-insertion probes only where existing local callers/contracts already support the address",
+      "status": "ready"
+    },
+    {
+      "action": "keep broad-repack probes as editor/compiler behavior constraints until a narrower diff or pointer walk exists",
+      "status": "ready"
+    },
+    {
+      "action": "avoid treating full scriptdump roundtrip output as byte-stable runtime proof",
+      "status": "satisfied-by-policy"
+    }
+  ],
+  "safety_note": "This status stores only CoilSnake run metadata, counts, classifications, and diff spans; generated projects, images, scripts, and ROMs remain ignored.",
+  "schema": "earthbound-decomp.coilsnake-phase2c-status.v1",
+  "scriptdump_roundtrip": {
+    "changed_bytes": 511398,
+    "changed_span": "0x03FD8D (C3:FD8D)..0x38A10C (F8:A10C)",
+    "classification": "compiler-normalized-roundtrip",
+    "contiguous_changed_runs": 30055,
+    "promotion_lane": "authoring-oracle-only",
+    "status": "different"
+  }
+}

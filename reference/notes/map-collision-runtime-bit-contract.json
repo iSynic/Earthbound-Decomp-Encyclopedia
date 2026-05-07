@@ -1,0 +1,1055 @@
+{
+  "generator": "tools/build_map_collision_runtime_bit_contract.py",
+  "runtime_anchors": [
+    {
+      "address": "C0:54C9",
+      "mask": "0x0010",
+      "name": "Read_CollisionByteAndLatchBit10Coord",
+      "role": "latches $5DA8/$5DAA when the sampled byte has bit 0x10"
+    },
+    {
+      "address": "C0:5769",
+      "mask": "0x00C0",
+      "name": "Probe_SurfaceMaskCollisionSamples",
+      "role": "converts selected high-collision samples into a six-bit occupancy result and optionally stores raw OR in $5DA4"
+    },
+    {
+      "address": "C0:5B7B",
+      "mask": "0x003F",
+      "name": "Resolve_MovementSurfaceCollision",
+      "role": "returns low six raw collision bits after surface-mode resolution when movement can proceed"
+    },
+    {
+      "address": "C0:5DE7",
+      "mask": "0x000C",
+      "name": "Classify_EntityTerrainCompatibility",
+      "role": "maps raw collision bits 2-3 to an entity metadata permission check"
+    },
+    {
+      "address": "C0:5E3B/C0:5ECE and C0:A360/C0:A384",
+      "mask": "0x00D0",
+      "name": "Per-slot movement cache gate",
+      "role": "caches high collision plus special-surface bit and blocks regular slot movement when nonzero"
+    },
+    {
+      "address": "C0:3C4B, C0:460B, C0:4A11, C0:BA76, C0:D127, C0:E36A, C0:E57F",
+      "mask": "0x00C0",
+      "name": "High-collision consumers",
+      "role": "use high collision bits as current-position, player/bicycle, pathfinding, movement-script, or teleport obstruction checks"
+    }
+  ],
+  "runtime_masks": [
+    {
+      "counts": {
+        "d8_pool": {
+          "mask": "0xC0",
+          "masked_value_counts": [
+            {
+              "count": 22866,
+              "value": "0x00"
+            },
+            {
+              "count": 13822,
+              "value": "0x80"
+            }
+          ],
+          "matching_cell_count": 13822,
+          "matching_values": [
+            "0x80",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "full_fts": {
+          "mask": "0xC0",
+          "masked_value_counts": [
+            {
+              "count": 217258,
+              "value": "0x00"
+            },
+            {
+              "count": 110422,
+              "value": "0x80"
+            }
+          ],
+          "matching_cell_count": 110422,
+          "matching_values": [
+            "0x80",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "scene_sample": {
+          "mask": "0xC0",
+          "masked_value_counts": [
+            {
+              "count": 450403,
+              "value": "0x00"
+            },
+            {
+              "count": 522397,
+              "value": "0x80"
+            }
+          ],
+          "matching_cell_count": 522397,
+          "matching_values": [
+            "0x80",
+            "0x82",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        }
+      },
+      "data_observation": "The C0 code tests both 0x40 and 0x80, but the verified D8/.fts collision data currently uses 0x80 and never uses 0x40.",
+      "mask": "0x00C0",
+      "runtime_role": "C0:5769, C0:3C4B, player/bicycle movement, pathfinding, teleport, and movement-script probes treat any selected bit as blocking/high collision.",
+      "working_name": "high_collision_block_mask"
+    },
+    {
+      "counts": {
+        "d8_pool": {
+          "mask": "0xD0",
+          "masked_value_counts": [
+            {
+              "count": 22737,
+              "value": "0x00"
+            },
+            {
+              "count": 129,
+              "value": "0x10"
+            },
+            {
+              "count": 13540,
+              "value": "0x80"
+            },
+            {
+              "count": 282,
+              "value": "0x90"
+            }
+          ],
+          "matching_cell_count": 13951,
+          "matching_values": [
+            "0x10",
+            "0x80",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "full_fts": {
+          "mask": "0xD0",
+          "masked_value_counts": [
+            {
+              "count": 217007,
+              "value": "0x00"
+            },
+            {
+              "count": 251,
+              "value": "0x10"
+            },
+            {
+              "count": 109806,
+              "value": "0x80"
+            },
+            {
+              "count": 616,
+              "value": "0x90"
+            }
+          ],
+          "matching_cell_count": 110673,
+          "matching_values": [
+            "0x10",
+            "0x80",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "scene_sample": {
+          "mask": "0xD0",
+          "masked_value_counts": [
+            {
+              "count": 449542,
+              "value": "0x00"
+            },
+            {
+              "count": 861,
+              "value": "0x10"
+            },
+            {
+              "count": 520640,
+              "value": "0x80"
+            },
+            {
+              "count": 1757,
+              "value": "0x90"
+            }
+          ],
+          "matching_cell_count": 523258,
+          "matching_values": [
+            "0x10",
+            "0x80",
+            "0x82",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        }
+      },
+      "mask": "0x00D0",
+      "runtime_role": "Per-slot collision caches store and later gate movement on $5DA4 & #$00D0, combining the high collision family with the 0x10 special-surface latch bit.",
+      "working_name": "movement_cache_stop_mask"
+    },
+    {
+      "counts": {
+        "d8_pool": {
+          "mask": "0x10",
+          "masked_value_counts": [
+            {
+              "count": 36277,
+              "value": "0x00"
+            },
+            {
+              "count": 411,
+              "value": "0x10"
+            }
+          ],
+          "matching_cell_count": 411,
+          "matching_values": [
+            "0x10",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "full_fts": {
+          "mask": "0x10",
+          "masked_value_counts": [
+            {
+              "count": 326813,
+              "value": "0x00"
+            },
+            {
+              "count": 867,
+              "value": "0x10"
+            }
+          ],
+          "matching_cell_count": 867,
+          "matching_values": [
+            "0x10",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "scene_sample": {
+          "mask": "0x10",
+          "masked_value_counts": [
+            {
+              "count": 970182,
+              "value": "0x00"
+            },
+            {
+              "count": 2618,
+              "value": "0x10"
+            }
+          ],
+          "matching_cell_count": 2618,
+          "matching_values": [
+            "0x10",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        }
+      },
+      "mask": "0x0010",
+      "runtime_role": "C0:54C9 stores the raw probed coordinates into $5DA8/$5DAA when this bit is present; player movement later calls C0:7526 with that latched coordinate pair.",
+      "working_name": "special_surface_coord_latch"
+    },
+    {
+      "class_mapping": [
+        {
+          "entity_permission_mask": "0x04",
+          "masked_value": "0x00"
+        },
+        {
+          "entity_permission_mask": "0x02",
+          "masked_value": "0x04"
+        },
+        {
+          "entity_permission_mask": "0x01",
+          "masked_value": "0x08"
+        },
+        {
+          "entity_permission_mask": "0x01",
+          "masked_value": "0x0C"
+        }
+      ],
+      "counts": {
+        "d8_pool": {
+          "mask": "0x0C",
+          "masked_value_counts": [
+            {
+              "count": 32835,
+              "value": "0x00"
+            },
+            {
+              "count": 1789,
+              "value": "0x04"
+            },
+            {
+              "count": 1302,
+              "value": "0x08"
+            },
+            {
+              "count": 762,
+              "value": "0x0C"
+            }
+          ],
+          "matching_cell_count": 3853,
+          "matching_values": [
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x84",
+            "0x94"
+          ]
+        },
+        "full_fts": {
+          "mask": "0x0C",
+          "masked_value_counts": [
+            {
+              "count": 319013,
+              "value": "0x00"
+            },
+            {
+              "count": 4712,
+              "value": "0x04"
+            },
+            {
+              "count": 2347,
+              "value": "0x08"
+            },
+            {
+              "count": 1608,
+              "value": "0x0C"
+            }
+          ],
+          "matching_cell_count": 8667,
+          "matching_values": [
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x84",
+            "0x94"
+          ]
+        },
+        "scene_sample": {
+          "mask": "0x0C",
+          "masked_value_counts": [
+            {
+              "count": 944734,
+              "value": "0x00"
+            },
+            {
+              "count": 11104,
+              "value": "0x04"
+            },
+            {
+              "count": 12436,
+              "value": "0x08"
+            },
+            {
+              "count": 4526,
+              "value": "0x0C"
+            }
+          ],
+          "matching_cell_count": 28066,
+          "matching_values": [
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x94"
+          ]
+        }
+      },
+      "mask": "0x000C",
+      "runtime_role": "C0:5DE7 maps A & #$000C into a three-way permission mask against the entity metadata byte at D5:9589 + mapped_offset + 0x20.",
+      "working_name": "entity_terrain_compatibility_class"
+    },
+    {
+      "counts": {
+        "d8_pool": {
+          "mask": "0x3F",
+          "masked_value_counts": [
+            {
+              "count": 26265,
+              "value": "0x00"
+            },
+            {
+              "count": 3418,
+              "value": "0x01"
+            },
+            {
+              "count": 324,
+              "value": "0x02"
+            },
+            {
+              "count": 2419,
+              "value": "0x03"
+            },
+            {
+              "count": 1721,
+              "value": "0x04"
+            },
+            {
+              "count": 64,
+              "value": "0x05"
+            },
+            {
+              "count": 2,
+              "value": "0x07"
+            },
+            {
+              "count": 938,
+              "value": "0x08"
+            },
+            {
+              "count": 210,
+              "value": "0x09"
+            },
+            {
+              "count": 154,
+              "value": "0x0B"
+            },
+            {
+              "count": 485,
+              "value": "0x0C"
+            },
+            {
+              "count": 69,
+              "value": "0x0D"
+            },
+            {
+              "count": 208,
+              "value": "0x0F"
+            },
+            {
+              "count": 406,
+              "value": "0x10"
+            },
+            {
+              "count": 3,
+              "value": "0x12"
+            },
+            {
+              "count": 2,
+              "value": "0x14"
+            }
+          ],
+          "matching_cell_count": 10423,
+          "matching_values": [
+            "0x01",
+            "0x02",
+            "0x03",
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x10",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "full_fts": {
+          "mask": "0x3F",
+          "masked_value_counts": [
+            {
+              "count": 302918,
+              "value": "0x00"
+            },
+            {
+              "count": 7876,
+              "value": "0x01"
+            },
+            {
+              "count": 480,
+              "value": "0x02"
+            },
+            {
+              "count": 6874,
+              "value": "0x03"
+            },
+            {
+              "count": 4620,
+              "value": "0x04"
+            },
+            {
+              "count": 88,
+              "value": "0x05"
+            },
+            {
+              "count": 2,
+              "value": "0x07"
+            },
+            {
+              "count": 1666,
+              "value": "0x08"
+            },
+            {
+              "count": 357,
+              "value": "0x09"
+            },
+            {
+              "count": 324,
+              "value": "0x0B"
+            },
+            {
+              "count": 1064,
+              "value": "0x0C"
+            },
+            {
+              "count": 141,
+              "value": "0x0D"
+            },
+            {
+              "count": 403,
+              "value": "0x0F"
+            },
+            {
+              "count": 862,
+              "value": "0x10"
+            },
+            {
+              "count": 3,
+              "value": "0x12"
+            },
+            {
+              "count": 2,
+              "value": "0x14"
+            }
+          ],
+          "matching_cell_count": 24762,
+          "matching_values": [
+            "0x01",
+            "0x02",
+            "0x03",
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x10",
+            "0x82",
+            "0x84",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        },
+        "scene_sample": {
+          "mask": "0x3F",
+          "masked_value_counts": [
+            {
+              "count": 890026,
+              "value": "0x00"
+            },
+            {
+              "count": 26104,
+              "value": "0x01"
+            },
+            {
+              "count": 240,
+              "value": "0x02"
+            },
+            {
+              "count": 25763,
+              "value": "0x03"
+            },
+            {
+              "count": 10879,
+              "value": "0x04"
+            },
+            {
+              "count": 198,
+              "value": "0x05"
+            },
+            {
+              "count": 10,
+              "value": "0x07"
+            },
+            {
+              "count": 9325,
+              "value": "0x08"
+            },
+            {
+              "count": 1451,
+              "value": "0x09"
+            },
+            {
+              "count": 1660,
+              "value": "0x0B"
+            },
+            {
+              "count": 2734,
+              "value": "0x0C"
+            },
+            {
+              "count": 481,
+              "value": "0x0D"
+            },
+            {
+              "count": 1311,
+              "value": "0x0F"
+            },
+            {
+              "count": 2595,
+              "value": "0x10"
+            },
+            {
+              "count": 6,
+              "value": "0x12"
+            },
+            {
+              "count": 17,
+              "value": "0x14"
+            }
+          ],
+          "matching_cell_count": 82774,
+          "matching_values": [
+            "0x01",
+            "0x02",
+            "0x03",
+            "0x04",
+            "0x05",
+            "0x07",
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F",
+            "0x10",
+            "0x82",
+            "0x90",
+            "0x92",
+            "0x94"
+          ]
+        }
+      },
+      "mask": "0x003F",
+      "runtime_role": "C0:5B7B strips high collision bits before returning a movement/surface modifier byte to the player movement caller.",
+      "working_name": "returned_surface_modifier_mask"
+    }
+  ],
+  "schema": "earthbound-decomp.map-collision-runtime-bit-contract.v1",
+  "source_policy": "Reference-derived structural/runtime contract. This records small runtime tables, masks, counts, and interpretation boundaries only; it does not commit raw map payloads or collision grids.",
+  "sources": {
+    "c0_source_scaffold": "src/c0/bank_c0_helpers_asar.asm",
+    "c2_source_scaffold": "src/c2/bank_c2_helpers_asar.asm",
+    "collision_attribute_context": "notes/map-collision-attribute-context.json",
+    "collision_pointer_contract": "notes/map-collision-pointer-contract.json",
+    "rom": "EarthBound (USA).sfc",
+    "surface_probe_note": "notes/collision-surface-probes-c052d4-c05e3a.md"
+  },
+  "summary": {
+    "collision_storage_status": "The byte's D8 storage and .fts equivalence are closed by the pointer contract; this contract promotes runtime bit and mask roles without claiming every terrain label is final.",
+    "confidence": "high-structural / medium-semantic",
+    "observed_high_collision_values": [
+      "0x80",
+      "0x82",
+      "0x84",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "observed_special_latch_values": [
+      "0x10",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "runtime_supported_but_unobserved_high_bit": "0x40",
+    "single_mode_masks_from_c2_00d1": [
+      "0x001E",
+      "0x0033",
+      "0x001E",
+      "0x0033"
+    ],
+    "supported_high_collision_mask": "0x00C0",
+    "surface_sample_points": [
+      {
+        "slot": 0,
+        "x_offset": -8,
+        "y_offset": 0
+      },
+      {
+        "slot": 1,
+        "x_offset": 0,
+        "y_offset": 0
+      },
+      {
+        "slot": 2,
+        "x_offset": 7,
+        "y_offset": 0
+      },
+      {
+        "slot": 3,
+        "x_offset": -8,
+        "y_offset": 7
+      },
+      {
+        "slot": 4,
+        "x_offset": 0,
+        "y_offset": 7
+      },
+      {
+        "slot": 5,
+        "x_offset": 7,
+        "y_offset": 7
+      }
+    ],
+    "terrain_class_mask": "0x000C"
+  },
+  "surface_sample_model": {
+    "probe_result_rule": "C0:5769 returns a six-bit occupancy result whose bit N is set when selected sample point N had collision byte & #$00C0.",
+    "sample_points": [
+      {
+        "slot": 0,
+        "x_offset": -8,
+        "y_offset": 0
+      },
+      {
+        "slot": 1,
+        "x_offset": 0,
+        "y_offset": 0
+      },
+      {
+        "slot": 2,
+        "x_offset": 7,
+        "y_offset": 0
+      },
+      {
+        "slot": 3,
+        "x_offset": -8,
+        "y_offset": 7
+      },
+      {
+        "slot": 4,
+        "x_offset": 0,
+        "y_offset": 7
+      },
+      {
+        "slot": 5,
+        "x_offset": 7,
+        "y_offset": 7
+      }
+    ],
+    "single_mode_mask_table": {
+      "address": "C2:00D1",
+      "values": [
+        "0x001E",
+        "0x0033",
+        "0x001E",
+        "0x0033"
+      ]
+    },
+    "surface_decoders": [
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected high samples -> #$FFFF",
+            "result": "0x00"
+          },
+          {
+            "meaning": "left upper sample blocked -> mode #$0001",
+            "result": "0x01"
+          },
+          {
+            "meaning": "middle upper sample blocked -> #$FF00",
+            "result": "0x02"
+          },
+          {
+            "meaning": "right upper sample blocked -> mode #$0007",
+            "result": "0x04"
+          },
+          {
+            "meaning": "middle+right upper samples, aligned x -> mode #$0007",
+            "result": "0x06"
+          },
+          {
+            "meaning": "all three upper samples blocked -> #$FF00",
+            "result": "0x07"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [],
+        "mask": "0x0007",
+        "name": "C0:57E8 Resolve_SurfaceMask0007",
+        "possible_results": [
+          "0x00",
+          "0x01",
+          "0x02",
+          "0x03",
+          "0x04",
+          "0x05",
+          "0x06",
+          "0x07"
+        ],
+        "selected_slots": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected high samples -> #$FFFF",
+            "result": "0x00"
+          },
+          {
+            "meaning": "defensive/dead compare under this mask -> #$FF00",
+            "result": "0x07"
+          },
+          {
+            "meaning": "left lower sample blocked -> mode #$0003",
+            "result": "0x08"
+          },
+          {
+            "meaning": "middle lower sample blocked -> #$FF00",
+            "result": "0x10"
+          },
+          {
+            "meaning": "right lower sample blocked -> mode #$0005",
+            "result": "0x20"
+          },
+          {
+            "meaning": "middle+right lower samples, aligned x -> mode #$0005",
+            "result": "0x30"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [
+          "0x07"
+        ],
+        "mask": "0x0038",
+        "name": "C0:583C Resolve_SurfaceMask0038",
+        "possible_results": [
+          "0x00",
+          "0x08",
+          "0x10",
+          "0x18",
+          "0x20",
+          "0x28",
+          "0x30",
+          "0x38"
+        ],
+        "selected_slots": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected left-column high samples; retry after x-4 pixels",
+            "result": "0x00"
+          },
+          {
+            "meaning": "upper-left sample only; neighbor check can resolve mode #$0005",
+            "result": "0x01"
+          },
+          {
+            "meaning": "lower-left sample only; neighbor check can resolve mode #$0007",
+            "result": "0x08"
+          },
+          {
+            "meaning": "both left-column samples blocked; alignment decides #$FFFF/#$0006",
+            "result": "0x09"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [],
+        "mask": "0x0009",
+        "name": "C0:5890 Resolve_SurfaceMask0009",
+        "possible_results": [
+          "0x00",
+          "0x01",
+          "0x08",
+          "0x09"
+        ],
+        "selected_slots": [
+          0,
+          3
+        ]
+      },
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected right-column high samples; retry after x+4 pixels",
+            "result": "0x00"
+          },
+          {
+            "meaning": "upper-right sample only; neighbor check can resolve mode #$0003",
+            "result": "0x04"
+          },
+          {
+            "meaning": "lower-right sample only; neighbor check can resolve mode #$0001",
+            "result": "0x20"
+          },
+          {
+            "meaning": "both right-column samples blocked; alignment decides #$FFFF/#$0002",
+            "result": "0x24"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [],
+        "mask": "0x0024",
+        "name": "C0:59EF Resolve_SurfaceMask0024",
+        "possible_results": [
+          "0x00",
+          "0x04",
+          "0x20",
+          "0x24"
+        ],
+        "selected_slots": [
+          2,
+          5
+        ]
+      },
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected high samples -> preserve incoming mode",
+            "result": "0x00"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [],
+        "mask": "0x001E",
+        "name": "C0:5B4E single-mode masks for modes 1/5",
+        "possible_results": [
+          "0x00",
+          "0x02",
+          "0x04",
+          "0x06",
+          "0x08",
+          "0x0A",
+          "0x0C",
+          "0x0E",
+          "0x10",
+          "0x12",
+          "0x14",
+          "0x16",
+          "0x18",
+          "0x1A",
+          "0x1C",
+          "0x1E"
+        ],
+        "selected_slots": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "handled_results": [
+          {
+            "meaning": "no selected high samples -> preserve incoming mode",
+            "result": "0x00"
+          }
+        ],
+        "handled_results_not_possible_for_mask": [],
+        "mask": "0x0033",
+        "name": "C0:5B4E single-mode masks for modes 3/7",
+        "possible_results": [
+          "0x00",
+          "0x01",
+          "0x02",
+          "0x03",
+          "0x10",
+          "0x11",
+          "0x12",
+          "0x13",
+          "0x20",
+          "0x21",
+          "0x22",
+          "0x23",
+          "0x30",
+          "0x31",
+          "0x32",
+          "0x33"
+        ],
+        "selected_slots": [
+          0,
+          1,
+          4,
+          5
+        ]
+      }
+    ],
+    "x_offset_table": {
+      "address": "C2:00B9",
+      "values": [
+        -8,
+        0,
+        7,
+        -8,
+        0,
+        7
+      ]
+    },
+    "y_offset_table": {
+      "address": "C2:00C5",
+      "values": [
+        0,
+        0,
+        0,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "title": "Map Collision Runtime Bit Contract"
+}
