@@ -848,20 +848,7 @@ function uniqueSearchTerms(markdown, maxChars) {
 }
 
 function deferredBodyStub(entry, fullBody) {
-  const headings = markdownHeadings(fullBody, 10);
-  const preview = markdownPreview(fullBody);
-  return [
-    entry.summary || "Large generated entry body.",
-    "",
-    "## Deferred Body",
-    `This entry is ${fullBody.length.toLocaleString("en-US")} markdown characters, so the app keeps a compact stub in the startup catalog and loads the full body only when requested.`,
-    "",
-    headings.length ? "## In This Entry" : "",
-    headings.map((heading) => `- ${heading}`).join("\n"),
-    "",
-    "## Preview",
-    preview
-  ].filter(Boolean).join("\n");
+  return entry.summary || markdownPreview(fullBody) || "Large reference entry.";
 }
 
 function writeDeferredDataChunk(key, value) {
@@ -1074,7 +1061,7 @@ function markdownExcerpt(markdown, maxChars = 24000) {
     .trim();
   if (withoutTitle.length <= maxChars) {
     return {
-      note: "Full note content embedded.",
+      note: "",
       markdown: withoutTitle
     };
   }
@@ -1411,10 +1398,8 @@ function renderLearningPathBody(chapter, chapterEntry, evidence) {
   const searchTerms = unique([...(chapter.aliases || []), ...(chapter.keywords || [])]).slice(0, 16);
 
   return [
-    `This learning path is a guided route through [[${chapter.id}|${chapter.title}]]. Use it when you want the educational order before dropping into notes, source files, or generated references.`,
-    "",
     "## 1. Start With The Narrative",
-    `Open [[${chapter.id}|${chapter.title}]] first. It explains the mental model and names the current confidence boundary before the evidence gets noisy.`,
+    `[[${chapter.id}|${chapter.title}]]`,
     "",
     (chapter.sections || []).length ? "## 2. Concepts To Track" : "",
     (chapter.sections || []).map((section) => `- ${section.title}`).join("\n"),
@@ -1429,10 +1414,7 @@ function renderLearningPathBody(chapter, chapterEntry, evidence) {
     relatedEntries.map((id) => `- [[${id}|${entryTitleForId(id)}]]`).join("\n"),
     "",
     searchTerms.length ? "## Search Terms" : "",
-    searchTerms.length ? searchTerms.map((term) => `- \`${term}\``).join("\n") : "",
-    "",
-    "## Promotion Note",
-    "Generated references are evidence, not final prose. Promote a page into a stronger chapter section only when it teaches what can be safely inferred and what remains uncertain."
+    searchTerms.length ? searchTerms.map((term) => `- \`${term}\``).join("\n") : ""
   ].filter(Boolean).join("\n");
 }
 
@@ -1487,36 +1469,35 @@ function buildLearningPathData(chapter, chapterEntry, evidence) {
     steps: [
       {
         title: "Start With The Narrative",
-        summary: "Read the chapter first so the evidence has context and confidence boundaries.",
+        summary: "",
         items: [learningPathEntryItem(chapter.id, "Narrative chapter")].filter(Boolean)
       },
       {
         title: "Concepts To Track",
-        summary: "Keep these ideas in mind while reading notes and generated references.",
+        summary: "",
         concepts
       },
       {
         title: "Primary Evidence",
-        summary: "Configured source notes for this chapter. These are the strongest evidence anchors.",
+        summary: "",
         items: evidence.filter((match) => match.configured).slice(0, 8).map((match) => learningPathEvidenceItem(match, "Primary evidence note"))
       },
       {
         title: "Related Evidence",
-        summary: "Additional notes matched by keywords and topic classifiers.",
+        summary: "",
         items: evidence.filter((match) => !match.configured).slice(0, 6).map((match) => learningPathEvidenceItem(match, "Related evidence note"))
       },
       {
         title: "Practical References",
-        summary: "Entries you are likely to use after reading the conceptual layer.",
+        summary: "",
         items: relatedEntries.map((id) => learningPathEntryItem(id)).filter(Boolean)
       },
       {
         title: "Search Terms",
-        summary: "Useful terms for global search once you want to branch out.",
+        summary: "",
         terms: searchTerms
       }
-    ],
-    promotionNote: "Generated references are evidence, not final prose. Promote a page into a stronger chapter section only when it teaches what can be safely inferred and what remains uncertain."
+    ]
   };
 }
 
@@ -1536,10 +1517,6 @@ function addLearningPathEntries() {
     showInToc: true,
     tocPriority: 0,
     body: [
-      "Learning paths are generated route cards. They sit between polished narrative chapters and raw generated references.",
-      "",
-      "Use them when you want a practical sequence: chapter first, primary evidence second, source/topic/bank references third.",
-      "",
       "## Paths",
       chapters.map((chapter) => `- [[${learningPathIdForChapter(chapter)}|${chapter.title} Learning Path]] - ${chapter.summary}`).join("\n")
     ].join("\n")
@@ -2342,6 +2319,17 @@ function addEvidenceNoteEntries() {
     const excerpt = markdownExcerpt(markdown);
     const bank = inferBankFromRelativePath(relativePath);
     const topics = classifyNote(relativePath, title, markdown);
+    const context = [
+      "## Reference Context",
+      `- Source: \`${relativePath}\``,
+      topics.length
+        ? `- Topics: ${topics.map((topicId) => {
+            const topic = topicConfigs.find((candidate) => candidate.id === topicId);
+            return topic ? `[[${topic.id}|${topic.title}]]` : "";
+          }).filter(Boolean).join(", ")}`
+        : "",
+      headings.length ? `- Headings: ${headings.slice(0, 12).join("; ")}${headings.length > 12 ? `; ${headings.length - 12} more` : ""}` : ""
+    ].filter(Boolean).join("\n");
     pathEntryIds.set(relativePath, id);
 
     const entry = {
@@ -2356,27 +2344,9 @@ function addEvidenceNoteEntries() {
       related: unique([...(bank ? [`bank-${bank.toLowerCase()}`] : ["overview"]), ...topics]),
       showInToc: false,
       body: [
-        "This is an evidence note entry. The encyclopedia should cite it, but curated chapter pages should carry the distilled explanation.",
-        "",
-        "## Source Note",
-        `\`${relativePath}\``,
-        "",
-        "## Summary",
-        firstParagraph(markdown),
-        "",
-        topics.length ? "## Topic Links" : "",
-        topics.map((topicId) => {
-          const topic = topicConfigs.find((candidate) => candidate.id === topicId);
-          return topic ? `- [[${topic.id}|${topic.title}]]` : "";
-        }).filter(Boolean).join("\n"),
-        "",
-        headings.length ? "## Headings" : "",
-        headings.map((heading) => `- ${heading}`).join("\n"),
-        "",
-        "## Note Content",
+        excerpt.markdown,
         excerpt.note,
-        "",
-        excerpt.markdown
+        context
       ].filter(Boolean).join("\n")
     };
     noteEntries.push({
@@ -2508,20 +2478,16 @@ function addReferenceScriptEntries() {
       related: unique(["script-source-index", "systems-hub", "topic-localization-authoring", "script-and-text-vms", "text-command-vm"]),
       showInToc: false,
       body: [
-        "This is a decoded reference-script source file from the 1995 EarthBound script source archive.",
-        "",
-        "## Source File",
-        `\`${relativePath}\``,
-        "",
-        "## Encoding",
-        "`Shift-JIS` decoded at build time for readable Japanese text in the app.",
+        "## Message Source",
+        fencedCode("msg", decoded),
         "",
         labels.length ? "## Message Labels" : "",
         labels.slice(0, 80).map((label) => `- \`${label}\``).join("\n"),
         labels.length > 80 ? `- ${labels.length - 80} more labels indexed for search.` : "",
         "",
-        "## Message Source",
-        fencedCode("msg", decoded)
+        "## Reference Context",
+        `- Source: \`${relativePath}\``,
+        "- Encoding: `Shift-JIS`, decoded at build time for readable Japanese text."
       ].filter(Boolean).join("\n")
     });
   }
@@ -2535,8 +2501,6 @@ function addReferenceScriptEntries() {
     related: ["overview", "systems-hub", "topic-localization-authoring", "script-and-text-vms", "text-command-vm"],
     tocPriority: 24,
     body: [
-      "These reference files are bundled from `refs/earthbound-script-source-1995-03-25` and decoded from Shift-JIS at build time.",
-      "",
       "## Files",
       scriptEntries.map((entry) => `- [[${entry.id}|${entry.title}]] - \`${entry.relativePath}\`; ${entry.lineCount.toLocaleString("en-US")} lines; ${entry.labels.length.toLocaleString("en-US")} labels`).join("\n")
     ].join("\n")
@@ -2609,9 +2573,6 @@ function addTopicEntries() {
       body: [
         topic.summary,
         "",
-        "## Reading Use",
-        "Use this page as a practical entry point when a raw note title is too narrow. The evidence list below points back to the original notes, while related links point into curated system pages, bank pages, and generated indexes.",
-        "",
         topic.banks.length ? "## Primary Banks" : "",
         topic.banks.map((bank) => `- [[bank-${bank.toLowerCase()}|Bank ${bank}]]`).join("\n"),
         "",
@@ -2620,7 +2581,7 @@ function addTopicEntries() {
         "",
         "## Evidence Notes",
         evidenceLinks.join("\n") || "No notes were classified into this topic yet.",
-        notes.length > evidenceLinks.length ? `- ${notes.length - evidenceLinks.length} more evidence notes omitted from this compact topic page; use search for exact titles or filenames.` : ""
+        notes.length > evidenceLinks.length ? `- ${notes.length - evidenceLinks.length} more notes; use search for exact titles or filenames.` : ""
       ].filter(Boolean).join("\n")
     });
   }

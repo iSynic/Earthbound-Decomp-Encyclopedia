@@ -428,7 +428,7 @@ function renderDocument() {
 
   currentDocumentOutline = [];
   documentEl.innerHTML = `
-    <div class="docInner">
+    <div class="docInner${isWideReaderEntry(entry) ? " wideDoc" : ""}">
       ${renderFirstRunPrompt()}
       <div class="entryKind">${escapeHtml(entry.kind)}</div>
       <div class="titleRow">
@@ -438,7 +438,7 @@ function renderDocument() {
       ${renderMetaStrip(entry)}
       ${shouldRenderSummary(entry) ? `<p>${escapeHtml(entry.summary)}</p>` : ""}
       ${renderEntryBody(entry)}
-      ${renderDeferredBodyLoader(entry)}
+      ${entry.sourceFile ? "" : renderDeferredBodyLoader(entry)}
       ${renderReferenceWorkbench(entry)}
       ${entry.id === "relationship-graph" ? renderRelationshipGraphDocument() : renderEntryGraphPreview(entry)}
     </div>
@@ -496,6 +496,10 @@ function renderDocument() {
 
   renderRail(entry);
   applyPendingScroll();
+}
+
+function isWideReaderEntry(entry) {
+  return Boolean(entry.sourceFile || entry.kind === "reference-script" || entry.kind === "source");
 }
 
 function shouldRenderSummary(entry) {
@@ -881,7 +885,7 @@ function renderSourceFileReader(entry) {
           ${renderSourceOutline(file, labelAnchors)}
         </aside>
         <div class="sourceCodePanel">
-          ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand. Use the button below to open the complete commented source body.</div>`}
+          ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand.</div>${renderDeferredBodyLoader(entry)}`}
         </div>
       </div>
       ${renderRelatedNotesPanel(entry)}
@@ -1085,8 +1089,7 @@ function renderLearningPathIndex() {
         <div class="learningStepMarker">1</div>
         <div class="learningStepBody">
           <h2>Guided Routes</h2>
-          <p>Each path starts with a curated chapter, then branches into primary notes, source references, topic pages, and search vocabulary.</p>
-          <div class="learningCardGrid">
+          <div class="learningList">
             ${paths.map((entry) => {
               const path = entry.learningPath || {};
               const stepCount = path.steps?.length || 0;
@@ -1094,9 +1097,7 @@ function renderLearningPathIndex() {
               return `
                 <button type="button" class="learningCard" data-entry-id="${escapeHtml(entry.id)}">
                   <span class="learningCardTitle">${escapeHtml(entry.title)}</span>
-                  <span class="learningCardMeta">${stepCount} stages - ${linkCount} linked references</span>
-                  ${entry.summary ? `<span class="learningCardSummary">${escapeHtml(entry.summary)}</span>` : ""}
-                  ${entry.banks?.length ? `<span class="referenceTags">${entry.banks.slice(0, 4).map((bank) => `<span>Bank ${escapeHtml(bank)}</span>`).join("")}</span>` : ""}
+                  <span class="learningCardMeta">${stepCount} stages - ${linkCount} links${entry.banks?.length ? ` - Bank ${escapeHtml(entry.banks.slice(0, 4).join(", "))}` : ""}</span>
                 </button>
               `;
             }).join("")}
@@ -1127,22 +1128,6 @@ function renderLearningPathGuide(entry) {
       </section>
     `;
   }).join("");
-  if (path.promotionNote) {
-    const promotionId = uniqueHeadingId("Promotion Note", headingCounts);
-    currentDocumentOutline.push({ id: promotionId, level: 2, title: "Promotion Note" });
-    return `
-      <section class="learningPathGuide">
-        ${steps}
-        <section class="learningStep learningStepNote" id="${escapeHtml(promotionId)}">
-          <div class="learningStepMarker">!</div>
-          <div class="learningStepBody">
-            <h2>Promotion Note</h2>
-            <p>${escapeHtml(path.promotionNote)}</p>
-          </div>
-        </section>
-      </section>
-    `;
-  }
   return `<section class="learningPathGuide">${steps}</section>`;
 }
 
@@ -1151,7 +1136,7 @@ function renderLearningConcepts(concepts) {
     return "";
   }
   return `
-    <div class="learningConceptGrid">
+    <div class="learningConceptList">
       ${concepts.map((concept) => `
         <div class="learningConcept">
           <span>${escapeHtml(concept.title || "Concept")}</span>
@@ -1168,7 +1153,7 @@ function renderLearningItems(items) {
     return "";
   }
   return `
-    <div class="learningCardGrid">
+    <div class="learningList">
       ${validItems.map((item) => `
         <button type="button" class="learningCard" data-entry-id="${escapeHtml(item.id)}">
           <span class="learningCardTitle">${escapeHtml(item.title || item.id)}</span>
@@ -1308,8 +1293,7 @@ function renderReferenceWorkbench(entry) {
   return `
     <section class="referenceWorkbench">
       <div class="referenceHeader">
-        <h2>Reference Shelf</h2>
-        <p>Generated links for moving from the explanation to the underlying evidence.</p>
+        <h2>References</h2>
       </div>
       ${sections.join("")}
     </section>
@@ -1340,7 +1324,7 @@ function referenceSection(title, cards) {
   return `
     <section class="referenceSection">
       <h3>${escapeHtml(title)}</h3>
-      <div class="referenceGrid">${cards.join("")}</div>
+      <div class="referenceList">${cards.join("")}</div>
     </section>
   `;
 }
@@ -1631,8 +1615,8 @@ function renderDeferredBodyLoader(entry) {
   return `
     <div class="deferredBody">
       <div>
-        <div class="deferredTitle">Full body deferred</div>
-        <div class="deferredText">This page starts with a compact stub. Search still uses its generated index, and the full ${escapeHtml(size)} can be loaded on demand.</div>
+        <div class="deferredTitle">Full Entry</div>
+        <div class="deferredText">${escapeHtml(size)} available on demand.</div>
         ${status}
       </div>
       <button type="button" class="loadBodyButton" data-load-body-id="${escapeHtml(entry.id)}" ${entry.bodyLoading ? "disabled" : ""}>
@@ -1724,25 +1708,48 @@ function enhanceCodeBlocks() {
       return;
     }
     const lineCount = pre.querySelectorAll(".codeLine").length || (pre.textContent || "").split("\n").length;
-    if (lineCount < 36) {
-      return;
-    }
+    const isLongBlock = lineCount >= 36;
 
     const wrapper = document.createElement("div");
-    wrapper.className = "codeBlockWrap collapsed";
-    const button = document.createElement("button");
-    button.className = "codeToggle";
-    button.type = "button";
-    button.textContent = `Expand code (${lineCount} lines)`;
-    button.setAttribute("aria-expanded", "false");
-    button.addEventListener("click", () => {
-      const isCollapsed = wrapper.classList.toggle("collapsed");
-      button.textContent = isCollapsed ? `Expand code (${lineCount} lines)` : "Collapse code";
-      button.setAttribute("aria-expanded", String(!isCollapsed));
+    wrapper.className = isLongBlock ? "codeBlockWrap collapsed" : "codeBlockWrap";
+    const controls = document.createElement("div");
+    controls.className = "codeControls";
+
+    if (isLongBlock) {
+      const button = document.createElement("button");
+      button.className = "codeToggle";
+      button.type = "button";
+      button.textContent = `Expand code (${lineCount} lines)`;
+      button.setAttribute("aria-expanded", "false");
+      button.addEventListener("click", () => {
+        const isCollapsed = wrapper.classList.toggle("collapsed");
+        button.textContent = isCollapsed ? `Expand code (${lineCount} lines)` : "Collapse code";
+        button.setAttribute("aria-expanded", String(!isCollapsed));
+      });
+      controls.appendChild(button);
+    }
+
+    const wrapButton = document.createElement("button");
+    wrapButton.className = "codeToggle";
+    wrapButton.type = "button";
+    wrapButton.textContent = "Wrap lines";
+    wrapButton.setAttribute("aria-pressed", "false");
+    wrapButton.addEventListener("click", () => {
+      const isWrapped = wrapper.classList.toggle("wrapCode");
+      wrapButton.textContent = isWrapped ? "No wrap" : "Wrap lines";
+      wrapButton.setAttribute("aria-pressed", String(isWrapped));
     });
+    controls.appendChild(wrapButton);
+
+    if (!isLongBlock) {
+      const spacer = document.createElement("span");
+      spacer.className = "codeLineCount";
+      spacer.textContent = `${lineCount} lines`;
+      controls.appendChild(spacer);
+    }
 
     pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(button);
+    wrapper.appendChild(controls);
     wrapper.appendChild(pre);
   });
 }
