@@ -728,9 +728,18 @@ input {
   background: var(--panel);
 }
 
+.documentShell.readerFocus {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .documentView {
   overflow: auto;
   padding: 34px min(7vw, 76px) 80px;
+}
+
+.documentShell.readerFocus .documentView {
+  padding-left: min(4vw, 44px);
+  padding-right: min(4vw, 44px);
 }
 
 .docInner {
@@ -740,6 +749,10 @@ input {
 
 .docInner.wideDoc {
   max-width: min(1320px, 100%);
+}
+
+.documentShell.readerFocus .docInner.wideDoc {
+  max-width: min(1540px, 100%);
 }
 
 .entryKind {
@@ -807,6 +820,26 @@ h1 {
   border-color: rgba(236, 212, 122, 0.42);
   background: rgba(214, 185, 95, 0.14);
   color: #f0cf5b;
+}
+
+.readerFocusButton {
+  align-self: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 650;
+  min-height: 34px;
+  padding: 0 10px;
+}
+
+.readerFocusButton:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--panel-hover);
 }
 
 h2 {
@@ -1028,16 +1061,18 @@ pre {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr);
   gap: 14px;
+  --learning-role-color: var(--accent);
+  --learning-role-bg: transparent;
   scroll-margin-top: 22px;
 }
 
 .learningStepMarker {
   width: 26px;
   height: 26px;
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--learning-role-color) 62%, var(--line));
   border-radius: 999px;
-  background: transparent;
-  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--learning-role-color) 17%, transparent);
+  color: color-mix(in srgb, var(--learning-role-color) 88%, var(--text));
   display: grid;
   place-items: center;
   font-size: 13px;
@@ -1052,8 +1087,66 @@ pre {
 }
 
 .learningStepBody {
-  border-left: 1px solid var(--line);
-  padding: 0 0 0 18px;
+  border-left: 3px solid color-mix(in srgb, var(--learning-role-color) 66%, var(--line));
+  border-radius: 0 8px 8px 0;
+  background:
+    linear-gradient(90deg, var(--learning-role-bg), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+  padding: 12px 0 12px 18px;
+}
+
+.learningStep[class*="learningRole-"] .learningStepBody {
+  border-left-color: var(--learning-role-color);
+}
+
+.learningRoleLabel {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--learning-role-color) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--learning-role-color) 14%, transparent);
+  color: color-mix(in srgb, var(--learning-role-color) 86%, var(--text));
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 0 10px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.learningRole-narrative {
+  --learning-role-color: #8fd2bf;
+  --learning-role-bg: rgba(87, 181, 157, 0.10);
+}
+
+.learningRole-concepts {
+  --learning-role-color: #e0c36d;
+  --learning-role-bg: rgba(204, 169, 70, 0.11);
+}
+
+.learningRole-primary-evidence {
+  --learning-role-color: #93bff0;
+  --learning-role-bg: rgba(84, 138, 205, 0.12);
+}
+
+.learningRole-related-evidence {
+  --learning-role-color: #c69fe5;
+  --learning-role-bg: rgba(159, 105, 205, 0.11);
+}
+
+.learningRole-practical-reference {
+  --learning-role-color: #9bd58d;
+  --learning-role-bg: rgba(102, 179, 83, 0.11);
+}
+
+.learningRole-search-terms {
+  --learning-role-color: #d4caa6;
+  --learning-role-bg: rgba(190, 174, 119, 0.10);
+}
+
+.learningRole-open-questions {
+  --learning-role-color: #e6aa83;
+  --learning-role-bg: rgba(212, 124, 77, 0.11);
 }
 
 .learningStepBody h2 {
@@ -1787,6 +1880,7 @@ pre code {
 
 .lineText {
   border-left: 1px solid #292924;
+  line-height: 1.5;
   padding-left: 12px;
   white-space: pre;
 }
@@ -1801,10 +1895,44 @@ pre code {
   min-width: 0;
 }
 
+.codeBlockWrap.wrapCode .codeLine::before {
+  align-self: start;
+}
+
 .codeBlockWrap.wrapCode .lineText {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.semanticMark {
+  border-radius: 4px;
+  padding: 0 3px;
+}
+
+.semanticPath {
+  background: rgba(143, 210, 191, 0.1);
+  color: var(--accent-strong);
+}
+
+.semanticAddress {
+  background: rgba(157, 188, 229, 0.12);
+  color: #b9d1ee;
+}
+
+.semanticBank {
+  background: rgba(211, 181, 111, 0.12);
+  color: #dbc17b;
+}
+
+.semanticLabel {
+  background: rgba(181, 139, 213, 0.12);
+  color: #c9a6df;
+}
+
+.semanticStatus {
+  background: rgba(224, 166, 99, 0.12);
+  color: #e7b47c;
 }
 
 .codeBlock-asm code,
@@ -1888,6 +2016,10 @@ th {
   overflow: auto;
 }
 
+.documentShell.readerFocus .detailsRail {
+  display: none;
+}
+
 .railBlock {
   margin-bottom: 22px;
 }
@@ -1963,6 +2095,11 @@ th {
 .railOverflow {
   color: var(--faint);
   background: transparent;
+}
+
+.railShowToggle {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .favoriteRailButton {
