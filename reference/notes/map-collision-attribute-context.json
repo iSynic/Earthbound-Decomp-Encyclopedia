@@ -1,0 +1,4448 @@
+{
+  "by_setting": [
+    {
+      "scene_count": 25,
+      "setting": "exit mouse usable",
+      "top_attribute_counts": [
+        {
+          "count": 17769,
+          "value": "0x80"
+        },
+        {
+          "count": 7116,
+          "value": "0x00"
+        },
+        {
+          "count": 593,
+          "value": "0x01"
+        },
+        {
+          "count": 93,
+          "value": "0x03"
+        },
+        {
+          "count": 29,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "scene_count": 89,
+      "setting": "indoors",
+      "top_attribute_counts": [
+        {
+          "count": 45342,
+          "value": "0x80"
+        },
+        {
+          "count": 43146,
+          "value": "0x00"
+        },
+        {
+          "count": 1149,
+          "value": "0x01"
+        },
+        {
+          "count": 699,
+          "value": "0x03"
+        },
+        {
+          "count": 264,
+          "value": "0x08"
+        },
+        {
+          "count": 206,
+          "value": "0x82"
+        },
+        {
+          "count": 136,
+          "value": "0x90"
+        },
+        {
+          "count": 88,
+          "value": "0x09"
+        }
+      ]
+    },
+    {
+      "scene_count": 38,
+      "setting": "lost underworld sprites",
+      "top_attribute_counts": [
+        {
+          "count": 28279,
+          "value": "0x80"
+        },
+        {
+          "count": 10187,
+          "value": "0x00"
+        },
+        {
+          "count": 417,
+          "value": "0x01"
+        },
+        {
+          "count": 24,
+          "value": "0x90"
+        },
+        {
+          "count": 4,
+          "value": "0x10"
+        },
+        {
+          "count": 1,
+          "value": "0x03"
+        }
+      ]
+    },
+    {
+      "scene_count": 45,
+      "setting": "magicant sprites",
+      "top_attribute_counts": [
+        {
+          "count": 26597,
+          "value": "0x00"
+        },
+        {
+          "count": 16484,
+          "value": "0x80"
+        },
+        {
+          "count": 1502,
+          "value": "0x03"
+        },
+        {
+          "count": 1324,
+          "value": "0x01"
+        },
+        {
+          "count": 173,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "scene_count": 743,
+      "setting": "none",
+      "top_attribute_counts": [
+        {
+          "count": 404556,
+          "value": "0x80"
+        },
+        {
+          "count": 280388,
+          "value": "0x00"
+        },
+        {
+          "count": 23452,
+          "value": "0x03"
+        },
+        {
+          "count": 22567,
+          "value": "0x01"
+        },
+        {
+          "count": 10879,
+          "value": "0x04"
+        },
+        {
+          "count": 9061,
+          "value": "0x08"
+        },
+        {
+          "count": 2734,
+          "value": "0x0C"
+        },
+        {
+          "count": 1613,
+          "value": "0x0B"
+        }
+      ]
+    },
+    {
+      "scene_count": 10,
+      "setting": "robot sprites",
+      "top_attribute_counts": [
+        {
+          "count": 7972,
+          "value": "0x80"
+        },
+        {
+          "count": 2190,
+          "value": "0x00"
+        },
+        {
+          "count": 54,
+          "value": "0x01"
+        },
+        {
+          "count": 16,
+          "value": "0x03"
+        },
+        {
+          "count": 8,
+          "value": "0x90"
+        }
+      ]
+    }
+  ],
+  "by_tileset": [
+    {
+      "attribute_counts": [
+        {
+          "count": 19783,
+          "value": "0x00"
+        },
+        {
+          "count": 1222,
+          "value": "0x01"
+        },
+        {
+          "count": 36,
+          "value": "0x03"
+        },
+        {
+          "count": 11,
+          "value": "0x10"
+        },
+        {
+          "count": 59797,
+          "value": "0x80"
+        },
+        {
+          "count": 47,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 1258,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 36,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 58,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 59844,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 79638,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 1222,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 36,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 79,
+      "tileset_id": 0,
+      "top_attribute_counts": [
+        {
+          "count": 59797,
+          "value": "0x80"
+        },
+        {
+          "count": 19783,
+          "value": "0x00"
+        },
+        {
+          "count": 1222,
+          "value": "0x01"
+        },
+        {
+          "count": 47,
+          "value": "0x90"
+        },
+        {
+          "count": 36,
+          "value": "0x03"
+        },
+        {
+          "count": 11,
+          "value": "0x10"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 83531,
+          "value": "0x00"
+        },
+        {
+          "count": 10977,
+          "value": "0x01"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        },
+        {
+          "count": 7697,
+          "value": "0x03"
+        },
+        {
+          "count": 92658,
+          "value": "0x80"
+        },
+        {
+          "count": 4,
+          "value": "0x82"
+        },
+        {
+          "count": 711,
+          "value": "0x90"
+        },
+        {
+          "count": 4,
+          "value": "0x92"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 18674,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 7707,
+          "exact_values": [
+            "0x02",
+            "0x03",
+            "0x82",
+            "0x92"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 715,
+          "exact_values": [
+            "0x90",
+            "0x92"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 93377,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90",
+            "0x92"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 176900,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 10977,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 10,
+          "exact_values": [
+            "0x02",
+            "0x82",
+            "0x92"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 7697,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 191,
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 92658,
+          "value": "0x80"
+        },
+        {
+          "count": 83531,
+          "value": "0x00"
+        },
+        {
+          "count": 10977,
+          "value": "0x01"
+        },
+        {
+          "count": 7697,
+          "value": "0x03"
+        },
+        {
+          "count": 711,
+          "value": "0x90"
+        },
+        {
+          "count": 4,
+          "value": "0x82"
+        },
+        {
+          "count": 4,
+          "value": "0x92"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 78133,
+          "value": "0x00"
+        },
+        {
+          "count": 5291,
+          "value": "0x01"
+        },
+        {
+          "count": 9530,
+          "value": "0x03"
+        },
+        {
+          "count": 46,
+          "value": "0x10"
+        },
+        {
+          "count": 53374,
+          "value": "0x80"
+        },
+        {
+          "count": 58,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 14821,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 9530,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 104,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 53432,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 131611,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 5291,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 9530,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 143,
+      "tileset_id": 4,
+      "top_attribute_counts": [
+        {
+          "count": 78133,
+          "value": "0x00"
+        },
+        {
+          "count": 53374,
+          "value": "0x80"
+        },
+        {
+          "count": 9530,
+          "value": "0x03"
+        },
+        {
+          "count": 5291,
+          "value": "0x01"
+        },
+        {
+          "count": 58,
+          "value": "0x90"
+        },
+        {
+          "count": 46,
+          "value": "0x10"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 32795,
+          "value": "0x00"
+        },
+        {
+          "count": 1415,
+          "value": "0x01"
+        },
+        {
+          "count": 1576,
+          "value": "0x03"
+        },
+        {
+          "count": 20338,
+          "value": "0x80"
+        },
+        {
+          "count": 196,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 2991,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 1576,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 196,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 20534,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 53329,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 1415,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 1576,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 55,
+      "tileset_id": 5,
+      "top_attribute_counts": [
+        {
+          "count": 32795,
+          "value": "0x00"
+        },
+        {
+          "count": 20338,
+          "value": "0x80"
+        },
+        {
+          "count": 1576,
+          "value": "0x03"
+        },
+        {
+          "count": 1415,
+          "value": "0x01"
+        },
+        {
+          "count": 196,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 42537,
+          "value": "0x00"
+        },
+        {
+          "count": 2627,
+          "value": "0x01"
+        },
+        {
+          "count": 3124,
+          "value": "0x03"
+        },
+        {
+          "count": 18,
+          "value": "0x04"
+        },
+        {
+          "count": 6884,
+          "value": "0x08"
+        },
+        {
+          "count": 936,
+          "value": "0x09"
+        },
+        {
+          "count": 1605,
+          "value": "0x0B"
+        },
+        {
+          "count": 2734,
+          "value": "0x0C"
+        },
+        {
+          "count": 481,
+          "value": "0x0D"
+        },
+        {
+          "count": 1311,
+          "value": "0x0F"
+        },
+        {
+          "count": 63,
+          "value": "0x10"
+        },
+        {
+          "count": 71753,
+          "value": "0x80"
+        },
+        {
+          "count": 71,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 10084,
+          "exact_values": [
+            "0x01",
+            "0x03",
+            "0x09",
+            "0x0B",
+            "0x0D",
+            "0x0F"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 6040,
+          "exact_values": [
+            "0x03",
+            "0x0B",
+            "0x0F"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 4544,
+          "exact_values": [
+            "0x04",
+            "0x0C",
+            "0x0D",
+            "0x0F"
+          ],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 13951,
+          "exact_values": [
+            "0x08",
+            "0x09",
+            "0x0B",
+            "0x0C",
+            "0x0D",
+            "0x0F"
+          ],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 134,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 71824,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 114424,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 2627,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 3124,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        },
+        {
+          "cell_count": 18,
+          "exact_values": [
+            "0x04"
+          ],
+          "low_nibble": "0x4"
+        },
+        {
+          "cell_count": 6884,
+          "exact_values": [
+            "0x08"
+          ],
+          "low_nibble": "0x8"
+        },
+        {
+          "cell_count": 936,
+          "exact_values": [
+            "0x09"
+          ],
+          "low_nibble": "0x9"
+        },
+        {
+          "cell_count": 1605,
+          "exact_values": [
+            "0x0B"
+          ],
+          "low_nibble": "0xB"
+        },
+        {
+          "cell_count": 2734,
+          "exact_values": [
+            "0x0C"
+          ],
+          "low_nibble": "0xC"
+        },
+        {
+          "cell_count": 481,
+          "exact_values": [
+            "0x0D"
+          ],
+          "low_nibble": "0xD"
+        },
+        {
+          "cell_count": 1311,
+          "exact_values": [
+            "0x0F"
+          ],
+          "low_nibble": "0xF"
+        }
+      ],
+      "scene_count": 131,
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 71753,
+          "value": "0x80"
+        },
+        {
+          "count": 42537,
+          "value": "0x00"
+        },
+        {
+          "count": 6884,
+          "value": "0x08"
+        },
+        {
+          "count": 3124,
+          "value": "0x03"
+        },
+        {
+          "count": 2734,
+          "value": "0x0C"
+        },
+        {
+          "count": 2627,
+          "value": "0x01"
+        },
+        {
+          "count": 1605,
+          "value": "0x0B"
+        },
+        {
+          "count": 1311,
+          "value": "0x0F"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 12837,
+          "value": "0x00"
+        },
+        {
+          "count": 1234,
+          "value": "0x01"
+        },
+        {
+          "count": 2506,
+          "value": "0x03"
+        },
+        {
+          "count": 31,
+          "value": "0x10"
+        },
+        {
+          "count": 66216,
+          "value": "0x80"
+        },
+        {
+          "count": 7,
+          "value": "0x82"
+        },
+        {
+          "count": 111,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 3740,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 2515,
+          "exact_values": [
+            "0x03",
+            "0x82",
+            "0x92"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 144,
+          "exact_values": [
+            "0x10",
+            "0x90",
+            "0x92"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 66336,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90",
+            "0x92"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 79195,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 1234,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 9,
+          "exact_values": [
+            "0x82",
+            "0x92"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 2506,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 81,
+      "tileset_id": 7,
+      "top_attribute_counts": [
+        {
+          "count": 66216,
+          "value": "0x80"
+        },
+        {
+          "count": 12837,
+          "value": "0x00"
+        },
+        {
+          "count": 2506,
+          "value": "0x03"
+        },
+        {
+          "count": 1234,
+          "value": "0x01"
+        },
+        {
+          "count": 111,
+          "value": "0x90"
+        },
+        {
+          "count": 31,
+          "value": "0x10"
+        },
+        {
+          "count": 7,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 1677,
+          "value": "0x00"
+        },
+        {
+          "count": 301,
+          "value": "0x01"
+        },
+        {
+          "count": 147,
+          "value": "0x03"
+        },
+        {
+          "count": 2510,
+          "value": "0x04"
+        },
+        {
+          "count": 3524,
+          "value": "0x80"
+        },
+        {
+          "count": 16,
+          "value": "0x90"
+        },
+        {
+          "count": 17,
+          "value": "0x94"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 448,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 147,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 2527,
+          "exact_values": [
+            "0x04",
+            "0x94"
+          ],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 33,
+          "exact_values": [
+            "0x90",
+            "0x94"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 3557,
+          "exact_values": [
+            "0x80",
+            "0x90",
+            "0x94"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 5217,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 301,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 147,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        },
+        {
+          "cell_count": 2527,
+          "exact_values": [
+            "0x04",
+            "0x94"
+          ],
+          "low_nibble": "0x4"
+        }
+      ],
+      "scene_count": 8,
+      "tileset_id": 8,
+      "top_attribute_counts": [
+        {
+          "count": 3524,
+          "value": "0x80"
+        },
+        {
+          "count": 2510,
+          "value": "0x04"
+        },
+        {
+          "count": 1677,
+          "value": "0x00"
+        },
+        {
+          "count": 301,
+          "value": "0x01"
+        },
+        {
+          "count": 147,
+          "value": "0x03"
+        },
+        {
+          "count": 17,
+          "value": "0x94"
+        },
+        {
+          "count": 16,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 18146,
+          "value": "0x00"
+        },
+        {
+          "count": 20,
+          "value": "0x03"
+        },
+        {
+          "count": 25862,
+          "value": "0x80"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 20,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 20,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 4,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 25866,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 44012,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 20,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 43,
+      "tileset_id": 9,
+      "top_attribute_counts": [
+        {
+          "count": 25862,
+          "value": "0x80"
+        },
+        {
+          "count": 18146,
+          "value": "0x00"
+        },
+        {
+          "count": 20,
+          "value": "0x03"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 2831,
+          "value": "0x00"
+        },
+        {
+          "count": 150,
+          "value": "0x01"
+        },
+        {
+          "count": 14,
+          "value": "0x10"
+        },
+        {
+          "count": 9197,
+          "value": "0x80"
+        },
+        {
+          "count": 32,
+          "value": "0x82"
+        },
+        {
+          "count": 64,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 150,
+          "exact_values": [
+            "0x01"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 32,
+          "exact_values": [
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 78,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 9293,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 12106,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 150,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 32,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        }
+      ],
+      "scene_count": 12,
+      "tileset_id": 10,
+      "top_attribute_counts": [
+        {
+          "count": 9197,
+          "value": "0x80"
+        },
+        {
+          "count": 2831,
+          "value": "0x00"
+        },
+        {
+          "count": 150,
+          "value": "0x01"
+        },
+        {
+          "count": 64,
+          "value": "0x90"
+        },
+        {
+          "count": 32,
+          "value": "0x82"
+        },
+        {
+          "count": 14,
+          "value": "0x10"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 2434,
+          "value": "0x00"
+        },
+        {
+          "count": 394,
+          "value": "0x01"
+        },
+        {
+          "count": 261,
+          "value": "0x03"
+        },
+        {
+          "count": 6007,
+          "value": "0x80"
+        },
+        {
+          "count": 97,
+          "value": "0x82"
+        },
+        {
+          "count": 23,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 655,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 358,
+          "exact_values": [
+            "0x03",
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 23,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 6127,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 8464,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 394,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 97,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 261,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 9,
+      "tileset_id": 11,
+      "top_attribute_counts": [
+        {
+          "count": 6007,
+          "value": "0x80"
+        },
+        {
+          "count": 2434,
+          "value": "0x00"
+        },
+        {
+          "count": 394,
+          "value": "0x01"
+        },
+        {
+          "count": 261,
+          "value": "0x03"
+        },
+        {
+          "count": 97,
+          "value": "0x82"
+        },
+        {
+          "count": 23,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 1371,
+          "value": "0x00"
+        },
+        {
+          "count": 78,
+          "value": "0x01"
+        },
+        {
+          "count": 38,
+          "value": "0x03"
+        },
+        {
+          "count": 1,
+          "value": "0x10"
+        },
+        {
+          "count": 3576,
+          "value": "0x80"
+        },
+        {
+          "count": 52,
+          "value": "0x82"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 116,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 90,
+          "exact_values": [
+            "0x03",
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 5,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 3632,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 4952,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 78,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 52,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 38,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 5,
+      "tileset_id": 12,
+      "top_attribute_counts": [
+        {
+          "count": 3576,
+          "value": "0x80"
+        },
+        {
+          "count": 1371,
+          "value": "0x00"
+        },
+        {
+          "count": 78,
+          "value": "0x01"
+        },
+        {
+          "count": 52,
+          "value": "0x82"
+        },
+        {
+          "count": 38,
+          "value": "0x03"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        },
+        {
+          "count": 1,
+          "value": "0x10"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 27376,
+          "value": "0x00"
+        },
+        {
+          "count": 226,
+          "value": "0x01"
+        },
+        {
+          "count": 73,
+          "value": "0x03"
+        },
+        {
+          "count": 2177,
+          "value": "0x08"
+        },
+        {
+          "count": 427,
+          "value": "0x09"
+        },
+        {
+          "count": 8,
+          "value": "0x0B"
+        },
+        {
+          "count": 641,
+          "value": "0x10"
+        },
+        {
+          "count": 64949,
+          "value": "0x80"
+        },
+        {
+          "count": 21,
+          "value": "0x82"
+        },
+        {
+          "count": 358,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 734,
+          "exact_values": [
+            "0x01",
+            "0x03",
+            "0x09",
+            "0x0B"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 102,
+          "exact_values": [
+            "0x03",
+            "0x0B",
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 2612,
+          "exact_values": [
+            "0x08",
+            "0x09",
+            "0x0B"
+          ],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 999,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 65328,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 93324,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 226,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 21,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 73,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        },
+        {
+          "cell_count": 2177,
+          "exact_values": [
+            "0x08"
+          ],
+          "low_nibble": "0x8"
+        },
+        {
+          "cell_count": 427,
+          "exact_values": [
+            "0x09"
+          ],
+          "low_nibble": "0x9"
+        },
+        {
+          "cell_count": 8,
+          "exact_values": [
+            "0x0B"
+          ],
+          "low_nibble": "0xB"
+        }
+      ],
+      "scene_count": 94,
+      "tileset_id": 13,
+      "top_attribute_counts": [
+        {
+          "count": 64949,
+          "value": "0x80"
+        },
+        {
+          "count": 27376,
+          "value": "0x00"
+        },
+        {
+          "count": 2177,
+          "value": "0x08"
+        },
+        {
+          "count": 641,
+          "value": "0x10"
+        },
+        {
+          "count": 427,
+          "value": "0x09"
+        },
+        {
+          "count": 358,
+          "value": "0x90"
+        },
+        {
+          "count": 226,
+          "value": "0x01"
+        },
+        {
+          "count": 73,
+          "value": "0x03"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 5906,
+          "value": "0x00"
+        },
+        {
+          "count": 41,
+          "value": "0x01"
+        },
+        {
+          "count": 2234,
+          "value": "0x80"
+        },
+        {
+          "count": 9,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 41,
+          "exact_values": [
+            "0x01"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 9,
+          "exact_values": [
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 2,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 2245,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 8142,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 41,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 9,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        }
+      ],
+      "scene_count": 8,
+      "tileset_id": 14,
+      "top_attribute_counts": [
+        {
+          "count": 5906,
+          "value": "0x00"
+        },
+        {
+          "count": 2234,
+          "value": "0x80"
+        },
+        {
+          "count": 41,
+          "value": "0x01"
+        },
+        {
+          "count": 9,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 9332,
+          "value": "0x00"
+        },
+        {
+          "count": 48,
+          "value": "0x01"
+        },
+        {
+          "count": 28,
+          "value": "0x03"
+        },
+        {
+          "count": 6956,
+          "value": "0x80"
+        },
+        {
+          "count": 8,
+          "value": "0x82"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 76,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 36,
+          "exact_values": [
+            "0x03",
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 12,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 6976,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 16300,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 48,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 8,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        },
+        {
+          "cell_count": 28,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 16,
+      "tileset_id": 15,
+      "top_attribute_counts": [
+        {
+          "count": 9332,
+          "value": "0x00"
+        },
+        {
+          "count": 6956,
+          "value": "0x80"
+        },
+        {
+          "count": 48,
+          "value": "0x01"
+        },
+        {
+          "count": 28,
+          "value": "0x03"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        },
+        {
+          "count": 8,
+          "value": "0x82"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 2273,
+          "value": "0x00"
+        },
+        {
+          "count": 161,
+          "value": "0x01"
+        },
+        {
+          "count": 3698,
+          "value": "0x80"
+        },
+        {
+          "count": 8,
+          "value": "0x82"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 161,
+          "exact_values": [
+            "0x01"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 8,
+          "exact_values": [
+            "0x82"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 4,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 3710,
+          "exact_values": [
+            "0x80",
+            "0x82",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 5975,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 161,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 8,
+          "exact_values": [
+            "0x82"
+          ],
+          "low_nibble": "0x2"
+        }
+      ],
+      "scene_count": 6,
+      "tileset_id": 16,
+      "top_attribute_counts": [
+        {
+          "count": 3698,
+          "value": "0x80"
+        },
+        {
+          "count": 2273,
+          "value": "0x00"
+        },
+        {
+          "count": 161,
+          "value": "0x01"
+        },
+        {
+          "count": 8,
+          "value": "0x82"
+        },
+        {
+          "count": 4,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 7992,
+          "value": "0x00"
+        },
+        {
+          "count": 243,
+          "value": "0x01"
+        },
+        {
+          "count": 372,
+          "value": "0x03"
+        },
+        {
+          "count": 5708,
+          "value": "0x80"
+        },
+        {
+          "count": 21,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 615,
+          "exact_values": [
+            "0x01",
+            "0x03"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 372,
+          "exact_values": [
+            "0x03"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 21,
+          "exact_values": [
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 5729,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 13721,
+          "exact_values": [
+            "0x00",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 243,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 372,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        }
+      ],
+      "scene_count": 14,
+      "tileset_id": 17,
+      "top_attribute_counts": [
+        {
+          "count": 7992,
+          "value": "0x00"
+        },
+        {
+          "count": 5708,
+          "value": "0x80"
+        },
+        {
+          "count": 372,
+          "value": "0x03"
+        },
+        {
+          "count": 243,
+          "value": "0x01"
+        },
+        {
+          "count": 21,
+          "value": "0x90"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 12822,
+          "value": "0x00"
+        },
+        {
+          "count": 1696,
+          "value": "0x01"
+        },
+        {
+          "count": 355,
+          "value": "0x03"
+        },
+        {
+          "count": 8351,
+          "value": "0x04"
+        },
+        {
+          "count": 198,
+          "value": "0x05"
+        },
+        {
+          "count": 10,
+          "value": "0x07"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        },
+        {
+          "count": 17492,
+          "value": "0x80"
+        },
+        {
+          "count": 26,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 2259,
+          "exact_values": [
+            "0x01",
+            "0x03",
+            "0x05",
+            "0x07"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 365,
+          "exact_values": [
+            "0x03",
+            "0x07"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 8559,
+          "exact_values": [
+            "0x04",
+            "0x05",
+            "0x07"
+          ],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 36,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 17518,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 30350,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 1696,
+          "exact_values": [
+            "0x01"
+          ],
+          "low_nibble": "0x1"
+        },
+        {
+          "cell_count": 355,
+          "exact_values": [
+            "0x03"
+          ],
+          "low_nibble": "0x3"
+        },
+        {
+          "cell_count": 8351,
+          "exact_values": [
+            "0x04"
+          ],
+          "low_nibble": "0x4"
+        },
+        {
+          "cell_count": 198,
+          "exact_values": [
+            "0x05"
+          ],
+          "low_nibble": "0x5"
+        },
+        {
+          "cell_count": 10,
+          "exact_values": [
+            "0x07"
+          ],
+          "low_nibble": "0x7"
+        }
+      ],
+      "scene_count": 40,
+      "tileset_id": 18,
+      "top_attribute_counts": [
+        {
+          "count": 17492,
+          "value": "0x80"
+        },
+        {
+          "count": 12822,
+          "value": "0x00"
+        },
+        {
+          "count": 8351,
+          "value": "0x04"
+        },
+        {
+          "count": 1696,
+          "value": "0x01"
+        },
+        {
+          "count": 355,
+          "value": "0x03"
+        },
+        {
+          "count": 198,
+          "value": "0x05"
+        },
+        {
+          "count": 26,
+          "value": "0x90"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        }
+      ]
+    },
+    {
+      "attribute_counts": [
+        {
+          "count": 7848,
+          "value": "0x00"
+        },
+        {
+          "count": 264,
+          "value": "0x08"
+        },
+        {
+          "count": 88,
+          "value": "0x09"
+        },
+        {
+          "count": 47,
+          "value": "0x0B"
+        },
+        {
+          "count": 44,
+          "value": "0x10"
+        },
+        {
+          "count": 7063,
+          "value": "0x80"
+        },
+        {
+          "count": 6,
+          "value": "0x90"
+        }
+      ],
+      "bit_presence": [
+        {
+          "bit": "0x01",
+          "cell_count": 135,
+          "exact_values": [
+            "0x09",
+            "0x0B"
+          ],
+          "working_name": "bit_0_low_modifier_candidate"
+        },
+        {
+          "bit": "0x02",
+          "cell_count": 47,
+          "exact_values": [
+            "0x0B"
+          ],
+          "working_name": "bit_1_low_modifier_candidate"
+        },
+        {
+          "bit": "0x04",
+          "cell_count": 0,
+          "exact_values": [],
+          "working_name": "bit_2_low_modifier_candidate"
+        },
+        {
+          "bit": "0x08",
+          "cell_count": 399,
+          "exact_values": [
+            "0x08",
+            "0x09",
+            "0x0B"
+          ],
+          "working_name": "bit_3_low_modifier_candidate"
+        },
+        {
+          "bit": "0x10",
+          "cell_count": 50,
+          "exact_values": [
+            "0x10",
+            "0x90"
+          ],
+          "working_name": "bit_4_special_surface_modifier_candidate"
+        },
+        {
+          "bit": "0x80",
+          "cell_count": 7069,
+          "exact_values": [
+            "0x80",
+            "0x90"
+          ],
+          "working_name": "bit_7_high_collision_family_candidate"
+        }
+      ],
+      "low_nibble_counts": [
+        {
+          "cell_count": 14961,
+          "exact_values": [
+            "0x00",
+            "0x10",
+            "0x80",
+            "0x90"
+          ],
+          "low_nibble": "0x0"
+        },
+        {
+          "cell_count": 264,
+          "exact_values": [
+            "0x08"
+          ],
+          "low_nibble": "0x8"
+        },
+        {
+          "cell_count": 88,
+          "exact_values": [
+            "0x09"
+          ],
+          "low_nibble": "0x9"
+        },
+        {
+          "cell_count": 47,
+          "exact_values": [
+            "0x0B"
+          ],
+          "low_nibble": "0xB"
+        }
+      ],
+      "scene_count": 15,
+      "tileset_id": 19,
+      "top_attribute_counts": [
+        {
+          "count": 7848,
+          "value": "0x00"
+        },
+        {
+          "count": 7063,
+          "value": "0x80"
+        },
+        {
+          "count": 264,
+          "value": "0x08"
+        },
+        {
+          "count": 88,
+          "value": "0x09"
+        },
+        {
+          "count": 47,
+          "value": "0x0B"
+        },
+        {
+          "count": 44,
+          "value": "0x10"
+        },
+        {
+          "count": 6,
+          "value": "0x90"
+        }
+      ]
+    }
+  ],
+  "by_town_map": [
+    {
+      "scene_count": 123,
+      "top_attribute_counts": [
+        {
+          "count": 70693,
+          "value": "0x00"
+        },
+        {
+          "count": 43386,
+          "value": "0x80"
+        },
+        {
+          "count": 7239,
+          "value": "0x03"
+        },
+        {
+          "count": 4405,
+          "value": "0x01"
+        },
+        {
+          "count": 81,
+          "value": "0x08"
+        },
+        {
+          "count": 49,
+          "value": "0x90"
+        },
+        {
+          "count": 46,
+          "value": "0x09"
+        },
+        {
+          "count": 27,
+          "value": "0x10"
+        }
+      ],
+      "town_map": "fourside"
+    },
+    {
+      "scene_count": 471,
+      "top_attribute_counts": [
+        {
+          "count": 277674,
+          "value": "0x80"
+        },
+        {
+          "count": 169350,
+          "value": "0x00"
+        },
+        {
+          "count": 9244,
+          "value": "0x08"
+        },
+        {
+          "count": 7333,
+          "value": "0x03"
+        },
+        {
+          "count": 7019,
+          "value": "0x01"
+        },
+        {
+          "count": 2734,
+          "value": "0x0C"
+        },
+        {
+          "count": 2528,
+          "value": "0x04"
+        },
+        {
+          "count": 1636,
+          "value": "0x0B"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "scene_count": 235,
+      "top_attribute_counts": [
+        {
+          "count": 115634,
+          "value": "0x80"
+        },
+        {
+          "count": 103922,
+          "value": "0x00"
+        },
+        {
+          "count": 11750,
+          "value": "0x01"
+        },
+        {
+          "count": 8330,
+          "value": "0x03"
+        },
+        {
+          "count": 820,
+          "value": "0x90"
+        },
+        {
+          "count": 163,
+          "value": "0x82"
+        },
+        {
+          "count": 15,
+          "value": "0x10"
+        },
+        {
+          "count": 4,
+          "value": "0x92"
+        }
+      ],
+      "town_map": "onett"
+    },
+    {
+      "scene_count": 40,
+      "top_attribute_counts": [
+        {
+          "count": 17492,
+          "value": "0x80"
+        },
+        {
+          "count": 12822,
+          "value": "0x00"
+        },
+        {
+          "count": 8351,
+          "value": "0x04"
+        },
+        {
+          "count": 1696,
+          "value": "0x01"
+        },
+        {
+          "count": 355,
+          "value": "0x03"
+        },
+        {
+          "count": 198,
+          "value": "0x05"
+        },
+        {
+          "count": 26,
+          "value": "0x90"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        }
+      ],
+      "town_map": "scaraba"
+    },
+    {
+      "scene_count": 81,
+      "top_attribute_counts": [
+        {
+          "count": 66216,
+          "value": "0x80"
+        },
+        {
+          "count": 12837,
+          "value": "0x00"
+        },
+        {
+          "count": 2506,
+          "value": "0x03"
+        },
+        {
+          "count": 1234,
+          "value": "0x01"
+        },
+        {
+          "count": 111,
+          "value": "0x90"
+        },
+        {
+          "count": 31,
+          "value": "0x10"
+        },
+        {
+          "count": 7,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        }
+      ],
+      "town_map": "summers"
+    }
+  ],
+  "feature_presence": [
+    {
+      "attribute_scene_presence": [
+        {
+          "count": 364,
+          "value": "0x00"
+        },
+        {
+          "count": 262,
+          "value": "0x01"
+        },
+        {
+          "count": 1,
+          "value": "0x02"
+        },
+        {
+          "count": 224,
+          "value": "0x03"
+        },
+        {
+          "count": 9,
+          "value": "0x04"
+        },
+        {
+          "count": 5,
+          "value": "0x05"
+        },
+        {
+          "count": 1,
+          "value": "0x07"
+        },
+        {
+          "count": 37,
+          "value": "0x08"
+        },
+        {
+          "count": 18,
+          "value": "0x09"
+        },
+        {
+          "count": 20,
+          "value": "0x0B"
+        },
+        {
+          "count": 21,
+          "value": "0x0C"
+        },
+        {
+          "count": 9,
+          "value": "0x0D"
+        },
+        {
+          "count": 11,
+          "value": "0x0F"
+        },
+        {
+          "count": 63,
+          "value": "0x10"
+        },
+        {
+          "count": 364,
+          "value": "0x80"
+        },
+        {
+          "count": 28,
+          "value": "0x82"
+        },
+        {
+          "count": 182,
+          "value": "0x90"
+        },
+        {
+          "count": 3,
+          "value": "0x92"
+        },
+        {
+          "count": 1,
+          "value": "0x94"
+        }
+      ],
+      "feature": "has_doors"
+    },
+    {
+      "attribute_scene_presence": [
+        {
+          "count": 46,
+          "value": "0x00"
+        },
+        {
+          "count": 38,
+          "value": "0x01"
+        },
+        {
+          "count": 29,
+          "value": "0x03"
+        },
+        {
+          "count": 2,
+          "value": "0x08"
+        },
+        {
+          "count": 1,
+          "value": "0x09"
+        },
+        {
+          "count": 1,
+          "value": "0x0C"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        },
+        {
+          "count": 47,
+          "value": "0x80"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 17,
+          "value": "0x90"
+        },
+        {
+          "count": 1,
+          "value": "0x92"
+        }
+      ],
+      "feature": "has_hotspots"
+    },
+    {
+      "attribute_scene_presence": [
+        {
+          "count": 423,
+          "value": "0x00"
+        },
+        {
+          "count": 309,
+          "value": "0x01"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        },
+        {
+          "count": 275,
+          "value": "0x03"
+        },
+        {
+          "count": 16,
+          "value": "0x04"
+        },
+        {
+          "count": 95,
+          "value": "0x08"
+        },
+        {
+          "count": 65,
+          "value": "0x09"
+        },
+        {
+          "count": 53,
+          "value": "0x0B"
+        },
+        {
+          "count": 50,
+          "value": "0x0C"
+        },
+        {
+          "count": 28,
+          "value": "0x0D"
+        },
+        {
+          "count": 39,
+          "value": "0x0F"
+        },
+        {
+          "count": 84,
+          "value": "0x10"
+        },
+        {
+          "count": 430,
+          "value": "0x80"
+        },
+        {
+          "count": 18,
+          "value": "0x82"
+        },
+        {
+          "count": 208,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        },
+        {
+          "count": 8,
+          "value": "0x94"
+        }
+      ],
+      "feature": "has_map_changes"
+    },
+    {
+      "attribute_scene_presence": [
+        {
+          "count": 455,
+          "value": "0x00"
+        },
+        {
+          "count": 341,
+          "value": "0x01"
+        },
+        {
+          "count": 1,
+          "value": "0x02"
+        },
+        {
+          "count": 291,
+          "value": "0x03"
+        },
+        {
+          "count": 23,
+          "value": "0x04"
+        },
+        {
+          "count": 11,
+          "value": "0x05"
+        },
+        {
+          "count": 2,
+          "value": "0x07"
+        },
+        {
+          "count": 54,
+          "value": "0x08"
+        },
+        {
+          "count": 37,
+          "value": "0x09"
+        },
+        {
+          "count": 38,
+          "value": "0x0B"
+        },
+        {
+          "count": 32,
+          "value": "0x0C"
+        },
+        {
+          "count": 19,
+          "value": "0x0D"
+        },
+        {
+          "count": 24,
+          "value": "0x0F"
+        },
+        {
+          "count": 69,
+          "value": "0x10"
+        },
+        {
+          "count": 450,
+          "value": "0x80"
+        },
+        {
+          "count": 31,
+          "value": "0x82"
+        },
+        {
+          "count": 202,
+          "value": "0x90"
+        },
+        {
+          "count": 3,
+          "value": "0x92"
+        },
+        {
+          "count": 2,
+          "value": "0x94"
+        }
+      ],
+      "feature": "has_objects"
+    },
+    {
+      "attribute_scene_presence": [
+        {
+          "count": 418,
+          "value": "0x00"
+        },
+        {
+          "count": 301,
+          "value": "0x01"
+        },
+        {
+          "count": 1,
+          "value": "0x02"
+        },
+        {
+          "count": 259,
+          "value": "0x03"
+        },
+        {
+          "count": 17,
+          "value": "0x04"
+        },
+        {
+          "count": 6,
+          "value": "0x05"
+        },
+        {
+          "count": 1,
+          "value": "0x07"
+        },
+        {
+          "count": 49,
+          "value": "0x08"
+        },
+        {
+          "count": 27,
+          "value": "0x09"
+        },
+        {
+          "count": 32,
+          "value": "0x0B"
+        },
+        {
+          "count": 33,
+          "value": "0x0C"
+        },
+        {
+          "count": 18,
+          "value": "0x0D"
+        },
+        {
+          "count": 23,
+          "value": "0x0F"
+        },
+        {
+          "count": 68,
+          "value": "0x10"
+        },
+        {
+          "count": 418,
+          "value": "0x80"
+        },
+        {
+          "count": 29,
+          "value": "0x82"
+        },
+        {
+          "count": 214,
+          "value": "0x90"
+        },
+        {
+          "count": 3,
+          "value": "0x92"
+        },
+        {
+          "count": 2,
+          "value": "0x94"
+        }
+      ],
+      "feature": "has_triggers"
+    }
+  ],
+  "generator": "tools/build_map_collision_attribute_context.py",
+  "reference_anchors": {
+    "legacy_rom_collision_labels": {
+      "note": "Older community ROM map corroborates a collision-data/pointer-table corridor in bank D8, but its end boundary overlaps later ebsrc assets, so exact local boundaries come from the D8 asset map.",
+      "ranges": [
+        "file 0x180200..0x18914F",
+        "file 0x189150..0x18F25D"
+      ],
+      "source": "refs/community-earthbound-docs/ROM_map.txt"
+    },
+    "rom_tile_collision_data": {
+      "note": "Current ebsrc-derived bank D8 table span for data/map/tile_collision_data.asm and covered collision pointer includes.",
+      "range": "D8:0000..D8:F05E",
+      "source": "notes/bank-d8-asset-data-map.md"
+    },
+    "wram_current_tileset_collision_data": {
+      "note": "Community RAM map label; used as runtime corroboration for current tileset collision payloads.",
+      "range": "$01F800..$01FF7F",
+      "source": "refs/community-earthbound-docs/RAM_map.txt"
+    }
+  },
+  "schema": "earthbound-decomp.map-collision-attribute-context.v1",
+  "source_policy": "Reference-derived context contract. This records counts and scene-level correlations only; it does not commit raw map tile grids, arrangement rows, decoded graphics, or rendered ROM-derived payloads.",
+  "sources": {
+    "community_ram_map": "refs/community-earthbound-docs/RAM_map.txt",
+    "community_rom_map": "refs/community-earthbound-docs/ROM_map.txt",
+    "d8_asset_data_map": "notes/bank-d8-asset-data-map.md",
+    "map_tiles": "refs/eb-decompile-4ef92/map_tiles.map",
+    "scene_contract": "notes/map-scene-composition-contract.json",
+    "tileset_dir": "refs/eb-decompile-4ef92/Tilesets"
+  },
+  "summary": {
+    "attribute_counts": [
+      {
+        "count": 369624,
+        "value": "0x00"
+      },
+      {
+        "count": 26104,
+        "value": "0x01"
+      },
+      {
+        "count": 2,
+        "value": "0x02"
+      },
+      {
+        "count": 25763,
+        "value": "0x03"
+      },
+      {
+        "count": 10879,
+        "value": "0x04"
+      },
+      {
+        "count": 198,
+        "value": "0x05"
+      },
+      {
+        "count": 10,
+        "value": "0x07"
+      },
+      {
+        "count": 9325,
+        "value": "0x08"
+      },
+      {
+        "count": 1451,
+        "value": "0x09"
+      },
+      {
+        "count": 1660,
+        "value": "0x0B"
+      },
+      {
+        "count": 2734,
+        "value": "0x0C"
+      },
+      {
+        "count": 481,
+        "value": "0x0D"
+      },
+      {
+        "count": 1311,
+        "value": "0x0F"
+      },
+      {
+        "count": 861,
+        "value": "0x10"
+      },
+      {
+        "count": 520402,
+        "value": "0x80"
+      },
+      {
+        "count": 238,
+        "value": "0x82"
+      },
+      {
+        "count": 1734,
+        "value": "0x90"
+      },
+      {
+        "count": 6,
+        "value": "0x92"
+      },
+      {
+        "count": 17,
+        "value": "0x94"
+      }
+    ],
+    "attribute_scene_presence": [
+      {
+        "count": 940,
+        "value": "0x00"
+      },
+      {
+        "count": 646,
+        "value": "0x01"
+      },
+      {
+        "count": 2,
+        "value": "0x02"
+      },
+      {
+        "count": 547,
+        "value": "0x03"
+      },
+      {
+        "count": 54,
+        "value": "0x04"
+      },
+      {
+        "count": 25,
+        "value": "0x05"
+      },
+      {
+        "count": 5,
+        "value": "0x07"
+      },
+      {
+        "count": 104,
+        "value": "0x08"
+      },
+      {
+        "count": 74,
+        "value": "0x09"
+      },
+      {
+        "count": 60,
+        "value": "0x0B"
+      },
+      {
+        "count": 50,
+        "value": "0x0C"
+      },
+      {
+        "count": 28,
+        "value": "0x0D"
+      },
+      {
+        "count": 39,
+        "value": "0x0F"
+      },
+      {
+        "count": 136,
+        "value": "0x10"
+      },
+      {
+        "count": 937,
+        "value": "0x80"
+      },
+      {
+        "count": 47,
+        "value": "0x82"
+      },
+      {
+        "count": 363,
+        "value": "0x90"
+      },
+      {
+        "count": 4,
+        "value": "0x92"
+      },
+      {
+        "count": 8,
+        "value": "0x94"
+      }
+    ],
+    "bit_presence": [
+      {
+        "bit": "0x01",
+        "cell_count": 56978,
+        "exact_values": [
+          "0x01",
+          "0x03",
+          "0x05",
+          "0x07",
+          "0x09",
+          "0x0B",
+          "0x0D",
+          "0x0F"
+        ],
+        "scene_presence": 707,
+        "working_name": "bit_0_low_modifier_candidate"
+      },
+      {
+        "bit": "0x02",
+        "cell_count": 28990,
+        "exact_values": [
+          "0x02",
+          "0x03",
+          "0x07",
+          "0x0B",
+          "0x0F",
+          "0x82",
+          "0x92"
+        ],
+        "scene_presence": 587,
+        "working_name": "bit_1_low_modifier_candidate"
+      },
+      {
+        "bit": "0x04",
+        "cell_count": 15630,
+        "exact_values": [
+          "0x04",
+          "0x05",
+          "0x07",
+          "0x0C",
+          "0x0D",
+          "0x0F",
+          "0x94"
+        ],
+        "scene_presence": 99,
+        "working_name": "bit_2_low_modifier_candidate"
+      },
+      {
+        "bit": "0x08",
+        "cell_count": 16962,
+        "exact_values": [
+          "0x08",
+          "0x09",
+          "0x0B",
+          "0x0C",
+          "0x0D",
+          "0x0F"
+        ],
+        "scene_presence": 111,
+        "working_name": "bit_3_low_modifier_candidate"
+      },
+      {
+        "bit": "0x10",
+        "cell_count": 2618,
+        "exact_values": [
+          "0x10",
+          "0x90",
+          "0x92",
+          "0x94"
+        ],
+        "scene_presence": 416,
+        "working_name": "bit_4_special_surface_modifier_candidate"
+      },
+      {
+        "bit": "0x80",
+        "cell_count": 522397,
+        "exact_values": [
+          "0x80",
+          "0x82",
+          "0x90",
+          "0x92",
+          "0x94"
+        ],
+        "scene_presence": 937,
+        "working_name": "bit_7_high_collision_family_candidate"
+      }
+    ],
+    "cells_per_scene": 1024,
+    "direct_scenes": 950,
+    "high_bit_attribute_cells": 522397,
+    "low_nibble_counts": [
+      {
+        "cell_count": 892621,
+        "exact_values": [
+          "0x00",
+          "0x10",
+          "0x80",
+          "0x90"
+        ],
+        "low_nibble": "0x0"
+      },
+      {
+        "cell_count": 26104,
+        "exact_values": [
+          "0x01"
+        ],
+        "low_nibble": "0x1"
+      },
+      {
+        "cell_count": 246,
+        "exact_values": [
+          "0x02",
+          "0x82",
+          "0x92"
+        ],
+        "low_nibble": "0x2"
+      },
+      {
+        "cell_count": 25763,
+        "exact_values": [
+          "0x03"
+        ],
+        "low_nibble": "0x3"
+      },
+      {
+        "cell_count": 10896,
+        "exact_values": [
+          "0x04",
+          "0x94"
+        ],
+        "low_nibble": "0x4"
+      },
+      {
+        "cell_count": 198,
+        "exact_values": [
+          "0x05"
+        ],
+        "low_nibble": "0x5"
+      },
+      {
+        "cell_count": 10,
+        "exact_values": [
+          "0x07"
+        ],
+        "low_nibble": "0x7"
+      },
+      {
+        "cell_count": 9325,
+        "exact_values": [
+          "0x08"
+        ],
+        "low_nibble": "0x8"
+      },
+      {
+        "cell_count": 1451,
+        "exact_values": [
+          "0x09"
+        ],
+        "low_nibble": "0x9"
+      },
+      {
+        "cell_count": 1660,
+        "exact_values": [
+          "0x0B"
+        ],
+        "low_nibble": "0xB"
+      },
+      {
+        "cell_count": 2734,
+        "exact_values": [
+          "0x0C"
+        ],
+        "low_nibble": "0xC"
+      },
+      {
+        "cell_count": 481,
+        "exact_values": [
+          "0x0D"
+        ],
+        "low_nibble": "0xD"
+      },
+      {
+        "cell_count": 1311,
+        "exact_values": [
+          "0x0F"
+        ],
+        "low_nibble": "0xF"
+      }
+    ],
+    "nonzero_attribute_cells": 603176,
+    "scene_cells_sampled": 972800,
+    "unique_attribute_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "working_model": {
+      "attribute_byte_role": "third byte of each 4x4 arrangement cell; runtime collision/behavior candidate",
+      "confidence": "medium-structural",
+      "high_bit": "dominant collision-family candidate present in most direct scenes",
+      "known_runtime_buffer": "$01F800..$01FF7F current tileset collision data",
+      "low_bits": "sparser modifier family; exact gameplay meaning still needs runtime branch corroboration",
+      "zero_value": "plain/default surface candidate"
+    }
+  },
+  "title": "Map Collision Attribute Context",
+  "top_nonzero_attribute_scenes": [
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 2,
+      "scene_id": "map_scene.0184",
+      "sector": {
+        "linear_index": 184,
+        "x": 5,
+        "y": 24
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1004,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 0,
+      "scene_id": "map_scene.0203",
+      "sector": {
+        "linear_index": 203,
+        "x": 6,
+        "y": 11
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1004,
+          "value": "0x80"
+        },
+        {
+          "count": 20,
+          "value": "0x03"
+        }
+      ],
+      "town_map": "onett"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 2,
+      "scene_id": "map_scene.0216",
+      "sector": {
+        "linear_index": 216,
+        "x": 6,
+        "y": 24
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1023,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 0,
+      "scene_id": "map_scene.0235",
+      "sector": {
+        "linear_index": 235,
+        "x": 7,
+        "y": 11
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1023,
+          "value": "0x80"
+        },
+        {
+          "count": 1,
+          "value": "0x03"
+        }
+      ],
+      "town_map": "onett"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 2,
+      "scene_id": "map_scene.0248",
+      "sector": {
+        "linear_index": 248,
+        "x": 7,
+        "y": 24
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 0,
+      "scene_id": "map_scene.0277",
+      "sector": {
+        "linear_index": 277,
+        "x": 8,
+        "y": 21
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 1,
+      "scene_id": "map_scene.0617",
+      "sector": {
+        "linear_index": 617,
+        "x": 19,
+        "y": 9
+      },
+      "setting": "lost underworld sprites",
+      "tileset_id": 0,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 1,
+      "scene_id": "map_scene.0747",
+      "sector": {
+        "linear_index": 747,
+        "x": 23,
+        "y": 11
+      },
+      "setting": "lost underworld sprites",
+      "tileset_id": 0,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 0,
+      "scene_id": "map_scene.0867",
+      "sector": {
+        "linear_index": 867,
+        "x": 27,
+        "y": 3
+      },
+      "setting": "none",
+      "tileset_id": 13,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1024,
+      "nonzero_attribute_cells": 1024,
+      "palette_id": 0,
+      "scene_id": "map_scene.1124",
+      "sector": {
+        "linear_index": 1124,
+        "x": 35,
+        "y": 4
+      },
+      "setting": "none",
+      "tileset_id": 18,
+      "top_attribute_counts": [
+        {
+          "count": 1024,
+          "value": "0x80"
+        }
+      ],
+      "town_map": "scaraba"
+    },
+    {
+      "high_bit_attribute_cells": 976,
+      "nonzero_attribute_cells": 1023,
+      "palette_id": 1,
+      "scene_id": "map_scene.0506",
+      "sector": {
+        "linear_index": 506,
+        "x": 15,
+        "y": 26
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 976,
+          "value": "0x80"
+        },
+        {
+          "count": 23,
+          "value": "0x08"
+        },
+        {
+          "count": 8,
+          "value": "0x0D"
+        },
+        {
+          "count": 7,
+          "value": "0x0C"
+        },
+        {
+          "count": 6,
+          "value": "0x0F"
+        },
+        {
+          "count": 3,
+          "value": "0x09"
+        },
+        {
+          "count": 1,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1020,
+      "nonzero_attribute_cells": 1023,
+      "palette_id": 0,
+      "scene_id": "map_scene.0788",
+      "sector": {
+        "linear_index": 788,
+        "x": 24,
+        "y": 20
+      },
+      "setting": "none",
+      "tileset_id": 7,
+      "top_attribute_counts": [
+        {
+          "count": 1020,
+          "value": "0x80"
+        },
+        {
+          "count": 3,
+          "value": "0x03"
+        },
+        {
+          "count": 1,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "summers"
+    },
+    {
+      "high_bit_attribute_cells": 891,
+      "nonzero_attribute_cells": 1020,
+      "palette_id": 1,
+      "scene_id": "map_scene.0474",
+      "sector": {
+        "linear_index": 474,
+        "x": 14,
+        "y": 26
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 891,
+          "value": "0x80"
+        },
+        {
+          "count": 46,
+          "value": "0x08"
+        },
+        {
+          "count": 35,
+          "value": "0x0C"
+        },
+        {
+          "count": 22,
+          "value": "0x0F"
+        },
+        {
+          "count": 16,
+          "value": "0x0D"
+        },
+        {
+          "count": 6,
+          "value": "0x09"
+        },
+        {
+          "count": 4,
+          "value": "0x00"
+        },
+        {
+          "count": 4,
+          "value": "0x03"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1019,
+      "nonzero_attribute_cells": 1019,
+      "palette_id": 0,
+      "scene_id": "map_scene.0689",
+      "sector": {
+        "linear_index": 689,
+        "x": 21,
+        "y": 17
+      },
+      "setting": "none",
+      "tileset_id": 7,
+      "top_attribute_counts": [
+        {
+          "count": 1019,
+          "value": "0x80"
+        },
+        {
+          "count": 5,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "summers"
+    },
+    {
+      "high_bit_attribute_cells": 1019,
+      "nonzero_attribute_cells": 1019,
+      "palette_id": 0,
+      "scene_id": "map_scene.0752",
+      "sector": {
+        "linear_index": 752,
+        "x": 23,
+        "y": 16
+      },
+      "setting": "none",
+      "tileset_id": 7,
+      "top_attribute_counts": [
+        {
+          "count": 1019,
+          "value": "0x80"
+        },
+        {
+          "count": 5,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "summers"
+    },
+    {
+      "high_bit_attribute_cells": 1018,
+      "nonzero_attribute_cells": 1019,
+      "palette_id": 0,
+      "scene_id": "map_scene.0889",
+      "sector": {
+        "linear_index": 889,
+        "x": 27,
+        "y": 25
+      },
+      "setting": "exit mouse usable",
+      "tileset_id": 0,
+      "top_attribute_counts": [
+        {
+          "count": 1018,
+          "value": "0x80"
+        },
+        {
+          "count": 5,
+          "value": "0x00"
+        },
+        {
+          "count": 1,
+          "value": "0x01"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1002,
+      "nonzero_attribute_cells": 1018,
+      "palette_id": 0,
+      "scene_id": "map_scene.0739",
+      "sector": {
+        "linear_index": 739,
+        "x": 23,
+        "y": 3
+      },
+      "setting": "none",
+      "tileset_id": 13,
+      "top_attribute_counts": [
+        {
+          "count": 1002,
+          "value": "0x80"
+        },
+        {
+          "count": 16,
+          "value": "0x08"
+        },
+        {
+          "count": 6,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1018,
+      "nonzero_attribute_cells": 1018,
+      "palette_id": 0,
+      "scene_id": "map_scene.0995",
+      "sector": {
+        "linear_index": 995,
+        "x": 31,
+        "y": 3
+      },
+      "setting": "none",
+      "tileset_id": 13,
+      "top_attribute_counts": [
+        {
+          "count": 1018,
+          "value": "0x80"
+        },
+        {
+          "count": 6,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1018,
+      "nonzero_attribute_cells": 1018,
+      "palette_id": 0,
+      "scene_id": "map_scene.1026",
+      "sector": {
+        "linear_index": 1026,
+        "x": 32,
+        "y": 2
+      },
+      "setting": "none",
+      "tileset_id": 13,
+      "top_attribute_counts": [
+        {
+          "count": 1018,
+          "value": "0x80"
+        },
+        {
+          "count": 6,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 900,
+      "nonzero_attribute_cells": 1016,
+      "palette_id": 0,
+      "scene_id": "map_scene.0401",
+      "sector": {
+        "linear_index": 401,
+        "x": 12,
+        "y": 17
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 900,
+          "value": "0x80"
+        },
+        {
+          "count": 62,
+          "value": "0x0F"
+        },
+        {
+          "count": 33,
+          "value": "0x0C"
+        },
+        {
+          "count": 12,
+          "value": "0x0B"
+        },
+        {
+          "count": 8,
+          "value": "0x00"
+        },
+        {
+          "count": 5,
+          "value": "0x0D"
+        },
+        {
+          "count": 4,
+          "value": "0x03"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1008,
+      "nonzero_attribute_cells": 1014,
+      "palette_id": 0,
+      "scene_id": "map_scene.0067",
+      "sector": {
+        "linear_index": 67,
+        "x": 2,
+        "y": 3
+      },
+      "setting": "none",
+      "tileset_id": 1,
+      "top_attribute_counts": [
+        {
+          "count": 1008,
+          "value": "0x80"
+        },
+        {
+          "count": 10,
+          "value": "0x00"
+        },
+        {
+          "count": 6,
+          "value": "0x03"
+        }
+      ],
+      "town_map": "onett"
+    },
+    {
+      "high_bit_attribute_cells": 920,
+      "nonzero_attribute_cells": 1014,
+      "palette_id": 0,
+      "scene_id": "map_scene.0402",
+      "sector": {
+        "linear_index": 402,
+        "x": 12,
+        "y": 18
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 920,
+          "value": "0x80"
+        },
+        {
+          "count": 48,
+          "value": "0x0F"
+        },
+        {
+          "count": 28,
+          "value": "0x03"
+        },
+        {
+          "count": 10,
+          "value": "0x00"
+        },
+        {
+          "count": 8,
+          "value": "0x0B"
+        },
+        {
+          "count": 8,
+          "value": "0x0C"
+        },
+        {
+          "count": 2,
+          "value": "0x01"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 986,
+      "nonzero_attribute_cells": 1014,
+      "palette_id": 0,
+      "scene_id": "map_scene.0403",
+      "sector": {
+        "linear_index": 403,
+        "x": 12,
+        "y": 19
+      },
+      "setting": "none",
+      "tileset_id": 6,
+      "top_attribute_counts": [
+        {
+          "count": 986,
+          "value": "0x80"
+        },
+        {
+          "count": 12,
+          "value": "0x03"
+        },
+        {
+          "count": 10,
+          "value": "0x00"
+        },
+        {
+          "count": 8,
+          "value": "0x0B"
+        },
+        {
+          "count": 8,
+          "value": "0x0F"
+        }
+      ],
+      "town_map": "none"
+    },
+    {
+      "high_bit_attribute_cells": 1014,
+      "nonzero_attribute_cells": 1014,
+      "palette_id": 0,
+      "scene_id": "map_scene.1200",
+      "sector": {
+        "linear_index": 1200,
+        "x": 37,
+        "y": 16
+      },
+      "setting": "exit mouse usable",
+      "tileset_id": 0,
+      "top_attribute_counts": [
+        {
+          "count": 1014,
+          "value": "0x80"
+        },
+        {
+          "count": 10,
+          "value": "0x00"
+        }
+      ],
+      "town_map": "none"
+    }
+  ]
+}

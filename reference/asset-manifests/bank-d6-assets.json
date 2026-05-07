@@ -1,0 +1,223 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank D6 asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-d6-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank16.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 6,
+    "binary_assets_by_extension": {
+      "bin": 6
+    },
+    "binary_asset_bytes": 65536,
+    "table_includes": 0,
+    "table_bytes": 0,
+    "coverage_gaps": 0,
+    "coverage_gap_bytes": 0,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 6,
+    "output_recipe_count": 12,
+    "typed_output_kind_count": 2,
+    "decoder_output_recipe_count": 6,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "map_tile_chunk_index_json": 6,
+      "raw": 6
+    },
+    "decoder_counts": {
+      "map_tile_chunk_index": 6
+    },
+    "renderer_counts": {},
+    "smoke_fixture_count": 3,
+    "smoke_fixture_asset_ids": [
+      "asset.d6.map_data_tile_table_chunk_1"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 1,
+      "recipe_kind": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "map_tile_chunk_index_json": 3
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_1",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_1",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:0000..D6:2800",
+        "bytes": 10240,
+        "sha1": "9e143baa0567671c83ac7565669fe3489f44aae7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_01.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_01_tile_index.json",
+          "chunk_index": 1
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_01.bin",
+        "Original file offset: 0x160000"
+      ]
+    },
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_2",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_2",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:2800..D6:5000",
+        "bytes": 10240,
+        "sha1": "e4d8cd9d0772faad3936d8de2ce10b2cfcb1568a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_02.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_02_tile_index.json",
+          "chunk_index": 2
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_02.bin",
+        "Original file offset: 0x162800"
+      ]
+    },
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_3",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_3",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:5000..D6:8000",
+        "bytes": 12288,
+        "sha1": "f52ec7608f6fb8a1eb27c5bdcd5083f5fb50b46d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_03.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_03_tile_index.json",
+          "chunk_index": 3
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_03.bin",
+        "Original file offset: 0x165000"
+      ]
+    },
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_4",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_4",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:8000..D6:A800",
+        "bytes": 10240,
+        "sha1": "ca4ee020fa13365193812d86f89dba887cd47c82"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_04.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_04_tile_index.json",
+          "chunk_index": 4
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_04.bin",
+        "Original file offset: 0x168000"
+      ]
+    },
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_5",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_5",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:A800..D6:D000",
+        "bytes": 10240,
+        "sha1": "0f3a8f33521e62a4770b4098fa7ead3d989d2f2a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_05.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_05_tile_index.json",
+          "chunk_index": 5
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_05.bin",
+        "Original file offset: 0x16A800"
+      ]
+    },
+    {
+      "id": "asset.d6.map_data_tile_table_chunk_6",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_6",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "D6:D000..D6:10000",
+        "bytes": 12288,
+        "sha1": "cb7e3ef46f232c5b553fc3829a213af239dae28f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "d6/maps/tiles/chunk_06.bin"
+        },
+        {
+          "kind": "map_tile_chunk_index_json",
+          "path": "d6/maps/tiles/chunk_06_tile_index.json",
+          "chunk_index": 6
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/tiles/chunk_06.bin",
+        "Original file offset: 0x16D000"
+      ]
+    }
+  ]
+}

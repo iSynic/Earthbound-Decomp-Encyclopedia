@@ -1,0 +1,3385 @@
+{
+  "schema": "earthbound-decomp.asset-output-smoke-fixtures.v1",
+  "inputs": {
+    "manifest_dir": "asset-manifests",
+    "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+    "recipe_contract_report": "notes/asset-output-recipe-contracts.md"
+  },
+  "tracked_json": "notes/asset-output-smoke-fixtures.json",
+  "tracked_markdown": "notes/asset-output-smoke-fixtures.md",
+  "source_policy": {
+    "contains_rom_derived_outputs": false,
+    "runner_requires_user_supplied_rom": true,
+    "default_output_root": "build/asset-output-smoke-fixtures"
+  },
+  "coverage": {
+    "fixture_count": 124,
+    "unique_selected_assets": 50,
+    "unique_selected_manifest_asset_pairs": 50,
+    "recipe_kinds_covered": 33,
+    "family_renderer_pairs_covered": 12,
+    "family_renderer_geometry_pairs_covered": 14,
+    "family_decoder_pairs_covered": 37,
+    "target_bank_output_fixture_policy_banks": 22,
+    "bank_output_fixture_banks_covered": 22,
+    "target_banks_without_typed_non_raw_outputs": [],
+    "fixture_target_source_refs": 27,
+    "fixture_target_source_ref_status_counts": {
+      "known_external": 6,
+      "manifest_asset": 21
+    },
+    "fixture_target_source_ref_field_counts": {
+      "graphics_source": 6,
+      "palette_source": 21
+    },
+    "fixture_type_counts": {
+      "bank_output": 22,
+      "family_decoder": 37,
+      "family_renderer": 12,
+      "family_renderer_geometry": 14,
+      "recipe_kind": 33,
+      "recipe_option": 6
+    },
+    "fixture_family_counts": {
+      "battle_visual_assets": 55,
+      "ef_debug_and_late_tail": 3,
+      "map_tilesets_and_runtime_tables": 25,
+      "overworld_sprites": 15,
+      "ui_font_town_map_assets": 26
+    }
+  },
+  "source_ref_coverage": {
+    "source_ref_count": 27,
+    "field_counts": {
+      "graphics_source": 6,
+      "palette_source": 21
+    },
+    "match_status_counts": {
+      "known_external": 6,
+      "manifest_asset": 21
+    },
+    "families": [
+      {
+        "id": "battle_visual_assets",
+        "label": "Battle visual assets",
+        "source_ref_count": 21,
+        "match_status_counts": {
+          "manifest_asset": 21
+        },
+        "field_counts": {
+          "graphics_source": 6,
+          "palette_source": 15
+        }
+      },
+      {
+        "id": "overworld_sprites",
+        "label": "Overworld sprites",
+        "source_ref_count": 6,
+        "match_status_counts": {
+          "known_external": 6
+        },
+        "field_counts": {
+          "palette_source": 6
+        }
+      }
+    ]
+  },
+  "family_output_kind_counts": {
+    "battle_visual_assets": {
+      "animation_sequence_pointer_table_json": 1,
+      "battle_bg_config_table_json": 1,
+      "battle_bg_distortion_table_json": 1,
+      "battle_bg_layer_table_json": 1,
+      "battle_bg_pointer_table_json": 3,
+      "battle_bg_scrolling_table_json": 1,
+      "battle_sprite_pointer_table_json": 1,
+      "battle_swirl_frame_json": 126,
+      "battle_swirl_pointer_table_json": 1,
+      "battle_swirl_sequence_table_json": 1,
+      "earthbound_lzhal": 361,
+      "earthbound_lzhal_battle_bg_arrangement_png": 103,
+      "earthbound_lzhal_battle_sprite_png": 166,
+      "earthbound_lzhal_snes_4bpp_tiles_palette_png": 234,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 202,
+      "psi_anim_config_table_json": 1,
+      "psi_anim_pointer_table_json": 1,
+      "raw": 689,
+      "snes_palette_json": 181,
+      "snes_palette_swatch_png": 181
+    },
+    "mixed_asset_tables": {
+      "raw": 7
+    },
+    "overworld_sprites": {
+      "raw": 1148,
+      "snes_4bpp_tiles_palette_png": 1146,
+      "snes_4bpp_tiles_png": 1146
+    },
+    "map_tilesets_and_runtime_tables": {
+      "earthbound_lzhal": 64,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 22,
+      "map_global_tileset_palette_data_json": 1,
+      "map_palette_pointer_table_json": 1,
+      "map_sector_music_table_json": 1,
+      "map_tile_chunk_index_json": 10,
+      "raw": 130,
+      "snes_palette_json": 33,
+      "snes_palette_swatch_png": 33
+    },
+    "ui_font_town_map_assets": {
+      "earthbound_lzhal": 41,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 13,
+      "earthbound_lzhal_snes_palette_json": 10,
+      "earthbound_lzhal_snes_palette_swatch_png": 10,
+      "font_metric_widths_json": 5,
+      "photographer_config_table_json": 1,
+      "raw": 69,
+      "snes_2bpp_tiles_png": 1,
+      "snes_4bpp_tiles_png": 5,
+      "snes_palette_json": 2,
+      "snes_palette_swatch_png": 2,
+      "text_window_properties_table_json": 1,
+      "town_map_icon_table_json": 1
+    },
+    "audio_packs": {
+      "raw": 171
+    },
+    "ef_debug_and_late_tail": {
+      "raw": 5,
+      "snes_2bpp_tiles_png": 2
+    }
+  },
+  "fixtures": [
+    {
+      "id": "fixture.recipe_kind.animation_sequence_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "animation_sequence_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.006_data_animation_sequence_pointers_asm",
+      "title": "data/animation_sequence_pointers.asm",
+      "category": "raw-table",
+      "bytes": 56,
+      "target_output": {
+        "kind": "animation_sequence_pointer_table_json",
+        "path": "cc/tables/006_data_animation_sequence_pointers_asm_decoded.json",
+        "decoder": "animation_sequence_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "animation_sequence_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_bg_config_table_json",
+      "type": "recipe_kind",
+      "key": "battle_bg_config_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.023_data_battle_backgrounds_config_table_asm",
+      "title": "data/battle/backgrounds/config_table.asm",
+      "category": "raw-table",
+      "bytes": 5559,
+      "target_output": {
+        "kind": "battle_bg_config_table_json",
+        "path": "ca/tables/023_data_battle_backgrounds_config_table_asm_decoded.json",
+        "decoder": "battle_background_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_bg_distortion_table_json",
+      "type": "recipe_kind",
+      "key": "battle_bg_distortion_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.025_data_battle_backgrounds_distortion_table_asm",
+      "title": "data/battle/backgrounds/distortion_table.asm",
+      "category": "raw-table",
+      "bytes": 2295,
+      "target_output": {
+        "kind": "battle_bg_distortion_table_json",
+        "path": "ca/tables/025_data_battle_backgrounds_distortion_table_asm_decoded.json",
+        "decoder": "battle_background_distortion_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_distortion_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_bg_layer_table_json",
+      "type": "recipe_kind",
+      "key": "battle_bg_layer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "table.cb.300_data_battle_background_layer_table_asm",
+      "title": "data/battle/background_layer_table.asm",
+      "category": "raw-table",
+      "bytes": 1936,
+      "target_output": {
+        "kind": "battle_bg_layer_table_json",
+        "path": "cb/tables/300_data_battle_background_layer_table_asm_decoded.json",
+        "decoder": "battle_background_layer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_layer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_bg_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "battle_bg_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.020_data_battle_backgrounds_graphics_pointers_asm",
+      "title": "data/battle/backgrounds/graphics_pointers.asm",
+      "category": "raw-table",
+      "bytes": 412,
+      "target_output": {
+        "kind": "battle_bg_pointer_table_json",
+        "path": "ca/tables/020_data_battle_backgrounds_graphics_pointers_asm_decoded.json",
+        "decoder": "battle_background_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_bg_scrolling_table_json",
+      "type": "recipe_kind",
+      "key": "battle_bg_scrolling_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.024_data_battle_backgrounds_scrolling_table_asm",
+      "title": "data/battle/backgrounds/scrolling_table.asm",
+      "category": "raw-table",
+      "bytes": 1200,
+      "target_output": {
+        "kind": "battle_bg_scrolling_table_json",
+        "path": "ca/tables/024_data_battle_backgrounds_scrolling_table_asm_decoded.json",
+        "decoder": "battle_background_scrolling_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_scrolling_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_sprite_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "battle_sprite_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.055_data_battle_battle_sprites_pointers_asm",
+      "title": "data/battle/battle_sprites_pointers.asm",
+      "category": "raw-table",
+      "bytes": 550,
+      "target_output": {
+        "kind": "battle_sprite_pointer_table_json",
+        "path": "ce/tables/055_data_battle_battle_sprites_pointers_asm_decoded.json",
+        "decoder": "battle_sprite_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_sprite_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_swirl_frame_json",
+      "type": "recipe_kind",
+      "key": "battle_swirl_frame_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "asset.ce.swirl_data_0",
+      "title": "SWIRL_DATA_0",
+      "category": "binary-asset",
+      "bytes": 8,
+      "target_output": {
+        "kind": "battle_swirl_frame_json",
+        "path": "ce/swirls/0_frame.json",
+        "decoder": "battle_swirl_frame_metadata",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_frame_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_swirl_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "battle_swirl_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.214_data_battle_swirl_pointers_asm",
+      "title": "data/battle/swirl_pointers.asm",
+      "category": "raw-table",
+      "bytes": 252,
+      "target_output": {
+        "kind": "battle_swirl_pointer_table_json",
+        "path": "ce/tables/214_data_battle_swirl_pointers_asm_decoded.json",
+        "decoder": "battle_swirl_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.battle_swirl_sequence_table_json",
+      "type": "recipe_kind",
+      "key": "battle_swirl_sequence_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.215_inline_swirl_primary_table",
+      "title": "inline:SWIRL_PRIMARY_TABLE",
+      "category": "raw-table",
+      "bytes": 28,
+      "target_output": {
+        "kind": "battle_swirl_sequence_table_json",
+        "path": "ce/tables/215_inline_swirl_primary_table_decoded.json",
+        "decoder": "battle_swirl_sequence_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_sequence_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "ca/battle_bgs/arrangements/100.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_battle_bg_arrangement_png",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_battle_bg_arrangement_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_battle_sprite_png",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_battle_sprite_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_sprite_png",
+        "path": "cd/battle_sprites/10_palette_09_sprite.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "battle_sprite"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_snes_4bpp_tiles_palette_png",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "ca/battle_bgs/graphics/38_palette_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_snes_4bpp_tiles_png",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_snes_4bpp_tiles_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "ca/battle_bgs/graphics/38_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_snes_palette_json",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_snes_palette_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_palette",
+      "title": "APE_PALETTE",
+      "category": "graphics",
+      "bytes": 68,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_palette_json",
+        "path": "e1/intro/logos/ape_palette.json",
+        "decoder": "earthbound_lzhal+snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_palette_json",
+        "earthbound_lzhal_snes_palette_swatch_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.earthbound_lzhal_snes_palette_swatch_png",
+      "type": "recipe_kind",
+      "key": "earthbound_lzhal_snes_palette_swatch_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_palette",
+      "title": "APE_PALETTE",
+      "category": "graphics",
+      "bytes": 68,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_palette_swatch_png",
+        "path": "e1/intro/logos/ape_palette.png",
+        "decoder": "earthbound_lzhal+snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_palette_json",
+        "earthbound_lzhal_snes_palette_swatch_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.font_metric_widths_json",
+      "type": "recipe_kind",
+      "key": "font_metric_widths_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mrsaturn_font_data",
+      "title": "MRSATURN_FONT_DATA",
+      "category": "binary-asset",
+      "bytes": 96,
+      "target_output": {
+        "kind": "font_metric_widths_json",
+        "path": "e0/fonts/mrsaturn_widths.json",
+        "decoder": "font_metric_widths",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "font_metric_widths_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.map_global_tileset_palette_data_json",
+      "type": "recipe_kind",
+      "key": "map_global_tileset_palette_data_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D7",
+      "manifest_path": "asset-manifests/bank-d7-assets.json",
+      "asset_id": "table.d7.004_data_map_global_tileset_palette_data_asm",
+      "title": "data/map/global_tileset_palette_data.asm",
+      "category": "raw-table",
+      "bytes": 7680,
+      "target_output": {
+        "kind": "map_global_tileset_palette_data_json",
+        "path": "d7/tables/004_data_map_global_tileset_palette_data_asm_decoded.json",
+        "decoder": "map_global_tileset_palette_data",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_global_tileset_palette_data_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.map_palette_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "map_palette_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DA",
+      "manifest_path": "asset-manifests/bank-da-assets.json",
+      "asset_id": "table.da.035_data_map_unknown_map_palette_pointer_table_asm",
+      "title": "data/map/unknown_map_palette_pointer_table.asm",
+      "category": "raw-table",
+      "bytes": 96,
+      "target_output": {
+        "kind": "map_palette_pointer_table_json",
+        "path": "da/tables/035_data_map_unknown_map_palette_pointer_table_asm_decoded.json",
+        "decoder": "map_palette_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_palette_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.map_sector_music_table_json",
+      "type": "recipe_kind",
+      "key": "map_sector_music_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DC",
+      "manifest_path": "asset-manifests/bank-dc-assets.json",
+      "asset_id": "table.dc.007_data_map_per_sector_music_asm",
+      "title": "data/map/per-sector_music.asm",
+      "category": "raw-table",
+      "bytes": 2560,
+      "target_output": {
+        "kind": "map_sector_music_table_json",
+        "path": "dc/tables/007_data_map_per_sector_music_asm_decoded.json",
+        "decoder": "map_sector_music_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_sector_music_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.map_tile_chunk_index_json",
+      "type": "recipe_kind",
+      "key": "map_tile_chunk_index_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D6",
+      "manifest_path": "asset-manifests/bank-d6-assets.json",
+      "asset_id": "asset.d6.map_data_tile_table_chunk_1",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_1",
+      "category": "binary-asset",
+      "bytes": 10240,
+      "target_output": {
+        "kind": "map_tile_chunk_index_json",
+        "path": "d6/maps/tiles/chunk_01_tile_index.json",
+        "decoder": "map_tile_chunk_index",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_tile_chunk_index_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.photographer_config_table_json",
+      "type": "recipe_kind",
+      "key": "photographer_config_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "table.e1.012_data_photographer_cfg_asm",
+      "title": "data/photographer_cfg.asm",
+      "category": "raw-table",
+      "bytes": 1984,
+      "target_output": {
+        "kind": "photographer_config_table_json",
+        "path": "e1/tables/012_data_photographer_cfg_asm_decoded.json",
+        "decoder": "photographer_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "photographer_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.psi_anim_config_table_json",
+      "type": "recipe_kind",
+      "key": "psi_anim_config_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.043_data_psi_anim_cfg_asm",
+      "title": "data/psi_anim_cfg.asm",
+      "category": "raw-table",
+      "bytes": 408,
+      "target_output": {
+        "kind": "psi_anim_config_table_json",
+        "path": "cc/tables/043_data_psi_anim_cfg_asm_decoded.json",
+        "decoder": "psi_animation_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "psi_anim_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.psi_anim_pointer_table_json",
+      "type": "recipe_kind",
+      "key": "psi_anim_pointer_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.080_data_psi_anim_pointers_asm",
+      "title": "data/psi_anim_pointers.asm",
+      "category": "raw-table",
+      "bytes": 136,
+      "target_output": {
+        "kind": "psi_anim_pointer_table_json",
+        "path": "cc/tables/080_data_psi_anim_pointers_asm_decoded.json",
+        "decoder": "psi_animation_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "psi_anim_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.raw",
+      "type": "recipe_kind",
+      "key": "raw",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "raw",
+        "path": "ca/battle_bgs/arrangements/100.arr.lzhal",
+        "decoder": null,
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.snes_2bpp_tiles_png",
+      "type": "recipe_kind",
+      "key": "snes_2bpp_tiles_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.snes_4bpp_tiles_palette_png",
+      "type": "recipe_kind",
+      "key": "snes_4bpp_tiles_palette_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.snes_4bpp_tiles_png",
+      "type": "recipe_kind",
+      "key": "snes_4bpp_tiles_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.snes_palette_json",
+      "type": "recipe_kind",
+      "key": "snes_palette_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_palette_0",
+      "title": "BATTLE_BACKGROUND_PALETTE_0",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_json",
+        "path": "cb/battle_bgs/palettes/0_palette.json",
+        "decoder": "snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.snes_palette_swatch_png",
+      "type": "recipe_kind",
+      "key": "snes_palette_swatch_png",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_palette_0",
+      "title": "BATTLE_BACKGROUND_PALETTE_0",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "cb/battle_bgs/palettes/0_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.text_window_properties_table_json",
+      "type": "recipe_kind",
+      "key": "text_window_properties_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "table.e0.006_data_text_window_properties_asm",
+      "title": "data/text_window_properties.asm",
+      "category": "raw-table",
+      "bytes": 495,
+      "target_output": {
+        "kind": "text_window_properties_table_json",
+        "path": "e0/tables/006_data_text_window_properties_asm_decoded.json",
+        "decoder": "text_window_properties_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "text_window_properties_table_json"
+      ]
+    },
+    {
+      "id": "fixture.recipe_kind.town_map_icon_table_json",
+      "type": "recipe_kind",
+      "key": "town_map_icon_table_json",
+      "reason": "Covers one typed output recipe kind.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "table.e1.055_data_unknown_e1f203_asm",
+      "title": "data/unknown/E1F203.asm",
+      "category": "raw-table",
+      "bytes": 894,
+      "target_output": {
+        "kind": "town_map_icon_table_json",
+        "path": "e1/tables/055_data_unknown_e1f203_asm_decoded.json",
+        "decoder": "town_map_icon_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "town_map_icon_table_json"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.battle_bg_layer_table_json_config_row_count",
+      "type": "recipe_option",
+      "key": "battle_bg_layer_table_json.config_row_count",
+      "reason": "Covers an optional recipe metadata field used by manifests.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "table.cb.300_data_battle_background_layer_table_asm",
+      "title": "data/battle/background_layer_table.asm",
+      "category": "raw-table",
+      "bytes": 1936,
+      "target_output": {
+        "kind": "battle_bg_layer_table_json",
+        "path": "cb/tables/300_data_battle_background_layer_table_asm_decoded.json",
+        "decoder": "battle_background_layer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_layer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.earthbound_lzhal_snes_4bpp_tiles_palette_png_palette_id",
+      "type": "recipe_option",
+      "key": "earthbound_lzhal_snes_4bpp_tiles_palette_png.palette_id",
+      "reason": "Covers an optional recipe metadata field used by manifests.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "cd/battle_sprites/10_palette_09_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.earthbound_lzhal_snes_4bpp_tiles_palette_png_sprite_id",
+      "type": "recipe_option",
+      "key": "earthbound_lzhal_snes_4bpp_tiles_palette_png.sprite_id",
+      "reason": "Covers an optional recipe metadata field used by manifests.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "cd/battle_sprites/10_palette_09_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.snes_2bpp_tiles_png_trim_trailing_bytes",
+      "type": "recipe_option",
+      "key": "snes_2bpp_tiles_png.trim_trailing_bytes",
+      "reason": "Covers an optional recipe field that changes decode input bytes.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.snes_4bpp_tiles_palette_png_palette_id",
+      "type": "recipe_option",
+      "key": "snes_4bpp_tiles_palette_png.palette_id",
+      "reason": "Covers an optional recipe metadata field used by manifests.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.recipe_option.snes_4bpp_tiles_palette_png_sprite_id",
+      "type": "recipe_option",
+      "key": "snes_4bpp_tiles_palette_png.sprite_id",
+      "reason": "Covers an optional recipe metadata field used by manifests.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.ca",
+      "type": "bank_output",
+      "key": "CA",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.cb",
+      "type": "bank_output",
+      "key": "CB",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_arr_0",
+      "title": "BATTLE_BACKGROUND_ARR_0",
+      "category": "graphics",
+      "bytes": 5,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "cb/battle_bgs/arrangements/0_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.cc",
+      "type": "bank_output",
+      "key": "CC",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "asset.cc.psi_anim_gfx_set_3",
+      "title": "PSI_ANIM_GFX_SET_3",
+      "category": "graphics",
+      "bytes": 722,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "cc/psianims/gfx/2_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.cd",
+      "type": "bank_output",
+      "key": "CD",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "cd/battle_sprites/10_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.ce",
+      "type": "bank_output",
+      "key": "CE",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "asset.ce.battle_sprite_0",
+      "title": "BATTLE_SPRITE_0",
+      "category": "graphics",
+      "bytes": 235,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "ce/battle_sprites/0_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d1",
+      "type": "bank_output",
+      "key": "D1",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d2",
+      "type": "bank_output",
+      "key": "D2",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "overworld_sprites",
+      "bank": "D2",
+      "manifest_path": "asset-manifests/bank-d2-assets.json",
+      "asset_id": "asset.d2.sprite_0123",
+      "title": "SPRITE_0123",
+      "category": "graphics",
+      "bytes": 192,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d2/overworld_sprites/gfx/0123_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d3",
+      "type": "bank_output",
+      "key": "D3",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "overworld_sprites",
+      "bank": "D3",
+      "manifest_path": "asset-manifests/bank-d3-assets.json",
+      "asset_id": "asset.d3.sprite_0354",
+      "title": "SPRITE_0354",
+      "category": "graphics",
+      "bytes": 192,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d3/overworld_sprites/gfx/0354_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d4",
+      "type": "bank_output",
+      "key": "D4",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "overworld_sprites",
+      "bank": "D4",
+      "manifest_path": "asset-manifests/bank-d4-assets.json",
+      "asset_id": "asset.d4.sprite_0693",
+      "title": "SPRITE_0693",
+      "category": "graphics",
+      "bytes": 192,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d4/overworld_sprites/gfx/0693_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d5",
+      "type": "bank_output",
+      "key": "D5",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "overworld_sprites",
+      "bank": "D5",
+      "manifest_path": "asset-manifests/bank-d5-assets.json",
+      "asset_id": "asset.d5.sprite_1028",
+      "title": "SPRITE_1028",
+      "category": "graphics",
+      "bytes": 256,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d5/overworld_sprites/gfx/1028_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d6",
+      "type": "bank_output",
+      "key": "D6",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D6",
+      "manifest_path": "asset-manifests/bank-d6-assets.json",
+      "asset_id": "asset.d6.map_data_tile_table_chunk_1",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_1",
+      "category": "binary-asset",
+      "bytes": 10240,
+      "target_output": {
+        "kind": "map_tile_chunk_index_json",
+        "path": "d6/maps/tiles/chunk_01_tile_index.json",
+        "decoder": "map_tile_chunk_index",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_tile_chunk_index_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d7",
+      "type": "bank_output",
+      "key": "D7",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D7",
+      "manifest_path": "asset-manifests/bank-d7-assets.json",
+      "asset_id": "asset.d7.map_data_tile_arrangement_0",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_0",
+      "category": "graphics",
+      "bytes": 13800,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "d7/maps/arrangements/0.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d8",
+      "type": "bank_output",
+      "key": "D8",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.anti_piracy_notice_graphics",
+      "title": "ANTI_PIRACY_NOTICE_GRAPHICS",
+      "category": "graphics",
+      "bytes": 433,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "d8/errors/antipiracy_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.d9",
+      "type": "bank_output",
+      "key": "D9",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D9",
+      "manifest_path": "asset-manifests/bank-d9-assets.json",
+      "asset_id": "asset.d9.map_data_tile_arrangement_1",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_1",
+      "category": "graphics",
+      "bytes": 13545,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "d9/maps/arrangements/1.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.da",
+      "type": "bank_output",
+      "key": "DA",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DA",
+      "manifest_path": "asset-manifests/bank-da-assets.json",
+      "asset_id": "asset.da.map_data_palette_0",
+      "title": "MAP_DATA_PALETTE_0",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "da/maps/palettes/0_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.db",
+      "type": "bank_output",
+      "key": "DB",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DB",
+      "manifest_path": "asset-manifests/bank-db-assets.json",
+      "asset_id": "asset.db.map_data_tile_arrangement_10",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_10",
+      "category": "graphics",
+      "bytes": 13492,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "db/maps/arrangements/10.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.dc",
+      "type": "bank_output",
+      "key": "DC",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DC",
+      "manifest_path": "asset-manifests/bank-dc-assets.json",
+      "asset_id": "asset.dc.map_data_tile_arrangement_12",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_12",
+      "category": "graphics",
+      "bytes": 8138,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "dc/maps/arrangements/12.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.dd",
+      "type": "bank_output",
+      "key": "DD",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DD",
+      "manifest_path": "asset-manifests/bank-dd-assets.json",
+      "asset_id": "asset.dd.map_data_tile_set_graphics_0",
+      "title": "MAP_DATA_TILE_SET_GRAPHICS_0",
+      "category": "graphics",
+      "bytes": 12948,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "dd/maps/gfx/0.gfx",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.de",
+      "type": "bank_output",
+      "key": "DE",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DE",
+      "manifest_path": "asset-manifests/bank-de-assets.json",
+      "asset_id": "asset.de.map_data_tile_animation_gfx_15",
+      "title": "MAP_DATA_TILE_ANIMATION_GFX_15",
+      "category": "graphics",
+      "bytes": 25,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "de/maps/anim_gfx/15_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.df",
+      "type": "bank_output",
+      "key": "DF",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DF",
+      "manifest_path": "asset-manifests/bank-df-assets.json",
+      "asset_id": "asset.df.map_data_tile_animation_gfx_0",
+      "title": "MAP_DATA_TILE_ANIMATION_GFX_0",
+      "category": "graphics",
+      "bytes": 1784,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "df/maps/anim_gfx/0_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.e0",
+      "type": "bank_output",
+      "key": "E0",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.bank_output.e1",
+      "type": "bank_output",
+      "key": "E1",
+      "reason": "Covers one representative typed non-raw output from a target asset bank.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_graphics",
+      "title": "APE_GRAPHICS",
+      "category": "graphics",
+      "bytes": 518,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "e1/intro/logos/ape_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.battle_visual_assets_battle_background_arrangement",
+      "type": "family_renderer",
+      "key": "battle_visual_assets.battle_background_arrangement",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.battle_visual_assets_battle_sprite",
+      "type": "family_renderer",
+      "key": "battle_visual_assets.battle_sprite",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_sprite_png",
+        "path": "cd/battle_sprites/10_palette_09_sprite.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "battle_sprite"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.battle_visual_assets_grayscale_tile_sheet",
+      "type": "family_renderer",
+      "key": "battle_visual_assets.grayscale_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "ca/battle_bgs/graphics/38_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.battle_visual_assets_palette_swatch",
+      "type": "family_renderer",
+      "key": "battle_visual_assets.palette_swatch",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_palette_0",
+      "title": "BATTLE_BACKGROUND_PALETTE_0",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "cb/battle_bgs/palettes/0_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.battle_visual_assets_palette_tile_sheet",
+      "type": "family_renderer",
+      "key": "battle_visual_assets.palette_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "ca/battle_bgs/graphics/38_palette_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.ef_debug_and_late_tail_grayscale_tile_sheet",
+      "type": "family_renderer",
+      "key": "ef_debug_and_late_tail.grayscale_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "ef_debug_and_late_tail",
+      "bank": "EF",
+      "manifest_path": "asset-manifests/ef-debug-assets.json",
+      "asset_id": "asset.debug.cursor_graphics",
+      "title": "Debug cursor graphics",
+      "category": "graphics",
+      "bytes": 288,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "ef/debug_cursor_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.map_tilesets_and_runtime_tables_grayscale_tile_sheet",
+      "type": "family_renderer",
+      "key": "map_tilesets_and_runtime_tables.grayscale_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.anti_piracy_notice_graphics",
+      "title": "ANTI_PIRACY_NOTICE_GRAPHICS",
+      "category": "graphics",
+      "bytes": 433,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "d8/errors/antipiracy_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.map_tilesets_and_runtime_tables_palette_swatch",
+      "type": "family_renderer",
+      "key": "map_tilesets_and_runtime_tables.palette_swatch",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.warning_palette",
+      "title": "WARNING_PALETTE",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "d8/errors/shared_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.overworld_sprites_grayscale_tile_sheet",
+      "type": "family_renderer",
+      "key": "overworld_sprites.grayscale_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.overworld_sprites_palette_tile_sheet",
+      "type": "family_renderer",
+      "key": "overworld_sprites.palette_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.ui_font_town_map_assets_grayscale_tile_sheet",
+      "type": "family_renderer",
+      "key": "ui_font_town_map_assets.grayscale_tile_sheet",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer.ui_font_town_map_assets_palette_swatch",
+      "type": "family_renderer",
+      "key": "ui_font_town_map_assets.palette_swatch",
+      "reason": "Covers one renderer in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_palette",
+      "title": "APE_PALETTE",
+      "category": "graphics",
+      "bytes": 68,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_palette_swatch_png",
+        "path": "e1/intro/logos/ape_palette.png",
+        "decoder": "earthbound_lzhal+snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_palette_json",
+        "earthbound_lzhal_snes_palette_swatch_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_renderer_geometry.battle_visual_assets_battle_background_arrangement_known",
+      "type": "family_renderer_geometry",
+      "key": "battle_visual_assets.battle_background_arrangement.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 256,
+        "height": 256,
+        "tiles": 1024
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.battle_visual_assets_battle_sprite_known",
+      "type": "family_renderer_geometry",
+      "key": "battle_visual_assets.battle_sprite.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CD",
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_id": "asset.cd.battle_sprite_10",
+      "title": "BATTLE_SPRITE_10",
+      "category": "graphics",
+      "bytes": 812,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_sprite_png",
+        "path": "cd/battle_sprites/10_palette_09_sprite.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "battle_sprite"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_sprite_png",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 32,
+        "height": 64
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.battle_visual_assets_grayscale_tile_sheet_requires_decode",
+      "type": "family_renderer_geometry",
+      "key": "battle_visual_assets.grayscale_tile_sheet.requires_decode",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "ca/battle_bgs/graphics/38_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "requires_decode",
+        "reason": "tile count requires LZHAL decompression"
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.battle_visual_assets_palette_swatch_known",
+      "type": "family_renderer_geometry",
+      "key": "battle_visual_assets.palette_swatch.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_palette_0",
+      "title": "BATTLE_BACKGROUND_PALETTE_0",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "cb/battle_bgs/palettes/0_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 64,
+        "height": 16,
+        "colors": 4
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.battle_visual_assets_palette_tile_sheet_requires_decode",
+      "type": "family_renderer_geometry",
+      "key": "battle_visual_assets.palette_tile_sheet.requires_decode",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "ca/battle_bgs/graphics/38_palette_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "requires_decode",
+        "reason": "tile count requires LZHAL decompression"
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.ef_debug_and_late_tail_grayscale_tile_sheet_known",
+      "type": "family_renderer_geometry",
+      "key": "ef_debug_and_late_tail.grayscale_tile_sheet.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "ef_debug_and_late_tail",
+      "bank": "EF",
+      "manifest_path": "asset-manifests/ef-debug-assets.json",
+      "asset_id": "asset.debug.cursor_graphics",
+      "title": "Debug cursor graphics",
+      "category": "graphics",
+      "bytes": 288,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "ef/debug_cursor_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 48,
+        "height": 24,
+        "tiles": 18
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.map_tilesets_and_runtime_tables_grayscale_tile_sheet_requires_decode",
+      "type": "family_renderer_geometry",
+      "key": "map_tilesets_and_runtime_tables.grayscale_tile_sheet.requires_decode",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.anti_piracy_notice_graphics",
+      "title": "ANTI_PIRACY_NOTICE_GRAPHICS",
+      "category": "graphics",
+      "bytes": 433,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "d8/errors/antipiracy_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "requires_decode",
+        "reason": "tile count requires LZHAL decompression"
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.map_tilesets_and_runtime_tables_palette_swatch_known",
+      "type": "family_renderer_geometry",
+      "key": "map_tilesets_and_runtime_tables.palette_swatch.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.warning_palette",
+      "title": "WARNING_PALETTE",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "d8/errors/shared_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 64,
+        "height": 16,
+        "colors": 4
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.overworld_sprites_grayscale_tile_sheet_known",
+      "type": "family_renderer_geometry",
+      "key": "overworld_sprites.grayscale_tile_sheet.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 64,
+        "height": 24,
+        "tiles": 24
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.overworld_sprites_palette_tile_sheet_known",
+      "type": "family_renderer_geometry",
+      "key": "overworld_sprites.palette_tile_sheet.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 64,
+        "height": 24,
+        "tiles": 24
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.ui_font_town_map_assets_grayscale_tile_sheet_known",
+      "type": "family_renderer_geometry",
+      "key": "ui_font_town_map_assets.grayscale_tile_sheet.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 88,
+        "height": 24,
+        "tiles": 33,
+        "source_bytes_after_trim": 528
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.ui_font_town_map_assets_grayscale_tile_sheet_requires_decode",
+      "type": "family_renderer_geometry",
+      "key": "ui_font_town_map_assets.grayscale_tile_sheet.requires_decode",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.text_window_gfx",
+      "title": "TEXT_WINDOW_GFX",
+      "category": "graphics",
+      "bytes": 1876,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "e0/graphics/text_window_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "requires_decode",
+        "reason": "tile count requires LZHAL decompression"
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.ui_font_town_map_assets_palette_swatch_known",
+      "type": "family_renderer_geometry",
+      "key": "ui_font_town_map_assets.palette_swatch.known",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.staff_credits_font_palette",
+      "title": "STAFF_CREDITS_FONT_PALETTE",
+      "category": "graphics",
+      "bytes": 16,
+      "target_output": {
+        "kind": "snes_palette_swatch_png",
+        "path": "e1/ending/credits_font_palette.png",
+        "decoder": "snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ],
+      "target_preview_geometry": {
+        "status": "known",
+        "width": 128,
+        "height": 16,
+        "colors": 8
+      }
+    },
+    {
+      "id": "fixture.family_renderer_geometry.ui_font_town_map_assets_palette_swatch_requires_decode",
+      "type": "family_renderer_geometry",
+      "key": "ui_font_town_map_assets.palette_swatch.requires_decode",
+      "reason": "Covers one renderer plus static preview geometry status in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_palette",
+      "title": "APE_PALETTE",
+      "category": "graphics",
+      "bytes": 68,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_palette_swatch_png",
+        "path": "e1/intro/logos/ape_palette.png",
+        "decoder": "earthbound_lzhal+snes_palette",
+        "renderer": "palette_swatch"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_palette_json",
+        "earthbound_lzhal_snes_palette_swatch_png",
+        "raw"
+      ],
+      "target_preview_geometry": {
+        "status": "requires_decode",
+        "reason": "palette color count requires ROM decode"
+      }
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_animation_sequence_pointer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.animation_sequence_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.006_data_animation_sequence_pointers_asm",
+      "title": "data/animation_sequence_pointers.asm",
+      "category": "raw-table",
+      "bytes": 56,
+      "target_output": {
+        "kind": "animation_sequence_pointer_table_json",
+        "path": "cc/tables/006_data_animation_sequence_pointers_asm_decoded.json",
+        "decoder": "animation_sequence_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "animation_sequence_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_background_config_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_background_config_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.023_data_battle_backgrounds_config_table_asm",
+      "title": "data/battle/backgrounds/config_table.asm",
+      "category": "raw-table",
+      "bytes": 5559,
+      "target_output": {
+        "kind": "battle_bg_config_table_json",
+        "path": "ca/tables/023_data_battle_backgrounds_config_table_asm_decoded.json",
+        "decoder": "battle_background_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_background_distortion_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_background_distortion_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.025_data_battle_backgrounds_distortion_table_asm",
+      "title": "data/battle/backgrounds/distortion_table.asm",
+      "category": "raw-table",
+      "bytes": 2295,
+      "target_output": {
+        "kind": "battle_bg_distortion_table_json",
+        "path": "ca/tables/025_data_battle_backgrounds_distortion_table_asm_decoded.json",
+        "decoder": "battle_background_distortion_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_distortion_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_background_layer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_background_layer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "table.cb.300_data_battle_background_layer_table_asm",
+      "title": "data/battle/background_layer_table.asm",
+      "category": "raw-table",
+      "bytes": 1936,
+      "target_output": {
+        "kind": "battle_bg_layer_table_json",
+        "path": "cb/tables/300_data_battle_background_layer_table_asm_decoded.json",
+        "decoder": "battle_background_layer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_layer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_background_pointer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_background_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.020_data_battle_backgrounds_graphics_pointers_asm",
+      "title": "data/battle/backgrounds/graphics_pointers.asm",
+      "category": "raw-table",
+      "bytes": 412,
+      "target_output": {
+        "kind": "battle_bg_pointer_table_json",
+        "path": "ca/tables/020_data_battle_backgrounds_graphics_pointers_asm_decoded.json",
+        "decoder": "battle_background_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_background_scrolling_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_background_scrolling_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "table.ca.024_data_battle_backgrounds_scrolling_table_asm",
+      "title": "data/battle/backgrounds/scrolling_table.asm",
+      "category": "raw-table",
+      "bytes": 1200,
+      "target_output": {
+        "kind": "battle_bg_scrolling_table_json",
+        "path": "ca/tables/024_data_battle_backgrounds_scrolling_table_asm_decoded.json",
+        "decoder": "battle_background_scrolling_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_bg_scrolling_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_sprite_pointer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_sprite_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.055_data_battle_battle_sprites_pointers_asm",
+      "title": "data/battle/battle_sprites_pointers.asm",
+      "category": "raw-table",
+      "bytes": 550,
+      "target_output": {
+        "kind": "battle_sprite_pointer_table_json",
+        "path": "ce/tables/055_data_battle_battle_sprites_pointers_asm_decoded.json",
+        "decoder": "battle_sprite_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_sprite_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_swirl_frame_metadata",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_swirl_frame_metadata",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "asset.ce.swirl_data_0",
+      "title": "SWIRL_DATA_0",
+      "category": "binary-asset",
+      "bytes": 8,
+      "target_output": {
+        "kind": "battle_swirl_frame_json",
+        "path": "ce/swirls/0_frame.json",
+        "decoder": "battle_swirl_frame_metadata",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_frame_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_swirl_pointer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_swirl_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.214_data_battle_swirl_pointers_asm",
+      "title": "data/battle/swirl_pointers.asm",
+      "category": "raw-table",
+      "bytes": 252,
+      "target_output": {
+        "kind": "battle_swirl_pointer_table_json",
+        "path": "ce/tables/214_data_battle_swirl_pointers_asm_decoded.json",
+        "decoder": "battle_swirl_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_battle_swirl_sequence_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.battle_swirl_sequence_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CE",
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_id": "table.ce.215_inline_swirl_primary_table",
+      "title": "inline:SWIRL_PRIMARY_TABLE",
+      "category": "raw-table",
+      "bytes": 28,
+      "target_output": {
+        "kind": "battle_swirl_sequence_table_json",
+        "path": "ce/tables/215_inline_swirl_primary_table_decoded.json",
+        "decoder": "battle_swirl_sequence_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "battle_swirl_sequence_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_earthbound_lzhal",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.earthbound_lzhal",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "ca/battle_bgs/arrangements/100.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_earthbound_lzhal_snes_4bpp_tiles",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.earthbound_lzhal+snes_4bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "ca/battle_bgs/graphics/38_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_earthbound_lzhal_snes_4bpp_tiles_snes_palette",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_gfx_38",
+      "title": "BATTLE_BACKGROUND_GFX_38",
+      "category": "graphics",
+      "bytes": 3393,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "path": "ca/battle_bgs/graphics/38_palette_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_palette_png",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_earthbound_lzhal_snes_tilemap_snes_tiles_snes_palette",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CA",
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_id": "asset.ca.battle_background_arr_100",
+      "title": "BATTLE_BACKGROUND_ARR_100",
+      "category": "graphics",
+      "bytes": 1548,
+      "target_output": {
+        "kind": "earthbound_lzhal_battle_bg_arrangement_png",
+        "path": "ca/battle_bgs/arrangements/100_composed_preview.png",
+        "decoder": "earthbound_lzhal+snes_tilemap+snes_tiles+snes_palette",
+        "renderer": "battle_background_arrangement"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_battle_bg_arrangement_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_psi_animation_config_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.psi_animation_config_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.043_data_psi_anim_cfg_asm",
+      "title": "data/psi_anim_cfg.asm",
+      "category": "raw-table",
+      "bytes": 408,
+      "target_output": {
+        "kind": "psi_anim_config_table_json",
+        "path": "cc/tables/043_data_psi_anim_cfg_asm_decoded.json",
+        "decoder": "psi_animation_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "psi_anim_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_psi_animation_pointer_table",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.psi_animation_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CC",
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_id": "table.cc.080_data_psi_anim_pointers_asm",
+      "title": "data/psi_anim_pointers.asm",
+      "category": "raw-table",
+      "bytes": 136,
+      "target_output": {
+        "kind": "psi_anim_pointer_table_json",
+        "path": "cc/tables/080_data_psi_anim_pointers_asm_decoded.json",
+        "decoder": "psi_animation_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "psi_anim_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.battle_visual_assets_snes_palette",
+      "type": "family_decoder",
+      "key": "battle_visual_assets.snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "battle_visual_assets",
+      "bank": "CB",
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_id": "asset.cb.battle_background_palette_0",
+      "title": "BATTLE_BACKGROUND_PALETTE_0",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_json",
+        "path": "cb/battle_bgs/palettes/0_palette.json",
+        "decoder": "snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ef_debug_and_late_tail_snes_2bpp_tiles",
+      "type": "family_decoder",
+      "key": "ef_debug_and_late_tail.snes_2bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ef_debug_and_late_tail",
+      "bank": "EF",
+      "manifest_path": "asset-manifests/ef-debug-assets.json",
+      "asset_id": "asset.debug.cursor_graphics",
+      "title": "Debug cursor graphics",
+      "category": "graphics",
+      "bytes": 288,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "ef/debug_cursor_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_earthbound_lzhal",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.earthbound_lzhal",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D7",
+      "manifest_path": "asset-manifests/bank-d7-assets.json",
+      "asset_id": "asset.d7.map_data_tile_arrangement_0",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_0",
+      "category": "graphics",
+      "bytes": 13800,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "d7/maps/arrangements/0.arr",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_earthbound_lzhal_snes_4bpp_tiles",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.earthbound_lzhal+snes_4bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.anti_piracy_notice_graphics",
+      "title": "ANTI_PIRACY_NOTICE_GRAPHICS",
+      "category": "graphics",
+      "bytes": 433,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "d8/errors/antipiracy_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_map_global_tileset_palette_data",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.map_global_tileset_palette_data",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D7",
+      "manifest_path": "asset-manifests/bank-d7-assets.json",
+      "asset_id": "table.d7.004_data_map_global_tileset_palette_data_asm",
+      "title": "data/map/global_tileset_palette_data.asm",
+      "category": "raw-table",
+      "bytes": 7680,
+      "target_output": {
+        "kind": "map_global_tileset_palette_data_json",
+        "path": "d7/tables/004_data_map_global_tileset_palette_data_asm_decoded.json",
+        "decoder": "map_global_tileset_palette_data",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_global_tileset_palette_data_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_map_palette_pointer_table",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.map_palette_pointer_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DA",
+      "manifest_path": "asset-manifests/bank-da-assets.json",
+      "asset_id": "table.da.035_data_map_unknown_map_palette_pointer_table_asm",
+      "title": "data/map/unknown_map_palette_pointer_table.asm",
+      "category": "raw-table",
+      "bytes": 96,
+      "target_output": {
+        "kind": "map_palette_pointer_table_json",
+        "path": "da/tables/035_data_map_unknown_map_palette_pointer_table_asm_decoded.json",
+        "decoder": "map_palette_pointer_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_palette_pointer_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_map_sector_music_table",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.map_sector_music_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "DC",
+      "manifest_path": "asset-manifests/bank-dc-assets.json",
+      "asset_id": "table.dc.007_data_map_per_sector_music_asm",
+      "title": "data/map/per-sector_music.asm",
+      "category": "raw-table",
+      "bytes": 2560,
+      "target_output": {
+        "kind": "map_sector_music_table_json",
+        "path": "dc/tables/007_data_map_per_sector_music_asm_decoded.json",
+        "decoder": "map_sector_music_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_sector_music_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_map_tile_chunk_index",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.map_tile_chunk_index",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D6",
+      "manifest_path": "asset-manifests/bank-d6-assets.json",
+      "asset_id": "asset.d6.map_data_tile_table_chunk_1",
+      "title": "MAP_DATA_TILE_TABLE_CHUNK_1",
+      "category": "binary-asset",
+      "bytes": 10240,
+      "target_output": {
+        "kind": "map_tile_chunk_index_json",
+        "path": "d6/maps/tiles/chunk_01_tile_index.json",
+        "decoder": "map_tile_chunk_index",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "map_tile_chunk_index_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.map_tilesets_and_runtime_tables_snes_palette",
+      "type": "family_decoder",
+      "key": "map_tilesets_and_runtime_tables.snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "map_tilesets_and_runtime_tables",
+      "bank": "D8",
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_id": "asset.d8.warning_palette",
+      "title": "WARNING_PALETTE",
+      "category": "graphics",
+      "bytes": 8,
+      "target_output": {
+        "kind": "snes_palette_json",
+        "path": "d8/errors/shared_palette.json",
+        "decoder": "snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.overworld_sprites_snes_4bpp_tiles",
+      "type": "family_decoder",
+      "key": "overworld_sprites.snes_4bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "d1/overworld_sprites/gfx/0000_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.overworld_sprites_snes_4bpp_tiles_snes_palette",
+      "type": "family_decoder",
+      "key": "overworld_sprites.snes_4bpp_tiles+snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "overworld_sprites",
+      "bank": "D1",
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_id": "asset.d1.sprite_0000",
+      "title": "SPRITE_0000",
+      "category": "graphics",
+      "bytes": 768,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_palette_png",
+        "path": "d1/overworld_sprites/gfx/0000_palette_00_preview.png",
+        "decoder": "snes_4bpp_tiles+snes_palette",
+        "renderer": "palette_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_palette_png",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_earthbound_lzhal",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.earthbound_lzhal",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.compressed_sram",
+      "title": "COMPRESSED_SRAM",
+      "category": "binary-asset",
+      "bytes": 2469,
+      "target_output": {
+        "kind": "earthbound_lzhal",
+        "path": "e0/mystery_sram.bin",
+        "decoder": "earthbound_lzhal",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_earthbound_lzhal_snes_4bpp_tiles",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.earthbound_lzhal+snes_4bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.text_window_gfx",
+      "title": "TEXT_WINDOW_GFX",
+      "category": "graphics",
+      "bytes": 1876,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+        "path": "e0/graphics/text_window_4bpp_preview.png",
+        "decoder": "earthbound_lzhal+snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_4bpp_tiles_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_earthbound_lzhal_snes_palette",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.earthbound_lzhal+snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.ape_palette",
+      "title": "APE_PALETTE",
+      "category": "graphics",
+      "bytes": 68,
+      "target_output": {
+        "kind": "earthbound_lzhal_snes_palette_json",
+        "path": "e1/intro/logos/ape_palette.json",
+        "decoder": "earthbound_lzhal+snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "earthbound_lzhal",
+        "earthbound_lzhal_snes_palette_json",
+        "earthbound_lzhal_snes_palette_swatch_png",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_font_metric_widths",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.font_metric_widths",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mrsaturn_font_data",
+      "title": "MRSATURN_FONT_DATA",
+      "category": "binary-asset",
+      "bytes": 96,
+      "target_output": {
+        "kind": "font_metric_widths_json",
+        "path": "e0/fonts/mrsaturn_widths.json",
+        "decoder": "font_metric_widths",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "font_metric_widths_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_photographer_config_table",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.photographer_config_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "table.e1.012_data_photographer_cfg_asm",
+      "title": "data/photographer_cfg.asm",
+      "category": "raw-table",
+      "bytes": 1984,
+      "target_output": {
+        "kind": "photographer_config_table_json",
+        "path": "e1/tables/012_data_photographer_cfg_asm_decoded.json",
+        "decoder": "photographer_config_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "photographer_config_table_json",
+        "raw"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_snes_2bpp_tiles",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.snes_2bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mother2_romaji_font",
+      "title": "MOTHER2_ROMAJI_FONT",
+      "category": "graphics",
+      "bytes": 532,
+      "target_output": {
+        "kind": "snes_2bpp_tiles_png",
+        "path": "e0/fonts/romaji_2bpp_preview.png",
+        "decoder": "snes_2bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_2bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_snes_4bpp_tiles",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.snes_4bpp_tiles",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "asset.e0.mrsaturn_font_gfx",
+      "title": "MRSATURN_FONT_GFX",
+      "category": "graphics",
+      "bytes": 3072,
+      "target_output": {
+        "kind": "snes_4bpp_tiles_png",
+        "path": "e0/fonts/mrsaturn_4bpp_preview.png",
+        "decoder": "snes_4bpp_tiles",
+        "renderer": "grayscale_tile_sheet"
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_4bpp_tiles_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_snes_palette",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.snes_palette",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "asset.e1.staff_credits_font_palette",
+      "title": "STAFF_CREDITS_FONT_PALETTE",
+      "category": "graphics",
+      "bytes": 16,
+      "target_output": {
+        "kind": "snes_palette_json",
+        "path": "e1/ending/credits_font_palette.json",
+        "decoder": "snes_palette",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "snes_palette_json",
+        "snes_palette_swatch_png"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_text_window_properties_table",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.text_window_properties_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E0",
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_id": "table.e0.006_data_text_window_properties_asm",
+      "title": "data/text_window_properties.asm",
+      "category": "raw-table",
+      "bytes": 495,
+      "target_output": {
+        "kind": "text_window_properties_table_json",
+        "path": "e0/tables/006_data_text_window_properties_asm_decoded.json",
+        "decoder": "text_window_properties_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "text_window_properties_table_json"
+      ]
+    },
+    {
+      "id": "fixture.family_decoder.ui_font_town_map_assets_town_map_icon_table",
+      "type": "family_decoder",
+      "key": "ui_font_town_map_assets.town_map_icon_table",
+      "reason": "Covers one decoder chain in one asset family.",
+      "family": "ui_font_town_map_assets",
+      "bank": "E1",
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_id": "table.e1.055_data_unknown_e1f203_asm",
+      "title": "data/unknown/E1F203.asm",
+      "category": "raw-table",
+      "bytes": 894,
+      "target_output": {
+        "kind": "town_map_icon_table_json",
+        "path": "e1/tables/055_data_unknown_e1f203_asm_decoded.json",
+        "decoder": "town_map_icon_table",
+        "renderer": null
+      },
+      "all_output_kinds": [
+        "raw",
+        "town_map_icon_table_json"
+      ]
+    }
+  ],
+  "command_groups": [
+    {
+      "manifest_path": "asset-manifests/bank-ca-assets.json",
+      "asset_ids": [
+        "asset.ca.battle_background_arr_100",
+        "asset.ca.battle_background_gfx_38",
+        "table.ca.020_data_battle_backgrounds_graphics_pointers_asm",
+        "table.ca.023_data_battle_backgrounds_config_table_asm",
+        "table.ca.024_data_battle_backgrounds_scrolling_table_asm",
+        "table.ca.025_data_battle_backgrounds_distortion_table_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-ca-assets.json --asset-id asset.ca.battle_background_arr_100 --asset-id asset.ca.battle_background_gfx_38 --asset-id table.ca.020_data_battle_backgrounds_graphics_pointers_asm --asset-id table.ca.023_data_battle_backgrounds_config_table_asm --asset-id table.ca.024_data_battle_backgrounds_scrolling_table_asm --asset-id table.ca.025_data_battle_backgrounds_distortion_table_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-cb-assets.json",
+      "asset_ids": [
+        "asset.cb.battle_background_arr_0",
+        "asset.cb.battle_background_palette_0",
+        "table.cb.300_data_battle_background_layer_table_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-cb-assets.json --asset-id asset.cb.battle_background_arr_0 --asset-id asset.cb.battle_background_palette_0 --asset-id table.cb.300_data_battle_background_layer_table_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-cc-assets.json",
+      "asset_ids": [
+        "asset.cc.psi_anim_gfx_set_3",
+        "table.cc.006_data_animation_sequence_pointers_asm",
+        "table.cc.043_data_psi_anim_cfg_asm",
+        "table.cc.080_data_psi_anim_pointers_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-cc-assets.json --asset-id asset.cc.psi_anim_gfx_set_3 --asset-id table.cc.006_data_animation_sequence_pointers_asm --asset-id table.cc.043_data_psi_anim_cfg_asm --asset-id table.cc.080_data_psi_anim_pointers_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-cd-assets.json",
+      "asset_ids": [
+        "asset.cd.battle_sprite_10"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-cd-assets.json --asset-id asset.cd.battle_sprite_10 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-ce-assets.json",
+      "asset_ids": [
+        "asset.ce.battle_sprite_0",
+        "asset.ce.swirl_data_0",
+        "table.ce.055_data_battle_battle_sprites_pointers_asm",
+        "table.ce.214_data_battle_swirl_pointers_asm",
+        "table.ce.215_inline_swirl_primary_table"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-ce-assets.json --asset-id asset.ce.battle_sprite_0 --asset-id asset.ce.swirl_data_0 --asset-id table.ce.055_data_battle_battle_sprites_pointers_asm --asset-id table.ce.214_data_battle_swirl_pointers_asm --asset-id table.ce.215_inline_swirl_primary_table --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d1-assets.json",
+      "asset_ids": [
+        "asset.d1.sprite_0000"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d1-assets.json --asset-id asset.d1.sprite_0000 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d2-assets.json",
+      "asset_ids": [
+        "asset.d2.sprite_0123"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d2-assets.json --asset-id asset.d2.sprite_0123 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d3-assets.json",
+      "asset_ids": [
+        "asset.d3.sprite_0354"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d3-assets.json --asset-id asset.d3.sprite_0354 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d4-assets.json",
+      "asset_ids": [
+        "asset.d4.sprite_0693"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d4-assets.json --asset-id asset.d4.sprite_0693 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d5-assets.json",
+      "asset_ids": [
+        "asset.d5.sprite_1028"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d5-assets.json --asset-id asset.d5.sprite_1028 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d6-assets.json",
+      "asset_ids": [
+        "asset.d6.map_data_tile_table_chunk_1"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d6-assets.json --asset-id asset.d6.map_data_tile_table_chunk_1 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d7-assets.json",
+      "asset_ids": [
+        "asset.d7.map_data_tile_arrangement_0",
+        "table.d7.004_data_map_global_tileset_palette_data_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d7-assets.json --asset-id asset.d7.map_data_tile_arrangement_0 --asset-id table.d7.004_data_map_global_tileset_palette_data_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d8-assets.json",
+      "asset_ids": [
+        "asset.d8.anti_piracy_notice_graphics",
+        "asset.d8.warning_palette"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d8-assets.json --asset-id asset.d8.anti_piracy_notice_graphics --asset-id asset.d8.warning_palette --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-d9-assets.json",
+      "asset_ids": [
+        "asset.d9.map_data_tile_arrangement_1"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-d9-assets.json --asset-id asset.d9.map_data_tile_arrangement_1 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-da-assets.json",
+      "asset_ids": [
+        "asset.da.map_data_palette_0",
+        "table.da.035_data_map_unknown_map_palette_pointer_table_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-da-assets.json --asset-id asset.da.map_data_palette_0 --asset-id table.da.035_data_map_unknown_map_palette_pointer_table_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-db-assets.json",
+      "asset_ids": [
+        "asset.db.map_data_tile_arrangement_10"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-db-assets.json --asset-id asset.db.map_data_tile_arrangement_10 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-dc-assets.json",
+      "asset_ids": [
+        "asset.dc.map_data_tile_arrangement_12",
+        "table.dc.007_data_map_per_sector_music_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-dc-assets.json --asset-id asset.dc.map_data_tile_arrangement_12 --asset-id table.dc.007_data_map_per_sector_music_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-dd-assets.json",
+      "asset_ids": [
+        "asset.dd.map_data_tile_set_graphics_0"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-dd-assets.json --asset-id asset.dd.map_data_tile_set_graphics_0 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-de-assets.json",
+      "asset_ids": [
+        "asset.de.map_data_tile_animation_gfx_15"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-de-assets.json --asset-id asset.de.map_data_tile_animation_gfx_15 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-df-assets.json",
+      "asset_ids": [
+        "asset.df.map_data_tile_animation_gfx_0"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-df-assets.json --asset-id asset.df.map_data_tile_animation_gfx_0 --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-e0-assets.json",
+      "asset_ids": [
+        "asset.e0.compressed_sram",
+        "asset.e0.mother2_romaji_font",
+        "asset.e0.mrsaturn_font_data",
+        "asset.e0.mrsaturn_font_gfx",
+        "asset.e0.text_window_gfx",
+        "table.e0.006_data_text_window_properties_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-e0-assets.json --asset-id asset.e0.compressed_sram --asset-id asset.e0.mother2_romaji_font --asset-id asset.e0.mrsaturn_font_data --asset-id asset.e0.mrsaturn_font_gfx --asset-id asset.e0.text_window_gfx --asset-id table.e0.006_data_text_window_properties_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/bank-e1-assets.json",
+      "asset_ids": [
+        "asset.e1.ape_graphics",
+        "asset.e1.ape_palette",
+        "asset.e1.staff_credits_font_palette",
+        "table.e1.012_data_photographer_cfg_asm",
+        "table.e1.055_data_unknown_e1f203_asm"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/bank-e1-assets.json --asset-id asset.e1.ape_graphics --asset-id asset.e1.ape_palette --asset-id asset.e1.staff_credits_font_palette --asset-id table.e1.012_data_photographer_cfg_asm --asset-id table.e1.055_data_unknown_e1f203_asm --out build/asset-output-smoke-fixtures"
+    },
+    {
+      "manifest_path": "asset-manifests/ef-debug-assets.json",
+      "asset_ids": [
+        "asset.debug.cursor_graphics"
+      ],
+      "extract_command": "python tools/extract_assets.py --manifest asset-manifests/ef-debug-assets.json --asset-id asset.debug.cursor_graphics --out build/asset-output-smoke-fixtures"
+    }
+  ],
+  "runner": {
+    "tool": "tools/run_asset_output_smoke_fixtures.py",
+    "default_command": "python tools/run_asset_output_smoke_fixtures.py",
+    "rom_command": "python tools/run_asset_output_smoke_fixtures.py --rom path/to/EarthBound.sfc",
+    "report_schema": "earthbound-decomp.asset-output-smoke-fixtures-report.v1",
+    "dry_run_validation": [
+      "Every fixture id is unique.",
+      "Every command group matches the fixture-selected manifest asset ids.",
+      "Every selected manifest-qualified asset id exists.",
+      "Every fixture target output kind/path exists on the selected asset.",
+      "Every target output conforms to its typed recipe contract.",
+      "Every target output decoder/renderer label matches the typed recipe registry.",
+      "Every target output palette/graphics source ref matches a manifest source range or known external source boundary.",
+      "Every statically known target preview geometry is fresh."
+    ],
+    "post_extract_validation": [
+      "Every fixture target output appears in the extraction report.",
+      "Every target output file exists and matches the reported byte count and SHA-1.",
+      "Every target output has positive bytes.",
+      "Every target output includes the report metadata required by its typed recipe contract.",
+      "Every statically known fixture preview geometry matches the extraction report dimensions and counts."
+    ]
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "schema": "earthbound-decomp.coilsnake-field-semantics.v1",
+  "generated_by": "manual CoilSnake field-to-runtime promotion",
+  "safety_note": "This manifest stores field names, offsets, local source anchors, and evidence status only; it does not contain ROM-derived payload bytes.",
+  "field_semantics": {
+    "battle-action-pp-cost-probe": {
+      "coilsnake_field": "battle_action_table.yml / action 13 / PP Cost",
+      "edited_value": "98 -> 99",
+      "local_field": "BATTLE_ACTION_TABLE row 13 cost byte at row +0x03",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:CC39 Battle PSI menu controller PP guard",
+          "source": "src/c1/c1_cb7f_has_battle_psi_category_entries.asm",
+          "detail": "The controller resolves the selected D5:8A50 PSI row to its associated D5:7B68 action id, indexes the 12-byte action row, adds +0x03, and compares that PP cost byte against the acting character's current PP."
+        },
+        {
+          "kind": "same-table-consumer",
+          "routine": "C2:40A4 ApplyBattleActionSecondPointerPayload",
+          "source": "src/c2/c2_40a4_apply_battle_action_second_pointer_payload.asm",
+          "detail": "C2 action dispatch consumes the same D5:7B68 descriptor family's action pointer field at row +0x08 after target-mask construction."
+        }
+      ]
+    },
+    "enemy-insane-cultist-action1-probe": {
+      "coilsnake_field": "enemy_configuration_table.yml / enemy 1 Insane Cultist / Action 1",
+      "edited_value": "215 -> 216",
+      "local_field": "ENEMY_CONFIGURATION_TABLE row 1 normal action id slot 0 at row +0x46",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C2:5024 RunBattleStartCandidateControllerFront",
+          "source": "src/c2/c2_5024_run_battle_start_candidate_controller_front.asm",
+          "detail": "The controller resolves the enemy id into the D5:9589 enemy row, reads action_order at +0x45, selects a normal action slot, reads the action id from +0x46 + slot*2, and stages the action plus its argument into the battle row."
+        },
+        {
+          "kind": "same-table-context",
+          "routine": "D5:9589 enemy_data contract",
+          "source": "notes/data-contracts-c0-c2.md",
+          "detail": "The local data contract maps +0x46 as four normal action ids and +0x50 as their paired action arguments within 0x5E-byte ENEMY_CONFIGURATION_TABLE rows."
+        }
+      ]
+    },
+    "enemy-insane-cultist-hp-probe": {
+      "coilsnake_field": "enemy_configuration_table.yml / enemy 1 Insane Cultist / HP",
+      "edited_value": "94 -> 95",
+      "local_field": "ENEMY_CONFIGURATION_TABLE row 1 hp word low byte at row +0x21",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C2:6786 RunMagicButterflyPpRestoreAnimation enemy-row HP gate",
+          "source": "src/c2/c2_654c_run_magic_butterfly_pp_restore_animation.asm",
+          "detail": "The routine resolves selected enemy ids through D5:9589 with stride 0x5E, adds +0x21, reads the HP word, and combines it with the row +0x3A PP field while deciding whether the Magic Butterfly restore animation can proceed."
+        },
+        {
+          "kind": "same-table-context",
+          "routine": "D5:9589 enemy_data contract",
+          "source": "notes/data-contracts-c0-c2.md",
+          "detail": "The local data contract maps ENEMY_CONFIGURATION_TABLE row +0x21 as the HP word within 0x5E-byte enemy_data rows; the CoilSnake HP probe lands at D5:9608, which is row 1 +0x21."
+        }
+      ]
+    },
+    "item-cost-probe": {
+      "coilsnake_field": "item_configuration_table.yml / Teddy bear / Cost",
+      "edited_value": "178 -> 179",
+      "local_field": "ITEM_CONFIGURATION_TABLE row cost word at item row +0x1A",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:9DB5 BuildShopItemSelectionMenu",
+          "source": "src/c1/c1_9d49_prepare_equipment_menu_status_display.asm",
+          "detail": "BuildShopItemTextEntry resolves an item row, adds +0x1A, reads the cost word, then calls C4:507A to print the active-window right-aligned decimal."
+        },
+        {
+          "kind": "same-table-consumer",
+          "routine": "C1:9216 PrintItemNameFromConfigurationTable",
+          "source": "src/c1/c1_9216_print_item_name_from_configuration_table.asm",
+          "detail": "Indexes D5:5000 item rows with stride 0x27 and prints the fixed 0x19-byte item-name field."
+        },
+        {
+          "kind": "same-table-consumer",
+          "routine": "C1:CE85 ResolveSelectedBattleItemAction",
+          "source": "src/c1/c1_ce85_resolve_selected_battle_item_action.asm",
+          "detail": "Indexes the same item rows for battle-use/category byte +0x19 and action word +0x1D."
+        }
+      ]
+    },
+    "text-menu-probe": {
+      "coilsnake_field": "text_misc.yml / Battle Menu / Auto Fight",
+      "edited_value": "Auto Fight -> Auto Fighu",
+      "local_field": "C4:9FE1 BattleMenuAndTargetPrecheckData row 2 fixed-width Auto Fight text at row +0x09",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-row-consumer",
+          "routine": "C2:311B battle-start present/message controller",
+          "source": "src/c2/c2_311b_run_battle_start_present_and_message_controller.asm",
+          "detail": "The controller loads C4:9FE1 as the fixed-width battle menu text base, adds +0x20 for the Auto Fight row, and passes that pointer to C1:DDDA to build the selection menu entry."
+        },
+        {
+          "kind": "source-table-anchor",
+          "routine": "C4:9FE1 BattleMenuAndTargetPrecheckData",
+          "source": "src/c4/battle_target_candidate_selection_helpers.asm",
+          "detail": "The changed byte lands at C4:A00A, which is row 2 offset +0x09 inside the checked-in fixed-width Auto Fight text row."
+        }
+      ]
+    },
+    "map-palette-probe": {
+      "coilsnake_field": "map_palette_settings.yml / first Sprite Palette",
+      "edited_value": "4 -> 5",
+      "local_field": "lands inside MAP_DATA_TILE_ARRANGEMENT_5 after CoilSnake rebuild",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "relocation-or-compiler-normalization-candidate",
+      "runtime_consumers": []
+    },
+    "store-first-shop-item1-probe": {
+      "coilsnake_field": "store_table.yml / shop 1 / Item 1",
+      "edited_value": "17 -> 19",
+      "local_field": "STORE_TABLE row 1 item_id_0 byte at row +0x00",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "D5:76B2 StoreTable contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The diff proves CoilSnake shop 1 Item 1 lands at D5:76B9, which is STORE_TABLE row 1 offset +0x00 using the local 7-byte store_inventory row contract."
+        }
+      ]
+    },
+    "condiment-first-good-recover-probe": {
+      "coilsnake_field": "condiment_table.yml / row 0 / good recover",
+      "edited_value": "2 -> 3",
+      "local_field": "CONDIMENT_TABLE row 0 good_recover byte at row +0x04",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "D5:EA77 CondimentTable contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The diff proves CoilSnake row 0 good recover lands at D5:EA7B, matching CONDIMENT_TABLE row 0 offset +0x04 in the local condiment_rule contract."
+        }
+      ]
+    },
+    "teleport-onett-x-probe": {
+      "coilsnake_field": "psi_teleport_dest_table.yml / Onett / X",
+      "edited_value": "253 -> 254",
+      "local_field": "PSI_TELEPORT_DEST_TABLE row 1 x word low byte at row +0x1B",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "D5:7880 PsiTeleportDestTable contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The diff proves CoilSnake's Onett X coordinate low byte lands at D5:78BA, which is PSI_TELEPORT_DEST_TABLE row 1 offset +0x1B in the local psi_teleport_destination contract."
+        }
+      ]
+    },
+    "enemy-group-first-background-probe": {
+      "coilsnake_field": "enemy_groups.yml / group 1 / Background 1",
+      "edited_value": "262 -> 263",
+      "local_field": "battle background layer table byte at CB:D89E after CoilSnake rebuild",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "CB:D89A battle background layer table",
+          "source": "notes/battle-visual-asset-contracts.md",
+          "detail": "The diff proves CoilSnake enemy group 1 Background 1 changes CB:D89E in the checked-in battle background layer table range. The edited byte also matches the verified original at the same offset, but the exact battle group/background consumer remains open."
+        }
+      ]
+    },
+    "map-music-sector1-music-probe": {
+      "coilsnake_field": "map_music.yml / sector 1 / fallback Music",
+      "edited_value": "4 -> 5",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF event music pointer-table area at CF:590D; verified original ROM does not match at the same offset",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "relocation-or-compiler-normalization-candidate",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild map_music payload",
+          "source": "notes/coilsnake-rebuild-original-layout-report.md",
+          "detail": "The controlled diff proves changing sector 1 Music from 4 to 5 mutates baseline-rebuild CF:590D. The same-offset original check fails, so this is not yet a direct original-ROM music field promotion."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "CF overworld event music pointer/table contracts",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "Local contracts map CF:58EF..CF:5A38 as overworld event music pointers and CF:5A39..CF:61DC as variable event/music rows. The precise rebuilt-to-original row join remains open."
+        }
+      ]
+    },
+    "map-hotspot-first-x1-probe": {
+      "coilsnake_field": "map_hotspots.yml / hotspot 1 / X1",
+      "edited_value": "620 -> 621",
+      "local_field": "MAP_HOTSPOTS row 1 x1 word low byte at row +0x00",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "D5:F2FB MapHotspots contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The diff proves CoilSnake hotspot 1 X1 low byte lands at D5:F303, which is MAP_HOTSPOTS row 1 offset +0x00 in the local map_hotspot contract."
+        }
+      ]
+    },
+    "map-door-first-destination-probe": {
+      "coilsnake_field": "map_doors.yml / first unique door / Destination X",
+      "edited_value": "784 -> 785",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF door payload at CF:000C; clustered door probes uniquely match original verified ROM candidate CF:23A9",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild CF door-data payload",
+          "source": "notes/coilsnake-crosswalk.md",
+          "detail": "The controlled diff proves CoilSnake's first unique map door Destination X low byte is emitted at baseline-rebuild offset 0x0F000C (CF:000C), changing 0x10 to 0x11 for 784 -> 785. The four-probe door cluster uniquely matches the verified original ROM at CF:23A7, making this field's candidate original byte CF:23A9."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "C0/C4 door destination trigger helpers",
+          "source": "notes/front-interaction-flow.md",
+          "detail": "Local C0/C4 door probes resolve bank-CF door trigger records through C0:7477, then cache or enqueue destination pointers for movement and interaction transitions. The original candidate is known, but the precise pointer path from the trigger tables to this original subrecord still needs runtime correlation."
+        }
+      ],
+      "original_candidate": "CF:23A9"
+    },
+    "map-door-first-destination-y-probe": {
+      "coilsnake_field": "map_doors.yml / first unique door / Destination Y",
+      "edited_value": "1210 -> 1211",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF door payload at CF:000A; clustered door probes uniquely match original verified ROM candidate CF:23A7",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild CF door-data payload",
+          "source": "notes/coilsnake-crosswalk.md",
+          "detail": "The controlled diff proves CoilSnake's first unique map door Destination Y low byte is emitted at baseline-rebuild offset 0x0F000A (CF:000A). Together with the Direction/control, Destination X, and Style probes, this cluster uniquely matches the verified original ROM at CF:23A7."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "C0/C4 door destination trigger helpers",
+          "source": "notes/front-interaction-flow.md",
+          "detail": "Local C0/C4 door probes consume bank-CF door destination records, but the precise runtime pointer path from trigger lookup to this original subrecord remains open."
+        }
+      ],
+      "original_candidate": "CF:23A7"
+    },
+    "map-door-first-direction-probe": {
+      "coilsnake_field": "map_doors.yml / first unique door / Direction",
+      "edited_value": "left -> right",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF packed destination/control byte at CF:000B; clustered door probes uniquely match original verified ROM candidate CF:23A8",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild CF door-data payload",
+          "source": "notes/coilsnake-crosswalk.md",
+          "detail": "The controlled diff proves changing CoilSnake Direction mutates the byte at baseline-rebuild offset 0x0F000B (CF:000B), between Destination Y low byte and Destination X low byte. This appears to be a packed destination/control byte rather than a standalone direction byte; the clustered pattern uniquely matches original CF:23A8."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "C0/C4 door destination trigger helpers",
+          "source": "notes/front-interaction-flow.md",
+          "detail": "Local C0/C4 door probes consume bank-CF door destination records, but the bit-level control semantics of this packed byte still need runtime correlation."
+        }
+      ],
+      "original_candidate": "CF:23A8"
+    },
+    "map-door-first-style-probe": {
+      "coilsnake_field": "map_doors.yml / first unique door / Style",
+      "edited_value": "1 -> 2",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF door payload at CF:000E; clustered door probes uniquely match original verified ROM candidate CF:23AB",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild CF door-data payload",
+          "source": "notes/coilsnake-crosswalk.md",
+          "detail": "The controlled diff proves CoilSnake's first unique map door Style byte is emitted at baseline-rebuild offset 0x0F000E (CF:000E), a few bytes after the destination/control cluster. The four-probe pattern uniquely matches original CF:23A7, making this field's candidate original byte CF:23AB."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "C0/C4 door destination trigger helpers",
+          "source": "notes/front-interaction-flow.md",
+          "detail": "Local C0/C4 door probes consume bank-CF door destination records, but the exact transition-style consumer remains open."
+        }
+      ],
+      "original_candidate": "CF:23AB"
+    },
+    "npc-config-first-text-pointer-probe": {
+      "coilsnake_field": "npc_config_table.yml / NPC config 1 / Text Pointer 1",
+      "edited_value": "$c74c07 -> $c74c08",
+      "local_field": "NPC_CONFIG_TABLE row 1 primary text/actionscript pointer low byte at row +0x09",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:3187 ResolvePrimaryFrontInteractionOutput",
+          "source": "src/c1/c1_3187_resolve_primary_front_interaction_output.asm",
+          "detail": "The TALK_TO selector indexes CF:8985 interaction rows as result * 0x11, adds +0x09, reads the three-byte returned pointer, and passes that output into the checking/talking pipeline."
+        },
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:323B ResolveSecondaryFacingInteractionOutput",
+          "source": "src/c1/c1_323b_resolve_secondary_facing_interaction_output.asm",
+          "detail": "The CHECK selector returns the same row +0x09 pointer for class 2 after installing interaction context and for class 3 directly."
+        },
+        {
+          "kind": "same-table-context",
+          "routine": "Map object bundle contract",
+          "source": "notes/map-object-bundles.md",
+          "detail": "The map object contract records primary and secondary text pointers for placed NPC config rows; the diff proves CoilSnake's Text Pointer 1 low byte lands in the same CF interaction row payload consumed by C1:3187 and C1:323B."
+        }
+      ]
+    },
+    "map-sprite-first-npc-id-probe": {
+      "coilsnake_field": "map_sprites.yml / first placed map sprite / NPC ID",
+      "edited_value": "1254 -> 1255",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF map-sprite payload at CF:61E9; clustered NPC ID/X/Y probes uniquely match original verified ROM candidate CF:6BE9 inside SPRITE_PLACEMENT_TABLE",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild map_sprites payload",
+          "source": "notes/coilsnake-crosswalk.md",
+          "detail": "The controlled diff changes the low byte of NPC ID 1254 at baseline-rebuild offset 0x0F61E9 (CF:61E9). The verified original ROM has pointer-table bytes at the same address, but the three-probe NPC ID/X/Y cluster uniquely matches original CF:6BE9."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "CF:6BE7 SpritePlacementTable and map object bundle contracts",
+          "source": "notes/bank-cf-first-pass.md",
+          "detail": "Local contracts identify CF:6BE7..CF:8984 as the original sprite placement sector-list block. The unique rebuilt-to-original candidate puts this NPC ID byte at original CF:6BE9, inside the first placement record rather than the pointer table."
+        }
+      ],
+      "original_candidate": "CF:6BE9"
+    },
+    "map-sprite-first-x-probe": {
+      "coilsnake_field": "map_sprites.yml / first placed map sprite / X",
+      "edited_value": "152 -> 153",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF map-sprite payload at CF:61EC; clustered NPC ID/X/Y probes uniquely match original verified ROM candidate CF:6BEC inside SPRITE_PLACEMENT_TABLE",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild map_sprites payload",
+          "source": "notes/coilsnake-rebuild-original-layout-report.md",
+          "detail": "The controlled diff proves CoilSnake's first placed map sprite X coordinate is emitted at baseline-rebuild offset 0x0F61EC (CF:61EC). The three-probe map_sprites cluster uniquely matches the verified original ROM at CF:6BE9, making this field's candidate original byte CF:6BEC."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "CF:6BE7 SpritePlacementTable and map object bundle contracts",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The local contract maps CF:6BE7..CF:8984 as the variable sprite placement sector-list block. Runtime consumer naming for the exact X field remains open."
+        }
+      ],
+      "original_candidate": "CF:6BEC"
+    },
+    "map-sprite-first-y-probe": {
+      "coilsnake_field": "map_sprites.yml / first placed map sprite / Y",
+      "edited_value": "112 -> 113",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild CF map-sprite payload at CF:61EB; clustered NPC ID/X/Y probes uniquely match original verified ROM candidate CF:6BEB inside SPRITE_PLACEMENT_TABLE",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "rebuilt-to-original-candidate-unique-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild map_sprites payload",
+          "source": "notes/coilsnake-rebuild-original-layout-report.md",
+          "detail": "The controlled diff proves CoilSnake's first placed map sprite Y coordinate is emitted at baseline-rebuild offset 0x0F61EB (CF:61EB). The three-probe map_sprites cluster uniquely matches the verified original ROM at CF:6BE9, making this field's candidate original byte CF:6BEB."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "CF:6BE7 SpritePlacementTable and map object bundle contracts",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The local contract maps CF:6BE7..CF:8984 as the variable sprite placement sector-list block. Runtime consumer naming for the exact Y field remains open."
+        }
+      ],
+      "original_candidate": "CF:6BEB"
+    },
+    "psi-ness-omega-level-probe": {
+      "coilsnake_field": "psi_ability_table.yml / ability 4 / Level learned by Ness",
+      "edited_value": "75 -> 76",
+      "local_field": "PSI_ABILITY_TABLE row 4 learn-level byte at row +0x06",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:C1BA HasPsiEntryForCategoryMask",
+          "source": "src/c1/c1_c165_current_character_knows_psi.asm",
+          "detail": "The category predicate walks D5:8A50 PSI rows, selects the character-specific learn-level byte (+0x06 Ness, +0x07 Paula, or +0x08 Poo), compares it against the party member's current level, and only accepts the entry when the level requirement is met."
+        },
+        {
+          "kind": "same-table-runtime-context",
+          "routine": "C1:CAF5/C1:CB7F battle PSI entry-list family",
+          "source": "notes/battle-psi-ability-table-d58a50.md",
+          "detail": "The table note maps D5:8A50 as 15-byte PSI ability rows; the CoilSnake Ness learn-level diff at D5:8A92 lands on row 4 +0x06, matching the runtime learn-level branch used by the battle PSI category predicate."
+        }
+      ]
+    },
+    "stats-growth-ness-offense-probe": {
+      "coilsnake_field": "stats_growth_vars.yml / row 0 Ness / Offense",
+      "edited_value": "18 -> 19",
+      "local_field": "STATS_GROWTH_VARS row 0 offense byte at row +0x00",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:D109 LevelUpCharacterAndRefreshDerivedStats",
+          "source": "src/c1/c1_d109_level_up_character_and_refresh_derived_stats.asm",
+          "detail": "The level-up routine computes character * 7 + stat-lane offsets, reads D5:EA5B,X, and feeds that byte into C1:D08B as the growth parameter before applying the resulting stat delta."
+        },
+        {
+          "kind": "same-table-runtime-context",
+          "routine": "C1:D08B ComputeLevelUpStatGrowthDelta note",
+          "source": "notes/level-up-stat-growth-helper-c1d08b.md",
+          "detail": "The local note identifies D5:EA5B as the 28-byte stat-growth table and lists the seven per-character stat lanes consumed by the level-up path."
+        }
+      ]
+    },
+    "initial-stats-ness-money-probe": {
+      "coilsnake_field": "initial_stats.yml / row 0 Ness / Money",
+      "edited_value": "20 -> 21",
+      "local_field": "INITIAL_STATS row 0 money word low byte at row +0x04",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C1:FDF6 initial party setup path",
+          "source": "src/c1/c1_f616_open_or_refresh_sound_setting_selection.asm",
+          "detail": "The setup path rebuilds a D5:F5F5 initial-stats pointer, reads row +0x04 through the long pointer, and stores the resulting word into the starting money/cash WRAM pair at $9831/$9833."
+        },
+        {
+          "kind": "source-range-context",
+          "routine": "INITIAL_STATS contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The local contract maps INITIAL_STATS row +0x04 as the money word. The CoilSnake Money edit changes D5:F5F9, which is row 0 +0x04."
+        }
+      ]
+    },
+    "telephone-dad-text-pointer-probe": {
+      "coilsnake_field": "telephone_contacts_table.yml / row 0 Dad / Text Pointer",
+      "edited_value": "$c63229 -> $c6322a",
+      "local_field": "TELEPHONE_CONTACTS_TABLE row 0 text_pointer low byte at row +0x1B",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "D5:7AAE TelephoneContactsTable contract",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "The diff proves CoilSnake row 0 Text Pointer lands at D5:7AC9, which is TELEPHONE_CONTACTS_TABLE row 0 offset +0x1B in the local telephone_contact contract. A local phone-menu consumer still needs to be named."
+        }
+      ]
+    },
+    "timed-item-transform-delay-probe": {
+      "coilsnake_field": "timed_item_transformation_table.yml / row 0 / Delay",
+      "edited_value": "50 -> 51",
+      "local_field": "TIMED_ITEM_TRANSFORMATION_TABLE row 0 delay byte at row +0x04",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "C4:8EEB ArmTrackedItemPulseSlotFromD5f4bb",
+          "source": "src/c4/staged_movement_and_tracked_item_pulse_helpers.asm",
+          "detail": "The tracked-item pulse arm path builds a D5:F4BB row pointer, reads row +0x04, and stores that byte into the tracked item slot's delay/timer payload."
+        },
+        {
+          "kind": "same-table-runtime-context",
+          "routine": "C3:EBCA SyncPartyOverlayTrackedItemFamilyState",
+          "source": "src/c3/inventory_equipment_tracked_items.asm",
+          "detail": "The C3 sync loop scans TIMED_ITEM_TRANSFORMATION_TABLE rows with stride 5 and dispatches nonzero item rows to the C4 arm/clear helpers that consume the row metadata."
+        }
+      ]
+    },
+    "timed-delivery-first-timer-probe": {
+      "coilsnake_field": "timed_delivery_table.yml / row 0 / Timer",
+      "edited_value": "180 -> 181",
+      "local_field": "D5:F645 timed-delivery row 0 delivery_time word low byte at row +0x08",
+      "field_evidence_level": "runtime-correlated",
+      "promotion_status": "field-runtime-correlated-boundary-note",
+      "runtime_consumers": [
+        {
+          "kind": "exact-field-consumer",
+          "routine": "EF:0D46 SeedCurrentDeliveryCountdown",
+          "source": "src/ef/ef_0ca7_delivery_selector_helper_cluster.asm",
+          "detail": "The helper resolves the current delivery row, scales by 20, reads D5:F645 + row*20 +0x08, and stores that word into the row-local countdown at $B525. The CoilSnake Timer edit changes D5:F64D, matching row 0 +0x08."
+        },
+        {
+          "kind": "same-table-runtime-context",
+          "routine": "Timed delivery controller notes",
+          "source": "notes/delivery-row-helpers-ef0e67-ef0ead.md",
+          "detail": "The delivery helper note names record word 4 as delivery_time. Older split/front-door notes still start TIMED_DELIVERY_TABLE at D5:F649, so this promotion records the proven field byte and leaves the boundary reconciliation visible."
+        }
+      ]
+    },
+    "map-enemy-groups-first-rate-probe": {
+      "coilsnake_field": "map_enemy_groups.yml / row 1 / Sub-Group 1 Rate",
+      "edited_value": "5 -> 6",
+      "local_field": "changed byte lands in CoilSnake baseline-rebuild expanded E0:133B compressed-SRAM range; verified original ROM has no same-offset match",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "expanded-rebuild-or-compiler-normalization-candidate",
+      "runtime_consumers": [
+        {
+          "kind": "compiler-normalization-context",
+          "routine": "CoilSnake baseline rebuild map_enemy_groups payload",
+          "source": "notes/coilsnake-rebuild-original-layout-report.md",
+          "detail": "The controlled diff proves changing map_enemy_groups row 1 Sub-Group 1 Rate mutates baseline-rebuild E0:133B, but the original-ROM same-offset check fails and the local range vocabulary is COMPRESSED_SRAM. Treat this as expanded rebuild-layout evidence until a D0 enemy-placement pointer/list cluster maps it back to original ROM data."
+        },
+        {
+          "kind": "same-family-runtime-context",
+          "routine": "D0 enemy placement group contracts",
+          "source": "notes/data-contracts-c0-c4.md",
+          "detail": "Local contracts map map_enemy_groups.yml to D0:B880 ENEMY_PLACEMENT_GROUPS_PTR_TABLE and D0:BBAC ENEMY_PLACEMENT_GROUPS_TABLE. This probe shows CoilSnake recompiles at least this edited field elsewhere in the expanded rebuild, so more cluster/pointer work is needed before runtime promotion."
+        }
+      ]
+    },
+    "window-config-height-probe": {
+      "coilsnake_field": "window_configuration_table.yml / window 8 / Height",
+      "edited_value": "18 -> 19",
+      "local_field": "window configuration table row 8 height word low byte at C3:E296",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "C3 preserved window/config payload range",
+          "source": "notes/c3-preserved-gap-contracts.md",
+          "detail": "The diff proves CoilSnake's window 8 Height field lands at C3:E296, adjacent to the existing Width field at C3:E294. The original ROM and CoilSnake baseline rebuild match at this block, but local window-dimension consumer naming remains open."
+        }
+      ]
+    },
+    "window-config-width-probe": {
+      "coilsnake_field": "window_configuration_table.yml / window 8 / Width",
+      "edited_value": "30 -> 31",
+      "local_field": "changed byte lands in C3:E250..C3:E3F8 preserved/event payload range after CoilSnake rebuild",
+      "field_evidence_level": "diff-confirmed",
+      "promotion_status": "field-byte-diff-confirmed-runtime-consumer-open",
+      "runtime_consumers": [
+        {
+          "kind": "source-range-context",
+          "routine": "C3 preserved window/config payload range",
+          "source": "notes/c3-preserved-gap-contracts.md",
+          "detail": "The diff proves CoilSnake's window width field lands in the local C3:E250..E3F8 range; local window-dimension consumer naming remains open because the current source scaffold is still coarse."
+        }
+      ]
+    }
+  }
+}

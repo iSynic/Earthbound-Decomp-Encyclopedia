@@ -1,0 +1,1219 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank DA asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-da-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank1A.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 36,
+    "binary_assets_by_extension": {
+      "arr": 3,
+      "pal": 32,
+      "ebm": 1
+    },
+    "binary_asset_bytes": 65422,
+    "table_includes": 1,
+    "table_bytes": 96,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 18,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 38,
+    "output_recipe_count": 106,
+    "typed_output_kind_count": 5,
+    "decoder_output_recipe_count": 68,
+    "renderer_output_recipe_count": 32,
+    "preview_png_recipe_count": 32,
+    "output_kind_counts": {
+      "earthbound_lzhal": 3,
+      "map_palette_pointer_table_json": 1,
+      "raw": 38,
+      "snes_palette_json": 32,
+      "snes_palette_swatch_png": 32
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 3,
+      "map_palette_pointer_table": 1,
+      "snes_palette": 64
+    },
+    "renderer_counts": {
+      "palette_swatch": 32
+    },
+    "smoke_fixture_count": 3,
+    "smoke_fixture_asset_ids": [
+      "asset.da.map_data_palette_0",
+      "table.da.035_data_map_unknown_map_palette_pointer_table_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 1,
+      "recipe_kind": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "map_palette_pointer_table_json": 2,
+      "snes_palette_swatch_png": 1
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.da.map_data_tile_arrangement_5",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_5",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:0000..DA:1342",
+        "bytes": 4930,
+        "sha1": "ec88ec1c58cc82bc8bb6e6d4f1a2fab6b972cbb3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/arrangements/5.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "da/maps/arrangements/5.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/5.arr.lzhal",
+        "Original file offset: 0x1A0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.da.map_data_tile_arrangement_6",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_6",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:1342..DA:4EA3",
+        "bytes": 15201,
+        "sha1": "68ec2cbc22ad84b75a73c844ad08f27ea0941409"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/arrangements/6.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "da/maps/arrangements/6.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/6.arr.lzhal",
+        "Original file offset: 0x1A1342",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.da.map_data_tile_arrangement_7",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_7",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:4EA3..DA:7CA7",
+        "bytes": 11780,
+        "sha1": "1868a7e4cedff6cc53df019bbb505399cf2b7fc4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/arrangements/7.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "da/maps/arrangements/7.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/7.arr.lzhal",
+        "Original file offset: 0x1A4EA3",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_0",
+      "title": "MAP_DATA_PALETTE_0",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:7CA7..DA:7FA7",
+        "bytes": 768,
+        "sha1": "cde600ab548c0c12228af249e3064d437a1a4590"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/0.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/0_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/0_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/0.pal",
+        "Original file offset: 0x1A7CA7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_1",
+      "title": "MAP_DATA_PALETTE_1",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:7FA7..DA:81E7",
+        "bytes": 576,
+        "sha1": "7b59fd193df63393a3caea5c822fe80bbfe2fc15"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/1.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/1_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/1_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/1.pal",
+        "Original file offset: 0x1A7FA7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_2",
+      "title": "MAP_DATA_PALETTE_2",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:81E7..DA:84E7",
+        "bytes": 768,
+        "sha1": "700b7ca40eb05ac61c552cd6207d517ce632361a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/2.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/2_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/2_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/2.pal",
+        "Original file offset: 0x1A81E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_3",
+      "title": "MAP_DATA_PALETTE_3",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:84E7..DA:8667",
+        "bytes": 384,
+        "sha1": "b477fc541333ad67accf625dab5a6f6d9b72161a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/3.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/3_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/3_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/3.pal",
+        "Original file offset: 0x1A84E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_4",
+      "title": "MAP_DATA_PALETTE_4",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:8667..DA:87E7",
+        "bytes": 384,
+        "sha1": "0555140377782a190fbd9f947e0d504cb751aaf1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/4.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/4_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/4_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/4.pal",
+        "Original file offset: 0x1A8667"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_5",
+      "title": "MAP_DATA_PALETTE_5",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:87E7..DA:8AE7",
+        "bytes": 768,
+        "sha1": "f97d3c9b8271b7de33768c9877f9ed5b5ac0a79c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/5.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/5_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/5_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/5.pal",
+        "Original file offset: 0x1A87E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_6",
+      "title": "MAP_DATA_PALETTE_6",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:8AE7..DA:9027",
+        "bytes": 1344,
+        "sha1": "4287d122d7d7a4cdb8bbacaad56e246daa5ae8ca"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/6.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/6_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/6_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/6.pal",
+        "Original file offset: 0x1A8AE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_7",
+      "title": "MAP_DATA_PALETTE_7",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:9027..DA:90E7",
+        "bytes": 192,
+        "sha1": "709896659de4d7f45c1fff0718f38f95839bb883"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/7.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/7_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/7_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/7.pal",
+        "Original file offset: 0x1A9027"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_8",
+      "title": "MAP_DATA_PALETTE_8",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:90E7..DA:9267",
+        "bytes": 384,
+        "sha1": "6e77cce1004adc82c125e4e82c151cbc606725f6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/8.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/8_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/8_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/8.pal",
+        "Original file offset: 0x1A90E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_9",
+      "title": "MAP_DATA_PALETTE_9",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:9267..DA:96E7",
+        "bytes": 1152,
+        "sha1": "639ad51dac0528739ead98f4ea347b02d7d9e96b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/9.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/9_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/9_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/9.pal",
+        "Original file offset: 0x1A9267"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_10",
+      "title": "MAP_DATA_PALETTE_10",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:96E7..DA:9CE7",
+        "bytes": 1536,
+        "sha1": "5f737119da9da98ed841cb4bb1ee0733aa6b2735"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/10.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/10_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/10_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/10.pal",
+        "Original file offset: 0x1A96E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_11",
+      "title": "MAP_DATA_PALETTE_11",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:9CE7..DA:A2E7",
+        "bytes": 1536,
+        "sha1": "0df9da360f40c48e62bbed055dcea853f866d390"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/11.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/11_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/11_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/11.pal",
+        "Original file offset: 0x1A9CE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_12",
+      "title": "MAP_DATA_PALETTE_12",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:A2E7..DA:A8E7",
+        "bytes": 1536,
+        "sha1": "664fb498c535b7f1c0a157e701e108da330ca3be"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/12.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/12_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/12_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/12.pal",
+        "Original file offset: 0x1AA2E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_13",
+      "title": "MAP_DATA_PALETTE_13",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:A8E7..DA:ABE7",
+        "bytes": 768,
+        "sha1": "d52a73ed066458cbd903616ab830296c65906bab"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/13.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/13_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/13_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/13.pal",
+        "Original file offset: 0x1AA8E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_14",
+      "title": "MAP_DATA_PALETTE_14",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:ABE7..DA:B1E7",
+        "bytes": 1536,
+        "sha1": "f340212208d218529dcb238c584975381a323b74"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/14.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/14_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/14_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/14.pal",
+        "Original file offset: 0x1AABE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_15",
+      "title": "MAP_DATA_PALETTE_15",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:B1E7..DA:B7E7",
+        "bytes": 1536,
+        "sha1": "1e7c20eca1f9e4d1b25e6285ea9aa9d6de6897a8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/15.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/15_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/15_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/15.pal",
+        "Original file offset: 0x1AB1E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_16",
+      "title": "MAP_DATA_PALETTE_16",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:B7E7..DA:BAE7",
+        "bytes": 768,
+        "sha1": "dfd2a15e9237a8e5fe0323b9c0568ba2fed7959e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/16.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/16_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/16_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/16.pal",
+        "Original file offset: 0x1AB7E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_17",
+      "title": "MAP_DATA_PALETTE_17",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:BAE7..DA:C0E7",
+        "bytes": 1536,
+        "sha1": "a267d5372b1c3417702990cfd26694ea28bf1ac5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/17.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/17_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/17_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/17.pal",
+        "Original file offset: 0x1ABAE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_18",
+      "title": "MAP_DATA_PALETTE_18",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:C0E7..DA:C1A7",
+        "bytes": 192,
+        "sha1": "46e116bbbf102cd5f55ca2aeef6ec06ac957545c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/18.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/18_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/18_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/18.pal",
+        "Original file offset: 0x1AC0E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_19",
+      "title": "MAP_DATA_PALETTE_19",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:C1A7..DA:C6E7",
+        "bytes": 1344,
+        "sha1": "4f18d286abe5494c62f551bc99de154f1328a611"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/19.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/19_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/19_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/19.pal",
+        "Original file offset: 0x1AC1A7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_20",
+      "title": "MAP_DATA_PALETTE_20",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:C6E7..DA:CCE7",
+        "bytes": 1536,
+        "sha1": "264e098212e143b7d1ff3439fa82dcf51f439118"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/20.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/20_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/20_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/20.pal",
+        "Original file offset: 0x1AC6E7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_21",
+      "title": "MAP_DATA_PALETTE_21",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:CCE7..DA:D0A7",
+        "bytes": 960,
+        "sha1": "1198ea7168b471169ecdbaeacf1dd386baa119eb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/21.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/21_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/21_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/21.pal",
+        "Original file offset: 0x1ACCE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_22",
+      "title": "MAP_DATA_PALETTE_22",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:D0A7..DA:D467",
+        "bytes": 960,
+        "sha1": "22266da0f7e398a1df3c460bc4c1e1b5414c60c6"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/22.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/22_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/22_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/22.pal",
+        "Original file offset: 0x1AD0A7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_23",
+      "title": "MAP_DATA_PALETTE_23",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:D467..DA:D767",
+        "bytes": 768,
+        "sha1": "8875c7ac843a1e89e42f2b53decb79ced4e6a173"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/23.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/23_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/23_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/23.pal",
+        "Original file offset: 0x1AD467"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_24",
+      "title": "MAP_DATA_PALETTE_24",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:D767..DA:DB27",
+        "bytes": 960,
+        "sha1": "c10bc2a7f40b97e1a80df4aa33b49bcd30f5182b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/24.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/24_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/24_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/24.pal",
+        "Original file offset: 0x1AD767"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_25",
+      "title": "MAP_DATA_PALETTE_25",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:DB27..DA:E127",
+        "bytes": 1536,
+        "sha1": "fc37ff59f697449667cff5bbd7c6bc6aa35f23e5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/25.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/25_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/25_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/25.pal",
+        "Original file offset: 0x1ADB27"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_26",
+      "title": "MAP_DATA_PALETTE_26",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:E127..DA:E5A7",
+        "bytes": 1152,
+        "sha1": "34f7cc865ea2c9b7a2063ec0d122da8a21072ea7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/26.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/26_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/26_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/26.pal",
+        "Original file offset: 0x1AE127"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_27",
+      "title": "MAP_DATA_PALETTE_27",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:E5A7..DA:E967",
+        "bytes": 960,
+        "sha1": "92ce4f0f841b1d169cd3a7c67eb4a2ea32d7eb24"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/27.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/27_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/27_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/27.pal",
+        "Original file offset: 0x1AE5A7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_28",
+      "title": "MAP_DATA_PALETTE_28",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:E967..DA:EDE7",
+        "bytes": 1152,
+        "sha1": "8523c3b72084c3d00626fdafe1fc670db0ae99cd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/28.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/28_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/28_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/28.pal",
+        "Original file offset: 0x1AE967"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_29",
+      "title": "MAP_DATA_PALETTE_29",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:EDE7..DA:F267",
+        "bytes": 1152,
+        "sha1": "a45fe06b000df64f2cbefb83d6754a5cfafb00bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/29.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/29_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/29_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/29.pal",
+        "Original file offset: 0x1AEDE7"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_30",
+      "title": "MAP_DATA_PALETTE_30",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:F267..DA:F4A7",
+        "bytes": 576,
+        "sha1": "9617315a052614474957a73222fd35f40e512c8e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/30.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/30_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/30_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/30.pal",
+        "Original file offset: 0x1AF267"
+      ]
+    },
+    {
+      "id": "asset.da.map_data_palette_31",
+      "title": "MAP_DATA_PALETTE_31",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:F4A7..DA:FAA7",
+        "bytes": 1536,
+        "sha1": "075f18c2e018d5fca5e73f13a19ba458fac247ea"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/maps/palettes/31.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "da/maps/palettes/31_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "da/maps/palettes/31_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/palettes/31.pal",
+        "Original file offset: 0x1AF4A7"
+      ]
+    },
+    {
+      "id": "asset.da.audio_pack_111",
+      "title": "AUDIO_PACK_111",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:FB07..DA:FFEE",
+        "bytes": 1255,
+        "sha1": "8f74ab02709411d3e9c2ea4a6e26dede5db50884"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/audiopacks/111.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/111.ebm",
+        "Original file offset: 0x1AFB07"
+      ]
+    },
+    {
+      "id": "table.da.035_data_map_unknown_map_palette_pointer_table_asm",
+      "title": "data/map/unknown_map_palette_pointer_table.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:FAA7..DA:FB07",
+        "bytes": 96,
+        "sha1": "d57ffb87dd901dd703c4a5295011f4b5674f1577"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/tables/035_data_map_unknown_map_palette_pointer_table_asm.bin"
+        },
+        {
+          "kind": "map_palette_pointer_table_json",
+          "path": "da/tables/035_data_map_unknown_map_palette_pointer_table_asm_decoded.json",
+          "entry_count": 32,
+          "pointer_bank": 218
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/unknown_map_palette_pointer_table.asm",
+        "Original file offset: 0x1AFAA7",
+        "Size was inferred from the next known binary asset boundary.",
+        "Decoded as the 32-entry DA map palette long-pointer table; entries target MAP_DATA_PALETTE_0..31 payload starts."
+      ]
+    },
+    {
+      "id": "gap.da.da_ffee",
+      "title": "Bank DA coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "DA:FFEE..DA:10000",
+        "bytes": 18,
+        "sha1": "a770e927c71c77a0a9ba32e12cd7eae07148f0e7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "da/gaps/01_da_ffee.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x1AFFEE..0x1AFFFF"
+      ]
+    }
+  ]
+}

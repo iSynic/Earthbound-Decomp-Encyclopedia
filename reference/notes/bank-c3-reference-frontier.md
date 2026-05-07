@@ -1,0 +1,705 @@
+# Bank C3 reference frontier
+
+Generated from `build/ref-index.json`. Generated frontier, proposal, audit, and closure notes are excluded from local coverage counts.
+
+## Summary
+
+- entries: `3076`
+- exact local working names: `161`
+- local note mentions: `1033`
+
+By source:
+- `earthbound-disasm-legacy`: `156`
+- `ebsrc-main`: `1629`
+- `local-data-contracts`: `17`
+- `local-notes`: `1033`
+- `local-script-payloads`: `80`
+- `local-working-names`: `161`
+
+By kind:
+- `bank-include`: `1073`
+- `data-contract`: `17`
+- `global-symbol`: `324`
+- `legacy-label`: `156`
+- `note-mention`: `1033`
+- `script-payload`: `80`
+- `source-label`: `232`
+- `working-name`: `161`
+
+## Ebsrc Include Queue
+
+- include entries: `1073`
+- named includes without encoded address: `880`
+- unknown address-bearing includes: `34`
+- unknown address-bearing includes without exact local note mention: `0`
+
+- `C3:0188` `data/unknown/C30188.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:35`
+- `C3:0295` `data/events/C30295.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:45`
+- `C3:098B` `data/events/C3098B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:115`
+- `C3:0A1F` `data/events/C30A1F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:121`
+- `C3:0C55` `data/events/C30C55.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:151`
+- `C3:0C67` `data/events/C30C67.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:153`
+- `C3:1D2D` `data/events/C31D2D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:297`
+- `C3:1D4F` `data/events/C31D4F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:299`
+- `C3:1DF4` `data/events/C31DF4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:309`
+- `C3:1E2D` `data/events/C31E2D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:311`
+- `C3:1EC1` `data/events/C31EC1.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:327`
+- `C3:1ED8` `data/events/C31ED8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:329`
+- `C3:1EEF` `data/events/C31EEF.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:331`
+- `C3:2138` `data/events/C32138.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:335`
+- `C3:2CD2` `data/events/C32CD2.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:399`
+- `C3:3399` `data/events/C33399.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:457`
+- `C3:33AA` `data/events/C333AA.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:459`
+- `C3:33BB` `data/events/C333BB.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:461`
+- `C3:33CC` `data/events/C333CC.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:463`
+- `C3:33DD` `data/events/C333DD.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:465`
+- `C3:3549` `data/events/C33549.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:475`
+- `C3:3BFB` `data/events/C33BFB.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:503`
+- `C3:3C18` `data/events/C33C18.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:505`
+- `C3:3C1D` `data/events/C33C1D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:507`
+- `C3:3DBE` `data/events/C33DBE.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:515`
+- `C3:4392` `data/events/C34392.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:567`
+- `C3:43AE` `data/events/C343AE.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:569`
+- `C3:43DB` `data/events/C343DB.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:571`
+- `C3:48C4` `data/events/C348C4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:605`
+- `C3:4964` `data/events/C34964.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:609`
+- `C3:4A61` `data/events/C34A61.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:613`
+- `C3:4B62` `data/events/C34B62.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:619`
+- `C3:4D39` `data/events/C34D39.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:633`
+- `C3:4E73` `data/events/C34E73.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:663`
+- `C3:5F8B` `data/events/C35F8B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:695`
+- `C3:5FB6` `data/events/C35FB6.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:697`
+- `C3:5FCD` `data/events/C35FCD.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:699`
+- `C3:62C0` `data/events/C362C0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:739`
+- `C3:6834` `data/events/C36834.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:789`
+- `C3:6A3E` `data/events/C36A3E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:819`
+- `C3:6A41` `data/events/C36A41.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:821`
+- `C3:6BB4` `data/events/C36BB4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:837`
+- `C3:6BEA` `data/events/C36BEA.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:841`
+- `C3:6D18` `data/events/C36D18.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:853`
+- `C3:6E41` `data/events/C36E41.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:875`
+- `C3:7439` `data/events/C37439.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:929`
+- `C3:7545` `data/events/C37545.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:941`
+- `C3:7559` `data/events/C37559.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:943`
+- `C3:7A7C` `data/events/C37A7C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:999`
+- `C3:835D` `data/events/C3835D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1061`
+- `C3:83BC` `data/events/C383BC.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1063`
+- `C3:8978` `data/events/C38978.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1115`
+- `C3:899E` `data/events/C3899E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1117`
+- `C3:9AC7` `data/events/C39AC7.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1285`
+- `C3:9E01` `data/events/C39E01.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1303`
+- `C3:9FF2` `data/unknown/C39FF2.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1329`
+- `C3:A010` `data/unknown/C3A010.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1331`
+- `C3:A01B` `data/unknown/C3A01B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1333`
+- `C3:A026` `data/unknown/C3A026.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1335`
+- `C3:A02D` `data/unknown/C3A02D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1337`
+- `C3:A038` `data/unknown/C3A038.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1339`
+- `C3:A07F` `data/events/C3A07F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1345`
+- `C3:A09F` `data/events/C3A09F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1351`
+- `C3:A0B2` `data/events/C3A0B2.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1353`
+- `C3:A0C5` `data/events/C3A0C5.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1355`
+- `C3:A0D8` `data/events/C3A0D8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1357`
+- `C3:A12E` `data/events/C3A12E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1359`
+- `C3:A15E` `data/events/C3A15E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1361`
+- `C3:A17B` `data/events/C3A17B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1363`
+- `C3:A18F` `data/events/C3A18F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1365`
+- `C3:A1A3` `data/events/C3A1A3.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1367`
+- `C3:A1B7` `data/events/C3A1B7.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1369`
+- `C3:A1CB` `data/events/C3A1CB.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1371`
+- `C3:A1DF` `data/events/C3A1DF.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1373`
+- `C3:A1F3` `data/events/C3A1F3.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1375`
+- `C3:A209` `data/events/C3A209.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1379`
+- `C3:A20E` `data/events/C3A20E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1381`
+- `C3:A262` `data/events/C3A262.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1383`
+- `C3:A271` `data/events/C3A271.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1385`
+- `C3:A272` `data/events/C3A272.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1387`
+- `C3:A401` `data/events/C3A401.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1419`
+- `C3:AA1E` `data/events/C3AA1E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1449`
+- `C3:AA2B` `data/events/C3AA2B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1451`
+- `C3:AA38` `data/events/C3AA38.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1453`
+- `C3:AA46` `data/events/C3AA46.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1455`
+- `C3:AA5A` `data/events/C3AA5A.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1457`
+- `C3:AA6E` `data/events/C3AA6E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1459`
+- `C3:AA82` `data/events/C3AA82.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1461`
+- `C3:AA96` `data/events/C3AA96.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1463`
+- `C3:AAAA` `data/events/C3AAAA.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1465`
+- `C3:AAB8` `data/events/C3AAB8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1467`
+- `C3:AAC2` `data/events/C3AAC2.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1469`
+- `C3:AAD6` `data/events/C3AAD6.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1471`
+- `C3:AAEA` `data/events/C3AAEA.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1473`
+- `C3:AAFE` `data/events/C3AAFE.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1475`
+- `C3:AB12` `data/events/C3AB12.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1477`
+- `C3:AB26` `data/events/C3AB26.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1479`
+- `C3:AB37` `data/events/C3AB37.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1481`
+- `C3:AB44` `data/events/C3AB44.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1483`
+- `C3:AB59` `data/events/C3AB59.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1485`
+- `C3:AB67` `data/events/C3AB67.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1487`
+- `C3:AB8A` `data/events/C3AB8A.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1489`
+- `C3:AB94` `data/events/C3AB94.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1491`
+- `C3:AB9E` `data/events/C3AB9E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1493`
+- `C3:ABE0` `data/events/C3ABE0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1495`
+- `C3:AFA3` `data/events/C3AFA3.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1525`
+- `C3:B0B6` `data/events/C3B0B6.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1539`
+- `C3:B431` `data/events/C3B431.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1563`
+- `C3:B70C` `data/events/C3B70C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1583`
+- `C3:BAA3` `data/events/C3BAA3.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1633`
+- `C3:BAC4` `data/events/C3BAC4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1635`
+- `C3:BAD7` `data/events/C3BAD7.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1637`
+- `C3:BB5C` `data/events/C3BB5C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1647`
+- `C3:BB73` `data/events/C3BB73.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1649`
+- `C3:BD03` `data/events/C3BD03.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1661`
+- `C3:BEA4` `data/events/C3BEA4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1683`
+- `C3:BED4` `data/events/C3BED4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1685`
+- `C3:C143` `data/events/C3C143.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1709`
+- `C3:C1E0` `data/events/C3C1E0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1717`
+- `C3:C20F` `data/events/C3C20F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1719`
+- `C3:C227` `data/events/C3C227.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1721`
+- `C3:C35D` `data/events/C3C35D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1749`
+- `C3:C810` `data/events/C3C810.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1785`
+- `C3:C81A` `data/events/C3C81A.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1787`
+- `C3:C824` `data/events/C3C824.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1789`
+- `C3:C871` `data/events/C3C871.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1791`
+- `C3:C8FD` `data/events/C3C8FD.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1805`
+- `C3:C90C` `data/events/C3C90C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1807`
+- `C3:C94E` `data/events/C3C94E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1809`
+- `C3:CC24` `data/events/C3CC24.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1827`
+- `C3:CC5C` `data/events/C3CC5C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1829`
+- `C3:CC94` `data/events/C3CC94.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1831`
+- `C3:CCA8` `data/events/C3CCA8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1833`
+- `C3:CEA2` `data/events/C3CEA2.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1839`
+- `C3:CEB9` `data/events/C3CEB9.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1841`
+- `C3:D0A4` `data/events/C3D0A4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1857`
+- `C3:D913` `data/events/C3D913.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1935`
+- `C3:DB7A` `data/events/C3DB7A.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1957`
+- `C3:DBDB` `data/events/C3DBDB.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1963`
+- `C3:DF90` `data/events/C3DF90.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1991`
+- `C3:DFB5` `data/events/C3DFB5.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1993`
+- `C3:DFD4` `data/events/C3DFD4.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1995`
+- `C3:DFE8` `data/unknown/C3DFE8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:1997`
+- `C3:E148` `data/unknown/C3E148.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2007`
+- `C3:E158` `data/unknown/C3E158.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2009`
+- `C3:E168` `data/unknown/C3E168.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2011`
+- `C3:E1D8` `data/unknown/C3E1D8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2015`
+- `C3:E1E0` `data/unknown/C3E1E0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2017`
+- `C3:E200` `data/unknown/C3E200.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2019`
+- `C3:E208` `data/unknown/C3E208.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2021`
+- `C3:E210` `data/unknown/C3E210.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2023`
+- `C3:E218` `data/unknown/C3E218.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2025`
+- `C3:E220` `data/unknown/C3E220.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2027`
+- `C3:E228` `data/unknown/C3E228.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2029`
+- `C3:E230` `data/unknown/C3E230.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2031`
+- `C3:E240` `data/unknown/C3E240.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2033`
+- `C3:E3F8` `data/unknown/C3E3F8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2037`
+- `C3:E40E` `data/unknown/C3E40E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2039`
+- `C3:E41C` `data/unknown/C3E41C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2043`
+- `C3:E44C` `data/unknown/C3E44C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2047`
+- `C3:E450` `unknown/C3/C3E450.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2049`
+- `C3:E4EF` `unknown/C3/C3E4EF.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2057`
+- `C3:E6F8` `unknown/C3/C3E6F8.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2061`
+- `C3:E75D` `unknown/C3/C3E75D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2063`
+- `C3:E7E3` `unknown/C3/C3E7E3.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2065`
+- `C3:E84E` `data/unknown/C3E84E.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2067`
+- `C3:E9F7` `unknown/C3/C3E9F7.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2081`
+- `C3:EAD0` `unknown/C3/C3EAD0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2083`
+- `C3:EB1C` `unknown/C3/C3EB1C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2085`
+- `C3:EBCA` `unknown/C3/C3EBCA.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2087`
+- `C3:EC1F` `unknown/C3/C3EC1F.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2089`
+- `C3:EC8B` `unknown/C3/C3EC8B.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2091`
+- `C3:ED2C` `unknown/C3/C3ED2C.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2093`
+- `C3:ED98` `unknown/C3/C3ED98.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2095`
+- `C3:EE14` `unknown/C3/C3EE14.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2097`
+- `C3:EE4D` `unknown/C3/C3EE4D.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2099`
+- `C3:EE7A` `unknown/C3/C3EE7A.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2101`
+- `C3:EF23` `misc/null/C3EF23.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2103`
+- `C3:EF26` `data/unknown/C3EF26.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2105`
+- `C3:F0B0` `data/unknown/C3F0B0.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:2111`
+- ... 893 more
+
+## Named Ref Families Without Encoded Address
+
+- `system/display_antipiracy_screen.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:27`
+- `system/display_faulty_gamepak_screen.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:29`
+- `data/event_flag_nocontinue_selected.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:31`
+- `data/ness_pajama_flag.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:33`
+- `data/events/scripts/221.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:37`
+- `data/events/scripts/222.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:39`
+- `data/events/scripts/223.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:41`
+- `data/events/scripts/224.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:43`
+- `data/events/scripts/225+226+227.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:47`
+- `data/events/scripts/228.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:49`
+- `data/events/scripts/229.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:51`
+- `data/events/scripts/230.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:53`
+- `data/events/scripts/231.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:55`
+- `data/events/scripts/232.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:57`
+- `data/events/scripts/228+229+230+231+232_common.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:59`
+- `data/events/scripts/233+234+235+236+237.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:61`
+- `data/events/scripts/238.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:63`
+- `data/events/scripts/239.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:65`
+- `data/events/scripts/240.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:67`
+- `data/events/scripts/241.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:69`
+- `data/events/scripts/242+243.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:71`
+- `data/events/scripts/244.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:73`
+- `data/events/scripts/245.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:75`
+- `data/events/scripts/246.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:77`
+- `data/events/scripts/247+248.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:79`
+- `data/events/scripts/249.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:81`
+- `data/events/scripts/250.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:83`
+- `data/events/scripts/251.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:85`
+- `data/events/scripts/252.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:87`
+- `data/events/scripts/253.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:89`
+- `data/events/scripts/254.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:91`
+- `data/events/scripts/255.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:93`
+- `data/events/scripts/256.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:95`
+- `data/events/scripts/257.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:97`
+- `data/events/scripts/258.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:99`
+- `data/events/scripts/259.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:101`
+- `data/events/scripts/260.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:103`
+- `data/events/scripts/261.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:105`
+- `data/events/scripts/262.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:107`
+- `data/events/scripts/263.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:109`
+- `data/events/scripts/264.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:111`
+- `data/events/scripts/265.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:113`
+- `data/events/scripts/266.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:117`
+- `data/events/scripts/267.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:119`
+- `data/events/scripts/268.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:123`
+- `data/events/scripts/269.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:125`
+- `data/events/scripts/270.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:127`
+- `data/events/scripts/271.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:129`
+- `data/events/scripts/272.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:131`
+- `data/events/scripts/273.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:133`
+- `data/events/scripts/274+275+276.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:135`
+- `data/events/scripts/277.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:137`
+- `data/events/scripts/278.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:139`
+- `data/events/scripts/279.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:141`
+- `data/events/scripts/280.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:143`
+- `data/events/scripts/281.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:145`
+- `data/events/scripts/282.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:147`
+- `data/events/scripts/283.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:149`
+- `data/events/scripts/284.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:155`
+- `data/events/scripts/285.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:157`
+- `data/events/scripts/286.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:159`
+- `data/events/scripts/287.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:161`
+- `data/events/scripts/288.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:163`
+- `data/events/scripts/289.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:165`
+- `data/events/scripts/290.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:167`
+- `data/events/scripts/291.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:169`
+- `data/events/scripts/292.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:171`
+- `data/events/scripts/293.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:173`
+- `data/events/scripts/294.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:175`
+- `data/events/scripts/295.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:177`
+- `data/events/scripts/296.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:179`
+- `data/events/scripts/297.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:181`
+- `data/events/scripts/298.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:183`
+- `data/events/scripts/299.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:185`
+- `data/events/scripts/300.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:187`
+- `data/events/scripts/301.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:189`
+- `data/events/scripts/302.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:191`
+- `data/events/scripts/303.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:193`
+- `data/events/scripts/304.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:195`
+- `data/events/scripts/305.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:197`
+- `data/events/scripts/306.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:199`
+- `data/events/scripts/307.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:201`
+- `data/events/scripts/308.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:203`
+- `data/events/scripts/309.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:205`
+- `data/events/scripts/310.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:207`
+- `data/events/scripts/311.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:209`
+- `data/events/scripts/312.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:211`
+- `data/events/scripts/314.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:213`
+- `data/events/scripts/313.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:215`
+- `data/events/scripts/315.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:217`
+- `data/events/scripts/316.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:219`
+- `data/events/scripts/317.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:221`
+- `data/events/scripts/318.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:223`
+- `data/events/scripts/319.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:225`
+- `data/events/scripts/320.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:227`
+- `data/events/scripts/321.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:229`
+- `data/events/scripts/320+321_common.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:231`
+- `data/events/scripts/322.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:233`
+- `data/events/scripts/323.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:235`
+- `data/events/scripts/324.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:237`
+- `data/events/scripts/325.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:239`
+- `data/events/scripts/326.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:241`
+- `data/events/scripts/327.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:243`
+- `data/events/scripts/328.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:245`
+- `data/events/scripts/329.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:247`
+- `data/events/scripts/330.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:249`
+- `data/events/scripts/331.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:251`
+- `data/events/scripts/332.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:253`
+- `data/events/scripts/333.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:255`
+- `data/events/scripts/334.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:257`
+- `data/events/scripts/335.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:259`
+- `data/events/scripts/336.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:261`
+- `data/events/scripts/337.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:263`
+- `data/events/scripts/338.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:265`
+- `data/events/scripts/339.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:267`
+- `data/events/scripts/340.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:269`
+- `data/events/scripts/341.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:271`
+- `data/events/scripts/342.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:273`
+- `data/events/scripts/343.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:275`
+- `data/events/scripts/344.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:277`
+- `data/events/scripts/345.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:279`
+- `data/events/scripts/346.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:281`
+- `data/events/scripts/347.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:283`
+- `data/events/scripts/348+349.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:285`
+- `data/events/scripts/350.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:287`
+- `data/events/scripts/351.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:289`
+- `data/events/scripts/352.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:291`
+- `data/events/scripts/353.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:293`
+- `data/events/scripts/354.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:295`
+- `data/events/scripts/355.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:301`
+- `data/events/scripts/356.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:303`
+- `data/events/scripts/357.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:305`
+- `data/events/scripts/369.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:307`
+- `data/events/scripts/360.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:313`
+- `data/events/scripts/361.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:315`
+- `data/events/scripts/362.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:317`
+- `data/events/scripts/358.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:319`
+- `data/events/scripts/359.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:321`
+- `data/events/scripts/363.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:323`
+- `data/events/scripts/364.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:325`
+- `data/events/scripts/368.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:333`
+- `data/events/scripts/365.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:337`
+- `data/events/scripts/367.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:339`
+- `data/events/scripts/366.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:341`
+- `data/events/scripts/370.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:343`
+- `data/events/scripts/371.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:345`
+- `data/events/scripts/372.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:347`
+- `data/events/scripts/400.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:349`
+- `data/events/scripts/373.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:351`
+- `data/events/scripts/374.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:353`
+- `data/events/scripts/375+404.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:355`
+- `data/events/scripts/376+405.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:357`
+- `data/events/scripts/377+406.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:359`
+- `data/events/scripts/378+407.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:361`
+- `data/events/scripts/379+408.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:363`
+- `data/events/scripts/380.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:365`
+- `data/events/scripts/381.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:367`
+- `data/events/scripts/382.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:369`
+- `data/events/scripts/383.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:371`
+- `data/events/scripts/385.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:373`
+- `data/events/scripts/397.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:375`
+- `data/events/scripts/387.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:377`
+- `data/events/scripts/389+393.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:379`
+- `data/events/scripts/391.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:381`
+- `data/events/scripts/395.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:383`
+- `data/events/scripts/384.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:385`
+- `data/events/scripts/386.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:387`
+- `data/events/scripts/398.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:389`
+- `data/events/scripts/388.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:391`
+- `data/events/scripts/390+394.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:393`
+- `data/events/scripts/392.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:395`
+- `data/events/scripts/396.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:397`
+- `data/events/scripts/399.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:401`
+- `data/events/scripts/401.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:403`
+- `data/events/scripts/437.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:405`
+- `data/events/scripts/402.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:407`
+- `data/events/scripts/403.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:409`
+- `data/events/scripts/409.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:411`
+- `data/events/scripts/411.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:413`
+- `data/events/scripts/410.asm` (ebsrc-main/bank-include) - `refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank03.asm:415`
+- ... 700 more
+
+## Unnoted Unknown Include Starts
+
+
+## Local Coverage Of Ref Addresses
+
+- `C3:0188` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:61`, `notes/reference-first-workflow.md:52`
+- `C3:0295` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:14`, `notes/c3-event-222-224-movement-helper-cluster.md:33`, +8 more
+- `C3:43DB` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:9`, `notes/c3-temporary-actor-movement-and-release-scripts.md:35`, `notes/c3-temporary-actor-movement-and-release-scripts.md:103`, +2 more
+- `C3:43E8` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:104`
+- `C3:443E` -> `notes/c3-timed-delivery-controller-working-names.md:17`, `notes/c3-timed-delivery-controller-working-names.md:19`, `notes/c3-timed-delivery-controller-working-names.md:47`, +2 more
+- `C3:444D` -> `notes/c3-timed-delivery-controller-working-names.md:19`, `notes/c3-timed-delivery-controller-working-names.md:48`, `notes/timed-delivery-controller-499-500-common.md:43`
+- `C3:4457` -> `notes/c3-timed-delivery-controller-working-names.md:19`, `notes/c3-timed-delivery-controller-working-names.md:21`, `notes/c3-timed-delivery-controller-working-names.md:49`, +1 more
+- `C3:447A` -> `notes/c3-timed-delivery-controller-working-names.md:27`, `notes/c3-timed-delivery-controller-working-names.md:50`
+- `C3:447D` -> `notes/c3-timed-delivery-controller-working-names.md:23`, `notes/c3-timed-delivery-controller-working-names.md:51`, `notes/timed-delivery-controller-499-500-common.md:86`
+- `C3:4488` -> `notes/c3-timed-delivery-controller-working-names.md:29`, `notes/c3-timed-delivery-controller-working-names.md:52`
+- `C3:4499` -> `notes/c3-timed-delivery-controller-working-names.md:29`, `notes/c3-timed-delivery-controller-working-names.md:53`
+- `C3:44A7` -> `notes/c3-timed-delivery-controller-working-names.md:29`, `notes/c3-timed-delivery-controller-working-names.md:54`
+- `C3:44A8` -> `notes/c3-timed-delivery-controller-working-names.md:31`, `notes/c3-timed-delivery-controller-working-names.md:55`, `notes/delivery-row-helpers-ef0e67-ef0ead.md:162`
+- `C3:44C1` -> `notes/c3-timed-delivery-controller-working-names.md:31`, `notes/c3-timed-delivery-controller-working-names.md:56`
+- `C3:44D2` -> `notes/c3-timed-delivery-controller-working-names.md:31`, `notes/c3-timed-delivery-controller-working-names.md:57`
+- `C3:44DE` -> `notes/c3-timed-delivery-controller-working-names.md:27`, `notes/c3-timed-delivery-controller-working-names.md:33`, `notes/c3-timed-delivery-controller-working-names.md:58`, +1 more
+- `C3:44EE` -> `notes/c3-timed-delivery-controller-working-names.md:33`, `notes/c3-timed-delivery-controller-working-names.md:59`
+- `C3:44FF` -> `notes/c3-timed-delivery-controller-working-names.md:33`, `notes/c3-timed-delivery-controller-working-names.md:60`
+- `C3:9FF2` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:7`, `notes/c3-intro-script-frontier-9ff2-a07f.md:26`, `notes/c3-intro-script-frontier-9ff2-a07f.md:29`, +1 more
+- `C3:A010` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:8`, `notes/c3-intro-script-frontier-9ff2-a07f.md:36`, `notes/c3-intro-script-frontier-9ff2-a07f.md:91`, +1 more
+- `C3:A01B` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:9`, `notes/c3-intro-script-frontier-9ff2-a07f.md:37`, `notes/c3-intro-script-frontier-9ff2-a07f.md:92`
+- `C3:A026` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:10`, `notes/c3-intro-script-frontier-9ff2-a07f.md:38`, `notes/c3-intro-script-frontier-9ff2-a07f.md:93`
+- `C3:A02D` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:11`, `notes/c3-intro-script-frontier-9ff2-a07f.md:39`, `notes/c3-intro-script-frontier-9ff2-a07f.md:94`
+- `C3:A038` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:12`, `notes/c3-intro-script-frontier-9ff2-a07f.md:40`, `notes/c3-intro-script-frontier-9ff2-a07f.md:95`, +1 more
+- `C3:A04E` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:19`, `notes/c3-intro-script-frontier-9ff2-a07f.md:51`, `notes/c3-intro-script-frontier-9ff2-a07f.md:53`, +1 more
+- `C3:A052` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:20`, `notes/c3-intro-script-frontier-9ff2-a07f.md:54`, `notes/c3-intro-script-frontier-9ff2-a07f.md:58`, +1 more
+- `C3:A076` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:22`, `notes/c3-intro-script-frontier-9ff2-a07f.md:75`, `notes/c3-intro-script-frontier-9ff2-a07f.md:77`, +1 more
+- `C3:A07F` -> `notes/c3-intro-script-frontier-9ff2-a07f.md:14`, `notes/c3-intro-script-frontier-9ff2-a07f.md:82`, `notes/c3-intro-script-frontier-9ff2-a07f.md:85`, +1 more
+- `C3:A09F` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:22`, `notes/c3-event-222-224-movement-helper-cluster.md:86`, +5 more
+- `C3:A0B2` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:9`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:30`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:36`, +2 more
+- `C3:A0C5` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:10`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:39`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:66`, +1 more
+- `C3:A0D8` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:11`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:39`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:67`, +2 more
+- `C3:A111` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:5`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:23`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:41`, +12 more
+- `C3:A11E` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:23`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:46`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:49`
+- `C3:A12E` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:12`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:57`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:70`, +1 more
+- `C3:A15E` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:10`, `notes/c3-temporary-actor-movement-and-release-scripts.md:45`, `notes/c3-temporary-actor-movement-and-release-scripts.md:69`, +1 more
+- `C3:A17B` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:11`, `notes/c3-temporary-actor-movement-and-release-scripts.md:46`, `notes/c3-temporary-actor-movement-and-release-scripts.md:106`
+- `C3:A18F` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:12`, `notes/c3-temporary-actor-movement-and-release-scripts.md:46`, `notes/c3-temporary-actor-movement-and-release-scripts.md:107`
+- `C3:A1DF` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:59`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:71`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:91`, +1 more
+- `C3:A1F3` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:13`, `notes/c3-temporary-actor-movement-and-release-scripts.md:47`, `notes/c3-temporary-actor-movement-and-release-scripts.md:108`
+- `C3:A204` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:37`, `notes/c3-temporary-actor-movement-and-release-scripts.md:45`, `notes/c3-temporary-actor-movement-and-release-scripts.md:48`, +1 more
+- `C3:A209` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:49`, `notes/c3-temporary-actor-movement-and-release-scripts.md:110`
+- `C3:A20E` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:14`, `notes/c3-temporary-actor-movement-and-release-scripts.md:55`, `notes/c3-temporary-actor-movement-and-release-scripts.md:90`, +1 more
+- `C3:A22C` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:57`, `notes/c3-temporary-actor-movement-and-release-scripts.md:112`
+- `C3:A23D` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:59`, `notes/c3-temporary-actor-movement-and-release-scripts.md:114`
+- `C3:A24E` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:60`, `notes/c3-temporary-actor-movement-and-release-scripts.md:115`
+- `C3:A25F` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:61`, `notes/c3-temporary-actor-movement-and-release-scripts.md:116`
+- `C3:A262` -> `notes/c3-c0-callback-binding-correction.md:40`, `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:23`, +9 more
+- `C3:A266` -> `notes/c3-event-222-224-movement-helper-cluster.md:102`, `notes/c3-event-222-224-movement-helper-cluster.md:103`
+- `C3:A381` -> `notes/c3-c0-callback-binding-correction.md:34`, `notes/c3-c0-callback-binding-correction.md:37`, `notes/c3-c0-callback-binding-correction.md:63`, +2 more
+- `C3:A3A1` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:69`, `notes/c3-temporary-actor-movement-and-release-scripts.md:118`
+- `C3:A3B7` -> `notes/c3-c0-callback-binding-correction.md:44`, `notes/c3-c0-callback-binding-correction.md:63`, `notes/c3-temporary-actor-movement-and-release-scripts.md:31`, +3 more
+- `C3:A3C9` -> `notes/c3-c0-callback-binding-correction.md:63`, `notes/c3-temporary-actor-movement-and-release-scripts.md:84`, `notes/c3-temporary-actor-movement-and-release-scripts.md:120`
+- `C3:A401` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:15`, `notes/c3-temporary-actor-movement-and-release-scripts.md:88`, `notes/c3-temporary-actor-movement-and-release-scripts.md:123`, +2 more
+- `C3:A426` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:92`, `notes/c3-temporary-actor-movement-and-release-scripts.md:94`, `notes/c3-temporary-actor-movement-and-release-scripts.md:124`
+- `C3:A42D` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:92`, `notes/c3-temporary-actor-movement-and-release-scripts.md:95`, `notes/c3-temporary-actor-movement-and-release-scripts.md:125`
+- `C3:A434` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:94`, `notes/c3-temporary-actor-movement-and-release-scripts.md:126`
+- `C3:A448` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:95`, `notes/c3-temporary-actor-movement-and-release-scripts.md:127`
+- `C3:A45C` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:97`, `notes/c3-temporary-actor-movement-and-release-scripts.md:99`, `notes/c3-temporary-actor-movement-and-release-scripts.md:128`
+- `C3:A47C` -> `notes/c3-temporary-actor-movement-and-release-scripts.md:63`, `notes/c3-temporary-actor-movement-and-release-scripts.md:99`, `notes/c3-temporary-actor-movement-and-release-scripts.md:129`
+- `C3:AA38` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:5`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:41`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:74`, +10 more
+- `C3:AA46` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:13`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:65`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:92`
+- `C3:AA5A` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:14`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:66`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:93`
+- `C3:AA6E` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:15`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:67`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:94`
+- `C3:AA82` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:16`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:68`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:95`
+- `C3:AA96` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:17`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:69`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:96`
+- `C3:AAAA` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:18`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:70`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:97`
+- `C3:AB12` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:19`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:71`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:98`
+- `C3:AB26` -> `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:20`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:41`, `notes/c3-actionscript-movement-pulse-presets-a0b2-ab26.md:72`, +3 more
+- `C3:AB44` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:19`, `notes/c3-event-222-224-movement-helper-cluster.md:27`, +5 more
+- `C3:AB59` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:20`, `notes/c3-event-222-224-movement-helper-cluster.md:27`, +6 more
+- `C3:AB5C` -> `notes/c3-event-222-224-movement-helper-cluster.md:70`, `notes/c3-event-222-224-movement-helper-cluster.md:72`
+- `C3:AB8A` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:21`, `notes/c3-event-222-224-movement-helper-cluster.md:77`, +4 more
+- `C3:AB9E` -> `notes/movement-vector-script-runtime-c0c83b-c0d195.md:70`
+- `C3:AFA3` -> `notes/c3-event-222-224-movement-helper-cluster.md:9`, `notes/c3-event-222-224-movement-helper-cluster.md:24`, `notes/c3-event-222-224-movement-helper-cluster.md:106`, +4 more
+- `C3:DFE8` -> `notes/pathfinding-consumers-direction-helpers-c0bd96-c0c7db.md:68`
+- `C3:E012` -> `notes/mushroomized-walking-builders-34de-37d0.md:58`, `notes/mushroomized-walking-builders-34de-37d0.md:213`, `notes/overworld-entity-type-registry-9887-98a4.md:128`, +1 more
+- `C3:E09A` -> `notes/position-derived-visual-context-class-9887.md:87`, `notes/position-snapshot-and-movement-tick-c0449b-c05200.md:213`, `notes/visual-selector-family-c0780f-c3f2b5.md:143`
+- `C3:E12C` -> `notes/bank-c0-entry-notes.md:194`, `notes/data-contracts-c0-c3.md:23`, `notes/data-contracts-c0-c3.md:457`, +3 more
+- `C3:E148` -> `notes/bank-c0-first-pass.md:219`, `notes/data-contracts-c0-c3.md:24`, `notes/data-contracts-c0-c3.md:472`, +4 more
+- `C3:E158` -> `notes/bank-c0-first-pass.md:221`, `notes/data-contracts-c0-c3.md:25`, `notes/data-contracts-c0-c3.md:487`, +4 more
+- `C3:E168` -> `notes/bank-c0-first-pass.md:197`, `notes/interaction-result-classes.md:25`, `notes/interaction-result-consumers.md:106`
+- `C3:E1D8` -> `notes/c3-map-movement-parameter-table-e1d8-e240.md:7`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:18`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:22`, +9 more
+- `C3:E1E0` -> `notes/c3-map-movement-parameter-table-e1d8-e240.md:8`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:45`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:71`
+- `C3:E200` -> `notes/bank-c0-first-pass.md:1168`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:49`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:62`, +9 more
+- `C3:E208` -> `notes/bank-c0-first-pass.md:1207`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:50`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:73`, +7 more
+- `C3:E210` -> `notes/bank-c0-entry-notes.md:127`, `notes/bank-c0-first-pass.md:1146`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:51`, +8 more
+- `C3:E218` -> `notes/bank-c0-first-pass.md:1150`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:52`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:75`, +4 more
+- `C3:E220` -> `notes/bank-c0-entry-notes.md:127`, `notes/bank-c0-first-pass.md:1185`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:53`, +12 more
+- `C3:E228` -> `notes/bank-c0-first-pass.md:1189`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:54`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:77`, +8 more
+- `C3:E230` -> `notes/bank-c0-first-pass.md:572`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:55`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:64`, +2 more
+- `C3:E240` -> `notes/bank-c0-first-pass.md:580`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:56`, `notes/c3-map-movement-parameter-table-e1d8-e240.md:79`, +1 more
+- `C3:E3F8` -> `notes/c3-menu-cursor-tile-data-e3f8-e450.md:7`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:14`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:27`, +3 more
+- `C3:E406` -> `notes/c3-menu-cursor-tile-data-e3f8-e450.md:23`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:31`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:41`, +1 more
+- `C3:E40E` -> `notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md:45`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:15`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:32`, +4 more
+- `C3:E41C` -> `notes/c3-menu-cursor-tile-data-e3f8-e450.md:8`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:17`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:34`, +5 more
+- `C3:E44C` -> `notes/c3-menu-cursor-tile-data-e3f8-e450.md:9`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:19`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:52`, +5 more
+- `C3:E450` -> `notes/c3-menu-cursor-tile-data-e3f8-e450.md:20`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:54`, `notes/c3-menu-cursor-tile-data-e3f8-e450.md:58`, +4 more
+- `C3:E4CA` -> `notes/bank-c1-subsystem-and-symbol-synthesis.md:77`, `notes/battle-psi-selection-refresh-c1ca72.md:40`, `notes/battle-text-entry-family-c1dc1c-dd7c.md:213`, +12 more
+- `C3:E4D4` -> `notes/bank-c1-subsystem-and-symbol-synthesis.md:77`, `notes/battle-item-action-selection-c1ce85-c1cfc6.md:35`, `notes/battle-psi-selection-refresh-c1ca72.md:26`, +8 more
+- `C3:E4E0` -> `notes/battle-psi-selection-refresh-c1ca72.md:30`, `notes/c3-shared-helper-working-name-promotion.md:15`, `notes/c3-shared-helper-working-name-promotion.md:76`, +1 more
+- `C3:E4EF` -> `notes/c3-shared-helper-working-name-promotion.md:16`, `notes/c3-shared-helper-working-name-promotion.md:77`, `notes/interaction-result-consumers.md:72`
+- `C3:E521` -> `notes/bank-c1-subsystem-and-symbol-synthesis.md:77`, `notes/battle-text-entry-family-c1dc1c-dd7c.md:213`, `notes/c3-shared-helper-working-name-promotion.md:17`, +5 more
+- `C3:E6F8` -> `notes/text-entry-record-builder-neighbors-c10f40-c11887.md:47`
+- `C3:E75D` -> `notes/character-selection-prompt-cluster-c11f8a-c1242e.md:68`, `notes/class2-reflected-hit-side-token-consumers.md:46`, `notes/jeff-repair-item-name-bridge.md:110`
+- `C3:E7E3` -> `notes/c3-shared-helper-working-name-promotion.md:17`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:7`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:14`, +4 more
+- `C3:E84E` -> `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:25`, `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:34`, `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:42`
+- `C3:E862` -> `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:26`, `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:36`, `notes/debug-menu-window-tick-helpers-c12bf3-c12d17.md:42`
+- `C3:E9F7` -> `notes/c3-shared-helper-working-name-promotion.md:27`, `notes/c3-shared-helper-working-name-promotion.md:81`, `notes/c3-shared-helper-working-name-promotion.md:102`, +1 more
+- `C3:EAD0` -> `notes/c3-shared-helper-working-name-promotion.md:28`, `notes/c3-shared-helper-working-name-promotion.md:82`, `notes/inventory-slot-insertion-helper-c18bc6.md:60`
+- `C3:EB1C` -> `notes/c3-shared-helper-working-name-promotion.md:29`, `notes/c3-shared-helper-working-name-promotion.md:83`, `notes/inventory-slot-insertion-helper-c18bc6.md:68`, +5 more
+- `C3:EBCA` -> `notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md:55`, `notes/c2-party-inventory-status-utility-corridor-c216ad-c2307b.md:56`, `notes/c3-shared-helper-working-name-promotion.md:30`, +14 more
+- `C3:EC1F` -> `notes/c3-shared-helper-working-name-promotion.md:39`, `notes/c3-shared-helper-working-name-promotion.md:85`, `notes/hp-pp-adjust-helper-quartet-c18f0e-c19010.md:16`, +4 more
+- `C3:EC8B` -> `notes/c3-shared-helper-working-name-promotion.md:40`, `notes/c3-shared-helper-working-name-promotion.md:86`, `notes/hp-pp-adjust-helper-quartet-c18f0e-c19010.md:17`, +5 more
+- `C3:ED2C` -> `notes/c3-shared-helper-working-name-promotion.md:41`, `notes/c3-shared-helper-working-name-promotion.md:87`, `notes/hp-pp-adjust-helper-quartet-c18f0e-c19010.md:18`, +4 more
+- `C3:ED98` -> `notes/c3-shared-helper-working-name-promotion.md:42`, `notes/c3-shared-helper-working-name-promotion.md:88`, `notes/hp-pp-adjust-helper-quartet-c18f0e-c19010.md:19`, +5 more
+- `C3:EE14` -> `notes/battle-item-action-selection-c1ce85-c1cfc6.md:6`, `notes/c2-steal-and-target-selection-helpers-c241dc-c24434.md:72`, `notes/c3-shared-helper-working-name-promotion.md:31`, +16 more
+- `C3:EE4D` -> `notes/battle-psi-user-selection-front-end-c1b5b6-b7c6.md:125`, `notes/c3-shared-helper-working-name-promotion.md:69`, `notes/c3-shared-helper-working-name-promotion.md:90`, +1 more
+- `C3:EE7A` -> `notes/c3-shared-helper-working-name-promotion.md:70`, `notes/c3-shared-helper-working-name-promotion.md:91`, `notes/c3-shared-helper-working-name-promotion.md:102`, +15 more
+- `C3:EF23` -> `notes/text-command-family-18-windows-and-selection.md:265`
+- `C3:EF26` -> `notes/battle-psi-menu-table-helpers-c1c046-c1c165.md:25`, `notes/battle-psi-menu-table-helpers-c1c046-c1c165.md:26`, `notes/battle-psi-menu-table-helpers-c1c046-c1c165.md:31`, +3 more
+- `C3:F016` -> `notes/battle-psi-menu-table-helpers-c1c046-c1c165.md:32`, `notes/c3-shared-helper-working-name-promotion.md:56`, `notes/c3-shared-helper-working-name-promotion.md:93`
+- `C3:F054` -> `notes/class2-reflected-hit-side-token-consumers.md:49`, `notes/class2-reflected-hit-side-token-consumers.md:60`
+- `C3:F0B0` -> `notes/battle-psi-menu-table-helpers-c1c046-c1c165.md:49`, `notes/c3-shared-helper-working-name-promotion.md:57`, `notes/c3-shared-helper-working-name-promotion.md:94`
+- `C3:F1EC` -> `notes/battle-psi-name-builder-family-c1c8bc-ca06-c3f112-f124.md:33`, `notes/c3-shared-helper-working-name-promotion.md:61`, `notes/c3-shared-helper-working-name-promotion.md:98`, +10 more
+- `C3:F2B1` -> `notes/level-up-stat-growth-helper-c1d08b.md:60`
+- `C3:F2B5` -> `notes/class3-doorway-transition-context.md:6`, `notes/position-derived-visual-context-class-9887.md:5`, `notes/position-derived-visual-context-class-9887.md:16`, +11 more
+- `C3:F3C5` -> `notes/text-command-1f41-special-event-dispatch-c1befc.md:40`
+- `C3:F5F9` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:8`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:14`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:41`, +1 more
+- `C3:F67D` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:9`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:43`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:78`, +1 more
+- `C3:F705` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:10`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:29`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:31`, +4 more
+- `C3:F7FB` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:11`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:45`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:80`, +1 more
+- `C3:F819` -> `notes/c2-psi-swirl-overlay-tail-c2e6b3-c2ea74.md:91`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:91`, `notes/c3-battle-visual-table-and-token-sublabels.md:18`, +2 more
+- `C3:F871` -> `notes/c3-battle-visual-offset-tables-f871-f8f1.md:7`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:12`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:14`, +8 more
+- `C3:F8B1` -> `notes/c3-battle-visual-offset-tables-f871-f8f1.md:8`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:48`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:50`, +6 more
+- `C3:F8F1` -> `notes/c2-battle-sprite-render-and-palette-tail-c2eee7-c2ff9a.md:227`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:10`, `notes/c3-battle-visual-offset-tables-f871-f8f1.md:86`, +4 more
+- `C3:F981` -> `notes/c3-battle-visual-table-and-token-sublabels.md:62`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:12`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:14`, +5 more
+- `C3:FAC9` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:14`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:61`, `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:72`, +2 more
+- `C3:FB09` -> `notes/c3-window-and-battle-visual-unknown-tail-e7e3-f981.md:83`, `notes/text-command-1f41-special-event-dispatch-c1befc.md:38`
+- `C3:FDBD` -> `notes/c3-timed-delivery-controller-working-names.md:37`, `notes/c3-timed-delivery-controller-working-names.md:61`, `notes/delivery-row-helpers-ef0e67-ef0ead.md:180`, +1 more
+
+## Legacy Anchors
+
+- `C3:0184` `DATA_C30184` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44524`
+- `C3:0186` `DATA_C30186` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44527`
+- `C3:4392` `DATA_C34392` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44547`
+- `C3:43AE` `DATA_C343AE` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44558`
+- `C3:43BA` `DATA_C343BA` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44564`
+- `C3:43C4` `DATA_C343C4` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44569`
+- `C3:43CE` `DATA_C343CE` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44574`
+- `C3:43D8` `DATA_C343D8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44578`
+- `C3:7276` `DATA_C37276` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44612`
+- `C3:7296` `DATA_C37296` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44627`
+- `C3:949E` `DATA_C3949E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44643`
+- `C3:94CF` `DATA_C394CF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44657`
+- `C3:9AC7` `DATA_C39AC7` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44677`
+- `C3:9E01` `DATA_C39E01` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44682`
+- `C3:A04E` `DATA_C3A04E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44695`
+- `C3:A052` `DATA_C3A052` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44697`
+- `C3:A076` `DATA_C3A076` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44715`
+- `C3:A111` `DATA_C3A111` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44723`
+- `C3:A11E` `DATA_C3A11E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44729`
+- `C3:A17B` `DATA_C3A17B` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44740`
+- `C3:A1F3` `DATA_C3A1F3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44752`
+- `C3:A204` `DATA_C3A204` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44766`
+- `C3:A209` `DATA_C3A209` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44772`
+- `C3:A262` `DATA_C3A262` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44779`
+- `C3:A266` `DATA_C3A266` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44781`
+- `C3:A2B8` `DATA_C3A2B8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44795`
+- `C3:A381` `DATA_C3A381` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44823`
+- `C3:AA1E` `DATA_C3AA1E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44832`
+- `C3:AB44` `DATA_C3AB44` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44841`
+- `C3:AB59` `DATA_C3AB59` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44849`
+- `C3:AB5C` `DATA_C3AB5C` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44851`
+- `C3:ABE0` `DATA_C3ABE0` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44859`
+- `C3:ADAD` `DATA_C3ADAD` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45037`
+- `C3:E012` `DATA_C3E012` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45055`
+- `C3:E09A` `DATA_C3E09A` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45076`
+- `C3:E0BC` `DATA_C3E0BC` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45082`
+- `C3:E0F4` `DATA_C3E0F4` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45091`
+- `C3:E12C` `DATA_C3E12C` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45102`
+- `C3:E148` `DATA_C3E148` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45106`
+- `C3:E158` `DATA_C3E158` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45109`
+- `C3:E178` `DATA_C3E178` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45113`
+- `C3:E1D8` `DATA_C3E1D8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45121`
+- `C3:E230` `DATA_C3E230` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45129`
+- `C3:E240` `DATA_C3E240` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45132`
+- `C3:E250` `DATA_C3E250` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45139`
+- `C3:E3F8` `DATA_C3E3F8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45170`
+- `C3:E4CA` `label_C3E4CA` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45198`
+- `C3:E4D4` `label_C3E4D4` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45207`
+- `C3:E4E0` `label_C3E4E0` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45217`
+- `C3:E4EF` `label_C3E4EF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45226`
+- `C3:E4FE` `label_C3E4FE` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45236`
+- `C3:E512` `label_C3E512` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45246`
+- `C3:E517` `label_C3E517` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45250`
+- `C3:E51F` `label_C3E51F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45254`
+- `C3:E521` `label_C3E521` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45260`
+- `C3:E535` `label_C3E535` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45273`
+- `C3:E546` `label_C3E546` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45283`
+- `C3:E553` `label_C3E553` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45289`
+- `C3:E577` `label_C3E577` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45305`
+- `C3:E585` `label_C3E585` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45312`
+- `C3:E591` `label_C3E591` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45319`
+- `C3:E59F` `label_C3E59F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45326`
+- `C3:E5E3` `label_C3E5E3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45362`
+- `C3:E5F2` `label_C3E5F2` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45369`
+- `C3:E5F9` `label_C3E5F9` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45372`
+- `C3:E60A` `label_C3E60A` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45382`
+- `C3:E62F` `label_C3E62F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45400`
+- `C3:E636` `label_C3E636` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45405`
+- `C3:E64D` `label_C3E64D` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45417`
+- `C3:E686` `label_C3E686` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45449`
+- `C3:E6BC` `label_C3E6BC` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45474`
+- `C3:E6DF` `label_C3E6DF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45489`
+- `C3:E6EF` `label_C3E6EF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45495`
+- `C3:E6F4` `label_C3E6F4` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45498`
+- `C3:E6F8` `label_C3E6F8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45505`
+- `C3:E741` `label_C3E741` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45546`
+- `C3:E74A` `label_C3E74A` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45552`
+- `C3:E759` `label_C3E759` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45559`
+- `C3:E7E3` `label_C3E7E3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45567`
+- `C3:E819` `label_C3E819` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45594`
+- `C3:E835` `label_C3E835` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45607`
+- `C3:E84C` `label_C3E84C` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45616`
+- `C3:EAD0` `label_C3EAD0` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45623`
+- `C3:EAE5` `label_C3EAE5` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45637`
+- `C3:EB02` `label_C3EB02` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45652`
+- `C3:EB07` `label_C3EB07` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45656`
+- `C3:EB1A` `label_C3EB1A` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45667`
+- `C3:EB1C` `label_C3EB1C` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45673`
+- `C3:EB31` `label_C3EB31` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45687`
+- `C3:EB34` `label_C3EB34` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45690`
+- `C3:EB4D` `label_C3EB4D` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45704`
+- `C3:EB5B` `label_C3EB5B` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45712`
+- `C3:EB78` `label_C3EB78` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45726`
+- `C3:EB8E` `label_C3EB8E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45738`
+- `C3:EB98` `label_C3EB98` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45744`
+- `C3:EBA4` `label_C3EBA4` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45752`
+- `C3:EBA6` `label_C3EBA6` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45754`
+- `C3:EBB6` `label_C3EBB6` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45763`
+- `C3:EBBB` `label_C3EBBB` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45767`
+- `C3:EBC8` `label_C3EBC8` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45774`
+- `C3:EBCA` `label_C3EBCA` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45782`
+- `C3:EBD9` `label_C3EBD9` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45792`
+- `C3:EBF3` `label_C3EBF3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45804`
+- `C3:EBFB` `label_C3EBFB` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45808`
+- `C3:EC00` `label_C3EC00` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45812`
+- `C3:F054` `DATA_C3F054` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45836`
+- `C3:F2B1` `DATA_C3F2B1` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45846`
+- `C3:F2B5` `DATA_C3F2B5` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45851`
+- `C3:F3C5` `label_C3F3C5` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45856`
+- `C3:F3E2` `label_C3F3E2` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45872`
+- `C3:F3FB` `label_C3F3FB` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45886`
+- `C3:F465` `label_C3F465` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45923`
+- `C3:F4E9` `label_C3F4E9` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45978`
+- `C3:F4F6` `label_C3F4F6` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45984`
+- `C3:F506` `label_C3F506` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45994`
+- `C3:F508` `label_C3F508` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:45997`
+- `C3:F50A` `label_C3F50A` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46000`
+- `C3:F51B` `label_C3F51B` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46008`
+- `C3:F524` `label_C3F524` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46013`
+- `C3:F532` `label_C3F532` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46022`
+- `C3:F534` `label_C3F534` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46024`
+- `C3:F53B` `label_C3F53B` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46029`
+- `C3:F557` `label_C3F557` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46041`
+- `C3:F55E` `label_C3F55E` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46046`
+- `C3:F562` `label_C3F562` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46048`
+- `C3:F56F` `label_C3F56F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46054`
+- `C3:F57F` `label_C3F57F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46061`
+- `C3:F5A2` `label_C3F5A2` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46075`
+- `C3:F5A9` `label_C3F5A9` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46080`
+- `C3:F5BB` `label_C3F5BB` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46090`
+- `C3:F5C0` `label_C3F5C0` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46093`
+- `C3:F5D5` `label_C3F5D5` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46105`
+- `C3:F5F7` `label_C3F5F7` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46118`
+- `C3:FB1F` `DATA_C3FB1F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46125`
+- `C3:FC49` `DATA_C3FC49` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46133`
+- `C3:FC5F` `DATA_C3FC5F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46138`
+- `C3:FC75` `DATA_C3FC75` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46143`
+- `C3:FC87` `DATA_C3FC87` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46148`
+- `C3:FC99` `DATA_C3FC99` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46153`
+- `C3:FCAB` `DATA_C3FCAB` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46158`
+- `C3:FCBD` `DATA_C3FCBD` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46163`
+- `C3:FCCF` `DATA_C3FCCF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46168`
+- `C3:FCE1` `DATA_C3FCE1` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46173`
+- `C3:FCF3` `DATA_C3FCF3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46178`
+- `C3:FD05` `DATA_C3FD05` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46183`
+- `C3:FD0F` `DATA_C3FD0F` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46187`
+- `C3:FD19` `DATA_C3FD19` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46191`
+- `C3:FD23` `DATA_C3FD23` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46195`
+- `C3:FD2D` `DATA_C3FD2D` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46199`
+- `C3:FD49` `DATA_C3FD49` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46208`
+- `C3:FDBD` `DATA_C3FDBD` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46228`
+- `C3:FDCD` `label_C3FDCD` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46240`
+- `C3:FDE3` `label_C3FDE3` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46251`
+- `C3:FDEF` `label_C3FDEF` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46257`
+- `C3:FDF1` `label_C3FDF1` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46260`
+- `C3:FDF2` `DATA_C3FDF2` (earthbound-disasm-legacy/legacy-label) - `refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:46263`

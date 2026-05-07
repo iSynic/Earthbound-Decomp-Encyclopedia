@@ -1,0 +1,18 @@
+* text=auto eol=lf
+
+*.asm text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+
+*.sfc binary
+*.smc binary
+*.bin binary
+*.rom binary
+*.spc binary
+*.wav binary
+*.pcm binary
+*.brr binary
+*.zip binary
+*.7z binary
+*.rar binary

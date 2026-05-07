@@ -1,0 +1,424 @@
+{
+  "schema": "earthbound-decomp.audio-zero-runtime-probe-results-summary.v1",
+  "status": "zero_runtime_probe_results_collected",
+  "probe_plan": "manifests/audio-zero-runtime-probe-plan.json",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_probe_outputs_are_ignored": true,
+    "generated_outputs_root": "build/audio/zero-runtime-probe",
+    "do_not_distribute_reference_spc_wav_or_rom_derived_audio": true
+  },
+  "summary": {
+    "job_count": 19,
+    "result_count": 0,
+    "valid_result_count": 0,
+    "status_counts": {
+      "pending": 19
+    },
+    "validation_counts": {
+      "invalid_or_pending": 19
+    },
+    "zero_effect_classification_counts": {
+      "pending": 19
+    },
+    "remaining_blocker_track_counts": {
+      "active_preview_classification": 7,
+      "ef_return_stack_model": 15,
+      "finite_transition_review": 10,
+      "loop_point_metadata": 2,
+      "zero_runtime_effect_proof": 19
+    },
+    "proven_zero_effect_track_ids": [],
+    "sequence_promotion_allowed": false,
+    "semantic_status": "zero_runtime_probe_outputs_pending"
+  },
+  "result_acceptance_policy": [
+    "A result can resolve zero_runtime_effect_proof only when it validates and classifies 0x00 as true_end, ef_return, or loop_or_hold_continues.",
+    "A result can resolve ef_return_stack_model only when it validates, includes EF stack observations, and has a resolved 0x00 classification.",
+    "Loop-point metadata, finite/transition review, and active-preview classification remain separate post-proof blockers.",
+    "This summary cannot directly promote public exact-duration exports."
+  ],
+  "results": [
+    {
+      "job_id": "zero-probe-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "pack_id": 1,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-174-gas_station_2",
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "pack_id": 1,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-025-chaos_theatre",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "pack_id": 18,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-032-giant_step",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-033-lilliput_steps",
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-034-milky_well",
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-035-rainy_circle",
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-036-magnet_hill",
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-037-pink_cloud",
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-038-lumine_hall",
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-039-fire_spring",
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-085-bulldozer",
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "pack_id": 96,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-094-good_friends_bad_friends",
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "pack_id": 107,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-120-hotel_of_the_living_dead",
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "pack_id": 136,
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-173-good_morning_moonside",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "pack_id": 136,
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "loop_point_metadata"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-143-leaving_magicant",
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "pack_id": 148,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-157-attract_mode",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "pack_id": 154,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-171-winters_intro",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "pack_id": 160,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "loop_point_metadata"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "zero-probe-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "pack_id": 163,
+      "trace_focus": "prove_zero_end_effect_then_review_finite_candidate",
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "zero_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "promotion_allowed": false
+    }
+  ],
+  "next_work": [
+    "run the zero probe jobs after the ares harness emits the widened trace contract",
+    "review invalid or unresolved probe outputs before changing duration policy",
+    "feed only validated true_end/ef_return/loop_or_hold_continues classifications back into triage"
+  ]
+}

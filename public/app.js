@@ -1,7 +1,18 @@
 const catalog = window.ENCYCLOPEDIA_CATALOG || { entries: [] };
 window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_DEFERRED_DATA = window.ENCYCLOPEDIA_DEFERRED_DATA || {};
 const provenanceCatalog = catalog.provenanceCatalog || {};
 const chapterScopeCatalog = catalog.chapterScopeCatalog || {};
+const PRIVATE_REFERENCE_MODE = catalog.buildMode === "private";
+const SEARCH_FACETS = [
+  { id: "all", label: "All", kinds: [] },
+  { id: "notes", label: "Notes", kinds: ["note", "reference-script"] },
+  { id: "source", label: "Source", kinds: ["source", "source-file"] },
+  { id: "symbols", label: "Routines/Symbols", kinds: ["routine", "symbol"] },
+  { id: "systems", label: "Systems", kinds: ["chapter", "topic", "bank", "script-vm", "text-command", "asset-contract"] },
+  { id: "tools", label: "Tools/Validation", kinds: ["workflow", "tool"] },
+  { id: "manifests", label: "Manifests", kinds: ["asset-manifest"] }
+];
 for (const entry of catalog.entries) {
   const generatedSearchText = entry.searchText;
   const fallbackSearchText = [
@@ -20,6 +31,7 @@ for (const entry of catalog.entries) {
   entry.searchText = String(generatedSearchText || fallbackSearchText).toLowerCase();
 }
 const entries = new Map(catalog.entries.map((entry) => [entry.id, entry]));
+const searchDocuments = new Map((catalog.searchIndex?.documents || []).map((document) => [document.id, document]));
 const referenceIndex = buildReferenceIndex();
 const relationshipGraph = catalog.relationshipGraph || { stats: {}, nodes: [], edges: [], neighborhoods: {}, topHubs: [] };
 const graphNodes = new Map((relationshipGraph.nodes || []).map((node) => [node.id, node]));
@@ -39,23 +51,14 @@ const ASM_KEYWORDS = new Set([
 
 const FULL_RESULTS_LIMIT = 1000;
 const NAV_STATE_KEY = "earthbound-encyclopedia-nav-v1";
-const LOCAL_WORKSPACE_STATE_KEY = "earthbound-encyclopedia-local-workspace-v1";
-const FIRST_RUN_STATE_KEY = "earthbound-encyclopedia-first-run-dismissed-v1";
 const FAVORITES_STATE_KEY = "earthbound-encyclopedia-favorites-v1";
 const state = {
   tabs: ["overview"],
   activeId: "overview",
   graphFocusId: "overview",
   railTab: "outline",
-  localWorkspace: loadLocalWorkspaceState(),
-  firstRunDismissed: loadFirstRunDismissed(),
-  workspaceMessage: "",
-  workspaceFilePreviews: {},
-  workspaceMediaPreviews: {},
-  assetBrowser: {
-    graphicsBank: "all",
-    graphicsShowAll: false
-  }
+  searchFacet: "all",
+  tableSort: {},
 };
 const KIND_ORDER = [
   "chapter",
@@ -74,6 +77,7 @@ const KIND_ORDER = [
   "routine",
   "tool",
   "note",
+  "reference-script",
   "workflow",
   "search"
 ];
@@ -86,7 +90,6 @@ const searchInput = document.getElementById("globalSearch");
 const searchResults = document.getElementById("searchResults");
 const backButton = document.getElementById("backButton");
 const forwardButton = document.getElementById("forwardButton");
-const workspaceButton = document.getElementById("workspaceButton");
 const buildStatusButton = document.getElementById("buildStatusButton");
 let currentDocumentOutline = [];
 let currentSearchResults = [];
@@ -132,50 +135,6 @@ function saveFavoriteIds() {
   } catch (error) {
     // Favorites are a convenience layer; the app still works if storage is unavailable.
   }
-}
-
-function loadLocalWorkspaceState() {
-  try {
-    const raw = window.localStorage.getItem(LOCAL_WORKSPACE_STATE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch (error) {
-    window.localStorage.removeItem(LOCAL_WORKSPACE_STATE_KEY);
-    return null;
-  }
-}
-
-function saveLocalWorkspaceState(value) {
-  state.localWorkspace = value;
-  try {
-    if (value) {
-      window.localStorage.setItem(LOCAL_WORKSPACE_STATE_KEY, JSON.stringify(value));
-    } else {
-      window.localStorage.removeItem(LOCAL_WORKSPACE_STATE_KEY);
-    }
-  } catch (error) {
-    // Workspace metadata is a convenience cache; Electron stores the durable manifest.
-  }
-}
-
-function loadFirstRunDismissed() {
-  try {
-    return window.localStorage.getItem(FIRST_RUN_STATE_KEY) === "true";
-  } catch (error) {
-    return false;
-  }
-}
-
-function saveFirstRunDismissed(value) {
-  state.firstRunDismissed = Boolean(value);
-  try {
-    window.localStorage.setItem(FIRST_RUN_STATE_KEY, state.firstRunDismissed ? "true" : "false");
-  } catch (error) {
-    // The prompt can reappear if storage is unavailable.
-  }
-}
-
-function workspaceIsReady() {
-  return Boolean(state.localWorkspace?.rom?.sha1Ok || state.localWorkspace?.manifest?.rom?.sha1Ok);
 }
 
 function isFavorite(id) {
@@ -380,23 +339,33 @@ function saveWorkspaceState() {
 }
 
 function groupEntries() {
-  const groups = [
-    ["Start", ["chapter", "workflow"]],
-    ["Learning Paths", ["learning-path"]],
-    ["Chapters", ["narrative"]],
-    ["Topics", ["topic"]],
-    ["Runtime", ["bank", "subsystem"]],
-    ["Script And Text", ["text-command", "script-vm"]],
-    ["Assets", ["asset-contract", "asset-manifest"]],
-    ["Reference", ["source", "source-file", "symbol", "routine", "tool", "note", "search"]]
-  ];
+  const seen = new Set();
+  const configured = Array.isArray(catalog.navSections) && catalog.navSections.length
+    ? catalog.navSections
+    : [
+        { title: "Overview", ids: ["overview", "catalog-build-status", "upstream-status", "narrative-index", "learning-path-index"] },
+        { title: "Source", ids: ["source-browser", "source-tree", "routine-index", "bank-map"] },
+        { title: "Notes", ids: ["note-index"] },
+        { title: "Systems", ids: ["systems-hub", "topic-index"] },
+        { title: "Tools/Validation", ids: ["workflows", "tool-index"] }
+      ];
+  const groups = configured.map((section) => {
+    const sectionEntries = (section.ids || [])
+      .map((id) => entries.get(id))
+      .filter((entry) => entry && entry.showInToc !== false && !seen.has(entry.id));
+    for (const entry of sectionEntries) {
+      seen.add(entry.id);
+    }
+    return { title: section.title, entries: sectionEntries };
+  }).filter((group) => group.entries.length > 0);
 
-  return groups.map(([title, kinds]) => ({
-    title,
-    entries: catalog.entries
-      .filter((entry) => kinds.includes(entry.kind) && entry.showInToc !== false)
-      .sort((a, b) => (a.tocPriority ?? 50) - (b.tocPriority ?? 50) || a.title.localeCompare(b.title))
-  })).filter((group) => group.entries.length > 0);
+  const favorites = (state.favorites || [])
+    .map((id) => entries.get(id))
+    .filter((entry) => entry && !seen.has(entry.id));
+  if (favorites.length) {
+    groups.unshift({ title: "Pinned", entries: favorites });
+  }
+  return groups;
 }
 
 function renderToc() {
@@ -494,17 +463,34 @@ function renderDocument() {
   documentEl.querySelectorAll("[data-load-body-id]").forEach((button) => {
     button.addEventListener("click", () => loadDeferredBody(button.getAttribute("data-load-body-id")));
   });
-  documentEl.querySelectorAll("[data-workspace-action]").forEach((button) => {
-    button.addEventListener("click", () => handleWorkspaceAction(button.getAttribute("data-workspace-action"), button));
+  documentEl.querySelectorAll("[data-load-data-key]").forEach((button) => {
+    button.addEventListener("click", () => loadDeferredData(button.getAttribute("data-load-data-key"), button.getAttribute("data-load-data-chunk")));
   });
-  documentEl.querySelectorAll("[data-workspace-file]").forEach((button) => {
-    button.addEventListener("click", () => loadWorkspaceFilePreview(button));
+  documentEl.querySelectorAll("[data-source-sort]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const key = button.getAttribute("data-source-sort");
+      const current = state.tableSort[entry.id] || { key: "address", direction: "asc" };
+      state.tableSort[entry.id] = {
+        key,
+        direction: current.key === key && current.direction === "asc" ? "desc" : "asc"
+      };
+      renderDocument();
+    });
   });
-  documentEl.querySelectorAll("[data-workspace-media]").forEach((button) => {
-    button.addEventListener("click", () => loadWorkspaceMediaPreview(button));
+  documentEl.querySelectorAll("[data-copy-text]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const value = button.getAttribute("data-copy-text") || "";
+      try {
+        await navigator.clipboard.writeText(value);
+        button.textContent = "Copied";
+        window.setTimeout(() => { button.textContent = button.getAttribute("data-copy-label") || "Copy"; }, 900);
+      } catch {
+        button.textContent = "Copy failed";
+      }
+    });
   });
-  documentEl.querySelectorAll("[data-asset-browser-action]").forEach((button) => {
-    button.addEventListener("click", () => handleAssetBrowserAction(button));
+  documentEl.querySelectorAll("[data-scroll-target]").forEach((button) => {
+    button.addEventListener("click", () => navigateToDocumentSection(button.getAttribute("data-scroll-target")));
   });
   enhanceCodeBlocks();
 
@@ -522,22 +508,7 @@ function shouldRenderSummary(entry) {
 }
 
 function renderFirstRunPrompt() {
-  if (workspaceIsReady() || state.firstRunDismissed) {
-    return "";
-  }
-  return `
-    <section class="firstRunPrompt" aria-label="First run local workspace setup">
-      <div>
-        <strong>Add a ROM to prepare local source, asset, and audio generation.</strong>
-        <div class="workspaceNotice">You can also skip this and browse the project-authored encyclopedia without ROM-derived generated material.</div>
-      </div>
-      <div class="firstRunActions">
-        <button type="button" class="primaryAction" data-workspace-action="select-rom">Add ROM</button>
-        <button type="button" class="secondaryAction" data-workspace-action="dismiss-first-run">Browse notes only</button>
-        <button type="button" class="secondaryAction" data-entry-id="local-workspace">Local Workspace</button>
-      </div>
-    </section>
-  `;
+  return "";
 }
 
 function renderFavoriteButton(entry) {
@@ -554,18 +525,6 @@ function normalizeSummaryText(value) {
 }
 
 function renderEntryBody(entry) {
-  if (entry.id === "local-workspace") {
-    return `${renderMarkdown(entry.body || "", { collectHeadings: true })}${renderLocalWorkspacePanel()}`;
-  }
-  if (entry.id === "asset-library") {
-    return `${renderMarkdown(entry.body || "", { collectHeadings: true })}${renderAssetLibraryPanel()}`;
-  }
-  if (/^source-bank-[c-e][0-9a-f]$/i.test(entry.id)) {
-    return `${renderMarkdown(entry.body || "", { collectHeadings: true })}${renderGeneratedSourceBankPanel(entry)}`;
-  }
-  if (entry.id === "source-tree") {
-    return `${renderMarkdown(entry.body || "", { collectHeadings: true })}${renderGeneratedSourceTreePanel()}`;
-  }
   if (entry.id === "narrative-index") {
     return renderNarrativeHub();
   }
@@ -575,8 +534,20 @@ function renderEntryBody(entry) {
   if (entry.id === "topic-index") {
     return renderTopicHub();
   }
+  if (entry.id === "systems-hub") {
+    return renderSystemsHub();
+  }
   if (entry.id === "source-browser") {
     return renderSourceBrowserHub();
+  }
+  if (entry.id === "reference-snapshot") {
+    return renderReferenceSnapshot(entry);
+  }
+  if (entry.sourceBank) {
+    return renderSourceBankPage(entry);
+  }
+  if (entry.sourceFile) {
+    return renderSourceFileReader(entry);
   }
   if (entry.learningPath) {
     return renderLearningPathGuide(entry);
@@ -625,772 +596,6 @@ function renderNarrativeHub() {
       </section>
     </section>
   `;
-}
-
-function workspaceRom() {
-  return state.localWorkspace?.manifest?.rom || state.localWorkspace?.rom || null;
-}
-
-function workspaceManifest() {
-  return state.localWorkspace?.manifest || null;
-}
-
-function workspacePreviewKey(familyId, relativePath) {
-  return `${familyId}:${relativePath}`;
-}
-
-function workspaceFamilyFiles(familyId) {
-  const family = workspaceFamily(familyId);
-  return Array.isArray(family?.files) ? family.files : [];
-}
-
-function sourceBankFromEntry(entry) {
-  return String(entry?.banks?.[0] || entry?.id?.replace(/^source-bank-/i, "") || "").toLowerCase();
-}
-
-function generatedSourceFamilyReady() {
-  const family = workspaceFamily("source");
-  return family?.status === "ready" && Number(family.fileCount || 0) > 0;
-}
-
-function sourceBankFullSourceFile(bank, files) {
-  const normalizedBank = String(bank || "").toLowerCase();
-  const helperFile = `full-source/${normalizedBank}/bank_${normalizedBank}_helpers_asar.asm`;
-  if (files.includes(helperFile)) {
-    return helperFile;
-  }
-  return files.find((filePath) => filePath.startsWith(`full-source/${normalizedBank}/`) && /\.(asm|s)$/i.test(filePath)) || helperFile;
-}
-
-function sourceTreeFiles(files) {
-  const priorityFiles = [
-    "README.md",
-    "bank-index.json",
-    "full-source/c0/bank_c0_helpers_asar.asm",
-    "full-source/c1/bank_c1_helpers_asar.asm",
-    "full-source/c2/bank_c2_helpers_asar.asm"
-  ].filter((filePath) => files.includes(filePath));
-  const fullSourceFiles = files.filter((filePath) => filePath.startsWith("full-source/") && !priorityFiles.includes(filePath));
-  const bankAnchorFiles = files.filter((filePath) => filePath.startsWith("banks/") && !priorityFiles.includes(filePath));
-  const otherFiles = files.filter((filePath) => !priorityFiles.includes(filePath) && !fullSourceFiles.includes(filePath) && !bankAnchorFiles.includes(filePath));
-  return [...priorityFiles, ...fullSourceFiles, ...otherFiles, ...bankAnchorFiles];
-}
-
-function renderLocalWorkspacePanel() {
-  const rom = workspaceRom();
-  const manifest = workspaceManifest();
-  const electronAvailable = Boolean(window.earthboundWorkspace?.selectRom);
-  const generatedCount = (manifest?.artifactFamilies || []).filter((family) => family.status === "ready").length;
-  const status = rom
-    ? rom.sha1Ok
-      ? "Verified"
-      : "Rejected"
-    : "Notes-only";
-  const statusClass = rom?.sha1Ok ? "ok" : rom ? "pending" : "";
-  return `
-    <section class="workspacePanel">
-      <h2>Live Workspace Status</h2>
-      ${state.workspaceMessage ? `<p class="workspaceNotice">${escapeHtml(state.workspaceMessage)}</p>` : ""}
-      <div class="workspaceStatusGrid">
-        <div class="workspaceStatusCard">
-          <div class="workspaceStatusLabel">ROM</div>
-          <div class="workspaceStatusValue">${rom ? escapeHtml(rom.fileName || rom.name || "Selected ROM") : "No ROM selected"}</div>
-        </div>
-        <div class="workspaceStatusCard">
-          <div class="workspaceStatusLabel">Status</div>
-          <div class="workspaceStatusValue"><span class="statusPill ${statusClass}">${escapeHtml(status)}</span></div>
-        </div>
-        <div class="workspaceStatusCard">
-          <div class="workspaceStatusLabel">Headerless SHA-1</div>
-          <div class="workspaceStatusValue">${rom?.headerlessSha1 ? escapeHtml(rom.headerlessSha1) : "Not available"}</div>
-        </div>
-        <div class="workspaceStatusCard">
-          <div class="workspaceStatusLabel">Workspace</div>
-          <div class="workspaceStatusValue">${manifest?.directories?.root ? escapeHtml(manifest.directories.root) : electronAvailable ? "Created after verified ROM selection" : "Electron app required for filesystem generation"}</div>
-        </div>
-      </div>
-      <div class="workspaceActions">
-        <button type="button" class="primaryAction" data-workspace-action="select-rom">${rom ? "Replace ROM" : "Add ROM"}</button>
-        <button type="button" class="secondaryAction" data-entry-id="asset-library">Open Asset Library</button>
-        <button type="button" class="secondaryAction" data-workspace-action="generate-all" ${manifest?.directories?.root && electronAvailable ? "" : "disabled"}>Generate all</button>
-        <button type="button" class="secondaryAction" data-workspace-action="export-all" ${generatedCount && electronAvailable ? "" : "disabled"}>Export all zip</button>
-        <button type="button" class="secondaryAction" data-workspace-action="open-workspace-folder" ${manifest?.directories?.root ? "" : "disabled"}>Open folder</button>
-        <button type="button" class="secondaryAction" data-workspace-action="clear-workspace" ${rom ? "" : "disabled"}>Clear local state</button>
-      </div>
-      <p class="workspaceNotice">${electronAvailable ? "ROM selection creates an app-data workspace manifest. Generator stages will fill source, asset, audio, and export directories behind this same contract." : "This browser view can browse notes and contracts. Use the Electron app for filesystem workspace creation and generation."}</p>
-    </section>
-  `;
-}
-
-function renderGeneratedSourceTreePanel() {
-  const files = sourceTreeFiles(workspaceFamilyFiles("source"));
-  return `
-    <section class="workspaceGeneratedPanel">
-      <div class="workspaceGeneratedHeader">
-        <h2>Generated Source Files</h2>
-        <p>${generatedSourceFamilyReady() ? "Browse the complete decomp source copied into your local workspace, plus generated ROM-local bank anchors." : "Generate the Source Code family to browse local source files here."}</p>
-      </div>
-      ${renderGeneratedFileList("source", files, { limit: 80 })}
-      <div class="workspaceActions">
-        <button type="button" class="secondaryAction" data-workspace-action="generate-family" data-family-id="source" ${workspaceIsReady() && window.earthboundWorkspace?.generateFamily ? "" : "disabled"}>Generate source</button>
-        <button type="button" class="secondaryAction" data-workspace-action="open-family-folder" data-family-id="source" ${files.length ? "" : "disabled"}>Open source folder</button>
-      </div>
-    </section>
-  `;
-}
-
-function renderGeneratedSourceBankPanel(entry) {
-  const bank = sourceBankFromEntry(entry);
-  const files = workspaceFamilyFiles("source");
-  const fullSourceFile = sourceBankFullSourceFile(bank, files);
-  const bankAnchorFile = `banks/bank-${bank}.asm`;
-  const fullSourceAvailable = files.includes(fullSourceFile);
-  const bankAnchorAvailable = files.includes(bankAnchorFile);
-  const fullSourcePreview = state.workspaceFilePreviews[workspacePreviewKey("source", fullSourceFile)];
-  return `
-    <section class="workspaceGeneratedPanel">
-      <div class="workspaceGeneratedHeader">
-        <h2>Generated Bank ${escapeHtml(bank.toUpperCase())} Source</h2>
-        <p>${fullSourceAvailable ? "This page is hydrated from the complete decomp source copied into your local app-data workspace." : "Generate the Source Code family to hydrate this placeholder page with local source."}</p>
-      </div>
-      <div class="workspaceActions">
-        <button type="button" class="primaryAction" data-workspace-file="true" data-family-id="source" data-file-path="${escapeHtml(fullSourceFile)}" ${fullSourceAvailable ? "" : "disabled"}>${fullSourcePreview?.content ? "Refresh full source" : "View full source"}</button>
-        <button type="button" class="secondaryAction" data-workspace-file="true" data-family-id="source" data-file-path="${escapeHtml(bankAnchorFile)}" ${bankAnchorAvailable ? "" : "disabled"}>View bank anchor</button>
-        <button type="button" class="secondaryAction" data-workspace-action="generate-family" data-family-id="source" ${workspaceIsReady() && window.earthboundWorkspace?.generateFamily ? "" : "disabled"}>Generate source</button>
-        <button type="button" class="secondaryAction" data-workspace-action="open-family-folder" data-family-id="source" ${files.length ? "" : "disabled"}>Open source folder</button>
-      </div>
-      ${renderWorkspaceFilePreview("source", fullSourceFile)}
-      ${renderWorkspaceFilePreview("source", bankAnchorFile)}
-    </section>
-  `;
-}
-
-function renderAssetLibraryPanel() {
-  const contract = catalog.localWorkspaceContract || { artifactFamilies: [] };
-  const manifest = workspaceManifest();
-  const electronAvailable = Boolean(window.earthboundWorkspace?.generateFamily);
-  const families = manifest?.artifactFamilies || contract.artifactFamilies || [];
-  const generatedCount = families.filter((family) => family.status === "ready").length;
-  return `
-    <section class="assetLibraryPanel">
-      <h2>Generated Artifact Families</h2>
-      ${state.workspaceMessage ? `<p class="workspaceNotice">${escapeHtml(state.workspaceMessage)}</p>` : ""}
-      <p class="workspaceNotice">These families are local-only. Generator and ZIP buttons require the Electron app, a verified ROM, and a local workspace manifest.</p>
-      <div class="assetFamilyGrid">
-        ${families.map((family) => renderAssetFamilyCard(family)).join("")}
-      </div>
-      ${families.some((family) => Array.isArray(family.files) && family.files.length) ? `
-        <section class="generatedAssetBrowser">
-          <h2>Generated Files</h2>
-          ${families.map((family) => renderGeneratedFamilyBrowser(family)).join("")}
-        </section>
-      ` : ""}
-      <div class="workspaceActions">
-        <button type="button" class="primaryAction" data-workspace-action="select-rom">${workspaceIsReady() ? "Replace ROM" : "Add ROM"}</button>
-        <button type="button" class="secondaryAction" data-workspace-action="generate-all" ${workspaceIsReady() && electronAvailable ? "" : "disabled"}>Generate all</button>
-        <button type="button" class="secondaryAction" data-workspace-action="export-all" ${generatedCount && electronAvailable ? "" : "disabled"}>Export all zip</button>
-        <button type="button" class="secondaryAction" data-entry-id="local-workspace">Local Workspace</button>
-      </div>
-    </section>
-  `;
-}
-
-function renderGeneratedFamilyBrowser(family) {
-  const files = Array.isArray(family.files) ? family.files : [];
-  if (!files.length) {
-    return "";
-  }
-  return `
-    <section class="generatedFamilyBrowser">
-      <div class="generatedFamilyHeader">
-        <h3>${escapeHtml(family.label || family.id || "Generated Family")}</h3>
-        <span>${files.length} file${files.length === 1 ? "" : "s"}</span>
-      </div>
-      ${renderGeneratedAssetSurface(family)}
-      ${renderGeneratedFileList(family.id, files, { limit: 40 })}
-    </section>
-  `;
-}
-
-function renderGeneratedFileList(familyId, files, options = {}) {
-  const visibleFiles = files.slice(0, options.limit || files.length);
-  if (!visibleFiles.length) {
-    return `<p class="workspaceNotice">No generated files are recorded for this family yet.</p>`;
-  }
-  return `
-    <div class="generatedFileList">
-      ${visibleFiles.map((filePath) => `
-        <div class="generatedFileRow">
-          <button type="button" class="generatedFileButton" data-workspace-file="true" data-family-id="${escapeHtml(familyId)}" data-file-path="${escapeHtml(filePath)}">${escapeHtml(filePath)}</button>
-          ${renderWorkspaceFilePreview(familyId, filePath)}
-        </div>
-      `).join("")}
-    </div>
-    ${files.length > visibleFiles.length ? `<p class="workspaceNotice">Showing ${visibleFiles.length} of ${files.length} generated files.</p>` : ""}
-  `;
-}
-
-function renderWorkspaceFilePreview(familyId, filePath) {
-  const preview = state.workspaceFilePreviews[workspacePreviewKey(familyId, filePath)];
-  if (!preview) {
-    return "";
-  }
-  if (preview.error) {
-    return `<p class="workspaceNotice">Could not preview ${escapeHtml(filePath)}: ${escapeHtml(preview.error)}</p>`;
-  }
-  const language = /\.json$/i.test(filePath) ? "json" : /\.(asm|s)$/i.test(filePath) ? "asm" : "";
-  return `
-    <div class="workspaceFilePreview">
-      <div class="workspaceFileMeta">${escapeHtml(filePath)} - ${Number(preview.size || 0).toLocaleString("en-US")} bytes</div>
-      ${renderCodeBlock(preview.content || "", language)}
-    </div>
-  `;
-}
-
-function filePreviewKind(filePath) {
-  if (/\.(png|jpe?g|gif|webp)$/i.test(filePath)) {
-    return "image";
-  }
-  if (/\.(wav|mp3|ogg|flac)$/i.test(filePath)) {
-    return "audio";
-  }
-  return "text";
-}
-
-function prioritizeGeneratedMedia(files, familyId) {
-  if (familyId === "graphics") {
-    return [...files].sort((a, b) => {
-      const aGroup = /overworld-sprites\/groups\//i.test(a);
-      const bGroup = /overworld-sprites\/groups\//i.test(b);
-      if (aGroup !== bGroup) {
-        return aGroup ? -1 : 1;
-      }
-      const aSheet = /overworld-sprites\/sheets-preview\//i.test(a);
-      const bSheet = /overworld-sprites\/sheets-preview\//i.test(b);
-      if (aSheet !== bSheet) {
-        return aSheet ? -1 : 1;
-      }
-      const aFrame = /frames/i.test(a) || /frames_2x3/i.test(a);
-      const bFrame = /frames/i.test(b) || /frames_2x3/i.test(b);
-      if (aFrame !== bFrame) {
-        return aFrame ? -1 : 1;
-      }
-      return a.localeCompare(b);
-    });
-  }
-  return [...files].sort((a, b) => a.localeCompare(b));
-}
-
-function renderGeneratedAssetSurface(family) {
-  const files = Array.isArray(family.files) ? family.files : [];
-  const imageFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "image"), family.id);
-  const audioFiles = prioritizeGeneratedMedia(files.filter((filePath) => filePreviewKind(filePath) === "audio"), family.id);
-  if (family.id === "graphics") {
-    return renderGraphicsFamilySurface(family, imageFiles);
-  }
-  if (family.id === "maps") {
-    return renderMediaFamilySurface(family, imageFiles, "Map And Tileset Previews", "Generated map, tileset, palette, and collision preview images will appear here when those renderer stages emit them. The current first-stage generator records map handoff manifests.");
-  }
-  if (family.id === "audio") {
-    return renderMediaFamilySurface(family, audioFiles, "Audio Playback", "Generated WAV previews will appear here after Music And Audio generation.");
-  }
-  return "";
-}
-
-function graphicsBankFromPath(filePath) {
-  const match = String(filePath || "").match(/\/(d[1-5])\//i);
-  return match ? match[1].toLowerCase() : "all";
-}
-
-function graphicsSpriteIdFromPath(filePath) {
-  const match = String(filePath || "").match(/(?:sprite-)?(\d{4})/i);
-  return match ? match[1] : "";
-}
-
-function graphicsMediaLabel(filePath) {
-  const bank = graphicsBankFromPath(filePath);
-  const spriteId = graphicsSpriteIdFromPath(filePath);
-  if (/overworld-sprites\/groups\/all/i.test(filePath)) {
-    return "All sprites contact sheet";
-  }
-  if (/overworld-sprites\/groups\/by-bank\//i.test(filePath)) {
-    return `${bank.toUpperCase()} contact sheet`;
-  }
-  if (/overworld-sprites\/sheets-preview\//i.test(filePath)) {
-    return `${bank.toUpperCase()} sprite ${spriteId || "sheet"}`;
-  }
-  if (/overworld-sprites\/frames\//i.test(filePath)) {
-    return `${bank.toUpperCase()} sprite ${spriteId || "frame"} candidate frames`;
-  }
-  if (/tiles\//i.test(filePath)) {
-    return `${bank.toUpperCase()} sprite ${spriteId || "tiles"} tile atlas`;
-  }
-  return filePath.split("/").pop() || filePath;
-}
-
-function renderGraphicsFamilySurface(family, imageFiles) {
-  const groupFiles = imageFiles.filter((filePath) => /overworld-sprites\/groups\//i.test(filePath));
-  const sheetFiles = imageFiles.filter((filePath) => /overworld-sprites\/sheets-preview\//i.test(filePath));
-  const frameFiles = imageFiles.filter((filePath) => /overworld-sprites\/frames\//i.test(filePath));
-  const tileFiles = imageFiles.filter((filePath) => /tiles\//i.test(filePath));
-  const selectedBank = state.assetBrowser.graphicsBank || "all";
-  const bankOptions = ["all", "d1", "d2", "d3", "d4", "d5"];
-  const filteredSheets = selectedBank === "all"
-    ? sheetFiles
-    : sheetFiles.filter((filePath) => graphicsBankFromPath(filePath) === selectedBank);
-  const visibleLimit = state.assetBrowser.graphicsShowAll ? filteredSheets.length : 120;
-  const visibleSheets = filteredSheets.slice(0, visibleLimit);
-  return `
-    <section class="mediaFamilySurface graphicsBrowser">
-      <div class="generatedFamilyHeader">
-        <h3>Sprite And Graphics Browser</h3>
-        <span>${sheetFiles.length ? `${sheetFiles.length} sprite sheet${sheetFiles.length === 1 ? "" : "s"}` : "renderer pending"}</span>
-      </div>
-      ${imageFiles.length ? `
-        <div class="graphicsBrowserControls">
-          <div class="segmentedControl" role="group" aria-label="Sprite bank filter">
-            ${bankOptions.map((bank) => `
-              <button type="button" class="${selectedBank === bank ? "active" : ""}" data-asset-browser-action="set-graphics-bank" data-bank="${escapeHtml(bank)}">${escapeHtml(bank === "all" ? "All" : bank.toUpperCase())}</button>
-            `).join("")}
-          </div>
-          <button type="button" class="secondaryAction" data-asset-browser-action="toggle-graphics-show-all">${state.assetBrowser.graphicsShowAll ? "Show fewer sprites" : "Show all sprites"}</button>
-          <button type="button" class="secondaryAction" data-asset-browser-action="load-visible-media" data-family-id="${escapeHtml(family.id)}">Load visible previews</button>
-        </div>
-        <div class="assetBrowserStats">
-          ${groupFiles.length} grouped sheet${groupFiles.length === 1 ? "" : "s"} - ${filteredSheets.length} ${selectedBank === "all" ? "sprite sheets" : `${selectedBank.toUpperCase()} sprite sheets`} - ${frameFiles.length} candidate frame preview${frameFiles.length === 1 ? "" : "s"} - ${tileFiles.length} tile atlas preview${tileFiles.length === 1 ? "" : "s"}
-        </div>
-        ${groupFiles.length ? `
-          <h4 class="mediaSubheading">Grouped Sheets</h4>
-          <div class="mediaPreviewGrid groupedSheets">
-            ${groupFiles.map((filePath) => renderMediaPreviewTile(family.id, filePath)).join("")}
-          </div>
-        ` : ""}
-        ${visibleSheets.length ? `
-          <h4 class="mediaSubheading">Individual Sprite Sheets</h4>
-          <div class="mediaPreviewGrid spriteSheetGrid">
-            ${visibleSheets.map((filePath) => renderMediaPreviewTile(family.id, filePath)).join("")}
-          </div>
-          ${filteredSheets.length > visibleSheets.length ? `<p class="workspaceNotice">Showing ${visibleSheets.length} of ${filteredSheets.length} sprite sheets. Use Show all sprites to expand this bank.</p>` : ""}
-        ` : `<p class="workspaceNotice">No generated sprite sheets match this bank filter yet.</p>`}
-      ` : `<p class="workspaceNotice">Generated sprite-sheet PNGs will appear here after Graphics And Sprites generation.</p>`}
-    </section>
-  `;
-}
-
-function renderMediaFamilySurface(family, mediaFiles, title, emptyMessage) {
-  return `
-    <section class="mediaFamilySurface">
-      <div class="generatedFamilyHeader">
-        <h3>${escapeHtml(title)}</h3>
-        <span>${mediaFiles.length ? `${mediaFiles.length} preview file${mediaFiles.length === 1 ? "" : "s"}` : "renderer pending"}</span>
-      </div>
-      ${mediaFiles.length ? `
-        <div class="mediaPreviewGrid">
-          ${mediaFiles.slice(0, 24).map((filePath) => renderMediaPreviewTile(family.id, filePath)).join("")}
-        </div>
-      ` : `<p class="workspaceNotice">${escapeHtml(emptyMessage)}</p>`}
-    </section>
-  `;
-}
-
-function renderMediaPreviewTile(familyId, filePath) {
-  const preview = state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)];
-  const kind = filePreviewKind(filePath);
-  const audioSource = preview?.fileUrl || preview?.dataUrl || "";
-  const label = familyId === "graphics" ? graphicsMediaLabel(filePath) : filePath;
-  return `
-    <div class="mediaPreviewTile">
-      <button type="button" class="generatedFileButton" data-workspace-media="true" data-family-id="${escapeHtml(familyId)}" data-file-path="${escapeHtml(filePath)}" title="${escapeHtml(filePath)}">${escapeHtml(label)}</button>
-      ${preview?.error ? `<p class="workspaceNotice">${escapeHtml(preview.error)}</p>` : ""}
-      ${preview?.dataUrl && kind === "image" ? `<img src="${escapeHtml(preview.dataUrl)}" alt="${escapeHtml(filePath)}">` : ""}
-      ${audioSource && kind === "audio" ? `
-        <div class="audioPreviewMeta">${Number(preview.size || 0).toLocaleString("en-US")} bytes - local generated WAV</div>
-        <audio controls preload="metadata" src="${escapeHtml(audioSource)}"></audio>
-      ` : ""}
-    </div>
-  `;
-}
-
-function renderAssetFamilyCard(family) {
-  const related = {
-    source: "source-browser",
-    graphics: "asset-contracts",
-    maps: "chapter-map-scene-contracts",
-    audio: "chapter-audio-pack-frontier",
-    tables: "chapter-table-contracts"
-  }[family.id] || "asset-contracts";
-  const status = family.status || (workspaceIsReady() ? "pending-generator" : "needs-rom");
-  const electronAvailable = Boolean(window.earthboundWorkspace?.generateFamily);
-  const canGenerate = workspaceIsReady() && electronAvailable;
-  const canExport = canGenerate && status === "ready" && Number(family.fileCount || 0) > 0;
-  const fileMeta = Number(family.fileCount || 0)
-    ? `${family.fileCount} generated file${Number(family.fileCount) === 1 ? "" : "s"}`
-    : "No generated files yet";
-  return `
-    <article class="assetFamilyCard">
-      <div class="assetFamilyLabel">${escapeHtml(family.id || "family")}</div>
-      <div class="assetFamilyTitle">${escapeHtml(family.label || family.id || "Artifact Family")}</div>
-      <p class="assetFamilySummary">${escapeHtml(family.summary || "Local generated artifacts.")}</p>
-      <p><span class="statusPill ${status === "ready" ? "ok" : "pending"}">${escapeHtml(status)}</span> <span class="assetFamilyMeta">${escapeHtml(fileMeta)}</span></p>
-      ${family.exportZip ? `<p class="workspaceNotice">Last ZIP: ${escapeHtml(family.exportZip)}</p>` : ""}
-      <div class="assetFamilyActions">
-        <button type="button" class="secondaryAction" data-entry-id="${escapeHtml(related)}">Contract</button>
-        <button type="button" class="secondaryAction" data-workspace-action="generate-family" data-family-id="${escapeHtml(family.id || "")}" ${canGenerate ? "" : "disabled"}>Generate</button>
-        <button type="button" class="secondaryAction" data-workspace-action="open-family-folder" data-family-id="${escapeHtml(family.id || "")}" ${canExport ? "" : "disabled"}>Open</button>
-        <button type="button" class="secondaryAction" data-workspace-action="export-family" data-family-id="${escapeHtml(family.id || "")}" ${canExport ? "" : "disabled"}>Export zip</button>
-      </div>
-    </article>
-  `;
-}
-
-async function handleWorkspaceAction(action, button = null) {
-  if (action === "dismiss-first-run") {
-    saveFirstRunDismissed(true);
-    state.workspaceMessage = "Notes-only mode is active. You can add a ROM later from Local Workspace.";
-    render();
-    return;
-  }
-  if (action === "clear-workspace") {
-    saveLocalWorkspaceState(null);
-    state.workspaceMessage = "Local workspace state was cleared from this browser profile.";
-    render();
-    return;
-  }
-  if (action === "open-workspace-folder") {
-    const folder = workspaceManifest()?.directories?.root;
-    if (!folder || !window.earthboundWorkspace?.openFolder) {
-      state.workspaceMessage = "Opening the workspace folder requires the Electron app and a verified ROM workspace.";
-      render();
-      return;
-    }
-    const result = await window.earthboundWorkspace.openFolder(folder);
-    state.workspaceMessage = result?.ok ? "Opened local workspace folder." : `Could not open workspace folder: ${result?.error || "unknown error"}`;
-    render();
-    return;
-  }
-  if (action === "open-family-folder") {
-    const family = workspaceFamily(button?.getAttribute("data-family-id"));
-    const folder = family?.directory;
-    if (!folder || !window.earthboundWorkspace?.openFolder) {
-      state.workspaceMessage = "Opening a generated family folder requires the Electron app and generated family files.";
-      render();
-      return;
-    }
-    const result = await window.earthboundWorkspace.openFolder(folder);
-    state.workspaceMessage = result?.ok ? `Opened ${family.label || family.id} folder.` : `Could not open family folder: ${result?.error || "unknown error"}`;
-    render();
-    return;
-  }
-  if (action === "generate-family") {
-    await runWorkspaceJob("generate-family", button?.getAttribute("data-family-id"));
-    return;
-  }
-  if (action === "generate-all") {
-    await runWorkspaceJob("generate-all");
-    return;
-  }
-  if (action === "export-family") {
-    await runWorkspaceJob("export-family", button?.getAttribute("data-family-id"));
-    return;
-  }
-  if (action === "export-all") {
-    await runWorkspaceJob("export-all");
-    return;
-  }
-  if (action === "select-rom") {
-    await selectAndVerifyRom();
-  }
-}
-
-function workspaceFamily(familyId) {
-  return (workspaceManifest()?.artifactFamilies || []).find((family) => family.id === familyId) || null;
-}
-
-async function runWorkspaceJob(action, familyId = "") {
-  const manifest = workspaceManifest();
-  const workspaceRoot = manifest?.directories?.root;
-  if (!workspaceRoot) {
-    state.workspaceMessage = "Add and verify a ROM before running local generator stages.";
-    render();
-    return;
-  }
-  const api = window.earthboundWorkspace;
-  if (!api) {
-    state.workspaceMessage = "Generator and export jobs require the Electron app.";
-    render();
-    return;
-  }
-  const family = workspaceFamily(familyId);
-  const familyLabel = family?.label || familyId || "workspace";
-  state.workspaceMessage = action.includes("export")
-    ? `Preparing ${familyId ? familyLabel : "all generated"} ZIP export...`
-    : `Running ${familyId ? familyLabel : "all"} generator stage${familyId ? "" : "s"}...`;
-  render();
-  try {
-    let result = null;
-    if (action === "generate-family") {
-      result = await api.generateFamily(workspaceRoot, familyId);
-    } else if (action === "generate-all") {
-      result = await api.generateAll(workspaceRoot);
-    } else if (action === "export-family") {
-      result = await api.exportFamily(workspaceRoot, familyId);
-    } else if (action === "export-all") {
-      result = await api.exportAll(workspaceRoot);
-    }
-    if (!result?.ok) {
-      state.workspaceMessage = result?.error || "Workspace job failed.";
-      render();
-      return;
-    }
-    saveLocalWorkspaceState({
-      ...state.localWorkspace,
-      savedAt: new Date().toISOString(),
-      manifest: result.manifest
-    });
-    if (result.zipPath) {
-      state.workspaceMessage = `ZIP export created: ${result.zipPath}`;
-    } else {
-      state.workspaceMessage = familyId
-        ? `${familyLabel} generator stage completed.`
-        : "All generator stages completed.";
-    }
-    render();
-  } catch (error) {
-    state.workspaceMessage = `Workspace job failed: ${error?.message || error}`;
-    render();
-  }
-}
-
-async function handleAssetBrowserAction(button) {
-  const action = button?.getAttribute("data-asset-browser-action") || "";
-  if (action === "set-graphics-bank") {
-    state.assetBrowser.graphicsBank = button?.getAttribute("data-bank") || "all";
-    state.assetBrowser.graphicsShowAll = false;
-    render();
-    return;
-  }
-  if (action === "toggle-graphics-show-all") {
-    state.assetBrowser.graphicsShowAll = !state.assetBrowser.graphicsShowAll;
-    render();
-    return;
-  }
-  if (action === "load-visible-media") {
-    await loadVisibleMediaPreviews(button?.getAttribute("data-family-id") || "");
-  }
-}
-
-async function loadVisibleMediaPreviews(familyId) {
-  const manifest = workspaceManifest();
-  const workspaceRoot = manifest?.directories?.root;
-  if (!workspaceRoot || !familyId || !window.earthboundWorkspace?.readMedia) {
-    state.workspaceMessage = "Media previews require the Electron app and a generated workspace.";
-    render();
-    return;
-  }
-  const buttons = [...documentEl.querySelectorAll(`[data-workspace-media="true"][data-family-id="${CSS.escape(familyId)}"]`)];
-  const filePaths = buttons
-    .map((button) => button.getAttribute("data-file-path") || "")
-    .filter(Boolean)
-    .filter((filePath, index, list) => list.indexOf(filePath) === index)
-    .filter((filePath) => !state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)]?.dataUrl && !state.workspaceMediaPreviews[workspacePreviewKey(familyId, filePath)]?.fileUrl);
-  if (!filePaths.length) {
-    state.workspaceMessage = "Visible previews are already loaded.";
-    render();
-    return;
-  }
-  state.workspaceMessage = `Loading ${filePaths.length} visible preview${filePaths.length === 1 ? "" : "s"}...`;
-  render();
-  for (const filePath of filePaths) {
-    const key = workspacePreviewKey(familyId, filePath);
-    try {
-      const result = await window.earthboundWorkspace.readMedia(workspaceRoot, familyId, filePath);
-      state.workspaceMediaPreviews[key] = result?.ok
-        ? result.media
-        : { error: result?.error || "Could not read generated media." };
-    } catch (error) {
-      state.workspaceMediaPreviews[key] = { error: error?.message || String(error) };
-    }
-  }
-  state.workspaceMessage = `Loaded ${filePaths.length} visible preview${filePaths.length === 1 ? "" : "s"}.`;
-  render();
-}
-
-async function loadWorkspaceFilePreview(button) {
-  const manifest = workspaceManifest();
-  const workspaceRoot = manifest?.directories?.root;
-  const familyId = button?.getAttribute("data-family-id") || "";
-  const filePath = button?.getAttribute("data-file-path") || "";
-  const key = workspacePreviewKey(familyId, filePath);
-  if (!workspaceRoot || !familyId || !filePath || !window.earthboundWorkspace?.readFile) {
-    state.workspaceFilePreviews[key] = { error: "File previews require the Electron app and a generated workspace." };
-    render();
-    return;
-  }
-  state.workspaceMessage = `Loading ${filePath}...`;
-  render();
-  try {
-    const result = await window.earthboundWorkspace.readFile(workspaceRoot, familyId, filePath);
-    if (!result?.ok) {
-      state.workspaceFilePreviews[key] = { error: result?.error || "Could not read generated file." };
-      state.workspaceMessage = state.workspaceFilePreviews[key].error;
-      render();
-      return;
-    }
-    state.workspaceFilePreviews[key] = result.file;
-    state.workspaceMessage = `Loaded ${filePath}.`;
-    render();
-  } catch (error) {
-    state.workspaceFilePreviews[key] = { error: error?.message || String(error) };
-    state.workspaceMessage = `Could not load ${filePath}.`;
-    render();
-  }
-}
-
-async function loadWorkspaceMediaPreview(button) {
-  const manifest = workspaceManifest();
-  const workspaceRoot = manifest?.directories?.root;
-  const familyId = button?.getAttribute("data-family-id") || "";
-  const filePath = button?.getAttribute("data-file-path") || "";
-  const key = workspacePreviewKey(familyId, filePath);
-  if (!workspaceRoot || !familyId || !filePath || !window.earthboundWorkspace?.readMedia) {
-    state.workspaceMediaPreviews[key] = { error: "Media previews require the Electron app and a generated workspace." };
-    render();
-    return;
-  }
-  state.workspaceMessage = `Loading ${filePath}...`;
-  render();
-  try {
-    const result = await window.earthboundWorkspace.readMedia(workspaceRoot, familyId, filePath);
-    if (!result?.ok) {
-      state.workspaceMediaPreviews[key] = { error: result?.error || "Could not read generated media." };
-      state.workspaceMessage = state.workspaceMediaPreviews[key].error;
-      render();
-      return;
-    }
-    state.workspaceMediaPreviews[key] = result.media;
-    state.workspaceMessage = `Loaded ${filePath}.`;
-    render();
-  } catch (error) {
-    state.workspaceMediaPreviews[key] = { error: error?.message || String(error) };
-    state.workspaceMessage = `Could not load ${filePath}.`;
-    render();
-  }
-}
-
-async function selectAndVerifyRom() {
-  state.workspaceMessage = "Waiting for ROM selection...";
-  render();
-  try {
-    if (window.earthboundWorkspace?.selectRom) {
-      const result = await window.earthboundWorkspace.selectRom();
-      if (result?.canceled) {
-        state.workspaceMessage = "ROM selection canceled.";
-      } else if (result?.rom?.sha1Ok) {
-        saveLocalWorkspaceState({
-          mode: "electron",
-          savedAt: new Date().toISOString(),
-          rom: result.rom,
-          manifest: result.manifest
-        });
-        saveFirstRunDismissed(true);
-        state.workspaceMessage = "ROM verified. Local source, asset, table, map, and audio indexes generated.";
-        if (entries.has("asset-library")) {
-          openEntry("asset-library", { pushHistory: false });
-          return;
-        }
-      } else {
-        saveLocalWorkspaceState({
-          mode: "electron",
-          savedAt: new Date().toISOString(),
-          rom: result?.rom || null,
-          manifest: null
-        });
-        state.workspaceMessage = "ROM did not match the expected EarthBound US headerless SHA-1.";
-      }
-      render();
-      return;
-    }
-    const browserResult = await selectRomInBrowser();
-    if (!browserResult) {
-      state.workspaceMessage = "ROM selection canceled.";
-    } else if (browserResult.rom.sha1Ok) {
-      saveLocalWorkspaceState({
-        mode: "browser-verified",
-        savedAt: new Date().toISOString(),
-        rom: browserResult.rom,
-        manifest: null
-      });
-      saveFirstRunDismissed(true);
-      state.workspaceMessage = "ROM identity verified in browser mode. Use Electron for filesystem generation.";
-    } else {
-      saveLocalWorkspaceState({
-        mode: "browser-verified",
-        savedAt: new Date().toISOString(),
-        rom: browserResult.rom,
-        manifest: null
-      });
-      state.workspaceMessage = "ROM did not match the expected EarthBound US headerless SHA-1.";
-    }
-    render();
-  } catch (error) {
-    state.workspaceMessage = `ROM verification failed: ${error?.message || error}`;
-    render();
-  }
-}
-
-function selectRomInBrowser() {
-  return new Promise((resolve, reject) => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".sfc,.smc";
-    input.addEventListener("change", async () => {
-      const file = input.files?.[0];
-      if (!file) {
-        resolve(null);
-        return;
-      }
-      try {
-        resolve({ rom: await verifyBrowserRom(file) });
-      } catch (error) {
-        reject(error);
-      }
-    }, { once: true });
-    input.click();
-  });
-}
-
-async function verifyBrowserRom(file) {
-  const contract = catalog.localWorkspaceContract || {};
-  const expected = contract.expectedRom || {};
-  const headerlessSize = Number(expected.headerlessSize || 3145728);
-  const headeredSize = Number(expected.headeredSize || headerlessSize + 512);
-  const expectedSha1 = String(expected.headerlessSha1 || "").toLowerCase();
-  const buffer = await file.arrayBuffer();
-  const bytes = new Uint8Array(buffer);
-  const headered = bytes.byteLength === headeredSize;
-  const headerless = bytes.byteLength === headerlessSize;
-  const payload = headered ? bytes.slice(512) : bytes;
-  const headerlessSha1 = await sha1Hex(payload);
-  const fileSha1 = await sha1Hex(bytes);
-  return {
-    fileName: file.name,
-    size: bytes.byteLength,
-    headered,
-    headerless,
-    sizeOk: headered || headerless,
-    fileSha1,
-    headerlessSha1,
-    sha1Ok: headerlessSha1 === expectedSha1,
-    expectedHeaderlessSha1: expectedSha1,
-    expectedHeaderlessSize: headerlessSize,
-    expectedHeaderedSize: headeredSize,
-    verifiedAt: new Date().toISOString()
-  };
-}
-
-async function sha1Hex(bytes) {
-  const digest = await window.crypto.subtle.digest("SHA-1", bytes);
-  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function renderTopicHub() {
@@ -1447,9 +652,7 @@ function renderSourceBrowserHub() {
           <h2>Source Banks</h2>
           <p>Bank-level entry points into checked-in source files, routine pages, and scaffold/data files.</p>
         </div>
-        <div class="sourceBankGrid">
-          ${sourceBanks.map((entry) => renderSourceBankCard(entry)).join("")}
-        </div>
+        ${renderSourceBankOverview(sourceBanks)}
       </section>
       <section class="hubSection" id="${escapeHtml(indexSectionId)}">
         <div class="hubSectionHeader">
@@ -1464,6 +667,315 @@ function renderSourceBrowserHub() {
         </div>
       </section>
     </section>
+  `;
+}
+
+function renderSourceBankOverview(sourceBanks) {
+  if (!sourceBanks.length) {
+    return `<div class="emptyState">No source banks indexed.</div>`;
+  }
+  return `
+    <div class="denseTableWrap">
+      <table class="denseTable sourceBankOverview">
+        <thead>
+          <tr><th>Bank</th><th>Files</th><th>Routines</th><th>Scaffold/Data</th><th>Open</th></tr>
+        </thead>
+        <tbody>
+          ${sourceBanks.map((entry) => {
+            const bank = entry.sourceBank?.bank || entry.banks?.[0] || "";
+            return `<tr>
+              <td><code>${escapeHtml(bank)}</code></td>
+              <td>${Number(entry.sourceBank?.fileCount || 0).toLocaleString()}</td>
+              <td>${Number(entry.sourceBank?.routineCount || 0).toLocaleString()}</td>
+              <td>${Number(entry.sourceBank?.scaffoldCount || 0).toLocaleString()}</td>
+              <td><button type="button" class="tableEntryLink" data-entry-id="${escapeHtml(entry.id)}">Open bank</button></td>
+            </tr>`;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderReferenceSnapshot(entry) {
+  const sync = catalog.referenceSync || {};
+  const git = sync.sourceGit || {};
+  const counts = Object.entries(sync.counts || {}).sort((a, b) => a[0].localeCompare(b[0]));
+  const rows = [
+    ["Synced", sync.generatedAt || catalog.generatedAt || "unknown"],
+    ["Source", sync.sourceRoot || catalog.sourceRoot || "bundled-private-reference"],
+    ["Copied", Number(sync.copiedFiles || 0).toLocaleString()],
+    ["Skipped", Number(sync.skippedEntries || 0).toLocaleString()],
+    ["Git branch", git.available ? git.branch || "unknown" : "unavailable"],
+    ["Git commit", git.available ? git.shortSha || git.sha || "unknown" : "unavailable"],
+    ["Dirty checkout", git.available ? (git.dirty ? "yes" : "no") : "unknown"]
+  ];
+  return `
+    <section class="snapshotPanel">
+      <h2>Reference Snapshot</h2>
+      <p>${escapeHtml(entry.summary || "Bundled reference provenance.")}</p>
+      ${renderKeyValueTable(rows)}
+      <h2>Included Roots</h2>
+      <div class="compactList">
+        ${(sync.includedRoots || []).map((root) => `<span>${escapeHtml(root)}</span>`).join("")}
+      </div>
+      <h2>Reference Counts</h2>
+      ${counts.length ? renderKeyValueTable(counts.map(([root, count]) => [root, `${Number(count).toLocaleString()} files`])) : "<p>No per-root counts were recorded.</p>"}
+      <h2>Excluded Payloads</h2>
+      <p>${escapeHtml(sync.excludedPolicy || "ROMs, generated binary/media payloads, caches, dumps, tools/, and executable tool scripts are excluded.")}</p>
+    </section>
+  `;
+}
+
+function renderSystemsHub() {
+  const domains = [
+    ["Text/Scripting", "Text commands, localization, action/event scripts, 1995 .MSG references, and VM semantics.", ["topic-localization-authoring", "topic-actionscript-events", "script-source-index", "script-and-text-vms", "text-command-vm"]],
+    ["Battle", "Battle dispatch, PSI/menu flow, enemy data, text, and visual contracts.", ["topic-battle-runtime", "bank-c2"]],
+    ["Overworld", "Entities, movement, camera, collision, teleport, doors, and map interaction.", ["topic-overworld-runtime", "bank-c0"]],
+    ["Audio", "Music/audio packs, APU transfer evidence, and sound-data documentation.", ["topic-audio-data"]],
+    ["UI/Windows", "Menus, windows, fonts, tile staging, presentation effects, and HDMA helpers.", ["topic-ui-rendering", "bank-c1", "bank-c4"]],
+    ["Data/Manifests", "Data contracts, tables, graphics/map/audio manifest documentation, and payload-free inventories.", ["asset-contracts", "asset-manifest-index", "topic-asset-pipeline"]],
+    ["Validation", "Byte-equivalence, source readiness, audits, and tool/workflow notes.", ["topic-validation-workflows", "workflows", "tool-index"]]
+  ];
+  return `
+    <section class="hubPage systemsHub">
+      <section class="hubSection">
+        <div class="hubSectionHeader">
+          <h2>Domains</h2>
+          <p>Generated entries stay searchable, but system navigation starts from practical domains.</p>
+        </div>
+        <div class="domainList">
+          ${domains.map(([title, summary, ids]) => renderDomainRow(title, summary, ids)).join("")}
+        </div>
+      </section>
+      <section class="hubSection">
+        <div class="hubSectionHeader">
+          <h2>Dense Indexes</h2>
+          <p>Use these when you need raw generated coverage.</p>
+        </div>
+        ${renderCompactEntryList(["topic-index", "bank-map", "asset-manifest-index", "routine-index"].filter((id) => entries.has(id)).map((id) => entries.get(id)))}
+      </section>
+    </section>
+  `;
+}
+
+function renderDomainRow(title, summary, ids) {
+  const linked = ids.filter((id) => entries.has(id)).map((id) => entries.get(id));
+  const count = catalog.facets?.domainCounts?.[title] || linked.length;
+  return `
+    <article class="domainRow">
+      <div>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(summary)}</p>
+      </div>
+      <div class="domainMeta">${Number(count).toLocaleString()} indexed</div>
+      <div class="domainLinks">
+        ${linked.map((entry) => `<button type="button" class="inlineEntryButton" data-entry-id="${escapeHtml(entry.id)}">${escapeHtml(entry.title)}</button>`).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderSourceBankPage(entry) {
+  const sourceBank = entry.sourceBank || {};
+  const key = sourceBank.bankFilesKey;
+  const rows = window.ENCYCLOPEDIA_DEFERRED_DATA[key] || sourceBank.previewFiles || [];
+  const fullLoaded = Boolean(window.ENCYCLOPEDIA_DEFERRED_DATA[key]);
+  const sort = state.tableSort[entry.id] || { key: "address", direction: "asc" };
+  const sortedRows = sortSourceRows(rows, sort);
+  const loadPanel = fullLoaded ? "" : `
+    <div class="deferredBody">
+      <div>
+        <div class="deferredTitle">Full bank file table deferred</div>
+        <div class="deferredText">Showing ${rows.length} preview files. Load the full ${Number(sourceBank.fileCount || rows.length).toLocaleString()} file table when you need dense source navigation.</div>
+        ${entry.dataLoadError ? `<div class="deferredError">${escapeHtml(entry.dataLoadError)}</div>` : ""}
+      </div>
+      <button type="button" class="loadBodyButton" data-load-data-key="${escapeHtml(key)}" data-load-data-chunk="${escapeHtml(sourceBank.bankFilesChunk || "")}" ${entry.dataLoading ? "disabled" : ""}>
+        ${entry.dataLoading ? "Loading..." : "Load file table"}
+      </button>
+    </div>
+  `;
+  return `
+    <section class="sourceBankPage">
+      <div class="sourceStatsBar">
+        <span>${Number(sourceBank.fileCount || rows.length).toLocaleString()} files</span>
+        <span>${Number(sourceBank.routineCount || 0).toLocaleString()} routines</span>
+        <span>${Number(sourceBank.scaffoldCount || 0).toLocaleString()} scaffold/data</span>
+      </div>
+      ${renderSourceFileTable(sortedRows, sort)}
+      ${loadPanel}
+    </section>
+  `;
+}
+
+function sortSourceRows(rows, sort) {
+  const direction = sort.direction === "desc" ? -1 : 1;
+  return [...rows].sort((a, b) => {
+    const left = a[sort.key] ?? "";
+    const right = b[sort.key] ?? "";
+    const compare = typeof left === "number" && typeof right === "number"
+      ? left - right
+      : String(left).localeCompare(String(right));
+    return compare * direction || String(a.path || "").localeCompare(String(b.path || ""));
+  });
+}
+
+function renderSourceFileTable(rows, sort) {
+  if (!rows.length) {
+    return `<div class="emptyState">No source files indexed for this bank.</div>`;
+  }
+  const columns = [
+    ["address", "Address"],
+    ["path", "Path"],
+    ["role", "Role"],
+    ["lineCount", "Lines"],
+    ["labelCount", "Labels"],
+    ["sourceUnitCount", "Units"],
+    ["relatedNoteCount", "Notes"]
+  ];
+  return `
+    <div class="denseTableWrap">
+      <table class="denseTable sourceFileTable">
+        <thead>
+          <tr>${columns.map(([key, label]) => `<th><button type="button" data-source-sort="${escapeHtml(key)}">${escapeHtml(label)}${sort.key === key ? (sort.direction === "asc" ? " ^" : " v") : ""}</button></th>`).join("")}</tr>
+        </thead>
+        <tbody>
+          ${rows.map((row) => `<tr>
+            <td>${row.address ? `<code>${escapeHtml(row.address)}</code>` : ""}</td>
+            <td><button type="button" class="tableEntryLink" data-entry-id="${escapeHtml(row.id)}">${escapeHtml(row.path || row.title || row.id)}</button></td>
+            <td>${escapeHtml(row.role || "")}</td>
+            <td>${Number(row.lineCount || 0).toLocaleString()}</td>
+            <td>${Number(row.labelCount || 0).toLocaleString()}</td>
+            <td>${Number(row.sourceUnitCount || 0).toLocaleString()}</td>
+            <td>${Number(row.relatedNoteCount || 0).toLocaleString()}</td>
+          </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderSourceFileReader(entry) {
+  const file = entry.sourceFile || {};
+  const code = entry.deferredBody && !entry.fullBodyLoaded ? "" : sourceCodeFromBody(entry.body || "");
+  const labelAnchors = code ? sourceLabelAnchorsFromCode(code) : new Map();
+  return `
+    <section class="sourceReader">
+      <div class="sourceReaderHeader">
+        <div>
+          <div class="sourcePath">${escapeHtml(file.path || entry.title)}</div>
+          <div class="sourceReaderMeta">
+            <span>${escapeHtml(file.bank ? `Bank ${file.bank}` : "Source")}</span>
+            <span>${escapeHtml(file.role || "source")}</span>
+            <span>${Number(file.lineCount || 0).toLocaleString()} lines</span>
+            <span>${Number(file.labelCount || 0).toLocaleString()} labels</span>
+          </div>
+        </div>
+        <div class="sourceReaderActions">
+          ${file.path ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.path)}" data-copy-label="Copy path">Copy path</button>` : ""}
+          ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
+        </div>
+      </div>
+      <div class="sourceReaderGrid">
+        <aside class="sourceOutlinePanel">
+          ${renderSourceOutline(file, labelAnchors)}
+        </aside>
+        <div class="sourceCodePanel">
+          ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand. Use the button below to open the complete commented source body.</div>`}
+        </div>
+      </div>
+      ${renderRelatedNotesPanel(entry)}
+      ${renderRelatedSystemsPanel(entry)}
+    </section>
+  `;
+}
+
+function renderSourceOutline(file, labelAnchors = new Map()) {
+  const labels = file.labels || [];
+  const units = file.sourceUnits || [];
+  return `
+    <section>
+      <h3>Source Units</h3>
+      ${units.length ? `<div class="compactList vertical">${units.slice(0, 40).map((unit) => `<span>${escapeHtml(unit.range)} ${escapeHtml(unit.name)}</span>`).join("")}</div>` : `<p>No source-unit comments indexed.</p>`}
+    </section>
+    <section>
+      <h3>Labels</h3>
+      ${labels.length ? `<div class="compactList vertical">${labels.slice(0, 80).map((label) => {
+        const anchor = labelAnchors.get(label);
+        return anchor
+          ? `<button type="button" class="outlineChip" data-scroll-target="${escapeHtml(anchor)}">${escapeHtml(label)}</button>`
+          : `<span>${escapeHtml(label)}</span>`;
+      }).join("")}</div>` : `<p>No labels indexed.</p>`}
+    </section>
+  `;
+}
+
+function sourceLabelAnchorsFromCode(code) {
+  const anchors = new Map();
+  String(code || "").split("\n").forEach((line, index) => {
+    const label = line.match(/^([A-Za-z_.$][A-Za-z0-9_.$]*):/);
+    if (label && !anchors.has(label[1])) {
+      anchors.set(label[1], sourceLabelAnchor(label[1], index + 1));
+    }
+  });
+  return anchors;
+}
+
+function renderRelatedNotesPanel(entry) {
+  const notes = (entry.relatedNotes || []).filter((note) => entries.has(note.id)).slice(0, 12);
+  if (!notes.length) {
+    return "";
+  }
+  return `
+    <section class="referenceSection">
+      <h3>Related Notes</h3>
+      ${renderCompactEntryList(notes.map((note) => ({ ...entries.get(note.id), matchReason: note.reason })))}
+    </section>
+  `;
+}
+
+function renderRelatedSystemsPanel(entry) {
+  const systems = (entry.related || [])
+    .map((id) => entries.get(id))
+    .filter((candidate) => candidate && ["topic", "chapter", "asset-contract", "bank"].includes(candidate.kind))
+    .slice(0, 10);
+  if (!systems.length) {
+    return "";
+  }
+  return `
+    <section class="referenceSection">
+      <h3>Related Systems</h3>
+      ${renderCompactEntryList(systems)}
+    </section>
+  `;
+}
+
+function sourceCodeFromBody(body) {
+  const match = String(body || "").match(/```(?:asm|asar)?\n([\s\S]*?)```/i);
+  return match ? match[1].replace(/\n$/, "") : "";
+}
+
+function renderCompactEntryList(items) {
+  if (!items.length) {
+    return "";
+  }
+  return `
+    <div class="compactEntryList">
+      ${items.map((entry) => `<button type="button" class="compactEntryRow" data-entry-id="${escapeHtml(entry.id)}">
+        <span>${escapeHtml(entry.title)}</span>
+        <small>${escapeHtml([entry.matchReason, entry.kind, entry.banks?.length ? `Bank ${entry.banks.join(", ")}` : ""].filter(Boolean).join(" - "))}</small>
+      </button>`).join("")}
+    </div>
+  `;
+}
+
+function renderKeyValueTable(rows) {
+  return `
+    <table class="denseTable keyValueTable">
+      <tbody>
+        ${rows.map(([key, value]) => `<tr><th>${escapeHtml(key)}</th><td>${escapeHtml(value)}</td></tr>`).join("")}
+      </tbody>
+    </table>
   `;
 }
 
@@ -2068,7 +1580,7 @@ function referenceKeys(value) {
 
 function repoRelativeSuffix(value) {
   const normalized = String(value || "").replace(/\\/g, "/");
-  const match = normalized.match(/(?:^|\/)(notes|src|tools|asset-manifests)\/(.+)$/i);
+  const match = normalized.match(/(?:^|\/)(notes|refs|src|tools|asset-manifests)\/(.+)$/i);
   return match ? `${match[1].toLowerCase()}/${match[2]}` : "";
 }
 
@@ -2165,6 +1677,42 @@ function loadDeferredBody(id) {
   script.onerror = () => {
     entry.bodyLoading = false;
     entry.bodyLoadError = "Could not load the generated body chunk.";
+    renderDocument();
+  };
+  document.head.appendChild(script);
+}
+
+function loadDeferredData(key, chunk) {
+  if (!key || !chunk) {
+    return;
+  }
+  if (window.ENCYCLOPEDIA_DEFERRED_DATA[key]) {
+    renderDocument();
+    return;
+  }
+  const entry = entries.get(state.activeId);
+  if (entry) {
+    entry.dataLoading = key;
+    entry.dataLoadError = "";
+  }
+  renderDocument();
+
+  const script = document.createElement("script");
+  script.src = chunk;
+  script.onload = () => {
+    if (entry) {
+      entry.dataLoading = "";
+      if (!window.ENCYCLOPEDIA_DEFERRED_DATA[key]) {
+        entry.dataLoadError = "The generated data chunk loaded, but did not publish this table.";
+      }
+    }
+    renderDocument();
+  };
+  script.onerror = () => {
+    if (entry) {
+      entry.dataLoading = "";
+      entry.dataLoadError = "Could not load the generated data chunk.";
+    }
     renderDocument();
   };
   document.head.appendChild(script);
@@ -2643,11 +2191,17 @@ function renderCodeBlock(source, language) {
       : normalizedLanguage === "json"
         ? highlightJsonLine(line)
       : escapeHtml(line);
-    return `<span class="codeLine"><span class="lineText">${highlighted || " "}</span></span>`;
+    const label = line.match(/^([A-Za-z_.$][A-Za-z0-9_.$]*):/);
+    const id = label ? ` id="${escapeHtml(sourceLabelAnchor(label[1], index + 1))}"` : "";
+    return `<span class="codeLine"${id}><span class="lineText">${highlighted || " "}</span></span>`;
   }).join("");
   const languageClass = normalizedLanguage ? ` codeBlock-${escapeHtml(normalizedLanguage)}` : "";
   const languageAttribute = normalizedLanguage ? ` data-language="${escapeHtml(normalizedLanguage)}"` : "";
   return `<pre class="codeBlock codeBlockLines${languageClass}"><code${languageAttribute}>${renderedLines}</code></pre>`;
+}
+
+function sourceLabelAnchor(label, lineNumber = 0) {
+  return `label-${slugText(label)}${lineNumber ? `-${lineNumber}` : ""}`;
 }
 
 function highlightJsonLine(line) {
@@ -2806,29 +2360,54 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
-function search(query, limit = 9) {
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function search(query, limit = 9, facetId = state.searchFacet || "all") {
   const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
   if (!terms.length) {
     return [];
   }
+  const facet = SEARCH_FACETS.find((candidate) => candidate.id === facetId) || SEARCH_FACETS[0];
+  const exactSourceQuery = /^(src\/[a-z0-9/_-]+|[c-e][0-9]:[0-9a-f]{4}|\$[0-9a-f]{4,6}|[a-z_.$][a-z0-9_.$]{4,}|[a-z0-9_.-]+\.asm)$/i.test(query.trim());
 
   return catalog.entries
+    .filter((entry) => !facet.kinds.length || facet.kinds.includes(entry.kind))
     .map((entry) => {
-      const haystack = entry.searchText || "";
+      const document = searchDocuments.get(entry.id);
+      const haystack = document
+        ? `${document.exact || ""} ${document.titleText || ""} ${document.metaText || ""} ${document.bodyText || ""}`
+        : entry.searchText || "";
       let score = 0;
+      const reasons = [];
       for (const term of terms) {
-        if (entry.title.toLowerCase().includes(term)) score += 8;
-        if (entry.title.toLowerCase().startsWith(term)) score += 10;
-        if (entry.kind.toLowerCase() === term) score += 30;
-        if ((entry.aliases || []).some((alias) => alias.toLowerCase().includes(term))) score += 6;
-        if ((entry.addresses || []).some((address) => address.toLowerCase().includes(term))) score += 6;
-        if (haystack.includes(term)) score += 1;
+        if ((document?.exact || "").split(/\s+/).includes(term)) { score += 45; reasons.push("exact"); }
+        if ((document?.titleText || entry.title.toLowerCase()).includes(term)) { score += 18; reasons.push("title"); }
+        if (entry.title.toLowerCase().startsWith(term)) score += 18;
+        if (entry.kind.toLowerCase() === term) { score += 35; reasons.push("kind"); }
+        if ((document?.metaText || "").includes(term)) { score += 8; reasons.push(matchReasonForTerm(entry, document, term)); }
+        if ((document?.bodyText || "").includes(term)) { score += 2; reasons.push("body/comment"); }
+        if (!document && haystack.includes(term)) { score += 1; reasons.push("body"); }
       }
-      return { entry, score };
+      if (terms.every((term) => haystack.includes(term))) score += 10;
+      if (exactSourceQuery && ["source", "source-file", "symbol", "routine", "bank"].includes(entry.kind)) {
+        score += 30;
+      }
+      return { entry, score, reason: unique(reasons).slice(0, 3).join(" / ") };
     })
     .filter((result) => result.score > 0)
     .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
     .slice(0, limit === Infinity ? undefined : limit);
+}
+
+function matchReasonForTerm(entry, document, term) {
+  if ((entry.sourceFile?.path || "").toLowerCase().includes(term)) return "path";
+  if ((entry.sourceFile?.labels || []).some((label) => label.toLowerCase().includes(term))) return "label";
+  if ((entry.addresses || []).some((address) => address.toLowerCase().includes(term))) return "address";
+  if ((entry.banks || []).some((bank) => bank.toLowerCase().includes(term))) return "bank";
+  if ((document?.metaText || "").includes(term)) return "metadata";
+  return "match";
 }
 
 function renderSearchResults(results) {
@@ -2847,11 +2426,20 @@ function renderSearchResults(results) {
   ];
   searchSelectionIndex = Math.max(0, Math.min(searchSelectionIndex, currentSearchResults.length - 1));
   searchResults.hidden = false;
+  const totalByFacet = SEARCH_FACETS.map((facet) => ({
+    ...facet,
+    count: facet.id === "all"
+      ? search(searchInput.value, Infinity, "all").length
+      : search(searchInput.value, Infinity, facet.id).length
+  }));
   searchResults.innerHTML = [
-    ...results.map(({ entry }, index) => `
+    `<div class="searchFacetBar">
+      ${totalByFacet.map((facet) => `<button type="button" class="searchFacet${facet.id === state.searchFacet ? " active" : ""}" data-search-facet="${escapeHtml(facet.id)}">${escapeHtml(facet.label)} <span>${Number(facet.count).toLocaleString()}</span></button>`).join("")}
+    </div>`,
+    ...results.map(({ entry, reason }, index) => `
       <button type="button" class="searchItem${index === searchSelectionIndex ? " active" : ""}" data-entry-id="${escapeHtml(entry.id)}" data-search-index="${index}" aria-selected="${index === searchSelectionIndex ? "true" : "false"}">
         <div class="searchItemTitle">${escapeHtml(entry.title)}</div>
-        <div class="searchItemMeta">${escapeHtml(entry.kind)}${entry.banks && entry.banks.length ? ` - ${escapeHtml(entry.banks.join(", "))}` : ""}</div>
+        <div class="searchItemMeta">${escapeHtml([entry.kind, entry.banks && entry.banks.length ? `Bank ${entry.banks.join(", ")}` : "", reason ? `matched ${reason}` : ""].filter(Boolean).join(" - "))}</div>
       </button>
     `),
     `<button type="button" class="searchItem${searchSelectionIndex === results.length ? " active" : ""}" data-entry-id="${fullResultsId}" data-search-index="${results.length}" aria-selected="${searchSelectionIndex === results.length ? "true" : "false"}">
@@ -2862,12 +2450,12 @@ function renderSearchResults(results) {
 
   const resultEntry = entries.get(fullResultsId);
   if (resultEntry) {
-    const fullResults = search(searchInput.value, FULL_RESULTS_LIMIT);
+    const fullResults = search(searchInput.value, FULL_RESULTS_LIMIT, state.searchFacet);
     const grouped = new Map();
-    for (const { entry } of fullResults) {
-      grouped.set(entry.kind, [...(grouped.get(entry.kind) || []), entry]);
+    for (const result of fullResults) {
+      grouped.set(result.entry.kind, [...(grouped.get(result.entry.kind) || []), result]);
     }
-    const totalMatches = search(searchInput.value, Infinity).length;
+    const totalMatches = search(searchInput.value, Infinity, state.searchFacet).length;
     const capNote = totalMatches > fullResults.length
       ? `Showing first ${fullResults.length} of ${totalMatches} matches. Narrow the query to see more specific results.`
       : `Showing all ${totalMatches} matches.`;
@@ -2879,11 +2467,19 @@ function renderSearchResults(results) {
       "",
       ...[...grouped.entries()].sort(([a], [b]) => kindRank(a) - kindRank(b)).map(([kind, group]) => [
       `## ${kind}`,
-      group.map((entry) => `- [[${entry.id}|${entry.title}]] - ${entry.summary || entry.kind}`).join("\n")
+      group.map(({ entry, reason }) => `- [[${entry.id}|${entry.title}]] - ${[reason ? `matched ${reason}` : "", entry.summary || entry.kind].filter(Boolean).join("; ")}`).join("\n")
       ].join("\n"))
     ].join("\n\n");
   }
 
+  searchResults.querySelectorAll("[data-search-facet]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      state.searchFacet = button.getAttribute("data-search-facet") || "all";
+      searchSelectionIndex = 0;
+      renderSearchResults(search(searchInput.value, 9, state.searchFacet));
+    });
+  });
   bindEntryLinkClicks(searchResults, {
     afterOpen: () => {
       searchResults.hidden = true;
@@ -2918,7 +2514,7 @@ function kindRank(kind) {
 
 searchInput.addEventListener("input", (event) => {
   searchSelectionIndex = 0;
-  renderSearchResults(search(event.target.value, 9));
+  renderSearchResults(search(event.target.value, 9, state.searchFacet));
 });
 
 searchInput.addEventListener("keydown", (event) => {
@@ -2933,11 +2529,11 @@ searchInput.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown") {
     event.preventDefault();
     searchSelectionIndex = (searchSelectionIndex + 1) % currentSearchResults.length;
-    renderSearchResults(search(searchInput.value, 9));
+    renderSearchResults(search(searchInput.value, 9, state.searchFacet));
   } else if (event.key === "ArrowUp") {
     event.preventDefault();
     searchSelectionIndex = (searchSelectionIndex - 1 + currentSearchResults.length) % currentSearchResults.length;
-    renderSearchResults(search(searchInput.value, 9));
+    renderSearchResults(search(searchInput.value, 9, state.searchFacet));
   } else if (event.key === "Enter") {
     event.preventDefault();
     openSearchSelection();
@@ -2984,20 +2580,7 @@ function render() {
 function renderNavigationButtons() {
   backButton.disabled = !(state.backStack && state.backStack.length);
   forwardButton.disabled = !(state.forwardStack && state.forwardStack.length);
-  renderWorkspaceButton();
   renderBuildStatusButton();
-}
-
-function renderWorkspaceButton() {
-  if (!workspaceButton) {
-    return;
-  }
-  const ready = workspaceIsReady();
-  workspaceButton.textContent = ready ? "Workspace ready" : "Add ROM";
-  workspaceButton.classList.toggle("ready", ready);
-  workspaceButton.title = ready
-    ? "Open local ROM workspace"
-    : "Add a ROM or open notes-only workspace setup";
 }
 
 function renderBuildStatusButton() {
@@ -3005,23 +2588,20 @@ function renderBuildStatusButton() {
     return;
   }
   const mode = catalog.buildMode || "local";
-  const label = mode === "authored" ? "Authored" : "Local";
-  const target = "catalog-build-status";
+  const label = mode === "authored" ? "Authored" : mode === "private" ? "Private" : "Local";
+  const target = mode === "private" && entries.has("reference-snapshot") ? "reference-snapshot" : "catalog-build-status";
   buildStatusButton.textContent = `${label} catalog`;
   buildStatusButton.dataset.entryId = target;
   buildStatusButton.classList.toggle("local", mode !== "authored");
-  buildStatusButton.title = mode === "authored"
+  buildStatusButton.title = mode === "private"
+    ? "Private bundled reference catalog. Open build status."
+    : mode === "authored"
     ? "Authored release baseline. Open release artifact policy."
     : "Local generated catalog. Open ROM and generated content status.";
 }
 
 backButton.addEventListener("click", goBack);
 forwardButton.addEventListener("click", goForward);
-if (workspaceButton) {
-  workspaceButton.addEventListener("click", () => {
-    openEntry(entries.has("local-workspace") ? "local-workspace" : "overview");
-  });
-}
 if (buildStatusButton) {
   buildStatusButton.addEventListener("click", () => {
     const target = buildStatusButton.dataset.entryId || "release-artifact-policy";

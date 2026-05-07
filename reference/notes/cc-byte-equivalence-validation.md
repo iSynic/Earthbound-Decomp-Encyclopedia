@@ -1,0 +1,97 @@
+# CC byte-equivalence validation
+
+This report assembles scratch Asar translations of CC pilot modules into clean ROM copies at their original `org` addresses, then compares the protected byte ranges against the original ROM.
+
+- status: `OK`
+- mode: `combined-scaffold`
+- modules: `83`
+- non-OK modules: `0`
+- mismatches: `0`
+
+## Modules
+
+| Status | Source Path | Range | Size | Mismatches | Generated ASM |
+| --- | --- | --- | ---: | ---: | --- |
+| `OK` | `src/cc/asset_animationdata_carpainter_lightning_reflect.asm` | `CC:0000..CC:17CB` | 6091 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_animationdata_carpainter_lightning_strike.asm` | `CC:17CB..CC:1F5C` | 1937 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_animationdata_starman_jr_teleport.asm` | `CC:1F5C..CC:22D8` | 892 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_animationdata_boom.asm` | `CC:22D8..CC:2C89` | 2481 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_animationdata_zombies.asm` | `CC:2C89..CC:2CE1` | 88 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_animationdata_the_end.asm` | `CC:2CE1..CC:2DE1` | 256 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/table_data_animation_sequence_pointers_asm.asm` | `CC:2DE1..CC:2E19` | 56 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_20.asm` | `CC:2E19..CC:4057` | 4670 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_31.asm` | `CC:4057..CC:4D53` | 3324 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_19.asm` | `CC:4D53..CC:597B` | 3112 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_21.asm` | `CC:597B..CC:6390` | 2581 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_13.asm` | `CC:6390..CC:6D77` | 2535 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_23.asm` | `CC:6D77..CC:760B` | 2196 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_18.asm` | `CC:760B..CC:7E9E` | 2195 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_8.asm` | `CC:7E9E..CC:8629` | 1931 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_30.asm` | `CC:8629..CC:8D86` | 1885 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_29.asm` | `CC:8D86..CC:94DF` | 1881 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_28.asm` | `CC:94DF..CC:9B45` | 1638 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_25.asm` | `CC:9B45..CC:A12C` | 1511 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_26.asm` | `CC:A12C..CC:A6B9` | 1421 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_9.asm` | `CC:A6B9..CC:AC25` | 1388 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_anim_gfx_set_1.asm` | `CC:AC25..CC:B12F` | 1290 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_5.asm` | `CC:B12F..CC:B613` | 1252 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_anim_gfx_set_2.asm` | `CC:B613..CC:BAC7` | 1204 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_3.asm` | `CC:BAC7..CC:BF2D` | 1126 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_7.asm` | `CC:BF2D..CC:C32F` | 1026 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_0.asm` | `CC:C32F..CC:C701` | 978 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_6.asm` | `CC:C701..CC:CAAD` | 940 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_17.asm` | `CC:CAAD..CC:CE57` | 938 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_33.asm` | `CC:CE57..CC:D1C7` | 880 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_22.asm` | `CC:D1C7..CC:D4FB` | 820 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_12.asm` | `CC:D4FB..CC:D820` | 805 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_2.asm` | `CC:D820..CC:DB27` | 775 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_anim_gfx_set_3.asm` | `CC:DB27..CC:DDF9` | 722 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_1.asm` | `CC:DDF9..CC:E0A1` | 680 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_24.asm` | `CC:E0A1..CC:E31D` | 636 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_anim_gfx_set_4.asm` | `CC:E31D..CC:E56D` | 592 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_16.asm` | `CC:E56D..CC:E78B` | 542 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_15.asm` | `CC:E78B..CC:E96C` | 481 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_11.asm` | `CC:E96C..CC:EB3F` | 467 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_14.asm` | `CC:EB3F..CC:ED0E` | 463 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_32.asm` | `CC:ED0E..CC:EEB4` | 422 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_27.asm` | `CC:EEB4..CC:F04D` | 409 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/table_data_psi_anim_cfg_asm.asm` | `CC:F04D..CC:F1E5` | 408 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_4.asm` | `CC:F1E5..CC:F358` | 371 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_arrangement_10.asm` | `CC:F358..CC:F47F` | 295 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psi_anim_palettes.asm` | `CC:F47F..CC:F487` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_01_pal.asm` | `CC:F487..CC:F48F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_02_pal.asm` | `CC:F48F..CC:F497` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_03_pal.asm` | `CC:F497..CC:F49F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_04_pal.asm` | `CC:F49F..CC:F4A7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_05_pal.asm` | `CC:F4A7..CC:F4AF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_06_pal.asm` | `CC:F4AF..CC:F4B7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_07_pal.asm` | `CC:F4B7..CC:F4BF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_08_pal.asm` | `CC:F4BF..CC:F4C7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_09_pal.asm` | `CC:F4C7..CC:F4CF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_10_pal.asm` | `CC:F4CF..CC:F4D7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_11_pal.asm` | `CC:F4D7..CC:F4DF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_12_pal.asm` | `CC:F4DF..CC:F4E7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_13_pal.asm` | `CC:F4E7..CC:F4EF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_14_pal.asm` | `CC:F4EF..CC:F4F7` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_15_pal.asm` | `CC:F4F7..CC:F4FF` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_16_pal.asm` | `CC:F4FF..CC:F507` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_17_pal.asm` | `CC:F507..CC:F50F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_18_pal.asm` | `CC:F50F..CC:F517` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_19_pal.asm` | `CC:F517..CC:F51F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_20_pal.asm` | `CC:F51F..CC:F527` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_21_pal.asm` | `CC:F527..CC:F52F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_22_pal.asm` | `CC:F52F..CC:F537` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_23_pal.asm` | `CC:F537..CC:F53F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_24_pal.asm` | `CC:F53F..CC:F547` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_25_pal.asm` | `CC:F547..CC:F54F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_26_pal.asm` | `CC:F54F..CC:F557` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_27_pal.asm` | `CC:F557..CC:F55F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_28_pal.asm` | `CC:F55F..CC:F567` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_29_pal.asm` | `CC:F567..CC:F56F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_30_pal.asm` | `CC:F56F..CC:F577` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_31_pal.asm` | `CC:F577..CC:F57F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_32_pal.asm` | `CC:F57F..CC:F587` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_psianims_palettes_33_pal.asm` | `CC:F587..CC:F58F` | 8 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/table_data_psi_anim_pointers_asm.asm` | `CC:F58F..CC:F617` | 136 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_audio_pack_71.asm` | `CC:F617..CC:FFDB` | 2500 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |
+| `OK` | `src/cc/asset_bank_cc_gap_1_tailpadding.asm` | `CC:FFDB..CC:10000` | 37 | 0 | `build/cc-byte-equivalence/bank-cc-helper-scaffold.byte-equivalence.asar.asm` |

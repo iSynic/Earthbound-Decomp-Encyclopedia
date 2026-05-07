@@ -1,0 +1,582 @@
+{
+  "schema": "earthbound-decomp.audio-sequence-semantics-intake-plan.v1",
+  "status": "probe_result_intake_pending",
+  "references": [
+    "manifests/audio-sequence-command-semantics.json",
+    "manifests/audio-zero-runtime-probe-results-summary.json",
+    "manifests/audio-nonzero-control-probe-results-summary.json",
+    "manifests/audio-duration-uncertainty-register.json"
+  ],
+  "summary": {
+    "current_confirmed_command_count": 0,
+    "intake_record_count": 26,
+    "zero_intake_record_count": 19,
+    "nonzero_intake_record_count": 7,
+    "accepted_candidate_count": 0,
+    "command_intake_record_counts": {
+      "0x00": 19,
+      "0xEF": 3,
+      "0xFD": 1,
+      "0xFE": 2,
+      "0xFF": 1
+    },
+    "accepted_candidate_counts_by_command": {},
+    "status_counts": {
+      "pending": 26
+    },
+    "classification_counts": {
+      "pending": 26
+    },
+    "sequence_promotion_allowed_by_intake": false,
+    "duration_uncertainty_track_counts": {
+      "active_preview_classification_pending": 1,
+      "finite_transition_review_pending": 5,
+      "loop_point_metadata_pending": 5,
+      "measurement_missing": 1,
+      "no_duration_uncertainty_for_current_export": 1,
+      "non_zero_control_semantics_pending": 155,
+      "pcm_trim_usable_sequence_intent_open": 5,
+      "zero_runtime_probe_pending": 19
+    }
+  },
+  "intake_policy": [
+    "Probe results can create candidate sequence-command evidence only after their individual result validators pass.",
+    "A zero result is candidate evidence only for true_end, ef_return, or loop_or_hold_continues classifications.",
+    "A nonzero result is candidate evidence only for ef_call_return, timing_toggle, earthbound_variant_ff, or unreachable classifications that match the command family validator.",
+    "This intake plan cannot directly promote public exact-duration exports or edit audio-sequence-command-semantics.",
+    "Candidate evidence must still be reviewed in a later semantics-promotion pass and then re-run export triage."
+  ],
+  "command_intake_state": [
+    {
+      "command": "0x00",
+      "current_semantic_status": "pending_earthbound_zero_control_effect_proof",
+      "current_exact_duration_promotion_allowed": false,
+      "intake_record_count": 19,
+      "accepted_candidate_count": 0,
+      "pending_or_rejected_count": 19,
+      "accepted_candidate_evidence": [],
+      "intake_state": "probe_results_pending",
+      "next_action": "run and collect the relevant runtime probe jobs",
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "command": "0xEF",
+      "current_semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "current_exact_duration_promotion_allowed": false,
+      "intake_record_count": 3,
+      "accepted_candidate_count": 0,
+      "pending_or_rejected_count": 3,
+      "accepted_candidate_evidence": [],
+      "intake_state": "probe_results_pending",
+      "next_action": "run and collect the relevant runtime probe jobs",
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "command": "0xFD",
+      "current_semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "current_exact_duration_promotion_allowed": false,
+      "intake_record_count": 1,
+      "accepted_candidate_count": 0,
+      "pending_or_rejected_count": 1,
+      "accepted_candidate_evidence": [],
+      "intake_state": "probe_results_pending",
+      "next_action": "run and collect the relevant runtime probe jobs",
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "command": "0xFE",
+      "current_semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "current_exact_duration_promotion_allowed": false,
+      "intake_record_count": 2,
+      "accepted_candidate_count": 0,
+      "pending_or_rejected_count": 2,
+      "accepted_candidate_evidence": [],
+      "intake_state": "probe_results_pending",
+      "next_action": "run and collect the relevant runtime probe jobs",
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "command": "0xFF",
+      "current_semantic_status": "contradicted_by_stock_n_spc_pending_earthbound_variant_proof",
+      "current_exact_duration_promotion_allowed": false,
+      "intake_record_count": 1,
+      "accepted_candidate_count": 0,
+      "pending_or_rejected_count": 1,
+      "accepted_candidate_evidence": [],
+      "intake_state": "probe_results_pending",
+      "next_action": "run and collect the relevant runtime probe jobs",
+      "exact_duration_promotion_allowed_by_intake": false
+    }
+  ],
+  "intake_records": [
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-001-gas_station",
+      "command": "0x00",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-174-gas_station_2",
+      "command": "0x00",
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-025-chaos_theatre",
+      "command": "0x00",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-032-giant_step",
+      "command": "0x00",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-033-lilliput_steps",
+      "command": "0x00",
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-034-milky_well",
+      "command": "0x00",
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-035-rainy_circle",
+      "command": "0x00",
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-036-magnet_hill",
+      "command": "0x00",
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-037-pink_cloud",
+      "command": "0x00",
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-038-lumine_hall",
+      "command": "0x00",
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-039-fire_spring",
+      "command": "0x00",
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-085-bulldozer",
+      "command": "0x00",
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-094-good_friends_bad_friends",
+      "command": "0x00",
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-120-hotel_of_the_living_dead",
+      "command": "0x00",
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-173-good_morning_moonside",
+      "command": "0x00",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "loop_point_metadata"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-143-leaving_magicant",
+      "command": "0x00",
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-157-attract_mode",
+      "command": "0x00",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "active_preview_classification"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-171-winters_intro",
+      "command": "0x00",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "loop_point_metadata"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+      "job_id": "zero-probe-track-175-title_screen",
+      "command": "0x00",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_zero_runtime_effect",
+      "remaining_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model",
+        "finite_transition_review"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-ff-pc-0957",
+      "command": "0xFF",
+      "reader_pc": "0x0957",
+      "read_count": 10,
+      "affected_kind": "static_walk_blocker",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "earthbound_variant_ff_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-ef-pc-0957",
+      "command": "0xEF",
+      "reader_pc": "0x0957",
+      "read_count": 23,
+      "affected_kind": "return_stack_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-fe-pc-0957",
+      "command": "0xFE",
+      "reader_pc": "0x0957",
+      "read_count": 4,
+      "affected_kind": "timing_toggle_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-ef-pc-0b8a",
+      "command": "0xEF",
+      "reader_pc": "0x0B8A",
+      "read_count": 95,
+      "affected_kind": "return_stack_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-ef-pc-0d12",
+      "command": "0xEF",
+      "reader_pc": "0x0D12",
+      "read_count": 1,
+      "affected_kind": "return_stack_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-fd-pc-0847",
+      "command": "0xFD",
+      "reader_pc": "0x0847",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    },
+    {
+      "source_result": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof-result.json",
+      "job_id": "nonzero-probe-fe-pc-0847",
+      "command": "0xFE",
+      "reader_pc": "0x0847",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "status": "pending",
+      "valid": false,
+      "classification": "pending",
+      "accepted_for_semantics_candidate": false,
+      "candidate_semantic_evidence": "pending_valid_control_effect",
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "exact_duration_promotion_allowed_by_intake": false
+    }
+  ],
+  "next_work": [
+    "run the 0x0957 FF/FE/EF nonzero jobs first, then re-collect nonzero control probe results",
+    "run the highest-priority 0x00 finite/loop/active-preview jobs, then re-collect zero runtime probe results",
+    "promote only validator-clean candidate evidence through a separate audio-sequence-command-semantics update"
+  ]
+}

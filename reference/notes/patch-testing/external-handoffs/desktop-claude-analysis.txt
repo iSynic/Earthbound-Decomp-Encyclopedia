@@ -1,0 +1,170 @@
+Finding 1 — The biggest gap: structs.asm and constants/battle.asm were never consulted
+
+  This is the most important finding of this review, and it directly retroactively resolves the $99DC question.
+
+  refs/ebsrc-main/ebsrc-main/include/structs.asm defines:
+
+  .STRUCT char_struct
+    name       .byte 5   ; 0
+    level      .byte     ; 5
+    exp        .dword    ; 6
+    max_hp     .word     ; 10
+    max_pp     .word     ; 12
+    afflictions .byte AFFLICTION_GROUP_COUNT  ; 14   ← offset +$0E
+    offense    .byte     ; 21
+    ...
+  .ENDSTRUCT
+  ; sizeof = 95 = $5F
+
+  AFFLICTION_GROUP_COUNT = 7 (from constants/battle.asm). Offset +$0E × stride $5F = $99DC = PARTY_CHARACTERS +
+  char_struct::afflictions. The full 7-byte block is the afflictions array, and the STATUS_0 enum names every value:
+
+  .ENUM STATUS_0
+    UNCONSCIOUS  = 1
+    DIAMONDIZED  = 2
+    PARALYZED    = 3
+    NAUSEOUS     = 4
+    POISONED     = 5
+    SUNSTROKE    = 6
+    COLD         = 7
+  .ENDENUM
+
+  This resolves all the open questions from the $99DC session in one lookup:
+  - $99DC == 1 = UNCONSCIOUS — explains "It did not work!" and exclusion from HP targeting
+  - $99DC == 2 = DIAMONDIZED — the "active-but-not-blocked" state; check_if_valid_target.asm confirms BOTH are invalid
+  targets in the battle table (BATTLERS_TABLE), while C2:B298 only blocks value 1 because that function reads from the
+  char_struct copy specifically
+  - The 7-byte block is confirmed as afflictions[0..6] — one byte per STATUS_GROUP
+  - selector_state was a reasonable working name but the correct name is afflictions_group_0 or char_struct::afflictions
+   + STATUS_GROUP::PERSISTENT_EASYHEAL
+
+  What check_if_valid_target.asm shows (directly from ebsrc):
+  CHECK_IF_VALID_TARGET:
+    LDA BATTLERS_TABLE+battler::afflictions,X
+    CMP #STATUS_0::UNCONSCIOUS
+    BEQ @INVALID
+    CMP #STATUS_0::DIAMONDIZED
+    BEQ @INVALID
+
+  Both values 1 and 2 are invalid targets in battle. The distinction we saw in C2:B298 (only 1 blocked, 2 not) is
+  because C2:B298 reads from the PARTY_CHARACTERS char_struct copy, and may be an early-out check specifically for
+  unconscious members.
+
+  Also in structs.asm — the battler struct:
+  .STRUCT battler     ; size = 78 = $4E
+    id        .word   ; 0
+    ...
+    consciousness .byte ; 12  (+$0C)
+    ...
+    ally_or_enemy .byte ; 14  (+$0E)  ← matches the class2 +$0E gate in C2:7EAF!
+    npc_id    .byte    ; 15  (+$0F)
+    ...
+    afflictions .byte AFFLICTION_GROUP_COUNT ; 29  (+$1D)
+    ...
+  .ENDSTRUCT
+
+  The $9FAC stride-$4E block is the BATTLERS_TABLE (or a same-layout family). The +$0E == 1 gate in C2:7EAF is checking
+  battler::ally_or_enemy == 1 (= player-side battler), not a separate selector_state. The +$0F blocking check in C2:7CFD
+   corresponds to battler::npc_id. This reframes the class2 work entirely.
+
+  ---
+  Finding 2 — lookup_ref_symbol.py only searches by address; the structs files aren't reachable by address lookup
+
+  The tool correctly finds things like UNKNOWN_C08CD5 in reference source. But it can't answer "what is the field at
+  offset +$0E in the struct rooted at $99CE?" — that requires knowing the struct name and reading the layout file.
+
+  Recommended fix: Add a notes/ref-struct-map.md reference note (one-time, static) mapping the key WRAM block addresses
+  to their ebsrc struct names and field layouts. This becomes a fast lookup table for future sessions. Alternatively, a
+  lookup_wram_field.py tool that parses structs.asm and the globals symbol file to answer "what is at WRAM $99E1?" would
+   be more powerful.
+
+  ---
+  Finding 3 — The community RAM map has a conflict worth flagging
+
+  refs/community-earthbound-docs/RAM_map.txt says:
+  009839-009839 (000001) = Learned PSI
+
+  But our locally-proved C2:27C8 result uses $9839 as the afflictions bitmask accumulator (bit 0 = UNCONSCIOUS active,
+  bit 1 = DIAMONDIZED active, etc.). The community attribution is either wrong, stale, or $9839 is dual-use across game
+  states. This should be noted explicitly — the community docs are useful but not authoritative, and at least one
+  address-level conflict has been found.
+
+  ---
+  Finding 4 — The ebsrc src/battle/ tree is a large untapped cross-check resource
+
+  There are 182 files in src/battle/actions/ and 96 files in src/battle/. These contain named function references
+  (CHECK_IF_VALID_TARGET, BATTLE_INIT_PLAYER_STATS, etc.) with explicit struct field access patterns. They're more
+  useful than the disasm-legacy project for understanding the battle subsystem because:
+
+  - Function names are meaningful (check_dead_players.asm, diamondize.asm, healing_gamma.asm)
+  - Struct fields are explicitly named (battler::afflictions + STATUS_GROUP::PERSISTENT_EASYHEAL)
+  - The constants file has all the STATUS_0..6 enum values
+
+  The current workflow uses lookup_ref_symbol.py to check a single address — but browsing the battle action files by
+  name for the function being investigated would often be faster. For example: when we couldn't name $99DC == 2, reading
+   diamondize.asm would have provided immediate confirmation.
+
+  Recommended addition to workflow: Before decoding an unknown battle-adjacent function, scan src/battle/ filenames for
+  a plausible match and read it first.
+
+  ---
+  Finding 5 — decode_snippet.py mode-tracking limitation is the top tooling pain point
+
+  The known issue where sep #$20 inside a function causes the disassembler to misread subsequent instructions costs
+  significant time when hitting 8-bit sequences mid-analysis. Adding a --force-m8 or --initial-m8 flag that forces M=1
+  from the start would directly address this. The state machine already tracks m8 — it just needs an override parameter.
+
+  Additionally: when a decode starts mid-function after a branch (a very common case), the initial accumulator mode is
+  unknown. A --assume-m8 flag would be a simple fix for the most common case.
+
+  ---
+  Finding 6 — find_xrefs.py misses DP-relative and indirect writes; this explains the "missing SET path"
+
+  The tool catches absolute ($8D DC 99) and absolute,X ($9D DC 99) writes. It misses:
+  - sta [$0A] when $0A → $99DC (indirect long write through a pointer)
+  - sta $0E,DP when DP = $99CE (direct-page relative write)
+
+  The "only 1 write to $99DC" result means the SET path likely goes through a DP-relative write with DP set to the
+  char_struct base. A --include-dp mode that also scans for DP-relative stores given a known DP base, or a separate
+  find_dp_writes.py tool, would close this class of gap.
+
+  ---
+  Finding 7 — Notes volume is ~100 with no cross-reference index
+
+  The notes directory has ~100 files. When starting a new lane, there's no fast way to determine which notes are
+  relevant. A grep-over-notes wrapper (grep_notes.py SEARCHTERM) or a notes/INDEX.md (maintained manually or generated)
+  would save the scan cost. The current workflow relies on the handoff document listing anchor notes explicitly, which
+  works but requires Codex to maintain the list manually.
+
+  ---
+  Summary table
+
+  ┌──────────────────────────────────────────┬──────────────────────┬──────────────────────────────────────────────┐
+  │                  Issue                   │       Severity       │                     Fix                      │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ structs.asm / constants/battle.asm not   │ High — would have    │ Add explicit step: check struct layout       │
+  │ consulted before WRAM analysis           │ saved a full session │ before byte-by-byte decode                   │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ No struct-aware field lookup tool        │ High                 │ Add notes/ref-struct-map.md or               │
+  │                                          │                      │ lookup_wram_field.py                         │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ decode_snippet.py mode-tracking loss     │ Medium               │ Add --force-m8 / --force-m16 flag            │
+  │ after sep #$20                           │                      │                                              │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ find_xrefs.py misses DP-relative and     │ Medium               │ Note the limitation; add find_dp_writes.py   │
+  │ indirect writes                          │                      │ for known DP-base cases                      │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ ebsrc src/battle/ action files           │ Medium               │ Add workflow step: scan action filenames     │
+  │ underutilized                            │                      │ before decoding battle functions             │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ Community RAM map has at least one       │ Low                  │ Flag in notes; don't treat community docs as │
+  │ confirmed conflict ($9839)               │                      │  authoritative                               │
+  ├──────────────────────────────────────────┼──────────────────────┼──────────────────────────────────────────────┤
+  │ No notes index / cross-reference         │ Low                  │ Add grep_notes.py or maintain notes/INDEX.md │
+  └──────────────────────────────────────────┴──────────────────────┴──────────────────────────────────────────────┘
+
+  Immediate action worth taking now
+
+  The claude-handoff-99dc.md needs a correction: selector_state should be updated to afflictions_group_0 (or
+  char_struct::afflictions[PERSISTENT_EASYHEAL]), and values 1 and 2 should be named UNCONSCIOUS and DIAMONDIZED
+  respectively. The handoff said "what remains uncertain" for value 2 — that's now resolved by the ebsrc reference.

@@ -1,0 +1,609 @@
+{
+  "schema": "earthbound-decomp.audio-duration-next-actions-plan.v1",
+  "status": "audio_duration_next_actions_ready_policy_preserved",
+  "references": [
+    "manifests/audio-duration-readiness-rollup.json",
+    "manifests/audio-independent-oracle-coverage-report.json",
+    "manifests/audio-nonzero-control-coverage-report.json",
+    "manifests/audio-zero-runtime-coverage-report.json",
+    "manifests/audio-finite-ending-tail-metrics.json",
+    "manifests/audio-loop-point-tail-metrics.json",
+    "manifests/audio-residual-uncertainty-coverage-report.json",
+    "manifests/audio-probe-campaign-plan.json"
+  ],
+  "summary": {
+    "priority_lane_count": 7,
+    "release_ready": false,
+    "behavior_change_allowed": false,
+    "promotion_allowed_by_plan": false,
+    "blocking_track_count": 171,
+    "independent_oracle_representative_jobs": 16,
+    "independent_oracle_representative_missing": 16,
+    "nonzero_control_probe_jobs": 7,
+    "nonzero_control_blocker_tracks": 155,
+    "zero_runtime_probe_jobs": 19,
+    "zero_runtime_blocker_tracks": 19,
+    "finite_transition_tracks": 5,
+    "loop_point_tracks": 5,
+    "residual_public_exact_blockers": 2,
+    "pcm_trim_sequence_intent_tracks": 5
+  },
+  "priority_lanes": [
+    {
+      "priority_rank": 1,
+      "lane_id": "independent_oracle_representative_capture",
+      "status": "external_captures_missing",
+      "priority_reason": "Release-quality playback claims are blocked even though the all-track near-oracle gate is green; the representative external-emulator campaign is the smallest independent comparison set.",
+      "primary_inputs": [
+        "manifests/audio-independent-oracle-coverage-report.json",
+        "manifests/audio-oracle-comparison-plan-all-tracks.json"
+      ],
+      "counts": {
+        "representative_job_count": 16,
+        "representative_missing_independent_capture_count": 16,
+        "all_track_missing_independent_capture_count": 190
+      },
+      "track_refs": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION"
+        },
+        {
+          "track_id": 5,
+          "track_name": "YOU_WON1"
+        },
+        {
+          "track_id": 8,
+          "track_name": "BATTLE_SWIRL1"
+        },
+        {
+          "track_id": 10,
+          "track_name": "WHAT_THE_HECK"
+        },
+        {
+          "track_id": 12,
+          "track_name": "YOU_WON2"
+        },
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING"
+        },
+        {
+          "track_id": 25,
+          "track_name": "CHAOS_THEATRE"
+        },
+        {
+          "track_id": 32,
+          "track_name": "GIANT_STEP"
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT"
+        },
+        {
+          "track_id": 115,
+          "track_name": "PHONE_CALL"
+        },
+        {
+          "track_id": 123,
+          "track_name": "SOMEONE_JOINS"
+        },
+        {
+          "track_id": 135,
+          "track_name": "TELEPORT_IN"
+        },
+        {
+          "track_id": 161,
+          "track_name": "SOUNDSTONE_RECORDING_LILLIPUT_STEPS"
+        },
+        {
+          "track_id": 171,
+          "track_name": "WINTERS_INTRO"
+        },
+        {
+          "track_id": 173,
+          "track_name": "GOOD_MORNING_MOONSIDE"
+        },
+        {
+          "track_id": 175,
+          "track_name": "TITLE_SCREEN"
+        }
+      ],
+      "job_ids": [
+        "oracle-track-001-gas_station",
+        "oracle-track-017-monotoli_building",
+        "oracle-track-032-giant_step",
+        "oracle-track-046-onett",
+        "oracle-track-171-winters_intro",
+        "oracle-track-173-good_morning_moonside",
+        "oracle-track-175-title_screen",
+        "oracle-track-010-what_the_heck",
+        "oracle-track-008-battle_swirl1",
+        "oracle-track-005-you_won1",
+        "oracle-track-012-you_won2",
+        "oracle-track-025-chaos_theatre",
+        "oracle-track-115-phone_call",
+        "oracle-track-123-someone_joins",
+        "oracle-track-135-teleport_in",
+        "oracle-track-161-soundstone_recording_lilliput_steps"
+      ],
+      "commands": [
+        "python tools/build_audio_independent_oracle_capture_packet.py",
+        "python tools/validate_audio_independent_oracle_capture_packet.py",
+        "python tools/build_audio_independent_oracle_handoff_matrix.py",
+        "python tools/validate_audio_independent_oracle_handoff_matrix.py",
+        "python tools/build_audio_oracle_source_evidence_preflight.py",
+        "python tools/validate_audio_oracle_source_evidence_preflight.py",
+        "python tools/build_audio_oracle_source_regeneration_plan.py",
+        "python tools/validate_audio_oracle_source_regeneration_plan.py",
+        "python tools/validate_audio_independent_oracle_coverage_report.py",
+        "python tools/run_audio_independent_oracle_campaign.py --mode audit-existing-captures",
+        "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id <track-id> --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+        "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id <track-id>",
+        "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass"
+      ],
+      "completion_gate": "Import and validate all 16 representative independent captures, then refresh the all-track oracle verification report until the independent emulator gate passes for the representative set.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 2,
+      "lane_id": "nonzero_control_probe_import",
+      "status": "probe_outputs_missing",
+      "priority_reason": "Nonzero control semantics are the largest track-count blocker; the seven probe jobs are the highest-leverage way to reduce the 155-track uncertainty lane.",
+      "primary_inputs": [
+        "manifests/audio-nonzero-control-coverage-report.json",
+        "manifests/audio-probe-campaign-plan.json"
+      ],
+      "counts": {
+        "blocker_track_count": 155,
+        "probe_job_count": 7,
+        "source_candidate_record_count": 56,
+        "blocker_tracks_without_source_candidate_count": 146
+      },
+      "source_candidate_track_refs": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION"
+        },
+        {
+          "track_id": 17,
+          "track_name": "MONOTOLI_BUILDING"
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER"
+        },
+        {
+          "track_id": 84,
+          "track_name": "SKY_RUNNER_FALLING"
+        },
+        {
+          "track_id": 109,
+          "track_name": "EXPLOSION"
+        },
+        {
+          "track_id": 110,
+          "track_name": "SKY_RUNNER_CRASH"
+        },
+        {
+          "track_id": 133,
+          "track_name": "HIDDEN_SONG"
+        },
+        {
+          "track_id": 137,
+          "track_name": "ELEVATOR_DOWN"
+        },
+        {
+          "track_id": 138,
+          "track_name": "ELEVATOR_UP"
+        },
+        {
+          "track_id": 139,
+          "track_name": "ELEVATOR_STOP"
+        }
+      ],
+      "job_ids": [
+        "nonzero-probe-fd-pc-0847",
+        "nonzero-probe-fe-pc-0847",
+        "nonzero-probe-ef-pc-0b8a",
+        "nonzero-probe-ef-pc-0d12",
+        "nonzero-probe-ef-pc-0957",
+        "nonzero-probe-fe-pc-0957",
+        "nonzero-probe-ff-pc-0957"
+      ],
+      "campaign_job_ids": [
+        "nonzero-probe-ff-pc-0957",
+        "nonzero-probe-ef-pc-0957",
+        "nonzero-probe-fe-pc-0957",
+        "nonzero-probe-ef-pc-0b8a",
+        "nonzero-probe-ef-pc-0d12",
+        "nonzero-probe-fd-pc-0847",
+        "nonzero-probe-fe-pc-0847"
+      ],
+      "commands": [
+        "python tools/build_audio_nonzero_control_probe_packet.py",
+        "python tools/validate_audio_nonzero_control_probe_packet.py",
+        "python tools/validate_audio_nonzero_control_coverage_report.py",
+        "python tools/validate_audio_nonzero_control_probe_plan.py",
+        "python tools/run_audio_probe_campaign.py --lane nonzero --mode dry-run-stub --force",
+        "python tools/run_audio_probe_campaign.py --lane nonzero --mode stub-shape --force",
+        "python tools/run_audio_nonzero_control_probe_batch.py --job-id <job-id> --force --mode external --external <nonzero-control-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "python tools/collect_audio_nonzero_control_probe_results.py",
+        "python tools/build_audio_sequence_semantics_intake_plan.py",
+        "python tools/validate_audio_sequence_semantics_intake_plan.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ],
+      "completion_gate": "Every nonzero probe job has imported result JSON and the intake refresh classifies EF/FD/FE/FF effects without opening sequence promotion.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 3,
+      "lane_id": "zero_runtime_probe_import",
+      "status": "probe_outputs_missing",
+      "priority_reason": "The 0x00 lane has exact one-job-per-track coverage, so it can produce clean finite/loop/preview follow-up buckets once runtime effect proofs are imported.",
+      "primary_inputs": [
+        "manifests/audio-zero-runtime-coverage-report.json",
+        "manifests/audio-probe-campaign-plan.json"
+      ],
+      "counts": {
+        "blocker_track_count": 19,
+        "probe_job_count": 19,
+        "reader_pc_target_count": 10,
+        "runtime_zero_read_count": 5931
+      },
+      "track_refs": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION"
+        },
+        {
+          "track_id": 25,
+          "track_name": "CHAOS_THEATRE"
+        },
+        {
+          "track_id": 32,
+          "track_name": "GIANT_STEP"
+        },
+        {
+          "track_id": 33,
+          "track_name": "LILLIPUT_STEPS"
+        },
+        {
+          "track_id": 34,
+          "track_name": "MILKY_WELL"
+        },
+        {
+          "track_id": 35,
+          "track_name": "RAINY_CIRCLE"
+        },
+        {
+          "track_id": 36,
+          "track_name": "MAGNET_HILL"
+        },
+        {
+          "track_id": 37,
+          "track_name": "PINK_CLOUD"
+        },
+        {
+          "track_id": 38,
+          "track_name": "LUMINE_HALL"
+        },
+        {
+          "track_id": 39,
+          "track_name": "FIRE_SPRING"
+        },
+        {
+          "track_id": 85,
+          "track_name": "BULLDOZER"
+        },
+        {
+          "track_id": 94,
+          "track_name": "GOOD_FRIENDS_BAD_FRIENDS"
+        },
+        {
+          "track_id": 120,
+          "track_name": "HOTEL_OF_THE_LIVING_DEAD"
+        },
+        {
+          "track_id": 143,
+          "track_name": "LEAVING_MAGICANT"
+        },
+        {
+          "track_id": 157,
+          "track_name": "ATTRACT_MODE"
+        },
+        {
+          "track_id": 171,
+          "track_name": "WINTERS_INTRO"
+        },
+        {
+          "track_id": 173,
+          "track_name": "GOOD_MORNING_MOONSIDE"
+        },
+        {
+          "track_id": 174,
+          "track_name": "GAS_STATION_2"
+        },
+        {
+          "track_id": 175,
+          "track_name": "TITLE_SCREEN"
+        }
+      ],
+      "job_ids": [
+        "zero-probe-track-001-gas_station",
+        "zero-probe-track-025-chaos_theatre",
+        "zero-probe-track-032-giant_step",
+        "zero-probe-track-033-lilliput_steps",
+        "zero-probe-track-034-milky_well",
+        "zero-probe-track-035-rainy_circle",
+        "zero-probe-track-036-magnet_hill",
+        "zero-probe-track-037-pink_cloud",
+        "zero-probe-track-038-lumine_hall",
+        "zero-probe-track-039-fire_spring",
+        "zero-probe-track-085-bulldozer",
+        "zero-probe-track-094-good_friends_bad_friends",
+        "zero-probe-track-120-hotel_of_the_living_dead",
+        "zero-probe-track-143-leaving_magicant",
+        "zero-probe-track-157-attract_mode",
+        "zero-probe-track-171-winters_intro",
+        "zero-probe-track-173-good_morning_moonside",
+        "zero-probe-track-174-gas_station_2",
+        "zero-probe-track-175-title_screen"
+      ],
+      "campaign_job_ids": [
+        "zero-probe-track-174-gas_station_2",
+        "zero-probe-track-038-lumine_hall",
+        "zero-probe-track-032-giant_step",
+        "zero-probe-track-033-lilliput_steps",
+        "zero-probe-track-034-milky_well",
+        "zero-probe-track-035-rainy_circle",
+        "zero-probe-track-036-magnet_hill",
+        "zero-probe-track-037-pink_cloud",
+        "zero-probe-track-039-fire_spring",
+        "zero-probe-track-171-winters_intro",
+        "zero-probe-track-001-gas_station",
+        "zero-probe-track-175-title_screen",
+        "zero-probe-track-173-good_morning_moonside",
+        "zero-probe-track-094-good_friends_bad_friends",
+        "zero-probe-track-143-leaving_magicant",
+        "zero-probe-track-157-attract_mode",
+        "zero-probe-track-025-chaos_theatre",
+        "zero-probe-track-085-bulldozer",
+        "zero-probe-track-120-hotel_of_the_living_dead"
+      ],
+      "commands": [
+        "python tools/build_audio_zero_runtime_probe_packet.py",
+        "python tools/validate_audio_zero_runtime_probe_packet.py",
+        "python tools/validate_audio_zero_runtime_coverage_report.py",
+        "python tools/validate_audio_zero_runtime_probe_plan.py",
+        "python tools/run_audio_probe_campaign.py --lane zero --mode dry-run-stub --force",
+        "python tools/run_audio_probe_campaign.py --lane zero --mode stub-shape --force",
+        "python tools/run_audio_zero_runtime_probe_batch.py --job-id <job-id> --force --mode external --external <zero-runtime-probe-harness> --job \"{job}\" --result \"{result}\"",
+        "python tools/collect_audio_zero_runtime_probe_results.py",
+        "python tools/build_audio_sequence_semantics_intake_plan.py",
+        "python tools/validate_audio_sequence_semantics_intake_plan.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ],
+      "completion_gate": "Every zero-runtime blocker has imported runtime effect proof, then each track is routed to active-preview, finite/transition, or loop-point follow-up according to the refreshed uncertainty register.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 4,
+      "lane_id": "finite_transition_tail_classification",
+      "status": "runtime_tail_classification_pending",
+      "priority_reason": "Five candidate finite ends all have nonzero PCM after the candidate end; three remain active through the diagnostic render boundary and need transition/stinger evidence before exact finite export.",
+      "primary_inputs": [
+        "manifests/audio-finite-ending-tail-metrics.json",
+        "manifests/audio-finite-ending-evidence-plan.json"
+      ],
+      "counts": {
+        "track_count": 5,
+        "nonzero_after_candidate_end_count": 5,
+        "active_through_render_boundary_count": 3
+      },
+      "track_refs": [
+        {
+          "track_id": 8,
+          "track_name": "BATTLE_SWIRL1"
+        },
+        {
+          "track_id": 9,
+          "track_name": "BATTLE_SWIRL2"
+        },
+        {
+          "track_id": 11,
+          "track_name": "NEW_FRIEND"
+        },
+        {
+          "track_id": 123,
+          "track_name": "SOMEONE_JOINS"
+        },
+        {
+          "track_id": 176,
+          "track_name": "BATTLE_SWIRL4"
+        }
+      ],
+      "job_ids": [
+        "finite-ending-track-008-battle_swirl1",
+        "finite-ending-track-009-battle_swirl2",
+        "finite-ending-track-011-new_friend",
+        "finite-ending-track-123-someone_joins",
+        "finite-ending-track-176-battle_swirl4"
+      ],
+      "commands": [
+        "python tools/build_audio_finite_transition_classification_packet.py",
+        "python tools/validate_audio_finite_transition_classification_packet.py",
+        "python tools/run_audio_finite_ending_evidence_plan.py --mode audit-current-export",
+        "python tools/validate_audio_finite_ending_evidence_run_summary.py",
+        "python tools/build_audio_finite_ending_tail_metrics.py",
+        "python tools/validate_audio_finite_ending_tail_metrics.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ],
+      "completion_gate": "Each finite-transition candidate has runtime/oracle state evidence that distinguishes true finite release from transition/stinger or active preview behavior.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 5,
+      "lane_id": "loop_point_or_hold_classification",
+      "status": "exact_loop_metadata_missing",
+      "priority_reason": "All five loop/held candidates are active through the diagnostic render boundary, but exact intro/start/end loop fields are still placeholders.",
+      "primary_inputs": [
+        "manifests/audio-loop-point-tail-metrics.json",
+        "manifests/audio-loop-point-evidence-plan.json"
+      ],
+      "counts": {
+        "track_count": 5,
+        "active_through_render_boundary_count": 5,
+        "missing_exact_loop_field_count": 20
+      },
+      "track_refs": [
+        {
+          "track_id": 5,
+          "track_name": "YOU_WON1"
+        },
+        {
+          "track_id": 6,
+          "track_name": "LEVEL_UP"
+        },
+        {
+          "track_id": 115,
+          "track_name": "PHONE_CALL"
+        },
+        {
+          "track_id": 183,
+          "track_name": "SUDDEN_VICTORY"
+        },
+        {
+          "track_id": 184,
+          "track_name": "YOU_WON3"
+        }
+      ],
+      "job_ids": [
+        "loop-point-track-005-you_won1",
+        "loop-point-track-006-level_up",
+        "loop-point-track-115-phone_call",
+        "loop-point-track-183-sudden_victory",
+        "loop-point-track-184-you_won3"
+      ],
+      "commands": [
+        "python tools/build_audio_loop_hold_classification_packet.py",
+        "python tools/validate_audio_loop_hold_classification_packet.py",
+        "python tools/run_audio_loop_point_evidence_plan.py --mode audit-current-export",
+        "python tools/validate_audio_loop_point_evidence_run_summary.py",
+        "python tools/build_audio_loop_point_tail_metrics.py",
+        "python tools/validate_audio_loop_point_tail_metrics.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ],
+      "completion_gate": "Each candidate has validated exact loop intro/start/end metadata or a documented held/no-exact-loop policy that keeps public preview behavior explicit.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 6,
+      "lane_id": "residual_public_exact_blockers",
+      "status": "two_public_exact_blockers_remaining",
+      "priority_reason": "The residual lane isolates the only public-exact blockers not already covered by control, finite-tail, loop-tail, or oracle campaign work.",
+      "primary_inputs": [
+        "manifests/audio-residual-uncertainty-coverage-report.json",
+        "manifests/audio-export-plan.json"
+      ],
+      "counts": {
+        "record_count": 8,
+        "public_exact_blocked_count": 2
+      },
+      "track_refs": [
+        {
+          "track_id": 0,
+          "track_name": "NONE"
+        },
+        {
+          "track_id": 10,
+          "track_name": "WHAT_THE_HECK"
+        }
+      ],
+      "recommended_actions": {
+        "0": "measure_or_confirm_skip_policy_before_public_export",
+        "10": "classify_active_preview_or_find_exact_end_before_public_exact_export"
+      },
+      "commands": [
+        "python tools/validate_audio_residual_uncertainty_coverage_report.py",
+        "python tools/build_audio_export_plan.py",
+        "python tools/validate_audio_export_plan.py",
+        "python tools/build_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_duration_uncertainty_register.py"
+      ],
+      "completion_gate": "NONE has a measured duration or explicit skip policy, and WHAT_THE_HECK has active-preview classification or exact-end evidence before public exact export.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "priority_rank": 7,
+      "lane_id": "pcm_trim_sequence_intent_review",
+      "status": "semantic_promotion_open_public_exact_ready",
+      "priority_reason": "Five PCM-trim tracks are already public-exact ready from PCM evidence; reviewing sequence intent prevents those usable exports from being confused with sequence-derived semantic promotion.",
+      "primary_inputs": [
+        "manifests/audio-residual-uncertainty-coverage-report.json",
+        "manifests/audio-sequence-semantics-intake-plan.json"
+      ],
+      "counts": {
+        "pcm_trim_sequence_intent_open_count": 5,
+        "public_exact_allowed_count": 6
+      },
+      "track_refs": [
+        {
+          "track_id": 12,
+          "track_name": "YOU_WON2"
+        },
+        {
+          "track_id": 13,
+          "track_name": "TELEPORT_OUT"
+        },
+        {
+          "track_id": 14,
+          "track_name": "TELEPORT_FAIL"
+        },
+        {
+          "track_id": 15,
+          "track_name": "FALLING_UNDERGROUND"
+        },
+        {
+          "track_id": 135,
+          "track_name": "TELEPORT_IN"
+        }
+      ],
+      "commands": [
+        "python tools/validate_audio_residual_uncertainty_coverage_report.py",
+        "python tools/validate_audio_sequence_semantics_intake_plan.py",
+        "python tools/validate_audio_duration_uncertainty_register.py",
+        "python tools/validate_audio_export_plan.py"
+      ],
+      "completion_gate": "PCM trim remains usable for public export while sequence-intent evidence either validates or explicitly blocks semantic sequence promotion.",
+      "promotion_allowed_by_lane": false,
+      "behavior_change_allowed": false
+    }
+  ],
+  "post_completion_validation_commands": [
+    "python tools/build_audio_duration_readiness_rollup.py",
+    "python tools/validate_audio_duration_readiness_rollup.py",
+    "python tools/build_audio_duration_next_actions_plan.py",
+    "python tools/validate_audio_duration_next_actions_plan.py",
+    "python tools/build_audio_oracle_source_regeneration_plan.py",
+    "python tools/validate_audio_oracle_source_regeneration_plan.py",
+    "python tools/validate_audio_export_plan.py",
+    "python tools/validate_audio_duration_uncertainty_register.py",
+    "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+    "git diff --check"
+  ],
+  "decision_policy": [
+    "This plan ranks evidence collection and validation only; it does not change playback or export behavior.",
+    "Promotion remains blocked in every lane until source reports are refreshed by imported evidence.",
+    "Independent external-emulator captures are the first release-quality comparison gate even though near-oracle equivalence passes.",
+    "Nonzero and zero probe outputs must be collected under ignored build/audio paths before they can affect duration uncertainty.",
+    "Finite and loop candidates need runtime/oracle classification before exact-duration or exact-loop public export claims.",
+    "Residual public-exact blockers are tracked separately from PCM-trim tracks that are already usable by PCM evidence."
+  ]
+}

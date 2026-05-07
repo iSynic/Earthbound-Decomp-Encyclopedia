@@ -1,0 +1,179 @@
+{
+  "schema": "earthbound-decomp.audio-nonzero-control-probe-results-summary.v1",
+  "status": "nonzero_control_probe_results_collected",
+  "probe_plan": "manifests/audio-nonzero-control-probe-plan.json",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_probe_outputs_are_ignored": true,
+    "generated_outputs_root": "build/audio/nonzero-control-probe",
+    "do_not_distribute_reference_spc_wav_or_rom_derived_audio": true
+  },
+  "summary": {
+    "job_count": 7,
+    "result_count": 0,
+    "valid_result_count": 0,
+    "status_counts": {
+      "pending": 7
+    },
+    "validation_counts": {
+      "invalid_or_pending": 7
+    },
+    "control_effect_classification_counts": {
+      "pending": 7
+    },
+    "command_job_counts": {
+      "0xEF": 3,
+      "0xFD": 1,
+      "0xFE": 2,
+      "0xFF": 1
+    },
+    "remaining_blocker_job_counts": {
+      "earthbound_variant_ff_effect": 1,
+      "ef_call_return_effect": 3,
+      "non_zero_control_semantics_pending": 7,
+      "timing_toggle_effect": 3
+    },
+    "resolved_control_effect_job_ids": [],
+    "sequence_promotion_allowed": false,
+    "semantic_status": "nonzero_control_probe_outputs_pending"
+  },
+  "result_acceptance_policy": [
+    "A result can resolve one command/reader-PC job only when it validates and classifies the effect as ef_call_return, timing_toggle, earthbound_variant_ff, or unreachable.",
+    "EF, FD/FE, and FF classifications are command-family specific; a valid result cannot use a classification from the wrong family.",
+    "This summary cannot directly promote public exact-duration exports.",
+    "Validated command effects must be consumed by audio-sequence-command-semantics before exact-duration policy can change."
+  ],
+  "results": [
+    {
+      "job_id": "nonzero-probe-ff-pc-0957",
+      "command": "0xFF",
+      "reader_pc": "0x0957",
+      "read_count": 10,
+      "affected_kind": "static_walk_blocker",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "earthbound_variant_ff_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0957",
+      "command": "0xEF",
+      "reader_pc": "0x0957",
+      "read_count": 23,
+      "affected_kind": "return_stack_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-fe-pc-0957",
+      "command": "0xFE",
+      "reader_pc": "0x0957",
+      "read_count": 4,
+      "affected_kind": "timing_toggle_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0b8a",
+      "command": "0xEF",
+      "reader_pc": "0x0B8A",
+      "read_count": 95,
+      "affected_kind": "return_stack_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0d12",
+      "command": "0xEF",
+      "reader_pc": "0x0D12",
+      "read_count": 1,
+      "affected_kind": "return_stack_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "ef_call_return_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-fd-pc-0847",
+      "command": "0xFD",
+      "reader_pc": "0x0847",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "job_id": "nonzero-probe-fe-pc-0847",
+      "command": "0xFE",
+      "reader_pc": "0x0847",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "result_path": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof-result.json",
+      "result_exists": false,
+      "status": "pending",
+      "valid": false,
+      "control_effect_classification": "pending",
+      "errors": [],
+      "remaining_blockers": [
+        "non_zero_control_semantics_pending",
+        "timing_toggle_effect"
+      ],
+      "promotion_allowed": false
+    }
+  ],
+  "next_work": [
+    "run the 0x0957 FF/FE/EF jobs first because that reader PC covers the highest-value command mix",
+    "review invalid or unresolved probe outputs before changing sequence command semantics",
+    "feed only validated control-effect classifications back into audio-sequence-command-semantics"
+  ]
+}

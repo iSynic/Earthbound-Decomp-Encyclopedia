@@ -1,0 +1,1371 @@
+{
+  "schema": "earthbound-decomp.audio-spc700-control-reader-frontier.v1",
+  "status": "control_reader_pcs_identified_effect_decode_pending",
+  "references": [
+    "manifests/audio-spc700-dispatch-trace-frontier.json",
+    "manifests/audio-pack-contracts.json",
+    "tools/ares_audio_harness/main.cpp"
+  ],
+  "driver": {
+    "pack_id": 1,
+    "block_index": 2,
+    "destination": "0x0500",
+    "bytes": 16779,
+    "payload_sha1": "86dd8a4ed492ba7522557b56a8400b883ab276ce"
+  },
+  "summary": {
+    "reader_pc_count": 10,
+    "control_read_count": 4242,
+    "command_counts": {
+      "0x00": 4107,
+      "0xEF": 119,
+      "0xFD": 1,
+      "0xFE": 5,
+      "0xFF": 10
+    },
+    "source_backed_reader_labels": {
+      "0x0955": "GetNextByte",
+      "0x0957": "SkipByte"
+    },
+    "exact_duration_promotion_allowed": false,
+    "semantic_status": "reader_paths_known_effects_unpromoted"
+  },
+  "reader_pcs": [
+    {
+      "pc": "0x2DB0",
+      "inside_driver_block": true,
+      "driver_offset": "0x28B0",
+      "window_start_offset": "0x28A8",
+      "window_byte_count": 32,
+      "window_sha1": "617b11afc4d1b78051b8590c6d9687445820e1ad",
+      "first_byte": "0xD0",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 957
+      },
+      "total_control_reads": 957,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 25621,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 26215,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 27173,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 25621,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 26215,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 27173,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 32140,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0A00",
+            "dp_12_13": "0x0052"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DAF",
+          "instruction": 35334,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0A00",
+            "dp_12_13": "0x0032"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x2DDA",
+      "inside_driver_block": true,
+      "driver_offset": "0x28DA",
+      "window_start_offset": "0x28D2",
+      "window_byte_count": 32,
+      "window_sha1": "463b22d6a538f0a6fe2e863d4e4b6b11f2df9729",
+      "first_byte": "0xD0",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 955
+      },
+      "total_control_reads": 955,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 25631,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 26225,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 27183,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 25631,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 26225,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 27183,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 32150,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0A00",
+            "dp_12_13": "0x0052"
+          }
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "command": "0x00",
+          "sequence_address": "0x2DD9",
+          "instruction": 25631,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x2DF8",
+      "inside_driver_block": true,
+      "driver_offset": "0x28F8",
+      "window_start_offset": "0x28F0",
+      "window_byte_count": 32,
+      "window_sha1": "21ab0edf7758b50e76287a619649bcfc812ea9a9",
+      "first_byte": "0xD0",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 955
+      },
+      "total_control_reads": 955,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 25626,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 26220,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 27178,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 25626,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 26220,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x48",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 27178,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x61",
+            "s": "0xCC",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 32145,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0A00",
+            "dp_12_13": "0x0052"
+          }
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "command": "0x00",
+          "sequence_address": "0x2DF7",
+          "instruction": 25626,
+          "registers": {
+            "ya": "0x0100",
+            "x": "0x45",
+            "s": "0xCC",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x2E3D",
+      "inside_driver_block": true,
+      "driver_offset": "0x293D",
+      "window_start_offset": "0x2935",
+      "window_byte_count": 32,
+      "window_sha1": "a8473735e4138a6d916e7eb9c0f6a9272a18a4b1",
+      "first_byte": "0xF0",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 952
+      },
+      "total_control_reads": 952,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 25692,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x02"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 26286,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x42"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 27244,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x42"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 25692,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x02"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 26286,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x42"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 27244,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x42"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 32211,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x02"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0A00",
+            "dp_12_13": "0x0052"
+          }
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "command": "0x00",
+          "sequence_address": "0x2E3C",
+          "instruction": 25692,
+          "registers": {
+            "ya": "0x8000",
+            "x": "0x03",
+            "s": "0xCC",
+            "p": "0x02"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x0B8A",
+      "inside_driver_block": true,
+      "driver_offset": "0x068A",
+      "window_start_offset": "0x0682",
+      "window_byte_count": 32,
+      "window_sha1": "1a6168ece78aea4a63985c4573db7a916a776d2d",
+      "first_byte": "0x68",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 84,
+        "0xEF": 95
+      },
+      "total_control_reads": 179,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0xEF",
+          "sequence_address": "0x4839",
+          "instruction": 28930,
+          "registers": {
+            "ya": "0x5E00",
+            "x": "0x00",
+            "s": "0xCB",
+            "p": "0x02"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x3000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 121,
+          "track_name": "ONETT_INTRO",
+          "command": "0x00",
+          "sequence_address": "0x6240",
+          "instruction": 28581,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x00",
+            "s": "0xCB",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 133,
+          "track_name": "HIDDEN_SONG",
+          "command": "0x00",
+          "sequence_address": "0x5946",
+          "instruction": 28179,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x00",
+            "s": "0xCB",
+            "p": "0x43"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 133,
+          "track_name": "HIDDEN_SONG",
+          "command": "0xEF",
+          "sequence_address": "0x5965",
+          "instruction": 28818,
+          "registers": {
+            "ya": "0x0000",
+            "x": "0x0C",
+            "s": "0xCB",
+            "p": "0x03"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x0957",
+      "inside_driver_block": true,
+      "driver_offset": "0x0457",
+      "window_start_offset": "0x044F",
+      "window_byte_count": 32,
+      "window_sha1": "1bacf73e7baf6f7c3225d8165f0b470cbc2bc6e2",
+      "first_byte": "0xBB",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 114,
+        "0xEF": 23,
+        "0xFE": 4,
+        "0xFF": 10
+      },
+      "total_control_reads": 151,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x4826",
+          "instruction": 28459,
+          "registers": {
+            "ya": "0x6001",
+            "x": "0x00",
+            "s": "0xC9",
+            "p": "0x40"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x482C",
+          "instruction": 28616,
+          "registers": {
+            "ya": "0x6B03",
+            "x": "0x00",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x4830",
+          "instruction": 28660,
+          "registers": {
+            "ya": "0x6303",
+            "x": "0x00",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x48AF",
+          "instruction": 29387,
+          "registers": {
+            "ya": "0x6001",
+            "x": "0x06",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x3000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x48DD",
+          "instruction": 29958,
+          "registers": {
+            "ya": "0x6303",
+            "x": "0x08",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x2900",
+            "dp_12_13": "0x0080"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x48E1",
+          "instruction": 30005,
+          "registers": {
+            "ya": "0x7203",
+            "x": "0x08",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x2900",
+            "dp_12_13": "0x0080"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x48F5",
+          "instruction": 30305,
+          "registers": {
+            "ya": "0x6001",
+            "x": "0x0A",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x11FE",
+            "dp_12_13": "0x00C0"
+          }
+        },
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x48FB",
+          "instruction": 30462,
+          "registers": {
+            "ya": "0x6B03",
+            "x": "0x0A",
+            "s": "0xC9",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x11FE",
+            "dp_12_13": "0x00C0"
+          }
+        }
+      ],
+      "source_label": "SkipByte",
+      "source_role": "source_backed_reader_helper"
+    },
+    {
+      "pc": "0x0847",
+      "inside_driver_block": true,
+      "driver_offset": "0x0347",
+      "window_start_offset": "0x033F",
+      "window_byte_count": 32,
+      "window_sha1": "15e34dc26f3612b79ab5667e1a597921a9edb610",
+      "first_byte": "0xD6",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 73,
+        "0xFD": 1,
+        "0xFE": 1
+      },
+      "total_control_reads": 75,
+      "sample_reads": [
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x5057",
+          "instruction": 27387,
+          "registers": {
+            "ya": "0x0F48",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x5056",
+          "instruction": 27391,
+          "registers": {
+            "ya": "0x0E00",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "command": "0x00",
+          "sequence_address": "0x5865",
+          "instruction": 27387,
+          "registers": {
+            "ya": "0x0F56",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 46,
+          "track_name": "ONETT",
+          "command": "0x00",
+          "sequence_address": "0x5864",
+          "instruction": 27391,
+          "registers": {
+            "ya": "0x0E00",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 48,
+          "track_name": "SATURN_VALLEY",
+          "command": "0x00",
+          "sequence_address": "0x582D",
+          "instruction": 27387,
+          "registers": {
+            "ya": "0x0F1E",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 48,
+          "track_name": "SATURN_VALLEY",
+          "command": "0x00",
+          "sequence_address": "0x582C",
+          "instruction": 27391,
+          "registers": {
+            "ya": "0x0E00",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 48,
+          "track_name": "SATURN_VALLEY",
+          "command": "0x00",
+          "sequence_address": "0x582B",
+          "instruction": 27395,
+          "registers": {
+            "ya": "0x0D00",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 48,
+          "track_name": "SATURN_VALLEY",
+          "command": "0x00",
+          "sequence_address": "0x582A",
+          "instruction": 27399,
+          "registers": {
+            "ya": "0x0C00",
+            "x": "0x01",
+            "s": "0xCD",
+            "p": "0x41"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x0782",
+      "inside_driver_block": true,
+      "driver_offset": "0x0282",
+      "window_start_offset": "0x027A",
+      "window_byte_count": 32,
+      "window_sha1": "e6e6c3a2551ecdcb98dded66c9c8bfe91b8af37e",
+      "first_byte": "0xDA",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 8
+      },
+      "total_control_reads": 8,
+      "sample_reads": [
+        {
+          "track_id": 1,
+          "track_name": "GAS_STATION",
+          "command": "0x00",
+          "sequence_address": "0x2E4A",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0x02",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 2,
+          "track_name": "NAMING_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2E4C",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x5050",
+            "x": "0x04",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 47,
+          "track_name": "FOURSIDE",
+          "command": "0x00",
+          "sequence_address": "0x2EA6",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x5858",
+            "x": "0x5E",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 48,
+          "track_name": "SATURN_VALLEY",
+          "command": "0x00",
+          "sequence_address": "0x2EA8",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x5858",
+            "x": "0x60",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 83,
+          "track_name": "SKY_RUNNER",
+          "command": "0x00",
+          "sequence_address": "0x2EEE",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0xA6",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 95,
+          "track_name": "SMILES_AND_TEARS",
+          "command": "0x00",
+          "sequence_address": "0x2F06",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0xBE",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 105,
+          "track_name": "POKEY_MEANS_BUSINESS",
+          "command": "0x00",
+          "sequence_address": "0x2F1A",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0xD2",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 121,
+          "track_name": "ONETT_INTRO",
+          "command": "0x00",
+          "sequence_address": "0x2F3A",
+          "instruction": 26081,
+          "registers": {
+            "ya": "0x6262",
+            "x": "0xF2",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x07A6",
+      "inside_driver_block": true,
+      "driver_offset": "0x02A6",
+      "window_start_offset": "0x029E",
+      "window_byte_count": 32,
+      "window_sha1": "79ddb0bfb08126e98da9f100e62d691c45e96e76",
+      "first_byte": "0x5F",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 8
+      },
+      "total_control_reads": 8,
+      "sample_reads": [
+        {
+          "track_id": 133,
+          "track_name": "HIDDEN_SONG",
+          "command": "0x00",
+          "sequence_address": "0x2F52",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x5858",
+            "x": "0x0C",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 157,
+          "track_name": "ATTRACT_MODE",
+          "command": "0x00",
+          "sequence_address": "0x2F82",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0x3C",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 160,
+          "track_name": "SOUNDSTONE_RECORDING_GIANT_STEP",
+          "command": "0x00",
+          "sequence_address": "0x2F88",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x4949",
+            "x": "0x42",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 168,
+          "track_name": "SOUNDSTONE_BGM",
+          "command": "0x00",
+          "sequence_address": "0x2F98",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0x52",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 175,
+          "track_name": "TITLE_SCREEN",
+          "command": "0x00",
+          "sequence_address": "0x2FA6",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0x60",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 186,
+          "track_name": "GIYGAS_PHASE1",
+          "command": "0x00",
+          "sequence_address": "0x2FBC",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x4848",
+            "x": "0x76",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 187,
+          "track_name": "GIVE_US_STRENGTH",
+          "command": "0x00",
+          "sequence_address": "0x2FBE",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x5454",
+            "x": "0x78",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        },
+        {
+          "track_id": 191,
+          "track_name": "GIYGAS_WEAKENED",
+          "command": "0x00",
+          "sequence_address": "0x2FC6",
+          "instruction": 26083,
+          "registers": {
+            "ya": "0x5252",
+            "x": "0x80",
+            "s": "0xCD",
+            "p": "0x00"
+          },
+          "command_pointer_registers": {
+            "dp_10_11": "0x0000",
+            "dp_12_13": "0x0000"
+          }
+        }
+      ]
+    },
+    {
+      "pc": "0x0D12",
+      "inside_driver_block": true,
+      "driver_offset": "0x0812",
+      "window_start_offset": "0x080A",
+      "window_byte_count": 32,
+      "window_sha1": "b6f5d5dfa93d252f4c74fff8726c534bccf71187",
+      "first_byte": "0xF0",
+      "role": "sequence_control_byte_reader_candidate",
+      "command_counts": {
+        "0x00": 1,
+        "0xEF": 1
+      },
+      "total_control_reads": 2,
+      "sample_reads": []
+    }
+  ],
+  "findings": [
+    "Runtime traces now identify concrete SPC700 PCs that read sequence control bytes.",
+    "The checked-in byte-perfect source labels the strongest helper readers as GetNextByte and SkipByte.",
+    "The control reader PCs are stronger next targets than the provisional high-command dispatch table for current exact-duration work.",
+    "This frontier records offsets, counts, hashes, and sampled register context only; it does not embed ROM-derived driver byte windows."
+  ],
+  "next_work": [
+    "decode reader PCs that observe 0x00 because they are now the primary end-vs-return proof target",
+    "decode reader PC 0x0957 because it observes FF, FE, and EF control bytes",
+    "decode reader PC 0x0847 because it observes FD and FE control bytes",
+    "decode reader PC 0x0B8A because it is the dominant EF reader in the sampled corpus"
+  ]
+}

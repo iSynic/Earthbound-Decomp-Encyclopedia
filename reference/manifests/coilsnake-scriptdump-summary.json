@@ -1,0 +1,232 @@
+{
+  "schema": "earthbound-decomp.coilsnake-scriptdump-summary.v1",
+  "generated_by": "tools/build_coilsnake_scriptdump_report.py",
+  "safety_note": "This report stores file names, sizes, counts, and ROM diff spans only; it does not store CCScript payload text.",
+  "scriptdump": {
+    "command": "coilsnake-cli --verbose scriptdump \"EarthBound (USA).sfc\" build/coilsnake/scriptdump-project",
+    "project_dir": "build/coilsnake/scriptdump-project",
+    "ccscript_dir": "build/coilsnake/scriptdump-project/ccscript",
+    "observed_result": "scriptdump succeeded and populated ccscript files in an ignored project copy"
+  },
+  "compile_roundtrip": {
+    "command": "coilsnake-cli --verbose compile build/coilsnake/scriptdump-project build/coilsnake/base-expanded.sfc build/coilsnake/scriptdump-rebuild.sfc",
+    "rebuilt_rom": "build/coilsnake/scriptdump-rebuild.sfc",
+    "observed_result": "scriptdump project compiled successfully against the expanded base ROM",
+    "diff_against_baseline_rebuild": {
+      "base": "build/coilsnake/baseline-rebuild.sfc",
+      "other": "build/coilsnake/scriptdump-rebuild.sfc",
+      "status": "different",
+      "base_size": 4194304,
+      "other_size": 4194304,
+      "changed_bytes": 511398,
+      "contiguous_changed_runs": 30055,
+      "first_changed_offset": "0x03FD8D",
+      "first_changed_hirom": "C3:FD8D",
+      "last_changed_offset_exclusive": "0x38A10C",
+      "last_changed_hirom_exclusive": "F8:A10C",
+      "sample_runs": [
+        {
+          "start": "0x03FD8D",
+          "start_hirom": "C3:FD8D",
+          "end_exclusive": "0x03FD90",
+          "end_hirom_exclusive": "C3:FD90",
+          "length": 3
+        },
+        {
+          "start": "0x03FD91",
+          "start_hirom": "C3:FD91",
+          "end_exclusive": "0x03FD94",
+          "end_hirom_exclusive": "C3:FD94",
+          "length": 3
+        },
+        {
+          "start": "0x03FD95",
+          "start_hirom": "C3:FD95",
+          "end_exclusive": "0x03FD98",
+          "end_hirom_exclusive": "C3:FD98",
+          "length": 3
+        },
+        {
+          "start": "0x03FD99",
+          "start_hirom": "C3:FD99",
+          "end_exclusive": "0x03FD9C",
+          "end_hirom_exclusive": "C3:FD9C",
+          "length": 3
+        },
+        {
+          "start": "0x03FD9D",
+          "start_hirom": "C3:FD9D",
+          "end_exclusive": "0x03FDA0",
+          "end_hirom_exclusive": "C3:FDA0",
+          "length": 3
+        },
+        {
+          "start": "0x03FDA1",
+          "start_hirom": "C3:FDA1",
+          "end_exclusive": "0x03FDA4",
+          "end_hirom_exclusive": "C3:FDA4",
+          "length": 3
+        },
+        {
+          "start": "0x03FDA5",
+          "start_hirom": "C3:FDA5",
+          "end_exclusive": "0x03FDA8",
+          "end_hirom_exclusive": "C3:FDA8",
+          "length": 3
+        },
+        {
+          "start": "0x03FDA9",
+          "start_hirom": "C3:FDA9",
+          "end_exclusive": "0x03FDAC",
+          "end_hirom_exclusive": "C3:FDAC",
+          "length": 3
+        },
+        {
+          "start": "0x03FDAD",
+          "start_hirom": "C3:FDAD",
+          "end_exclusive": "0x03FDB0",
+          "end_hirom_exclusive": "C3:FDB0",
+          "length": 3
+        },
+        {
+          "start": "0x03FDB1",
+          "start_hirom": "C3:FDB1",
+          "end_exclusive": "0x03FDB4",
+          "end_hirom_exclusive": "C3:FDB4",
+          "length": 3
+        },
+        {
+          "start": "0x049DBE",
+          "start_hirom": "C4:9DBE",
+          "end_exclusive": "0x049DC0",
+          "end_hirom_exclusive": "C4:9DC0",
+          "length": 2
+        },
+        {
+          "start": "0x049DC3",
+          "start_hirom": "C4:9DC3",
+          "end_exclusive": "0x049DC4",
+          "end_hirom_exclusive": "C4:9DC4",
+          "length": 1
+        },
+        {
+          "start": "0x049DCA",
+          "start_hirom": "C4:9DCA",
+          "end_exclusive": "0x049DCC",
+          "end_hirom_exclusive": "C4:9DCC",
+          "length": 2
+        },
+        {
+          "start": "0x049DCF",
+          "start_hirom": "C4:9DCF",
+          "end_exclusive": "0x049DD0",
+          "end_hirom_exclusive": "C4:9DD0",
+          "length": 1
+        },
+        {
+          "start": "0x049EA4",
+          "start_hirom": "C4:9EA4",
+          "end_exclusive": "0x049EA7",
+          "end_hirom_exclusive": "C4:9EA7",
+          "length": 3
+        },
+        {
+          "start": "0x049EA8",
+          "start_hirom": "C4:9EA8",
+          "end_exclusive": "0x049EAB",
+          "end_hirom_exclusive": "C4:9EAB",
+          "length": 3
+        },
+        {
+          "start": "0x049EAC",
+          "start_hirom": "C4:9EAC",
+          "end_exclusive": "0x049EAF",
+          "end_hirom_exclusive": "C4:9EAF",
+          "length": 3
+        },
+        {
+          "start": "0x049EB0",
+          "start_hirom": "C4:9EB0",
+          "end_exclusive": "0x049EB3",
+          "end_hirom_exclusive": "C4:9EB3",
+          "length": 3
+        },
+        {
+          "start": "0x049EB4",
+          "start_hirom": "C4:9EB4",
+          "end_exclusive": "0x049EB7",
+          "end_hirom_exclusive": "C4:9EB7",
+          "length": 3
+        },
+        {
+          "start": "0x049EB8",
+          "start_hirom": "C4:9EB8",
+          "end_exclusive": "0x049EBB",
+          "end_hirom_exclusive": "C4:9EBB",
+          "length": 3
+        }
+      ]
+    }
+  },
+  "baseline_ccscript_summary": {
+    "file_count": 1,
+    "total_file_bytes": 0,
+    "extensions": {
+      ".txt": 1
+    },
+    "ccs_file_count": 0,
+    "data_module_count": 0,
+    "main_ccs_present": false,
+    "summary_txt_present": true,
+    "total_text_lines": 0,
+    "smallest_file_bytes": 0,
+    "largest_file_bytes": 0
+  },
+  "scriptdump_ccscript_summary": {
+    "file_count": 65,
+    "total_file_bytes": 1601998,
+    "extensions": {
+      ".ccs": 64,
+      ".txt": 1
+    },
+    "ccs_file_count": 64,
+    "data_module_count": 63,
+    "main_ccs_present": true,
+    "summary_txt_present": true,
+    "total_text_lines": 39287,
+    "smallest_file_bytes": 153,
+    "largest_file_bytes": 249870
+  },
+  "baseline_to_scriptdump_delta": {
+    "added_file_count": 64,
+    "removed_file_count": 0,
+    "common_file_count": 1,
+    "changed_size_count": 1,
+    "added_file_sample": [
+      "data_00.ccs",
+      "data_01.ccs",
+      "data_02.ccs",
+      "data_03.ccs",
+      "data_04.ccs",
+      "data_05.ccs",
+      "data_06.ccs",
+      "data_07.ccs",
+      "data_08.ccs",
+      "data_09.ccs",
+      "data_10.ccs",
+      "data_11.ccs",
+      "data_12.ccs",
+      "data_13.ccs",
+      "data_14.ccs",
+      "data_15.ccs",
+      "data_16.ccs",
+      "data_17.ccs",
+      "data_18.ccs",
+      "data_19.ccs"
+    ],
+    "removed_file_sample": [],
+    "changed_size_sample": [
+      "summary.txt"
+    ]
+  }
+}

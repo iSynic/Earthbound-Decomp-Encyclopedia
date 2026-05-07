@@ -1,0 +1,1888 @@
+{
+  "schema": "earthbound-decomp.audio-zero-runtime-probe-runner-contract.v1",
+  "status": "zero_runtime_probe_runner_jobs_ready",
+  "probe_plan": "manifests/audio-zero-runtime-probe-plan.json",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_probe_outputs_are_ignored": true,
+    "generated_outputs_root": "build/audio/zero-runtime-probe",
+    "do_not_distribute_reference_spc_wav_or_rom_derived_audio": true
+  },
+  "runner": {
+    "job_root": "build/audio/zero-runtime-probe-jobs",
+    "job_index_path": "build/audio/zero-runtime-probe-jobs/zero-runtime-probe-jobs.json",
+    "job_note_path": "build/audio/zero-runtime-probe-jobs/zero-runtime-probe-jobs.md",
+    "external_command_template": [
+      "<zero-probe-harness>",
+      "--job",
+      "{job}",
+      "--result",
+      "{result}"
+    ],
+    "per_job_schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+    "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+    "result_validator": "python tools/validate_audio_zero_runtime_probe_result.py {result}",
+    "result_collector": "python tools/collect_audio_zero_runtime_probe_results.py",
+    "behavior_change_allowed": false,
+    "public_exact_promotion_allowed": false
+  },
+  "summary": {
+    "job_count": 19,
+    "unique_track_count": 19,
+    "trace_focus_job_counts": {
+      "prove_zero_effect_but_loop_points_remain_required": 2,
+      "prove_zero_effect_then_classify_active_preview": 5,
+      "prove_zero_end_effect_then_review_finite_candidate": 1,
+      "trace_zero_reader_with_ef_stack_state": 11
+    },
+    "pack_context_job_counts": {
+      "needs_ef_return_stack_model": 11,
+      "zero_phrase_end_candidate_runtime_pending": 8
+    },
+    "reader_pc_target_count": 10,
+    "required_capture_field_count": 20,
+    "sequence_promotion_allowed": false,
+    "semantic_status": "ignored_job_queue_ready_zero_probe_outputs_pending"
+  },
+  "jobs": [
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "pack_id": 1,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-001-gas_station",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-001-gas_station-change-music-fusion-last-keyon.spc",
+          "sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-001-gas_station/diagnostic-libgme-render.wav",
+          "sha1": "83eb4c3ca147ddd1e045ac9e709437c15cd3abc7",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 7852,
+            "rms_sample": 1132.930561,
+            "nonzero_sample_count": 1850154,
+            "first_nonzero_sample_index": 116,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-001-gas_station/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-174-gas_station_2",
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "pack_id": 1,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-174-gas_station_2",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-174-gas_station_2-change-music-fusion-last-keyon.spc",
+          "sha1": "e047c8b136197918db6c191ebe3f47ec2b1061d4",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-174-gas_station_2/diagnostic-libgme-render.wav",
+          "sha1": "1c6102a1e2e0f81bc3b442ddf52e7928c60321ec",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 27379,
+            "rms_sample": 3700.281296,
+            "nonzero_sample_count": 1394052,
+            "first_nonzero_sample_index": 88,
+            "last_nonzero_sample_index": 1919998,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-174-gas_station_2/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-025-chaos_theatre",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "pack_id": 18,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-025-chaos_theatre",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-025-chaos_theatre-change-music-fusion-last-keyon.spc",
+          "sha1": "d0152ff61b3aa2b40b69a473436f4530fc3f69d2",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-025-chaos_theatre/diagnostic-libgme-render.wav",
+          "sha1": "b93ca9345a7ab9fba131f15a25e7efbb85832abb",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 14297,
+            "rms_sample": 1559.163273,
+            "nonzero_sample_count": 1888882,
+            "first_nonzero_sample_index": 200,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 3,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-025-chaos_theatre/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-032-giant_step",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-032-giant_step",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-032-giant_step-change-music-fusion-last-keyon.spc",
+          "sha1": "90b619f650e7e7fc17f13c86d69cb8a2bcef6bcb",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-032-giant_step/diagnostic-libgme-render.wav",
+          "sha1": "0def15cbfbec1cf417320249ba033d29286c7ec0",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8044,
+            "rms_sample": 936.397942,
+            "nonzero_sample_count": 1344538,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1346002,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-032-giant_step/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-033-lilliput_steps",
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-033-lilliput_steps",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-033-lilliput_steps-change-music-fusion-last-keyon.spc",
+          "sha1": "593aada85bf3781f556bfbf5391e127dce99aacf",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-033-lilliput_steps/diagnostic-libgme-render.wav",
+          "sha1": "4f8b87eb5305ae1a56f2187cb55a35149a6048bd",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8212,
+            "rms_sample": 827.042464,
+            "nonzero_sample_count": 1344286,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1345998,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-033-lilliput_steps/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-034-milky_well",
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-034-milky_well",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-034-milky_well-change-music-fusion-last-keyon.spc",
+          "sha1": "e4ba0950e7765e1f8346ee0a2b184cecb3432eca",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-034-milky_well/diagnostic-libgme-render.wav",
+          "sha1": "9be185081ed6ae49d97001ddd7cc5bebf01da7e8",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8515,
+            "rms_sample": 811.799922,
+            "nonzero_sample_count": 1343997,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1345712,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-034-milky_well/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-035-rainy_circle",
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-035-rainy_circle",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-035-rainy_circle-change-music-fusion-last-keyon.spc",
+          "sha1": "7963f0f754013571ac396b06bfd3829b0fa7ecf6",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-035-rainy_circle/diagnostic-libgme-render.wav",
+          "sha1": "9502926333e04802ba63ae9f55e8b384082ced27",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 7523,
+            "rms_sample": 792.461143,
+            "nonzero_sample_count": 1344096,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1345714,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-035-rainy_circle/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-036-magnet_hill",
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-036-magnet_hill",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-036-magnet_hill-change-music-fusion-last-keyon.spc",
+          "sha1": "75db10f1057bc7c33093572d37c5d94b966efca3",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-036-magnet_hill/diagnostic-libgme-render.wav",
+          "sha1": "751f797a83958e36d98e16b849cc95da77a8be00",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 7874,
+            "rms_sample": 818.605951,
+            "nonzero_sample_count": 1344252,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1345836,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-036-magnet_hill/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-037-pink_cloud",
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-037-pink_cloud",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-037-pink_cloud-change-music-fusion-last-keyon.spc",
+          "sha1": "e3d061821ffed20f0e0ba64316c2db32d60d15a3",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-037-pink_cloud/diagnostic-libgme-render.wav",
+          "sha1": "e7ded98feff2546bffb22d596cd4ace9c8f54b59",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8179,
+            "rms_sample": 800.07981,
+            "nonzero_sample_count": 1344405,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1346018,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-037-pink_cloud/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-038-lumine_hall",
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-038-lumine_hall",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-038-lumine_hall-change-music-fusion-last-keyon.spc",
+          "sha1": "c77a0d38d9764ebbafdda9eaafbcbbdcbc47414b",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-038-lumine_hall/diagnostic-libgme-render.wav",
+          "sha1": "21e3ca66d579b52843c97baacf24121438f357e7",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8513,
+            "rms_sample": 807.356508,
+            "nonzero_sample_count": 1231969,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1233386,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-038-lumine_hall/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-039-fire_spring",
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "pack_id": 25,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-039-fire_spring",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-039-fire_spring-change-music-fusion-last-keyon.spc",
+          "sha1": "7b5e43293127a023e8e379335dfc1745a3c61442",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-039-fire_spring/diagnostic-libgme-render.wav",
+          "sha1": "026667238c80f9cdb9f2a48116abbc4ca1800594",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 8050,
+            "rms_sample": 797.701858,
+            "nonzero_sample_count": 1344471,
+            "first_nonzero_sample_index": 72,
+            "last_nonzero_sample_index": 1346056,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-039-fire_spring/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-085-bulldozer",
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "pack_id": 96,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-085-bulldozer",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-085-bulldozer-change-music-fusion-last-keyon.spc",
+          "sha1": "5202d8560f2a621c2b1a2c0ae28042ea58d69eda",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-085-bulldozer/diagnostic-libgme-render.wav",
+          "sha1": "4e384468d3d5060ddfbe192f372141d232fcaee3",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 12133,
+            "rms_sample": 1948.706822,
+            "nonzero_sample_count": 1919405,
+            "first_nonzero_sample_index": 174,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 1,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-085-bulldozer/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-094-good_friends_bad_friends",
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "pack_id": 107,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-094-good_friends_bad_friends",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-094-good_friends_bad_friends-change-music-fusion-last-keyon.spc",
+          "sha1": "234d173c38d0e9260f2d6c3ae797d2d95a3ecba8",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-094-good_friends_bad_friends/diagnostic-libgme-render.wav",
+          "sha1": "4bebe27e18c0809d040089c17ee8c23a4309da74",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 19725,
+            "rms_sample": 2974.529931,
+            "nonzero_sample_count": 1897784,
+            "first_nonzero_sample_index": 66,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 3,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-094-good_friends_bad_friends/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-120-hotel_of_the_living_dead",
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "pack_id": 136,
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-120-hotel_of_the_living_dead",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-120-hotel_of_the_living_dead-change-music-fusion-last-keyon.spc",
+          "sha1": "73be11fb4051967065e440474707376a29fc8a5c",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-120-hotel_of_the_living_dead/diagnostic-libgme-render.wav",
+          "sha1": "f96442ece762ab30c0a7d4aa32e44a83fbc4be7b",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 11475,
+            "rms_sample": 1786.333624,
+            "nonzero_sample_count": 1919369,
+            "first_nonzero_sample_index": 120,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 have a proven effect while loop entry/exit metadata remains the release blocker?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-120-hotel_of_the_living_dead/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-173-good_morning_moonside",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "pack_id": 136,
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-173-good_morning_moonside",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-173-good_morning_moonside-change-music-fusion-last-keyon.spc",
+          "sha1": "4ce844b38b2658560ca64ce22a52a630e91a197e",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-173-good_morning_moonside/diagnostic-libgme-render.wav",
+          "sha1": "929aca70df441599805d9618c641c373ddebc7fb",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 13764,
+            "rms_sample": 1994.150852,
+            "nonzero_sample_count": 1912984,
+            "first_nonzero_sample_index": 48,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 have a proven effect while loop entry/exit metadata remains the release blocker?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-173-good_morning_moonside/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-143-leaving_magicant",
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "pack_id": 148,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-143-leaving_magicant",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-143-leaving_magicant-change-music-fusion-last-keyon.spc",
+          "sha1": "ac648a81221c904235831c2146d1286efabca196",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-143-leaving_magicant/diagnostic-libgme-render.wav",
+          "sha1": "2424cf7b21d334c43ad7b904d8630a30a6bfb333",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 18041,
+            "rms_sample": 2177.229824,
+            "nonzero_sample_count": 1919439,
+            "first_nonzero_sample_index": 59,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 12,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 2
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-143-leaving_magicant/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-157-attract_mode",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "pack_id": 154,
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-157-attract_mode",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-157-attract_mode-change-music-fusion-last-keyon.spc",
+          "sha1": "b25aaf397de85e82b3237feb9022cd4285ef0e41",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-157-attract_mode/diagnostic-libgme-render.wav",
+          "sha1": "ea4402b15cf6114ca8687e9e1c4083a763c13a73",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 20879,
+            "rms_sample": 3030.487514,
+            "nonzero_sample_count": 1918655,
+            "first_nonzero_sample_index": 50,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 6,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 explain a finite end, or is the current active preview hiding loop/hold behavior?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-157-attract_mode/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-171-winters_intro",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "pack_id": 160,
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "pack_context_class": "needs_ef_return_stack_model",
+      "source": {
+        "oracle_job_id": "oracle-track-171-winters_intro",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-171-winters_intro-change-music-fusion-last-keyon.spc",
+          "sha1": "f5fa80b3a0ace476fe39433cddcc6700b74d22aa",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-171-winters_intro/diagnostic-libgme-render.wav",
+          "sha1": "72c88d31616160d5085212c316376f4f11888cf9",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 3061,
+            "rms_sample": 503.831755,
+            "nonzero_sample_count": 1916988,
+            "first_nonzero_sample_index": 52,
+            "last_nonzero_sample_index": 1919999,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 20,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 end the active phrase, or does EF context make it a return for this track?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-171-winters_intro/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    },
+    {
+      "schema": "earthbound-decomp.audio-zero-runtime-probe-job.v1",
+      "job_id": "zero-probe-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "pack_id": 163,
+      "trace_focus": "prove_zero_end_effect_then_review_finite_candidate",
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "source": {
+        "oracle_job_id": "oracle-track-175-title_screen",
+        "source_state": "full_change_music_real_c0ab06_live_driver_zero_burst_keyon_snapshot",
+        "source_spc": {
+          "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-175-title_screen-change-music-fusion-last-keyon.spc",
+          "sha1": "a356f345fd6867f365490b983463b568131ada7c",
+          "bytes": 66048
+        },
+        "source_render": {
+          "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-175-title_screen/diagnostic-libgme-render.wav",
+          "sha1": "17b03dab5d5b0b698cffb04dadd4d23d0f4c570e",
+          "bytes": 3840044,
+          "metrics": {
+            "peak_abs_sample": 24703,
+            "rms_sample": 2512.058169,
+            "nonzero_sample_count": 1353140,
+            "first_nonzero_sample_index": 30,
+            "last_nonzero_sample_index": 1919994,
+            "voice_count": 8,
+            "rendered_samples": 1920000,
+            "warning": ""
+          }
+        }
+      },
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 4,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "required_capture_fields": [
+        "sequence_read_trace",
+        "track_id",
+        "track_name",
+        "reader_pc",
+        "sequence_address",
+        "command",
+        "instruction",
+        "registers.ya",
+        "registers.x",
+        "registers.s",
+        "registers.p",
+        "command_pointer_registers.dp_10_11",
+        "command_pointer_registers.dp_12_13",
+        "ef_call_depth_before_zero",
+        "ef_return_target_before_zero",
+        "ef_call_depth_after_zero",
+        "post_zero_branch_or_effect",
+        "voice_slot_state",
+        "zero_effect_classification",
+        "classification_evidence"
+      ],
+      "accepted_zero_effect_classifications": [
+        "true_end",
+        "ef_return",
+        "loop_or_hold_continues",
+        "unreachable_from_source_state",
+        "unresolved"
+      ],
+      "promotion_allowed_by_job": false,
+      "promotion_question": "Does 0x00 produce a real finite end before the observed tail/silence review?",
+      "success_criteria": [
+        "capture at least one 0x00 sequence read for this track or explain why the source state cannot reach it",
+        "classify post-0x00 behavior as true_end, ef_return, loop_or_hold_continues, or unresolved",
+        "record EF call depth/return target before and after the observed 0x00 read",
+        "leave public exact-duration promotion blocked unless a later result validator consumes this evidence"
+      ],
+      "result_schema": "earthbound-decomp.audio-zero-runtime-probe-result.v1",
+      "result_path": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+      "raw_trace_path": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-control-trace.jsonl",
+      "evidence_markdown_path": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof.md",
+      "output_dir": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen",
+      "job_path": "build/audio/zero-runtime-probe-jobs/zero-probe-track-175-title_screen/job.json",
+      "status": "planned_waiting_for_zero_probe_harness"
+    }
+  ],
+  "runner_policy": [
+    "Generated job files stay under ignored build/audio paths and may reference local ROM-derived SPC/WAV evidence.",
+    "The harness must write one result JSON per job using earthbound-decomp.audio-zero-runtime-probe-result.v1.",
+    "The runner contract cannot directly promote public exact-duration exports.",
+    "Run collect_audio_zero_runtime_probe_results.py after harness execution to summarize remaining uncertainty."
+  ]
+}

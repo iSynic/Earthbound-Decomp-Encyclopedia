@@ -1,0 +1,1342 @@
+{
+  "schema": "earthbound-decomp.audio-independent-oracle-campaign-plan.v1",
+  "status": "independent_external_oracle_campaign_ready",
+  "references": [
+    "manifests/audio-oracle-comparison-plan-all-tracks.json",
+    "manifests/audio-oracle-verification-report-all-tracks.json",
+    "manifests/audio-duration-uncertainty-register.json",
+    "notes/audio-oracle-verification-report-all-tracks.md"
+  ],
+  "summary": {
+    "oracle_job_count": 190,
+    "near_oracle_pass_count": 190,
+    "independent_capture_count": 0,
+    "missing_independent_capture_count": 190,
+    "representative_campaign_job_count": 16,
+    "phase_job_counts": {
+      "independent-duration-uncertainty-coverage": 4,
+      "independent-probe-source-coverage": 5,
+      "independent-representative-core": 7
+    },
+    "diagnostic_focus_counts": {
+      "active_through_preview_or_loop_candidate": 9,
+      "finite_tail_or_transition_end": 4,
+      "general_playback_equivalence": 3
+    },
+    "representative_primary_uncertainty_counts": {
+      "active_preview_classification_pending": 1,
+      "finite_transition_review_pending": 2,
+      "loop_point_metadata_pending": 2,
+      "non_zero_control_semantics_pending": 3,
+      "pcm_trim_usable_sequence_intent_open": 2,
+      "zero_runtime_probe_pending": 6
+    },
+    "release_quality_playback_claim_ready": false,
+    "independent_emulator_gate_passed": false,
+    "all_track_near_oracle_passed": true,
+    "sequence_promotion_allowed_by_campaign": false
+  },
+  "campaign_policy": [
+    "This plan selects a bounded representative subset for independent external-emulator capture.",
+    "The campaign does not change playback/export behavior and cannot promote sequence-derived exact durations.",
+    "External emulator captures are ROM-derived generated evidence and must stay under ignored build/audio paths.",
+    "Passing this representative campaign is evidence for the independent gate; all-track independent capture remains a separate expansion decision."
+  ],
+  "capture_contract": {
+    "accepted_oracles": [
+      "mesen2",
+      "bsnes_higan",
+      "mednafen"
+    ],
+    "minimum_metadata_fields": [
+      "oracle_id",
+      "oracle_kind",
+      "independent_emulator_capture",
+      "emulator_version",
+      "capture_command",
+      "audio_settings",
+      "source_spc_sha1",
+      "reference_wav_sha1",
+      "render_sample_rate",
+      "channels",
+      "bits_per_sample",
+      "duration_seconds"
+    ],
+    "required_importer": "tools/import_audio_oracle_reference_capture.py",
+    "required_independent_flag": true,
+    "comparison_thresholds": {
+      "sample_rate": 32000,
+      "channels": 2,
+      "bits_per_sample": 16,
+      "minimum_seconds": 30.0,
+      "minimum_normalized_correlation_after_alignment": 0.98,
+      "maximum_leading_silence_delta_samples": 4096
+    }
+  },
+  "post_capture_validation_commands": [
+    "python tools/run_audio_independent_oracle_campaign.py --limit 1 --mode dry-run-plan",
+    "python tools/validate_audio_independent_oracle_campaign_run_summary.py",
+    "python tools/run_audio_independent_oracle_campaign.py --limit 1 --mode audit-existing-captures",
+    "python tools/validate_audio_independent_oracle_campaign_run_summary.py",
+    "python tools/run_audio_independent_oracle_campaign.py --mode audit-existing-captures",
+    "python tools/validate_audio_independent_oracle_campaign_run_summary.py",
+    "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 1 --allow-missing",
+    "python tools/validate_audio_oracle_comparison_plan.py manifests/audio-oracle-comparison-plan-all-tracks.json --allow-missing-source-outputs",
+    "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+    "python tools/validate_audio_oracle_comparison_summary.py build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --require-compared",
+    "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+    "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+    "python tools/build_audio_duration_uncertainty_register.py",
+    "python tools/validate_audio_duration_uncertainty_register.py"
+  ],
+  "campaign_jobs": [
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-001-gas_station",
+      "execution_order": 1,
+      "phase": "independent-representative-core",
+      "priority_reason": "zero-runtime baseline and active-preview uncertainty anchor",
+      "job_id": "oracle-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "unknown_active_preview",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-001-gas_station-change-music-fusion-last-keyon.spc",
+        "sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-001-gas_station/diagnostic-libgme-render.wav",
+        "sha1": "83eb4c3ca147ddd1e045ac9e709437c15cd3abc7",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 7852,
+          "rms_sample": 1132.930561,
+          "nonzero_sample_count": 1850154,
+          "first_nonzero_sample_index": 116,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-001-gas_station/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-001-gas_station/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-001-gas_station/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-001-gas_station/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 1 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-001-gas_station --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-001-gas_station --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 1",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-017-monotoli_building",
+      "execution_order": 2,
+      "phase": "independent-representative-core",
+      "priority_reason": "first non-zero control-semantics source candidate",
+      "job_id": "oracle-track-017-monotoli_building",
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "export_class": "unknown_active_preview",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-017-monotoli_building-change-music-fusion-last-keyon.spc",
+        "sha1": "09b9168959f62c3747d2dcd84ec955b048925900",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-017-monotoli_building/diagnostic-libgme-render.wav",
+        "sha1": "91d89db2145419755ec5782df6e53577cfd254d5",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 9126,
+          "rms_sample": 1000.196894,
+          "nonzero_sample_count": 1906872,
+          "first_nonzero_sample_index": 190,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-017-monotoli_building/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-017-monotoli_building/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-017-monotoli_building/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-017-monotoli_building/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 17 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-017-monotoli_building --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-017-monotoli_building --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 17",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-032-giant_step",
+      "execution_order": 3,
+      "phase": "independent-representative-core",
+      "priority_reason": "finite/transition candidate with zero-runtime uncertainty",
+      "job_id": "oracle-track-032-giant_step",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "finite_or_transition_review_candidate",
+      "duration_seconds": 21.003219,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-032-giant_step-change-music-fusion-last-keyon.spc",
+        "sha1": "90b619f650e7e7fc17f13c86d69cb8a2bcef6bcb",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-032-giant_step/diagnostic-libgme-render.wav",
+        "sha1": "0def15cbfbec1cf417320249ba033d29286c7ec0",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 8044,
+          "rms_sample": 936.397942,
+          "nonzero_sample_count": 1344538,
+          "first_nonzero_sample_index": 72,
+          "last_nonzero_sample_index": 1346002,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-032-giant_step/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-032-giant_step/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-032-giant_step/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-032-giant_step/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 32 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-032-giant_step --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-032-giant_step --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 32",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-046-onett",
+      "execution_order": 4,
+      "phase": "independent-representative-core",
+      "priority_reason": "long-standing ONETT renderer/oracle smoke anchor",
+      "job_id": "oracle-track-046-onett",
+      "track_id": 46,
+      "track_name": "ONETT",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "export_class": "loop_or_held_candidate",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-046-onett-change-music-fusion-last-keyon.spc",
+        "sha1": "e29f838ead00bc07a10f3ae96778e1d50a68f489",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-046-onett/diagnostic-libgme-render.wav",
+        "sha1": "44b19d1739081566c2d2e5551ea78cda1bae3848",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 14042,
+          "rms_sample": 1990.00975,
+          "nonzero_sample_count": 1814909,
+          "first_nonzero_sample_index": 98,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-046-onett/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-046-onett/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-046-onett/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-046-onett/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 46 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-046-onett --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-046-onett --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 46",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-171-winters_intro",
+      "execution_order": 5,
+      "phase": "independent-representative-core",
+      "priority_reason": "loop/held preview track with zero-runtime evidence still pending",
+      "job_id": "oracle-track-171-winters_intro",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "loop_or_held_candidate",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-171-winters_intro-change-music-fusion-last-keyon.spc",
+        "sha1": "f5fa80b3a0ace476fe39433cddcc6700b74d22aa",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-171-winters_intro/diagnostic-libgme-render.wav",
+        "sha1": "72c88d31616160d5085212c316376f4f11888cf9",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 3061,
+          "rms_sample": 503.831755,
+          "nonzero_sample_count": 1916988,
+          "first_nonzero_sample_index": 52,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-171-winters_intro/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-171-winters_intro/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-171-winters_intro/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-171-winters_intro/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 171 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-171-winters_intro --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-171-winters_intro --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 171",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-173-good_morning_moonside",
+      "execution_order": 6,
+      "phase": "independent-representative-core",
+      "priority_reason": "loop/held preview track with zero-runtime evidence still pending",
+      "job_id": "oracle-track-173-good_morning_moonside",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "loop_or_held_candidate",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-173-good_morning_moonside-change-music-fusion-last-keyon.spc",
+        "sha1": "4ce844b38b2658560ca64ce22a52a630e91a197e",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-173-good_morning_moonside/diagnostic-libgme-render.wav",
+        "sha1": "929aca70df441599805d9618c641c373ddebc7fb",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 13764,
+          "rms_sample": 1994.150852,
+          "nonzero_sample_count": 1912984,
+          "first_nonzero_sample_index": 48,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-173-good_morning_moonside/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-173-good_morning_moonside/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-173-good_morning_moonside/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-173-good_morning_moonside/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 173 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-173-good_morning_moonside --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-173-good_morning_moonside --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 173",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-175-title_screen",
+      "execution_order": 7,
+      "phase": "independent-representative-core",
+      "priority_reason": "finite title-screen transition candidate from zero-runtime lane",
+      "job_id": "oracle-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "diagnostic_focus": "general_playback_equivalence",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "finite_or_transition_review_candidate",
+      "duration_seconds": 13.774594,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-175-title_screen-change-music-fusion-last-keyon.spc",
+        "sha1": "a356f345fd6867f365490b983463b568131ada7c",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-175-title_screen/diagnostic-libgme-render.wav",
+        "sha1": "17b03dab5d5b0b698cffb04dadd4d23d0f4c570e",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 24703,
+          "rms_sample": 2512.058169,
+          "nonzero_sample_count": 1353140,
+          "first_nonzero_sample_index": 30,
+          "last_nonzero_sample_index": 1919994,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-175-title_screen/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-175-title_screen/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-175-title_screen/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-175-title_screen/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 175 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-175-title_screen --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-175-title_screen --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 175",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-010-what_the_heck",
+      "execution_order": 8,
+      "phase": "independent-duration-uncertainty-coverage",
+      "priority_reason": "coverage for active_preview_classification_pending with general_playback_equivalence oracle focus",
+      "job_id": "oracle-track-010-what_the_heck",
+      "track_id": 10,
+      "track_name": "WHAT_THE_HECK",
+      "diagnostic_focus": "general_playback_equivalence",
+      "primary_uncertainty": "active_preview_classification_pending",
+      "export_class": "unknown_active_preview",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-010-what_the_heck-change-music-fusion-last-keyon.spc",
+        "sha1": "b5a7a8221474d6ce1e24df485210bef9b56684d2",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-010-what_the_heck/diagnostic-libgme-render.wav",
+        "sha1": "8cff942e15247ca0377d05e43fe96e0b4ccc50e8",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 5462,
+          "rms_sample": 607.374446,
+          "nonzero_sample_count": 1788655,
+          "first_nonzero_sample_index": 108,
+          "last_nonzero_sample_index": 1919737,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-010-what_the_heck/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-010-what_the_heck/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-010-what_the_heck/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-010-what_the_heck/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 10 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-010-what_the_heck --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-010-what_the_heck --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 10",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-008-battle_swirl1",
+      "execution_order": 9,
+      "phase": "independent-duration-uncertainty-coverage",
+      "priority_reason": "coverage for finite_transition_review_pending with finite_tail_or_transition_end oracle focus",
+      "job_id": "oracle-track-008-battle_swirl1",
+      "track_id": 8,
+      "track_name": "BATTLE_SWIRL1",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "primary_uncertainty": "finite_transition_review_pending",
+      "export_class": "finite_or_transition_review_candidate",
+      "duration_seconds": 4.036187,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-008-battle_swirl1-change-music-fusion-last-keyon.spc",
+        "sha1": "1ab60e2527465f301dc308dd66c5531dcef286dc",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-008-battle_swirl1/diagnostic-libgme-render.wav",
+        "sha1": "b2a5c11205dcb17a04f51853fe74a1c9da9123b2",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 15632,
+          "rms_sample": 1108.445182,
+          "nonzero_sample_count": 273451,
+          "first_nonzero_sample_index": 189,
+          "last_nonzero_sample_index": 281969,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-008-battle_swirl1/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-008-battle_swirl1/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-008-battle_swirl1/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-008-battle_swirl1/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 8 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-008-battle_swirl1 --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-008-battle_swirl1 --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 8",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-005-you_won1",
+      "execution_order": 10,
+      "phase": "independent-duration-uncertainty-coverage",
+      "priority_reason": "coverage for loop_point_metadata_pending with active_through_preview_or_loop_candidate oracle focus",
+      "job_id": "oracle-track-005-you_won1",
+      "track_id": 5,
+      "track_name": "YOU_WON1",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "duration_seconds": 120.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-005-you_won1-change-music-fusion-last-keyon.spc",
+        "sha1": "2cc824379df1dcd4fdfac8f3d2d7279fe70669bd",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-005-you_won1/diagnostic-libgme-render.wav",
+        "sha1": "39653fa96d5ba571a995b0da517d6aafcfe8789f",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 15821,
+          "rms_sample": 937.109588,
+          "nonzero_sample_count": 1917595,
+          "first_nonzero_sample_index": 56,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-005-you_won1/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 5 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-005-you_won1 --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-005-you_won1 --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 5",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-012-you_won2",
+      "execution_order": 11,
+      "phase": "independent-duration-uncertainty-coverage",
+      "priority_reason": "coverage for pcm_trim_usable_sequence_intent_open with active_through_preview_or_loop_candidate oracle focus",
+      "job_id": "oracle-track-012-you_won2",
+      "track_id": 12,
+      "track_name": "YOU_WON2",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "duration_seconds": 3.390938,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-012-you_won2-change-music-fusion-last-keyon.spc",
+        "sha1": "0a7fe2706d64a7c095dbb82dc65421145f237d9d",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-012-you_won2/diagnostic-libgme-render.wav",
+        "sha1": "81fb6367e5074e7ff7b421e60551e550122f6c13",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 11419,
+          "rms_sample": 580.988933,
+          "nonzero_sample_count": 1068730,
+          "first_nonzero_sample_index": 52,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-012-you_won2/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-012-you_won2/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-012-you_won2/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-012-you_won2/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 12 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-012-you_won2 --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-012-you_won2 --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 12",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-025-chaos_theatre",
+      "execution_order": 12,
+      "phase": "independent-probe-source-coverage",
+      "priority_reason": "coverage for zero_runtime_probe_pending with active_through_preview_or_loop_candidate oracle focus",
+      "job_id": "oracle-track-025-chaos_theatre",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "zero_runtime_probe_pending",
+      "export_class": "unknown_active_preview",
+      "duration_seconds": 30.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-025-chaos_theatre-change-music-fusion-last-keyon.spc",
+        "sha1": "d0152ff61b3aa2b40b69a473436f4530fc3f69d2",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-025-chaos_theatre/diagnostic-libgme-render.wav",
+        "sha1": "b93ca9345a7ab9fba131f15a25e7efbb85832abb",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 14297,
+          "rms_sample": 1559.163273,
+          "nonzero_sample_count": 1888882,
+          "first_nonzero_sample_index": 200,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-025-chaos_theatre/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-025-chaos_theatre/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-025-chaos_theatre/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-025-chaos_theatre/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 25 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-025-chaos_theatre --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-025-chaos_theatre --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 25",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-115-phone_call",
+      "execution_order": 13,
+      "phase": "independent-probe-source-coverage",
+      "priority_reason": "coverage for loop_point_metadata_pending with general_playback_equivalence oracle focus",
+      "job_id": "oracle-track-115-phone_call",
+      "track_id": 115,
+      "track_name": "PHONE_CALL",
+      "diagnostic_focus": "general_playback_equivalence",
+      "primary_uncertainty": "loop_point_metadata_pending",
+      "export_class": "loop_or_held_candidate",
+      "duration_seconds": 120.0,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-115-phone_call-change-music-fusion-last-keyon.spc",
+        "sha1": "d5d7795020ec462c3047f7d2e3a957baabc8392c",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-115-phone_call/diagnostic-libgme-render.wav",
+        "sha1": "29345f074325fdb2434673530835c5321faab3d4",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 6317,
+          "rms_sample": 1412.467934,
+          "nonzero_sample_count": 1338379,
+          "first_nonzero_sample_index": 22,
+          "last_nonzero_sample_index": 1919997,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-115-phone_call/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 115 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-115-phone_call --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-115-phone_call --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 115",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-123-someone_joins",
+      "execution_order": 14,
+      "phase": "independent-probe-source-coverage",
+      "priority_reason": "coverage for finite_transition_review_pending with finite_tail_or_transition_end oracle focus",
+      "job_id": "oracle-track-123-someone_joins",
+      "track_id": 123,
+      "track_name": "SOMEONE_JOINS",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "primary_uncertainty": "finite_transition_review_pending",
+      "export_class": "finite_or_transition_review_candidate",
+      "duration_seconds": 2.624125,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-123-someone_joins-change-music-fusion-last-keyon.spc",
+        "sha1": "aaa14ecd2a62c4568e10691eecda9a4a66c4ec85",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-123-someone_joins/diagnostic-libgme-render.wav",
+        "sha1": "f0e5da7772814b131840c3d6d2fbf0ae7924f9c5",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 15794,
+          "rms_sample": 754.838444,
+          "nonzero_sample_count": 187584,
+          "first_nonzero_sample_index": 53,
+          "last_nonzero_sample_index": 226232,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-123-someone_joins/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-123-someone_joins/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-123-someone_joins/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-123-someone_joins/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 123 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-123-someone_joins --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-123-someone_joins --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 123",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-135-teleport_in",
+      "execution_order": 15,
+      "phase": "independent-probe-source-coverage",
+      "priority_reason": "coverage for pcm_trim_usable_sequence_intent_open with active_through_preview_or_loop_candidate oracle focus",
+      "job_id": "oracle-track-135-teleport_in",
+      "track_id": 135,
+      "track_name": "TELEPORT_IN",
+      "diagnostic_focus": "active_through_preview_or_loop_candidate",
+      "primary_uncertainty": "pcm_trim_usable_sequence_intent_open",
+      "export_class": "finite_trim_candidate",
+      "duration_seconds": 4.744781,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-135-teleport_in-change-music-fusion-last-keyon.spc",
+        "sha1": "6e29e1c010fb7dbd0fc02ff66b267e683f904fb1",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-135-teleport_in/diagnostic-libgme-render.wav",
+        "sha1": "a1926b3dbc3af4839f902f9d42912eed5a7883a6",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 32601,
+          "rms_sample": 1321.734851,
+          "nonzero_sample_count": 1147665,
+          "first_nonzero_sample_index": 30,
+          "last_nonzero_sample_index": 1919999,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-135-teleport_in/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-135-teleport_in/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-135-teleport_in/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-135-teleport_in/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 135 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-135-teleport_in --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-135-teleport_in --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 135",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    },
+    {
+      "campaign_job_id": "independent-oracle-oracle-track-161-soundstone_recording_lilliput_steps",
+      "execution_order": 16,
+      "phase": "independent-probe-source-coverage",
+      "priority_reason": "coverage for non_zero_control_semantics_pending with finite_tail_or_transition_end oracle focus",
+      "job_id": "oracle-track-161-soundstone_recording_lilliput_steps",
+      "track_id": 161,
+      "track_name": "SOUNDSTONE_RECORDING_LILLIPUT_STEPS",
+      "diagnostic_focus": "finite_tail_or_transition_end",
+      "primary_uncertainty": "non_zero_control_semantics_pending",
+      "export_class": "finite_trim_candidate",
+      "duration_seconds": 3.840281,
+      "source_spc": {
+        "path": "build/audio/c0ab06-change-music-fusion-frontier-all/fusion-track-161-soundstone_recording_lilliput_steps-change-music-fusion-last-keyon.spc",
+        "sha1": "c14b9bf149da972423173052547ad271354ff447",
+        "bytes": 66048
+      },
+      "source_render": {
+        "path": "build/audio/c0ab06-change-music-fusion-render-jobs-all/snes_spc-track-161-soundstone_recording_lilliput_steps/diagnostic-libgme-render.wav",
+        "sha1": "a2413a3e7d279457381f2da32d5e1ae3793d435c",
+        "bytes": 3840044,
+        "metrics": {
+          "peak_abs_sample": 12144,
+          "rms_sample": 527.637577,
+          "nonzero_sample_count": 251310,
+          "first_nonzero_sample_index": 252,
+          "last_nonzero_sample_index": 267227,
+          "voice_count": 8,
+          "rendered_samples": 1920000,
+          "warning": ""
+        }
+      },
+      "reference_capture_outputs": {
+        "spc_snapshot": "build/audio/oracle-comparison-all-tracks/track-161-soundstone_recording_lilliput_steps/reference-capture.spc",
+        "pcm_wav": "build/audio/oracle-comparison-all-tracks/track-161-soundstone_recording_lilliput_steps/reference-render.wav",
+        "capture_metadata": "build/audio/oracle-comparison-all-tracks/track-161-soundstone_recording_lilliput_steps/reference-capture.json",
+        "comparison_result": "build/audio/oracle-comparison-all-tracks/track-161-soundstone_recording_lilliput_steps/oracle-comparison-result.json"
+      },
+      "current_near_oracle_status": "audio_equivalent_state_delta",
+      "current_near_oracle_id": "ares_full_change_music_load_apply_all_tracks_reference",
+      "current_independent_emulator_capture": false,
+      "independent_capture_required": true,
+      "accepted_oracles": [
+        "mesen2",
+        "bsnes_higan",
+        "mednafen"
+      ],
+      "expected_capture_metadata_fields": [
+        "oracle_id",
+        "oracle_kind",
+        "independent_emulator_capture",
+        "emulator_version",
+        "capture_command",
+        "audio_settings",
+        "source_spc_sha1",
+        "reference_wav_sha1",
+        "render_sample_rate",
+        "channels",
+        "bits_per_sample",
+        "duration_seconds"
+      ],
+      "acceptance_gates": [
+        "capture_metadata.independent_emulator_capture must be true",
+        "capture_metadata.oracle_id must identify mesen2, bsnes/higan, or mednafen",
+        "source_spc_sha1 must match the planned source_spc.sha1",
+        "reference WAV must be 32 kHz stereo 16-bit PCM and at least the planned duration",
+        "collect_audio_oracle_comparison_results must classify the track as pass, audio_equivalent_state_delta, explained_timing_offset, or investigated_mismatch",
+        "any mismatch must be classified before release-quality playback is claimed"
+      ],
+      "import_command": "python tools/import_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 161 --spc <external-capture.spc> --wav <external-render.wav> --oracle-id <mesen2|bsnes_higan|mednafen> --emulator-version <version> --capture-command <command> --audio-settings <settings> --overwrite",
+      "dry_run_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-161-soundstone_recording_lilliput_steps --mode dry-run-plan",
+      "audit_command": "python tools/run_audio_independent_oracle_campaign.py --job-id oracle-track-161-soundstone_recording_lilliput_steps --mode audit-existing-captures",
+      "capture_validator_command": "python tools/validate_audio_oracle_reference_capture.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --track-id 161",
+      "collect_command": "python tools/collect_audio_oracle_comparison_results.py --plan manifests/audio-oracle-comparison-plan-all-tracks.json --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json",
+      "report_refresh_command": "python tools/build_audio_oracle_verification_report.py --summary build/audio/oracle-comparison-all-tracks/oracle-comparison-summary.json --json manifests/audio-oracle-verification-report-all-tracks.json --markdown notes/audio-oracle-verification-report-all-tracks.md",
+      "result_validator": "python tools/validate_audio_oracle_verification_report.py manifests/audio-oracle-verification-report-all-tracks.json --require-representative-pass",
+      "promotion_allowed_by_campaign": false
+    }
+  ]
+}

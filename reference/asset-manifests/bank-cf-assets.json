@@ -1,0 +1,144 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank CF asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-cf-asset-data-map.md",
+    "notes/cf-event-music-context-contracts.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank0F.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 2,
+    "binary_assets_by_extension": {
+      "ebm": 2
+    },
+    "binary_asset_bytes": 3396,
+    "table_includes": 8,
+    "table_bytes": 62133,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 7,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 4,
+    "output_recipe_count": 4,
+    "typed_output_kind_count": 1,
+    "decoder_output_recipe_count": 0,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "raw": 4
+    },
+    "decoder_counts": {},
+    "renderer_counts": {},
+    "smoke_fixture_count": 0,
+    "smoke_fixture_asset_ids": [],
+    "smoke_fixture_type_counts": {},
+    "smoke_fixture_target_kind_counts": {}
+  },
+  "assets": [
+    {
+      "id": "asset.cf.audio_pack_94",
+      "title": "AUDIO_PACK_94",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "CF:F2B5..CF:FF38",
+        "bytes": 3203,
+        "sha1": "b624f1f05e30efc3f6588b9076291f87ef0e618c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cf/audiopacks/94.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/94.ebm",
+        "Original file offset: 0x0FF2B5"
+      ]
+    },
+    {
+      "id": "asset.cf.audio_pack_96",
+      "title": "AUDIO_PACK_96",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "CF:FF38..CF:FFF9",
+        "bytes": 193,
+        "sha1": "757fc75c398c7340fd6ea8f811001b181337f2c4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cf/audiopacks/96.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/96.ebm",
+        "Original file offset: 0x0FFF38"
+      ]
+    },
+    {
+      "id": "table.cf.000_data_map_door_data_asm",
+      "title": "data/map/door_data.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CF:0000..CF:F2B5",
+        "bytes": 62133,
+        "sha1": "418e2205664939aafb2930c5111ffcb1ae908ab4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cf/tables/000_data_map_door_data_asm.bin"
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/door_data.asm",
+        "Original file offset: 0x0F0000",
+        "Size was inferred from the next known binary asset boundary.",
+        "Semantic split includes CF_EVENT_MUSIC_CONTEXT_POINTER_TABLE and CF_EVENT_MUSIC_CONTEXT_TABLE.",
+        "See notes/cf-event-music-context-contracts.md for event-music source-emission rows and variable-list chain handling."
+      ]
+    },
+    {
+      "id": "gap.cf.cf_fff9",
+      "title": "Bank CF coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "CF:FFF9..CF:10000",
+        "bytes": 7,
+        "sha1": "77ce0377defbd11b77b1f4ad54ca40ea5ef28490"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cf/gaps/01_cf_fff9.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x0FFFF9..0x0FFFFF"
+      ]
+    }
+  ]
+}

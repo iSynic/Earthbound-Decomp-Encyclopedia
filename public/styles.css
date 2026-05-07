@@ -597,6 +597,38 @@ input {
   overflow: hidden;
 }
 
+.searchFacetBar {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-soft);
+}
+
+.searchFacet {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 650;
+  padding: 6px 8px;
+}
+
+.searchFacet span {
+  color: var(--faint);
+  margin-left: 4px;
+}
+
+.searchFacet:hover,
+.searchFacet.active {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
 .searchItem {
   width: 100%;
   border: 0;
@@ -1262,6 +1294,256 @@ pre {
   color: var(--accent-strong);
 }
 
+.domainList,
+.compactEntryList {
+  display: grid;
+  gap: 8px;
+}
+
+.domainRow {
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(180px, 0.8fr);
+  padding: 12px;
+}
+
+.domainRow h3 {
+  margin: 0 0 4px;
+}
+
+.domainRow p {
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.domainMeta {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.domainLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.inlineEntryButton,
+.tableEntryLink,
+.compactEntryRow {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.inlineEntryButton,
+.tableEntryLink {
+  color: var(--accent-strong);
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.inlineEntryButton:hover,
+.tableEntryLink:hover,
+.compactEntryRow:hover {
+  border-color: var(--accent);
+  background: var(--panel-hover);
+}
+
+.compactEntryRow {
+  display: grid;
+  gap: 3px;
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.compactEntryRow span {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.compactEntryRow small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.denseTableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.denseTable {
+  margin: 0;
+  min-width: 680px;
+}
+
+.denseTable th,
+.denseTable td {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.denseTable th button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 750;
+  padding: 0;
+}
+
+.denseTable th button:hover {
+  color: var(--accent-strong);
+}
+
+.keyValueTable {
+  min-width: 0;
+}
+
+.keyValueTable th {
+  width: 180px;
+}
+
+.compactList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.compactList.vertical {
+  display: grid;
+  max-height: 360px;
+  overflow: auto;
+}
+
+.compactList span,
+.outlineChip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-family: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  padding: 5px 7px;
+}
+
+.outlineChip {
+  cursor: pointer;
+  text-align: left;
+}
+
+.outlineChip:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.sourceStatsBar,
+.sourceReaderMeta,
+.sourceReaderActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.sourceStatsBar {
+  margin: 0 0 14px;
+}
+
+.sourceStatsBar span,
+.sourceReaderMeta span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.sourceReader {
+  display: grid;
+  gap: 18px;
+}
+
+.sourceReaderHeader {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(24, 25, 22, 0.96);
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.sourcePath {
+  color: var(--accent-strong);
+  font-family: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  margin-bottom: 8px;
+}
+
+.sourceReaderGrid {
+  align-items: start;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 250px minmax(0, 1fr);
+}
+
+.sourceOutlinePanel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  padding: 12px;
+  position: sticky;
+  top: 82px;
+  max-height: calc(100vh - 150px);
+  overflow: auto;
+}
+
+.sourceOutlinePanel h3 {
+  color: var(--faint);
+  font-size: 11px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.sourceOutlinePanel section + section {
+  margin-top: 16px;
+}
+
+.sourceCodePanel {
+  min-width: 0;
+}
+
+.sourcePlaceholder {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  padding: 18px;
+}
+
+.snapshotPanel {
+  display: grid;
+  gap: 14px;
+}
+
 .graphWorkbench,
 .entryGraphPreview {
   margin: 32px 0 0;
@@ -1706,5 +1988,19 @@ th {
 
   .graphStats span {
     text-align: left;
+  }
+
+  .domainRow,
+  .sourceReaderGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .domainLinks {
+    justify-content: flex-start;
+  }
+
+  .sourceOutlinePanel,
+  .sourceReaderHeader {
+    position: static;
   }
 }

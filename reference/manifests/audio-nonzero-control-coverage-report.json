@@ -1,0 +1,442 @@
+{
+  "schema": "earthbound-decomp.audio-nonzero-control-coverage-report.v1",
+  "status": "nonzero_control_coverage_ready_probe_outputs_pending",
+  "references": [
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-nonzero-control-probe-plan.json"
+  ],
+  "source_plan_status": "nonzero_control_probe_jobs_ready_runner_extension_pending",
+  "summary": {
+    "blocker_track_count": 155,
+    "blocker_export_class_counts": {
+      "finite_or_transition_review_candidate": 12,
+      "finite_trim_candidate": 15,
+      "loop_or_held_candidate": 56,
+      "unknown_active_preview": 72
+    },
+    "probe_job_count": 7,
+    "command_job_counts": {
+      "0xEF": 3,
+      "0xFD": 1,
+      "0xFE": 2,
+      "0xFF": 1
+    },
+    "reader_pc_job_counts": {
+      "0x0847": 2,
+      "0x0957": 3,
+      "0x0B8A": 1,
+      "0x0D12": 1
+    },
+    "affected_kind_job_counts": {
+      "return_stack_context": 3,
+      "static_walk_blocker": 1,
+      "timing_toggle_context": 3
+    },
+    "source_candidate_record_count": 56,
+    "unique_source_candidate_track_count": 10,
+    "blocker_source_candidate_track_count": 9,
+    "source_candidate_tracks_outside_primary_blocker_count": 1,
+    "blocker_tracks_without_source_candidate_count": 146,
+    "frontier_pack_count": 108,
+    "sequence_promotion_allowed": false,
+    "public_exact_promotion_allowed": false
+  },
+  "coverage_policy": [
+    "This report maps current nonzero-control blockers to the existing probe jobs; it does not run the harness.",
+    "Source candidates are representative evidence anchors, not complete coverage of all blocked tracks.",
+    "Promotion stays blocked until imported probe outputs classify command effects and refresh the duration uncertainty register.",
+    "Independent external-emulator oracle evidence remains a separate release-quality gate."
+  ],
+  "source_candidate_reuse": [
+    {
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "job_count": 1,
+      "is_primary_nonzero_blocker": false
+    },
+    {
+      "track_id": 17,
+      "track_name": "MONOTOLI_BUILDING",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 83,
+      "track_name": "SKY_RUNNER",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 84,
+      "track_name": "SKY_RUNNER_FALLING",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 109,
+      "track_name": "EXPLOSION",
+      "job_count": 6,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 110,
+      "track_name": "SKY_RUNNER_CRASH",
+      "job_count": 6,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 133,
+      "track_name": "HIDDEN_SONG",
+      "job_count": 1,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 137,
+      "track_name": "ELEVATOR_DOWN",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 138,
+      "track_name": "ELEVATOR_UP",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    },
+    {
+      "track_id": 139,
+      "track_name": "ELEVATOR_STOP",
+      "job_count": 7,
+      "is_primary_nonzero_blocker": true
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "nonzero-probe-fd-pc-0847",
+      "command": "0xFD",
+      "reader_pc": "0x0847",
+      "driver_offset": "0x0347",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 60,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fd-pc-0847/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-fe-pc-0847",
+      "command": "0xFE",
+      "reader_pc": "0x0847",
+      "driver_offset": "0x0347",
+      "read_count": 1,
+      "affected_kind": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 60,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0847/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0b8a",
+      "command": "0xEF",
+      "reader_pc": "0x0B8A",
+      "driver_offset": "0x068A",
+      "read_count": 95,
+      "affected_kind": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 70,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 7,
+      "unique_source_candidate_track_ids": [
+        1,
+        17,
+        83,
+        84,
+        133,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        133,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0b8a/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0d12",
+      "command": "0xEF",
+      "reader_pc": "0x0D12",
+      "driver_offset": "0x0812",
+      "read_count": 1,
+      "affected_kind": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 70,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0d12/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-ef-pc-0957",
+      "command": "0xEF",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 23,
+      "affected_kind": "return_stack_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 90,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ef-pc-0957/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-fe-pc-0957",
+      "command": "0xFE",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 4,
+      "affected_kind": "timing_toggle_context",
+      "semantic_status": "runtime_interpreter_read_observed_dispatch_decode_pending",
+      "priority_rank": 90,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-fe-pc-0957/nonzero-control-proof.md"
+      }
+    },
+    {
+      "job_id": "nonzero-probe-ff-pc-0957",
+      "command": "0xFF",
+      "reader_pc": "0x0957",
+      "driver_offset": "0x0457",
+      "read_count": 10,
+      "affected_kind": "static_walk_blocker",
+      "semantic_status": "contradicted_by_stock_n_spc_pending_earthbound_variant_proof",
+      "priority_rank": 100,
+      "source_candidate_count": 8,
+      "unique_source_candidate_track_count": 8,
+      "blocker_source_candidate_track_count": 8,
+      "unique_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "blocker_source_candidate_track_ids": [
+        17,
+        83,
+        84,
+        109,
+        110,
+        137,
+        138,
+        139
+      ],
+      "accepted_control_effect_classifications": [
+        "ef_call_return",
+        "timing_toggle",
+        "earthbound_variant_ff",
+        "unreachable",
+        "unresolved"
+      ],
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957",
+        "raw_trace": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-trace.jsonl",
+        "result_json": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof-result.json",
+        "evidence_markdown": "build/audio/nonzero-control-probe/nonzero-probe-ff-pc-0957/nonzero-control-proof.md"
+      }
+    }
+  ]
+}

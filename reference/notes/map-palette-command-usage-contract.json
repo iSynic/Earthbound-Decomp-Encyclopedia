@@ -1,0 +1,1670 @@
+{
+  "command": {
+    "argument_model": {
+      "byte_argument": "duration_frames",
+      "word_argument": "palette_word = (variant << 8) | palette_id"
+    },
+    "name": "CHANGE_MAP_PALETTE",
+    "opcode": "0x1F",
+    "size_bytes": 5,
+    "subopcode": "0xE1"
+  },
+  "entries": [
+    {
+      "address": "C7:72C2",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x071F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0772C2",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x071F",
+      "row_id": "v7",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 7
+    },
+    {
+      "address": "C7:72F9",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x071F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0772F9",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x071F",
+      "row_id": "v7",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 7
+    },
+    {
+      "address": "C7:7344",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077344",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:7437",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x051F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077437",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x051F",
+      "row_id": "v5",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 5
+    },
+    {
+      "address": "C7:7497",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x031F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077497",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x031F",
+      "row_id": "v3",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 3
+    },
+    {
+      "address": "C7:74BD",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x021F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0774BD",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x021F",
+      "row_id": "v2",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 2
+    },
+    {
+      "address": "C7:74E6",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x061F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0774E6",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x061F",
+      "row_id": "v6",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 6
+    },
+    {
+      "address": "C7:750B",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x061F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x07750B",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x061F",
+      "row_id": "v6",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 6
+    },
+    {
+      "address": "C7:75F7",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0775F7",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:7633",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x031F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077633",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x031F",
+      "row_id": "v3",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 3
+    },
+    {
+      "address": "C7:767D",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x07767D",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:7689",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077689",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:76C2",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0776C2",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:76E8",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0005, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x0776E8",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_5",
+        "raw_output": "da/maps/palettes/5.pal",
+        "source_range": "DA:87E7..DA:8AE7",
+        "title": "MAP_DATA_PALETTE_5"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 55,
+        "tileset_id": 5
+      },
+      "variant": 0
+    },
+    {
+      "address": "C7:7868",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x051F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077868",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x051F",
+      "row_id": "v5",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 5
+    },
+    {
+      "address": "C7:7946",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x061F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077946",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x061F",
+      "row_id": "v6",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 6
+    },
+    {
+      "address": "C7:7D91",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x041F, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x077D91",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x041F",
+      "row_id": "v4",
+      "segment": "E18MGKT",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 4
+    },
+    {
+      "address": "C8:9595",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x001F, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x089595",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 0
+    },
+    {
+      "address": "C8:959C",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0114, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x08959C",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_20",
+        "raw_output": "da/maps/palettes/20.pal",
+        "source_range": "DA:C6E7..DA:CCE7",
+        "title": "MAP_DATA_PALETTE_20"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "tileset_id": 20
+      },
+      "variant": 1
+    },
+    {
+      "address": "C8:95A3",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x001F, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x0895A3",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 0
+    },
+    {
+      "address": "C8:95AA",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0114, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x0895AA",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_20",
+        "raw_output": "da/maps/palettes/20.pal",
+        "source_range": "DA:C6E7..DA:CCE7",
+        "title": "MAP_DATA_PALETTE_20"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "tileset_id": 20
+      },
+      "variant": 1
+    },
+    {
+      "address": "C8:95B1",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x001F, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x0895B1",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 0
+    },
+    {
+      "address": "C8:95CE",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0114, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x0895CE",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_20",
+        "raw_output": "da/maps/palettes/20.pal",
+        "source_range": "DA:C6E7..DA:CCE7",
+        "title": "MAP_DATA_PALETTE_20"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "tileset_id": 20
+      },
+      "variant": 1
+    },
+    {
+      "address": "C8:95D5",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x001F, 0x01",
+      "duration_frames": 1,
+      "file_offset": "0x0895D5",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "segment": "EEVENT2",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 0
+    },
+    {
+      "address": "C9:2C10",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x041B, 0xB4",
+      "duration_frames": 180,
+      "file_offset": "0x092C10",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_27",
+        "raw_output": "da/maps/palettes/27.pal",
+        "source_range": "DA:E5A7..DA:E967",
+        "title": "MAP_DATA_PALETTE_27"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 27,
+      "palette_variant_match": true,
+      "palette_word": "0x041B",
+      "row_id": "r4",
+      "segment": "EEVENT3",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 5,
+        "sector_count": 66,
+        "tileset_id": 27
+      },
+      "variant": 4
+    },
+    {
+      "address": "C9:35B1",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0306, 0x78",
+      "duration_frames": 120,
+      "file_offset": "0x0935B1",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_6",
+        "raw_output": "da/maps/palettes/6.pal",
+        "source_range": "DA:8AE7..DA:9027",
+        "title": "MAP_DATA_PALETTE_6"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 6,
+      "palette_variant_match": true,
+      "palette_word": "0x0306",
+      "row_id": "63",
+      "segment": "EEVENT3",
+      "setting_summary": {
+        "event_flag": 288,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 4
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 7,
+        "sector_count": 131,
+        "tileset_id": 6
+      },
+      "variant": 3
+    },
+    {
+      "address": "C7:C3A9",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x021A, 0x3C",
+      "duration_frames": 60,
+      "file_offset": "0x07C3A9",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_26",
+        "raw_output": "da/maps/palettes/26.pal",
+        "source_range": "DA:E127..DA:E5A7",
+        "title": "MAP_DATA_PALETTE_26"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 26,
+      "palette_variant_match": true,
+      "palette_word": "0x021A",
+      "row_id": "q2",
+      "segment": "EEVENT4",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 4,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 6,
+        "sector_count": 81,
+        "tileset_id": 26
+      },
+      "variant": 2
+    },
+    {
+      "address": "C9:994A",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0310, 0x1E",
+      "duration_frames": 30,
+      "file_offset": "0x09994A",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_16",
+        "raw_output": "da/maps/palettes/16.pal",
+        "source_range": "DA:B7E7..DA:BAE7",
+        "title": "MAP_DATA_PALETTE_16"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 16,
+      "palette_variant_match": true,
+      "palette_word": "0x0310",
+      "row_id": "g3",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 517,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 5
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 6,
+        "tileset_id": 16
+      },
+      "variant": 3
+    },
+    {
+      "address": "C9:9A81",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0001, 0xFF",
+      "duration_frames": 255,
+      "file_offset": "0x099A81",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_1",
+        "raw_output": "da/maps/palettes/1.pal",
+        "source_range": "DA:7FA7..DA:81E7",
+        "title": "MAP_DATA_PALETTE_1"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 1,
+      "palette_variant_match": true,
+      "palette_word": "0x0001",
+      "row_id": "10",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 422,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 3,
+        "sector_count": 191,
+        "tileset_id": 1
+      },
+      "variant": 0
+    },
+    {
+      "address": "C9:A049",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0114, 0x00",
+      "duration_frames": 0,
+      "file_offset": "0x09A049",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_20",
+        "raw_output": "da/maps/palettes/20.pal",
+        "source_range": "DA:C6E7..DA:CCE7",
+        "title": "MAP_DATA_PALETTE_20"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "tileset_id": 20
+      },
+      "variant": 1
+    },
+    {
+      "address": "C9:A050",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x001F, 0x00",
+      "duration_frames": 0,
+      "file_offset": "0x09A050",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_31",
+        "raw_output": "da/maps/palettes/31.pal",
+        "source_range": "DA:F4A7..DA:FAA7",
+        "title": "MAP_DATA_PALETTE_31"
+      },
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 0,
+        "tileset_id": 31
+      },
+      "variant": 0
+    },
+    {
+      "address": "C9:A057",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x0114, 0x1E",
+      "duration_frames": 30,
+      "file_offset": "0x09A057",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_20",
+        "raw_output": "da/maps/palettes/20.pal",
+        "source_range": "DA:C6E7..DA:CCE7",
+        "title": "MAP_DATA_PALETTE_20"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "tileset_dependency": {
+        "dependency_status": "palette_settings_only",
+        "has_direct_fts_export": false,
+        "palette_setting_count": 8,
+        "sector_count": 5,
+        "tileset_id": 20
+      },
+      "variant": 1
+    },
+    {
+      "address": "C9:AE4F",
+      "argument_model": "palette_word = (variant << 8) | palette_id",
+      "command_text": "CHANGE_MAP_PALETTE 0x000D, 0x78",
+      "duration_frames": 120,
+      "file_offset": "0x09AE4F",
+      "palette_asset": {
+        "id": "asset.da.map_data_palette_13",
+        "raw_output": "da/maps/palettes/13.pal",
+        "source_range": "DA:A8E7..DA:ABE7",
+        "title": "MAP_DATA_PALETTE_13"
+      },
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 13,
+      "palette_variant_match": true,
+      "palette_word": "0x000D",
+      "row_id": "d0",
+      "segment": "UNKNOWN_C9992F",
+      "setting_summary": {
+        "event_flag": 287,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 5
+      },
+      "tileset_dependency": {
+        "dependency_status": "direct_fts_export",
+        "has_direct_fts_export": true,
+        "palette_setting_count": 4,
+        "sector_count": 94,
+        "tileset_id": 13
+      },
+      "variant": 0
+    }
+  ],
+  "generator": "tools/build_map_palette_command_usage_contract.py",
+  "schema": "earthbound-decomp.map-palette-command-usage-contract.v1",
+  "source_policy": "ROM-parsed text-command usage contract. This records command addresses, decoded arguments, segment names, and joined palette contract IDs; it does not commit text payload bytes or palette data.",
+  "sources": {
+    "palette_variant_contract": "notes/map-fts-palette-variant-contract.json",
+    "text_macro_ref": "refs/ebsrc-main/ebsrc-main/include/textmacros.asm",
+    "text_segment_yml": "refs/ebsrc-main/ebsrc-main/earthbound.yml"
+  },
+  "summary": {
+    "duration_frame_values": [
+      {
+        "count": 2,
+        "duration": 0
+      },
+      {
+        "count": 7,
+        "duration": 1
+      },
+      {
+        "count": 2,
+        "duration": 30
+      },
+      {
+        "count": 18,
+        "duration": 60
+      },
+      {
+        "count": 2,
+        "duration": 120
+      },
+      {
+        "count": 1,
+        "duration": 180
+      },
+      {
+        "count": 1,
+        "duration": 255
+      }
+    ],
+    "hit_count": 33,
+    "missing_palette_variant_matches": 0,
+    "palette_contract_status_counts": [
+      {
+        "count": 23,
+        "status": "exact_rom_palette_variant_match"
+      },
+      {
+        "count": 10,
+        "status": "matches_rom_variant_after_reserved_metadata_zeroing"
+      }
+    ],
+    "palette_variant_matches": 33,
+    "segment_counts": [
+      {
+        "count": 17,
+        "segment": "E18MGKT"
+      },
+      {
+        "count": 7,
+        "segment": "EEVENT2"
+      },
+      {
+        "count": 6,
+        "segment": "UNKNOWN_C9992F"
+      },
+      {
+        "count": 2,
+        "segment": "EEVENT3"
+      },
+      {
+        "count": 1,
+        "segment": "EEVENT4"
+      }
+    ],
+    "unique_palette_variant_count": 15
+  },
+  "title": "Map Palette Command Usage Contract",
+  "usage_by_palette_variant": [
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 255
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 1,
+      "palette_variant_match": true,
+      "palette_word": "0x0001",
+      "row_id": "10",
+      "sample_addresses": [
+        "C9:9A81"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "UNKNOWN_C9992F"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 422,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "variant": 0
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 6,
+          "duration": 60
+        }
+      ],
+      "hit_count": 6,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 5,
+      "palette_variant_match": true,
+      "palette_word": "0x0005",
+      "row_id": "50",
+      "sample_addresses": [
+        "C7:7344",
+        "C7:75F7",
+        "C7:767D",
+        "C7:7689",
+        "C7:76C2",
+        "C7:76E8"
+      ],
+      "segments": [
+        {
+          "count": 6,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 0
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 120
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 6,
+      "palette_variant_match": true,
+      "palette_word": "0x0306",
+      "row_id": "63",
+      "sample_addresses": [
+        "C9:35B1"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "EEVENT3"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 288,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 4
+      },
+      "variant": 3
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 120
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 13,
+      "palette_variant_match": true,
+      "palette_word": "0x000D",
+      "row_id": "d0",
+      "sample_addresses": [
+        "C9:AE4F"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "UNKNOWN_C9992F"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 287,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 5
+      },
+      "variant": 0
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 30
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 16,
+      "palette_variant_match": true,
+      "palette_word": "0x0310",
+      "row_id": "g3",
+      "sample_addresses": [
+        "C9:994A"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "UNKNOWN_C9992F"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 517,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 5
+      },
+      "variant": 3
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 0
+        },
+        {
+          "count": 3,
+          "duration": 1
+        },
+        {
+          "count": 1,
+          "duration": 30
+        }
+      ],
+      "hit_count": 5,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 20,
+      "palette_variant_match": true,
+      "palette_word": "0x0114",
+      "row_id": "k1",
+      "sample_addresses": [
+        "C8:959C",
+        "C8:95AA",
+        "C8:95CE",
+        "C9:A049",
+        "C9:A057"
+      ],
+      "segments": [
+        {
+          "count": 3,
+          "segment": "EEVENT2"
+        },
+        {
+          "count": 2,
+          "segment": "UNKNOWN_C9992F"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 33323,
+        "flash_effect": 0,
+        "has_event_palette": true,
+        "sprite_palette": 0
+      },
+      "variant": 1
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 60
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "matches_rom_variant_after_reserved_metadata_zeroing",
+      "palette_id": 26,
+      "palette_variant_match": true,
+      "palette_word": "0x021A",
+      "row_id": "q2",
+      "sample_addresses": [
+        "C7:C3A9"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "EEVENT4"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 4,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 2
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 180
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 27,
+      "palette_variant_match": true,
+      "palette_word": "0x041B",
+      "row_id": "r4",
+      "sample_addresses": [
+        "C9:2C10"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "EEVENT3"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 4
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 0
+        },
+        {
+          "count": 4,
+          "duration": 1
+        }
+      ],
+      "hit_count": 5,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x001F",
+      "row_id": "v0",
+      "sample_addresses": [
+        "C8:9595",
+        "C8:95A3",
+        "C8:95B1",
+        "C8:95D5",
+        "C9:A050"
+      ],
+      "segments": [
+        {
+          "count": 4,
+          "segment": "EEVENT2"
+        },
+        {
+          "count": 1,
+          "segment": "UNKNOWN_C9992F"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 0
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 60
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x021F",
+      "row_id": "v2",
+      "sample_addresses": [
+        "C7:74BD"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 2
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 2,
+          "duration": 60
+        }
+      ],
+      "hit_count": 2,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x031F",
+      "row_id": "v3",
+      "sample_addresses": [
+        "C7:7497",
+        "C7:7633"
+      ],
+      "segments": [
+        {
+          "count": 2,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 3
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 1,
+          "duration": 60
+        }
+      ],
+      "hit_count": 1,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x041F",
+      "row_id": "v4",
+      "sample_addresses": [
+        "C7:7D91"
+      ],
+      "segments": [
+        {
+          "count": 1,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 4
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 2,
+          "duration": 60
+        }
+      ],
+      "hit_count": 2,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x051F",
+      "row_id": "v5",
+      "sample_addresses": [
+        "C7:7437",
+        "C7:7868"
+      ],
+      "segments": [
+        {
+          "count": 2,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 5
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 3,
+          "duration": 60
+        }
+      ],
+      "hit_count": 3,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x061F",
+      "row_id": "v6",
+      "sample_addresses": [
+        "C7:74E6",
+        "C7:750B",
+        "C7:7946"
+      ],
+      "segments": [
+        {
+          "count": 3,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 6
+    },
+    {
+      "duration_frames": [
+        {
+          "count": 2,
+          "duration": 60
+        }
+      ],
+      "hit_count": 2,
+      "palette_contract_status": "exact_rom_palette_variant_match",
+      "palette_id": 31,
+      "palette_variant_match": true,
+      "palette_word": "0x071F",
+      "row_id": "v7",
+      "sample_addresses": [
+        "C7:72C2",
+        "C7:72F9"
+      ],
+      "segments": [
+        {
+          "count": 2,
+          "segment": "E18MGKT"
+        }
+      ],
+      "setting_summary": {
+        "event_flag": 0,
+        "flash_effect": 0,
+        "has_event_palette": false,
+        "sprite_palette": 0
+      },
+      "variant": 7
+    }
+  ]
+}

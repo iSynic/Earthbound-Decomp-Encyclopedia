@@ -1,0 +1,107 @@
+Overview
+
+This session continued from the Codex handoff. The central goal was to confirm or refute the spin-wait model of the overworld stutter and determine peak VRAM queue pressure during visible stutter events.
+
+The main outcome is a definitive ruling: the spin-wait model is wrong. The stutter has a different root cause, and the new best hypothesis is that the main loop occasionally takes longer than one NMI period during diagonal movement.
+
+What Was Ruled Out
+
+The spin-wait at C0:8671 never triggers during visible stutter on the vanilla ROM.
+
+This was confirmed directly: a read breakpoint placed at C0:8671 on the vanilla (unpatched) ROM did not fire during diagonal scrolling, including during obvious stutter events. This is the most important single result of this session.
+
+Consequences:
+- $0099 never reaches $1200 during stutter. The queue does not overflow.
+- All reasoning built on "the stutter is the spin-wait" is incorrect.
+- The attribution plan's central claim ("the stutter is a main-loop spin-wait, not an NMI overrun") is empirically false for the vanilla ROM.
+
+What the Emulator Counters Showed on scheduler-debug-v2
+
+7F:F168 (NMI frame count): counting normally. The NMI hook is alive.
+7F:F16A (last $0099 before NMI reset): effectively 0. Queue is near-empty when NMI fires on this build.
+7F:F16C (max $0099 ever): 0. Queue pressure has been reduced to essentially nothing by the dedupe + scheduler combination.
+7F:F16E (scroll-controller commit count): 0. The hook at C0:1725 never fires.
+
+The F16E = 0 finding needs follow-up. Either:
+- The user was not actively scrolling when the counter was checked (most likely).
+- C0:1558 exits through a different path than C0:1725 in some scenarios.
+- The hook address in the scheduler-debug-v2 build is wrong.
+
+This should be confirmed before drawing further conclusions from F16E.
+
+What the C0:8677 Breakpoint Session Showed
+
+A write breakpoint on $0099 at C0:8677 captured five hits. At each hit:
+- $92 = $40 in all cases (64-byte transfers, as expected)
+- $99 peaked at $C0 (three transfers) across the five samples
+- VRAM destinations, read as a 16-bit word from $98:$97 (little-endian):
+  - $4020  (tile graphics data, 40xx companion/visual range)
+  - $3C0C  (BG tilemap strip, 3Cxx)
+  - $3CC0  (BG tilemap strip, 3Cxx)
+  - $5CC0  (BG tilemap strip, 5Cxx)
+  - $3CA0  (BG tilemap strip, 3Cxx)
+
+The $99 peak of $C0 is consistent with early-frame captures (one to three transfers into a frame). It is not close to $1200. Combined with the spin-wait breakpoint result, this confirms that the VRAM queue capacity is not the bottleneck.
+
+Important: it is not confirmed which ROM build was loaded during the C0:8677 breakpoint session. If it was scheduler-debug-v2, the low $99 values are expected because that build suppresses most transfers. The result still aligns with the spin-wait breakpoint result but should be noted.
+
+About the Stutter Scenario
+
+The stutter is the same whether the player is walking diagonally or a cutscene is panning the camera diagonally. The user confirmed these look identical and appear to share the same cause. There is no separate cutscene-specific code path to worry about.
+
+The New Hypothesis
+
+The stutter is not queue overflow. It is the main loop occasionally taking longer than one NMI period during diagonal movement.
+
+Model:
+- The SNES NMI fires every ~16.67ms and copies scroll position to hardware registers $210D/$210E.
+- The overworld main loop updates the scroll position in WRAM during its run.
+- During diagonal movement, the main loop does double the strip generation CPU work (both H and V axes in C0:1558).
+- Occasionally this extra CPU work causes the main loop to still be running when NMI fires.
+- NMI copies the old (stale) scroll position to hardware. The screen freezes for that frame.
+- The next NMI copies the updated position. The screen jumps forward.
+- Visible result: one frozen frame followed by normal advancement. This is the stutter.
+
+Why this fits all observations:
+- Spin-wait never fires: the queue never overflows; the loop is just slow.
+- $99 stays low: the queue has capacity to spare; CPU time is the constraint.
+- Diagonal is worst: double the strip generation work per loop iteration.
+- safe-v2 helps marginally: fewer JSL calls = slightly shorter loop.
+- Scheduler helps more: defers one axis = roughly half the strip CPU work per iteration.
+- Cutscene panning stutters identically: same strip generation load regardless of input source.
+
+The bottleneck is CPU time spent building the transfers, not VRAM bandwidth.
+
+The Next Diagnostic Step
+
+Confirm the main-loop-too-slow hypothesis by measuring main loop iteration time.
+
+Find the main loop's sync or wait point. This is where the overworld main loop yields to NMI, either via a WAI instruction or a flag-polling loop. Known candidate addresses from prior hook work: C0:8012, C0:834E.
+
+Set a breakpoint at that sync point and record the CPU cycle counter at each hit. Compare:
+- Normal frames: should cluster near 357,954 master cycles per hit (one NMI period at 60.1 Hz).
+- Stutter frames: should show roughly 715,908 master cycles (two NMI periods, loop ran long and missed one).
+
+If consecutive hits at the sync point show a 2x cycle gap during visible stutter, the hypothesis is confirmed.
+
+If cycle gaps are always 1x (normal) even during stutter, the scroll update timing relative to NMI is wrong for a different reason, possibly that scroll position is being committed to WRAM too late in the loop even within a single NMI period.
+
+Patch Strategy Implications
+
+If the hypothesis is confirmed:
+- The correct fix is reducing CPU time in the main loop per iteration, not reducing VRAM queue entries.
+- The scheduler (deferring one axis) is the right direction and should be extended if possible.
+- Dedupe is still useful because every avoided JSL call saves a small amount of CPU time, but it is not sufficient alone.
+- A budget-cap drop patch (replacing the spin-wait with a silent drop) would do nothing useful because the spin-wait never fires anyway.
+- Coalescing adjacent VRAM transfers into fewer larger transfers could help by reducing per-transfer setup overhead in NMI, freeing NMI to return faster and reducing the window where the main loop might run long without NMI being available to commit scroll.
+
+Most Important Files
+
+Incoming handoff from Codex: Codex to Claude handoff.txt
+Attribution plan (contains the now-disproven spin-wait model): notes/diagonal-stutter-attribution-plan.md
+Patch plan: notes/rom-patch-overworld-stutter-plan.md
+Most trustworthy builds: build/EarthBound-overworld-stutter-safe-v2.sfc and build/EarthBound-overworld-stutter-scheduler-debug-v2.sfc
+
+Bottom Line
+
+The spin-wait at C0:8671 is not causing the stutter. The queue never overflows during visible stutter on the vanilla ROM. The remaining stutter is most likely the main loop missing an NMI scroll commit because diagonal strip generation takes more than one frame's worth of CPU time. The next step is to confirm this by measuring cycle counts at the main loop sync point (C0:8012 or C0:834E) and looking for 2x-period gaps during stutter events.

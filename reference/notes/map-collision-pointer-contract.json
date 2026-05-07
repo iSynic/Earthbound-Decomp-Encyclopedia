@@ -1,0 +1,2191 @@
+{
+  "collision_data_pool": {
+    "file_offsets": "0x180000..0x188F50",
+    "label": "D8:0000 MapTileCollisionData",
+    "range": "D8:0000..D8:8F50",
+    "record_count": 2293,
+    "record_size": 16,
+    "sha1": "ea770ec7d407412b32ab9eb0e3b96b516ba7f20e",
+    "size": 36688,
+    "unique_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x84",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "value_counts": [
+      {
+        "count": 13040,
+        "value": "0x00"
+      },
+      {
+        "count": 3418,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 2419,
+        "value": "0x03"
+      },
+      {
+        "count": 1718,
+        "value": "0x04"
+      },
+      {
+        "count": 64,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 938,
+        "value": "0x08"
+      },
+      {
+        "count": 210,
+        "value": "0x09"
+      },
+      {
+        "count": 154,
+        "value": "0x0B"
+      },
+      {
+        "count": 485,
+        "value": "0x0C"
+      },
+      {
+        "count": 69,
+        "value": "0x0D"
+      },
+      {
+        "count": 208,
+        "value": "0x0F"
+      },
+      {
+        "count": 129,
+        "value": "0x10"
+      },
+      {
+        "count": 13225,
+        "value": "0x80"
+      },
+      {
+        "count": 312,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 277,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ]
+  },
+  "generator": "tools/build_map_collision_pointer_contract.py",
+  "runtime_anchors": [
+    {
+      "address": "C0:0CF3",
+      "evidence": "Reads $7FF800 offset cache, sources bank D8 records, writes collision bytes into $E000 active page.",
+      "name": "Load_VerticalMovementCollisionStripPayload"
+    },
+    {
+      "address": "C0:54C9",
+      "evidence": "Reads one byte from $E000 active 64x64 page and latches coordinates when bit 0x10 is set.",
+      "name": "Read_CollisionByteAndLatchBit10Coord"
+    },
+    {
+      "address": "C0:5503/C0:559C/C0:5639/C0:56D0",
+      "evidence": "OR horizontal/vertical edge samples from $E000 into $5DA4.",
+      "name": "Footprint edge collision probes"
+    },
+    {
+      "address": "C0:5E3B/C0:5ECE",
+      "evidence": "Cache probed collision flags with mask #$00D0 before terrain compatibility checks.",
+      "name": "Entity collision cache updates"
+    }
+  ],
+  "schema": "earthbound-decomp.map-collision-pointer-contract.v1",
+  "source_policy": "Reference-derived structural contract. This records ranges, counts, hashes, pointer validation, and byte-value distributions only; it does not commit raw collision records or decoded ROM-derived map payloads.",
+  "sources": {
+    "attribute_context": "notes/map-collision-attribute-context.json",
+    "c0_source_scaffold": "src/c0/bank_c0_helpers_asar.asm",
+    "collision_probe_note": "notes/collision-surface-probes-c052d4-c05e3a.md",
+    "d8_build_candidate_ranges": "build/d8-build-candidate-ranges.json",
+    "rom": "EarthBound (USA).sfc",
+    "tileset_dir": "refs/eb-decompile-4ef92/Tilesets"
+  },
+  "summary": {
+    "all_data_records_referenced": true,
+    "collision_data_records": 2293,
+    "collision_record_size_bytes": 16,
+    "covered_fts_metatile_records": 12423,
+    "d8_pool_values_absent_from_fts": [],
+    "extra_pointer_offsets": [],
+    "fts_metatile_records": 20480,
+    "fts_values_absent_from_d8_pool": [],
+    "full_fts_values_absent_from_scene_sample": [
+      "0x84"
+    ],
+    "implicit_zero_metatile_records": 8057,
+    "matched_pointer_entries": 12423,
+    "misaligned_pointers": 0,
+    "mismatched_pointer_entries": 0,
+    "missing_data_record_offsets": [],
+    "out_of_range_pointers": 0,
+    "pointer_entries": 12423,
+    "pointer_expanded_value_counts_match_covered_fts": true,
+    "scene_sample_values_absent_from_full_fts": [],
+    "tileset_pointer_tables": 20,
+    "trailing_nonzero_cells": 0,
+    "unique_pointer_offsets": 2293,
+    "working_model": {
+      "collision_record": "16 bytes, one byte per 4x4 metatile cell",
+      "confidence": "high-structural",
+      "fts_link": "For each direct tileset, D8 pointer entry N resolves to the exact 16 third-byte values in .fts metatile N; omitted trailing .fts metatiles are all-zero collision records.",
+      "pointer_word": "16-byte-aligned offset into D8:0000 collision data pool",
+      "runtime_load_path": "C0:0CF3 and the adjacent collision-strip loader path use cached $7FF800 offsets and bank D8 source records to populate the active $E000 collision page.",
+      "runtime_probe_path": "C0:54C9 reads $E000 as a 64x64 active collision page; C0:5503, C0:559C, C0:5639, and C0:56D0 OR footprint edge bytes into $5DA4; C0:5E3B/C0:5ECE cache $5DA4 & #$00D0 for entity collision checks."
+    }
+  },
+  "tables": [
+    {
+      "covered_fts_metatile_records": 832,
+      "covered_fts_value_counts": [
+        {
+          "count": 8338,
+          "value": "0x80"
+        },
+        {
+          "count": 4639,
+          "value": "0x00"
+        },
+        {
+          "count": 303,
+          "value": "0x01"
+        },
+        {
+          "count": 14,
+          "value": "0x90"
+        },
+        {
+          "count": 12,
+          "value": "0x03"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        }
+      ],
+      "file_offsets": "0x188F50..0x1895D0",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 192,
+      "label": "D8:8F50 MapDataTileCollisionPointers0",
+      "matched_entries": 832,
+      "max_pointer_offset": "0x12C0",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 832,
+      "pointer_value_counts": [
+        {
+          "count": 8338,
+          "value": "0x80"
+        },
+        {
+          "count": 4639,
+          "value": "0x00"
+        },
+        {
+          "count": 303,
+          "value": "0x01"
+        },
+        {
+          "count": 14,
+          "value": "0x90"
+        },
+        {
+          "count": 12,
+          "value": "0x03"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        }
+      ],
+      "range": "D8:8F50..D8:95D0",
+      "sha1": "1c69fb2d2eb4491f239aac3581c82761bbc557a4",
+      "tileset_id": 0,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 192,
+      "unique_pointer_offsets": 301,
+      "zero_offset_entries": 339
+    },
+    {
+      "covered_fts_metatile_records": 845,
+      "covered_fts_value_counts": [
+        {
+          "count": 6667,
+          "value": "0x80"
+        },
+        {
+          "count": 4866,
+          "value": "0x00"
+        },
+        {
+          "count": 1035,
+          "value": "0x01"
+        },
+        {
+          "count": 888,
+          "value": "0x03"
+        },
+        {
+          "count": 58,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        }
+      ],
+      "file_offsets": "0x1895D0..0x189C6A",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 179,
+      "label": "D8:95D0 MapDataTileCollisionPointers1",
+      "matched_entries": 845,
+      "max_pointer_offset": "0x1F10",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 845,
+      "pointer_value_counts": [
+        {
+          "count": 6667,
+          "value": "0x80"
+        },
+        {
+          "count": 4866,
+          "value": "0x00"
+        },
+        {
+          "count": 1035,
+          "value": "0x01"
+        },
+        {
+          "count": 888,
+          "value": "0x03"
+        },
+        {
+          "count": 58,
+          "value": "0x90"
+        },
+        {
+          "count": 2,
+          "value": "0x92"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 2,
+          "value": "0x02"
+        }
+      ],
+      "range": "D8:95D0..D8:9C6A",
+      "sha1": "aca8c4ff914a67c7c5ed444809e7c32b1298700c",
+      "tileset_id": 1,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 179,
+      "unique_pointer_offsets": 239,
+      "zero_offset_entries": 236
+    },
+    {
+      "covered_fts_metatile_records": 827,
+      "covered_fts_value_counts": [
+        {
+          "count": 5701,
+          "value": "0x00"
+        },
+        {
+          "count": 5393,
+          "value": "0x80"
+        },
+        {
+          "count": 1091,
+          "value": "0x01"
+        },
+        {
+          "count": 964,
+          "value": "0x03"
+        },
+        {
+          "count": 50,
+          "value": "0x90"
+        },
+        {
+          "count": 28,
+          "value": "0x82"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        }
+      ],
+      "file_offsets": "0x189C6A..0x18A2E0",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 197,
+      "label": "D8:9C6A MapDataTileCollisionPointers2",
+      "matched_entries": 827,
+      "max_pointer_offset": "0x2860",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 827,
+      "pointer_value_counts": [
+        {
+          "count": 5701,
+          "value": "0x00"
+        },
+        {
+          "count": 5393,
+          "value": "0x80"
+        },
+        {
+          "count": 1091,
+          "value": "0x01"
+        },
+        {
+          "count": 964,
+          "value": "0x03"
+        },
+        {
+          "count": 50,
+          "value": "0x90"
+        },
+        {
+          "count": 28,
+          "value": "0x82"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        }
+      ],
+      "range": "D8:9C6A..D8:A2E0",
+      "sha1": "37c02399a1f31fe26e7e97b6f13ae9ad17d81cff",
+      "tileset_id": 2,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 197,
+      "unique_pointer_offsets": 271,
+      "zero_offset_entries": 158
+    },
+    {
+      "covered_fts_metatile_records": 524,
+      "covered_fts_value_counts": [
+        {
+          "count": 3548,
+          "value": "0x80"
+        },
+        {
+          "count": 3166,
+          "value": "0x00"
+        },
+        {
+          "count": 943,
+          "value": "0x01"
+        },
+        {
+          "count": 672,
+          "value": "0x03"
+        },
+        {
+          "count": 49,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        },
+        {
+          "count": 1,
+          "value": "0x82"
+        }
+      ],
+      "file_offsets": "0x18A2E0..0x18A6F8",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 500,
+      "label": "D8:A2E0 MapDataTileCollisionPointers3",
+      "matched_entries": 524,
+      "max_pointer_offset": "0x2D00",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 524,
+      "pointer_value_counts": [
+        {
+          "count": 3548,
+          "value": "0x80"
+        },
+        {
+          "count": 3166,
+          "value": "0x00"
+        },
+        {
+          "count": 943,
+          "value": "0x01"
+        },
+        {
+          "count": 672,
+          "value": "0x03"
+        },
+        {
+          "count": 49,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x02"
+        },
+        {
+          "count": 1,
+          "value": "0x82"
+        }
+      ],
+      "range": "D8:A2E0..D8:A6F8",
+      "sha1": "cac0ab13495f8cf46db3d1e688f650bd131f73bf",
+      "tileset_id": 3,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 500,
+      "unique_pointer_offsets": 169,
+      "zero_offset_entries": 113
+    },
+    {
+      "covered_fts_metatile_records": 935,
+      "covered_fts_value_counts": [
+        {
+          "count": 6513,
+          "value": "0x00"
+        },
+        {
+          "count": 5451,
+          "value": "0x80"
+        },
+        {
+          "count": 2181,
+          "value": "0x03"
+        },
+        {
+          "count": 785,
+          "value": "0x01"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x10"
+        }
+      ],
+      "file_offsets": "0x18A6F8..0x18AE46",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 89,
+      "label": "D8:A6F8 MapDataTileCollisionPointers4",
+      "matched_entries": 935,
+      "max_pointer_offset": "0x36D0",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 935,
+      "pointer_value_counts": [
+        {
+          "count": 6513,
+          "value": "0x00"
+        },
+        {
+          "count": 5451,
+          "value": "0x80"
+        },
+        {
+          "count": 2181,
+          "value": "0x03"
+        },
+        {
+          "count": 785,
+          "value": "0x01"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x10"
+        }
+      ],
+      "range": "D8:A6F8..D8:AE46",
+      "sha1": "96497a2b266c58d3426ca89241504b0c6450f7c9",
+      "tileset_id": 4,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 89,
+      "unique_pointer_offsets": 240,
+      "zero_offset_entries": 197
+    },
+    {
+      "covered_fts_metatile_records": 287,
+      "covered_fts_value_counts": [
+        {
+          "count": 2768,
+          "value": "0x80"
+        },
+        {
+          "count": 1357,
+          "value": "0x00"
+        },
+        {
+          "count": 250,
+          "value": "0x01"
+        },
+        {
+          "count": 178,
+          "value": "0x03"
+        },
+        {
+          "count": 39,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18AE46..0x18B084",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 737,
+      "label": "D8:AE46 MapDataTileCollisionPointers5",
+      "matched_entries": 287,
+      "max_pointer_offset": "0x3990",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 287,
+      "pointer_value_counts": [
+        {
+          "count": 2768,
+          "value": "0x80"
+        },
+        {
+          "count": 1357,
+          "value": "0x00"
+        },
+        {
+          "count": 250,
+          "value": "0x01"
+        },
+        {
+          "count": 178,
+          "value": "0x03"
+        },
+        {
+          "count": 39,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:AE46..D8:B084",
+      "sha1": "370a06687c16d4bccb78a37b10c7b3f081a3223f",
+      "tileset_id": 5,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 737,
+      "unique_pointer_offsets": 79,
+      "zero_offset_entries": 112
+    },
+    {
+      "covered_fts_metatile_records": 875,
+      "covered_fts_value_counts": [
+        {
+          "count": 6582,
+          "value": "0x80"
+        },
+        {
+          "count": 3850,
+          "value": "0x00"
+        },
+        {
+          "count": 1064,
+          "value": "0x0C"
+        },
+        {
+          "count": 890,
+          "value": "0x08"
+        },
+        {
+          "count": 403,
+          "value": "0x0F"
+        },
+        {
+          "count": 329,
+          "value": "0x03"
+        },
+        {
+          "count": 278,
+          "value": "0x01"
+        },
+        {
+          "count": 263,
+          "value": "0x0B"
+        }
+      ],
+      "file_offsets": "0x18B084..0x18B75A",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 149,
+      "label": "D8:B084 MapDataTileCollisionPointers6",
+      "matched_entries": 875,
+      "max_pointer_offset": "0x4A30",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 875,
+      "pointer_value_counts": [
+        {
+          "count": 6582,
+          "value": "0x80"
+        },
+        {
+          "count": 3850,
+          "value": "0x00"
+        },
+        {
+          "count": 1064,
+          "value": "0x0C"
+        },
+        {
+          "count": 890,
+          "value": "0x08"
+        },
+        {
+          "count": 403,
+          "value": "0x0F"
+        },
+        {
+          "count": 329,
+          "value": "0x03"
+        },
+        {
+          "count": 278,
+          "value": "0x01"
+        },
+        {
+          "count": 263,
+          "value": "0x0B"
+        }
+      ],
+      "range": "D8:B084..D8:B75A",
+      "sha1": "720de81b2c8cef6a518c9f64961fa56567f60869",
+      "tileset_id": 6,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 149,
+      "unique_pointer_offsets": 376,
+      "zero_offset_entries": 207
+    },
+    {
+      "covered_fts_metatile_records": 749,
+      "covered_fts_value_counts": [
+        {
+          "count": 8822,
+          "value": "0x80"
+        },
+        {
+          "count": 2671,
+          "value": "0x00"
+        },
+        {
+          "count": 301,
+          "value": "0x03"
+        },
+        {
+          "count": 154,
+          "value": "0x01"
+        },
+        {
+          "count": 22,
+          "value": "0x90"
+        },
+        {
+          "count": 11,
+          "value": "0x10"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 1,
+          "value": "0x92"
+        }
+      ],
+      "file_offsets": "0x18B75A..0x18BD34",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 275,
+      "label": "D8:B75A MapDataTileCollisionPointers7",
+      "matched_entries": 749,
+      "max_pointer_offset": "0x4DF0",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 749,
+      "pointer_value_counts": [
+        {
+          "count": 8822,
+          "value": "0x80"
+        },
+        {
+          "count": 2671,
+          "value": "0x00"
+        },
+        {
+          "count": 301,
+          "value": "0x03"
+        },
+        {
+          "count": 154,
+          "value": "0x01"
+        },
+        {
+          "count": 22,
+          "value": "0x90"
+        },
+        {
+          "count": 11,
+          "value": "0x10"
+        },
+        {
+          "count": 2,
+          "value": "0x82"
+        },
+        {
+          "count": 1,
+          "value": "0x92"
+        }
+      ],
+      "range": "D8:B75A..D8:BD34",
+      "sha1": "04a0640638c9459328f70dc1bc5f340e02f46dee",
+      "tileset_id": 7,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 275,
+      "unique_pointer_offsets": 149,
+      "zero_offset_entries": 443
+    },
+    {
+      "covered_fts_metatile_records": 628,
+      "covered_fts_value_counts": [
+        {
+          "count": 5234,
+          "value": "0x80"
+        },
+        {
+          "count": 2619,
+          "value": "0x04"
+        },
+        {
+          "count": 1435,
+          "value": "0x00"
+        },
+        {
+          "count": 475,
+          "value": "0x01"
+        },
+        {
+          "count": 245,
+          "value": "0x03"
+        },
+        {
+          "count": 35,
+          "value": "0x90"
+        },
+        {
+          "count": 3,
+          "value": "0x84"
+        },
+        {
+          "count": 2,
+          "value": "0x94"
+        }
+      ],
+      "file_offsets": "0x18BD34..0x18C21C",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 396,
+      "label": "D8:BD34 MapDataTileCollisionPointers8",
+      "matched_entries": 628,
+      "max_pointer_offset": "0x5900",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 628,
+      "pointer_value_counts": [
+        {
+          "count": 5234,
+          "value": "0x80"
+        },
+        {
+          "count": 2619,
+          "value": "0x04"
+        },
+        {
+          "count": 1435,
+          "value": "0x00"
+        },
+        {
+          "count": 475,
+          "value": "0x01"
+        },
+        {
+          "count": 245,
+          "value": "0x03"
+        },
+        {
+          "count": 35,
+          "value": "0x90"
+        },
+        {
+          "count": 3,
+          "value": "0x84"
+        },
+        {
+          "count": 2,
+          "value": "0x94"
+        }
+      ],
+      "range": "D8:BD34..D8:C21C",
+      "sha1": "8fb1f7b62a6b85207fb90ec7dd1f0d52a7dcdc54",
+      "tileset_id": 8,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 396,
+      "unique_pointer_offsets": 186,
+      "zero_offset_entries": 228
+    },
+    {
+      "covered_fts_metatile_records": 933,
+      "covered_fts_value_counts": [
+        {
+          "count": 7620,
+          "value": "0x00"
+        },
+        {
+          "count": 7267,
+          "value": "0x80"
+        },
+        {
+          "count": 30,
+          "value": "0x10"
+        },
+        {
+          "count": 7,
+          "value": "0x90"
+        },
+        {
+          "count": 4,
+          "value": "0x03"
+        }
+      ],
+      "file_offsets": "0x18C21C..0x18C966",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 91,
+      "label": "D8:C21C MapDataTileCollisionPointers9",
+      "matched_entries": 933,
+      "max_pointer_offset": "0x5C00",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 933,
+      "pointer_value_counts": [
+        {
+          "count": 7620,
+          "value": "0x00"
+        },
+        {
+          "count": 7267,
+          "value": "0x80"
+        },
+        {
+          "count": 30,
+          "value": "0x10"
+        },
+        {
+          "count": 7,
+          "value": "0x90"
+        },
+        {
+          "count": 4,
+          "value": "0x03"
+        }
+      ],
+      "range": "D8:C21C..D8:C966",
+      "sha1": "5cbb6b8ca4ddf926eb0f548a0133db5ccb34cf90",
+      "tileset_id": 9,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 91,
+      "unique_pointer_offsets": 159,
+      "zero_offset_entries": 298
+    },
+    {
+      "covered_fts_metatile_records": 871,
+      "covered_fts_value_counts": [
+        {
+          "count": 8878,
+          "value": "0x80"
+        },
+        {
+          "count": 4373,
+          "value": "0x00"
+        },
+        {
+          "count": 529,
+          "value": "0x01"
+        },
+        {
+          "count": 84,
+          "value": "0x90"
+        },
+        {
+          "count": 71,
+          "value": "0x82"
+        },
+        {
+          "count": 1,
+          "value": "0x10"
+        }
+      ],
+      "file_offsets": "0x18C966..0x18D034",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 153,
+      "label": "D8:C966 MapDataTileCollisionPointers10",
+      "matched_entries": 871,
+      "max_pointer_offset": "0x6230",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 871,
+      "pointer_value_counts": [
+        {
+          "count": 8878,
+          "value": "0x80"
+        },
+        {
+          "count": 4373,
+          "value": "0x00"
+        },
+        {
+          "count": 529,
+          "value": "0x01"
+        },
+        {
+          "count": 84,
+          "value": "0x90"
+        },
+        {
+          "count": 71,
+          "value": "0x82"
+        },
+        {
+          "count": 1,
+          "value": "0x10"
+        }
+      ],
+      "range": "D8:C966..D8:D034",
+      "sha1": "dd9a4325e6739d6ed220c9223798f84f29d690cf",
+      "tileset_id": 10,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 153,
+      "unique_pointer_offsets": 170,
+      "zero_offset_entries": 399
+    },
+    {
+      "covered_fts_metatile_records": 713,
+      "covered_fts_value_counts": [
+        {
+          "count": 7346,
+          "value": "0x80"
+        },
+        {
+          "count": 3148,
+          "value": "0x00"
+        },
+        {
+          "count": 407,
+          "value": "0x03"
+        },
+        {
+          "count": 362,
+          "value": "0x01"
+        },
+        {
+          "count": 78,
+          "value": "0x82"
+        },
+        {
+          "count": 67,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18D034..0x18D5C6",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 311,
+      "label": "D8:D034 MapDataTileCollisionPointers11",
+      "matched_entries": 713,
+      "max_pointer_offset": "0x6930",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 713,
+      "pointer_value_counts": [
+        {
+          "count": 7346,
+          "value": "0x80"
+        },
+        {
+          "count": 3148,
+          "value": "0x00"
+        },
+        {
+          "count": 407,
+          "value": "0x03"
+        },
+        {
+          "count": 362,
+          "value": "0x01"
+        },
+        {
+          "count": 78,
+          "value": "0x82"
+        },
+        {
+          "count": 67,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:D034..D8:D5C6",
+      "sha1": "46f58f4062cb584873ebb91402187d35dda069d1",
+      "tileset_id": 11,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 311,
+      "unique_pointer_offsets": 192,
+      "zero_offset_entries": 338
+    },
+    {
+      "covered_fts_metatile_records": 462,
+      "covered_fts_value_counts": [
+        {
+          "count": 5324,
+          "value": "0x80"
+        },
+        {
+          "count": 1505,
+          "value": "0x00"
+        },
+        {
+          "count": 272,
+          "value": "0x01"
+        },
+        {
+          "count": 186,
+          "value": "0x82"
+        },
+        {
+          "count": 83,
+          "value": "0x03"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        }
+      ],
+      "file_offsets": "0x18D5C6..0x18D962",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 562,
+      "label": "D8:D5C6 MapDataTileCollisionPointers12",
+      "matched_entries": 462,
+      "max_pointer_offset": "0x6E10",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 462,
+      "pointer_value_counts": [
+        {
+          "count": 5324,
+          "value": "0x80"
+        },
+        {
+          "count": 1505,
+          "value": "0x00"
+        },
+        {
+          "count": 272,
+          "value": "0x01"
+        },
+        {
+          "count": 186,
+          "value": "0x82"
+        },
+        {
+          "count": 83,
+          "value": "0x03"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        },
+        {
+          "count": 10,
+          "value": "0x10"
+        }
+      ],
+      "range": "D8:D5C6..D8:D962",
+      "sha1": "25e43b0edb411bd1f6a081321d5d43deff6ae031",
+      "tileset_id": 12,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 562,
+      "unique_pointer_offsets": 135,
+      "zero_offset_entries": 243
+    },
+    {
+      "covered_fts_metatile_records": 882,
+      "covered_fts_value_counts": [
+        {
+          "count": 8933,
+          "value": "0x80"
+        },
+        {
+          "count": 4378,
+          "value": "0x00"
+        },
+        {
+          "count": 370,
+          "value": "0x08"
+        },
+        {
+          "count": 121,
+          "value": "0x10"
+        },
+        {
+          "count": 94,
+          "value": "0x01"
+        },
+        {
+          "count": 70,
+          "value": "0x09"
+        },
+        {
+          "count": 60,
+          "value": "0x03"
+        },
+        {
+          "count": 55,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18D962..0x18E046",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 142,
+      "label": "D8:D962 MapDataTileCollisionPointers13",
+      "matched_entries": 882,
+      "max_pointer_offset": "0x7750",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 882,
+      "pointer_value_counts": [
+        {
+          "count": 8933,
+          "value": "0x80"
+        },
+        {
+          "count": 4378,
+          "value": "0x00"
+        },
+        {
+          "count": 370,
+          "value": "0x08"
+        },
+        {
+          "count": 121,
+          "value": "0x10"
+        },
+        {
+          "count": 94,
+          "value": "0x01"
+        },
+        {
+          "count": 70,
+          "value": "0x09"
+        },
+        {
+          "count": 60,
+          "value": "0x03"
+        },
+        {
+          "count": 55,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:D962..D8:E046",
+      "sha1": "e6e6d08fc9e1218749086b75ebec5242810ccf02",
+      "tileset_id": 13,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 142,
+      "unique_pointer_offsets": 280,
+      "zero_offset_entries": 318
+    },
+    {
+      "covered_fts_metatile_records": 203,
+      "covered_fts_value_counts": [
+        {
+          "count": 2076,
+          "value": "0x80"
+        },
+        {
+          "count": 1041,
+          "value": "0x00"
+        },
+        {
+          "count": 57,
+          "value": "0x01"
+        },
+        {
+          "count": 39,
+          "value": "0x03"
+        },
+        {
+          "count": 17,
+          "value": "0x82"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        }
+      ],
+      "file_offsets": "0x18E046..0x18E1DC",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 821,
+      "label": "D8:E046 MapDataTileCollisionPointers14",
+      "matched_entries": 203,
+      "max_pointer_offset": "0x7980",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 203,
+      "pointer_value_counts": [
+        {
+          "count": 2076,
+          "value": "0x80"
+        },
+        {
+          "count": 1041,
+          "value": "0x00"
+        },
+        {
+          "count": 57,
+          "value": "0x01"
+        },
+        {
+          "count": 39,
+          "value": "0x03"
+        },
+        {
+          "count": 17,
+          "value": "0x82"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        },
+        {
+          "count": 6,
+          "value": "0x10"
+        }
+      ],
+      "range": "D8:E046..D8:E1DC",
+      "sha1": "f0fc6fc9bd21b7fc9d2d16dd55fd7e07e97ebba9",
+      "tileset_id": 14,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 821,
+      "unique_pointer_offsets": 81,
+      "zero_offset_entries": 92
+    },
+    {
+      "covered_fts_metatile_records": 143,
+      "covered_fts_value_counts": [
+        {
+          "count": 1437,
+          "value": "0x80"
+        },
+        {
+          "count": 695,
+          "value": "0x00"
+        },
+        {
+          "count": 100,
+          "value": "0x01"
+        },
+        {
+          "count": 35,
+          "value": "0x03"
+        },
+        {
+          "count": 12,
+          "value": "0x82"
+        },
+        {
+          "count": 9,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18E1DC..0x18E2FA",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 881,
+      "label": "D8:E1DC MapDataTileCollisionPointers15",
+      "matched_entries": 143,
+      "max_pointer_offset": "0x7AA0",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 143,
+      "pointer_value_counts": [
+        {
+          "count": 1437,
+          "value": "0x80"
+        },
+        {
+          "count": 695,
+          "value": "0x00"
+        },
+        {
+          "count": 100,
+          "value": "0x01"
+        },
+        {
+          "count": 35,
+          "value": "0x03"
+        },
+        {
+          "count": 12,
+          "value": "0x82"
+        },
+        {
+          "count": 9,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:E1DC..D8:E2FA",
+      "sha1": "1bfd1440647c1f5ab6647de8dec0ec44354096db",
+      "tileset_id": 15,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 881,
+      "unique_pointer_offsets": 50,
+      "zero_offset_entries": 64
+    },
+    {
+      "covered_fts_metatile_records": 390,
+      "covered_fts_value_counts": [
+        {
+          "count": 3893,
+          "value": "0x80"
+        },
+        {
+          "count": 2025,
+          "value": "0x00"
+        },
+        {
+          "count": 262,
+          "value": "0x01"
+        },
+        {
+          "count": 42,
+          "value": "0x82"
+        },
+        {
+          "count": 13,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x03"
+        }
+      ],
+      "file_offsets": "0x18E2FA..0x18E606",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 634,
+      "label": "D8:E2FA MapDataTileCollisionPointers16",
+      "matched_entries": 390,
+      "max_pointer_offset": "0x7DB0",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 390,
+      "pointer_value_counts": [
+        {
+          "count": 3893,
+          "value": "0x80"
+        },
+        {
+          "count": 2025,
+          "value": "0x00"
+        },
+        {
+          "count": 262,
+          "value": "0x01"
+        },
+        {
+          "count": 42,
+          "value": "0x82"
+        },
+        {
+          "count": 13,
+          "value": "0x90"
+        },
+        {
+          "count": 5,
+          "value": "0x03"
+        }
+      ],
+      "range": "D8:E2FA..D8:E606",
+      "sha1": "089fd1a1c032b1c89aa3c2e898f045af097bb833",
+      "tileset_id": 16,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 634,
+      "unique_pointer_offsets": 114,
+      "zero_offset_entries": 149
+    },
+    {
+      "covered_fts_metatile_records": 343,
+      "covered_fts_value_counts": [
+        {
+          "count": 2923,
+          "value": "0x80"
+        },
+        {
+          "count": 2078,
+          "value": "0x00"
+        },
+        {
+          "count": 273,
+          "value": "0x03"
+        },
+        {
+          "count": 202,
+          "value": "0x01"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18E606..0x18E8B4",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 681,
+      "label": "D8:E606 MapDataTileCollisionPointers17",
+      "matched_entries": 343,
+      "max_pointer_offset": "0x8270",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 343,
+      "pointer_value_counts": [
+        {
+          "count": 2923,
+          "value": "0x80"
+        },
+        {
+          "count": 2078,
+          "value": "0x00"
+        },
+        {
+          "count": 273,
+          "value": "0x03"
+        },
+        {
+          "count": 202,
+          "value": "0x01"
+        },
+        {
+          "count": 12,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:E606..D8:E8B4",
+      "sha1": "98c34928e04a12f9fd1a3ec05f42a1e3bb88f451",
+      "tileset_id": 17,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 681,
+      "unique_pointer_offsets": 157,
+      "zero_offset_entries": 105
+    },
+    {
+      "covered_fts_metatile_records": 445,
+      "covered_fts_value_counts": [
+        {
+          "count": 2998,
+          "value": "0x80"
+        },
+        {
+          "count": 1996,
+          "value": "0x04"
+        },
+        {
+          "count": 1137,
+          "value": "0x00"
+        },
+        {
+          "count": 684,
+          "value": "0x01"
+        },
+        {
+          "count": 198,
+          "value": "0x03"
+        },
+        {
+          "count": 88,
+          "value": "0x05"
+        },
+        {
+          "count": 9,
+          "value": "0x10"
+        },
+        {
+          "count": 8,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18E8B4..0x18EC2E",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 579,
+      "label": "D8:E8B4 MapDataTileCollisionPointers18",
+      "matched_entries": 445,
+      "max_pointer_offset": "0x8A50",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 445,
+      "pointer_value_counts": [
+        {
+          "count": 2998,
+          "value": "0x80"
+        },
+        {
+          "count": 1996,
+          "value": "0x04"
+        },
+        {
+          "count": 1137,
+          "value": "0x00"
+        },
+        {
+          "count": 684,
+          "value": "0x01"
+        },
+        {
+          "count": 198,
+          "value": "0x03"
+        },
+        {
+          "count": 88,
+          "value": "0x05"
+        },
+        {
+          "count": 9,
+          "value": "0x10"
+        },
+        {
+          "count": 8,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:E8B4..D8:EC2E",
+      "sha1": "51122d3718a918b2178e625cf246841edcf87ffc",
+      "tileset_id": 18,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 579,
+      "unique_pointer_offsets": 185,
+      "zero_offset_entries": 86
+    },
+    {
+      "covered_fts_metatile_records": 536,
+      "covered_fts_value_counts": [
+        {
+          "count": 5457,
+          "value": "0x80"
+        },
+        {
+          "count": 2473,
+          "value": "0x00"
+        },
+        {
+          "count": 406,
+          "value": "0x08"
+        },
+        {
+          "count": 130,
+          "value": "0x09"
+        },
+        {
+          "count": 59,
+          "value": "0x0B"
+        },
+        {
+          "count": 26,
+          "value": "0x10"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        }
+      ],
+      "file_offsets": "0x18EC2E..0x18F05E",
+      "fts_metatile_records": 1024,
+      "implicit_zero_metatile_records": 488,
+      "label": "D8:EC2E MapDataTileCollisionPointers19",
+      "matched_entries": 536,
+      "max_pointer_offset": "0x8F40",
+      "misaligned_examples": [],
+      "misaligned_pointers": 0,
+      "mismatch_examples": [],
+      "mismatched_entries": 0,
+      "out_of_range_examples": [],
+      "out_of_range_pointers": 0,
+      "pointer_entries": 536,
+      "pointer_value_counts": [
+        {
+          "count": 5457,
+          "value": "0x80"
+        },
+        {
+          "count": 2473,
+          "value": "0x00"
+        },
+        {
+          "count": 406,
+          "value": "0x08"
+        },
+        {
+          "count": 130,
+          "value": "0x09"
+        },
+        {
+          "count": 59,
+          "value": "0x0B"
+        },
+        {
+          "count": 26,
+          "value": "0x10"
+        },
+        {
+          "count": 25,
+          "value": "0x90"
+        }
+      ],
+      "range": "D8:EC2E..D8:F05E",
+      "sha1": "ea8d72599a82faceab8f9f504a9bc1dbd08ce966",
+      "tileset_id": 19,
+      "trailing_nonzero_cells": 0,
+      "trailing_zero_metatile_records": 488,
+      "unique_pointer_offsets": 228,
+      "zero_offset_entries": 190
+    }
+  ],
+  "title": "Map Collision Pointer Contract",
+  "value_alphabets": {
+    "covered_fts_value_counts": [
+      {
+        "count": 64671,
+        "value": "0x00"
+      },
+      {
+        "count": 7876,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 6874,
+        "value": "0x03"
+      },
+      {
+        "count": 4617,
+        "value": "0x04"
+      },
+      {
+        "count": 88,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 1666,
+        "value": "0x08"
+      },
+      {
+        "count": 357,
+        "value": "0x09"
+      },
+      {
+        "count": 324,
+        "value": "0x0B"
+      },
+      {
+        "count": 1064,
+        "value": "0x0C"
+      },
+      {
+        "count": 141,
+        "value": "0x0D"
+      },
+      {
+        "count": 403,
+        "value": "0x0F"
+      },
+      {
+        "count": 251,
+        "value": "0x10"
+      },
+      {
+        "count": 109335,
+        "value": "0x80"
+      },
+      {
+        "count": 468,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 611,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "d8_pool_unique_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x84",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "d8_pool_value_counts": [
+      {
+        "count": 13040,
+        "value": "0x00"
+      },
+      {
+        "count": 3418,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 2419,
+        "value": "0x03"
+      },
+      {
+        "count": 1718,
+        "value": "0x04"
+      },
+      {
+        "count": 64,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 938,
+        "value": "0x08"
+      },
+      {
+        "count": 210,
+        "value": "0x09"
+      },
+      {
+        "count": 154,
+        "value": "0x0B"
+      },
+      {
+        "count": 485,
+        "value": "0x0C"
+      },
+      {
+        "count": 69,
+        "value": "0x0D"
+      },
+      {
+        "count": 208,
+        "value": "0x0F"
+      },
+      {
+        "count": 129,
+        "value": "0x10"
+      },
+      {
+        "count": 13225,
+        "value": "0x80"
+      },
+      {
+        "count": 312,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 277,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "fts_unique_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x84",
+      "0x90",
+      "0x92",
+      "0x94"
+    ],
+    "full_fts_value_counts": [
+      {
+        "count": 193583,
+        "value": "0x00"
+      },
+      {
+        "count": 7876,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 6874,
+        "value": "0x03"
+      },
+      {
+        "count": 4617,
+        "value": "0x04"
+      },
+      {
+        "count": 88,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 1666,
+        "value": "0x08"
+      },
+      {
+        "count": 357,
+        "value": "0x09"
+      },
+      {
+        "count": 324,
+        "value": "0x0B"
+      },
+      {
+        "count": 1064,
+        "value": "0x0C"
+      },
+      {
+        "count": 141,
+        "value": "0x0D"
+      },
+      {
+        "count": 403,
+        "value": "0x0F"
+      },
+      {
+        "count": 251,
+        "value": "0x10"
+      },
+      {
+        "count": 109335,
+        "value": "0x80"
+      },
+      {
+        "count": 468,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 611,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "pointer_expanded_value_counts": [
+      {
+        "count": 64671,
+        "value": "0x00"
+      },
+      {
+        "count": 7876,
+        "value": "0x01"
+      },
+      {
+        "count": 12,
+        "value": "0x02"
+      },
+      {
+        "count": 6874,
+        "value": "0x03"
+      },
+      {
+        "count": 4617,
+        "value": "0x04"
+      },
+      {
+        "count": 88,
+        "value": "0x05"
+      },
+      {
+        "count": 2,
+        "value": "0x07"
+      },
+      {
+        "count": 1666,
+        "value": "0x08"
+      },
+      {
+        "count": 357,
+        "value": "0x09"
+      },
+      {
+        "count": 324,
+        "value": "0x0B"
+      },
+      {
+        "count": 1064,
+        "value": "0x0C"
+      },
+      {
+        "count": 141,
+        "value": "0x0D"
+      },
+      {
+        "count": 403,
+        "value": "0x0F"
+      },
+      {
+        "count": 251,
+        "value": "0x10"
+      },
+      {
+        "count": 109335,
+        "value": "0x80"
+      },
+      {
+        "count": 468,
+        "value": "0x82"
+      },
+      {
+        "count": 3,
+        "value": "0x84"
+      },
+      {
+        "count": 611,
+        "value": "0x90"
+      },
+      {
+        "count": 3,
+        "value": "0x92"
+      },
+      {
+        "count": 2,
+        "value": "0x94"
+      }
+    ],
+    "scene_context_unique_values": [
+      "0x00",
+      "0x01",
+      "0x02",
+      "0x03",
+      "0x04",
+      "0x05",
+      "0x07",
+      "0x08",
+      "0x09",
+      "0x0B",
+      "0x0C",
+      "0x0D",
+      "0x0F",
+      "0x10",
+      "0x80",
+      "0x82",
+      "0x90",
+      "0x92",
+      "0x94"
+    ]
+  }
+}

@@ -1,0 +1,1124 @@
+{
+  "schema": "earthbound-decomp.audio-zero-runtime-coverage-report.v1",
+  "status": "zero_runtime_coverage_ready_probe_outputs_pending",
+  "references": [
+    "manifests/audio-duration-uncertainty-register.json",
+    "manifests/audio-zero-runtime-probe-plan.json"
+  ],
+  "source_plan_status": "zero_runtime_probe_jobs_ready_runner_extension_pending",
+  "summary": {
+    "blocker_track_count": 19,
+    "probe_job_count": 19,
+    "job_track_coverage_exact": true,
+    "candidate_pack_count": 10,
+    "runtime_zero_read_count": 5931,
+    "reader_pc_target_count": 10,
+    "reader_pc_target_read_counts": {
+      "0x0782": 8,
+      "0x07A6": 8,
+      "0x0847": 73,
+      "0x0957": 114,
+      "0x0B8A": 84,
+      "0x0D12": 1,
+      "0x2DB0": 957,
+      "0x2DDA": 955,
+      "0x2DF8": 955,
+      "0x2E3D": 952
+    },
+    "export_class_counts": {
+      "finite_or_transition_review_candidate": 10,
+      "loop_or_held_candidate": 2,
+      "unknown_active_preview": 7
+    },
+    "trace_focus_job_counts": {
+      "prove_zero_effect_but_loop_points_remain_required": 2,
+      "prove_zero_effect_then_classify_active_preview": 5,
+      "prove_zero_end_effect_then_review_finite_candidate": 1,
+      "trace_zero_reader_with_ef_stack_state": 11
+    },
+    "pack_context_job_counts": {
+      "needs_ef_return_stack_model": 11,
+      "zero_phrase_end_candidate_runtime_pending": 8
+    },
+    "post_zero_proof_action_job_counts": {
+      "classify_active_preview_before_exact_export": 7,
+      "decode_loop_points_before_exact_export": 2,
+      "review_observed_silence_as_finite_or_transition": 10
+    },
+    "pre_promotion_blocker_counts": {
+      "ef_return_stack_model": 15,
+      "zero_runtime_effect_proof": 19
+    },
+    "pack_job_counts": {
+      "1": 2,
+      "107": 1,
+      "136": 2,
+      "148": 1,
+      "154": 1,
+      "160": 1,
+      "163": 1,
+      "18": 1,
+      "25": 8,
+      "96": 1
+    },
+    "sequence_promotion_allowed": false,
+    "public_exact_promotion_allowed": false
+  },
+  "coverage_policy": [
+    "This report maps every current 0x00 runtime blocker to a probe job; it does not run the harness.",
+    "Every job targets the same 10 reader PCs so EF-return and true-end semantics can be observed consistently.",
+    "Promotion stays blocked until imported probe outputs classify 0x00 effects and refresh the duration uncertainty register.",
+    "Post-proof actions remain lane-specific: active preview classification, finite/transition review, or exact loop metadata work."
+  ],
+  "reader_pc_targets": [
+    {
+      "pc": "0x2DB0",
+      "read_count": 957,
+      "driver_offset": "0x28B0",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2DDA",
+      "read_count": 955,
+      "driver_offset": "0x28DA",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2DF8",
+      "read_count": 955,
+      "driver_offset": "0x28F8",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x2E3D",
+      "read_count": 952,
+      "driver_offset": "0x293D",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0957",
+      "read_count": 114,
+      "driver_offset": "0x0457",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0B8A",
+      "read_count": 84,
+      "driver_offset": "0x068A",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0847",
+      "read_count": 73,
+      "driver_offset": "0x0347",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0782",
+      "read_count": 8,
+      "driver_offset": "0x0282",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x07A6",
+      "read_count": 8,
+      "driver_offset": "0x02A6",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    },
+    {
+      "pc": "0x0D12",
+      "read_count": 1,
+      "driver_offset": "0x0812",
+      "role": "sequence_control_byte_reader_candidate",
+      "required_observation": "record command pointer, EF stack/return state, voice slot, and post-read branch/effect for 0x00"
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "zero-probe-track-001-gas_station",
+      "track_id": 1,
+      "track_name": "GAS_STATION",
+      "pack_id": 1,
+      "pack_track_ids": [
+        1,
+        174
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-001-gas_station",
+      "source_spc_sha1": "6e0b2fa78cd92f5ec0f993e5250e6e61b46225e9",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-001-gas_station/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-025-chaos_theatre",
+      "track_id": 25,
+      "track_name": "CHAOS_THEATRE",
+      "pack_id": 18,
+      "pack_track_ids": [
+        25
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 3,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "source_oracle_job_id": "oracle-track-025-chaos_theatre",
+      "source_spc_sha1": "d0152ff61b3aa2b40b69a473436f4530fc3f69d2",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-025-chaos_theatre/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-032-giant_step",
+      "track_id": 32,
+      "track_name": "GIANT_STEP",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.003219,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-032-giant_step",
+      "source_spc_sha1": "90b619f650e7e7fc17f13c86d69cb8a2bcef6bcb",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-032-giant_step/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-033-lilliput_steps",
+      "track_id": 33,
+      "track_name": "LILLIPUT_STEPS",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.004906,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-033-lilliput_steps",
+      "source_spc_sha1": "593aada85bf3781f556bfbf5391e127dce99aacf",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-033-lilliput_steps/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-034-milky_well",
+      "track_id": 34,
+      "track_name": "MILKY_WELL",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.002375,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-034-milky_well",
+      "source_spc_sha1": "e4ba0950e7765e1f8346ee0a2b184cecb3432eca",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-034-milky_well/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-035-rainy_circle",
+      "track_id": 35,
+      "track_name": "RAINY_CIRCLE",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.001938,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-035-rainy_circle",
+      "source_spc_sha1": "7963f0f754013571ac396b06bfd3829b0fa7ecf6",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-035-rainy_circle/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-036-magnet_hill",
+      "track_id": 36,
+      "track_name": "MAGNET_HILL",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.000875,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-036-magnet_hill",
+      "source_spc_sha1": "75db10f1057bc7c33093572d37c5d94b966efca3",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-036-magnet_hill/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-037-pink_cloud",
+      "track_id": 37,
+      "track_name": "PINK_CLOUD",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.005312,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-037-pink_cloud",
+      "source_spc_sha1": "e3d061821ffed20f0e0ba64316c2db32d60d15a3",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-037-pink_cloud/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-038-lumine_hall",
+      "track_id": 38,
+      "track_name": "LUMINE_HALL",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 19.2455,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-038-lumine_hall",
+      "source_spc_sha1": "c77a0d38d9764ebbafdda9eaafbcbbdcbc47414b",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-038-lumine_hall/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-039-fire_spring",
+      "track_id": 39,
+      "track_name": "FIRE_SPRING",
+      "pack_id": 25,
+      "pack_track_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 21.005406,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 32,
+        "ef_call_edges": 44,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 15
+        }
+      },
+      "source_oracle_job_id": "oracle-track-039-fire_spring",
+      "source_spc_sha1": "7b5e43293127a023e8e379335dfc1745a3c61442",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-039-fire_spring/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-085-bulldozer",
+      "track_id": 85,
+      "track_name": "BULLDOZER",
+      "pack_id": 96,
+      "pack_track_ids": [
+        85
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 1,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-085-bulldozer",
+      "source_spc_sha1": "5202d8560f2a621c2b1a2c0ae28042ea58d69eda",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-085-bulldozer/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-094-good_friends_bad_friends",
+      "track_id": 94,
+      "track_name": "GOOD_FRIENDS_BAD_FRIENDS",
+      "pack_id": 107,
+      "pack_track_ids": [
+        94
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 3,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 3
+        }
+      },
+      "source_oracle_job_id": "oracle-track-094-good_friends_bad_friends",
+      "source_spc_sha1": "234d173c38d0e9260f2d6c3ae797d2d95a3ecba8",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-094-good_friends_bad_friends/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-120-hotel_of_the_living_dead",
+      "track_id": 120,
+      "track_name": "HOTEL_OF_THE_LIVING_DEAD",
+      "pack_id": 136,
+      "pack_track_ids": [
+        120,
+        173
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "source_oracle_job_id": "oracle-track-120-hotel_of_the_living_dead",
+      "source_spc_sha1": "73be11fb4051967065e440474707376a29fc8a5c",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-120-hotel_of_the_living_dead/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-143-leaving_magicant",
+      "track_id": 143,
+      "track_name": "LEAVING_MAGICANT",
+      "pack_id": 148,
+      "pack_track_ids": [
+        143
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 12,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 2
+        }
+      },
+      "source_oracle_job_id": "oracle-track-143-leaving_magicant",
+      "source_spc_sha1": "ac648a81221c904235831c2146d1286efabca196",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-143-leaving_magicant/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-157-attract_mode",
+      "track_id": 157,
+      "track_name": "ATTRACT_MODE",
+      "pack_id": 154,
+      "pack_track_ids": [
+        157
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_then_classify_active_preview",
+      "export_class": "unknown_active_preview",
+      "recommended_mode": "diagnostic_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "classify_active_preview_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 6,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-157-attract_mode",
+      "source_spc_sha1": "b25aaf397de85e82b3237feb9022cd4285ef0e41",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-157-attract_mode/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-171-winters_intro",
+      "track_id": 171,
+      "track_name": "WINTERS_INTRO",
+      "pack_id": 160,
+      "pack_track_ids": [
+        171
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "loop_or_held_candidate",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 4,
+        "ef_call_edges": 20,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1,
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-171-winters_intro",
+      "source_spc_sha1": "f5fa80b3a0ace476fe39433cddcc6700b74d22aa",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-171-winters_intro/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-173-good_morning_moonside",
+      "track_id": 173,
+      "track_name": "GOOD_MORNING_MOONSIDE",
+      "pack_id": 136,
+      "pack_track_ids": [
+        120,
+        173
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_effect_but_loop_points_remain_required",
+      "export_class": "loop_or_held_candidate",
+      "recommended_mode": "loop_count_plus_fade_preview",
+      "duration_seconds": 30.0,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof"
+      ],
+      "post_zero_proof_action": "decode_loop_points_before_exact_export",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 5,
+        "ef_call_edges": 0,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 5
+        }
+      },
+      "source_oracle_job_id": "oracle-track-173-good_morning_moonside",
+      "source_spc_sha1": "4ce844b38b2658560ca64ce22a52a630e91a197e",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-173-good_morning_moonside/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-174-gas_station_2",
+      "track_id": 174,
+      "track_name": "GAS_STATION_2",
+      "pack_id": 1,
+      "pack_track_ids": [
+        1,
+        174
+      ],
+      "pack_context_class": "needs_ef_return_stack_model",
+      "trace_focus": "trace_zero_reader_with_ef_stack_state",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 13.578563,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 9,
+        "sampled_zero_walk_context_class_counts": {
+          "end_vs_ef_return_ambiguous": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-174-gas_station_2",
+      "source_spc_sha1": "e047c8b136197918db6c191ebe3f47ec2b1061d4",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-174-gas_station_2/zero-runtime-proof.md"
+      }
+    },
+    {
+      "job_id": "zero-probe-track-175-title_screen",
+      "track_id": 175,
+      "track_name": "TITLE_SCREEN",
+      "pack_id": 163,
+      "pack_track_ids": [
+        175
+      ],
+      "pack_context_class": "zero_phrase_end_candidate_runtime_pending",
+      "trace_focus": "prove_zero_end_effect_then_review_finite_candidate",
+      "export_class": "finite_or_transition_review_candidate",
+      "recommended_mode": "trim_candidate_after_manual_or_sequence_review",
+      "duration_seconds": 13.774594,
+      "pre_promotion_blockers": [
+        "zero_runtime_effect_proof",
+        "ef_return_stack_model"
+      ],
+      "post_zero_proof_action": "review_observed_silence_as_finite_or_transition",
+      "reader_pc_target_count": 10,
+      "reader_pc_targets": [
+        "0x2DB0",
+        "0x2DDA",
+        "0x2DF8",
+        "0x2E3D",
+        "0x0957",
+        "0x0B8A",
+        "0x0847",
+        "0x0782",
+        "0x07A6",
+        "0x0D12"
+      ],
+      "zero_static_context": {
+        "zero_terminator_candidates": 2,
+        "ef_call_edges": 4,
+        "sampled_zero_walk_context_class_counts": {
+          "phrase_or_song_end_candidate_pending_runtime_proof": 1
+        }
+      },
+      "source_oracle_job_id": "oracle-track-175-title_screen",
+      "source_spc_sha1": "a356f345fd6867f365490b983463b568131ada7c",
+      "promotion_allowed_by_plan": false,
+      "probe_outputs": {
+        "root": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen",
+        "raw_trace": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-control-trace.jsonl",
+        "result_json": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof-result.json",
+        "evidence_markdown": "build/audio/zero-runtime-probe/zero-probe-track-175-title_screen/zero-runtime-proof.md"
+      }
+    }
+  ]
+}

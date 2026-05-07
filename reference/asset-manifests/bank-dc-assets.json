@@ -1,0 +1,350 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank DC asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-dc-asset-data-map.md",
+    "notes/cf-event-music-context-contracts.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank1C.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 9,
+    "binary_assets_by_extension": {
+      "arr": 6,
+      "gfx": 1,
+      "ebm": 2
+    },
+    "binary_asset_bytes": 62866,
+    "table_includes": 1,
+    "table_bytes": 2560,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 110,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 11,
+    "output_recipe_count": 19,
+    "typed_output_kind_count": 3,
+    "decoder_output_recipe_count": 8,
+    "renderer_output_recipe_count": 0,
+    "preview_png_recipe_count": 0,
+    "output_kind_counts": {
+      "earthbound_lzhal": 7,
+      "map_sector_music_table_json": 1,
+      "raw": 11
+    },
+    "decoder_counts": {
+      "earthbound_lzhal": 7,
+      "map_sector_music_table": 1
+    },
+    "renderer_counts": {},
+    "smoke_fixture_count": 3,
+    "smoke_fixture_asset_ids": [
+      "asset.dc.map_data_tile_arrangement_12",
+      "table.dc.007_data_map_per_sector_music_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 1,
+      "recipe_kind": 1
+    },
+    "smoke_fixture_target_kind_counts": {
+      "earthbound_lzhal": 1,
+      "map_sector_music_table_json": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.dc.map_data_tile_arrangement_12",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_12",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:0000..DC:1FCA",
+        "bytes": 8138,
+        "sha1": "740463859cacf1a7172153be9c493491779e118b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/12.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/12.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/12.arr.lzhal",
+        "Original file offset: 0x1C0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_arrangement_13",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_13",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:1FCA..DC:593C",
+        "bytes": 14706,
+        "sha1": "0f85da114a0733cc81d9030144858c125517a241"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/13.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/13.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/13.arr.lzhal",
+        "Original file offset: 0x1C1FCA",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_arrangement_14",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_14",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:593C..DC:687B",
+        "bytes": 3903,
+        "sha1": "d1fb09019da8e2b808d2045c02a46e60fc1a33a9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/14.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/14.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/14.arr.lzhal",
+        "Original file offset: 0x1C593C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_arrangement_15",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_15",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:687B..DC:72C0",
+        "bytes": 2629,
+        "sha1": "236d557d2b7ab0c0d6946e767af3808cece4b66c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/15.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/15.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/15.arr.lzhal",
+        "Original file offset: 0x1C687B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_arrangement_18",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_18",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:72C0..DC:8E4A",
+        "bytes": 7050,
+        "sha1": "8248bf63cb91651bd873391706acd4fae76b8b08"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/18.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/18.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/18.arr.lzhal",
+        "Original file offset: 0x1C72C0",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_arrangement_19",
+      "title": "MAP_DATA_TILE_ARRANGEMENT_19",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:8E4A..DC:B023",
+        "bytes": 8665,
+        "sha1": "f2d7322e4219dbde9d9d6e7a83f435ec33dc7cc8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/arrangements/19.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/arrangements/19.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/arrangements/19.arr.lzhal",
+        "Original file offset: 0x1C8E4A",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.map_data_tile_set_graphics_14",
+      "title": "MAP_DATA_TILE_SET_GRAPHICS_14",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:B023..DC:D637",
+        "bytes": 9748,
+        "sha1": "1eb22e26f2f5733c69b512c270c6f030a263d006"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/maps/gfx/14.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "dc/maps/gfx/14.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: maps/gfx/14.gfx.lzhal",
+        "Original file offset: 0x1CB023",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.dc.audio_pack_156",
+      "title": "AUDIO_PACK_156",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:E037..DC:F8BF",
+        "bytes": 6280,
+        "sha1": "c3b88a0ecf0f5d3997eacdbefe0c4481dca7943d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/audiopacks/156.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/156.ebm",
+        "Original file offset: 0x1CE037"
+      ]
+    },
+    {
+      "id": "asset.dc.audio_pack_79",
+      "title": "AUDIO_PACK_79",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:F8BF..DC:FF92",
+        "bytes": 1747,
+        "sha1": "41948911d02820592abdfdf975ab25a3356b5d74"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/audiopacks/79.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/79.ebm",
+        "Original file offset: 0x1CF8BF"
+      ]
+    },
+    {
+      "id": "table.dc.007_data_map_per_sector_music_asm",
+      "title": "data/map/per-sector_music.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:D637..DC:E037",
+        "bytes": 2560,
+        "sha1": "9fcbe28d7953dae0b4ec08affc7d3f8270163352"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/tables/007_data_map_per_sector_music_asm.bin"
+        },
+        {
+          "kind": "map_sector_music_table_json",
+          "path": "dc/tables/007_data_map_per_sector_music_asm_decoded.json",
+          "column_count": 80,
+          "row_count": 32
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/map/per-sector_music.asm",
+        "Original file offset: 0x1CD637",
+        "Size was inferred from the next known binary asset boundary.",
+        "Semantic split: DC_CURRENT_POSITION_EVENT_MUSIC_SELECTOR_PLANE plus DC_UNRESOLVED_PER_SECTOR_MUSIC_SECOND_PLANE.",
+        "See notes/cf-event-music-context-contracts.md for source-emission rows, value counts, and numeric-preserve policy for the unnamed second plane.",
+        "Decoded as the 80-by-32 map-sector destination/music row lookup consumed by C0:68F4 before resolving the current map music track."
+      ]
+    },
+    {
+      "id": "gap.dc.dc_ff92",
+      "title": "Bank DC coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "DC:FF92..DC:10000",
+        "bytes": 110,
+        "sha1": "b856abf03c3dd98afecd55186536ceaf03b9c7ab"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "dc/gaps/01_dc_ff92.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x1CFF92..0x1CFFFF"
+      ]
+    }
+  ]
+}

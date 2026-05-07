@@ -1,0 +1,2419 @@
+{
+  "schema": "earthbound-decomp.asset-manifest.v1",
+  "game": "earthbound-us",
+  "title": "Bank CC asset extraction manifest",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "do_not_commit_generated_outputs": true,
+    "default_output_root": "build/assets"
+  },
+  "generator": {
+    "tool": "tools/build_asset_extraction_manifest.py",
+    "source_schema": "earthbound-decomp.asset-bank.v1"
+  },
+  "references": [
+    "notes/bank-cc-asset-data-map.md",
+    "refs/ebsrc-main/ebsrc-main/earthbound.yml",
+    "refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank0C.asm"
+  ],
+  "bank_summary": {
+    "binary_assets": 79,
+    "binary_assets_by_extension": {
+      "anim": 6,
+      "arr": 34,
+      "gfx": 4,
+      "pal": 34,
+      "ebm": 1
+    },
+    "binary_asset_bytes": 64899,
+    "table_includes": 3,
+    "table_bytes": 600,
+    "coverage_gaps": 1,
+    "coverage_gap_bytes": 37,
+    "missing_payload_metadata": 0
+  },
+  "typed_output_summary": {
+    "schema": "earthbound-decomp.asset-manifest-output-summary.v1",
+    "generator": {
+      "tool": "tools/build_asset_manifest_output_metadata.py",
+      "recipe_contract_module": "tools/asset_output_recipe_contracts.py",
+      "smoke_fixture_plan": "notes/asset-output-smoke-fixtures.json"
+    },
+    "asset_count": 83,
+    "output_recipe_count": 199,
+    "typed_output_kind_count": 8,
+    "decoder_output_recipe_count": 116,
+    "renderer_output_recipe_count": 35,
+    "preview_png_recipe_count": 35,
+    "output_kind_counts": {
+      "animation_sequence_pointer_table_json": 1,
+      "earthbound_lzhal": 44,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 1,
+      "psi_anim_config_table_json": 1,
+      "psi_anim_pointer_table_json": 1,
+      "raw": 83,
+      "snes_palette_json": 34,
+      "snes_palette_swatch_png": 34
+    },
+    "decoder_counts": {
+      "animation_sequence_pointer_table": 1,
+      "earthbound_lzhal": 44,
+      "earthbound_lzhal+snes_4bpp_tiles": 1,
+      "psi_animation_config_table": 1,
+      "psi_animation_pointer_table": 1,
+      "snes_palette": 68
+    },
+    "renderer_counts": {
+      "grayscale_tile_sheet": 1,
+      "palette_swatch": 34
+    },
+    "smoke_fixture_count": 7,
+    "smoke_fixture_asset_ids": [
+      "asset.cc.psi_anim_gfx_set_3",
+      "table.cc.006_data_animation_sequence_pointers_asm",
+      "table.cc.043_data_psi_anim_cfg_asm",
+      "table.cc.080_data_psi_anim_pointers_asm"
+    ],
+    "smoke_fixture_type_counts": {
+      "bank_output": 1,
+      "family_decoder": 3,
+      "recipe_kind": 3
+    },
+    "smoke_fixture_target_kind_counts": {
+      "animation_sequence_pointer_table_json": 2,
+      "earthbound_lzhal_snes_4bpp_tiles_png": 1,
+      "psi_anim_config_table_json": 2,
+      "psi_anim_pointer_table_json": 2
+    }
+  },
+  "assets": [
+    {
+      "id": "asset.cc.animationdata_carpainter_lightning_reflect",
+      "title": "ANIMATIONDATA_CARPAINTER_LIGHTNING_REFLECT",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:0000..CC:17CB",
+        "bytes": 6091,
+        "sha1": "5df4875581638637d3d56d04bc2d14682696ce16"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/lightning_reflect.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/lightning_reflect.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/lightning_reflect.anim.lzhal",
+        "Original file offset: 0x0C0000",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.animationdata_carpainter_lightning_strike",
+      "title": "ANIMATIONDATA_CARPAINTER_LIGHTNING_STRIKE",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:17CB..CC:1F5C",
+        "bytes": 1937,
+        "sha1": "74eae5964b79275294a21d262ca903cae303b280"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/lightning_strike.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/lightning_strike.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/lightning_strike.anim.lzhal",
+        "Original file offset: 0x0C17CB",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.animationdata_starman_jr_teleport",
+      "title": "ANIMATIONDATA_STARMAN_JR_TELEPORT",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:1F5C..CC:22D8",
+        "bytes": 892,
+        "sha1": "f3fb000aabad982ca1b26260b63779c888d62f6f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/starman_jr_teleport.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/starman_jr_teleport.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/starman_jr_teleport.anim.lzhal",
+        "Original file offset: 0x0C1F5C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.animationdata_boom",
+      "title": "ANIMATIONDATA_BOOM",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:22D8..CC:2C89",
+        "bytes": 2481,
+        "sha1": "294686c39d9a8725ac5c3a3f9439f60f19a71bad"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/boom.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/boom.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/boom.anim.lzhal",
+        "Original file offset: 0x0C22D8",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.animationdata_zombies",
+      "title": "ANIMATIONDATA_ZOMBIES",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:2C89..CC:2CE1",
+        "bytes": 88,
+        "sha1": "2adcd681db62ce095bcf7b6592ce44639bd7984b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/zombies.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/zombies.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/zombies.anim.lzhal",
+        "Original file offset: 0x0C2C89",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.animationdata_the_end",
+      "title": "ANIMATIONDATA_THE_END",
+      "category": "binary-asset",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:2CE1..CC:2DE1",
+        "bytes": 256,
+        "sha1": "d9c1be06bf107728f22ae2ce328732194b730282"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/graphics/animations/the_end.anim.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/graphics/animations/the_end.anim"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: graphics/animations/the_end.anim.lzhal",
+        "Original file offset: 0x0C2CE1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_20",
+      "title": "PSI_ARRANGEMENT_20",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:2E19..CC:4057",
+        "bytes": 4670,
+        "sha1": "5ac9c4052ed4a926f6cad5a3d52be06afbcdfbb1"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/20.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/20.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/20.arr.lzhal",
+        "Original file offset: 0x0C2E19",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_31",
+      "title": "PSI_ARRANGEMENT_31",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:4057..CC:4D53",
+        "bytes": 3324,
+        "sha1": "c2a6f0655efe489651a9d1c7f57be64c311c5d46"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/31.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/31.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/31.arr.lzhal",
+        "Original file offset: 0x0C4057",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_19",
+      "title": "PSI_ARRANGEMENT_19",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:4D53..CC:597B",
+        "bytes": 3112,
+        "sha1": "bb8809a9d7a29a16f48acb6cb7597595268d5b2e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/19.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/19.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/19.arr.lzhal",
+        "Original file offset: 0x0C4D53",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_21",
+      "title": "PSI_ARRANGEMENT_21",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:597B..CC:6390",
+        "bytes": 2581,
+        "sha1": "ef75bdae489ced70c504b12c9d584d15ff3134dd"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/21.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/21.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/21.arr.lzhal",
+        "Original file offset: 0x0C597B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_13",
+      "title": "PSI_ARRANGEMENT_13",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:6390..CC:6D77",
+        "bytes": 2535,
+        "sha1": "6497e47dfd2b2c956dedc790d3ade372f508af4e"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/13.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/13.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/13.arr.lzhal",
+        "Original file offset: 0x0C6390",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_23",
+      "title": "PSI_ARRANGEMENT_23",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:6D77..CC:760B",
+        "bytes": 2196,
+        "sha1": "1e4ef5ef7cc308460c5615769672814550c8d601"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/23.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/23.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/23.arr.lzhal",
+        "Original file offset: 0x0C6D77",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_18",
+      "title": "PSI_ARRANGEMENT_18",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:760B..CC:7E9E",
+        "bytes": 2195,
+        "sha1": "8f9e516338e8a61b841d4e37d723bf721684366a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/18.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/18.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/18.arr.lzhal",
+        "Original file offset: 0x0C760B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_8",
+      "title": "PSI_ARRANGEMENT_8",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:7E9E..CC:8629",
+        "bytes": 1931,
+        "sha1": "303c5d22798707e6ce42e20b0c81703de65c51db"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/8.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/8.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/8.arr.lzhal",
+        "Original file offset: 0x0C7E9E",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_30",
+      "title": "PSI_ARRANGEMENT_30",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:8629..CC:8D86",
+        "bytes": 1885,
+        "sha1": "44041ace109881c174f2c334aa73b7aada6fd8fe"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/30.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/30.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/30.arr.lzhal",
+        "Original file offset: 0x0C8629",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_29",
+      "title": "PSI_ARRANGEMENT_29",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:8D86..CC:94DF",
+        "bytes": 1881,
+        "sha1": "846f8229a3b1902ee9fc978754f4de8bca45f87b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/29.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/29.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/29.arr.lzhal",
+        "Original file offset: 0x0C8D86",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_28",
+      "title": "PSI_ARRANGEMENT_28",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:94DF..CC:9B45",
+        "bytes": 1638,
+        "sha1": "1d123c8f2e4ae5e3afd630254c06a1f652181b30"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/28.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/28.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/28.arr.lzhal",
+        "Original file offset: 0x0C94DF",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_25",
+      "title": "PSI_ARRANGEMENT_25",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:9B45..CC:A12C",
+        "bytes": 1511,
+        "sha1": "76da596f012eef485d295eeaed7be9d2ea1e31e0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/25.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/25.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/25.arr.lzhal",
+        "Original file offset: 0x0C9B45",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_26",
+      "title": "PSI_ARRANGEMENT_26",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:A12C..CC:A6B9",
+        "bytes": 1421,
+        "sha1": "0532c5aa94f9b556adec534c8d7b11ddbe02dd76"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/26.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/26.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/26.arr.lzhal",
+        "Original file offset: 0x0CA12C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_9",
+      "title": "PSI_ARRANGEMENT_9",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:A6B9..CC:AC25",
+        "bytes": 1388,
+        "sha1": "1c0fc5cd8a109ff5286fddea06639bacbec29639"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/9.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/9.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/9.arr.lzhal",
+        "Original file offset: 0x0CA6B9",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_anim_gfx_set_1",
+      "title": "PSI_ANIM_GFX_SET_1",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:AC25..CC:B12F",
+        "bytes": 1290,
+        "sha1": "0e1a0ff443aa784521143bd0211f7dfbbd7d5a34"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/gfx/0.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/gfx/0.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/gfx/0.gfx.lzhal",
+        "Original file offset: 0x0CAC25",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_5",
+      "title": "PSI_ARRANGEMENT_5",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:B12F..CC:B613",
+        "bytes": 1252,
+        "sha1": "5665548a57bd8c5279d855c5255ce0c1ca0b7cb0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/5.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/5.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/5.arr.lzhal",
+        "Original file offset: 0x0CB12F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_anim_gfx_set_2",
+      "title": "PSI_ANIM_GFX_SET_2",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:B613..CC:BAC7",
+        "bytes": 1204,
+        "sha1": "8bb4cd17f79a9aa1cf1cf495aff15a7e8bf3c77c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/gfx/1.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/gfx/1.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/gfx/1.gfx.lzhal",
+        "Original file offset: 0x0CB613",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_3",
+      "title": "PSI_ARRANGEMENT_3",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:BAC7..CC:BF2D",
+        "bytes": 1126,
+        "sha1": "fd13ed4ce259b7adba4ac14efbd70ce788f1563a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/3.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/3.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/3.arr.lzhal",
+        "Original file offset: 0x0CBAC7",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_7",
+      "title": "PSI_ARRANGEMENT_7",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:BF2D..CC:C32F",
+        "bytes": 1026,
+        "sha1": "46a271a89a05618bdf4d0a44513d6e9a0dd144e0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/7.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/7.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/7.arr.lzhal",
+        "Original file offset: 0x0CBF2D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_0",
+      "title": "PSI_ARRANGEMENT_0",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:C32F..CC:C701",
+        "bytes": 978,
+        "sha1": "8aed7551460f72e336177ea95b44a26cdb144488"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/0.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/0.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/0.arr.lzhal",
+        "Original file offset: 0x0CC32F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_6",
+      "title": "PSI_ARRANGEMENT_6",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:C701..CC:CAAD",
+        "bytes": 940,
+        "sha1": "81908ad4c975b21b2cb1cd2ba88e429bccf12428"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/6.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/6.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/6.arr.lzhal",
+        "Original file offset: 0x0CC701",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_17",
+      "title": "PSI_ARRANGEMENT_17",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:CAAD..CC:CE57",
+        "bytes": 938,
+        "sha1": "43ad7b516ac302c2b62abfc3fca61bd3625a1329"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/17.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/17.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/17.arr.lzhal",
+        "Original file offset: 0x0CCAAD",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_33",
+      "title": "PSI_ARRANGEMENT_33",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:CE57..CC:D1C7",
+        "bytes": 880,
+        "sha1": "aeed25f0fc2afd08dcd4ba70e3838099406e0017"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/33.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/33.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/33.arr.lzhal",
+        "Original file offset: 0x0CCE57",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_22",
+      "title": "PSI_ARRANGEMENT_22",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:D1C7..CC:D4FB",
+        "bytes": 820,
+        "sha1": "12203bef5fd1f2567abc44b58111fcdd2d6e07ef"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/22.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/22.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/22.arr.lzhal",
+        "Original file offset: 0x0CD1C7",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_12",
+      "title": "PSI_ARRANGEMENT_12",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:D4FB..CC:D820",
+        "bytes": 805,
+        "sha1": "520abbdd894adef88823357c3589a5cf12094be3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/12.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/12.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/12.arr.lzhal",
+        "Original file offset: 0x0CD4FB",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_2",
+      "title": "PSI_ARRANGEMENT_2",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:D820..CC:DB27",
+        "bytes": 775,
+        "sha1": "6b40497891a3dac9149fb33c4437bef49244e718"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/2.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/2.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/2.arr.lzhal",
+        "Original file offset: 0x0CD820",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_anim_gfx_set_3",
+      "title": "PSI_ANIM_GFX_SET_3",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:DB27..CC:DDF9",
+        "bytes": 722,
+        "sha1": "67298c18698df45c570d0a3755340824b7722e30"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/gfx/2.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/gfx/2.gfx"
+        },
+        {
+          "kind": "earthbound_lzhal_snes_4bpp_tiles_png",
+          "path": "cc/psianims/gfx/2_4bpp_preview.png",
+          "columns": 8
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/gfx/2.gfx.lzhal",
+        "Original file offset: 0x0CDB27",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_1",
+      "title": "PSI_ARRANGEMENT_1",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:DDF9..CC:E0A1",
+        "bytes": 680,
+        "sha1": "8090cbf9b1801f002fcaf83d6d958d45092732a9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/1.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/1.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/1.arr.lzhal",
+        "Original file offset: 0x0CDDF9",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_24",
+      "title": "PSI_ARRANGEMENT_24",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:E0A1..CC:E31D",
+        "bytes": 636,
+        "sha1": "5de256b15901a9bbdc2cfbf513d44a028f7d2503"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/24.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/24.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/24.arr.lzhal",
+        "Original file offset: 0x0CE0A1",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_anim_gfx_set_4",
+      "title": "PSI_ANIM_GFX_SET_4",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:E31D..CC:E56D",
+        "bytes": 592,
+        "sha1": "0ead8dc2224d7fe9157c248fdf4a649c00c7a6bb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/gfx/3.gfx.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/gfx/3.gfx"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/gfx/3.gfx.lzhal",
+        "Original file offset: 0x0CE31D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_16",
+      "title": "PSI_ARRANGEMENT_16",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:E56D..CC:E78B",
+        "bytes": 542,
+        "sha1": "b6b884bb649f7a4edfa6436a9b05e16ec1bf7dc7"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/16.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/16.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/16.arr.lzhal",
+        "Original file offset: 0x0CE56D",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_15",
+      "title": "PSI_ARRANGEMENT_15",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:E78B..CC:E96C",
+        "bytes": 481,
+        "sha1": "9e6f4bfb0f5a0f2475df2b01237776dc0c973c92"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/15.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/15.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/15.arr.lzhal",
+        "Original file offset: 0x0CE78B",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_11",
+      "title": "PSI_ARRANGEMENT_11",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:E96C..CC:EB3F",
+        "bytes": 467,
+        "sha1": "1ac85ea232d472fd46b1cbae40beacd128695788"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/11.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/11.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/11.arr.lzhal",
+        "Original file offset: 0x0CE96C",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_14",
+      "title": "PSI_ARRANGEMENT_14",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:EB3F..CC:ED0E",
+        "bytes": 463,
+        "sha1": "066b063291828e625f0997e7e7d1157019dad247"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/14.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/14.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/14.arr.lzhal",
+        "Original file offset: 0x0CEB3F",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_32",
+      "title": "PSI_ARRANGEMENT_32",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:ED0E..CC:EEB4",
+        "bytes": 422,
+        "sha1": "def284fec9d8c3ad5ff581eeb88a44dfe5b70a49"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/32.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/32.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/32.arr.lzhal",
+        "Original file offset: 0x0CED0E",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_27",
+      "title": "PSI_ARRANGEMENT_27",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:EEB4..CC:F04D",
+        "bytes": 409,
+        "sha1": "5d6b0a16f70b8527395bafcce04e9d94dad3aa7c"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/27.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/27.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/27.arr.lzhal",
+        "Original file offset: 0x0CEEB4",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_4",
+      "title": "PSI_ARRANGEMENT_4",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F1E5..CC:F358",
+        "bytes": 371,
+        "sha1": "4e0b0c25716a4f1cf327dfce476ea64b41e87c6d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/4.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/4.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/4.arr.lzhal",
+        "Original file offset: 0x0CF1E5",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_arrangement_10",
+      "title": "PSI_ARRANGEMENT_10",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F358..CC:F47F",
+        "bytes": 295,
+        "sha1": "dba971b8d2a2f2c07495243cb6b87e109c707234"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/arrangements/10.arr.lzhal"
+        },
+        {
+          "kind": "earthbound_lzhal",
+          "path": "cc/psianims/arrangements/10.arr"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/arrangements/10.arr.lzhal",
+        "Original file offset: 0x0CF358",
+        "Payload is marked compressed in earthbound.yml or inferred from its extension."
+      ]
+    },
+    {
+      "id": "asset.cc.psi_anim_palettes",
+      "title": "PSI_ANIM_PALETTES",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F47F..CC:F487",
+        "bytes": 8,
+        "sha1": "b5e4326ee5864341a1805f7c3707c3125119d62f"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/00.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/00_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/00_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/00.pal",
+        "Original file offset: 0x0CF47F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_01_pal",
+      "title": "psianims/palettes/01.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F487..CC:F48F",
+        "bytes": 8,
+        "sha1": "b5ea6b6233d02d3a1b0c091f55ca3f2c2efde2f4"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/01.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/01_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/01_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/01.pal",
+        "Original file offset: 0x0CF487"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_02_pal",
+      "title": "psianims/palettes/02.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F48F..CC:F497",
+        "bytes": 8,
+        "sha1": "20d7ba42711555e19059d357c63c380478a1aa00"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/02.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/02_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/02_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/02.pal",
+        "Original file offset: 0x0CF48F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_03_pal",
+      "title": "psianims/palettes/03.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F497..CC:F49F",
+        "bytes": 8,
+        "sha1": "0b5a97b8ba606b3923f8693a001968abd5a686c3"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/03.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/03_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/03_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/03.pal",
+        "Original file offset: 0x0CF497"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_04_pal",
+      "title": "psianims/palettes/04.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F49F..CC:F4A7",
+        "bytes": 8,
+        "sha1": "394e6d079dd57a9dde6e7394eb5ea59317e56adb"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/04.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/04_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/04_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/04.pal",
+        "Original file offset: 0x0CF49F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_05_pal",
+      "title": "psianims/palettes/05.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4A7..CC:F4AF",
+        "bytes": 8,
+        "sha1": "8a61d054fd5a4f0adbf85e02973cad99898627f9"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/05.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/05_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/05_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/05.pal",
+        "Original file offset: 0x0CF4A7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_06_pal",
+      "title": "psianims/palettes/06.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4AF..CC:F4B7",
+        "bytes": 8,
+        "sha1": "6ae662e6f150a8610631c35e7767c766e0c521f0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/06.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/06_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/06_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/06.pal",
+        "Original file offset: 0x0CF4AF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_07_pal",
+      "title": "psianims/palettes/07.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4B7..CC:F4BF",
+        "bytes": 8,
+        "sha1": "6ae662e6f150a8610631c35e7767c766e0c521f0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/07.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/07_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/07_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/07.pal",
+        "Original file offset: 0x0CF4B7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_08_pal",
+      "title": "psianims/palettes/08.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4BF..CC:F4C7",
+        "bytes": 8,
+        "sha1": "6ae662e6f150a8610631c35e7767c766e0c521f0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/08.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/08_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/08_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/08.pal",
+        "Original file offset: 0x0CF4BF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_09_pal",
+      "title": "psianims/palettes/09.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4C7..CC:F4CF",
+        "bytes": 8,
+        "sha1": "6ae662e6f150a8610631c35e7767c766e0c521f0"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/09.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/09_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/09_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/09.pal",
+        "Original file offset: 0x0CF4C7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_10_pal",
+      "title": "psianims/palettes/10.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4CF..CC:F4D7",
+        "bytes": 8,
+        "sha1": "83b7750e3bf7ac5ef7d3b4ae19b270e64ef51e63"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/10.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/10_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/10_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/10.pal",
+        "Original file offset: 0x0CF4CF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_11_pal",
+      "title": "psianims/palettes/11.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4D7..CC:F4DF",
+        "bytes": 8,
+        "sha1": "83b7750e3bf7ac5ef7d3b4ae19b270e64ef51e63"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/11.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/11_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/11_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/11.pal",
+        "Original file offset: 0x0CF4D7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_12_pal",
+      "title": "psianims/palettes/12.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4DF..CC:F4E7",
+        "bytes": 8,
+        "sha1": "d07ae88224bdb4cd0d3a86f6566c4a06a1e4d397"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/12.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/12_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/12_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/12.pal",
+        "Original file offset: 0x0CF4DF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_13_pal",
+      "title": "psianims/palettes/13.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4E7..CC:F4EF",
+        "bytes": 8,
+        "sha1": "b21212fb38e366666f731e1e82ba1985b984f9a5"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/13.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/13_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/13_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/13.pal",
+        "Original file offset: 0x0CF4E7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_14_pal",
+      "title": "psianims/palettes/14.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4EF..CC:F4F7",
+        "bytes": 8,
+        "sha1": "86be85109dd3b5e1f6ba2e0fcbaa956108d3a7bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/14.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/14_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/14_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/14.pal",
+        "Original file offset: 0x0CF4EF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_15_pal",
+      "title": "psianims/palettes/15.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4F7..CC:F4FF",
+        "bytes": 8,
+        "sha1": "86be85109dd3b5e1f6ba2e0fcbaa956108d3a7bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/15.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/15_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/15_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/15.pal",
+        "Original file offset: 0x0CF4F7"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_16_pal",
+      "title": "psianims/palettes/16.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F4FF..CC:F507",
+        "bytes": 8,
+        "sha1": "86be85109dd3b5e1f6ba2e0fcbaa956108d3a7bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/16.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/16_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/16_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/16.pal",
+        "Original file offset: 0x0CF4FF"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_17_pal",
+      "title": "psianims/palettes/17.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F507..CC:F50F",
+        "bytes": 8,
+        "sha1": "86be85109dd3b5e1f6ba2e0fcbaa956108d3a7bc"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/17.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/17_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/17_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/17.pal",
+        "Original file offset: 0x0CF507"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_18_pal",
+      "title": "psianims/palettes/18.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F50F..CC:F517",
+        "bytes": 8,
+        "sha1": "763478b1f0d3146274a11d8f7220705da629553d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/18.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/18_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/18_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/18.pal",
+        "Original file offset: 0x0CF50F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_19_pal",
+      "title": "psianims/palettes/19.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F517..CC:F51F",
+        "bytes": 8,
+        "sha1": "763478b1f0d3146274a11d8f7220705da629553d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/19.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/19_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/19_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/19.pal",
+        "Original file offset: 0x0CF517"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_20_pal",
+      "title": "psianims/palettes/20.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F51F..CC:F527",
+        "bytes": 8,
+        "sha1": "763478b1f0d3146274a11d8f7220705da629553d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/20.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/20_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/20_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/20.pal",
+        "Original file offset: 0x0CF51F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_21_pal",
+      "title": "psianims/palettes/21.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F527..CC:F52F",
+        "bytes": 8,
+        "sha1": "763478b1f0d3146274a11d8f7220705da629553d"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/21.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/21_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/21_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/21.pal",
+        "Original file offset: 0x0CF527"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_22_pal",
+      "title": "psianims/palettes/22.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F52F..CC:F537",
+        "bytes": 8,
+        "sha1": "5e0244a0a34a770aa9bd4ce7b2443bc6dd0bd6ff"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/22.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/22_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/22_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/22.pal",
+        "Original file offset: 0x0CF52F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_23_pal",
+      "title": "psianims/palettes/23.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F537..CC:F53F",
+        "bytes": 8,
+        "sha1": "5e0244a0a34a770aa9bd4ce7b2443bc6dd0bd6ff"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/23.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/23_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/23_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/23.pal",
+        "Original file offset: 0x0CF537"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_24_pal",
+      "title": "psianims/palettes/24.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F53F..CC:F547",
+        "bytes": 8,
+        "sha1": "5ebf9e8a7c889fb99653dc06c354fb1c8a9b4684"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/24.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/24_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/24_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/24.pal",
+        "Original file offset: 0x0CF53F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_25_pal",
+      "title": "psianims/palettes/25.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F547..CC:F54F",
+        "bytes": 8,
+        "sha1": "5ebf9e8a7c889fb99653dc06c354fb1c8a9b4684"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/25.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/25_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/25_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/25.pal",
+        "Original file offset: 0x0CF547"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_26_pal",
+      "title": "psianims/palettes/26.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F54F..CC:F557",
+        "bytes": 8,
+        "sha1": "967a21b4c0beecb939b36ea1f52382cf66eca954"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/26.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/26_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/26_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/26.pal",
+        "Original file offset: 0x0CF54F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_27_pal",
+      "title": "psianims/palettes/27.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F557..CC:F55F",
+        "bytes": 8,
+        "sha1": "cca42b2e4adf579070c85c816067e1ea8686ca03"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/27.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/27_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/27_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/27.pal",
+        "Original file offset: 0x0CF557"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_28_pal",
+      "title": "psianims/palettes/28.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F55F..CC:F567",
+        "bytes": 8,
+        "sha1": "cca42b2e4adf579070c85c816067e1ea8686ca03"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/28.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/28_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/28_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/28.pal",
+        "Original file offset: 0x0CF55F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_29_pal",
+      "title": "psianims/palettes/29.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F567..CC:F56F",
+        "bytes": 8,
+        "sha1": "3f1d75b5323dca362a447245b59d4f68d7e9b92b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/29.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/29_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/29_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/29.pal",
+        "Original file offset: 0x0CF567"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_30_pal",
+      "title": "psianims/palettes/30.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F56F..CC:F577",
+        "bytes": 8,
+        "sha1": "08e9a757682fa10d0f2685f700574fe9cb33081b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/30.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/30_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/30_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/30.pal",
+        "Original file offset: 0x0CF56F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_31_pal",
+      "title": "psianims/palettes/31.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F577..CC:F57F",
+        "bytes": 8,
+        "sha1": "a7db912f1b5d75b5e533b49aa9c756b37f9d8468"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/31.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/31_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/31_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/31.pal",
+        "Original file offset: 0x0CF577"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_32_pal",
+      "title": "psianims/palettes/32.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F57F..CC:F587",
+        "bytes": 8,
+        "sha1": "897e58b67765afb3c3284779d139672e1d968b12"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/32.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/32_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/32_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/32.pal",
+        "Original file offset: 0x0CF57F"
+      ]
+    },
+    {
+      "id": "asset.cc.psianims_palettes_33_pal",
+      "title": "psianims/palettes/33.pal",
+      "category": "graphics",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F587..CC:F58F",
+        "bytes": 8,
+        "sha1": "897e58b67765afb3c3284779d139672e1d968b12"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/psianims/palettes/33.pal"
+        },
+        {
+          "kind": "snes_palette_json",
+          "path": "cc/psianims/palettes/33_palette.json"
+        },
+        {
+          "kind": "snes_palette_swatch_png",
+          "path": "cc/psianims/palettes/33_palette.png",
+          "per_row": 16,
+          "swatch": 16
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: psianims/palettes/33.pal",
+        "Original file offset: 0x0CF587"
+      ]
+    },
+    {
+      "id": "asset.cc.audio_pack_71",
+      "title": "AUDIO_PACK_71",
+      "category": "audio",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F617..CC:FFDB",
+        "bytes": 2500,
+        "sha1": "80fa20ecb4a4265dedc36a63e9743ed5ccd569be"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/audiopacks/71.ebm"
+        }
+      ],
+      "notes": [
+        "Source payload path from ebsrc: audiopacks/71.ebm",
+        "Original file offset: 0x0CF617"
+      ]
+    },
+    {
+      "id": "table.cc.006_data_animation_sequence_pointers_asm",
+      "title": "data/animation_sequence_pointers.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:2DE1..CC:2E19",
+        "bytes": 56,
+        "sha1": "a5cedc672b0bb59b4819fbf6f6f72cf4ec92133b"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/tables/006_data_animation_sequence_pointers_asm.bin"
+        },
+        {
+          "kind": "animation_sequence_pointer_table_json",
+          "path": "cc/tables/006_data_animation_sequence_pointers_asm_decoded.json",
+          "row_count": 7
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/animation_sequence_pointers.asm",
+        "Original file offset: 0x0C2DE1",
+        "Decoded as the named animation sequence pointer table; rows preserve the long pointer and four caller parameter bytes."
+      ]
+    },
+    {
+      "id": "table.cc.043_data_psi_anim_cfg_asm",
+      "title": "data/psi_anim_cfg.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F04D..CC:F1E5",
+        "bytes": 408,
+        "sha1": "d4dcb35f4fb6b111cbea241d224b1fc9f88720f8"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/tables/043_data_psi_anim_cfg_asm.bin"
+        },
+        {
+          "kind": "psi_anim_config_table_json",
+          "path": "cc/tables/043_data_psi_anim_cfg_asm_decoded.json",
+          "row_count": 34
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/psi_anim_cfg.asm",
+        "Original file offset: 0x0CF04D",
+        "Size was inferred from the next known binary asset boundary.",
+        "Decoded as 12-byte PSI animation config rows used by SHOW_PSI_ANIMATION for graphics, timing, target mode, and enemy-color state."
+      ]
+    },
+    {
+      "id": "table.cc.080_data_psi_anim_pointers_asm",
+      "title": "data/psi_anim_pointers.asm",
+      "category": "raw-table",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:F58F..CC:F617",
+        "bytes": 136,
+        "sha1": "3b801d490e835fcba6d1e10014a0f8d0e4df403a"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/tables/080_data_psi_anim_pointers_asm.bin"
+        },
+        {
+          "kind": "psi_anim_pointer_table_json",
+          "path": "cc/tables/080_data_psi_anim_pointers_asm_decoded.json",
+          "entry_count": 34
+        }
+      ],
+      "notes": [
+        "Source include from ebsrc: data/psi_anim_pointers.asm",
+        "Original file offset: 0x0CF58F",
+        "Size was inferred from the next known binary asset boundary.",
+        "Decoded as the PSI animation arrangement pointer table; one long pointer per PSI animation id."
+      ]
+    },
+    {
+      "id": "gap.cc.cc_ffdb",
+      "title": "Bank CC coverage gap 1",
+      "category": "raw-gap",
+      "source": {
+        "type": "rom-range",
+        "range": "CC:FFDB..CC:10000",
+        "bytes": 37,
+        "sha1": "d4c1242413f8f8dbe8d49608996b7f997a99d4da"
+      },
+      "outputs": [
+        {
+          "kind": "raw",
+          "path": "cc/gaps/01_cc_ffdb.bin"
+        }
+      ],
+      "notes": [
+        "Raw coverage gap preserved for byte accounting; promote to a named asset/table when its role is understood.",
+        "Original file span: 0x0CFFDB..0x0CFFFF"
+      ]
+    }
+  ]
+}
