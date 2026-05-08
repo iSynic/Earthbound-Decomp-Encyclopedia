@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-brainshock-alpha-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/brainshock_alpha_redirect.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `REDIRECT_BTLACT_BRAINSHOCK_A`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_BTLACT_BRAINSHOCK_A:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_BRAINSHOCK_A\n\tEND_C_FUNCTION\n```";

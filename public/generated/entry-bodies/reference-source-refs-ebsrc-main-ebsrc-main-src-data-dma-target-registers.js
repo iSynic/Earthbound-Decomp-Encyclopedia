@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-dma-target-registers"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/dma_target_registers.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `DMA_TARGET_REGISTERS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDMA_TARGET_REGISTERS:\n\t.LOBYTES WMDATA, BG1HOFS, BG2HOFS, BG3HOFS, BG4HOFS, BG1VOFS, BG2VOFS, BG3VOFS, BG4VOFS\n```";

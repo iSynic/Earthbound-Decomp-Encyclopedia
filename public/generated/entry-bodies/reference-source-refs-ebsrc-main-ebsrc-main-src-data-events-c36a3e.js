@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c36a3e"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C36A3E.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C36A3E`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C36A3E:\n\tEVENT_SHORTJUMP .LOWORD(EVENT_35)\n```";

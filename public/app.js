@@ -6,8 +6,8 @@ const chapterScopeCatalog = catalog.chapterScopeCatalog || {};
 const PRIVATE_REFERENCE_MODE = catalog.buildMode === "private";
 const SEARCH_FACETS = [
   { id: "all", label: "All", kinds: [] },
-  { id: "notes", label: "Notes", kinds: ["note", "reference-script"] },
-  { id: "source", label: "Source", kinds: ["source", "source-file"] },
+  { id: "notes", label: "Notes", kinds: ["note", "reference-script", "reference-document", "reference-table"] },
+  { id: "source", label: "Source", kinds: ["source", "source-file", "reference-source"] },
   { id: "symbols", label: "Routines/Symbols", kinds: ["routine", "symbol"] },
   { id: "systems", label: "Systems", kinds: ["chapter", "topic", "bank", "script-vm", "text-command", "asset-contract"] },
   { id: "tools", label: "Tools/Validation", kinds: ["workflow", "tool"] },
@@ -75,11 +75,14 @@ const KIND_ORDER = [
   "asset",
   "source",
   "source-file",
+  "reference-source",
   "symbol",
   "routine",
   "tool",
   "note",
   "reference-script",
+  "reference-document",
+  "reference-table",
   "workflow",
   "search"
 ];
@@ -364,8 +367,8 @@ function groupEntries() {
     ? catalog.navSections
     : [
         { title: "Overview", ids: ["overview", "catalog-build-status", "upstream-status", "narrative-index", "learning-path-index"] },
-        { title: "Source", ids: ["source-browser", "source-tree", "routine-index", "bank-map"] },
-        { title: "Notes", ids: ["note-index"] },
+        { title: "Source", ids: ["source-browser", "source-tree", "reference-source-browser", "routine-index", "bank-map"] },
+        { title: "Notes", ids: ["note-index", "reference-library", "reference-tables", "script-source-index"] },
         { title: "Systems", ids: ["systems-hub", "topic-index"] },
         { title: "Tools/Validation", ids: ["workflows", "tool-index"] }
       ];
@@ -731,6 +734,7 @@ function renderSourceBrowserHub() {
   const sourceBanks = catalog.entries
     .filter((entry) => isContentVisible(entry) && /^source-bank-[c-e][0-9a-f]$/i.test(entry.id))
     .sort((a, b) => (a.banks?.[0] || "").localeCompare(b.banks?.[0] || ""));
+  const comparisonSectionId = registerHubSection("Comparison Source", headingCounts);
   const indexIds = ["source-tree", "routine-index", "bank-map", "relationship-graph", "workflows"];
   return `
     <section class="hubPage">
@@ -740,6 +744,18 @@ function renderSourceBrowserHub() {
           <p>Bank-level entry points into checked-in source files, routine pages, and scaffold/data files.</p>
         </div>
         ${renderSourceBankOverview(sourceBanks)}
+      </section>
+      <section class="hubSection" id="${escapeHtml(comparisonSectionId)}">
+        <div class="hubSectionHeader">
+          <h2>Comparison Source</h2>
+          <p>Traditional source references that sit alongside the current decomp source browser.</p>
+        </div>
+        <div class="hubGrid compact">
+          ${["reference-source-browser", "script-source-index"].filter((id) => isContentVisible(entries.get(id))).map((id) => renderHubCard(entries.get(id), {
+            eyebrow: displayKindLabel(entries.get(id)),
+            meta: evidenceMeta(entries.get(id))
+          })).join("")}
+        </div>
       </section>
       <section class="hubSection" id="${escapeHtml(indexSectionId)}">
         <div class="hubSectionHeader">
@@ -2727,7 +2743,10 @@ function displayKindLabel(entry) {
     "learning-path": "Learning path",
     "narrative": "Narrative chapter",
     "note": "Note",
+    "reference-document": "Reference document",
     "reference-script": "MSG reference",
+    "reference-source": "Reference source",
+    "reference-table": "Reference table",
     "routine": "Routine",
     "script-vm": "Script VM",
     "search": "Search",

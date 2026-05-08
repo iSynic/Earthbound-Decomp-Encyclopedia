@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-audio-stop-music-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/audio/stop_music_redirect.asm`.\n## File Role\nebsrc source.\n## Labels\n- `REDIRECT_STOP_MUSIC`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_STOP_MUSIC:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tJSL STOP_MUSIC\n\tRTL\n```";

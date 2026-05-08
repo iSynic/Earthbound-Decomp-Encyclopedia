@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-scripts-502"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/scripts/502.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `EVENT_502`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nEVENT_502:\n\tEVENT_SHORTCALL .LOWORD(UNKNOWN_C40F4A)\n\tEVENT_SHORTJUMP .LOWORD(UNKNOWN_C41036)\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-debug-menu-element-spacing-data"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/debug/menu_element_spacing_data.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `DEBUG_MENU_ELEMENT_SPACING_DATA`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDEBUG_MENU_ELEMENT_SPACING_DATA:\n\t.BYTE $00, $00, $06, $00, $00, $01, $06, $01, $00, $02, $06, $02\n```";

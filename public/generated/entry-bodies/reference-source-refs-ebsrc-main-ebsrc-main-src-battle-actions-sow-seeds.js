@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-sow-seeds"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/sow_seeds.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_SOW_SEEDS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_SOW_SEEDS:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #1\n\tJSR CALL_FOR_HELP_COMMON\n\tEND_C_FUNCTION\n```";

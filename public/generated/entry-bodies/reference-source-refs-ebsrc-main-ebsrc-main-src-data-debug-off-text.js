@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-debug-off-text"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/debug/off_text.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `DEBUG_OFF_TEXT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDEBUG_OFF_TEXT:\n.IF .DEFINED(JPN)\n\tASCIIZ \"OFF\"\n.ELSE\n\tEBTEXTZ \"OFF\"\n.ENDIF\n```";

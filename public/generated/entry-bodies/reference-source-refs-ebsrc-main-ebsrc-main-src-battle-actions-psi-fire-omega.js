@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-psi-fire-omega"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/psi_fire_omega.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_PSI_FIRE_O`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_PSI_FIRE_O:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #FIRE_OMEGA_DAMAGE\n\tJSR PSI_FIRE_COMMON\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c36834"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C36834.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C36834`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C36834:\n\tEVENT_SPAWN_ENTITY_UNKNOWN OVERWORLD_SPRITE::FLYING_MAN, EVENT_SCRIPT::EVENT_802\n\tEVENT_SHORTJUMP .LOWORD(EVENT_35)\n```";

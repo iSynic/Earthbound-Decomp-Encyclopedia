@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-scripts-149"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/scripts/149.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `EVENT_149`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nEVENT_149:\n\tEVENT_SHORTCALL .LOWORD(UNKNOWN_C3C90C)\n\tEVENT_PREPARE_NEW_ENTITY_AT_TELEPORT_DESTINATION $C1\n\tEVENT_YIELD_TO_TEXT\n\tEVENT_SHORTJUMP .LOWORD(EVENT_35)\n```";

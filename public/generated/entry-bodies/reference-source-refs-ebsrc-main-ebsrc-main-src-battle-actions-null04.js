@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-null04"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/null04.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_NULL4`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_NULL4:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tEND_C_FUNCTION\n```";

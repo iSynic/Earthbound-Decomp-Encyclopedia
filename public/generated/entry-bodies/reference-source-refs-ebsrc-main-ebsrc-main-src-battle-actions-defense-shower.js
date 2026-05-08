@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-defense-shower"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/defense_shower.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_DEFENSE_SHOWER`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_DEFENSE_SHOWER:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_DEFENSE_SPRAY\n\tEND_C_FUNCTION\n```";

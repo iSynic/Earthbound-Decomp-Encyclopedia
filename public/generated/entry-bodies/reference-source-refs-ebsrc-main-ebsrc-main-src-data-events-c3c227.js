@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c3c227"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C3C227.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C3C227`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C3C227:\n\tEVENT_MAKE_PARTY_LOOK_AT_ACTIVE_ENTITY\n\tEVENT_UNKNOWN_C0A94E $0347\n\tEVENT_PAUSE 1*TWENTIETH_OF_A_SECOND\n\tEVENT_SHORTJUMP .LOWORD(UNKNOWN_C3C227)\n```";

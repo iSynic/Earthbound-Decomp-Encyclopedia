@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-battle-battle-window-sizes"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/battle/battle_window_sizes.asm`.\n## File Role\nebsrc battle data source.\n## Labels\n- `BATTLE_WINDOW_SIZES`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBATTLE_WINDOW_SIZES:\n\t.BYTE WINDOW::BATTLE_MENU_JEFF\n\t.BYTE WINDOW::BATTLE_MENU\n\t.BYTE WINDOW::UNKNOWN30\n```";

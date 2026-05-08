@@ -30,7 +30,13 @@ const disallowedExtensions = new Set([
   ".jpg",
   ".jpeg",
   ".gif",
-  ".webp"
+  ".webp",
+  ".exe",
+  ".dll",
+  ".bat",
+  ".cmd",
+  ".ps1",
+  ".sh"
 ]);
 
 const disallowedParts = new Set([
@@ -78,7 +84,7 @@ if (!fs.existsSync(catalogPath)) {
     violations.push(`catalog buildMode is ${JSON.stringify(catalog.buildMode)}; expected "private"`);
   }
   const entries = catalog.entries || [];
-  const requiredIds = ["source-browser", "note-index", "asset-manifest-index"];
+  const requiredIds = ["source-browser", "reference-source-browser", "reference-library", "reference-tables", "note-index", "asset-manifest-index"];
   for (const id of requiredIds) {
     if (!entries.some((entry) => entry.id === id)) {
       violations.push(`catalog is missing required private reference entry ${id}`);
@@ -107,6 +113,12 @@ if (!fs.existsSync(catalogPath)) {
   }
   if (!entries.some((entry) => entry.kind === "source-file" && entry.sourceFile?.path && Array.isArray(entry.relatedNotes))) {
     violations.push("source-file entries are missing compact sourceFile metadata or relatedNotes");
+  }
+  if (!entries.some((entry) => entry.kind === "reference-source" && entry.sourceFile?.path?.includes("refs/ebsrc-main/"))) {
+    violations.push("catalog is missing Herringway/ebsrc reference-source entries");
+  }
+  if (!entries.some((entry) => entry.kind === "reference-table" && /item ids/i.test(entry.title || ""))) {
+    violations.push("catalog is missing useful reference tables such as Item IDs");
   }
   const scriptEntries = entries.filter((entry) => entry.kind === "reference-script");
   if (!scriptEntries.length) {

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-audio-wait-for-spc700"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/audio/wait_for_spc700.asm`.\n## File Role\nebsrc source.\n## Labels\n- `WAIT_FOR_SPC700`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nWAIT_FOR_SPC700:\n\t.A16\n\tSTZ APUIO2\n\tSTZ APUIO0\n@NOT_READY:\n\tLDA #$00FF\n\tSTA APUIO0\n\tLDA APUIO0\n\tCMP #$BBAA\n\tBNE @NOT_READY\n\tRTS\n```";

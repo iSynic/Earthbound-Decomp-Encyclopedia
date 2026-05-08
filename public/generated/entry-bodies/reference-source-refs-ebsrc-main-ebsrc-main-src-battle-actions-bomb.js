@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-bomb"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/bomb.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_BOMB`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_BOMB:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #90\n\tJSR BOMB_COMMON\n\tEND_C_FUNCTION\n```";

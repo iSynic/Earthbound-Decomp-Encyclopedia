@@ -41,7 +41,13 @@ const disallowedExtensions = new Set([
   ".jpg",
   ".jpeg",
   ".gif",
-  ".webp"
+  ".webp",
+  ".exe",
+  ".dll",
+  ".bat",
+  ".cmd",
+  ".ps1",
+  ".sh"
 ]);
 
 const disallowedParts = new Set([

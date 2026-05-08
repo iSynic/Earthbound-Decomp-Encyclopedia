@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-bankconfig-jp-bank2e"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/bankconfig/JP/bank2e.asm`.\n## File Role\nebsrc bank configuration.\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n.INCLUDE \"bankconfig/common/bank2e.asm\"\n```";

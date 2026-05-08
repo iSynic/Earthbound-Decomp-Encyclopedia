@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-insecticide-spray"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/insecticide_spray.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_INSECTICIDE_SPRAY`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_INSECTICIDE_SPRAY:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #100\n\tJSR INSECT_SPRAY_COMMON\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-scripts-738"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/scripts/738.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `EVENT_738`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nEVENT_738:\n\tEVENT_SET_VAR ACTIONSCRIPT_VARS::V0, $0006\n\tEVENT_SHORTJUMP .LOWORD(EVENT_737_738_739_740_COMMON)\n```";

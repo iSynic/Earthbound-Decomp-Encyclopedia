@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-dma-flags"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/dma_flags.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `DMA_FLAGS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDMA_FLAGS:\n\t.BYTE $01, $02, $04, $08, $10, $20, $40\n```";
