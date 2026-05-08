@@ -895,7 +895,10 @@ function compactSearchText(entry, fullBody) {
     labels
   ].filter(Boolean).join(" ");
 
-  const bodyTerms = uniqueSearchTerms(fullBody, searchTextLimit);
+  const bodyLimit = privateMode
+    ? (entry.sourceFile ? 450 : 1600)
+    : searchTextLimit;
+  const bodyTerms = uniqueSearchTerms(fullBody, bodyLimit);
   return `${metadata} ${bodyTerms}`.replace(/\s+/g, " ").trim();
 }
 
@@ -918,6 +921,9 @@ function searchIndexDocument(entry) {
     ...(entry.banks || []),
     paths
   ]).join(" ").toLowerCase();
+  const bodyLimit = privateMode
+    ? (entry.sourceFile ? 450 : 1600)
+    : searchTextLimit;
   return {
     id: entry.id,
     kind: entry.kind,
@@ -934,7 +940,7 @@ function searchIndexDocument(entry) {
       ...(entry.addresses || []),
       ...(entry.banks || [])
     ].filter(Boolean).join(" ").toLowerCase(),
-    bodyText: uniqueSearchTerms(fullBody, privateMode ? 8000 : searchTextLimit)
+    bodyText: uniqueSearchTerms(fullBody, bodyLimit)
   };
 }
 
@@ -1142,7 +1148,7 @@ function buildRelationshipGraph() {
   for (const [id, list] of Object.entries(neighborhoods)) {
     neighborhoods[id] = list
       .sort((a, b) => b.weight - a.weight || (degree.get(b.id) || 0) - (degree.get(a.id) || 0) || entryById.get(a.id).title.localeCompare(entryById.get(b.id).title))
-      .slice(0, 30);
+      .slice(0, 18);
   }
 
   const nodes = graphEntries.map((entry) => ({
@@ -1165,7 +1171,7 @@ function buildRelationshipGraph() {
       linkedNodeCount: nodes.filter((node) => node.degree > 0).length
     },
     nodes,
-    edges,
+    edges: [],
     neighborhoods,
     topHubs
   };
@@ -3349,13 +3355,35 @@ function addCatalogBuildStatusEntry() {
 
 function sourceFileKind(relativePath) {
   const fileName = path.basename(relativePath);
-  if (fileName.startsWith("bank_")) {
-    return "bank scaffold";
+  if (isByteListingPath(relativePath)) {
+    return "byte-preserving source";
+  }
+  if (isBankHelperPath(relativePath)) {
+    return "validation glue";
+  }
+  if (/\.asar\.asm$/i.test(fileName)) {
+    return "source include";
   }
   if (/asset|tile|sprite|palette|map|music|sound|text|data|table|pointer/i.test(relativePath)) {
-    return "data/source scaffold";
+    return "semantic scaffold";
   }
   return "source scaffold";
+}
+
+function isByteListingPath(relativePath) {
+  return /\.bytes\.asar\.asm$/i.test(relativePath.replaceAll("\\", "/"));
+}
+
+function isBankHelperPath(relativePath) {
+  return /(^|\/)bank_[c-e][0-9a-f]_helpers_asar\.asm$/i.test(relativePath.replaceAll("\\", "/"));
+}
+
+function semanticPathForByteListing(relativePath) {
+  return relativePath.replace(/\.bytes\.asar\.asm$/i, ".asm");
+}
+
+function byteListingPathForSemantic(relativePath) {
+  return relativePath.replace(/\.asm$/i, ".bytes.asar.asm");
 }
 
 function parseSourceFile(filePath) {
@@ -3367,7 +3395,12 @@ function parseSourceFile(filePath) {
   const address = addressFromLabel(labels[0] || "") || addressFromFileName(fileName);
   const sourceUnits = [...text.matchAll(/; - ([C-E][0-9A-F]:[0-9A-F]{4}\.\.[C-E][0-9A-F]:[0-9A-F]{4})\s+(.+)/g)]
     .map((match) => ({ range: match[1], name: match[2].trim() }));
-  const title = sourceUnits[0]?.name || titleFromSlug(fileName.replace(/\.asm$/i, ""));
+  const isByteListing = isByteListingPath(relativePath);
+  const byteSourceMatch = text.match(/^;\s*Source:\s+(.+)$/m);
+  const semanticPath = isByteListing
+    ? (byteSourceMatch?.[1]?.trim() || semanticPathForByteListing(relativePath))
+    : "";
+  const title = sourceUnits[0]?.name || titleFromSlug(fileName.replace(/\.bytes\.asar\.asm$/i, "").replace(/\.asm$/i, ""));
   return {
     relativePath,
     fileName,
@@ -3379,6 +3412,9 @@ function parseSourceFile(filePath) {
     size: text.length,
     lineCount: lines(text).length,
     kindLabel: sourceFileKind(relativePath),
+    isByteListing,
+    semanticPath,
+    byteListingPath: isByteListing ? "" : byteListingPathForSemantic(relativePath),
     sourceEmbed: sourceEmbed(text)
   };
 }
@@ -3393,6 +3429,42 @@ function addSourceFileEntries() {
     file.relatedNotes = relatedNotesForSourceFile(file);
     return file;
   });
+  const fileByPath = new Map(files.map((file) => [file.relativePath, file]));
+  const byteListingBySemanticPath = new Map();
+  for (const file of files) {
+    if (file.isByteListing) {
+      byteListingBySemanticPath.set(file.semanticPath, file);
+    }
+  }
+  for (const file of files) {
+    if (file.isByteListing && file.semanticPath) {
+      const semanticFile = fileByPath.get(file.semanticPath);
+      if (semanticFile) {
+        file.title = `${semanticFile.title} Byte Listing`;
+        file.bank = semanticFile.bank || file.bank;
+        file.address = semanticFile.address || file.address;
+        file.sourceUnits = semanticFile.sourceUnits.length ? semanticFile.sourceUnits : file.sourceUnits;
+        file.relatedNotes = semanticFile.relatedNotes;
+        file.semanticSource = {
+          path: semanticFile.relativePath,
+          entryId: semanticFile.entryId,
+          label: semanticFile.title,
+          range: semanticFile.sourceUnits[0]?.range || semanticFile.address || ""
+        };
+      }
+    } else if (file.byteListingPath) {
+      const byteListing = byteListingBySemanticPath.get(file.relativePath) || fileByPath.get(file.byteListingPath);
+      if (byteListing) {
+        file.backingSource = {
+          path: byteListing.relativePath,
+          entryId: byteListing.entryId,
+          label: "Byte listing",
+          reason: "byte-preserving source",
+          range: file.sourceUnits[0]?.range || file.address || ""
+        };
+      }
+    }
+  }
 
   const byBank = new Map();
   for (const file of files) {
@@ -3411,7 +3483,9 @@ function addSourceFileEntries() {
           labelCount: file.labels.length,
           labels: file.labels.slice(0, 120),
           firstAddress: file.address,
-          sourceUnits: file.sourceUnits.slice(0, 80)
+          sourceUnits: file.sourceUnits.slice(0, 80),
+          backingSource: file.backingSource,
+          semanticSource: file.semanticSource
         };
         existingEntry.relatedNotes = file.relatedNotes;
         existingEntry.noteRefs = unique([
@@ -3443,10 +3517,12 @@ function addSourceFileEntries() {
       domain: inferDomain({ id: file.entryId, title: file.title, summary: file.kindLabel, aliases: [file.relativePath, ...file.labels], banks: file.bank ? [file.bank] : [] }),
       aliases: [
         file.relativePath,
-        file.fileName,
-        file.title,
-        ...file.labels.slice(0, 8)
-      ].filter(Boolean),
+          file.fileName,
+          file.title,
+          file.backingSource?.path,
+          file.semanticSource?.path,
+          ...file.labels.slice(0, 8)
+        ].filter(Boolean),
       addresses: [
         file.address,
         ...file.sourceUnits.map((unit) => unit.range)
@@ -3461,10 +3537,16 @@ function addSourceFileEntries() {
         labelCount: file.labels.length,
         labels: file.labels.slice(0, 120),
         firstAddress: file.address,
-        sourceUnits: file.sourceUnits.slice(0, 80)
+        sourceUnits: file.sourceUnits.slice(0, 80),
+        backingSource: file.backingSource,
+        semanticSource: file.semanticSource
       },
       relatedNotes: file.relatedNotes,
-      sourceRefs: [sourceRef(file.relativePath, file.relativePath)],
+      sourceRefs: [
+        sourceRef(file.relativePath, file.relativePath),
+        file.backingSource ? sourceRef(file.backingSource.path, file.backingSource.label) : null,
+        file.semanticSource ? sourceRef(file.semanticSource.path, file.semanticSource.label) : null
+      ].filter(Boolean),
       noteRefs: file.relatedNotes.slice(0, 8).map((note) => {
         const noteEntry = noteEntries.find((candidate) => candidate.id === note.id);
         return {
@@ -3478,6 +3560,8 @@ function addSourceFileEntries() {
         file.bank ? sourceBankIndexId(file.bank) : "",
         "source-browser",
         "source-tree",
+        file.backingSource?.entryId,
+        file.semanticSource?.entryId,
         ...file.relatedNotes.slice(0, 4).map((note) => note.id)
       ]),
       showInToc: false,
@@ -3486,6 +3570,12 @@ function addSourceFileEntries() {
         "",
         "## File Role",
         `${file.kindLabel}.`,
+        "",
+        file.backingSource ? "## Byte Listing" : "",
+        file.backingSource ? `[[${file.backingSource.entryId}|Open byte-preserving source]] for \`${file.backingSource.range || file.relativePath}\`.` : "",
+        "",
+        file.semanticSource ? "## Semantic Scaffold" : "",
+        file.semanticSource ? `[[${file.semanticSource.entryId}|Open semantic scaffold]] for \`${file.semanticSource.range || file.semanticSource.path}\`.` : "",
         "",
         file.address ? "## First Address" : "",
         file.address ? `\`${file.address}\`` : "",
@@ -4285,17 +4375,17 @@ const catalog = {
   entries
 };
 
+const catalogJson = JSON.stringify(catalog);
 fs.writeFileSync(
   path.join(generatedDir, "catalog.json"),
-  JSON.stringify(catalog, null, 2),
+  catalogJson,
   "utf8"
 );
 
-fs.writeFileSync(
-  path.join(generatedDir, "catalog.js"),
-  `window.ENCYCLOPEDIA_CATALOG = ${JSON.stringify(catalog, null, 2)};\n`,
-  "utf8"
-);
+const catalogJsPath = path.join(generatedDir, "catalog.js");
+fs.writeFileSync(catalogJsPath, "window.ENCYCLOPEDIA_CATALOG = ", "utf8");
+fs.appendFileSync(catalogJsPath, catalogJson, "utf8");
+fs.appendFileSync(catalogJsPath, ";\n", "utf8");
 
 fs.writeFileSync(
   sourceSnapshotPath,

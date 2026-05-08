@@ -63,6 +63,7 @@ const state = {
   tableSort: {},
   railExpanded: {},
   compareTargets: {},
+  sourceTabs: {},
 };
 const KIND_ORDER = [
   "chapter",
@@ -494,6 +495,18 @@ function renderDocument() {
   });
   documentEl.querySelectorAll("[data-load-body-id]").forEach((button) => {
     button.addEventListener("click", () => loadDeferredBody(button.getAttribute("data-load-body-id")));
+  });
+  documentEl.querySelectorAll("[data-source-view-tab]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const tab = button.getAttribute("data-source-view-tab") || "scaffold";
+      const targetId = button.getAttribute("data-source-view-entry-id") || entry.id;
+      state.sourceTabs[entry.id] = tab;
+      const target = entries.get(targetId);
+      if (target?.bodyChunk && !target.fullBodyLoaded) {
+        loadDeferredBody(target.id);
+      }
+      renderDocument();
+    });
   });
   documentEl.querySelectorAll("[data-load-data-key]").forEach((button) => {
     button.addEventListener("click", () => loadDeferredData(button.getAttribute("data-load-data-key"), button.getAttribute("data-load-data-chunk")));
@@ -977,11 +990,14 @@ function renderSourceFileTable(rows, sort) {
 }
 
 function renderSourceFileReader(entry) {
-  const file = entry.sourceFile || {};
-  const code = entry.deferredBody && !entry.fullBodyLoaded ? "" : sourceCodeFromBody(entry.body || "");
+  const reader = sourceReaderTabState(entry);
+  const activeEntry = reader.activeEntry || entry;
+  const file = activeEntry.sourceFile || {};
+  const code = activeEntry.deferredBody && !activeEntry.fullBodyLoaded ? "" : sourceCodeFromBody(activeEntry.body || "");
   const labelAnchors = code ? sourceLabelAnchorsFromCode(code) : new Map();
   return `
     <section class="sourceReader">
+      ${renderSourceReaderTabs(entry, reader)}
       <div class="sourceReaderHeader">
         <div>
           <div class="sourcePath">${escapeHtml(file.path || entry.title)}</div>
@@ -997,18 +1013,61 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
-      ${renderSourceComparePanel(entry)}
+      ${renderSourceComparePanel(activeEntry)}
       <div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
           ${renderSourceOutline(file, labelAnchors)}
         </aside>
         <div class="sourceCodePanel">
-          ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand.</div>${renderDeferredBodyLoader(entry)}`}
+          ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand.</div>${renderDeferredBodyLoader(activeEntry)}`}
         </div>
       </div>
-      ${entry.deferredBody && !entry.fullBodyLoaded && !entry.bodyLoadError ? "" : renderRelatedNotesPanel(entry)}
-      ${entry.deferredBody && !entry.fullBodyLoaded && !entry.bodyLoadError ? "" : renderRelatedSystemsPanel(entry)}
+      ${activeEntry.deferredBody && !activeEntry.fullBodyLoaded && !activeEntry.bodyLoadError ? "" : renderRelatedNotesPanel(entry)}
+      ${activeEntry.deferredBody && !activeEntry.fullBodyLoaded && !activeEntry.bodyLoadError ? "" : renderRelatedSystemsPanel(entry)}
     </section>
+  `;
+}
+
+function sourceReaderTabState(entry) {
+  const file = entry.sourceFile || {};
+  const backingSource = file.backingSource?.entryId ? entries.get(file.backingSource.entryId) : null;
+  const semanticSource = file.semanticSource?.entryId ? entries.get(file.semanticSource.entryId) : null;
+  const scaffoldEntry = semanticSource || entry;
+  const listingEntry = backingSource || (file.semanticSource ? entry : null);
+  const savedTab = state.sourceTabs[entry.id];
+  const defaultTab = file.semanticSource ? "bytes" : "scaffold";
+  const activeTab = savedTab || defaultTab;
+  const activeEntry = activeTab === "bytes" && listingEntry ? listingEntry : scaffoldEntry;
+  return {
+    activeTab,
+    activeEntry,
+    scaffoldEntry,
+    listingEntry
+  };
+}
+
+function renderSourceReaderTabs(entry, reader) {
+  if (!reader.listingEntry || reader.scaffoldEntry.id === reader.listingEntry.id) {
+    return "";
+  }
+  const scaffoldFile = reader.scaffoldEntry.sourceFile || {};
+  const listingFile = reader.listingEntry.sourceFile || {};
+  const range = scaffoldFile.backingSource?.range || listingFile.semanticSource?.range || scaffoldFile.firstAddress || "";
+  const tab = (id, label, file, entryId) => `
+    <button type="button"
+      class="sourceReaderTab${reader.activeTab === id ? " active" : ""}"
+      data-source-view-tab="${escapeHtml(id)}"
+      data-source-view-entry-id="${escapeHtml(entryId)}"
+      aria-pressed="${reader.activeTab === id ? "true" : "false"}">
+      <span>${escapeHtml(label)}</span>
+      <small>${escapeHtml(file.path || "")}</small>
+    </button>`;
+  return `
+    <div class="sourceReaderTabs" aria-label="Source view">
+      ${tab("scaffold", "Scaffold", scaffoldFile, reader.scaffoldEntry.id)}
+      ${tab("bytes", "Byte listing", listingFile, reader.listingEntry.id)}
+      ${range ? `<span class="sourceReaderTabMeta">${escapeHtml(range)}</span>` : ""}
+    </div>
   `;
 }
 
@@ -3002,6 +3061,12 @@ function searchResultPath(entry) {
 function sourceOriginLabel(entry) {
   const pathLabel = entry?.sourceFile?.path || entry?.sourceRefs?.[0]?.path || entry?.noteRefs?.[0]?.path || "";
   const text = `${entry?.title || ""} ${entry?.summary || ""} ${pathLabel}`.toLowerCase();
+  if (entry?.sourceFile?.role === "byte-preserving source" || /\.bytes\.asar\.asm$/i.test(pathLabel)) {
+    return "Byte-preserving source";
+  }
+  if (entry?.sourceFile?.role === "validation glue" || /bank_[c-e][0-9a-f]_helpers_asar\.asm$/i.test(pathLabel)) {
+    return "Validation glue";
+  }
   if (entry?.kind === "reference-source" || pathLabel.includes("refs/ebsrc-main/") || /herringway|ebsrc/.test(text)) {
     return "Herringway / ebsrc";
   }

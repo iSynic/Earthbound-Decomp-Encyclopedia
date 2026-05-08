@@ -115,6 +115,20 @@ if (!fs.existsSync(catalogPath)) {
   if (!entries.some((entry) => entry.kind === "source-file" && entry.sourceFile?.path && Array.isArray(entry.relatedNotes))) {
     violations.push("source-file entries are missing compact sourceFile metadata or relatedNotes");
   }
+  const entryIds = new Set(entries.map((entry) => entry.id));
+  const byteListingEntries = entries.filter((entry) => entry.kind === "source-file" && /\.bytes\.asar\.asm$/i.test(entry.sourceFile?.path || ""));
+  if (!byteListingEntries.length) {
+    violations.push("catalog is missing byte-preserving source listing entries");
+  }
+  for (const entry of entries) {
+    if (entry.kind !== "source-file" || entry.sourceFile?.role !== "semantic scaffold") {
+      continue;
+    }
+    const backingEntryId = entry.sourceFile?.backingSource?.entryId || "";
+    if (!backingEntryId || !entryIds.has(backingEntryId)) {
+      violations.push(`${entry.id} semantic scaffold is missing a backing byte-preserving source entry`);
+    }
+  }
   if (!entries.some((entry) => entry.kind === "reference-source" && entry.sourceFile?.path?.includes("refs/ebsrc-main/"))) {
     violations.push("catalog is missing Herringway/ebsrc reference-source entries");
   }

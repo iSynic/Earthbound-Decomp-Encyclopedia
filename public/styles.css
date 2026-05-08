@@ -1592,6 +1592,47 @@ pre {
   gap: 18px;
 }
 
+.sourceReaderTabs {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sourceReaderTab {
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  gap: 3px;
+  min-width: 180px;
+  padding: 9px 12px;
+  text-align: left;
+}
+
+.sourceReaderTab:hover,
+.sourceReaderTab.active {
+  border-color: var(--accent);
+}
+
+.sourceReaderTab.active {
+  background: rgba(98, 210, 190, 0.12);
+}
+
+.sourceReaderTab span {
+  font-weight: 800;
+}
+
+.sourceReaderTab small,
+.sourceReaderTabMeta {
+  color: var(--muted);
+  font-family: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
 .sourceReaderHeader {
   position: sticky;
   top: 0;

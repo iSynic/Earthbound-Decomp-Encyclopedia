@@ -1,16 +1,16 @@
 {
   "schema": "earthbound-decomp.private-reference-sync.v1",
-  "generatedAt": "2026-05-08T17:56:04.462Z",
+  "generatedAt": "2026-05-08T22:51:43.745Z",
   "sourceRoot": "F:\\Earthbound Decomp - Codex",
   "sourceRootLabel": "F:\\Earthbound Decomp - Codex",
   "sourceGit": {
     "available": true,
     "branch": "main",
-    "sha": "07b39dfa238b22c8577ca4b964e216cd6d5a9536",
-    "shortSha": "07b39dfa238b",
+    "sha": "8ee149f30fd4978cee9608996dd7a8564de810df",
+    "shortSha": "8ee149f30fd4",
     "dirty": false
   },
-  "referenceRoot": "F:\\Earthbound Decomp - Encyclopedia\\encyclopedia\\reference",
+  "referenceRoot": "F:\\Earthbound Decomp - Encyclopedia\\reference",
   "includedRoots": [
     "notes",
     "src",
@@ -19,13 +19,13 @@
     "refs"
   ],
   "excludedPolicy": "ROMs, generated binary/media payloads, preview sheets, caches, dumps, tools/, and executable tool scripts are excluded.",
-  "copiedFiles": 7304,
+  "copiedFiles": 10718,
   "skippedEntries": 1724,
   "counts": {
     "asset-manifests": 38,
     "manifests": 72,
     "notes": 1130,
     "refs": 2440,
-    "src": 3620
+    "src": 7034
   }
 }

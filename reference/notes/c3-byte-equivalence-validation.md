@@ -4,7 +4,7 @@ This report assembles an existing durable Asar source-bank scaffold into a clean
 
 - status: `OK`
 - mode: `durable-scaffold`
-- modules: `12`
+- modules: `11`
 - non-OK modules: `0`
 - mismatches: `0`
 
@@ -20,7 +20,6 @@ This report assembles an existing durable Asar source-bank scaffold into a clean
 | `OK` | `src/c3/equipment_battle_selector_helpers.asm` | `C3:EE14..C3:EF23` | 271 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
 | `OK` | `src/c3/data_battle_menu_tables_ef23_f1ec.asm` | `C3:EF23..C3:F1EC` | 713 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
 | `OK` | `src/c3/jeff_repair_psi_helpers.asm` | `C3:F1EC..C3:F2B1` | 197 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
-| `OK` | `src/c3/data_battle_visual_tables_f2b1_f5f9.asm` | `C3:F2B1..C3:F3C5` | 276 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
-| `OK` | `src/c3/file_select_visual_transition_helper.asm` | `C3:F3C5..C3:F5F9` | 564 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
+| `OK` | `src/c3/data_battle_visual_tables_f2b1_f5f9.asm` | `C3:F2B1..C3:F5F9` | 840 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
 | `OK` | `src/c3/battle_visual_effect_helpers.asm` | `C3:F5F9..C3:FB1F` | 1318 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
 | `OK` | `src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.asm` | `C3:FB1F..C3:10000` | 1249 | 0 | `src/c3/bank_c3_helpers_asar.asm` |
