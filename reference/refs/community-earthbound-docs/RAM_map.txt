@@ -1,0 +1,178 @@
+Core Engine Data
+
+    000000-000001 (000002): VRAM DMA Circular Queue End/Start
+    00000E (000001): Mirror of OBJSEL SNES register
+    00000F (000001): Mirror of BGMODE SNES register
+    000011 (000001): Mirror of BG1SC SNES register
+    000012 (000001): Mirror of BG2SC SNES register
+    000013 (000001): Mirror of BG3SC SNES register
+    000014 (000001): Mirror of BG4SC SNES register
+    000015 (000001): Mirror of BG12NBA SNES register
+    000016 (000001): Mirror of BG34NBA SNES register
+    00001E (000001): Mirror of NMITIMEN SNES register
+    000030 (000001): CGRAM DMA Transfer Style (minus 8 for offset into table)
+    000065-00008C (000028) = Controller input memory
+    000091-000098 (000008) = VRAM DMA memory
+    0000A1-0000A4 (000004) = Temp VRAM DMA Data Block offsets
+    0000CA-0000CB (000002) = Sound Effect Queue offsets
+
+Active Palettes
+
+    000200-00023F (000040) = Current text palette
+    000240-0002FF (0000C0) = Current map palette
+    000300-00039F (0000A0) = Sprite palettes
+    0003A0-0003BF (000020) = Current party palette
+    0003C0-0003DF (000020) = Current NPC palette (humans?)
+    0003E0-0003FF (000020) = Current NPC palette (nonhumans?)
+
+Queued VRAM DMA Data
+
+    000400-0004FF (000100) = VRAM DMA Circular Queue
+
+Miscellaneous
+
+    001AC2-001AC9 (000008) = Sound Effect Queue
+    001ACA (000001) = Sound Effect Queue high bit
+
+Credits Sequence
+
+    001E60-001E6F (00000F) = Chosen four and pet's name stored for Credits parsing (Paula's mom, Paula's dad, Poo's Master).
+
+Local Memory
+
+    ???-001F00 = Direct Page memory
+    ???-001FFF = Stack memory
+
+Temp VRAM DMA Data
+
+    002000-0021FF (000200) = Temp VRAM DMA Data Block
+
+Map Data
+
+    00436E-00436F (000002) = Currently-loaded map tileset number
+    004372-004373 (000002) = Currently-loaded map tileset index
+    004390-0043CF (000040) = Map Tile Buffer coordinates
+    0043D0-0043DB (00000C) = Map palette color averages
+    0043DC-00445B (000080) = Map tile animation data
+    00445C-004471 (000016) = Map palette animation data
+
+Miscellaneous
+
+    005D62-005D63 (000002) = Current TPT entry
+    005D64-005D9F (00003C) = Unclassified data
+    005DA0-005DA1 (000002) = If nonzero, causes mushroomization walking-direction-jumbling.
+
+Windows and text
+
+    008650-0088DF (000290) = Window statistics table
+    0088E0-0088E3 (000004) = Unclassified data
+    0088E4-008957 (000074) = Window existence table
+    008958-008958 (000001) = Current window with focus (what values does this use?)
+    008959-009642 (000CF0) = Unclassified data
+    009643-009644 (000002) = 0x00 outside of battle, 0x01 in battle (if nonzero, treat like 0x01)
+    009645-009645 (000001) = Locks button input during text parsing if 01 (used by 1F 50 and 1F 51)
+    009646-00964C (000007) = Unclassified data
+    00964D-00964D (000001) = 0x00 = Blinking triangle prompt, nonzero = Absence of this prompt
+    00964E-0096C4 (000077) = Unclassified data
+    0096C5-0097B7 (0000F2) = Text parser call stack
+    0097B8-0097B9 (000002) = Text parser stack pointer
+    0097BA-0097CA (000011) = Memory used by control code parser
+
+Persistent Data (Copied to/from SRAM)
+
+    0097F5-009800 (00000C) = First twelve letters of player name with spaces (0x50) replaced with K (0x7B). Left over from translation - Tony would try-make the English version of your name in katakana or hirigana in Mother 2.
+    009801-009818 (000018) = Player name
+    009819-00981E (000006) = Pet's name
+    00981F-009824 (000006) = Favourite food
+    009825-009828 (000004) = "PSI "
+    009829-00982E (000006) = Favourite thing
+    00982F-009830 (000002) = " " and 0x00, used with favourite thing text stuff
+    009831-009834 (000004) = Money on hand
+    009835-009838 (000004) = Money in ATM
+    009839-009839 (000001) = Learned PSI
+    00983A-00983F (000006) = Unclassified data
+    009840-009840 (000001) = Status (00 = Normal, 01 = Burnt, 03 = Skip Sandwich)
+    009841-00984A (00000A) = Unclassified data
+    00984B-00986E (000024) = Escargo Express stored items
+    00986F-009876 (000008) = Unclassified data
+    009877-009878 (000002) = Party leader X coordinate
+    009879-00987A (000002) = Unclassified data
+    00987B-00987C (000002) = Party leader Y coordinate
+    00987D-00987E (000002) = Unclassified data
+    00987F-00987F (000001) = Direction Ness is facing
+    009880-009882 (000003) = Unclassified data
+    009883-009883 (000001) = Party movement style
+    009884-00988A (000007) = Unclassified data
+    00988B-009891 (000007) = Current party members
+    009892-009895 (000004) = Current player-controlled party members
+    009896-0098A2 (00000D) = Unclassified data
+    0098A3-0098A3 (000001) = Number of party members
+    0098A4-0098A4 (000001) = Number of player controlled party members
+    0098A5-0098B0 (00000C) = Unclassified data
+    0098B1-0098B1 (000001) = Auto Fight toggle (00 = Off, 01 = On)
+    0098B2-0098B5 (000004) = Exit Mouse coordinates, stored when 1F 68 is used
+    0098B6-0098B6 (000001) = Text speed (1 = Fast, 2 = Medium, 3 = Slow)
+    0098B7-0098B7 (000001) = Sound setting (1 = Stereo, 2 = Mono)
+    0098B8-0099CC (000115) = Unclassified data
+    0099CD-0099CD (000001) = Current window "flavor"
+    0099CE-009C07 (00023A) = Character stats table
+    009C08-009C88 (000080) = Flag value table
+
+Miscellaneous
+
+    009C89-009E53 (0001cb) = Unclassified data
+    009E54-009E55 (000002) = Timer for Dad's phone calls
+    009F77-009F78 (000002) = SRAM Version (always 0493)
+    009F79-009F79 (000001) = Corrupted save slots (save slot bitflag)
+    00A21C-00A??? (000???) = Enemies in battle table
+    00AA10-00AA11 (000002) = Item-be received at the end of battle (High byte unused)
+    00B4A1-00B4A1 (000001) = Current selected save slot (1-3)
+    00B4EF-00B4F2 (000004) = Photographer Flags
+    00B549-00B549 (000001) = Sector boundary behavior
+    00B54A-00B7FF (0002b6) = Unclassified data
+    00B800-00BDFF (000600) = Decompressed map animation palettes
+    00C000-00DFFF (002000) = Decompressed map animation tile characters
+
+Map Buffer
+
+    00F000-00F1FF (000200) = Map Tile Buffer
+
+Bulk Data Buffers
+
+    010000-017FFF (008000) = Miscellaneous Bulk Temporary Storage
+    018000-01F7FF (0077ff) = Decompressed Tile Arrangement Data
+    01F800-01FF7F (000780) = Current Tileset Collision Data
+
+Enemy in-battle data
+
+    7EA21C-7EA269 (00004e) = In Battle Enemy Entry (78 Addresses between each entry)
+    7EA21C-7EA21D (000002) = Enemy ID (includes the Enemy ID's attacks, does not update the enemy sprite nor their stats)
+    7EA21E-7EA21F (000002) = Unclassified data
+    7EA220-7EA220 (000001) = Enemy's Turn Action (The action number will be writen to this address before the enemy attacks)
+    7EA221-7EA226 (000006) = Unclassified data
+    7EA227-7EA227 (000001) = Unclassified data
+    7EA228-7EA228 (000001) = Enemy's Letter Number (Like "Enemy A" = 01 and "Enemy B" = 02)
+    7EA21E-7EA21F (000002) = Appearance? (00 = invisible, but can't attack and be attacked; 01 = visible and can attack/be attacked; 02+ = visible, can attack, and be targetable, but cannot be attacked)
+    7EA229-7EA229 (000001) = Has the enemy gotten a turn? (00 = false, 01 = true)
+    7EA22A-7EA22A (000001) = Same as 7EA228 in Battle appearance (Probably different in function, but can't be certain. As of right now, both addresses function the same)
+    7EA22B-7EA22B (000001) = Unclassified data
+    7EA22C-7EA22C (000001) = Row Placement(00 = Front Row, 01 = Back Row, 02+ = More Rows but does not show the enemy sprite, however it can be targeted)
+    7EA22D-7EA22F (000003) = Enemy HP (Both has to have the same number or it's get corrected to their default value[probably...])
+    7EA22E-7EA230 (000003) = Unclassified data (Going to assume that those are the PP values of the enemy, but can't be certain)
+    7EA231-7EA231 (000001) = Enemy's Max HP (?)
+    7EA232-7EA232 (000001) = Unknown (similar to 7EA22E and 7EA230)
+    7EA233-7EA238 (000006) = Unclassified data
+    7EA239-7EA239 (000001) = Enemy Status Condition (00 = normal, 01 = Death, 02 = Diamondized, 03 = Numb, 04 = Nausea, 05 = Poison, 06 = Heat Stroke, 07 = Cold, 08 = Mushroomized, 09 = Li'l Ghost, 0A+ = normal)
+    7EA23A-7EA241 (000008) = Unclassified data
+    7EA242-7EA243 (000002) = Enemy 1's Offense Stat
+    7EA244-7EA245 (000002) = Enemy 1's Defense Stat
+    7EA246-7EA247 (000002) = Enemy 1's Speed Stat
+    7EA248-7EA249 (000002) = Enemy 1's Guts Stat
+    7EA24A-7EA24B (000002) = Enemy 1's Luck Stat
+    7EA24C-7EA261 (000016) = Unclassified data
+    7EA262-7EA263 (000002) = Turn Priority (Highest number goes first, then next highest number. Speed Stat affects this.)
+    7EA264-7EA264 (000001) = Blinking Counter (Blinks transparent. For example: When an enemy takes damage)
+    7EA265-7EA265 (000001) = Blinking Counter (How long does the blinking last. Enemy's Turn: Blinks White, Player's Turn: Blinks Black)
+    7EA266-7EA266 (000001) = Blinking Target Indicator (But does not choose the actual target though. 00 = No blink but dark shade, 01 = Normal blinking)
+    7EA267-7EA267 (000001) = Darkens or Grays the Enemy Sprite (00 = Normal, 01+ = Dark shade if Player is deciding actions, Gray during battle interaction)
+    7EA268-7EA269 (000002) = "the" flag (If this number is not the same as the Enemy ID of the enemy being targeted, then "the" will be displayed with the Enemy's Name)

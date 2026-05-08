@@ -1,0 +1,4648 @@
+>>> bankconfig/US/bank21.asm
+  000000:             .INCLUDE "bankconfig/common/bank21.asm"
+>>> bankconfig/common/bank21.asm
+  E10000:             .INCLUDE "common.asm"
+  E10000:             .INCLUDE "config.asm"
+  E10000:             .INCLUDE "structs.asm"
+  E10000:             .INCLUDE "flyovermacros.asm"
+>>> flyovermacros.asm
+  E10000:             .MACRO EBFLYOVER_END
+  E10000:                 .BYTE $00
+  E10000:             .ENDMACRO
+  E10000:             .MACRO EBFLYOVER_01 arg
+  E10000:                 .BYTE $01, arg
+  E10000:             .ENDMACRO
+  E10000:             .MACRO EBFLYOVER_02 arg
+  E10000:                 .BYTE $02, arg
+  E10000:             .ENDMACRO
+  E10000:             .MACRO EBFLYOVER_08 arg
+  E10000:                 .BYTE $08, arg
+  E10000:             .ENDMACRO
+  E10000:             .MACRO EBFLYOVER_09
+  E10000:                 .BYTE $09
+  E10000:             .ENDMACRO
+>>> bankconfig/common/bank21.asm
+  E10000:             .INCLUDE "symbols/bank00.inc.asm"
+  E10000:             .INCLUDE "symbols/bank01.inc.asm"
+  E10000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  E10000:             .INCLUDE "symbols/globals.inc.asm"
+  E10000:             .INCLUDE "symbols/misc.inc.asm"
+  E10000:             .IF .DEFINED(JPN)
+  E10000:                 UNKNOWN_E10000:
+  E10000:                     LOCALEBINARY "E10000.bin"
+  E10000:             .ENDIF
+  E10000:             COFFEE_SEQUENCE_TEXT:
+  E10000:                 LOCALEINCLUDE "coffee.flyover"
+>>> coffee.flyover
+  E10000:             .INCLUDE "coffee.symbols.asm"
+>>> coffee.symbols.asm
+  E10000:             .GLOBAL FLYOVER_E10000: far
+  E10000:             .GLOBAL FLYOVER_E1064A: far
+>>> coffee.flyover
+  E10000:             FLYOVER_E10000: ;$E10000
+  E10000: 09              EBFLYOVER_09
+  E10001: 09              EBFLYOVER_09
+  E10002: 01 0C           EBFLYOVER_01 $0C
+  E10004: 89 9F A5 57     EBTEXT "You've traveled very far from"
+          A6 95 50 A4 
+          A2 91 A6 95 
+          ...omitted...
+  E10021: 09              EBFLYOVER_09
+  E10022: 01 0C           EBFLYOVER_01 $0C
+  E10024: 98 9F 9D 95     EBTEXT "home..."
+          5E 5E 5E    
+  E1002B: 09              EBFLYOVER_09
+  E1002C: 09              EBFLYOVER_09
+  E1002D: 09              EBFLYOVER_09
+  E1002E: 01 0C           EBFLYOVER_01 $0C
+  E10030: 74 9F 50 A9     EBTEXT "Do you remember how your long"
+          9F A5 50 A2 
+          95 9D 95 9D 
+          ...omitted...
+  E1004D: 09              EBFLYOVER_09
+  E1004E: 01 0C           EBFLYOVER_01 $0C
+  E10050: 91 9E 94 50     EBTEXT "and winding journey began with"
+          A7 99 9E 94 
+          99 9E 97 50 
+          ...omitted...
+  E1006E: 09              EBFLYOVER_09
+  E1006F: 01 0C           EBFLYOVER_01 $0C
+  E10071: A3 9F 9D 95     EBTEXT "someone pounding at your door?"
+          9F 9E 95 50 
+          A0 9F A5 9E 
+          ...omitted...
+  E1008F: 09              EBFLYOVER_09
+  E10090: 01 0C           EBFLYOVER_01 $0C
+  E10092: 79 A4 50 A7     EBTEXT "It was Pokey, the worst person in"
+          91 A3 50 80 
+          9F 9B 95 A9 
+          ...omitted...
+  E100B3: 09              EBFLYOVER_09
+  E100B4: 01 0C           EBFLYOVER_01 $0C
+  E100B6: A9 9F A5 A2     EBTEXT "your neighborhood, who knocked"
+          50 9E 95 99 
+          97 98 92 9F 
+          ...omitted...
+  E100D4: 09              EBFLYOVER_09
+  E100D5: 01 0C           EBFLYOVER_01 $0C
+  E100D7: 9F 9E 50 A4     EBTEXT "on the door that fateful night."
+          98 95 50 94 
+          9F 9F A2 50 
+          ...omitted...
+  E100F6: 09              EBFLYOVER_09
+  E100F7: 09              EBFLYOVER_09
+  E100F8: 09              EBFLYOVER_09
+  E100F9: 01 0C           EBFLYOVER_01 $0C
+  E100FB: 7F 9E 50 A9     EBTEXT "On your way, you have walked,"
+          9F A5 A2 50 
+          A7 91 A9 5C 
+          ...omitted...
+  E10118: 09              EBFLYOVER_09
+  E10119: 01 0C           EBFLYOVER_01 $0C
+  E1011B: A4 98 9F A5     EBTEXT "thought and fought.  Yet through"
+          97 98 A4 50 
+          91 9E 94 50 
+          ...omitted...
+  E1013B: 09              EBFLYOVER_09
+  E1013C: 01 0C           EBFLYOVER_01 $0C
+  E1013E: 91 9C 9C 50     EBTEXT "all this, you have never lost your"
+          A4 98 99 A3 
+          5C 50 A9 9F 
+          ...omitted...
+  E10160: 09              EBFLYOVER_09
+  E10161: 01 0C           EBFLYOVER_01 $0C
+  E10163: 93 9F A5 A2     EBTEXT "courage. You have grown steadily"
+          91 97 95 5E 
+          50 89 9F A5 
+          ...omitted...
+  E10183: 09              EBFLYOVER_09
+  E10184: 01 0C           EBFLYOVER_01 $0C
+  E10186: A3 A4 A2 9F     EBTEXT "stronger, though you have"
+          9E 97 95 A2 
+          5C 50 A4 98 
+          ...omitted...
+  E1019F: 09              EBFLYOVER_09
+  E101A0: 01 0C           EBFLYOVER_01 $0C
+  E101A2: 95 A8 A0 95     EBTEXT "experienced the pain of battle"
+          A2 99 95 9E 
+          93 95 94 50 
+          ...omitted...
+  E101C0: 09              EBFLYOVER_09
+  E101C1: 01 0C           EBFLYOVER_01 $0C
+  E101C3: 9D 91 9E A9     EBTEXT "many times."
+          50 A4 99 9D 
+          95 A3 5E    
+  E101CE: 09              EBFLYOVER_09
+  E101CF: 09              EBFLYOVER_09
+  E101D0: 09              EBFLYOVER_09
+  E101D1: 09              EBFLYOVER_09
+  E101D2: 09              EBFLYOVER_09
+  E101D3: 01 0C           EBFLYOVER_01 $0C
+  E101D5: 89 9F A5 50     EBTEXT "You are no longer alone in your"
+          91 A2 95 50 
+          9E 9F 50 9C 
+          ...omitted...
+  E101F4: 09              EBFLYOVER_09
+  E101F5: 01 0C           EBFLYOVER_01 $0C
+  E101F7: 91 94 A6 95     EBTEXT "adventure, "
+          9E A4 A5 A2 
+          95 5C 50    
+  E10202: 08 02           EBFLYOVER_08 $02
+  E10204: 50 A7 98 9F     EBTEXT " who is"
+          50 99 A3    
+  E1020B: 09              EBFLYOVER_09
+  E1020C: 01 0C           EBFLYOVER_01 $0C
+  E1020E: A3 A4 95 91     EBTEXT "steadfast, kind and even pretty,"
+          94 96 91 A3 
+          A4 5C 50 9B 
+          ...omitted...
+  E1022E: 09              EBFLYOVER_09
+  E1022F: 01 0C           EBFLYOVER_01 $0C
+  E10231: 99 A3 50 91     EBTEXT "is always at your side."
+          9C A7 91 A9 
+          A3 50 91 A4 
+          ...omitted...
+  E10248: 09              EBFLYOVER_09
+  E10249: 01 0C           EBFLYOVER_01 $0C
+  E1024B: 08 03           EBFLYOVER_08 $03
+  E1024D: 50 99 A3 50     EBTEXT " is with you as well."
+          A7 99 A4 98 
+          50 A9 9F A5 
+          ...omitted...
+  E10262: 09              EBFLYOVER_09
+  E10263: 01 0C           EBFLYOVER_01 $0C
+  E10265: 84 98 9F A5     EBTEXT "Though he is timid, he came from"
+          97 98 50 98 
+          95 50 99 A3 
+          ...omitted...
+  E10285: 09              EBFLYOVER_09
+  E10286: 01 0C           EBFLYOVER_01 $0C
+  E10288: 91 50 94 99     EBTEXT "a distant land to help you."
+          A3 A4 91 9E 
+          A4 50 9C 91 
+          ...omitted...
+  E102A3: 09              EBFLYOVER_09
+  E102A4: 01 0C           EBFLYOVER_01 $0C
+  E102A6: 08 01           EBFLYOVER_08 $01
+  E102A8: 5C 50 91 A3     EBTEXT ", as you certainly"
+          50 A9 9F A5 
+          50 93 95 A2 
+          ...omitted...
+  E102BA: 09              EBFLYOVER_09
+  E102BB: 01 0C           EBFLYOVER_01 $0C
+  E102BD: 9B 9E 9F A7     EBTEXT "know by now, you are not a"
+          50 92 A9 50 
+          9E 9F A7 5C 
+          ...omitted...
+  E102D7: 09              EBFLYOVER_09
+  E102D8: 01 0C           EBFLYOVER_01 $0C
+  E102DA: A2 95 97 A5     EBTEXT "regular young man...  You have"
+          9C 91 A2 50 
+          A9 9F A5 9E 
+          ...omitted...
+  E102F8: 09              EBFLYOVER_09
+  E102F9: 01 0C           EBFLYOVER_01 $0C
+  E102FB: 91 9E 50 91     EBTEXT "an awesome destiny to fulfill."
+          A7 95 A3 9F 
+          9D 95 50 94 
+          ...omitted...
+  E10319: 09              EBFLYOVER_09
+  E1031A: 09              EBFLYOVER_09
+  E1031B: 09              EBFLYOVER_09
+  E1031C: 09              EBFLYOVER_09
+  E1031D: 09              EBFLYOVER_09
+  E1031E: 01 0C           EBFLYOVER_01 $0C
+  E10320: 84 98 95 50     EBTEXT "The journey from this point will"
+          9A 9F A5 A2 
+          9E 95 A9 50 
+          ...omitted...
+  E10340: 09              EBFLYOVER_09
+  E10341: 01 0C           EBFLYOVER_01 $0C
+  E10343: 92 95 50 9C     EBTEXT "be long, and it will be more"
+          9F 9E 97 5C 
+          50 91 9E 94 
+          ...omitted...
+  E1035F: 09              EBFLYOVER_09
+  E10360: 01 0C           EBFLYOVER_01 $0C
+  E10362: 94 99 96 96     EBTEXT "difficult than anything you have"
+          99 93 A5 9C 
+          A4 50 A4 98 
+          ...omitted...
+  E10382: 09              EBFLYOVER_09
+  E10383: 01 0C           EBFLYOVER_01 $0C
+  E10385: A5 9E 94 95     EBTEXT "undergone to this point.  Yet, I"
+          A2 97 9F 9E 
+          95 50 A4 9F 
+          ...omitted...
+  E103A5: 09              EBFLYOVER_09
+  E103A6: 01 0C           EBFLYOVER_01 $0C
+  E103A8: 9B 9E 9F A7     EBTEXT "know you will be all right.  When"
+          50 A9 9F A5 
+          50 A7 99 9C 
+          ...omitted...
+  E103C9: 09              EBFLYOVER_09
+  E103CA: 01 0C           EBFLYOVER_01 $0C
+  E103CC: 97 9F 9F 94     EBTEXT "good battles evil, which side do"
+          50 92 91 A4 
+          A4 9C 95 A3 
+          ...omitted...
+  E103EC: 09              EBFLYOVER_09
+  E103ED: 01 0C           EBFLYOVER_01 $0C
+  E103EF: A9 9F A5 50     EBTEXT "you believe wins?  Do you have"
+          92 95 9C 99 
+          95 A6 95 50 
+          ...omitted...
+  E1040D: 09              EBFLYOVER_09
+  E1040E: 01 0C           EBFLYOVER_01 $0C
+  E10410: 96 91 99 A4     EBTEXT "faith that good is triumphant?"
+          98 50 A4 98 
+          91 A4 50 97 
+          ...omitted...
+  E1042E: 09              EBFLYOVER_09
+  E1042F: 09              EBFLYOVER_09
+  E10430: 09              EBFLYOVER_09
+  E10431: 09              EBFLYOVER_09
+  E10432: 09              EBFLYOVER_09
+  E10433: 01 0C           EBFLYOVER_01 $0C
+  E10435: 7F 9E 95 50     EBTEXT "One thing you must never lose is"
+          A4 98 99 9E 
+          97 50 A9 9F 
+          ...omitted...
+  E10455: 09              EBFLYOVER_09
+  E10456: 01 0C           EBFLYOVER_01 $0C
+  E10458: 93 9F A5 A2     EBTEXT "courage.  If you believe in the"
+          91 97 95 5E 
+          50 50 79 96 
+          ...omitted...
+  E10477: 09              EBFLYOVER_09
+  E10478: 01 0C           EBFLYOVER_01 $0C
+  E1047A: 97 9F 91 9C     EBTEXT "goal you are striving for, you will"
+          50 A9 9F A5 
+          50 91 A2 95 
+          ...omitted...
+  E1049D: 09              EBFLYOVER_09
+  E1049E: 01 0C           EBFLYOVER_01 $0C
+  E104A0: 92 95 50 93     EBTEXT "be courageous.  There are many"
+          9F A5 A2 91 
+          97 95 9F A5 
+          ...omitted...
+  E104BE: 09              EBFLYOVER_09
+  E104BF: 01 0C           EBFLYOVER_01 $0C
+  E104C1: 94 99 96 96     EBTEXT "difficult times ahead, but you"
+          99 93 A5 9C 
+          A4 50 A4 99 
+          ...omitted...
+  E104DF: 09              EBFLYOVER_09
+  E104E0: 01 0C           EBFLYOVER_01 $0C
+  E104E2: 9D A5 A3 A4     EBTEXT "must keep your sense of humor,"
+          50 9B 95 95 
+          A0 50 A9 9F 
+          ...omitted...
+  E10500: 09              EBFLYOVER_09
+  E10501: 01 0C           EBFLYOVER_01 $0C
+  E10503: A7 9F A2 9B     EBTEXT "work through the tough"
+          50 A4 98 A2 
+          9F A5 97 98 
+          ...omitted...
+  E10519: 09              EBFLYOVER_09
+  E1051A: 01 0C           EBFLYOVER_01 $0C
+  E1051C: A3 99 A4 A5     EBTEXT "situations and enjoy yourself."
+          91 A4 99 9F 
+          9E A3 50 91 
+          ...omitted...
+  E1053A: 09              EBFLYOVER_09
+  E1053B: 09              EBFLYOVER_09
+  E1053C: 09              EBFLYOVER_09
+  E1053D: 09              EBFLYOVER_09
+  E1053E: 09              EBFLYOVER_09
+  E1053F: 01 0C           EBFLYOVER_01 $0C
+  E10541: 87 98 95 9E     EBTEXT "When you have finished this cup"
+          50 A9 9F A5 
+          50 98 91 A6 
+          ...omitted...
+  E10560: 09              EBFLYOVER_09
+  E10561: 01 0C           EBFLYOVER_01 $0C
+  E10563: 9F 96 50 93     EBTEXT "of coffee, your adventure will"
+          9F 96 96 95 
+          95 5C 50 A9 
+          ...omitted...
+  E10581: 09              EBFLYOVER_09
+  E10582: 01 0C           EBFLYOVER_01 $0C
+  E10584: 92 95 97 99     EBTEXT "begin again.  Next, you must pass"
+          9E 50 91 97 
+          91 99 9E 5E 
+          ...omitted...
+  E105A5: 09              EBFLYOVER_09
+  E105A6: 01 0C           EBFLYOVER_01 $0C
+  E105A8: A4 98 A2 9F     EBTEXT "through a vast desert and"
+          A5 97 98 50 
+          91 50 A6 91 
+          ...omitted...
+  E105C1: 09              EBFLYOVER_09
+  E105C2: 01 0C           EBFLYOVER_01 $0C
+  E105C4: A0 A2 9F 93     EBTEXT "proceed to the big city of"
+          95 95 94 50 
+          A4 9F 50 A4 
+          ...omitted...
+  E105DE: 09              EBFLYOVER_09
+  E105DF: 01 0C           EBFLYOVER_01 $0C
+  E105E1: 76 9F A5 A2     EBTEXT "Fourside."
+          A3 99 94 95 
+          5E          
+  E105EA: 09              EBFLYOVER_09
+  E105EB: 09              EBFLYOVER_09
+  E105EC: 09              EBFLYOVER_09
+  E105ED: 09              EBFLYOVER_09
+  E105EE: 09              EBFLYOVER_09
+  E105EF: 01 0C           EBFLYOVER_01 $0C
+  E105F1: 08 01           EBFLYOVER_08 $01
+  E105F3: 5E 5E 5E        EBTEXT "..."
+  E105F6: 09              EBFLYOVER_09
+  E105F7: 01 0C           EBFLYOVER_01 $0C
+  E105F9: 50 50 50 50     EBTEXT "           "
+          50 50 50 50 
+          50 50 50    
+  E10604: 08 02           EBFLYOVER_08 $02
+  E10606: 5E 5E 5E        EBTEXT "..."
+  E10609: 09              EBFLYOVER_09
+  E1060A: 01 0C           EBFLYOVER_01 $0C
+  E1060C: 50 50 50 50     EBTEXT "                      "
+          50 50 50 50 
+          50 50 50 50 
+          ...omitted...
+  E10622: 08 03           EBFLYOVER_08 $03
+  E10624: 5E 5E 5E        EBTEXT "..."
+  E10627: 09              EBFLYOVER_09
+  E10628: 09              EBFLYOVER_09
+  E10629: 09              EBFLYOVER_09
+  E1062A: 01 0C           EBFLYOVER_01 $0C
+  E1062C: 79 50 A7 99     EBTEXT "I wish you luck..."
+          A3 98 50 A9 
+          9F A5 50 9C 
+          ...omitted...
+  E1063E: 09              EBFLYOVER_09
+  E1063F: 09              EBFLYOVER_09
+  E10640: 09              EBFLYOVER_09
+  E10641: 09              EBFLYOVER_09
+  E10642: 09              EBFLYOVER_09
+  E10643: 09              EBFLYOVER_09
+  E10644: 09              EBFLYOVER_09
+  E10645: 09              EBFLYOVER_09
+  E10646: 09              EBFLYOVER_09
+  E10647: 09              EBFLYOVER_09
+  E10648: 09              EBFLYOVER_09
+  E10649: 00              EBFLYOVER_END
+  E1064A:             FLYOVER_E1064A: ;$E1064A
+  E1064A: 09              EBFLYOVER_09
+  E1064B: 09              EBFLYOVER_09
+  E1064C: 09              EBFLYOVER_09
+  E1064D: 09              EBFLYOVER_09
+  E1064E: 09              EBFLYOVER_09
+  E1064F: 09              EBFLYOVER_09
+  E10650: 09              EBFLYOVER_09
+  E10651: 09              EBFLYOVER_09
+>>> bankconfig/common/bank21.asm
+  E10652:             TEA_SEQUENCE_TEXT:
+  E10652:                 LOCALEINCLUDE "tea.flyover"
+>>> tea.flyover
+  E10652:             .INCLUDE "tea.symbols.asm"
+>>> tea.symbols.asm
+  E10652:             .GLOBAL FLYOVER_E10652: far
+  E10652:             .GLOBAL FLYOVER_E10B7E: far
+>>> tea.flyover
+  E10652:             FLYOVER_E10652: ;$E10652
+  E10652: 09              EBFLYOVER_09
+  E10653: 09              EBFLYOVER_09
+  E10654: 01 0C           EBFLYOVER_01 $0C
+  E10656: 7C 99 9B 95     EBTEXT "Like a great tapestry, vertical and"
+          50 91 50 97 
+          A2 95 91 A4 
+          ...omitted...
+  E10679: 09              EBFLYOVER_09
+  E1067A: 01 0C           EBFLYOVER_01 $0C
+  E1067C: 98 9F A2 99     EBTEXT "horizontal threads have met and"
+          AA 9F 9E A4 
+          91 9C 50 A4 
+          ...omitted...
+  E1069B: 09              EBFLYOVER_09
+  E1069C: 01 0C           EBFLYOVER_01 $0C
+  E1069E: 92 95 93 9F     EBTEXT "become intertwined, creating a"
+          9D 95 50 99 
+          9E A4 95 A2 
+          ...omitted...
+  E106BC: 09              EBFLYOVER_09
+  E106BD: 01 0C           EBFLYOVER_01 $0C
+  E106BF: 98 A5 97 95     EBTEXT "huge, beautiful image."
+          5C 50 92 95 
+          91 A5 A4 99 
+          ...omitted...
+  E106D5: 09              EBFLYOVER_09
+  E106D6: 09              EBFLYOVER_09
+  E106D7: 09              EBFLYOVER_09
+  E106D8: 09              EBFLYOVER_09
+  E106D9: 09              EBFLYOVER_09
+  E106DA: 01 0C           EBFLYOVER_01 $0C
+  E106DC: 89 9F A5 50     EBTEXT "You may have cursed this never-"
+          9D 91 A9 50 
+          98 91 A6 95 
+          ...omitted...
+  E106FB: 09              EBFLYOVER_09
+  E106FC: 01 0C           EBFLYOVER_01 $0C
+  E106FE: 95 9E 94 99     EBTEXT "ending journey.  You have known"
+          9E 97 50 9A 
+          9F A5 A2 9E 
+          ...omitted...
+  E1071D: 09              EBFLYOVER_09
+  E1071E: 01 0C           EBFLYOVER_01 $0C
+  E10720: 99 9E 9A A5     EBTEXT "injury and defeat, but you have"
+          A2 A9 50 91 
+          9E 94 50 94 
+          ...omitted...
+  E1073F: 09              EBFLYOVER_09
+  E10740: 01 0C           EBFLYOVER_01 $0C
+  E10742: A3 A4 A2 A5     EBTEXT "struggled on to reach this place."
+          97 97 9C 95 
+          94 50 9F 9E 
+          ...omitted...
+  E10763: 09              EBFLYOVER_09
+  E10764: 01 0C           EBFLYOVER_01 $0C
+  E10766: 89 9F A5 A2     EBTEXT "Your in-born intelligence and"
+          50 99 9E 5D 
+          92 9F A2 9E 
+          ...omitted...
+  E10783: 09              EBFLYOVER_09
+  E10784: 01 0C           EBFLYOVER_01 $0C
+  E10786: 93 9F A5 A2     EBTEXT "courage have helped bring you"
+          91 97 95 50 
+          98 91 A6 95 
+          ...omitted...
+  E107A3: 09              EBFLYOVER_09
+  E107A4: 01 0C           EBFLYOVER_01 $0C
+  E107A6: 98 95 A2 95     EBTEXT "here.  You have believed in your"
+          5E 50 50 89 
+          9F A5 50 98 
+          ...omitted...
+  E107C6: 09              EBFLYOVER_09
+  E107C7: 01 0C           EBFLYOVER_01 $0C
+  E107C9: 96 A2 99 95     EBTEXT "friends, and as a group, you have"
+          9E 94 A3 5C 
+          50 91 9E 94 
+          ...omitted...
+  E107EA: 09              EBFLYOVER_09
+  E107EB: 01 0C           EBFLYOVER_01 $0C
+  E107ED: A3 A5 A0 A0     EBTEXT "supported each other.  Have you"
+          9F A2 A4 95 
+          94 50 95 91 
+          ...omitted...
+  E1080C: 09              EBFLYOVER_09
+  E1080D: 01 0C           EBFLYOVER_01 $0C
+  E1080F: 95 A6 95 A2     EBTEXT "ever stopped to consider how"
+          50 A3 A4 9F 
+          A0 A0 95 94 
+          ...omitted...
+  E1082B: 09              EBFLYOVER_09
+  E1082C: 01 0C           EBFLYOVER_01 $0C
+  E1082E: 9D A5 93 98     EBTEXT "much your power has grown?"
+          50 A9 9F A5 
+          A2 50 A0 9F 
+          ...omitted...
+  E10848: 09              EBFLYOVER_09
+  E10849: 01 0C           EBFLYOVER_01 $0C
+  E1084B: 7E 9F A7 5C     EBTEXT "Now, you could fell enemies in"
+          50 A9 9F A5 
+          50 93 9F A5 
+          ...omitted...
+  E10869: 09              EBFLYOVER_09
+  E1086A: 01 0C           EBFLYOVER_01 $0C
+  E1086C: 7F 9E 95 A4     EBTEXT "Onett and Twoson with one"
+          A4 50 91 9E 
+          94 50 84 A7 
+          ...omitted...
+  E10885: 09              EBFLYOVER_09
+  E10886: 01 0C           EBFLYOVER_01 $0C
+  E10888: 92 9C 9F A7     EBTEXT "blow.  As you certainly know,"
+          5E 50 50 71 
+          A3 50 A9 9F 
+          ...omitted...
+  E108A5: 09              EBFLYOVER_09
+  E108A6: 01 0C           EBFLYOVER_01 $0C
+  E108A8: A9 9F A5 50     EBTEXT "you cannot turn back.  Giygas,"
+          93 91 9E 9E 
+          9F A4 50 A4 
+          ...omitted...
+  E108C6: 09              EBFLYOVER_09
+  E108C7: 01 0C           EBFLYOVER_01 $0C
+  E108C9: A4 98 95 50     EBTEXT "the arch fiend of the universe, is"
+          91 A2 93 98 
+          50 96 99 95 
+          ...omitted...
+  E108EB: 09              EBFLYOVER_09
+  E108EC: 01 0C           EBFLYOVER_01 $0C
+  E108EE: 97 A2 9F A7     EBTEXT "growing frightened of you and"
+          99 9E 97 50 
+          96 A2 99 97 
+          ...omitted...
+  E1090B: 09              EBFLYOVER_09
+  E1090C: 01 0C           EBFLYOVER_01 $0C
+  E1090E: A9 9F A5 A2     EBTEXT "your power.  He is searching for"
+          50 A0 9F A7 
+          95 A2 5E 50 
+          ...omitted...
+  E1092E: 09              EBFLYOVER_09
+  E1092F: 01 0C           EBFLYOVER_01 $0C
+  E10931: A7 91 A9 A3     EBTEXT "ways to end your journey."
+          50 A4 9F 50 
+          95 9E 94 50 
+          ...omitted...
+  E1094A: 09              EBFLYOVER_09
+  E1094B: 09              EBFLYOVER_09
+  E1094C: 09              EBFLYOVER_09
+  E1094D: 09              EBFLYOVER_09
+  E1094E: 09              EBFLYOVER_09
+  E1094F: 01 0C           EBFLYOVER_01 $0C
+  E10951: 76 A2 9F 9D     EBTEXT "From here, the challenge grows"
+          50 98 95 A2 
+          95 5C 50 A4 
+          ...omitted...
+  E1096F: 09              EBFLYOVER_09
+  E10970: 01 0C           EBFLYOVER_01 $0C
+  E10972: 91 9E 94 50     EBTEXT "and your adventure will take you"
+          A9 9F A5 A2 
+          50 91 94 A6 
+          ...omitted...
+  E10992: 09              EBFLYOVER_09
+  E10993: 01 0C           EBFLYOVER_01 $0C
+  E10995: 92 95 A9 9F     EBTEXT "beyond anything you ever"
+          9E 94 50 91 
+          9E A9 A4 98 
+          ...omitted...
+  E109AD: 09              EBFLYOVER_09
+  E109AE: 01 0C           EBFLYOVER_01 $0C
+  E109B0: 99 9D 91 97     EBTEXT "imagined.  You are drawing near"
+          99 9E 95 94 
+          5E 50 50 89 
+          ...omitted...
+  E109CF: 09              EBFLYOVER_09
+  E109D0: 01 0C           EBFLYOVER_01 $0C
+  E109D2: A4 9F 50 77     EBTEXT "to Giygas.  Remember, when you"
+          99 A9 97 91 
+          A3 5E 50 50 
+          ...omitted...
+  E109F0: 09              EBFLYOVER_09
+  E109F1: 01 0C           EBFLYOVER_01 $0C
+  E109F3: 91 A2 95 50     EBTEXT "are suffering hardships, your"
+          A3 A5 96 96 
+          95 A2 99 9E 
+          ...omitted...
+  E10A10: 09              EBFLYOVER_09
+  E10A11: 01 0C           EBFLYOVER_01 $0C
+  E10A13: 95 9E 95 9D     EBTEXT "enemy is also struggling."
+          A9 50 99 A3 
+          50 91 9C A3 
+          ...omitted...
+  E10A2C: 09              EBFLYOVER_09
+  E10A2D: 09              EBFLYOVER_09
+  E10A2E: 09              EBFLYOVER_09
+  E10A2F: 09              EBFLYOVER_09
+  E10A30: 09              EBFLYOVER_09
+  E10A31: 01 0C           EBFLYOVER_01 $0C
+  E10A33: 72 A9 50 A4     EBTEXT "By the way, do you know where"
+          98 95 50 A7 
+          91 A9 5C 50 
+          ...omitted...
+  E10A50: 09              EBFLYOVER_09
+  E10A51: 01 0C           EBFLYOVER_01 $0C
+  E10A53: 80 9F 9B 95     EBTEXT "Pokey went?  When this cup of"
+          A9 50 A7 95 
+          9E A4 6F 50 
+          ...omitted...
+  E10A70: 09              EBFLYOVER_09
+  E10A71: 01 0C           EBFLYOVER_01 $0C
+  E10A73: A4 95 91 50     EBTEXT "tea is finished, your adventure will"
+          99 A3 50 96 
+          99 9E 99 A3 
+          ...omitted...
+  E10A97: 09              EBFLYOVER_09
+  E10A98: 01 0C           EBFLYOVER_01 $0C
+  E10A9A: 93 9F 9E A4     EBTEXT "continue.  Your destiny pulls you"
+          99 9E A5 95 
+          5E 50 50 89 
+          ...omitted...
+  E10ABB: 09              EBFLYOVER_09
+  E10ABC: 01 0C           EBFLYOVER_01 $0C
+  E10ABE: 99 9E 50 A4     EBTEXT "in the right direction.  Believe in"
+          98 95 50 A2 
+          99 97 98 A4 
+          ...omitted...
+  E10AE1: 09              EBFLYOVER_09
+  E10AE2: 01 0C           EBFLYOVER_01 $0C
+  E10AE4: A9 9F A5 A2     EBTEXT "yourself and press forward."
+          A3 95 9C 96 
+          50 91 9E 94 
+          ...omitted...
+  E10AFF: 09              EBFLYOVER_09
+  E10B00: 09              EBFLYOVER_09
+  E10B01: 09              EBFLYOVER_09
+  E10B02: 09              EBFLYOVER_09
+  E10B03: 09              EBFLYOVER_09
+  E10B04: 01 02           EBFLYOVER_01 $02
+  E10B06: 08 01           EBFLYOVER_08 $01
+  E10B08: 51              EBTEXT "!"
+  E10B09: 09              EBFLYOVER_09
+  E10B0A: 01 02           EBFLYOVER_01 $02
+  E10B0C: 50 50 50 50     EBTEXT "           "
+          50 50 50 50 
+          50 50 50    
+  E10B17: 08 02           EBFLYOVER_08 $02
+  E10B19: 51              EBTEXT "!"
+  E10B1A: 09              EBFLYOVER_09
+  E10B1B: 01 02           EBFLYOVER_01 $02
+  E10B1D: 50 50 50 50     EBTEXT "                      "
+          50 50 50 50 
+          50 50 50 50 
+          ...omitted...
+  E10B33: 08 03           EBFLYOVER_08 $03
+  E10B35: 51              EBTEXT "!"
+  E10B36: 09              EBFLYOVER_09
+  E10B37: 01 02           EBFLYOVER_01 $02
+  E10B39: 50 50 50 50     EBTEXT "                                 "
+          50 50 50 50 
+          50 50 50 50 
+          ...omitted...
+  E10B5A: 08 04           EBFLYOVER_08 $04
+  E10B5C: 51              EBTEXT "!"
+  E10B5D: 09              EBFLYOVER_09
+  E10B5E: 09              EBFLYOVER_09
+  E10B5F: 09              EBFLYOVER_09
+  E10B60: 01 0C           EBFLYOVER_01 $0C
+  E10B62: 79 50 A7 99     EBTEXT "I wish you luck..."
+          A3 98 50 A9 
+          9F A5 50 9C 
+          ...omitted...
+  E10B74: 09              EBFLYOVER_09
+  E10B75: 09              EBFLYOVER_09
+  E10B76: 09              EBFLYOVER_09
+  E10B77: 09              EBFLYOVER_09
+  E10B78: 09              EBFLYOVER_09
+  E10B79: 09              EBFLYOVER_09
+  E10B7A: 09              EBFLYOVER_09
+  E10B7B: 09              EBFLYOVER_09
+  E10B7C: 09              EBFLYOVER_09
+  E10B7D: 00              EBFLYOVER_END
+  E10B7E:             FLYOVER_E10B7E: ;$E10B7E
+  E10B7E: 09              EBFLYOVER_09
+  E10B7F: 09              EBFLYOVER_09
+  E10B80: 09              EBFLYOVER_09
+  E10B81: 09              EBFLYOVER_09
+  E10B82: 09              EBFLYOVER_09
+  E10B83: 09              EBFLYOVER_09
+  E10B84: 09              EBFLYOVER_09
+  E10B85: 09              EBFLYOVER_09
+>>> bankconfig/common/bank21.asm
+  E10B86:                 LOCALEINCLUDE "flyovers.flyover"
+>>> flyovers.flyover
+  E10B86:             .INCLUDE "flyovers.symbols.asm"
+>>> flyovers.symbols.asm
+  E10B86:             .GLOBAL FLYOVER_INTRO1: far
+  E10B86:             .GLOBAL FLYOVER_INTRO2: far
+  E10B86:             .GLOBAL FLYOVER_INTRO3: far
+  E10B86:             .GLOBAL FLYOVER_WINTERS_INTRO1: far
+  E10B86:             .GLOBAL FLYOVER_WINTERS_INTRO2: far
+  E10B86:             .GLOBAL FLYOVER_DALAAM_INTRO1: far
+  E10B86:             .GLOBAL FLYOVER_DALAAM_INTRO2: far
+  E10B86:             .GLOBAL FLYOVER_ENDING: far
+>>> flyovers.flyover
+  E10B86:             FLYOVER_INTRO1: ;$E10B86
+  E10B86: 02 0C           EBFLYOVER_02 $0C
+  E10B88: 01 32           EBFLYOVER_01 $32
+  E10B8A: 84 98 95 50     EBTEXT "The year is 199X"
+          A9 95 91 A2 
+          50 99 A3 50 
+          ...omitted...
+  E10B9A: 09              EBFLYOVER_09
+  E10B9B: 00              EBFLYOVER_END
+  E10B9C:             FLYOVER_INTRO2: ;$E10B9C
+  E10B9C: 02 0C           EBFLYOVER_02 $0C
+  E10B9E: 01 0C           EBFLYOVER_01 $0C
+  E10BA0: 7F 9E 95 A4     EBTEXT "Onett, a small town in Eagleland"
+          A4 5C 50 91 
+          50 A3 9D 91 
+          ...omitted...
+  E10BC0: 09              EBFLYOVER_09
+  E10BC1: 00              EBFLYOVER_END
+  E10BC2:             FLYOVER_INTRO3: ;$E10BC2
+  E10BC2: 02 0C           EBFLYOVER_02 $0C
+  E10BC4: 01 3D           EBFLYOVER_01 $3D
+  E10BC6: 08 01           EBFLYOVER_08 $01
+  E10BC8: 57 A3 50 98     EBTEXT "'s house"
+          9F A5 A3 95 
+  E10BD0: 09              EBFLYOVER_09
+  E10BD1: 00              EBFLYOVER_END
+  E10BD2:             FLYOVER_WINTERS_INTRO1: ;$E10BD2
+  E10BD2: 02 0C           EBFLYOVER_02 $0C
+  E10BD4: 01 00           EBFLYOVER_01 $00
+  E10BD6: 87 99 9E A4     EBTEXT "Winters, a small country to the north"
+          95 A2 A3 5C 
+          50 91 50 A3 
+          ...omitted...
+  E10BFB: 09              EBFLYOVER_09
+  E10BFC: 00              EBFLYOVER_END
+  E10BFD:             FLYOVER_WINTERS_INTRO2: ;$E10BFD
+  E10BFD: 02 0C           EBFLYOVER_02 $0C
+  E10BFF: 01 15           EBFLYOVER_01 $15
+  E10C01: 83 9E 9F A7     EBTEXT "Snow Wood Boarding House"
+          50 87 9F 9F 
+          94 50 72 9F 
+          ...omitted...
+  E10C19: 09              EBFLYOVER_09
+  E10C1A: 00              EBFLYOVER_END
+  E10C1B:             FLYOVER_DALAAM_INTRO1: ;$E10C1B
+  E10C1B: 02 0C           EBFLYOVER_02 $0C
+  E10C1D: 01 23           EBFLYOVER_01 $23
+  E10C1F: 74 91 9C 91     EBTEXT "Dalaam, in the Far East"
+          91 9D 5C 50 
+          99 9E 50 A4 
+          ...omitted...
+  E10C36: 09              EBFLYOVER_09
+  E10C37: 00              EBFLYOVER_END
+  E10C38:             FLYOVER_DALAAM_INTRO2: ;$E10C38
+  E10C38: 02 0B           EBFLYOVER_02 $0B
+  E10C3A: 01 25           EBFLYOVER_01 $25
+  E10C3C: 84 98 95 50     EBTEXT "The palace of "
+          A0 91 9C 91 
+          93 95 50 9F 
+          ...omitted...
+  E10C4A: 08 04           EBFLYOVER_08 $04
+  E10C4C: 09              EBFLYOVER_09
+  E10C4D: 01 30           EBFLYOVER_01 $30
+  E10C4F: 84 98 95 50     EBTEXT "The Crown Prince"
+          73 A2 9F A7 
+          9E 50 80 A2 
+          ...omitted...
+  E10C5F: 09              EBFLYOVER_09
+  E10C60: 00              EBFLYOVER_END
+  E10C61:             FLYOVER_ENDING: ;$E10C61
+  E10C61: 02 0C           EBFLYOVER_02 $0C
+  E10C63: 01 30           EBFLYOVER_01 $30
+  E10C65: 7C 91 A4 95     EBTEXT "Later that night..."
+          A2 50 A4 98 
+          91 A4 50 9E 
+          ...omitted...
+  E10C78: 09              EBFLYOVER_09
+  E10C79: 00              EBFLYOVER_END
+>>> bankconfig/common/bank21.asm
+  E10C7A:             .IF .DEFINED(JPN)
+  E10C7A:                 UNKNOWN_E1213E:
+  E10C7A:                     LOCALEBINARY "E1213E.bin"
+  E10C7A:                 UNKNOWN_E12381:
+  E10C7A:                     LOCALEBINARY "E12381.bin"
+  E10C7A:             .ELSE
+  E10C7A:                 MAIN_FONT_DATA:
+  E10C7A: 02 02 03 02         LOCALEBINARY "fonts/main.bin"
+          05 09 07 02 
+          03 03 03 05 
+          ...omitted...
+  E10CDA:                 MAIN_FONT_GFX:
+  E10CDA: FF FF FF FF         LOCALEBINARY "fonts/main.gfx"
+          FF FF FF FF 
+          FF FF FF FF 
+          ...omitted...
+  E118DA:                 BATTLE_FONT_DATA:
+  E118DA: 06 06 06 06         LOCALEBINARY "fonts/battle.bin"
+          06 06 06 06 
+          06 06 06 06 
+          ...omitted...
+  E1193A:                 BATTLE_FONT_GFX:
+  E1193A: FF FF FF FF         LOCALEBINARY "fonts/battle.gfx"
+          FF FF FF FF 
+          FF FF FF FF 
+          ...omitted...
+  E11F3A:                 TINY_FONT_DATA:
+  E11F3A: 06 06 06 06         LOCALEBINARY "fonts/tiny.bin"
+          06 06 06 06 
+          06 06 06 06 
+          ...omitted...
+  E11F9A:                 TINY_FONT_GFX:
+  E11F9A: FF FF FF FF         LOCALEBINARY "fonts/tiny.gfx"
+          FF FF FF FF 
+          DF DF DF DF 
+          ...omitted...
+  E1229A:                 LARGE_FONT_DATA:
+  E1229A: 02 02 04 04         LOCALEBINARY "fonts/large.bin"
+          05 0C 0B 02 
+          04 04 06 09 
+          ...omitted...
+  E122FA:                 LARGE_FONT_GFX:
+  E122FA: FF FF FF FF         LOCALEBINARY "fonts/large.gfx"
+          FF FF FF FF 
+          FF FF FF FF 
+          ...omitted...
+  E12EFA:                 .INCLUDE "data/cast_sequence_formatting.asm"
+>>> data/cast_sequence_formatting.asm
+  E12EFA:             CAST_SEQUENCE_FORMATTING:
+  E12EFA: 30 00           .WORD $0030
+  E12EFC: 00              .BYTE $00
+  E12EFD: 30 00           .WORD $0030
+  E12EFF: 08              .BYTE $08
+  E12F00: 38 00           .WORD $0038
+  E12F02: 08              .BYTE $08
+  E12F03: 40 00           .WORD $0040
+  E12F05: 08              .BYTE $08
+  E12F06: 48 00           .WORD $0048
+  E12F08: 08              .BYTE $08
+  E12F09: 50 00           .WORD $0050
+  E12F0B: 06              .BYTE $06
+  E12F0C: 56 00           .WORD $0056
+  E12F0E: 08              .BYTE $08
+  E12F0F: 5E 00           .WORD $005E
+  E12F11: 06              .BYTE $06
+  E12F12: 64 00           .WORD $0064
+  E12F14: 06              .BYTE $06
+  E12F15: 6A 00           .WORD $006A
+  E12F17: 06              .BYTE $06
+  E12F18: 70 00           .WORD $0070
+  E12F1A: 08              .BYTE $08
+  E12F1B: 78 00           .WORD $0078
+  E12F1D: 0A              .BYTE $0A
+  E12F1E: 82 00           .WORD $0082
+  E12F20: 0A              .BYTE $0A
+  E12F21: 8C 00           .WORD $008C
+  E12F23: 0A              .BYTE $0A
+  E12F24: 96 00           .WORD $0096
+  E12F26: 06              .BYTE $06
+  E12F27: 9C 00           .WORD $009C
+  E12F29: 04              .BYTE $04
+  E12F2A: A0 00           .WORD $00A0
+  E12F2C: 06              .BYTE $06
+  E12F2D: A6 00           .WORD $00A6
+  E12F2F: 08              .BYTE $08
+  E12F30: AE 00           .WORD $00AE
+  E12F32: 08              .BYTE $08
+  E12F33: B6 00           .WORD $00B6
+  E12F35: 0A              .BYTE $0A
+  E12F36: C0 00           .WORD $00C0
+  E12F38: 06              .BYTE $06
+  E12F39: C6 00           .WORD $00C6
+  E12F3B: 08              .BYTE $08
+  E12F3C: CE 00           .WORD $00CE
+  E12F3E: 04              .BYTE $04
+  E12F3F: D2 00           .WORD $00D2
+  E12F41: 06              .BYTE $06
+  E12F42: D8 00           .WORD $00D8
+  E12F44: 04              .BYTE $04
+  E12F45: DC 00           .WORD $00DC
+  E12F47: 0C              .BYTE $0C
+  E12F48: E8 00           .WORD $00E8
+  E12F4A: 06              .BYTE $06
+  E12F4B: EE 00           .WORD $00EE
+  E12F4D: 08              .BYTE $08
+  E12F4E: F6 00           .WORD $00F6
+  E12F50: 06              .BYTE $06
+  E12F51: FC 00           .WORD $00FC
+  E12F53: 08              .BYTE $08
+  E12F54: 04 01           .WORD $0104
+  E12F56: 0A              .BYTE $0A
+  E12F57: 0E 01           .WORD $010E
+  E12F59: 0A              .BYTE $0A
+  E12F5A: 18 01           .WORD $0118
+  E12F5C: 08              .BYTE $08
+  E12F5D: 20 01           .WORD $0120
+  E12F5F: 0C              .BYTE $0C
+  E12F60: 2C 01           .WORD $012C
+  E12F62: 04              .BYTE $04
+  E12F63: 30 01           .WORD $0130
+  E12F65: 08              .BYTE $08
+  E12F66: 38 01           .WORD $0138
+  E12F68: 0C              .BYTE $0C
+  E12F69: 44 01           .WORD $0144
+  E12F6B: 08              .BYTE $08
+  E12F6C: 4C 01           .WORD $014C
+  E12F6E: 08              .BYTE $08
+  E12F6F: 54 01           .WORD $0154
+  E12F71: 0A              .BYTE $0A
+  E12F72: 5E 01           .WORD $015E
+  E12F74: 06              .BYTE $06
+  E12F75: 64 01           .WORD $0164
+  E12F77: 02              .BYTE $02
+  E12F78: 66 01           .WORD $0166
+  E12F7A: 04              .BYTE $04
+  E12F7B: 6A 01           .WORD $016A
+  E12F7D: 02              .BYTE $02
+  E12F7E: 6C 01           .WORD $016C
+  E12F80: 04              .BYTE $04
+  E12F81: 10 00           .WORD $0010
+  E12F83: 04              .BYTE $04
+  E12F84: 14 00           .WORD $0014
+  E12F86: 04              .BYTE $04
+  E12F87: 20 00           .WORD $0020
+  E12F89: 0C              .BYTE $0C
+>>> bankconfig/common/bank21.asm
+  E12F8A:             .ENDIF
+  E12F8A:             .INCLUDE "data/photographer_cfg.asm"
+>>> data/photographer_cfg.asm
+  E12F8A:             PHOTOGRAPHER_CFG_TABLE:
+  E12F8A: BA 02           .WORD EVENT_FLAG::FLG_PHOTO_1
+  E12F8C: 4C 01 2B 00     .WORD $014C, $002B ;map (X,Y)
+  E12F90: 00 00           .WORD $0000 ;Palette offset
+  E12F92: 00              .BYTE $00 ;Slide direction
+  E12F93: 00              .BYTE $00 ;Slide distance
+  E12F94: 49 01 38 00     .WORD $0149, $0038 ;Photographer (X,Y)
+  E12F98: 4B 01 2D 00     .WORD $014B, $002D ;Party member 1 (X,Y)
+  E12F9C: 49 01 2C 00     .WORD $0149, $002C ;Party member 2 (X,Y)
+  E12FA0: 4D 01 2C 00     .WORD $014D, $002C ;Party member 3 (X,Y)
+  E12FA4: 4F 01 2B 00     .WORD $014F, $002B ;Party member 4 (X,Y)
+  E12FA8: 47 01 2C 00     .WORD $0147, $002C ;Party member 5 (X,Y)
+  E12FAC: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E12FB0: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E12FB4: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E12FB6: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E12FBA: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E12FBC: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E12FC0: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E12FC2: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E12FC6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E12FC8: BB 02           .WORD EVENT_FLAG::FLG_PHOTO_2
+  E12FCA: B0 03 BA 00     .WORD $03B0, $00BA ;map (X,Y)
+  E12FCE: C0 00           .WORD $00C0 ;Palette offset
+  E12FD0: 28              .BYTE $28 ;Slide direction
+  E12FD1: 55              .BYTE $55 ;Slide distance
+  E12FD2: AA 03 BE 00     .WORD $03AA, $00BE ;Photographer (X,Y)
+  E12FD6: B0 03 BC 00     .WORD $03B0, $00BC ;Party member 1 (X,Y)
+  E12FDA: AE 03 BD 00     .WORD $03AE, $00BD ;Party member 2 (X,Y)
+  E12FDE: B3 03 BD 00     .WORD $03B3, $00BD ;Party member 3 (X,Y)
+  E12FE2: B5 03 BE 00     .WORD $03B5, $00BE ;Party member 4 (X,Y)
+  E12FE6: AB 03 BC 00     .WORD $03AB, $00BC ;Party member 5 (X,Y)
+  E12FEA: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E12FEE: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E12FF2: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E12FF4: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E12FF8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E12FFA: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E12FFE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13000: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13004: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13006: BC 02           .WORD EVENT_FLAG::FLG_PHOTO_3
+  E13008: B9 00 2E 03     .WORD $00B9, $032E ;map (X,Y)
+  E1300C: 80 01           .WORD $0180 ;Palette offset
+  E1300E: 18              .BYTE $18 ;Slide direction
+  E1300F: 55              .BYTE $55 ;Slide distance
+  E13010: BA 00 38 03     .WORD $00BA, $0338 ;Photographer (X,Y)
+  E13014: BE 00 32 03     .WORD $00BE, $0332 ;Party member 1 (X,Y)
+  E13018: BC 00 32 03     .WORD $00BC, $0332 ;Party member 2 (X,Y)
+  E1301C: BF 00 30 03     .WORD $00BF, $0330 ;Party member 3 (X,Y)
+  E13020: B7 00 32 03     .WORD $00B7, $0332 ;Party member 4 (X,Y)
+  E13024: B9 00 33 03     .WORD $00B9, $0333 ;Party member 5 (X,Y)
+  E13028: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1302C: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13030: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13032: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13036: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13038: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1303C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1303E: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13042: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13044: BD 02           .WORD EVENT_FLAG::FLG_PHOTO_4
+  E13046: 69 02 91 00     .WORD $0269, $0091 ;map (X,Y)
+  E1304A: 40 02           .WORD $0240 ;Palette offset
+  E1304C: 38              .BYTE $38 ;Slide direction
+  E1304D: 55              .BYTE $55 ;Slide distance
+  E1304E: 6B 02 95 00     .WORD $026B, $0095 ;Photographer (X,Y)
+  E13052: 68 02 8E 00     .WORD $0268, $008E ;Party member 1 (X,Y)
+  E13056: 66 02 8F 00     .WORD $0266, $008F ;Party member 2 (X,Y)
+  E1305A: 65 02 8D 00     .WORD $0265, $008D ;Party member 3 (X,Y)
+  E1305E: 61 02 8F 00     .WORD $0261, $008F ;Party member 4 (X,Y)
+  E13062: 64 02 90 00     .WORD $0264, $0090 ;Party member 5 (X,Y)
+  E13066: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1306A: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E1306E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13070: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13074: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13076: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1307A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1307C: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13080: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13082: BE 02           .WORD EVENT_FLAG::FLG_PHOTO_5
+  E13084: D9 02 9B 00     .WORD $02D9, $009B ;map (X,Y)
+  E13088: 40 02           .WORD $0240 ;Palette offset
+  E1308A: 30              .BYTE $30 ;Slide direction
+  E1308B: 55              .BYTE $55 ;Slide distance
+  E1308C: DB 02 A6 00     .WORD $02DB, $00A6 ;Photographer (X,Y)
+  E13090: D8 02 9E 00     .WORD $02D8, $009E ;Party member 1 (X,Y)
+  E13094: DA 02 9D 00     .WORD $02DA, $009D ;Party member 2 (X,Y)
+  E13098: D6 02 9C 00     .WORD $02D6, $009C ;Party member 3 (X,Y)
+  E1309C: D4 02 9B 00     .WORD $02D4, $009B ;Party member 4 (X,Y)
+  E130A0: DC 02 9C 00     .WORD $02DC, $009C ;Party member 5 (X,Y)
+  E130A4: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E130A8: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E130AC: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E130AE: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E130B2: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E130B4: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E130B8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E130BA: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E130BE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E130C0: BF 02           .WORD EVENT_FLAG::FLG_PHOTO_6
+  E130C2: 14 01 2E 03     .WORD $0114, $032E ;map (X,Y)
+  E130C6: 80 01           .WORD $0180 ;Palette offset
+  E130C8: 28              .BYTE $28 ;Slide direction
+  E130C9: 55              .BYTE $55 ;Slide distance
+  E130CA: 15 01 38 03     .WORD $0115, $0338 ;Photographer (X,Y)
+  E130CE: 13 01 32 03     .WORD $0113, $0332 ;Party member 1 (X,Y)
+  E130D2: 11 01 33 03     .WORD $0111, $0333 ;Party member 2 (X,Y)
+  E130D6: 0E 01 32 03     .WORD $010E, $0332 ;Party member 3 (X,Y)
+  E130DA: 16 01 32 03     .WORD $0116, $0332 ;Party member 4 (X,Y)
+  E130DE: 18 01 33 03     .WORD $0118, $0333 ;Party member 5 (X,Y)
+  E130E2: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E130E6: 1E 01 32 03     .WORD $011E, $0332 ;NPC 1 coordinates
+  E130EA: 95 00           .WORD OVERWORLD_SPRITE::GORGEOUS ;NPC 1 sprite
+  E130EC: 20 01 30 03     .WORD $0120, $0330 ;NPC 2 coordinates
+  E130F0: 96 00           .WORD OVERWORLD_SPRITE::LUCKY ;NPC 2 sprite
+  E130F2: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E130F6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E130F8: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E130FC: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E130FE: C0 02           .WORD EVENT_FLAG::FLG_PHOTO_7
+  E13100: 49 00 A8 01     .WORD $0049, $01A8 ;map (X,Y)
+  E13104: 00 03           .WORD $0300 ;Palette offset
+  E13106: 08              .BYTE $08 ;Slide direction
+  E13107: 55              .BYTE $55 ;Slide distance
+  E13108: 53 00 AA 01     .WORD $0053, $01AA ;Photographer (X,Y)
+  E1310C: 4B 00 A6 01     .WORD $004B, $01A6 ;Party member 1 (X,Y)
+  E13110: 50 00 A7 01     .WORD $0050, $01A7 ;Party member 2 (X,Y)
+  E13114: 49 00 A5 01     .WORD $0049, $01A5 ;Party member 3 (X,Y)
+  E13118: 47 00 A6 01     .WORD $0047, $01A6 ;Party member 4 (X,Y)
+  E1311C: 4D 00 A5 01     .WORD $004D, $01A5 ;Party member 5 (X,Y)
+  E13120: 45 00 A4 01     .WORD $0045, $01A4 ;Party member 6 (X,Y)
+  E13124: 52 00 A3 01     .WORD $0052, $01A3 ;NPC 1 coordinates
+  E13128: 53 00           .WORD OVERWORLD_SPRITE::TESSIE_WATCHER ;NPC 1 sprite
+  E1312A: 43 00 A0 01     .WORD $0043, $01A0 ;NPC 2 coordinates
+  E1312E: 53 00           .WORD OVERWORLD_SPRITE::TESSIE_WATCHER ;NPC 2 sprite
+  E13130: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13134: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13136: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1313A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1313C: C1 02           .WORD EVENT_FLAG::FLG_PHOTO_8
+  E1313E: C3 00 BA 01     .WORD $00C3, $01BA ;map (X,Y)
+  E13142: C0 03           .WORD $03C0 ;Palette offset
+  E13144: 10              .BYTE $10 ;Slide direction
+  E13145: 55              .BYTE $55 ;Slide distance
+  E13146: C5 00 C2 01     .WORD $00C5, $01C2 ;Photographer (X,Y)
+  E1314A: C5 00 B9 01     .WORD $00C5, $01B9 ;Party member 1 (X,Y)
+  E1314E: C8 00 B9 01     .WORD $00C8, $01B9 ;Party member 2 (X,Y)
+  E13152: C4 00 B8 01     .WORD $00C4, $01B8 ;Party member 3 (X,Y)
+  E13156: C9 00 B8 01     .WORD $00C9, $01B8 ;Party member 4 (X,Y)
+  E1315A: CA 00 B9 01     .WORD $00CA, $01B9 ;Party member 5 (X,Y)
+  E1315E: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13162: BE 00 BF 01     .WORD $00BE, $01BF ;NPC 1 coordinates
+  E13166: 1F 01           .WORD OVERWORLD_SPRITE::MAD_DUCK ;NPC 1 sprite
+  E13168: BA 00 B9 01     .WORD $00BA, $01B9 ;NPC 2 coordinates
+  E1316C: A0 01           .WORD OVERWORLD_SPRITE::ROWDY_MOUSE ;NPC 2 sprite
+  E1316E: CD 00 BC 01     .WORD $00CD, $01BC ;NPC 3 coordinates
+  E13172: A0 01           .WORD OVERWORLD_SPRITE::ROWDY_MOUSE ;NPC 3 sprite
+  E13174: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13178: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1317A: C2 02           .WORD EVENT_FLAG::FLG_PHOTO_9
+  E1317C: D1 02 1C 04     .WORD $02D1, $041C ;map (X,Y)
+  E13180: 80 04           .WORD $0480 ;Palette offset
+  E13182: 38              .BYTE $38 ;Slide direction
+  E13183: 55              .BYTE $55 ;Slide distance
+  E13184: CA 02 1E 04     .WORD $02CA, $041E ;Photographer (X,Y)
+  E13188: D1 02 18 04     .WORD $02D1, $0418 ;Party member 1 (X,Y)
+  E1318C: CF 02 18 04     .WORD $02CF, $0418 ;Party member 2 (X,Y)
+  E13190: CD 02 17 04     .WORD $02CD, $0417 ;Party member 3 (X,Y)
+  E13194: CB 02 18 04     .WORD $02CB, $0418 ;Party member 4 (X,Y)
+  E13198: CD 02 19 04     .WORD $02CD, $0419 ;Party member 5 (X,Y)
+  E1319C: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E131A0: CA 02 20 04     .WORD $02CA, $0420 ;NPC 1 coordinates
+  E131A4: 31 01           .WORD OVERWORLD_SPRITE::ZOMBIE_POSSESSOR ;NPC 1 sprite
+  E131A6: D5 02 21 04     .WORD $02D5, $0421 ;NPC 2 coordinates
+  E131AA: 31 01           .WORD OVERWORLD_SPRITE::ZOMBIE_POSSESSOR ;NPC 2 sprite
+  E131AC: D4 02 16 04     .WORD $02D4, $0416 ;NPC 3 coordinates
+  E131B0: 31 01           .WORD OVERWORLD_SPRITE::ZOMBIE_POSSESSOR ;NPC 3 sprite
+  E131B2: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E131B6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E131B8: C3 02           .WORD EVENT_FLAG::FLG_PHOTO_10
+  E131BA: 21 03 20 00     .WORD $0321, $0020 ;map (X,Y)
+  E131BE: 40 05           .WORD $0540 ;Palette offset
+  E131C0: 10              .BYTE $10 ;Slide direction
+  E131C1: 55              .BYTE $55 ;Slide distance
+  E131C2: 30 03 2D 00     .WORD $0330, $002D ;Photographer (X,Y)
+  E131C6: 27 03 24 00     .WORD $0327, $0024 ;Party member 1 (X,Y)
+  E131CA: 29 03 25 00     .WORD $0329, $0025 ;Party member 2 (X,Y)
+  E131CE: 2B 03 26 00     .WORD $032B, $0026 ;Party member 3 (X,Y)
+  E131D2: 2A 03 28 00     .WORD $032A, $0028 ;Party member 4 (X,Y)
+  E131D6: 2D 03 28 00     .WORD $032D, $0028 ;Party member 5 (X,Y)
+  E131DA: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E131DE: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E131E2: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E131E4: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E131E8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E131EA: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E131EE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E131F0: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E131F4: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E131F6: C4 02           .WORD EVENT_FLAG::FLG_PHOTO_11
+  E131F8: 46 00 98 03     .WORD $0046, $0398 ;map (X,Y)
+  E131FC: 00 06           .WORD $0600 ;Palette offset
+  E131FE: 18              .BYTE $18 ;Slide direction
+  E131FF: 55              .BYTE $55 ;Slide distance
+  E13200: 48 00 A1 03     .WORD $0048, $03A1 ;Photographer (X,Y)
+  E13204: 46 00 98 03     .WORD $0046, $0398 ;Party member 1 (X,Y)
+  E13208: 48 00 98 03     .WORD $0048, $0398 ;Party member 2 (X,Y)
+  E1320C: 49 00 96 03     .WORD $0049, $0396 ;Party member 3 (X,Y)
+  E13210: 44 00 9B 03     .WORD $0044, $039B ;Party member 4 (X,Y)
+  E13214: 4A 00 9A 03     .WORD $004A, $039A ;Party member 5 (X,Y)
+  E13218: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1321C: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13220: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13222: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13226: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13228: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1322C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1322E: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13232: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13234: C5 02           .WORD EVENT_FLAG::FLG_PHOTO_12
+  E13236: BC 02 72 04     .WORD $02BC, $0472 ;map (X,Y)
+  E1323A: 80 04           .WORD $0480 ;Palette offset
+  E1323C: 28              .BYTE $28 ;Slide direction
+  E1323D: 55              .BYTE $55 ;Slide distance
+  E1323E: B9 02 80 04     .WORD $02B9, $0480 ;Photographer (X,Y)
+  E13242: BB 02 79 04     .WORD $02BB, $0479 ;Party member 1 (X,Y)
+  E13246: BD 02 79 04     .WORD $02BD, $0479 ;Party member 2 (X,Y)
+  E1324A: B9 02 78 04     .WORD $02B9, $0478 ;Party member 3 (X,Y)
+  E1324E: BF 02 78 04     .WORD $02BF, $0478 ;Party member 4 (X,Y)
+  E13252: C1 02 76 04     .WORD $02C1, $0476 ;Party member 5 (X,Y)
+  E13256: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1325A: B3 02 76 04     .WORD $02B3, $0476 ;NPC 1 coordinates
+  E1325E: 7B 00           .WORD OVERWORLD_SPRITE::LITTLE_KID_IN_BLUE ;NPC 1 sprite
+  E13260: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13264: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13266: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1326A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1326C: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13270: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13272: C6 02           .WORD EVENT_FLAG::FLG_PHOTO_13
+  E13274: FF 00 5B 04     .WORD $00FF, $045B ;map (X,Y)
+  E13278: C0 06           .WORD $06C0 ;Palette offset
+  E1327A: 18              .BYTE $18 ;Slide direction
+  E1327B: 55              .BYTE $55 ;Slide distance
+  E1327C: FE 00 67 04     .WORD $00FE, $0467 ;Photographer (X,Y)
+  E13280: FD 00 5D 04     .WORD $00FD, $045D ;Party member 1 (X,Y)
+  E13284: FF 00 5C 04     .WORD $00FF, $045C ;Party member 2 (X,Y)
+  E13288: 01 01 5D 04     .WORD $0101, $045D ;Party member 3 (X,Y)
+  E1328C: 03 01 5E 04     .WORD $0103, $045E ;Party member 4 (X,Y)
+  E13290: FB 00 5E 04     .WORD $00FB, $045E ;Party member 5 (X,Y)
+  E13294: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13298: 08 01 61 04     .WORD $0108, $0461 ;NPC 1 coordinates
+  E1329C: 28 01           .WORD OVERWORLD_SPRITE::CRESTED_BOOKA ;NPC 1 sprite
+  E1329E: 07 01 58 04     .WORD $0107, $0458 ;NPC 2 coordinates
+  E132A2: 2E 01           .WORD OVERWORLD_SPRITE::SMILIN_SPHERE ;NPC 2 sprite
+  E132A4: F7 00 63 04     .WORD $00F7, $0463 ;NPC 3 coordinates
+  E132A8: 3F 01           .WORD OVERWORLD_SPRITE::SKELPION ;NPC 3 sprite
+  E132AA: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E132AE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E132B0: C7 02           .WORD EVENT_FLAG::FLG_PHOTO_14
+  E132B2: D1 01 B3 04     .WORD $01D1, $04B3 ;map (X,Y)
+  E132B6: C0 06           .WORD $06C0 ;Palette offset
+  E132B8: 38              .BYTE $38 ;Slide direction
+  E132B9: 55              .BYTE $55 ;Slide distance
+  E132BA: CE 01 BA 04     .WORD $01CE, $04BA ;Photographer (X,Y)
+  E132BE: D1 01 B3 04     .WORD $01D1, $04B3 ;Party member 1 (X,Y)
+  E132C2: D3 01 B4 04     .WORD $01D3, $04B4 ;Party member 2 (X,Y)
+  E132C6: D5 01 B5 04     .WORD $01D5, $04B5 ;Party member 3 (X,Y)
+  E132CA: CE 01 B4 04     .WORD $01CE, $04B4 ;Party member 4 (X,Y)
+  E132CE: D7 01 B4 04     .WORD $01D7, $04B4 ;Party member 5 (X,Y)
+  E132D2: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E132D6: CB 01 AD 04     .WORD $01CB, $04AD ;NPC 1 coordinates
+  E132DA: AD 00           .WORD OVERWORLD_SPRITE::MINERS_BROTHER ;NPC 1 sprite
+  E132DC: D2 01 BD 04     .WORD $01D2, $04BD ;NPC 2 coordinates
+  E132E0: FE 00           .WORD OVERWORLD_SPRITE::BIG_DIRT_SCOOPER ;NPC 2 sprite
+  E132E2: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E132E6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E132E8: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E132EC: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E132EE: C8 02           .WORD EVENT_FLAG::FLG_PHOTO_15
+  E132F0: C4 02 E2 04     .WORD $02C4, $04E2 ;map (X,Y)
+  E132F4: C0 06           .WORD $06C0 ;Palette offset
+  E132F6: 28              .BYTE $28 ;Slide direction
+  E132F7: 55              .BYTE $55 ;Slide distance
+  E132F8: C9 02 E7 04     .WORD $02C9, $04E7 ;Photographer (X,Y)
+  E132FC: C4 02 E2 04     .WORD $02C4, $04E2 ;Party member 1 (X,Y)
+  E13300: C6 02 E1 04     .WORD $02C6, $04E1 ;Party member 2 (X,Y)
+  E13304: C2 02 E1 04     .WORD $02C2, $04E1 ;Party member 3 (X,Y)
+  E13308: C8 02 E0 04     .WORD $02C8, $04E0 ;Party member 4 (X,Y)
+  E1330C: C0 02 E0 04     .WORD $02C0, $04E0 ;Party member 5 (X,Y)
+  E13310: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13314: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13318: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E1331A: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E1331E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13320: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13324: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13326: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1332A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1332C: C9 02           .WORD EVENT_FLAG::FLG_PHOTO_16
+  E1332E: 8F 01 14 02     .WORD $018F, $0214 ;map (X,Y)
+  E13332: 80 07           .WORD $0780 ;Palette offset
+  E13334: 18              .BYTE $18 ;Slide direction
+  E13335: 55              .BYTE $55 ;Slide distance
+  E13336: 9B 01 23 02     .WORD $019B, $0223 ;Photographer (X,Y)
+  E1333A: 94 01 1A 02     .WORD $0194, $021A ;Party member 1 (X,Y)
+  E1333E: 96 01 1B 02     .WORD $0196, $021B ;Party member 2 (X,Y)
+  E13342: 98 01 1A 02     .WORD $0198, $021A ;Party member 3 (X,Y)
+  E13346: 9A 01 18 02     .WORD $019A, $0218 ;Party member 4 (X,Y)
+  E1334A: 99 01 1C 02     .WORD $0199, $021C ;Party member 5 (X,Y)
+  E1334E: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13352: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13356: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13358: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E1335C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E1335E: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13362: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13364: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13368: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1336A: CA 02           .WORD EVENT_FLAG::FLG_PHOTO_17
+  E1336C: 47 02 8F 02     .WORD $0247, $028F ;map (X,Y)
+  E13370: 40 08           .WORD $0840 ;Palette offset
+  E13372: 30              .BYTE $30 ;Slide direction
+  E13373: 55              .BYTE $55 ;Slide distance
+  E13374: 42 02 9B 02     .WORD $0242, $029B ;Photographer (X,Y)
+  E13378: 46 02 92 02     .WORD $0246, $0292 ;Party member 1 (X,Y)
+  E1337C: 48 02 92 02     .WORD $0248, $0292 ;Party member 2 (X,Y)
+  E13380: 4A 02 92 02     .WORD $024A, $0292 ;Party member 3 (X,Y)
+  E13384: 4C 02 93 02     .WORD $024C, $0293 ;Party member 4 (X,Y)
+  E13388: 49 02 94 02     .WORD $0249, $0294 ;Party member 5 (X,Y)
+  E1338C: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13390: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13394: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13396: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E1339A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E1339C: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E133A0: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E133A2: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E133A6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E133A8: CB 02           .WORD EVENT_FLAG::FLG_PHOTO_18
+  E133AA: C0 01 EE 01     .WORD $01C0, $01EE ;map (X,Y)
+  E133AE: 80 07           .WORD $0780 ;Palette offset
+  E133B0: 08              .BYTE $08 ;Slide direction
+  E133B1: 55              .BYTE $55 ;Slide distance
+  E133B2: B8 01 F8 01     .WORD $01B8, $01F8 ;Photographer (X,Y)
+  E133B6: BF 01 F0 01     .WORD $01BF, $01F0 ;Party member 1 (X,Y)
+  E133BA: BE 01 EF 01     .WORD $01BE, $01EF ;Party member 2 (X,Y)
+  E133BE: C0 01 EE 01     .WORD $01C0, $01EE ;Party member 3 (X,Y)
+  E133C2: C1 01 EC 01     .WORD $01C1, $01EC ;Party member 4 (X,Y)
+  E133C6: C1 01 EA 01     .WORD $01C1, $01EA ;Party member 5 (X,Y)
+  E133CA: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E133CE: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E133D2: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E133D4: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E133D8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E133DA: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E133DE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E133E0: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E133E4: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E133E6: CC 02           .WORD EVENT_FLAG::FLG_PHOTO_19
+  E133E8: 36 02 01 03     .WORD $0236, $0301 ;map (X,Y)
+  E133EC: 00 09           .WORD $0900 ;Palette offset
+  E133EE: 38              .BYTE $38 ;Slide direction
+  E133EF: 55              .BYTE $55 ;Slide distance
+  E133F0: 32 02 09 03     .WORD $0232, $0309 ;Photographer (X,Y)
+  E133F4: 38 02 03 03     .WORD $0238, $0303 ;Party member 1 (X,Y)
+  E133F8: 3A 02 04 03     .WORD $023A, $0304 ;Party member 2 (X,Y)
+  E133FC: 36 02 03 03     .WORD $0236, $0303 ;Party member 3 (X,Y)
+  E13400: 34 02 04 03     .WORD $0234, $0304 ;Party member 4 (X,Y)
+  E13404: 3B 02 03 03     .WORD $023B, $0303 ;Party member 5 (X,Y)
+  E13408: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1340C: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13410: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13412: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13416: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13418: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1341C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1341E: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13422: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13424: CD 02           .WORD EVENT_FLAG::FLG_PHOTO_20
+  E13426: 58 03 0D 04     .WORD $0358, $040D ;map (X,Y)
+  E1342A: C0 09           .WORD $09C0 ;Palette offset
+  E1342C: 18              .BYTE $18 ;Slide direction
+  E1342D: 55              .BYTE $55 ;Slide distance
+  E1342E: 5C 03 16 04     .WORD $035C, $0416 ;Photographer (X,Y)
+  E13432: 59 03 11 04     .WORD $0359, $0411 ;Party member 1 (X,Y)
+  E13436: 5A 03 0F 04     .WORD $035A, $040F ;Party member 2 (X,Y)
+  E1343A: 56 03 0F 04     .WORD $0356, $040F ;Party member 3 (X,Y)
+  E1343E: 58 03 0D 04     .WORD $0358, $040D ;Party member 4 (X,Y)
+  E13442: 5B 03 0D 04     .WORD $035B, $040D ;Party member 5 (X,Y)
+  E13446: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1344A: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E1344E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13450: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13454: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13456: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1345A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1345C: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13460: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13462: CE 02           .WORD EVENT_FLAG::FLG_PHOTO_21
+  E13464: 40 02 B4 01     .WORD $0240, $01B4 ;map (X,Y)
+  E13468: 80 0A           .WORD $0A80 ;Palette offset
+  E1346A: 28              .BYTE $28 ;Slide direction
+  E1346B: 55              .BYTE $55 ;Slide distance
+  E1346C: 3D 02 C3 01     .WORD $023D, $01C3 ;Photographer (X,Y)
+  E13470: 3E 02 BB 01     .WORD $023E, $01BB ;Party member 1 (X,Y)
+  E13474: 40 02 BC 01     .WORD $0240, $01BC ;Party member 2 (X,Y)
+  E13478: 42 02 BB 01     .WORD $0242, $01BB ;Party member 3 (X,Y)
+  E1347C: 3B 02 BB 01     .WORD $023B, $01BB ;Party member 4 (X,Y)
+  E13480: 43 02 BA 01     .WORD $0243, $01BA ;Party member 5 (X,Y)
+  E13484: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13488: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E1348C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E1348E: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13492: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13494: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13498: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1349A: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1349E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E134A0: CF 02           .WORD EVENT_FLAG::FLG_PHOTO_22
+  E134A2: 27 00 28 02     .WORD $0027, $0228 ;map (X,Y)
+  E134A6: 00 03           .WORD $0300 ;Palette offset
+  E134A8: 38              .BYTE $38 ;Slide direction
+  E134A9: 55              .BYTE $55 ;Slide distance
+  E134AA: 2B 00 32 02     .WORD $002B, $0232 ;Photographer (X,Y)
+  E134AE: 2A 00 2C 02     .WORD $002A, $022C ;Party member 1 (X,Y)
+  E134B2: 2C 00 2A 02     .WORD $002C, $022A ;Party member 2 (X,Y)
+  E134B6: 27 00 2A 02     .WORD $0027, $022A ;Party member 3 (X,Y)
+  E134BA: 2B 00 26 02     .WORD $002B, $0226 ;Party member 4 (X,Y)
+  E134BE: 2E 00 2B 02     .WORD $002E, $022B ;Party member 5 (X,Y)
+  E134C2: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E134C6: 21 00 25 02     .WORD $0021, $0225 ;NPC 1 coordinates
+  E134CA: 49 01           .WORD OVERWORLD_SPRITE::CAVE_BOY ;NPC 1 sprite
+  E134CC: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E134D0: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E134D2: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E134D6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E134D8: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E134DC: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E134DE: D0 02           .WORD EVENT_FLAG::FLG_PHOTO_23
+  E134E0: 35 02 57 01     .WORD $0235, $0157 ;map (X,Y)
+  E134E4: 40 0B           .WORD $0B40 ;Palette offset
+  E134E6: 10              .BYTE $10 ;Slide direction
+  E134E7: 55              .BYTE $55 ;Slide distance
+  E134E8: 2F 02 60 01     .WORD $022F, $0160 ;Photographer (X,Y)
+  E134EC: 35 02 58 01     .WORD $0235, $0158 ;Party member 1 (X,Y)
+  E134F0: 37 02 58 01     .WORD $0237, $0158 ;Party member 2 (X,Y)
+  E134F4: 39 02 58 01     .WORD $0239, $0158 ;Party member 3 (X,Y)
+  E134F8: 3B 02 58 01     .WORD $023B, $0158 ;Party member 4 (X,Y)
+  E134FC: 33 02 58 01     .WORD $0233, $0158 ;Party member 5 (X,Y)
+  E13500: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13504: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13508: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E1350A: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E1350E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13510: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13514: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13516: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1351A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1351C: D1 02           .WORD EVENT_FLAG::FLG_PHOTO_24
+  E1351E: 78 03 6E 04     .WORD $0378, $046E ;map (X,Y)
+  E13522: 00 0C           .WORD $0C00 ;Palette offset
+  E13524: 38              .BYTE $38 ;Slide direction
+  E13525: 55              .BYTE $55 ;Slide distance
+  E13526: 7A 03 77 04     .WORD $037A, $0477 ;Photographer (X,Y)
+  E1352A: 76 03 6F 04     .WORD $0376, $046F ;Party member 1 (X,Y)
+  E1352E: 78 03 6F 04     .WORD $0378, $046F ;Party member 2 (X,Y)
+  E13532: 7A 03 6F 04     .WORD $037A, $046F ;Party member 3 (X,Y)
+  E13536: 7C 03 72 04     .WORD $037C, $0472 ;Party member 4 (X,Y)
+  E1353A: 79 03 70 04     .WORD $0379, $0470 ;Party member 5 (X,Y)
+  E1353E: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13542: 82 03 6E 04     .WORD $0382, $046E ;NPC 1 coordinates
+  E13546: 3C 00           .WORD OVERWORLD_SPRITE::DRINKING_GUY ;NPC 1 sprite
+  E13548: 72 03 6E 04     .WORD $0372, $046E ;NPC 2 coordinates
+  E1354C: 39 00           .WORD OVERWORLD_SPRITE::BRUNETTE_SHOPPING_LADY ;NPC 2 sprite
+  E1354E: 7A 03 76 04     .WORD $037A, $0476 ;NPC 3 coordinates
+  E13552: 35 00           .WORD OVERWORLD_SPRITE::OLD_LADY_WITH_CANE ;NPC 3 sprite
+  E13554: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13558: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1355A: D2 02           .WORD EVENT_FLAG::FLG_PHOTO_25
+  E1355C: F8 02 72 01     .WORD $02F8, $0172 ;map (X,Y)
+  E13560: 40 0B           .WORD $0B40 ;Palette offset
+  E13562: 30              .BYTE $30 ;Slide direction
+  E13563: 55              .BYTE $55 ;Slide distance
+  E13564: F5 02 7C 01     .WORD $02F5, $017C ;Photographer (X,Y)
+  E13568: F7 02 76 01     .WORD $02F7, $0176 ;Party member 1 (X,Y)
+  E1356C: F9 02 75 01     .WORD $02F9, $0175 ;Party member 2 (X,Y)
+  E13570: FB 02 76 01     .WORD $02FB, $0176 ;Party member 3 (X,Y)
+  E13574: FA 02 72 01     .WORD $02FA, $0172 ;Party member 4 (X,Y)
+  E13578: F5 02 6F 01     .WORD $02F5, $016F ;Party member 5 (X,Y)
+  E1357C: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13580: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13584: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13586: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E1358A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E1358C: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13590: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13592: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13596: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13598: D3 02           .WORD EVENT_FLAG::FLG_PHOTO_26
+  E1359A: 64 03 6A 01     .WORD $0364, $016A ;map (X,Y)
+  E1359E: 40 0B           .WORD $0B40 ;Palette offset
+  E135A0: 08              .BYTE $08 ;Slide direction
+  E135A1: 55              .BYTE $55 ;Slide distance
+  E135A2: 62 03 73 01     .WORD $0362, $0173 ;Photographer (X,Y)
+  E135A6: 62 03 66 01     .WORD $0362, $0166 ;Party member 1 (X,Y)
+  E135AA: 64 03 65 01     .WORD $0364, $0165 ;Party member 2 (X,Y)
+  E135AE: 68 03 65 01     .WORD $0368, $0165 ;Party member 3 (X,Y)
+  E135B2: 6A 03 66 01     .WORD $036A, $0166 ;Party member 4 (X,Y)
+  E135B6: 5F 03 66 01     .WORD $035F, $0166 ;Party member 5 (X,Y)
+  E135BA: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E135BE: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E135C2: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E135C4: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E135C8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E135CA: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E135CE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E135D0: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E135D4: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E135D6: D4 02           .WORD EVENT_FLAG::FLG_PHOTO_27
+  E135D8: BA 00 11 02     .WORD $00BA, $0211 ;map (X,Y)
+  E135DC: C0 0C           .WORD $0CC0 ;Palette offset
+  E135DE: 10              .BYTE $10 ;Slide direction
+  E135DF: 55              .BYTE $55 ;Slide distance
+  E135E0: BE 00 18 02     .WORD $00BE, $0218 ;Photographer (X,Y)
+  E135E4: B9 00 12 02     .WORD $00B9, $0212 ;Party member 1 (X,Y)
+  E135E8: BB 00 11 02     .WORD $00BB, $0211 ;Party member 2 (X,Y)
+  E135EC: BD 00 13 02     .WORD $00BD, $0213 ;Party member 3 (X,Y)
+  E135F0: BF 00 14 02     .WORD $00BF, $0214 ;Party member 4 (X,Y)
+  E135F4: B6 00 14 02     .WORD $00B6, $0214 ;Party member 5 (X,Y)
+  E135F8: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E135FC: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E13600: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E13602: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13606: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13608: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1360C: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1360E: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13612: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13614: D5 02           .WORD EVENT_FLAG::FLG_PHOTO_28
+  E13616: E0 00 63 02     .WORD $00E0, $0263 ;map (X,Y)
+  E1361A: C0 0C           .WORD $0CC0 ;Palette offset
+  E1361C: 18              .BYTE $18 ;Slide direction
+  E1361D: 55              .BYTE $55 ;Slide distance
+  E1361E: E5 00 67 02     .WORD $00E5, $0267 ;Photographer (X,Y)
+  E13622: E2 00 66 02     .WORD $00E2, $0266 ;Party member 1 (X,Y)
+  E13626: E3 00 64 02     .WORD $00E3, $0264 ;Party member 2 (X,Y)
+  E1362A: E0 00 65 02     .WORD $00E0, $0265 ;Party member 3 (X,Y)
+  E1362E: E5 00 65 02     .WORD $00E5, $0265 ;Party member 4 (X,Y)
+  E13632: DC 00 65 02     .WORD $00DC, $0265 ;Party member 5 (X,Y)
+  E13636: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E1363A: DF 00 63 02     .WORD $00DF, $0263 ;NPC 1 coordinates
+  E1363E: 0B 01           .WORD OVERWORLD_SPRITE::PYRAMID_DOOR ;NPC 1 sprite
+  E13640: E1 00 63 02     .WORD $00E1, $0263 ;NPC 2 coordinates
+  E13644: 0B 01           .WORD OVERWORLD_SPRITE::PYRAMID_DOOR ;NPC 2 sprite
+  E13646: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E1364A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1364C: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E13650: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13652: D6 02           .WORD EVENT_FLAG::FLG_PHOTO_29
+  E13654: A0 00 9D 02     .WORD $00A0, $029D ;map (X,Y)
+  E13658: C0 0C           .WORD $0CC0 ;Palette offset
+  E1365A: 30              .BYTE $30 ;Slide direction
+  E1365B: 55              .BYTE $55 ;Slide distance
+  E1365C: A5 00 A5 02     .WORD $00A5, $02A5 ;Photographer (X,Y)
+  E13660: A4 00 A0 02     .WORD $00A4, $02A0 ;Party member 1 (X,Y)
+  E13664: A2 00 9F 02     .WORD $00A2, $029F ;Party member 2 (X,Y)
+  E13668: A0 00 9F 02     .WORD $00A0, $029F ;Party member 3 (X,Y)
+  E1366C: 9E 00 9E 02     .WORD $009E, $029E ;Party member 4 (X,Y)
+  E13670: A0 00 9C 02     .WORD $00A0, $029C ;Party member 5 (X,Y)
+  E13674: A6 00 9F 02     .WORD $00A6, $029F ;Party member 6 (X,Y)
+  E13678: AB 00 63 02     .WORD $00AB, $0263 ;NPC 1 coordinates
+  E1367C: 29 00           .WORD OVERWORLD_SPRITE::DUNGEON_MAN ;NPC 1 sprite
+  E1367E: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E13682: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13684: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13688: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E1368A: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1368E: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E13690: D7 02           .WORD EVENT_FLAG::FLG_PHOTO_30
+  E13692: 91 02 BE 03     .WORD $0291, $03BE ;map (X,Y)
+  E13696: 80 0D           .WORD $0D80 ;Palette offset
+  E13698: 38              .BYTE $38 ;Slide direction
+  E13699: 55              .BYTE $55 ;Slide distance
+  E1369A: 8C 02 C4 03     .WORD $028C, $03C4 ;Photographer (X,Y)
+  E1369E: 92 02 C0 03     .WORD $0292, $03C0 ;Party member 1 (X,Y)
+  E136A2: 90 02 BE 03     .WORD $0290, $03BE ;Party member 2 (X,Y)
+  E136A6: 91 02 BC 03     .WORD $0291, $03BC ;Party member 3 (X,Y)
+  E136AA: 94 02 BD 03     .WORD $0294, $03BD ;Party member 4 (X,Y)
+  E136AE: 95 02 BF 03     .WORD $0295, $03BF ;Party member 5 (X,Y)
+  E136B2: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E136B6: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E136BA: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E136BC: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E136C0: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E136C2: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E136C6: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E136C8: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E136CC: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E136CE: D8 02           .WORD EVENT_FLAG::FLG_PHOTO_31
+  E136D0: 31 00 27 00     .WORD $0031, $0027 ;map (X,Y)
+  E136D4: 40 0E           .WORD $0E40 ;Palette offset
+  E136D6: 10              .BYTE $10 ;Slide direction
+  E136D7: 55              .BYTE $55 ;Slide distance
+  E136D8: 33 00 2F 00     .WORD $0033, $002F ;Photographer (X,Y)
+  E136DC: 32 00 26 00     .WORD $0032, $0026 ;Party member 1 (X,Y)
+  E136E0: 30 00 25 00     .WORD $0030, $0025 ;Party member 2 (X,Y)
+  E136E4: 35 00 24 00     .WORD $0035, $0024 ;Party member 3 (X,Y)
+  E136E8: 2E 00 24 00     .WORD $002E, $0024 ;Party member 4 (X,Y)
+  E136EC: 33 00 23 00     .WORD $0033, $0023 ;Party member 5 (X,Y)
+  E136F0: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E136F4: 00 00 00 00     .WORD $0000, $0000 ;NPC 1 coordinates
+  E136F8: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 1 sprite
+  E136FA: 00 00 00 00     .WORD $0000, $0000 ;NPC 2 coordinates
+  E136FE: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 2 sprite
+  E13700: 00 00 00 00     .WORD $0000, $0000 ;NPC 3 coordinates
+  E13704: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 3 sprite
+  E13706: 00 00 00 00     .WORD $0000, $0000 ;NPC 4 coordinates
+  E1370A: 00 00           .WORD OVERWORLD_SPRITE::NONE ;NPC 4 sprite
+  E1370C: D9 02           .WORD EVENT_FLAG::FLG_PHOTO_32
+  E1370E: 30 00 BB 03     .WORD $0030, $03BB ;map (X,Y)
+  E13712: 00 06           .WORD $0600 ;Palette offset
+  E13714: 00              .BYTE $00 ;Slide direction
+  E13715: 00              .BYTE $00 ;Slide distance
+  E13716: 31 00 C9 03     .WORD $0031, $03C9 ;Photographer (X,Y)
+  E1371A: 30 00 B9 03     .WORD $0030, $03B9 ;Party member 1 (X,Y)
+  E1371E: 34 00 B8 03     .WORD $0034, $03B8 ;Party member 2 (X,Y)
+  E13722: 32 00 B6 03     .WORD $0032, $03B6 ;Party member 3 (X,Y)
+  E13726: 2E 00 B7 03     .WORD $002E, $03B7 ;Party member 4 (X,Y)
+  E1372A: 00 00 00 00     .WORD $0000, $0000 ;Party member 5 (X,Y)
+  E1372E: 00 00 00 00     .WORD $0000, $0000 ;Party member 6 (X,Y)
+  E13732: 31 00 BC 03     .WORD $0031, $03BC ;NPC 1 coordinates
+  E13736: A2 00           .WORD OVERWORLD_SPRITE::DR_ANDONUTS ;NPC 1 sprite
+  E13738: 2C 00 BB 03     .WORD $002C, $03BB ;NPC 2 coordinates
+  E1373C: B0 00           .WORD OVERWORLD_SPRITE::APPLE_KID ;NPC 2 sprite
+  E1373E: 35 00 BB 03     .WORD $0035, $03BB ;NPC 3 coordinates
+  E13742: AB 00           .WORD OVERWORLD_SPRITE::MR_SATURN ;NPC 3 sprite
+  E13744: 2A 00 B7 03     .WORD $002A, $03B7 ;NPC 4 coordinates
+  E13748: AC 00           .WORD OVERWORLD_SPRITE::MINER ;NPC 4 sprite
+>>> bankconfig/common/bank21.asm
+  E1374A:             COMPRESSED_PALETTE_UNKNOWN:
+  E1374A: 1F 00 00 DE     BINARY "unknown_palette.pal.lzhal"
+          6B 5C 4F FA 
+          25 DC 4E FF 
+          ...omitted...
+  E1413F:             .IF .DEFINED(JPN)
+  E1413F:                 .INCLUDE "data/credits-jp.asm"
+  E1413F:             .ELSEIF .DEFINED(PROTOTYPE19950327)
+  E1413F:                 .INCLUDE "data/credits-proto.asm"
+  E1413F:             .ELSE
+  E1413F:                 .INCLUDE "data/credits.asm"
+>>> data/credits.asm
+  E1413F:             .INCLUDE "staffmacros.asm"
+>>> staffmacros.asm
+  E1413F:             .MACRO EBSTAFF_END
+  E1413F:             .BYTE $00
+  E1413F:             .ENDMACRO
+  E1413F:             .IF .DEFINED(JPN)
+  E1413F:             .MACRO EBSTAFF_SMALLTEXT str
+  E1413F:             .BYTE $01, str, $00
+  E1413F:             .ENDMACRO
+  E1413F:             .MACRO EBSTAFF_BIGTEXT str
+  E1413F:             .BYTE $02, str, $00
+  E1413F:             .ENDMACRO
+  E1413F:             .ELSEIF .DEFINED(PROTOTYPE19950327)
+  E1413F:             .MACRO EBSTAFF_SMALLTEXT str
+  E1413F:             .BYTE $01
+  E1413F:             .repeat .strlen(str), i
+  E1413F:             .if .strat(str, i) = ' '
+  E1413F:             .BYTE $40
+  E1413F:             .elseif .strat(str, i) = ','
+  E1413F:             .BYTE $41
+  E1413F:             .elseif .strat(str, i) = 'A'
+  E1413F:             .BYTE $42
+  E1413F:             .elseif .strat(str, i) = 'B'
+  E1413F:             .BYTE $52
+  E1413F:             .elseif .strat(str, i) = 'C'
+  E1413F:             .BYTE $43
+  E1413F:             .elseif .strat(str, i) = 'D'
+  E1413F:             .BYTE $53
+  E1413F:             .elseif .strat(str, i) = 'E'
+  E1413F:             .BYTE $44
+  E1413F:             .elseif .strat(str, i) = 'F'
+  E1413F:             .BYTE $54
+  E1413F:             .elseif .strat(str, i) = 'G'
+  E1413F:             .BYTE $46
+  E1413F:             .elseif .strat(str, i) = 'H'
+  E1413F:             .BYTE $56
+  E1413F:             .elseif .strat(str, i) = 'I'
+  E1413F:             .BYTE $4A
+  E1413F:             .elseif .strat(str, i) = 'J'
+  E1413F:             .BYTE $5A
+  E1413F:             .elseif .strat(str, i) = 'K'
+  E1413F:             .BYTE $4B
+  E1413F:             .elseif .strat(str, i) = 'L'
+  E1413F:             .BYTE $5B
+  E1413F:             .elseif .strat(str, i) = 'M'
+  E1413F:             .BYTE $4C
+  E1413F:             .elseif .strat(str, i) = 'N'
+  E1413F:             .BYTE $5C
+  E1413F:             .elseif .strat(str, i) = 'O'
+  E1413F:             .BYTE $4D
+  E1413F:             .elseif .strat(str, i) = 'P'
+  E1413F:             .BYTE $5D
+  E1413F:             .elseif .strat(str, i) = 'Q'
+  E1413F:             .BYTE $6E
+  E1413F:             .elseif .strat(str, i) = 'R'
+  E1413F:             .BYTE $5E
+  E1413F:             .elseif .strat(str, i) = 'S'
+  E1413F:             .BYTE $4F
+  E1413F:             .elseif .strat(str, i) = 'T'
+  E1413F:             .BYTE $5F
+  E1413F:             .elseif .strat(str, i) = 'U'
+  E1413F:             .BYTE $6A
+  E1413F:             .elseif .strat(str, i) = 'V'
+  E1413F:             .BYTE $7A
+  E1413F:             .elseif .strat(str, i) = 'W'
+  E1413F:             .BYTE $6B
+  E1413F:             .elseif .strat(str, i) = 'X'
+  E1413F:             .BYTE $7B
+  E1413F:             .elseif .strat(str, i) = 'Y'
+  E1413F:             .BYTE $6C
+  E1413F:             .elseif .strat(str, i) = 'Z'
+  E1413F:             .BYTE $7C
+  E1413F:             .elseif .strat(str, i) = '.'
+  E1413F:             .BYTE $6D
+  E1413F:             .else
+  E1413F:             .warning .sprintf("Unknown character %c", .strat(str, i))
+  E1413F:             .endif
+  E1413F:             .endrepeat
+  E1413F:             .BYTE $00
+  E1413F:             .ENDMACRO
+  E1413F:             .MACRO EBSTAFF_BIGTEXT str
+  E1413F:             .BYTE $02
+  E1413F:             .repeat .strlen(str), i
+  E1413F:             .if .strat(str, i) = ' '
+  E1413F:             .BYTE $40
+  E1413F:             .elseif .strat(str, i) = '!'
+  E1413F:             .BYTE $41
+  E1413F:             .elseif .strat(str, i) = '@'
+  E1413F:             .BYTE $43
+  E1413F:             .elseif .strat(str, i) = $27
+  E1413F:             .BYTE $47
+  E1413F:             .elseif .strat(str, i) = ','
+  E1413F:             .BYTE $41
+  E1413F:             .elseif .strat(str, i) = '-'
+  E1413F:             .BYTE $4D
+  E1413F:             .elseif .strat(str, i) = '.'
+  E1413F:             .BYTE $AE
+  E1413F:             .elseif .strat(str, i) = '/'
+  E1413F:             .BYTE $4F
+  E1413F:             .elseif .strat(str, i) = '0'
+  E1413F:             .BYTE $60
+  E1413F:             .elseif .strat(str, i) = '1'
+  E1413F:             .BYTE $61
+  E1413F:             .elseif .strat(str, i) = '2'
+  E1413F:             .BYTE $62
+  E1413F:             .elseif .strat(str, i) = '3'
+  E1413F:             .BYTE $63
+  E1413F:             .elseif .strat(str, i) = '4'
+  E1413F:             .BYTE $64
+  E1413F:             .elseif .strat(str, i) = '5'
+  E1413F:             .BYTE $65
+  E1413F:             .elseif .strat(str, i) = '6'
+  E1413F:             .BYTE $66
+  E1413F:             .elseif .strat(str, i) = '7'
+  E1413F:             .BYTE $67
+  E1413F:             .elseif .strat(str, i) = '8'
+  E1413F:             .BYTE $68
+  E1413F:             .elseif .strat(str, i) = '9'
+  E1413F:             .BYTE $69
+  E1413F:             .elseif .strat(str, i) = '?'
+  E1413F:             .BYTE $49
+  E1413F:             .elseif .strat(str, i) = '_'
+  E1413F:             .BYTE $80
+  E1413F:             .elseif .strat(str, i) = 'A'
+  E1413F:             .BYTE $81
+  E1413F:             .elseif .strat(str, i) = 'B'
+  E1413F:             .BYTE $82
+  E1413F:             .elseif .strat(str, i) = 'C'
+  E1413F:             .BYTE $83
+  E1413F:             .elseif .strat(str, i) = 'D'
+  E1413F:             .BYTE $84
+  E1413F:             .elseif .strat(str, i) = 'E'
+  E1413F:             .BYTE $85
+  E1413F:             .elseif .strat(str, i) = 'F'
+  E1413F:             .BYTE $86
+  E1413F:             .elseif .strat(str, i) = 'G'
+  E1413F:             .BYTE $87
+  E1413F:             .elseif .strat(str, i) = 'H'
+  E1413F:             .BYTE $88
+  E1413F:             .elseif .strat(str, i) = 'I'
+  E1413F:             .BYTE $89
+  E1413F:             .elseif .strat(str, i) = 'J'
+  E1413F:             .BYTE $8A
+  E1413F:             .elseif .strat(str, i) = 'K'
+  E1413F:             .BYTE $8B
+  E1413F:             .elseif .strat(str, i) = 'L'
+  E1413F:             .BYTE $8C
+  E1413F:             .elseif .strat(str, i) = 'M'
+  E1413F:             .BYTE $8D
+  E1413F:             .elseif .strat(str, i) = 'N'
+  E1413F:             .BYTE $8E
+  E1413F:             .elseif .strat(str, i) = 'O'
+  E1413F:             .BYTE $8F
+  E1413F:             .elseif .strat(str, i) = 'P'
+  E1413F:             .BYTE $A0
+  E1413F:             .elseif .strat(str, i) = 'Q'
+  E1413F:             .BYTE $A1
+  E1413F:             .elseif .strat(str, i) = 'R'
+  E1413F:             .BYTE $A2
+  E1413F:             .elseif .strat(str, i) = 'S'
+  E1413F:             .BYTE $A3
+  E1413F:             .elseif .strat(str, i) = 'T'
+  E1413F:             .BYTE $A4
+  E1413F:             .elseif .strat(str, i) = 'U'
+  E1413F:             .BYTE $A5
+  E1413F:             .elseif .strat(str, i) = 'V'
+  E1413F:             .BYTE $A6
+  E1413F:             .elseif .strat(str, i) = 'W'
+  E1413F:             .BYTE $A7
+  E1413F:             .elseif .strat(str, i) = 'X'
+  E1413F:             .BYTE $A8
+  E1413F:             .elseif .strat(str, i) = 'Y'
+  E1413F:             .BYTE $A9
+  E1413F:             .elseif .strat(str, i) = 'Z'
+  E1413F:             .BYTE $AA
+  E1413F:             .elseif .strat(str, i) = ';'
+  E1413F:             .BYTE $AD
+  E1413F:             .else
+  E1413F:             .warning .sprintf("Unknown character %c", .strat(str, i))
+  E1413F:             .endif
+  E1413F:             .endrepeat
+  E1413F:             .BYTE $00
+  E1413F:             .ENDMACRO
+  E1413F:             .ELSE
+  E1413F:             .MACRO EBSTAFF_SMALLTEXT str
+  E1413F:             .BYTE $01
+  E1413F:             .repeat .strlen(str), i
+  E1413F:             .if .strat(str, i) = ' '
+  E1413F:             .BYTE $40
+  E1413F:             .elseif .strat(str, i) = 'A'
+  E1413F:             .BYTE $42
+  E1413F:             .elseif .strat(str, i) = 'B'
+  E1413F:             .BYTE $52
+  E1413F:             .elseif .strat(str, i) = 'C'
+  E1413F:             .BYTE $44
+  E1413F:             .elseif .strat(str, i) = 'D'
+  E1413F:             .BYTE $54
+  E1413F:             .elseif .strat(str, i) = 'E'
+  E1413F:             .BYTE $45
+  E1413F:             .elseif .strat(str, i) = 'F'
+  E1413F:             .BYTE $55
+  E1413F:             .elseif .strat(str, i) = 'G'
+  E1413F:             .BYTE $46
+  E1413F:             .elseif .strat(str, i) = 'H'
+  E1413F:             .BYTE $56
+  E1413F:             .elseif .strat(str, i) = 'I'
+  E1413F:             .BYTE $48
+  E1413F:             .elseif .strat(str, i) = 'J'
+  E1413F:             .BYTE $58
+  E1413F:             .elseif .strat(str, i) = 'K'
+  E1413F:             .BYTE $49
+  E1413F:             .elseif .strat(str, i) = 'L'
+  E1413F:             .BYTE $59
+  E1413F:             .elseif .strat(str, i) = 'M'
+  E1413F:             .BYTE $4A
+  E1413F:             .elseif .strat(str, i) = 'N'
+  E1413F:             .BYTE $5A
+  E1413F:             .elseif .strat(str, i) = 'O'
+  E1413F:             .BYTE $4B
+  E1413F:             .elseif .strat(str, i) = 'P'
+  E1413F:             .BYTE $5B
+  E1413F:             .elseif .strat(str, i) = 'Q'
+  E1413F:             .BYTE $6A
+  E1413F:             .elseif .strat(str, i) = 'R'
+  E1413F:             .BYTE $7A
+  E1413F:             .elseif .strat(str, i) = 'S'
+  E1413F:             .BYTE $6B
+  E1413F:             .elseif .strat(str, i) = 'T'
+  E1413F:             .BYTE $7B
+  E1413F:             .elseif .strat(str, i) = 'U'
+  E1413F:             .BYTE $6C
+  E1413F:             .elseif .strat(str, i) = 'V'
+  E1413F:             .BYTE $7C
+  E1413F:             .elseif .strat(str, i) = 'W'
+  E1413F:             .BYTE $6D
+  E1413F:             .elseif .strat(str, i) = 'X'
+  E1413F:             .BYTE $7D
+  E1413F:             .elseif .strat(str, i) = 'Y'
+  E1413F:             .BYTE $6E
+  E1413F:             .elseif .strat(str, i) = 'Z'
+  E1413F:             .BYTE $7E
+  E1413F:             .elseif .strat(str, i) = '_'
+  E1413F:             .BYTE $80
+  E1413F:             .elseif .strat(str, i) = '.'
+  E1413F:             .BYTE $AD
+  E1413F:             .else
+  E1413F:             .warning .sprintf("Unknown character %c", .strat(str, i))
+  E1413F:             .endif
+  E1413F:             .endrepeat
+  E1413F:             .BYTE $00
+  E1413F:             .ENDMACRO
+  E1413F:             .MACRO EBSTAFF_BIGTEXT str
+  E1413F:             .BYTE $02
+  E1413F:             .repeat .strlen(str), i
+  E1413F:             .if .strat(str, i) = ' '
+  E1413F:             .BYTE $40
+  E1413F:             .elseif .strat(str, i) = '!'
+  E1413F:             .BYTE $41
+  E1413F:             .elseif .strat(str, i) = '@'
+  E1413F:             .BYTE $43
+  E1413F:             .elseif .strat(str, i) = $27
+  E1413F:             .BYTE $47
+  E1413F:             .elseif .strat(str, i) = ','
+  E1413F:             .BYTE $4C
+  E1413F:             .elseif .strat(str, i) = '-'
+  E1413F:             .BYTE $4D
+  E1413F:             .elseif .strat(str, i) = '.'
+  E1413F:             .BYTE $4E
+  E1413F:             .elseif .strat(str, i) = '/'
+  E1413F:             .BYTE $4F
+  E1413F:             .elseif .strat(str, i) = '0'
+  E1413F:             .BYTE $60
+  E1413F:             .elseif .strat(str, i) = '1'
+  E1413F:             .BYTE $61
+  E1413F:             .elseif .strat(str, i) = '2'
+  E1413F:             .BYTE $62
+  E1413F:             .elseif .strat(str, i) = '3'
+  E1413F:             .BYTE $63
+  E1413F:             .elseif .strat(str, i) = '4'
+  E1413F:             .BYTE $64
+  E1413F:             .elseif .strat(str, i) = '5'
+  E1413F:             .BYTE $65
+  E1413F:             .elseif .strat(str, i) = '6'
+  E1413F:             .BYTE $66
+  E1413F:             .elseif .strat(str, i) = '7'
+  E1413F:             .BYTE $67
+  E1413F:             .elseif .strat(str, i) = '8'
+  E1413F:             .BYTE $68
+  E1413F:             .elseif .strat(str, i) = '9'
+  E1413F:             .BYTE $69
+  E1413F:             .elseif .strat(str, i) = '?'
+  E1413F:             .BYTE $6F
+  E1413F:             .elseif .strat(str, i) = '_'
+  E1413F:             .BYTE $80
+  E1413F:             .elseif .strat(str, i) = 'A'
+  E1413F:             .BYTE $81
+  E1413F:             .elseif .strat(str, i) = 'B'
+  E1413F:             .BYTE $82
+  E1413F:             .elseif .strat(str, i) = 'C'
+  E1413F:             .BYTE $83
+  E1413F:             .elseif .strat(str, i) = 'D'
+  E1413F:             .BYTE $84
+  E1413F:             .elseif .strat(str, i) = 'E'
+  E1413F:             .BYTE $85
+  E1413F:             .elseif .strat(str, i) = 'F'
+  E1413F:             .BYTE $86
+  E1413F:             .elseif .strat(str, i) = 'G'
+  E1413F:             .BYTE $87
+  E1413F:             .elseif .strat(str, i) = 'H'
+  E1413F:             .BYTE $88
+  E1413F:             .elseif .strat(str, i) = 'I'
+  E1413F:             .BYTE $89
+  E1413F:             .elseif .strat(str, i) = 'J'
+  E1413F:             .BYTE $8A
+  E1413F:             .elseif .strat(str, i) = 'K'
+  E1413F:             .BYTE $8B
+  E1413F:             .elseif .strat(str, i) = 'L'
+  E1413F:             .BYTE $8C
+  E1413F:             .elseif .strat(str, i) = 'M'
+  E1413F:             .BYTE $8D
+  E1413F:             .elseif .strat(str, i) = 'N'
+  E1413F:             .BYTE $8E
+  E1413F:             .elseif .strat(str, i) = 'O'
+  E1413F:             .BYTE $8F
+  E1413F:             .elseif .strat(str, i) = 'P'
+  E1413F:             .BYTE $A0
+  E1413F:             .elseif .strat(str, i) = 'Q'
+  E1413F:             .BYTE $A1
+  E1413F:             .elseif .strat(str, i) = 'R'
+  E1413F:             .BYTE $A2
+  E1413F:             .elseif .strat(str, i) = 'S'
+  E1413F:             .BYTE $A3
+  E1413F:             .elseif .strat(str, i) = 'T'
+  E1413F:             .BYTE $A4
+  E1413F:             .elseif .strat(str, i) = 'U'
+  E1413F:             .BYTE $A5
+  E1413F:             .elseif .strat(str, i) = 'V'
+  E1413F:             .BYTE $A6
+  E1413F:             .elseif .strat(str, i) = 'W'
+  E1413F:             .BYTE $A7
+  E1413F:             .elseif .strat(str, i) = 'X'
+  E1413F:             .BYTE $A8
+  E1413F:             .elseif .strat(str, i) = 'Y'
+  E1413F:             .BYTE $A9
+  E1413F:             .elseif .strat(str, i) = 'Z'
+  E1413F:             .BYTE $AA
+  E1413F:             .elseif .strat(str, i) = ';'
+  E1413F:             .BYTE $AD
+  E1413F:             .else
+  E1413F:             .warning .sprintf("Unknown character %c", .strat(str, i))
+  E1413F:             .endif
+  E1413F:             .endrepeat
+  E1413F:             .BYTE $00
+  E1413F:             .ENDMACRO
+  E1413F:             .ENDIF
+  E1413F:             .MACRO EBSTAFF_VERTICALSPACE arg
+  E1413F:             .BYTE $03, arg
+  E1413F:             .ENDMACRO
+  E1413F:             .MACRO EBSTAFF_PRINTPLAYER
+  E1413F:             .BYTE $04
+  E1413F:             .ENDMACRO
+  E1413F:             .MACRO EBSTAFF_ENDCREDITS
+  E1413F:             .BYTE $FF
+  E1413F:             .ENDMACRO
+>>> data/credits.asm
+  E1413F:             STAFF_TEXT:
+  E1413F: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14141: 02 A3 A4 81     EBSTAFF_BIGTEXT "STAFF"
+          86 86 00    
+  E14148: 02 80 80 80     EBSTAFF_BIGTEXT "_____"
+          80 80 00    
+  E1414F: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14151: 01 5B 7A 4B     EBSTAFF_SMALLTEXT "PRODUCED AND DIRECTED BY"
+          54 6C 44 45 
+          54 40 42 5A 
+          ...omitted...
+  E1416B: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGESATO ITOI"
+          87 85 A3 81 
+          A4 8F 40 89 
+          ...omitted...
+  E1417B: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1417D: 01 6D 7A 48     EBSTAFF_SMALLTEXT "WRITTEN BY"
+          7B 7B 45 5A 
+          40 52 6E 00 
+  E14189: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGESATO ITOI"
+          87 85 A3 81 
+          A4 8F 40 89 
+          ...omitted...
+  E14199: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1419B: 01 4A 6C 6B     EBSTAFF_SMALLTEXT "MUSIC BY"
+          48 44 40 52 
+          6E 00       
+  E141A5: 02 8B 85 89     EBSTAFF_BIGTEXT "KEIICHI SUZUKI"
+          89 83 88 89 
+          40 A3 A5 AA 
+          ...omitted...
+  E141B5: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROKAZU TANAKA"
+          8F 8B 81 AA 
+          A5 40 A4 81 
+          ...omitted...
+  E141C6: 03 06           EBSTAFF_VERTICALSPACE $06
+  E141C8: 01 46 42 4A     EBSTAFF_SMALLTEXT "GAME DESIGNER"
+          45 40 54 45 
+          6B 48 46 5A 
+          ...omitted...
+  E141D7: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIHIKO MIURA"
+          88 89 8B 8F 
+          40 8D 89 A5 
+          ...omitted...
+  E141E6: 03 02           EBSTAFF_VERTICALSPACE $02
+  E141E8: 01 42 7A 7B     EBSTAFF_SMALLTEXT "ART DIRECTOR"
+          40 54 48 7A 
+          45 44 7B 4B 
+          ...omitted...
+  E141F6: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUICHI OOYAMA"
+          89 83 88 89 
+          40 8F 8F A9 
+          ...omitted...
+  E14206: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14208: 01 6B 4B 6C     EBSTAFF_SMALLTEXT "SOUND DIRECTOR"
+          5A 54 40 54 
+          48 7A 45 44 
+          ...omitted...
+  E14218: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROKAZU TANAKA"
+          8F 8B 81 AA 
+          A5 40 A4 81 
+          ...omitted...
+  E14229: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1422B: 01 5B 7A 4B     EBSTAFF_SMALLTEXT "PROGRAM DIRECTOR"
+          46 7A 42 4A 
+          40 54 48 7A 
+          ...omitted...
+  E1423D: 02 A3 81 A4     EBSTAFF_BIGTEXT "SATORU IWATA"
+          8F A2 A5 40 
+          89 A7 81 A4 
+          ...omitted...
+  E1424B: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1424D: 01 6C AD 6B     EBSTAFF_SMALLTEXT "U.S. CONVERSION DIRECTOR"
+          AD 40 44 4B 
+          5A 7C 45 7A 
+          ...omitted...
+  E14267: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUJI MALTA"
+          8A 89 40 8D 
+          81 8C A4 81 
+          ...omitted...
+  E14274: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14276: 01 7B 7A 42     EBSTAFF_SMALLTEXT "TRANSLATION DIRECTORS"
+          5A 6B 59 42 
+          7B 48 4B 5A 
+          ...omitted...
+  E1428D: 02 8D 81 A2     EBSTAFF_BIGTEXT "MARCUS LINDBLOM"
+          83 A5 A3 40 
+          8C 89 8E 84 
+          ...omitted...
+  E1429E: 02 8D 81 A3     EBSTAFF_BIGTEXT "MASAYUKI MIURA"
+          81 A9 A5 8B 
+          89 40 8D 89 
+          ...omitted...
+  E142AE: 03 06           EBSTAFF_VERTICALSPACE $06
+  E142B0: 01 5B 7A 4B     EBSTAFF_SMALLTEXT "PROGRAMMERS"
+          46 7A 42 4A 
+          4A 45 7A 6B 
+          ...omitted...
+  E142BD: 02 A3 81 A4     EBSTAFF_BIGTEXT "SATORU IWATA"
+          8F A2 A5 40 
+          89 A7 81 A4 
+          ...omitted...
+  E142CB: 02 A3 81 A4     EBSTAFF_BIGTEXT "SATOSHI MITSUHARA"
+          8F A3 88 89 
+          40 8D 89 A4 
+          ...omitted...
+  E142DE: 02 A9 8F A3     EBSTAFF_BIGTEXT "YOSHIMI TAKAHASHI"
+          88 89 8D 89 
+          40 A4 81 8B 
+          ...omitted...
+  E142F1: 02 A3 85 89     EBSTAFF_BIGTEXT "SEIJI OTOGURO"
+          8A 89 40 8F 
+          A4 8F 87 A5 
+          ...omitted...
+  E14300: 02 82 8F A5     EBSTAFF_BIGTEXT "BOU NAKAJIMA"
+          40 8E 81 8B 
+          81 8A 89 8D 
+          ...omitted...
+  E1430E: 02 A3 85 89     EBSTAFF_BIGTEXT "SEIKA ABE"
+          8B 81 40 81 
+          82 85 00    
+  E14319: 02 A9 8F A3     EBSTAFF_BIGTEXT "YOSHIKI SUZUKI"
+          88 89 8B 89 
+          40 A3 A5 AA 
+          ...omitted...
+  E14329: 02 8A A5 8E     EBSTAFF_BIGTEXT "JUN YAMAZAKI"
+          40 A9 81 8D 
+          81 AA 81 8B 
+          ...omitted...
+  E14337: 02 A4 8F A3     EBSTAFF_BIGTEXT "TOSHIYUKI UENO"
+          88 89 A9 A5 
+          8B 89 40 A5 
+          ...omitted...
+  E14347: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI SASAKI"
+          81 A3 88 89 
+          40 A3 81 A3 
+          ...omitted...
+  E14357: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI SAKUMA"
+          81 A3 88 89 
+          40 A3 81 8B 
+          ...omitted...
+  E14367: 02 8B 81 AA     EBSTAFF_BIGTEXT "KAZUO SATO"
+          A5 8F 40 A3 
+          81 A4 8F 00 
+  E14373: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUJI MALTA"
+          8A 89 40 8D 
+          81 8C A4 81 
+          ...omitted...
+  E14380: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14382: 01 6B 4B 6C     EBSTAFF_SMALLTEXT "SOUND PROGRAMMER"
+          5A 54 40 5B 
+          7A 4B 46 7A 
+          ...omitted...
+  E14394: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROKAZU TANAKA"
+          8F 8B 81 AA 
+          A5 40 A4 81 
+          ...omitted...
+  E143A5: 03 02           EBSTAFF_VERTICALSPACE $02
+  E143A7: 01 6B 6E 6B     EBSTAFF_SMALLTEXT "SYSTEM ENGINEERING"
+          7B 45 4A 40 
+          45 5A 46 48 
+          ...omitted...
+  E143BB: 02 8D 81 8B     EBSTAFF_BIGTEXT "MAKOTO KANAI"
+          8F A4 8F 40 
+          8B 81 8E 81 
+          ...omitted...
+  E143C9: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI SAKUMA"
+          81 A3 88 89 
+          40 A3 81 8B 
+          ...omitted...
+  E143D9: 03 06           EBSTAFF_VERTICALSPACE $06
+  E143DB: 01 46 7A 42     EBSTAFF_SMALLTEXT "GRAPHICS ARTISTS"
+          5B 56 48 44 
+          6B 40 42 7A 
+          ...omitted...
+  E143ED: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUICHI OOYAMA"
+          89 83 88 89 
+          40 8F 8F A9 
+          ...omitted...
+  E143FD: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROYUKI SAKIYAMA"
+          8F A9 A5 8B 
+          89 40 A3 81 
+          ...omitted...
+  E14410: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUICHI YAMADA"
+          89 83 88 89 
+          40 A9 81 8D 
+          ...omitted...
+  E14420: 02 8D 81 8B     EBSTAFF_BIGTEXT "MAKIO KATAOKA"
+          89 8F 40 8B 
+          81 A4 81 8F 
+          ...omitted...
+  E1442F: 02 A4 85 A4     EBSTAFF_BIGTEXT "TETSUYA NOTOYA"
+          A3 A5 A9 81 
+          40 8E 8F A4 
+          ...omitted...
+  E1443F: 02 A9 81 A3     EBSTAFF_BIGTEXT "YASUNORI YANAGISAWA"
+          A5 8E 8F A2 
+          89 40 A9 81 
+          ...omitted...
+  E14454: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14456: 01 6B 5B 45     EBSTAFF_SMALLTEXT "SPECIAL EFFECTS ARTIST"
+          44 48 42 59 
+          40 45 55 55 
+          ...omitted...
+  E1446E: 02 A4 A3 A5     EBSTAFF_BIGTEXT "TSUNEKAZ ISHIHARA"
+          8E 85 8B 81 
+          AA 40 89 A3 
+          ...omitted...
+  E14481: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14483: 01 55 4B 5A     EBSTAFF_SMALLTEXT "FONT DESIGNERS"
+          7B 40 54 45 
+          6B 48 46 5A 
+          ...omitted...
+  E14493: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIHIKO MIURA"
+          88 89 8B 8F 
+          40 8D 89 A5 
+          ...omitted...
+  E144A2: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUICHI OOYAMA"
+          89 83 88 89 
+          40 8F 8F A9 
+          ...omitted...
+  E144B2: 03 02           EBSTAFF_VERTICALSPACE $02
+  E144B4: 01 44 4B 5A     EBSTAFF_SMALLTEXT "CONCEPT OF SATURN FONT BY"
+          44 45 5B 7B 
+          40 4B 55 40 
+          ...omitted...
+  E144CF: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGESATO ITOI"
+          87 85 A3 81 
+          A4 8F 40 89 
+          ...omitted...
+  E144DF: 03 06           EBSTAFF_VERTICALSPACE $06
+  E144E1: 01 46 7A 42     EBSTAFF_SMALLTEXT "GRAPHICS DATA MANAGER"
+          5B 56 48 44 
+          6B 40 54 42 
+          ...omitted...
+  E144F8: 02 A9 81 A3     EBSTAFF_BIGTEXT "YASUNORI YANAGISAWA"
+          A5 8E 8F A2 
+          89 40 A9 81 
+          ...omitted...
+  E1450D: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1450F: 01 4A 45 6B     EBSTAFF_SMALLTEXT "MESSAGE DATA MANAGERS"
+          6B 42 46 45 
+          40 54 42 7B 
+          ...omitted...
+  E14526: 02 8D 81 A3     EBSTAFF_BIGTEXT "MASAYUKI MIURA"
+          81 A9 A5 8B 
+          89 40 8D 89 
+          ...omitted...
+  E14536: 02 88 89 A4     EBSTAFF_BIGTEXT "HITOSHI MATSUI"
+          8F A3 88 89 
+          40 8D 81 A4 
+          ...omitted...
+  E14546: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14548: 01 42 54 54     EBSTAFF_SMALLTEXT "ADDITIONAL MUSIC COMPOSED BY"
+          48 7B 48 4B 
+          5A 42 59 40 
+          ...omitted...
+  E14566: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROSHI KANAZU"
+          8F A3 88 89 
+          40 8B 81 8E 
+          ...omitted...
+  E14576: 02 A4 8F A3     EBSTAFF_BIGTEXT "TOSHIYUKI UENO"
+          88 89 A9 A5 
+          8B 89 40 A5 
+          ...omitted...
+  E14586: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14588: 01 6B 4B 6C     EBSTAFF_SMALLTEXT "SOUND STAFF"
+          5A 54 40 6B 
+          7B 42 55 55 
+          ...omitted...
+  E14595: 02 A4 8F A3     EBSTAFF_BIGTEXT "TOSHIYUKI UENO"
+          88 89 A9 A5 
+          8B 89 40 A5 
+          ...omitted...
+  E145A5: 02 8B 8F AA     EBSTAFF_BIGTEXT "KOZUE ISHIKAWA"
+          A5 85 40 89 
+          A3 88 89 8B 
+          ...omitted...
+  E145B5: 03 06           EBSTAFF_VERTICALSPACE $06
+  E145B7: 01 42 6B 6B     EBSTAFF_SMALLTEXT "ASSISTANT PROGRAMMERS"
+          48 6B 7B 42 
+          5A 7B 40 5B 
+          ...omitted...
+  E145CE: 02 89 8B A5     EBSTAFF_BIGTEXT "IKUHO HAGIYA"
+          88 8F 40 88 
+          81 87 89 A9 
+          ...omitted...
+  E145DC: 02 8B 81 A4     EBSTAFF_BIGTEXT "KATSUYOSHI IRIE"
+          A3 A5 A9 8F 
+          A3 88 89 40 
+          ...omitted...
+  E145ED: 03 02           EBSTAFF_VERTICALSPACE $02
+  E145EF: 01 42 6B 6B     EBSTAFF_SMALLTEXT "ASSISTANT GAME DESIGNERS"
+          48 6B 7B 42 
+          5A 7B 40 46 
+          ...omitted...
+  E14609: 02 8B 8F A5     EBSTAFF_BIGTEXT "KOUICHI OOYAMA"
+          89 83 88 89 
+          40 8F 8F A9 
+          ...omitted...
+  E14619: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKEHIKO MASUDA"
+          85 88 89 8B 
+          8F 40 8D 81 
+          ...omitted...
+  E1462A: 02 83 88 89     EBSTAFF_BIGTEXT "CHIAKI YOSHIZAWA"
+          81 8B 89 40 
+          A9 8F A3 88 
+          ...omitted...
+  E1463C: 02 8D 81 A3     EBSTAFF_BIGTEXT "MASAYUKI MIURA"
+          81 A9 A5 8B 
+          89 40 8D 89 
+          ...omitted...
+  E1464C: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIHITO TODA"
+          88 89 A4 8F 
+          40 A4 8F 84 
+          ...omitted...
+  E1465A: 02 88 89 A4     EBSTAFF_BIGTEXT "HITOSHI MATSUI"
+          8F A3 88 89 
+          40 8D 81 A4 
+          ...omitted...
+  E1466A: 02 8B 81 A4     EBSTAFF_BIGTEXT "KATSUYOSHI IRIE"
+          A3 A5 A9 8F 
+          A3 88 89 40 
+          ...omitted...
+  E1467B: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1467D: 01 42 6B 6B     EBSTAFF_SMALLTEXT "ASSISTANT SCENARIO WRITERS"
+          48 6B 7B 42 
+          5A 7B 40 6B 
+          ...omitted...
+  E14699: 02 8D 81 A3     EBSTAFF_BIGTEXT "MASAYUKI MIURA"
+          81 A9 A5 8B 
+          89 40 8D 89 
+          ...omitted...
+  E146A9: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIHITO TODA"
+          88 89 A4 8F 
+          40 A4 8F 84 
+          ...omitted...
+  E146B7: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROYUKI JINNAI"
+          8F A9 A5 8B 
+          89 40 8A 89 
+          ...omitted...
+  E146C8: 03 02           EBSTAFF_VERTICALSPACE $02
+  E146CA: 01 45 5A 46     EBSTAFF_SMALLTEXT "ENGLISH TEXT WRITERS"
+          59 48 6B 56 
+          40 7B 45 7D 
+          ...omitted...
+  E146E0: 02 8D 81 A2     EBSTAFF_BIGTEXT "MARCUS LINDBLOM"
+          83 A5 A3 40 
+          8C 89 8E 84 
+          ...omitted...
+  E146F1: 02 84 81 8E     EBSTAFF_BIGTEXT "DAN OWSEN"
+          40 8F A7 A3 
+          85 8E 00    
+  E146FC: 03 02           EBSTAFF_VERTICALSPACE $02
+  E146FE: 01 7B 7A 42     EBSTAFF_SMALLTEXT "TRANSLATORS"
+          5A 6B 59 42 
+          7B 4B 7A 6B 
+          ...omitted...
+  E1470B: 02 8B 85 89     EBSTAFF_BIGTEXT "KEIKO TAMURA"
+          8B 8F 40 A4 
+          81 8D A5 A2 
+          ...omitted...
+  E14719: 02 A9 A5 8B     EBSTAFF_BIGTEXT "YUKA NAKATA"
+          81 40 8E 81 
+          8B 81 A4 81 
+          ...omitted...
+  E14726: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14728: 01 44 56 48     EBSTAFF_SMALLTEXT "CHIEF DEBUGGERS"
+          45 55 40 54 
+          45 52 6C 46 
+          ...omitted...
+  E14739: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKUMI AKABANE"
+          A5 8D 89 40 
+          81 8B 81 82 
+          ...omitted...
+  E14749: 02 88 89 A4     EBSTAFF_BIGTEXT "HITOSHI MATSUI"
+          8F A3 88 89 
+          40 8D 81 A4 
+          ...omitted...
+  E14759: 03 06           EBSTAFF_VERTICALSPACE $06
+  E1475B: 01 5A 4B 42     EBSTAFF_SMALLTEXT "NOA DEBUG COORDINATORS"
+          40 54 45 52 
+          6C 46 40 44 
+          ...omitted...
+  E14773: 02 A3 85 81     EBSTAFF_BIGTEXT "SEAN O'CONNOR"
+          8E 40 8F 47 
+          83 8F 8E 8E 
+          ...omitted...
+  E14782: 02 8D 89 83     EBSTAFF_BIGTEXT "MICHAEL KELBAUGH"
+          88 81 85 8C 
+          40 8B 85 8C 
+          ...omitted...
+  E14794: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14796: 01 42 5B 45     EBSTAFF_SMALLTEXT "APE DEBUGGING TEAM"
+          40 54 45 52 
+          6C 46 46 48 
+          ...omitted...
+  E147AA: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKAHIRO NAGAI"
+          81 88 89 A2 
+          8F 40 8E 81 
+          ...omitted...
+  E147BA: 02 8A A5 8E     EBSTAFF_BIGTEXT "JUNICHI AKAMA"
+          89 83 88 89 
+          40 81 8B 81 
+          ...omitted...
+  E147C9: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIRA MATSUMOTO"
+          A2 81 40 8D 
+          81 A4 A3 A5 
+          ...omitted...
+  E147DA: 03 06           EBSTAFF_VERTICALSPACE $06
+  E147DC: 01 5A 48 5A     EBSTAFF_SMALLTEXT "NINTENDO DEBUG COORDINATORS"
+          7B 45 5A 54 
+          4B 40 54 45 
+          ...omitted...
+  E147F9: 02 A4 8F 88     EBSTAFF_BIGTEXT "TOHRU HASHIMOTO"
+          A2 A5 40 88 
+          81 A3 88 89 
+          ...omitted...
+  E1480A: 02 A4 81 A4     EBSTAFF_BIGTEXT "TATSUYA HISHIDA"
+          A3 A5 A9 81 
+          40 88 89 A3 
+          ...omitted...
+  E1481B: 03 02           EBSTAFF_VERTICALSPACE $02
+  E1481D: 01 5A 48 5A     EBSTAFF_SMALLTEXT "NINTENDO DEBUGGING TEAM"
+          7B 45 5A 54 
+          4B 40 54 45 
+          ...omitted...
+  E14836: 02 8B 81 AA     EBSTAFF_BIGTEXT "KAZUHIDE OHGOE"
+          A5 88 89 84 
+          85 40 8F 88 
+          ...omitted...
+  E14846: 02 81 A4 A3     EBSTAFF_BIGTEXT "ATSUSHI MIYAKE"
+          A5 A3 88 89 
+          40 8D 89 A9 
+          ...omitted...
+  E14856: 02 88 81 8A     EBSTAFF_BIGTEXT "HAJIME NAKAMURA"
+          89 8D 85 40 
+          8E 81 8B 81 
+          ...omitted...
+  E14867: 02 8D 81 8F     EBSTAFF_BIGTEXT "MAO HAMAMOTO"
+          40 88 81 8D 
+          81 8D 8F A4 
+          ...omitted...
+  E14875: 02 8D 81 A9     EBSTAFF_BIGTEXT "MAYUMI TADA"
+          A5 8D 89 40 
+          A4 81 84 81 
+          ...omitted...
+  E14882: 02 8D 81 8B     EBSTAFF_BIGTEXT "MAKOTO KEDOUIN"
+          8F A4 8F 40 
+          8B 85 84 8F 
+          ...omitted...
+  E14892: 02 8B 89 8D     EBSTAFF_BIGTEXT "KIMIKO TSUCHIDA"
+          89 8B 8F 40 
+          A4 A3 A5 83 
+          ...omitted...
+  E148A3: 02 A3 81 A9     EBSTAFF_BIGTEXT "SAYAKA KOMURA"
+          81 8B 81 40 
+          8B 8F 8D A5 
+          ...omitted...
+  E148B2: 03 02           EBSTAFF_VERTICALSPACE $02
+  E148B4: 01 4A 42 5B     EBSTAFF_SMALLTEXT "MAP CHECKERS"
+          40 44 56 45 
+          44 49 45 7A 
+          ...omitted...
+  E148C2: 02 8D 81 A0     EBSTAFF_BIGTEXT "MAPPER KOJIMA"
+          A0 85 A2 40 
+          8B 8F 8A 89 
+          ...omitted...
+  E148D1: 02 8B 81 A4     EBSTAFF_BIGTEXT "KATSUYOSHI IRIE"
+          A3 A5 A9 8F 
+          A3 88 89 40 
+          ...omitted...
+  E148E2: 03 06           EBSTAFF_VERTICALSPACE $06
+  E148E4: 01 6B 42 4A     EBSTAFF_SMALLTEXT "SAMPLING VOICES"
+          5B 59 48 5A 
+          46 40 7C 4B 
+          ...omitted...
+  E148F5: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGESATO OK? ITOI"
+          87 85 A3 81 
+          A4 8F 40 8F 
+          ...omitted...
+  E14909: 02 A9 A5 8B     EBSTAFF_BIGTEXT "YUKARI WHISTLE SAITO"
+          81 A2 89 40 
+          A7 88 89 A3 
+          ...omitted...
+  E1491F: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROKAZU BELCH KOYANO"
+          8F 8B 81 AA 
+          A5 40 82 85 
+          ...omitted...
+  E14936: 02 85 A4 A3     EBSTAFF_BIGTEXT "ETSUKO VENUS KAWANO"
+          A5 8B 8F 40 
+          A6 85 8E A5 
+          ...omitted...
+  E1494B: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI MU WATANABE"
+          81 A3 88 89 
+          40 8D A5 40 
+          ...omitted...
+  E14960: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14962: 01 4B 5B 45     EBSTAFF_SMALLTEXT "OPENING ROCK GUITAR"
+          5A 48 5A 46 
+          40 7A 4B 44 
+          ...omitted...
+  E14977: 02 8D 4E 84     EBSTAFF_BIGTEXT "M.D.SEEGER"
+          4E A3 85 85 
+          87 85 A2 00 
+  E14983: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14985: 01 56 42 7A     EBSTAFF_SMALLTEXT "HARDWARE SUPPORT"
+          54 6D 42 7A 
+          45 40 6B 6C 
+          ...omitted...
+  E14997: 02 88 89 A2     EBSTAFF_BIGTEXT "HIRONOBU KAKUI"
+          8F 8E 8F 82 
+          A5 40 8B 81 
+          ...omitted...
+  E149A7: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGEKI YAMASHIRO"
+          87 85 8B 89 
+          40 A9 81 8D 
+          ...omitted...
+  E149BA: 03 06           EBSTAFF_VERTICALSPACE $06
+  E149BC: 01 5B 7A 4B     EBSTAFF_SMALLTEXT "PRODUCTION MANAGERS"
+          54 6C 44 7B 
+          48 4B 5A 40 
+          ...omitted...
+  E149D1: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI KAWAGUCHI"
+          81 A3 88 89 
+          40 8B 81 A7 
+          ...omitted...
+  E149E4: 02 8B 85 89     EBSTAFF_BIGTEXT "KEIZO KATO"
+          AA 8F 40 8B 
+          81 A4 8F 00 
+  E149F0: 02 89 8B A5     EBSTAFF_BIGTEXT "IKUO HYAKUTA"
+          8F 40 88 A9 
+          81 8B A5 A4 
+          ...omitted...
+  E149FE: 02 A9 A5 8B     EBSTAFF_BIGTEXT "YUKARI SAITO"
+          81 A2 89 40 
+          A3 81 89 A4 
+          ...omitted...
+  E14A0C: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14A0E: 01 44 4B 4B     EBSTAFF_SMALLTEXT "COORDINATORS"
+          7A 54 48 5A 
+          42 7B 4B 7A 
+          ...omitted...
+  E14A1C: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKASHI WATANABE"
+          81 A3 88 89 
+          40 A7 81 A4 
+          ...omitted...
+  E14A2E: 02 A2 A9 8F     EBSTAFF_BIGTEXT "RYO KAGAWA"
+          40 8B 81 87 
+          81 A7 81 00 
+  E14A3A: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROYUKI JINNAI"
+          8F A9 A5 8B 
+          89 40 8A 89 
+          ...omitted...
+  E14A4B: 02 85 A4 A3     EBSTAFF_BIGTEXT "ETSUKO KAWANO"
+          A5 8B 8F 40 
+          8B 81 A7 81 
+          ...omitted...
+  E14A5A: 02 8B 81 AA     EBSTAFF_BIGTEXT "KAZUYUKI YAMAMOTO"
+          A5 A9 A5 8B 
+          89 40 A9 81 
+          ...omitted...
+  E14A6D: 02 81 A4 A3     EBSTAFF_BIGTEXT "ATSUKO KAWAHARA"
+          A5 8B 8F 40 
+          8B 81 A7 81 
+          ...omitted...
+  E14A7E: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14A80: 01 6B 4B 6C     EBSTAFF_SMALLTEXT "SOUND PRODUCERS"
+          5A 54 40 5B 
+          7A 4B 54 6C 
+          ...omitted...
+  E14A91: 02 81 8B 89     EBSTAFF_BIGTEXT "AKIO OHMORI"
+          8F 40 8F 88 
+          8D 8F A2 89 
+          ...omitted...
+  E14A9E: 02 A2 89 A4     EBSTAFF_BIGTEXT "RITSUO KAMIMURA"
+          A3 A5 8F 40 
+          8B 81 8D 89 
+          ...omitted...
+  E14AAF: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14AB1: 01 6B 5B 45     EBSTAFF_SMALLTEXT "SPECIAL THANKS TO"
+          44 48 42 59 
+          40 7B 56 42 
+          ...omitted...
+  E14AC4: 02 8B 85 8E     EBSTAFF_BIGTEXT "KENJI ANDO"
+          8A 89 40 81 
+          8E 84 8F 00 
+  E14AD0: 02 8D 89 A9     EBSTAFF_BIGTEXT "MIYUKI KURE"
+          A5 8B 89 40 
+          8B A5 A2 85 
+          ...omitted...
+  E14ADD: 02 A4 81 8B     EBSTAFF_BIGTEXT "TAKAYUKI ONODERA"
+          81 A9 A5 8B 
+          89 40 8F 8E 
+          ...omitted...
+  E14AEF: 02 86 A5 8B     EBSTAFF_BIGTEXT "FUKASHI OMORITA"
+          81 A3 88 89 
+          40 8F 8D 8F 
+          ...omitted...
+  E14B00: 02 A9 A5 8B     EBSTAFF_BIGTEXT "YUKIO TAKAHASHI"
+          89 8F 40 A4 
+          81 8B 81 88 
+          ...omitted...
+  E14B11: 02 8B 81 AA     EBSTAFF_BIGTEXT "KAZUHIKO AMEMIYA"
+          A5 88 89 8B 
+          8F 40 81 8D 
+          ...omitted...
+  E14B23: 02 A9 81 A3     EBSTAFF_BIGTEXT "YASUHIRO KUMAGAI"
+          A5 88 89 A2 
+          8F 40 8B A5 
+          ...omitted...
+  E14B35: 02 A9 8F A3     EBSTAFF_BIGTEXT "YOSHIO HONGO"
+          88 89 8F 40 
+          88 8F 8E 87 
+          ...omitted...
+  E14B43: 02 8E 81 8F     EBSTAFF_BIGTEXT "NAOKO KANAZAWA"
+          8B 8F 40 8B 
+          81 8E 81 AA 
+          ...omitted...
+  E14B53: 02 82 85 8E     EBSTAFF_BIGTEXT "BENIMARU ITOH"
+          89 8D 81 A2 
+          A5 40 89 A4 
+          ...omitted...
+  E14B62: 02 8D 8F A4     EBSTAFF_BIGTEXT "MOTOHIRO ISHII"
+          8F 88 89 A2 
+          8F 40 89 A3 
+          ...omitted...
+  E14B72: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROKAZU KOYANO"
+          8F 8B 81 AA 
+          A5 40 8B 8F 
+          ...omitted...
+  E14B83: 02 8D 81 A3     EBSTAFF_BIGTEXT "MASAO TOTTORI"
+          81 8F 40 A4 
+          8F A4 A4 8F 
+          ...omitted...
+  E14B92: 02 8E 8F 82     EBSTAFF_BIGTEXT "NOBUYASU MAKINO"
+          A5 A9 81 A3 
+          A5 40 8D 81 
+          ...omitted...
+  E14BA3: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROMI TAMAGAWA"
+          8F 8D 89 40 
+          A4 81 8D 81 
+          ...omitted...
+  E14BB4: 02 8E 81 8E     EBSTAFF_BIGTEXT "NANCY YOSHITAKE"
+          83 A9 40 A9 
+          8F A3 88 89 
+          ...omitted...
+  E14BC5: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14BC7: 02 81 8E 84     EBSTAFF_BIGTEXT "AND MANY OTHERS"
+          40 8D 81 8E 
+          A9 40 8F A4 
+          ...omitted...
+  E14BD8: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14BDA: 01 7B 56 45     EBSTAFF_SMALLTEXT "THE PRODUCERS WISH TO THANK"
+          40 5B 7A 4B 
+          54 6C 44 45 
+          ...omitted...
+  E14BF7: 02 89 A3 88     EBSTAFF_BIGTEXT "ISHEL ARTVISION"
+          85 8C 40 81 
+          A2 A4 A6 89 
+          ...omitted...
+  E14C08: 02 8D 8F 8F     EBSTAFF_BIGTEXT "MOONRIDERS OFFICE"
+          8E A2 89 84 
+          85 A2 A3 40 
+          ...omitted...
+  E14C1B: 02 A3 85 84     EBSTAFF_BIGTEXT "SEDIC INC."
+          89 83 40 89 
+          8E 83 4E 00 
+  E14C27: 02 A3 85 A4     EBSTAFF_BIGTEXT "SETA CO.,LTD."
+          81 40 83 8F 
+          4E 4C 8C A4 
+          ...omitted...
+  E14C36: 02 8C A5 83     EBSTAFF_BIGTEXT "LUCKY NICE"
+          8B A9 40 8E 
+          89 83 85 00 
+  E14C42: 02 8F 8B A5     EBSTAFF_BIGTEXT "OKUBO DESIGN STUDIO"
+          82 8F 40 84 
+          85 A3 89 87 
+          ...omitted...
+  E14C57: 02 8F 8E 40     EBSTAFF_BIGTEXT "ON ASSOCIATES"
+          81 A3 A3 8F 
+          83 89 81 A4 
+          ...omitted...
+  E14C66: 02 A3 81 89     EBSTAFF_BIGTEXT "SAI KOUBOU"
+          40 8B 8F A5 
+          82 8F A5 00 
+  E14C72: 02 81 A3 88     EBSTAFF_BIGTEXT "ASHURA OFFICE"
+          A5 A2 81 40 
+          8F 86 86 89 
+          ...omitted...
+  E14C81: 02 A3 88 8F     EBSTAFF_BIGTEXT "SHOGAKUKAN"
+          87 81 8B A5 
+          8B 81 8E 00 
+  E14C8D: 02 A3 88 89     EBSTAFF_BIGTEXT "SHINCHO SHA"
+          8E 83 88 8F 
+          40 A3 88 81 
+          ...omitted...
+  E14C9A: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14C9C: 01 44 56 48     EBSTAFF_SMALLTEXT "CHIEF COORDINATOR"
+          45 55 40 44 
+          4B 4B 7A 54 
+          ...omitted...
+  E14CAF: 02 8D 81 A2     EBSTAFF_BIGTEXT "MARCUS LINDBLOM"
+          83 A5 A3 40 
+          8C 89 8E 84 
+          ...omitted...
+  E14CC0: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14CC2: 01 59 48 5A     EBSTAFF_SMALLTEXT "LINE PRODUCER"
+          45 40 5B 7A 
+          4B 54 6C 44 
+          ...omitted...
+  E14CD1: 02 A4 A3 A5     EBSTAFF_BIGTEXT "TSUNEKAZ ISHIHARA"
+          8E 85 8B 81 
+          AA 40 89 A3 
+          ...omitted...
+  E14CE4: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14CE6: 01 44 4B 5B     EBSTAFF_SMALLTEXT "COPRODUCER"
+          7A 4B 54 6C 
+          44 45 7A 00 
+  E14CF2: 02 A3 81 A4     EBSTAFF_BIGTEXT "SATORU IWATA"
+          8F A2 A5 40 
+          89 A7 81 A4 
+          ...omitted...
+  E14D00: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14D02: 01 5A 4B 42     EBSTAFF_SMALLTEXT "NOA PRODUCER"
+          40 5B 7A 4B 
+          54 6C 44 45 
+          ...omitted...
+  E14D10: 02 8D 89 8B     EBSTAFF_BIGTEXT "MIKE FUKUDA"
+          85 40 86 A5 
+          8B A5 84 81 
+          ...omitted...
+  E14D1D: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14D1F: 01 6B 6C 5B     EBSTAFF_SMALLTEXT "SUPERVISOR"
+          45 7A 7C 48 
+          6B 4B 7A 00 
+  E14D2B: 02 A3 88 89     EBSTAFF_BIGTEXT "SHIGERU MIYAMOTO"
+          87 85 A2 A5 
+          40 8D 89 A9 
+          ...omitted...
+  E14D3D: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14D3F: 01 45 7D 45     EBSTAFF_SMALLTEXT "EXECUTIVE PRODUCERS"
+          44 6C 7B 48 
+          7C 45 40 5B 
+          ...omitted...
+  E14D54: 02 88 89 A2     EBSTAFF_BIGTEXT "HIROSHI YAMAUCHI"
+          8F A3 88 89 
+          40 A9 81 8D 
+          ...omitted...
+  E14D66: 02 8D 89 8E     EBSTAFF_BIGTEXT "MINORU ARAKAWA"
+          8F A2 A5 40 
+          81 A2 81 8B 
+          ...omitted...
+  E14D76: 03 06           EBSTAFF_VERTICALSPACE $06
+  E14D78: 01 5B 7A 45     EBSTAFF_SMALLTEXT "PRESENTED BY"
+          6B 45 5A 7B 
+          45 54 40 52 
+          ...omitted...
+  E14D86: 02 8E 89 8E     EBSTAFF_BIGTEXT "NINTENDO"
+          A4 85 8E 84 
+          8F 00       
+  E14D90: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14D92: 01 48 5A 40     EBSTAFF_SMALLTEXT "IN ASSOCIATION WITH"
+          42 6B 6B 4B 
+          44 48 42 7B 
+          ...omitted...
+  E14DA7: 02 81 A0 85     EBSTAFF_BIGTEXT "APE INC."
+          40 89 8E 83 
+          4E 00       
+  E14DB1: 03 02           EBSTAFF_VERTICALSPACE $02
+  E14DB3: 01 42 5A 54     EBSTAFF_SMALLTEXT "AND"
+          00          
+  E14DB8: 02 88 81 8C     EBSTAFF_BIGTEXT "HAL LABORATORY,INC."
+          40 8C 81 82 
+          8F A2 81 A4 
+          ...omitted...
+  E14DCD: 03 0C           EBSTAFF_VERTICALSPACE $0C
+  E14DCF: 01 42 5A 54     EBSTAFF_SMALLTEXT "AND..."
+          AD AD AD 00 
+  E14DD7: 01 40 00        EBSTAFF_SMALLTEXT " "
+  E14DDA: 03 0E           EBSTAFF_VERTICALSPACE $0E
+  E14DDC: 01 5B 59 42     EBSTAFF_SMALLTEXT "PLAYER"
+          6E 45 7A 00 
+  E14DE4: 04              EBSTAFF_PRINTPLAYER
+  E14DE5: 03 0D           EBSTAFF_VERTICALSPACE $0D
+  E14DE7: FF              EBSTAFF_ENDCREDITS
+>>> bankconfig/common/bank21.asm
+  E14DE8:             .ENDIF
+  E14DE8:             .INCLUDE "unknown/E1/E14DE8.asm"
+>>> unknown/E1/E14DE8.asm
+  E14DE8:             UNKNOWN_E14DE8:
+  E14DE8: C2 31           BEGIN_C_FUNCTION_FAR
+  E14DEA:                 STACK_RESERVE_VARS
+  E14DEA:                 STACK_RESERVE_INT16
+  E14DEA:                 STACK_RESERVE_INT16
+  E14DEA:                 STACK_RESERVE_INT16
+  E14DEA: 0B 7B 69 EC     END_STACK_VARS
+          FF 5B       
+  E14DF0: A0 01 00        LDY #1
+  E14DF3: 84 12           STY @LOCAL02
+  E14DF5: A2 00 00        LDX #0
+  E14DF8: 86 10           STX @LOCAL01
+  E14DFA: 80 37           BRA @UNKNOWN6
+  E14DFC:             @UNKNOWN0:
+  E14DFC: A4 12           LDY @LOCAL02
+  E14DFE: 84 02           STY @VIRTUAL02
+  E14E00: A6 10           LDX @LOCAL01
+  E14E02: 8A              TXA
+  E14E03: 18              CLC
+  E14E04: 65 02           ADC @VIRTUAL02
+  E14E06: AA              TAX
+  E14E07: 86 10           STX @LOCAL01
+  E14E09: 86 02           STX @VIRTUAL02
+  E14E0B: A9 00 00        LDA #0
+  E14E0E: 18              CLC
+  E14E0F: E5 02           SBC @VIRTUAL02
+  E14E11: 50 04 10 09     BRANCHLTEQS @UNKNOWN3
+          80 02 30 05 
+  E14E19: A2 1F 00        LDX #BATTLER_COUNT - 1
+  E14E1C: 86 10           STX @LOCAL01
+  E14E1E:             @UNKNOWN3:
+  E14E1E: 86 02           STX @VIRTUAL02
+  E14E20: A9 20 00        LDA #BATTLER_COUNT
+  E14E23: 18              CLC
+  E14E24: E5 02           SBC @VIRTUAL02
+  E14E26: 70 04 10 09     BRANCHGTS @UNKNOWN6
+          80 02 30 05 
+  E14E2E: A2 00 00        LDX #0
+  E14E31: 86 10           STX @LOCAL01
+  E14E33:             @UNKNOWN6:
+  E14E33: A6 10           LDX @LOCAL01
+  E14E35: 8A              TXA
+  E14E36: A0 4E 00        LDY #.SIZEOF(battler)
+  E14E39: 22 F7 8F C0     JSL MULT168
+  E14E3D: 85 0E           STA @LOCAL00
+  E14E3F: AA              TAX
+  E14E40: BD B8 9F        LDA BATTLERS_TABLE + battler::consciousness,X
+  E14E43: 29 FF 00        AND #$00FF
+  E14E46: F0 B4           BEQ @UNKNOWN0
+  E14E48: A5 0E           LDA @LOCAL00
+  E14E4A: 18              CLC
+  E14E4B: 69 AC 9F        ADC #.LOWORD(BATTLERS_TABLE)
+  E14E4E: 22 A2 E1 C1     JSL NULL_C1E1A2
+  E14E52: 22 D5 2D C1     JSL WINDOW_TICK
+  E14E56:             @UNKNOWN7:
+  E14E56: 22 56 87 C0     JSL WAIT_UNTIL_NEXT_FRAME
+  E14E5A: AD 69 00        LDA PAD_HELD
+  E14E5D: 29 00 01        AND #PAD::RIGHT
+  E14E60: F0 07           BEQ @UNKNOWN8
+  E14E62: A0 01 00        LDY #1
+  E14E65: 84 12           STY @LOCAL02
+  E14E67: 80 1A           BRA @UNKNOWN10
+  E14E69:             @UNKNOWN8:
+  E14E69: AD 69 00        LDA PAD_HELD
+  E14E6C: 29 00 02        AND #PAD::LEFT
+  E14E6F: F0 07           BEQ @UNKNOWN9
+  E14E71: A0 FF FF        LDY #.LOWORD(-1)
+  E14E74: 84 12           STY @LOCAL02
+  E14E76: 80 0B           BRA @UNKNOWN10
+  E14E78:             @UNKNOWN9:
+  E14E78: AD 6D 00        LDA PAD_PRESS
+  E14E7B: F0 D9           BEQ @UNKNOWN7
+  E14E7D: 22 59 DD C1     JSL REDIRECT_CLOSE_FOCUS_WINDOW
+  E14E81: 80 3C           BRA @RETURN
+  E14E83:             @UNKNOWN10:
+  E14E83: 84 02           STY @VIRTUAL02
+  E14E85: A6 10           LDX @LOCAL01
+  E14E87: 8A              TXA
+  E14E88: 18              CLC
+  E14E89: 65 02           ADC @VIRTUAL02
+  E14E8B: AA              TAX
+  E14E8C: 86 10           STX @LOCAL01
+  E14E8E: 86 02           STX @VIRTUAL02
+  E14E90: A9 00 00        LDA #0
+  E14E93: 18              CLC
+  E14E94: E5 02           SBC @VIRTUAL02
+  E14E96: 50 04 10 09     BRANCHLTEQS @UNKNOWN13
+          80 02 30 05 
+  E14E9E: A2 1F 00        LDX #BATTLER_COUNT - 1
+  E14EA1: 86 10           STX @LOCAL01
+  E14EA3:             @UNKNOWN13:
+  E14EA3: 86 02           STX @VIRTUAL02
+  E14EA5: A9 20 00        LDA #BATTLER_COUNT
+  E14EA8: 18              CLC
+  E14EA9: E5 02           SBC @VIRTUAL02
+  E14EAB: 70 04 10 09     BRANCHGTS @UNKNOWN16
+          80 02 30 05 
+  E14EB3: A2 00 00        LDX #0
+  E14EB6: 86 10           STX @LOCAL01
+  E14EB8:             @UNKNOWN16:
+  E14EB8: 22 59 DD C1     JSL REDIRECT_CLOSE_FOCUS_WINDOW
+  E14EBC: 4C 33 4E        JMP @UNKNOWN6
+  E14EBF:             @RETURN:
+  E14EBF: 2B 6B           END_C_FUNCTION
+>>> bankconfig/common/bank21.asm
+  E14EC1:             APE_ARRANGEMENT:
+  E14EC1: E6 E1 00 04     BINARY "intro/logos/ape.arr.lzhal"
+          01 00 02 00 
+          03 E4 3A 00 
+          ...omitted...
+  E14F2A:             APE_GRAPHICS:
+  E14F2A: 33 00 0B 0E     BINARY "intro/logos/ape.gfx.lzhal"
+          0A 1A 11 0C 
+          10 0F 2C 1E 
+          ...omitted...
+  E15130:             APE_PALETTE:
+  E15130: 07 42 08 DE     BINARY "intro/logos/ape.pal.lzhal"
+          7B B5 56 EF 
+          3D 85 00 00 
+          ...omitted...
+  E15174:             HALKEN_ARRANGEMENT:
+  E15174: E6 D9 00 04     BINARY "intro/logos/halken.arr.lzhal"
+          01 08 02 08 
+          03 41 08 04 
+          ...omitted...
+  E151E8:             HALKEN_GRAPHICS:
+  E151E8: 37 00 07 08     BINARY "intro/logos/halken.gfx.lzhal"
+          07 00 1F 20 
+          1F 00 3F 27 
+          ...omitted...
+  E153B8:             HALKEN_PALETTE:
+  E153B8: 07 42 08 DE     BINARY "intro/logos/halken.pal.lzhal"
+          7B B5 56 EF 
+          3D 85 00 00 
+          ...omitted...
+  E15455:             NINTENDO_ARRANGEMENT:
+  E15455: E7 53 00 0A     LOCALEBINARY "intro/logos/nintendo.arr.lzhal"
+          01 00 02 00 
+          03 00 04 00 
+          ...omitted...
+  E1549E:             NINTENDO_GRAPHICS:
+  E1549E: 39 00 15 01     LOCALEBINARY "intro/logos/nintendo.gfx.lzhal"
+          01 00 01 01 
+          00 0B 0C 3F 
+          ...omitted...
+  E1558F:             NINTENDO_PALETTE:
+  E1558F: 07 42 08 DE     BINARY "intro/logos/nintendo.pal.lzhal"
+          7B B5 56 EF 
+          3D 85 00 00 
+          ...omitted...
+  E155D3:             GAS_STATION_ARRANGEMENT:
+  E155D3: E8 49 01 00     LOCALEBINARY "intro/gas_station.arr.lzhal"
+          16 02 00 03 
+          00 04 00 05 
+          ...omitted...
+  E15B33:             GAS_STATION_GRAPHICS:
+  E15B33: E4 3F 00 E4     LOCALEBINARY "intro/gas_station.gfx.lzhal"
+          2F FF 2F 00 
+          26 FF 08 E0 
+          ...omitted...
+  E1A9B7:             GAS_STATION_PALETTE:
+  E1A9B7: E0 41 92 43     BINARY "intro/gas_station.pal.lzhal"
+          5A 16 5A 1A 
+          5A 1E 59 22 
+          ...omitted...
+  E1AA5D:             GAS_STATION_PALETTE_2:
+  E1AA5D: E0 41 92 43     BINARY "intro/gas_station2.pal.lzhal"
+          78 36 98 3A 
+          B9 42 D9 46 
+          ...omitted...
+  E1AADF:             .IF .DEFINED(JPN)
+  E1AADF:                 UNKNOWN_ARRANGEMENT_9DE1:
+  E1AADF:                     LOCALEBINARY "intro/unknown.arr.lzhal"
+  E1AADF:                 TITLE_SCREEN_GRAPHICS:
+  E1AADF:                     LOCALEBINARY "intro/title_screen.gfx.lzhal"
+  E1AADF:                 UNKNOWN_ARRANGEMENT_B18C:
+  E1AADF:                     LOCALEBINARY "intro/unknown2.arr.lzhal"
+  E1AADF:                 TITLE_SCREEN_ARRANGEMENT:
+  E1AADF:                     LOCALEBINARY "intro/title_screen.arr.lzhal"
+  E1AADF:                 UNKNOWN_E1C6E5:
+  E1AADF:                     LOCALEBINARY "intro/title_screen_letters.gfx.lzhal"
+  E1AADF:                 UNKNOWN_E1C291:
+  E1AADF:                     LOCALEBINARY "unknown3.bin.lzhal"
+  E1AADF:             .ENDIF
+  E1AADF:             PRODUCED_ITOI_ARRANGEMENT:
+  E1AADF: E5 E5 00 0E     BINARY "intro/attract/produced_by_itoi.arr.lzhal"
+          01 00 02 00 
+          03 00 04 00 
+          ...omitted...
+  E1AB4B:             PRODUCED_ITOI_GRAPHICS:
+  E1AB4B: 39 00 04 0F     BINARY "intro/attract/produced_by_itoi.gfx.lzhal"
+          0F 08 0F 0D 
+          CA 00 1A 04 
+          ...omitted...
+  E1AD01:             NINTENDO_PRESENTATION_ARRANGEMENT:
+  E1AD01: E7 D7 00 0E     BINARY "intro/attract/nintendo_presentation.arr.lzhal"
+          01 00 02 00 
+          03 00 04 00 
+          ...omitted...
+  E1AD4E:             NINTENDO_PRESENTATION_GRAPHICS:
+  E1AD4E: 39 00 04 3F     BINARY "intro/attract/nintendo_presentation.gfx.lzhal"
+          3F 21 3F 36 
+          CA 00 1A 05 
+          ...omitted...
+  E1AE6F:             NINTENDO_ITOI_PALETTE:
+  E1AE6F: 07 00 00 FA     BINARY "intro/attract/nintendo_itoi.pal.lzhal"
+          77 EA 57 E5 
+          1C 4B E0 03 
+          ...omitted...
+  E1AE7C:             .IF .DEFINED(USA)
+  E1AE7C:                 UNKNOWN_E1AE7C:
+  E1AE7C: 01 00 00 4E         LOCALEBINARY "E1AE7C.bin.lzhal"
+          FF 7F FF    
+  E1AE83:                 UNKNOWN_E1AE83:
+  E1AE83: E4 21 00 07         LOCALEBINARY "E1AE83.bin.lzhal"
+          DF 03 FF 7F 
+          F7 5E 55 51 
+          ...omitted...
+  E1AEFD:                 UNKNOWN_E1AEFD:
+  E1AEFD: 4E 03 1C 01         LOCALEBINARY "E1AEFD.bin.lzhal"
+          45 20 4D 03 
+          1C 02 45 20 
+          ...omitted...
+  E1AF7D:                 TITLE_SCREEN_ARRANGEMENT:
+  E1AF7D: E5 9D 00 04         LOCALEBINARY "intro/title_screen.arr.lzhal"
+          01 00 02 00 
+          03 E4 38 00 
+          ...omitted...
+  E1B211:                 TITLE_SCREEN_GRAPHICS:
+  E1B211: E4 47 00 07         LOCALEBINARY "intro/title_screen.gfx.lzhal"
+          01 00 02 01 
+          05 03 0A 06 
+          ...omitted...
+  E1C6E5:                 UNKNOWN_E1C6E5:
+  E1C6E5: 29 00 00 07         LOCALEBINARY "intro/title_screen_letters.gfx.lzhal"
+          41 00 04 2C 
+          00 01 03 00 
+          ...omitted...
+  E1CDE1:                 TITLE_SCREEN_PALETTE:
+  E1CDE1: 41 03 1C 1B         LOCALEBINARY "intro/title_screen.pal.lzhal"
+          66 28 A8 2C 
+          E9 30 0B 39 
+          ...omitted...
+  E1CE08:             .ENDIF
+  E1CE08:             .INCLUDE "data/unknown/E1CE08.asm"
+>>> data/unknown/E1CE08.asm
+  E1CE08:             UNKNOWN_E1CE08:
+  E1CE08:             UNKNOWN_E1CE08_1:
+  E1CE08:             .IF .DEFINED(JPN)
+  E1CE08:                 .BYTE $20
+  E1CE08:                 .WORD $3043
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $20
+  E1CE08:                 .WORD $3042
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $20
+  E1CE08:                 .WORD $3041
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $20
+  E1CE08:                 .WORD $3040
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .WORD $3033
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .WORD $3032
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .WORD $3031
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .WORD $3030
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .WORD $3023
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .WORD $3022
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .WORD $3021
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .WORD $3020
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .WORD $3013
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .WORD $3012
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .WORD $3011
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .WORD $3010
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .WORD $3003
+  E1CE08:                 .BYTE $18
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .WORD $3002
+  E1CE08:                 .BYTE $10
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .WORD $3001
+  E1CE08:                 .BYTE $08
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .WORD $3000
+  E1CE08:                 .BYTE $00
+  E1CE08:                 .BYTE $80
+  E1CE08:             .ELSE
+  E1CE08: 10              .BYTE $10
+  E1CE09: 52 30           .WORD $3052
+  E1CE0B: 04              .BYTE $04
+  E1CE0C: 00              .BYTE $00
+  E1CE0D: 08              .BYTE $08
+  E1CE0E: 42 30           .WORD $3042
+  E1CE10: 04              .BYTE $04
+  E1CE11: 00              .BYTE $00
+  E1CE12: 08              .BYTE $08
+  E1CE13: 40 30           .WORD $3040
+  E1CE15: F4              .BYTE $F4
+  E1CE16: 01              .BYTE $01
+  E1CE17: 00              .BYTE $00
+  E1CE18: 32 30           .WORD $3032
+  E1CE1A: 04              .BYTE $04
+  E1CE1B: 00              .BYTE $00
+  E1CE1C: F8              .BYTE $F8
+  E1CE1D: 22 30           .WORD $3022
+  E1CE1F: 04              .BYTE $04
+  E1CE20: 00              .BYTE $00
+  E1CE21: F8              .BYTE $F8
+  E1CE22: 20 30           .WORD $3020
+  E1CE24: F4              .BYTE $F4
+  E1CE25: 01              .BYTE $01
+  E1CE26: F0              .BYTE $F0
+  E1CE27: 12 30           .WORD $3012
+  E1CE29: 04              .BYTE $04
+  E1CE2A: 00              .BYTE $00
+  E1CE2B: E8              .BYTE $E8
+  E1CE2C: 02 30           .WORD $3002
+  E1CE2E: 04              .BYTE $04
+  E1CE2F: 00              .BYTE $00
+  E1CE30: E8              .BYTE $E8
+  E1CE31: 00 30           .WORD $3000
+  E1CE33: F4              .BYTE $F4
+  E1CE34: 81              .BYTE $81
+  E1CE35:             .ENDIF
+  E1CE35:             UNKNOWN_E1CE08_2:
+  E1CE35:             .IF .DEFINED(JPN)
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .WORD $3059
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .WORD $3058
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .WORD $3057
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .WORD $3056
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .WORD $3055
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3049
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3048
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3047
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3046
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3045
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .WORD $3044
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3039
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3038
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3037
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3036
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3035
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .WORD $3034
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3029
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3028
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3027
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3026
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3025
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .WORD $3024
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3019
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3018
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3017
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3016
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3015
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .WORD $3014
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3009
+  E1CE35:                 .BYTE $28
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3008
+  E1CE35:                 .BYTE $20
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3007
+  E1CE35:                 .BYTE $18
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3006
+  E1CE35:                 .BYTE $10
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3005
+  E1CE35:                 .BYTE $08
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .WORD $3004
+  E1CE35:                 .BYTE $00
+  E1CE35:                 .BYTE $80
+  E1CE35:             .ELSE
+  E1CE35: 10              .BYTE $10
+  E1CE36: 55 30           .WORD $3055
+  E1CE38: 04              .BYTE $04
+  E1CE39: 00              .BYTE $00
+  E1CE3A: 08              .BYTE $08
+  E1CE3B: 45 30           .WORD $3045
+  E1CE3D: 04              .BYTE $04
+  E1CE3E: 00              .BYTE $00
+  E1CE3F: 08              .BYTE $08
+  E1CE40: 43 30           .WORD $3043
+  E1CE42: F4              .BYTE $F4
+  E1CE43: 01              .BYTE $01
+  E1CE44: 00              .BYTE $00
+  E1CE45: 35 30           .WORD $3035
+  E1CE47: 04              .BYTE $04
+  E1CE48: 00              .BYTE $00
+  E1CE49: F8              .BYTE $F8
+  E1CE4A: 25 30           .WORD $3025
+  E1CE4C: 04              .BYTE $04
+  E1CE4D: 00              .BYTE $00
+  E1CE4E: F8              .BYTE $F8
+  E1CE4F: 23 30           .WORD $3023
+  E1CE51: F4              .BYTE $F4
+  E1CE52: 01              .BYTE $01
+  E1CE53: F0              .BYTE $F0
+  E1CE54: 15 30           .WORD $3015
+  E1CE56: 04              .BYTE $04
+  E1CE57: 00              .BYTE $00
+  E1CE58: E8              .BYTE $E8
+  E1CE59: 05 30           .WORD $3005
+  E1CE5B: 04              .BYTE $04
+  E1CE5C: 00              .BYTE $00
+  E1CE5D: E8              .BYTE $E8
+  E1CE5E: 03 30           .WORD $3003
+  E1CE60: F4              .BYTE $F4
+  E1CE61: 81              .BYTE $81
+  E1CE62:             .ENDIF
+  E1CE62:             UNKNOWN_E1CE08_3:
+  E1CE62:             .IF .DEFINED(JPN)
+  E1CE62:                 .BYTE $20
+  E1CE62:                 .WORD $304A
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $18
+  E1CE62:                 .WORD $303A
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $10
+  E1CE62:                 .WORD $302A
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .WORD $301A
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .WORD $300C
+  E1CE62:                 .BYTE $10
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .WORD $300B
+  E1CE62:                 .BYTE $08
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .WORD $300A
+  E1CE62:                 .BYTE $00
+  E1CE62:                 .BYTE $80
+  E1CE62:             .ELSE
+  E1CE62: 10              .BYTE $10
+  E1CE63: 58 30           .WORD $3058
+  E1CE65: 04              .BYTE $04
+  E1CE66: 00              .BYTE $00
+  E1CE67: 08              .BYTE $08
+  E1CE68: 48 30           .WORD $3048
+  E1CE6A: 04              .BYTE $04
+  E1CE6B: 00              .BYTE $00
+  E1CE6C: 08              .BYTE $08
+  E1CE6D: 46 30           .WORD $3046
+  E1CE6F: F4              .BYTE $F4
+  E1CE70: 01              .BYTE $01
+  E1CE71: 00              .BYTE $00
+  E1CE72: 38 30           .WORD $3038
+  E1CE74: 04              .BYTE $04
+  E1CE75: 00              .BYTE $00
+  E1CE76: F8              .BYTE $F8
+  E1CE77: 28 30           .WORD $3028
+  E1CE79: 04              .BYTE $04
+  E1CE7A: 00              .BYTE $00
+  E1CE7B: F8              .BYTE $F8
+  E1CE7C: 26 30           .WORD $3026
+  E1CE7E: F4              .BYTE $F4
+  E1CE7F: 01              .BYTE $01
+  E1CE80: F0              .BYTE $F0
+  E1CE81: 18 30           .WORD $3018
+  E1CE83: 04              .BYTE $04
+  E1CE84: 00              .BYTE $00
+  E1CE85: E8              .BYTE $E8
+  E1CE86: 08 30           .WORD $3008
+  E1CE88: 04              .BYTE $04
+  E1CE89: 00              .BYTE $00
+  E1CE8A: E8              .BYTE $E8
+  E1CE8B: 06 30           .WORD $3006
+  E1CE8D: F4              .BYTE $F4
+  E1CE8E: 81              .BYTE $81
+  E1CE8F:             .ENDIF
+  E1CE8F:             UNKNOWN_E1CE08_4:
+  E1CE8F:             .IF .DEFINED(JPN)
+  E1CE8F:                 .BYTE $20
+  E1CE8F:                 .WORD $304D
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $18
+  E1CE8F:                 .WORD $303D
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .WORD $302D
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $08
+  E1CE8F:                 .WORD $301D
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .WORD $304C
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .WORD $302C
+  E1CE8F:                 .BYTE $08
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $08
+  E1CE8F:                 .WORD $301C
+  E1CE8F:                 .BYTE $08
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $20
+  E1CE8F:                 .WORD $304B
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $18
+  E1CE8F:                 .WORD $303B
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $10
+  E1CE8F:                 .WORD $302B
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $08
+  E1CE8F:                 .WORD $301B
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .WORD $303C
+  E1CE8F:                 .BYTE $00
+  E1CE8F:                 .BYTE $80
+  E1CE8F:             .ELSE
+  E1CE8F: 10              .BYTE $10
+  E1CE90: 5B 30           .WORD $305B
+  E1CE92: 04              .BYTE $04
+  E1CE93: 00              .BYTE $00
+  E1CE94: 08              .BYTE $08
+  E1CE95: 4B 30           .WORD $304B
+  E1CE97: 04              .BYTE $04
+  E1CE98: 00              .BYTE $00
+  E1CE99: 08              .BYTE $08
+  E1CE9A: 49 30           .WORD $3049
+  E1CE9C: F4              .BYTE $F4
+  E1CE9D: 01              .BYTE $01
+  E1CE9E: 00              .BYTE $00
+  E1CE9F: 3B 30           .WORD $303B
+  E1CEA1: 04              .BYTE $04
+  E1CEA2: 00              .BYTE $00
+  E1CEA3: F8              .BYTE $F8
+  E1CEA4: 2B 30           .WORD $302B
+  E1CEA6: 04              .BYTE $04
+  E1CEA7: 00              .BYTE $00
+  E1CEA8: F8              .BYTE $F8
+  E1CEA9: 29 30           .WORD $3029
+  E1CEAB: F4              .BYTE $F4
+  E1CEAC: 01              .BYTE $01
+  E1CEAD: F0              .BYTE $F0
+  E1CEAE: 1B 30           .WORD $301B
+  E1CEB0: 04              .BYTE $04
+  E1CEB1: 00              .BYTE $00
+  E1CEB2: E8              .BYTE $E8
+  E1CEB3: 0B 30           .WORD $300B
+  E1CEB5: 04              .BYTE $04
+  E1CEB6: 00              .BYTE $00
+  E1CEB7: E8              .BYTE $E8
+  E1CEB8: 09 30           .WORD $3009
+  E1CEBA: F4              .BYTE $F4
+  E1CEBB: 81              .BYTE $81
+  E1CEBC:             .ENDIF
+  E1CEBC:             UNKNOWN_E1CE08_5:
+  E1CEBC:             .IF .DEFINED(JPN)
+  E1CEBC:                 .BYTE $20
+  E1CEBC:                 .WORD $3060
+  E1CEBC:                 .BYTE $10
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $18
+  E1CEBC:                 .WORD $3050
+  E1CEBC:                 .BYTE $10
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $20
+  E1CEBC:                 .WORD $304F
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $20
+  E1CEBC:                 .WORD $304E
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $18
+  E1CEBC:                 .WORD $303F
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $18
+  E1CEBC:                 .WORD $303E
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $10
+  E1CEBC:                 .WORD $302F
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $10
+  E1CEBC:                 .WORD $302E
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .WORD $301F
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .WORD $301E
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .WORD $300F
+  E1CEBC:                 .BYTE $10
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .WORD $300E
+  E1CEBC:                 .BYTE $08
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .WORD $300D
+  E1CEBC:                 .BYTE $00
+  E1CEBC:                 .BYTE $80
+  E1CEBC:             .ELSE
+  E1CEBC: 10              .BYTE $10
+  E1CEBD: 5E 30           .WORD $305E
+  E1CEBF: 04              .BYTE $04
+  E1CEC0: 00              .BYTE $00
+  E1CEC1: 08              .BYTE $08
+  E1CEC2: 4E 30           .WORD $304E
+  E1CEC4: 04              .BYTE $04
+  E1CEC5: 00              .BYTE $00
+  E1CEC6: 08              .BYTE $08
+  E1CEC7: 4C 30           .WORD $304C
+  E1CEC9: F4              .BYTE $F4
+  E1CECA: 01              .BYTE $01
+  E1CECB: 00              .BYTE $00
+  E1CECC: 3E 30           .WORD $303E
+  E1CECE: 04              .BYTE $04
+  E1CECF: 00              .BYTE $00
+  E1CED0: F8              .BYTE $F8
+  E1CED1: 2E 30           .WORD $302E
+  E1CED3: 04              .BYTE $04
+  E1CED4: 00              .BYTE $00
+  E1CED5: F8              .BYTE $F8
+  E1CED6: 2C 30           .WORD $302C
+  E1CED8: F4              .BYTE $F4
+  E1CED9: 01              .BYTE $01
+  E1CEDA: F0              .BYTE $F0
+  E1CEDB: 1E 30           .WORD $301E
+  E1CEDD: 04              .BYTE $04
+  E1CEDE: 00              .BYTE $00
+  E1CEDF: E8              .BYTE $E8
+  E1CEE0: 0E 30           .WORD $300E
+  E1CEE2: 04              .BYTE $04
+  E1CEE3: 00              .BYTE $00
+  E1CEE4: E8              .BYTE $E8
+  E1CEE5: 0C 30           .WORD $300C
+  E1CEE7: F4              .BYTE $F4
+  E1CEE8: 81              .BYTE $81
+  E1CEE9:             .ENDIF
+  E1CEE9:             UNKNOWN_E1CE08_6:
+  E1CEE9:             .IF .DEFINED(JPN)
+  E1CEE9:                 .BYTE $20
+  E1CEE9:                 .WORD $3072
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $20
+  E1CEE9:                 .WORD $3071
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $18
+  E1CEE9:                 .WORD $3068
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $18
+  E1CEE9:                 .WORD $3067
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $18
+  E1CEE9:                 .WORD $3066
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .WORD $3065
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .WORD $3064
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .WORD $3054
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .WORD $3063
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .WORD $3062
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .WORD $3061
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .WORD $3053
+  E1CEE9:                 .BYTE $10
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .WORD $3052
+  E1CEE9:                 .BYTE $08
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .WORD $3051
+  E1CEE9:                 .BYTE $00
+  E1CEE9:                 .BYTE $80
+  E1CEE9:             .ELSE
+  E1CEE9: 08              .BYTE $08
+  E1CEEA: 40 31           .WORD $3140
+  E1CEEC: FC              .BYTE $FC
+  E1CEED: 01              .BYTE $01
+  E1CEEE: F8              .BYTE $F8
+  E1CEEF: 20 31           .WORD $3120
+  E1CEF1: FC              .BYTE $FC
+  E1CEF2: 01              .BYTE $01
+  E1CEF3: E8              .BYTE $E8
+  E1CEF4: 00 31           .WORD $3100
+  E1CEF6: FC              .BYTE $FC
+  E1CEF7: 01              .BYTE $01
+  E1CEF8: 10              .BYTE $10
+  E1CEF9: 5F 30           .WORD $305F
+  E1CEFB: F4              .BYTE $F4
+  E1CEFC: 00              .BYTE $00
+  E1CEFD: 08              .BYTE $08
+  E1CEFE: 4F 30           .WORD $304F
+  E1CF00: F4              .BYTE $F4
+  E1CF01: 00              .BYTE $00
+  E1CF02: 00              .BYTE $00
+  E1CF03: 3F 30           .WORD $303F
+  E1CF05: F4              .BYTE $F4
+  E1CF06: 00              .BYTE $00
+  E1CF07: F8              .BYTE $F8
+  E1CF08: 2F 30           .WORD $302F
+  E1CF0A: F4              .BYTE $F4
+  E1CF0B: 00              .BYTE $00
+  E1CF0C: F0              .BYTE $F0
+  E1CF0D: 1F 30           .WORD $301F
+  E1CF0F: F4              .BYTE $F4
+  E1CF10: 00              .BYTE $00
+  E1CF11: E8              .BYTE $E8
+  E1CF12: 0F 30           .WORD $300F
+  E1CF14: F4              .BYTE $F4
+  E1CF15: 80              .BYTE $80
+  E1CF16:             .ENDIF
+  E1CF16:             UNKNOWN_E1CE08_7:
+  E1CF16:             .IF .DEFINED(JPN)
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $3070
+  E1CF16:                 .BYTE $30
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306F
+  E1CF16:                 .BYTE $30
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306E
+  E1CF16:                 .BYTE $28
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306D
+  E1CF16:                 .BYTE $20
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306C
+  E1CF16:                 .BYTE $18
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306B
+  E1CF16:                 .BYTE $10
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $306A
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .WORD $3069
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305F
+  E1CF16:                 .BYTE $28
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305E
+  E1CF16:                 .BYTE $20
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305D
+  E1CF16:                 .BYTE $18
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305C
+  E1CF16:                 .BYTE $10
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305B
+  E1CF16:                 .BYTE $08
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .WORD $305A
+  E1CF16:                 .BYTE $00
+  E1CF16:                 .BYTE $80
+  E1CF16:             .ELSE
+  E1CF16: 10              .BYTE $10
+  E1CF17: 54 31           .WORD $3154
+  E1CF19: 04              .BYTE $04
+  E1CF1A: 00              .BYTE $00
+  E1CF1B: 08              .BYTE $08
+  E1CF1C: 44 31           .WORD $3144
+  E1CF1E: 04              .BYTE $04
+  E1CF1F: 00              .BYTE $00
+  E1CF20: 08              .BYTE $08
+  E1CF21: 42 31           .WORD $3142
+  E1CF23: F4              .BYTE $F4
+  E1CF24: 01              .BYTE $01
+  E1CF25: 00              .BYTE $00
+  E1CF26: 34 31           .WORD $3134
+  E1CF28: 04              .BYTE $04
+  E1CF29: 00              .BYTE $00
+  E1CF2A: F8              .BYTE $F8
+  E1CF2B: 24 31           .WORD $3124
+  E1CF2D: 04              .BYTE $04
+  E1CF2E: 00              .BYTE $00
+  E1CF2F: F8              .BYTE $F8
+  E1CF30: 22 31           .WORD $3122
+  E1CF32: F4              .BYTE $F4
+  E1CF33: 01              .BYTE $01
+  E1CF34: F0              .BYTE $F0
+  E1CF35: 14 31           .WORD $3114
+  E1CF37: 04              .BYTE $04
+  E1CF38: 00              .BYTE $00
+  E1CF39: E8              .BYTE $E8
+  E1CF3A: 04 31           .WORD $3104
+  E1CF3C: 04              .BYTE $04
+  E1CF3D: 00              .BYTE $00
+  E1CF3E: E8              .BYTE $E8
+  E1CF3F: 02 31           .WORD $3102
+  E1CF41: F4              .BYTE $F4
+  E1CF42: 81              .BYTE $81
+  E1CF43:             .ENDIF
+  E1CF43:             .IF .DEFINED(USA)
+  E1CF43:             UNKNOWN_E1CE08_8:
+  E1CF43: 10              .BYTE $10
+  E1CF44: 57 31           .WORD $3157
+  E1CF46: 04              .BYTE $04
+  E1CF47: 00              .BYTE $00
+  E1CF48: 08              .BYTE $08
+  E1CF49: 47 31           .WORD $3147
+  E1CF4B: 04              .BYTE $04
+  E1CF4C: 00              .BYTE $00
+  E1CF4D: 08              .BYTE $08
+  E1CF4E: 45 31           .WORD $3145
+  E1CF50: F4              .BYTE $F4
+  E1CF51: 01              .BYTE $01
+  E1CF52: 00              .BYTE $00
+  E1CF53: 37 31           .WORD $3137
+  E1CF55: 04              .BYTE $04
+  E1CF56: 00              .BYTE $00
+  E1CF57: F8              .BYTE $F8
+  E1CF58: 27 31           .WORD $3127
+  E1CF5A: 04              .BYTE $04
+  E1CF5B: 00              .BYTE $00
+  E1CF5C: F8              .BYTE $F8
+  E1CF5D: 25 31           .WORD $3125
+  E1CF5F: F4              .BYTE $F4
+  E1CF60: 01              .BYTE $01
+  E1CF61: F0              .BYTE $F0
+  E1CF62: 17 31           .WORD $3117
+  E1CF64: 04              .BYTE $04
+  E1CF65: 00              .BYTE $00
+  E1CF66: E8              .BYTE $E8
+  E1CF67: 07 31           .WORD $3107
+  E1CF69: 04              .BYTE $04
+  E1CF6A: 00              .BYTE $00
+  E1CF6B: E8              .BYTE $E8
+  E1CF6C: 05 31           .WORD $3105
+  E1CF6E: F4              .BYTE $F4
+  E1CF6F: 81              .BYTE $81
+  E1CF70:             UNKNOWN_E1CE08_9:
+  E1CF70: 10              .BYTE $10
+  E1CF71: 5A 31           .WORD $315A
+  E1CF73: 04              .BYTE $04
+  E1CF74: 00              .BYTE $00
+  E1CF75: 08              .BYTE $08
+  E1CF76: 4A 31           .WORD $314A
+  E1CF78: 04              .BYTE $04
+  E1CF79: 00              .BYTE $00
+  E1CF7A: 08              .BYTE $08
+  E1CF7B: 48 31           .WORD $3148
+  E1CF7D: F4              .BYTE $F4
+  E1CF7E: 01              .BYTE $01
+  E1CF7F: 00              .BYTE $00
+  E1CF80: 3A 31           .WORD $313A
+  E1CF82: 04              .BYTE $04
+  E1CF83: 00              .BYTE $00
+  E1CF84: F8              .BYTE $F8
+  E1CF85: 2A 31           .WORD $312A
+  E1CF87: 04              .BYTE $04
+  E1CF88: 00              .BYTE $00
+  E1CF89: F8              .BYTE $F8
+  E1CF8A: 28 31           .WORD $3128
+  E1CF8C: F4              .BYTE $F4
+  E1CF8D: 01              .BYTE $01
+  E1CF8E: F0              .BYTE $F0
+  E1CF8F: 1A 31           .WORD $311A
+  E1CF91: 04              .BYTE $04
+  E1CF92: 00              .BYTE $00
+  E1CF93: E8              .BYTE $E8
+  E1CF94: 0A 31           .WORD $310A
+  E1CF96: 04              .BYTE $04
+  E1CF97: 00              .BYTE $00
+  E1CF98: E8              .BYTE $E8
+  E1CF99: 08 31           .WORD $3108
+  E1CF9B: F4              .BYTE $F4
+  E1CF9C: 81              .BYTE $81
+  E1CF9D:             .ENDIF
+  E1CF9D:             UNKNOWN_E1CF9D:
+  E1CF9D: 08 CE           .WORD .LOWORD(UNKNOWN_E1CE08_1) ;$CE08
+  E1CF9F: 35 CE           .WORD .LOWORD(UNKNOWN_E1CE08_2) ;$CE35
+  E1CFA1: 62 CE           .WORD .LOWORD(UNKNOWN_E1CE08_3) ;$CE62
+  E1CFA3: 8F CE           .WORD .LOWORD(UNKNOWN_E1CE08_4) ;$CE8F
+  E1CFA5: BC CE           .WORD .LOWORD(UNKNOWN_E1CE08_5) ;$CEBC
+  E1CFA7: E9 CE           .WORD .LOWORD(UNKNOWN_E1CE08_6) ;$CEE9
+  E1CFA9: 16 CF           .WORD .LOWORD(UNKNOWN_E1CE08_7) ;$CF16
+  E1CFAB:             .IF .DEFINED(USA)
+  E1CFAB: 43 CF           .WORD .LOWORD(UNKNOWN_E1CE08_8) ;$CF43
+  E1CFAD: 70 CF           .WORD .LOWORD(UNKNOWN_E1CE08_9)
+  E1CFAF:             .ENDIF
+>>> bankconfig/common/bank21.asm
+  E1CFAF:             UNKNOWN_E1CFAF:
+  E1CFAF: 3F 00 3F FF     BINARY "E1CFAF.gfx.lzhal"
+          01 0F 0F 46 
+          87 07 00 F0 
+          ...omitted...
+  E1D4F4:             UNKNOWN_E1D4F4:
+  E1D4F4: 03 00 00 F1     BINARY "E1D4F4.pal.lzhal"
+          6A 41 EB 7D 
+          E0 75 EB 41 
+          ...omitted...
+  E1D5E8:             UNKNOWN_E1D5E8:
+  E1D5E8: 00 00 44 08     BINARY "E1D5E8.arr.lzhal"
+          01 10 08 02 
+          08 03 08 04 
+          ...omitted...
+  E1D6E1:             .IF .DEFINED(JPN)
+  E1D6E1:                 CAST_NAMES_GFX:
+  E1D6E1:                     LOCALEBINARY "ending/cast_names.gfx.lzhal"
+  E1D6E1:                 .INCLUDE "data/unknown/E1D815.asm"
+  E1D6E1:             .ELSE
+  E1D6E1:                 UNKNOWN_E1D6E1:
+  E1D6E1: 25 00 02 7E         LOCALEBINARY "E1D6E1.gfx.lzhal"
+          7E C3 41 FF 
+          99 02 FF 9F 
+          ...omitted...
+  E1D815:                 .INCLUDE "data/unknown/E1D815.asm"
+>>> data/unknown/E1D815.asm
+  E1D815:             UNKNOWN_E1D815:
+  E1D815:             .IF .DEFINED(JPN) || .DEFINED(PROTOTYPE19950327)
+  E1D815:                 .BYTE $00, $00, $DE, $7B, $7B, $29, $8B, $40, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07
+  E1D815:             .ELSE
+  E1D815: 00 00 FF 7F     .BYTE $00, $00, $FF, $7F, $1E, $38, $86, $10, $00, $00, $FF, $7F, $1E, $38, $86, $10, $00, $00, $FF, $7F, $1E, $38, $86, $10, $00, $00, $FF, $7F, $1E, $38, $86, $10
+          1E 38 86 10 
+          00 00 FF 7F 
+          ...omitted...
+  E1D835:             .ENDIF
+>>> bankconfig/common/bank21.asm
+  E1D835:                 CAST_NAMES_GFX:
+  E1D835: 27 00 41 01         LOCALEBINARY "ending/cast_names.gfx.lzhal"
+          00 CA 00 0A 
+          07 00 E4 00 
+          ...omitted...
+  E1E4E6:             .ENDIF
+  E1E4E6:             UNKNOWN_E1E4E6:
+  E1E4E6: 1D 00 00 0C     LOCALEBINARY "ending/cast_names.pal.lzhal"
+          7E 00 7D CE 
+          79 2B 49 E0 
+          ...omitted...
+  E1E528:             STAFF_CREDITS_FONT_GRAPHICS:
+  E1E528: 35 00 00 3C     LOCALEBINARY "ending/credits_font.gfx.lzhal"
+          42 3C 24 06 
+          3C 3C 24 10 
+          ...omitted...
+  E1E914:             STAFF_CREDITS_FONT_PALETTE:
+  E1E914: 00 00 0E 62     BINARY "ending/credits_font.pal"
+          72 6D 86 10 
+          80 00 FF 7F 
+          ...omitted...
+  E1E924:             .INCLUDE "data/unknown/E1E924.asm"
+>>> data/unknown/E1E924.asm
+  E1E924:             UNKNOWN_E1E924:
+  E1E924: 04 00 7F 1F     .BYTE $04, $00, $7F, $1F, $58, $32, $1F, $3D, $FF, $7F, $E0, $07, $86, $10, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $E0, $07, $DF, $57, $E0, $07, $55, $25, $00, $00
+          58 32 1F 3D 
+          FF 7F E0 07 
+          ...omitted...
+>>> bankconfig/common/bank21.asm
+  E1E94A:             .INCLUDE "data/unknown/E1E94A.asm"
+>>> data/unknown/E1E94A.asm
+  E1E94A:             UNKNOWN_E1E94A:
+  E1E94A: E8 62 0C 24     .BYTE $E8, $62, $0C, $24, $00, $0D, $57, $24, $0E, $02, $24, $0D, $64, $45, $0C, $24, $00, $0F, $57, $24, $00, $02, $24, $0F, $E4, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F0, $3F, $00, $FA, $F2, $7F, $00, $FA, $45, $0C, $24, $01, $0D, $A4, $57, $0E, $E4,<... long line trimmed>
+          00 0D 57 24 
+          0E 02 24 0D 
+          ...omitted...
+>>> bankconfig/common/bank21.asm
+  E1EA50:             TOWN_MAP_LABEL_GFX:
+  E1EA50: E4 2D 00 00     LOCALEBINARY "town_maps/label.gfx.lzhal"
+          FF C7 00 2E 
+          C7 00 36 C7 
+          ...omitted...
+  E1F1C3:             TOWN_MAP_ICON_PALETTE:
+  E1F1C3: 00 00 DE 6B     BINARY "town_maps/icon.pal"
+          39 6F 73 76 
+          CE 79 52 76 
+          ...omitted...
+  E1F203:             .IF .DEFINED(JPN)
+  E1F203:                 .INCLUDE "data/unknown/E1F203-jp.asm"
+  E1F203:             .ELSE
+  E1F203:                 .INCLUDE "data/unknown/E1F203.asm"
+>>> data/unknown/E1F203.asm
+  E1F203:             UNKNOWN_E1F203:
+  E1F203:             UNKNOWN_E1F203_1:
+  E1F203: 00              .BYTE $00
+  E1F204: 0C 32           .WORD $320C
+  E1F206: 00              .BYTE $00
+  E1F207: 01              .BYTE $01
+  E1F208: 00              .BYTE $00
+  E1F209: 0E 32           .WORD $320E
+  E1F20B: 10              .BYTE $10
+  E1F20C: 01              .BYTE $01
+  E1F20D: 10              .BYTE $10
+  E1F20E: 2C 32           .WORD $322C
+  E1F210: 00              .BYTE $00
+  E1F211: 00              .BYTE $00
+  E1F212: 10              .BYTE $10
+  E1F213: 2D 32           .WORD $322D
+  E1F215: 08              .BYTE $08
+  E1F216: 00              .BYTE $00
+  E1F217: 10              .BYTE $10
+  E1F218: 2E 32           .WORD $322E
+  E1F21A: 10              .BYTE $10
+  E1F21B: 00              .BYTE $00
+  E1F21C: 10              .BYTE $10
+  E1F21D: 2F 32           .WORD $322F
+  E1F21F: 18              .BYTE $18
+  E1F220: 80              .BYTE $80
+  E1F221:             UNKNOWN_E1F203_2:
+  E1F221: 00              .BYTE $00
+  E1F222: 90 32           .WORD $3290
+  E1F224: 00              .BYTE $00
+  E1F225: 01              .BYTE $01
+  E1F226: 00              .BYTE $00
+  E1F227: 92 32           .WORD $3292
+  E1F229: 10              .BYTE $10
+  E1F22A: 01              .BYTE $01
+  E1F22B: 10              .BYTE $10
+  E1F22C: B0 32           .WORD $32B0
+  E1F22E: 00              .BYTE $00
+  E1F22F: 00              .BYTE $00
+  E1F230: 10              .BYTE $10
+  E1F231: B1 32           .WORD $32B1
+  E1F233: 08              .BYTE $08
+  E1F234: 00              .BYTE $00
+  E1F235: 10              .BYTE $10
+  E1F236: B2 32           .WORD $32B2
+  E1F238: 10              .BYTE $10
+  E1F239: 00              .BYTE $00
+  E1F23A: 10              .BYTE $10
+  E1F23B: B3 32           .WORD $32B3
+  E1F23D: 18              .BYTE $18
+  E1F23E: 80              .BYTE $80
+  E1F23F:             UNKNOWN_E1F203_3:
+  E1F23F: 00              .BYTE $00
+  E1F240: BC 32           .WORD $32BC
+  E1F242: 00              .BYTE $00
+  E1F243: 01              .BYTE $01
+  E1F244: 00              .BYTE $00
+  E1F245: BE 32           .WORD $32BE
+  E1F247: 10              .BYTE $10
+  E1F248: 00              .BYTE $00
+  E1F249: 08              .BYTE $08
+  E1F24A: CE 32           .WORD $32CE
+  E1F24C: 10              .BYTE $10
+  E1F24D: 00              .BYTE $00
+  E1F24E: 10              .BYTE $10
+  E1F24F: DC 32           .WORD $32DC
+  E1F251: 00              .BYTE $00
+  E1F252: 00              .BYTE $00
+  E1F253: 10              .BYTE $10
+  E1F254: DD 32           .WORD $32DD
+  E1F256: 08              .BYTE $08
+  E1F257: 00              .BYTE $00
+  E1F258: 10              .BYTE $10
+  E1F259: DE 32           .WORD $32DE
+  E1F25B: 10              .BYTE $10
+  E1F25C: 80              .BYTE $80
+  E1F25D:             UNKNOWN_E1F203_4:
+  E1F25D: 00              .BYTE $00
+  E1F25E: 94 32           .WORD $3294
+  E1F260: 00              .BYTE $00
+  E1F261: 01              .BYTE $01
+  E1F262: 00              .BYTE $00
+  E1F263: 96 32           .WORD $3296
+  E1F265: 10              .BYTE $10
+  E1F266: 01              .BYTE $01
+  E1F267: 10              .BYTE $10
+  E1F268: B4 32           .WORD $32B4
+  E1F26A: 00              .BYTE $00
+  E1F26B: 00              .BYTE $00
+  E1F26C: 10              .BYTE $10
+  E1F26D: B5 32           .WORD $32B5
+  E1F26F: 08              .BYTE $08
+  E1F270: 00              .BYTE $00
+  E1F271: 10              .BYTE $10
+  E1F272: B6 32           .WORD $32B6
+  E1F274: 10              .BYTE $10
+  E1F275: 00              .BYTE $00
+  E1F276: 10              .BYTE $10
+  E1F277: B7 32           .WORD $32B7
+  E1F279: 18              .BYTE $18
+  E1F27A: 80              .BYTE $80
+  E1F27B:             UNKNOWN_E1F203_5:
+  E1F27B: 00              .BYTE $00
+  E1F27C: 36 32           .WORD $3236
+  E1F27E: 00              .BYTE $00
+  E1F27F: 01              .BYTE $01
+  E1F280: 00              .BYTE $00
+  E1F281: 38 32           .WORD $3238
+  E1F283: 10              .BYTE $10
+  E1F284: 01              .BYTE $01
+  E1F285: 00              .BYTE $00
+  E1F286: 3A 32           .WORD $323A
+  E1F288: 20              .BYTE $20
+  E1F289: 00              .BYTE $00
+  E1F28A: 08              .BYTE $08
+  E1F28B: 4A 32           .WORD $324A
+  E1F28D: 20              .BYTE $20
+  E1F28E: 00              .BYTE $00
+  E1F28F: 10              .BYTE $10
+  E1F290: 56 32           .WORD $3256
+  E1F292: 00              .BYTE $00
+  E1F293: 00              .BYTE $00
+  E1F294: 10              .BYTE $10
+  E1F295: 57 32           .WORD $3257
+  E1F297: 08              .BYTE $08
+  E1F298: 00              .BYTE $00
+  E1F299: 10              .BYTE $10
+  E1F29A: 58 32           .WORD $3258
+  E1F29C: 10              .BYTE $10
+  E1F29D: 00              .BYTE $00
+  E1F29E: 10              .BYTE $10
+  E1F29F: 59 32           .WORD $3259
+  E1F2A1: 18              .BYTE $18
+  E1F2A2: 00              .BYTE $00
+  E1F2A3: 10              .BYTE $10
+  E1F2A4: 5A 32           .WORD $325A
+  E1F2A6: 20              .BYTE $20
+  E1F2A7: 80              .BYTE $80
+  E1F2A8:             UNKNOWN_E1F203_6:
+  E1F2A8: 00              .BYTE $00
+  E1F2A9: C0 32           .WORD $32C0
+  E1F2AB: 00              .BYTE $00
+  E1F2AC: 01              .BYTE $01
+  E1F2AD: 00              .BYTE $00
+  E1F2AE: C2 32           .WORD $32C2
+  E1F2B0: 10              .BYTE $10
+  E1F2B1: 00              .BYTE $00
+  E1F2B2: 08              .BYTE $08
+  E1F2B3: D2 32           .WORD $32D2
+  E1F2B5: 10              .BYTE $10
+  E1F2B6: 00              .BYTE $00
+  E1F2B7: 10              .BYTE $10
+  E1F2B8: E0 32           .WORD $32E0
+  E1F2BA: 00              .BYTE $00
+  E1F2BB: 00              .BYTE $00
+  E1F2BC: 10              .BYTE $10
+  E1F2BD: E1 32           .WORD $32E1
+  E1F2BF: 08              .BYTE $08
+  E1F2C0: 00              .BYTE $00
+  E1F2C1: 10              .BYTE $10
+  E1F2C2: E2 32           .WORD $32E2
+  E1F2C4: 10              .BYTE $10
+  E1F2C5: 80              .BYTE $80
+  E1F2C6:             UNKNOWN_E1F203_7:
+  E1F2C6: 00              .BYTE $00
+  E1F2C7: 3B 32           .WORD $323B
+  E1F2C9: 00              .BYTE $00
+  E1F2CA: 01              .BYTE $01
+  E1F2CB: 00              .BYTE $00
+  E1F2CC: 3D 32           .WORD $323D
+  E1F2CE: 10              .BYTE $10
+  E1F2CF: 01              .BYTE $01
+  E1F2D0: 00              .BYTE $00
+  E1F2D1: 3F 32           .WORD $323F
+  E1F2D3: 20              .BYTE $20
+  E1F2D4: 00              .BYTE $00
+  E1F2D5: 08              .BYTE $08
+  E1F2D6: 4F 32           .WORD $324F
+  E1F2D8: 20              .BYTE $20
+  E1F2D9: 00              .BYTE $00
+  E1F2DA: 10              .BYTE $10
+  E1F2DB: 5B 32           .WORD $325B
+  E1F2DD: 00              .BYTE $00
+  E1F2DE: 00              .BYTE $00
+  E1F2DF: 10              .BYTE $10
+  E1F2E0: 5C 32           .WORD $325C
+  E1F2E2: 08              .BYTE $08
+  E1F2E3: 00              .BYTE $00
+  E1F2E4: 10              .BYTE $10
+  E1F2E5: 5D 32           .WORD $325D
+  E1F2E7: 10              .BYTE $10
+  E1F2E8: 00              .BYTE $00
+  E1F2E9: 10              .BYTE $10
+  E1F2EA: 5E 32           .WORD $325E
+  E1F2EC: 18              .BYTE $18
+  E1F2ED: 00              .BYTE $00
+  E1F2EE: 10              .BYTE $10
+  E1F2EF: 5F 32           .WORD $325F
+  E1F2F1: 20              .BYTE $20
+  E1F2F2: 80              .BYTE $80
+  E1F2F3:             UNKNOWN_E1F203_8:
+  E1F2F3: 00              .BYTE $00
+  E1F2F4: 6F 32           .WORD $326F
+  E1F2F6: 00              .BYTE $00
+  E1F2F7: 80              .BYTE $80
+  E1F2F8:             UNKNOWN_E1F203_9:
+  E1F2F8: 00              .BYTE $00
+  E1F2F9: 60 32           .WORD $3260
+  E1F2FB: 00              .BYTE $00
+  E1F2FC: 01              .BYTE $01
+  E1F2FD: 00              .BYTE $00
+  E1F2FE: 62 32           .WORD $3262
+  E1F300: 10              .BYTE $10
+  E1F301: 01              .BYTE $01
+  E1F302: 00              .BYTE $00
+  E1F303: 64 32           .WORD $3264
+  E1F305: 20              .BYTE $20
+  E1F306: 00              .BYTE $00
+  E1F307: 08              .BYTE $08
+  E1F308: 74 32           .WORD $3274
+  E1F30A: 20              .BYTE $20
+  E1F30B: 00              .BYTE $00
+  E1F30C: 10              .BYTE $10
+  E1F30D: 80 32           .WORD $3280
+  E1F30F: 00              .BYTE $00
+  E1F310: 00              .BYTE $00
+  E1F311: 10              .BYTE $10
+  E1F312: 81 32           .WORD $3281
+  E1F314: 08              .BYTE $08
+  E1F315: 00              .BYTE $00
+  E1F316: 10              .BYTE $10
+  E1F317: 82 32           .WORD $3282
+  E1F319: 10              .BYTE $10
+  E1F31A: 00              .BYTE $00
+  E1F31B: 10              .BYTE $10
+  E1F31C: 83 32           .WORD $3283
+  E1F31E: 18              .BYTE $18
+  E1F31F: 00              .BYTE $00
+  E1F320: 10              .BYTE $10
+  E1F321: 84 32           .WORD $3284
+  E1F323: 20              .BYTE $20
+  E1F324: 80              .BYTE $80
+  E1F325:             UNKNOWN_E1F203_10:
+  E1F325: 00              .BYTE $00
+  E1F326: 9C 32           .WORD $329C
+  E1F328: 00              .BYTE $00
+  E1F329: 01              .BYTE $01
+  E1F32A: 00              .BYTE $00
+  E1F32B: 9E 32           .WORD $329E
+  E1F32D: 10              .BYTE $10
+  E1F32E: 81              .BYTE $81
+  E1F32F:             UNKNOWN_E1F203_11:
+  E1F32F: 00              .BYTE $00
+  E1F330: 65 32           .WORD $3265
+  E1F332: 00              .BYTE $00
+  E1F333: 01              .BYTE $01
+  E1F334: 00              .BYTE $00
+  E1F335: 67 32           .WORD $3267
+  E1F337: 10              .BYTE $10
+  E1F338: 01              .BYTE $01
+  E1F339: 00              .BYTE $00
+  E1F33A: 69 32           .WORD $3269
+  E1F33C: 20              .BYTE $20
+  E1F33D: 00              .BYTE $00
+  E1F33E: 08              .BYTE $08
+  E1F33F: 79 32           .WORD $3279
+  E1F341: 20              .BYTE $20
+  E1F342: 00              .BYTE $00
+  E1F343: 10              .BYTE $10
+  E1F344: 85 32           .WORD $3285
+  E1F346: 00              .BYTE $00
+  E1F347: 00              .BYTE $00
+  E1F348: 10              .BYTE $10
+  E1F349: 86 32           .WORD $3286
+  E1F34B: 08              .BYTE $08
+  E1F34C: 00              .BYTE $00
+  E1F34D: 10              .BYTE $10
+  E1F34E: 87 32           .WORD $3287
+  E1F350: 10              .BYTE $10
+  E1F351: 00              .BYTE $00
+  E1F352: 10              .BYTE $10
+  E1F353: 88 32           .WORD $3288
+  E1F355: 18              .BYTE $18
+  E1F356: 00              .BYTE $00
+  E1F357: 10              .BYTE $10
+  E1F358: 89 32           .WORD $3289
+  E1F35A: 20              .BYTE $20
+  E1F35B: 80              .BYTE $80
+  E1F35C:             UNKNOWN_E1F203_12:
+  E1F35C: 00              .BYTE $00
+  E1F35D: 00 32           .WORD $3200
+  E1F35F: 00              .BYTE $00
+  E1F360: 01              .BYTE $01
+  E1F361: 00              .BYTE $00
+  E1F362: 02 32           .WORD $3202
+  E1F364: 10              .BYTE $10
+  E1F365: 01              .BYTE $01
+  E1F366: 00              .BYTE $00
+  E1F367: 04 32           .WORD $3204
+  E1F369: 20              .BYTE $20
+  E1F36A: 01              .BYTE $01
+  E1F36B: 10              .BYTE $10
+  E1F36C: 20 32           .WORD $3220
+  E1F36E: 00              .BYTE $00
+  E1F36F: 00              .BYTE $00
+  E1F370: 10              .BYTE $10
+  E1F371: 21 32           .WORD $3221
+  E1F373: 08              .BYTE $08
+  E1F374: 00              .BYTE $00
+  E1F375: 10              .BYTE $10
+  E1F376: 22 32           .WORD $3222
+  E1F378: 10              .BYTE $10
+  E1F379: 00              .BYTE $00
+  E1F37A: 10              .BYTE $10
+  E1F37B: 23 32           .WORD $3223
+  E1F37D: 18              .BYTE $18
+  E1F37E: 00              .BYTE $00
+  E1F37F: 10              .BYTE $10
+  E1F380: 24 32           .WORD $3224
+  E1F382: 20              .BYTE $20
+  E1F383: 00              .BYTE $00
+  E1F384: 10              .BYTE $10
+  E1F385: 25 32           .WORD $3225
+  E1F387: 28              .BYTE $28
+  E1F388: 80              .BYTE $80
+  E1F389:             UNKNOWN_E1F203_13:
+  E1F389: 00              .BYTE $00
+  E1F38A: 06 32           .WORD $3206
+  E1F38C: 00              .BYTE $00
+  E1F38D: 01              .BYTE $01
+  E1F38E: 00              .BYTE $00
+  E1F38F: 08 32           .WORD $3208
+  E1F391: 10              .BYTE $10
+  E1F392: 01              .BYTE $01
+  E1F393: 00              .BYTE $00
+  E1F394: 0A 32           .WORD $320A
+  E1F396: 20              .BYTE $20
+  E1F397: 01              .BYTE $01
+  E1F398: 10              .BYTE $10
+  E1F399: 26 32           .WORD $3226
+  E1F39B: 00              .BYTE $00
+  E1F39C: 00              .BYTE $00
+  E1F39D: 10              .BYTE $10
+  E1F39E: 27 32           .WORD $3227
+  E1F3A0: 08              .BYTE $08
+  E1F3A1: 00              .BYTE $00
+  E1F3A2: 10              .BYTE $10
+  E1F3A3: 28 32           .WORD $3228
+  E1F3A5: 10              .BYTE $10
+  E1F3A6: 00              .BYTE $00
+  E1F3A7: 10              .BYTE $10
+  E1F3A8: 29 32           .WORD $3229
+  E1F3AA: 18              .BYTE $18
+  E1F3AB: 00              .BYTE $00
+  E1F3AC: 10              .BYTE $10
+  E1F3AD: 2A 32           .WORD $322A
+  E1F3AF: 20              .BYTE $20
+  E1F3B0: 00              .BYTE $00
+  E1F3B1: 10              .BYTE $10
+  E1F3B2: 2B 32           .WORD $322B
+  E1F3B4: 28              .BYTE $28
+  E1F3B5: 80              .BYTE $80
+  E1F3B6:             UNKNOWN_E1F203_14:
+  E1F3B6: 00              .BYTE $00
+  E1F3B7: 30 32           .WORD $3230
+  E1F3B9: 00              .BYTE $00
+  E1F3BA: 01              .BYTE $01
+  E1F3BB: 00              .BYTE $00
+  E1F3BC: 32 32           .WORD $3232
+  E1F3BE: 10              .BYTE $10
+  E1F3BF: 01              .BYTE $01
+  E1F3C0: 00              .BYTE $00
+  E1F3C1: 34 32           .WORD $3234
+  E1F3C3: 20              .BYTE $20
+  E1F3C4: 01              .BYTE $01
+  E1F3C5: 10              .BYTE $10
+  E1F3C6: 50 32           .WORD $3250
+  E1F3C8: 00              .BYTE $00
+  E1F3C9: 00              .BYTE $00
+  E1F3CA: 10              .BYTE $10
+  E1F3CB: 51 32           .WORD $3251
+  E1F3CD: 08              .BYTE $08
+  E1F3CE: 00              .BYTE $00
+  E1F3CF: 10              .BYTE $10
+  E1F3D0: 52 32           .WORD $3252
+  E1F3D2: 10              .BYTE $10
+  E1F3D3: 00              .BYTE $00
+  E1F3D4: 10              .BYTE $10
+  E1F3D5: 53 32           .WORD $3253
+  E1F3D7: 18              .BYTE $18
+  E1F3D8: 00              .BYTE $00
+  E1F3D9: 10              .BYTE $10
+  E1F3DA: 54 32           .WORD $3254
+  E1F3DC: 20              .BYTE $20
+  E1F3DD: 00              .BYTE $00
+  E1F3DE: 10              .BYTE $10
+  E1F3DF: 55 32           .WORD $3255
+  E1F3E1: 28              .BYTE $28
+  E1F3E2: 80              .BYTE $80
+  E1F3E3:             UNKNOWN_E1F203_15:
+  E1F3E3: 00              .BYTE $00
+  E1F3E4: 6A 32           .WORD $326A
+  E1F3E6: 00              .BYTE $00
+  E1F3E7: 01              .BYTE $01
+  E1F3E8: 00              .BYTE $00
+  E1F3E9: 6C 32           .WORD $326C
+  E1F3EB: 10              .BYTE $10
+  E1F3EC: 01              .BYTE $01
+  E1F3ED: 00              .BYTE $00
+  E1F3EE: 6E 32           .WORD $326E
+  E1F3F0: 20              .BYTE $20
+  E1F3F1: 00              .BYTE $00
+  E1F3F2: 08              .BYTE $08
+  E1F3F3: 7E 32           .WORD $327E
+  E1F3F5: 20              .BYTE $20
+  E1F3F6: 00              .BYTE $00
+  E1F3F7: 10              .BYTE $10
+  E1F3F8: 8A 32           .WORD $328A
+  E1F3FA: 00              .BYTE $00
+  E1F3FB: 00              .BYTE $00
+  E1F3FC: 10              .BYTE $10
+  E1F3FD: 8B 32           .WORD $328B
+  E1F3FF: 08              .BYTE $08
+  E1F400: 00              .BYTE $00
+  E1F401: 10              .BYTE $10
+  E1F402: 8C 32           .WORD $328C
+  E1F404: 10              .BYTE $10
+  E1F405: 00              .BYTE $00
+  E1F406: 10              .BYTE $10
+  E1F407: 8D 32           .WORD $328D
+  E1F409: 18              .BYTE $18
+  E1F40A: 00              .BYTE $00
+  E1F40B: 10              .BYTE $10
+  E1F40C: 8E 32           .WORD $328E
+  E1F40E: 20              .BYTE $20
+  E1F40F: 80              .BYTE $80
+  E1F410:             UNKNOWN_E1F203_16:
+  E1F410: 00              .BYTE $00
+  E1F411: 98 32           .WORD $3298
+  E1F413: 00              .BYTE $00
+  E1F414: 01              .BYTE $01
+  E1F415: 00              .BYTE $00
+  E1F416: 9A 32           .WORD $329A
+  E1F418: 10              .BYTE $10
+  E1F419: 01              .BYTE $01
+  E1F41A: 10              .BYTE $10
+  E1F41B: B8 32           .WORD $32B8
+  E1F41D: 00              .BYTE $00
+  E1F41E: 00              .BYTE $00
+  E1F41F: 10              .BYTE $10
+  E1F420: B9 32           .WORD $32B9
+  E1F422: 08              .BYTE $08
+  E1F423: 00              .BYTE $00
+  E1F424: 10              .BYTE $10
+  E1F425: BA 32           .WORD $32BA
+  E1F427: 10              .BYTE $10
+  E1F428: 00              .BYTE $00
+  E1F429: 10              .BYTE $10
+  E1F42A: BB 32           .WORD $32BB
+  E1F42C: 18              .BYTE $18
+  E1F42D: 80              .BYTE $80
+  E1F42E:             UNKNOWN_E1F203_17:
+  E1F42E: 00              .BYTE $00
+  E1F42F: C3 32           .WORD $32C3
+  E1F431: 00              .BYTE $00
+  E1F432: 81              .BYTE $81
+  E1F433:             UNKNOWN_E1F203_18:
+  E1F433: 00              .BYTE $00
+  E1F434: C5 32           .WORD $32C5
+  E1F436: 00              .BYTE $00
+  E1F437: 81              .BYTE $81
+  E1F438:             UNKNOWN_E1F203_19:
+  E1F438: 00              .BYTE $00
+  E1F439: C7 32           .WORD $32C7
+  E1F43B: 00              .BYTE $00
+  E1F43C: 81              .BYTE $81
+  E1F43D:             UNKNOWN_E1F203_20:
+  E1F43D: 00              .BYTE $00
+  E1F43E: C9 32           .WORD $32C9
+  E1F440: 00              .BYTE $00
+  E1F441: 81              .BYTE $81
+  E1F442:             UNKNOWN_E1F203_21:
+  E1F442: 00              .BYTE $00
+  E1F443: 00 33           .WORD $3300
+  E1F445: 00              .BYTE $00
+  E1F446: 81              .BYTE $81
+  E1F447:             UNKNOWN_E1F203_22:
+  E1F447: 00              .BYTE $00
+  E1F448: 02 33           .WORD $3302
+  E1F44A: 00              .BYTE $00
+  E1F44B: 81              .BYTE $81
+>>> bankconfig/common/bank21.asm
+  E1F44C:             .ENDIF
+  E1F44C:             .INCLUDE "data/unknown/E1F44C.asm"
+>>> data/unknown/E1F44C.asm
+  E1F44C:             UNKNOWN_E1F44C:
+  E1F44C: 03 F2           .WORD .LOWORD(UNKNOWN_E1F203_1)
+  E1F44E: 03 F2           .WORD .LOWORD(UNKNOWN_E1F203_1)
+  E1F450: 21 F2           .WORD .LOWORD(UNKNOWN_E1F203_2)
+  E1F452: 3F F2           .WORD .LOWORD(UNKNOWN_E1F203_3)
+  E1F454: 5D F2           .WORD .LOWORD(UNKNOWN_E1F203_4)
+  E1F456: 7B F2           .WORD .LOWORD(UNKNOWN_E1F203_5)
+  E1F458: A8 F2           .WORD .LOWORD(UNKNOWN_E1F203_6)
+  E1F45A: C6 F2           .WORD .LOWORD(UNKNOWN_E1F203_7)
+  E1F45C: F3 F2           .WORD .LOWORD(UNKNOWN_E1F203_8)
+  E1F45E: F8 F2           .WORD .LOWORD(UNKNOWN_E1F203_9)
+  E1F460: 25 F3           .WORD .LOWORD(UNKNOWN_E1F203_10)
+  E1F462: 2F F3           .WORD .LOWORD(UNKNOWN_E1F203_11)
+  E1F464: 5C F3           .WORD .LOWORD(UNKNOWN_E1F203_12)
+  E1F466: 89 F3           .WORD .LOWORD(UNKNOWN_E1F203_13)
+  E1F468: B6 F3           .WORD .LOWORD(UNKNOWN_E1F203_14)
+  E1F46A: E3 F3           .WORD .LOWORD(UNKNOWN_E1F203_15)
+  E1F46C: 10 F4           .WORD .LOWORD(UNKNOWN_E1F203_16)
+  E1F46E: 2E F4           .WORD .LOWORD(UNKNOWN_E1F203_17)
+  E1F470: 33 F4           .WORD .LOWORD(UNKNOWN_E1F203_18)
+  E1F472: 38 F4           .WORD .LOWORD(UNKNOWN_E1F203_19)
+  E1F474: 3D F4           .WORD .LOWORD(UNKNOWN_E1F203_20)
+  E1F476: 42 F4           .WORD .LOWORD(UNKNOWN_E1F203_21)
+  E1F478: 47 F4           .WORD .LOWORD(UNKNOWN_E1F203_22)
+>>> bankconfig/common/bank21.asm
+  E1F47A:             .INCLUDE "data/unknown/E1F47A.asm"
+>>> data/unknown/E1F47A.asm
+  E1F47A:             UNKNOWN_E1F47A:
+  E1F47A: 00 01 01 01     .BYTE $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00, $00, $00
+          01 01 01 01 
+          01 01 01 01 
+          ...omitted...
+>>> bankconfig/common/bank21.asm
+  E1F491:             .INCLUDE "data/map/town_map_icon_placement_pointer_table.asm"
+>>> data/map/town_map_icon_placement_pointer_table.asm
+  E1F491:             TOWN_MAP_ICON_PLACEMENT_PTR_TABLE:
+  E1F491: A9 F4 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_0
+  E1F495: CD F4 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_1
+  E1F499: F6 F4 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_2
+  E1F49D: 24 F5 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_3
+  E1F4A1: 48 F5 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_4
+  E1F4A5: 62 F5 E1 00     .DWORD TOWN_MAP_ICON_PLACEMENT_ENTRY_5
+>>> bankconfig/common/bank21.asm
+  E1F4A9:             .INCLUDE "data/map/town_map_icon_placement_data.asm"
+>>> data/map/town_map_icon_placement_data.asm
+  E1F4A9:             TOWN_MAP_ICON_PLACEMENT_DATA:
+  E1F4A9:             TOWN_MAP_ICON_PLACEMENT_ENTRY_0:
+  E1F4A9: 55              .BYTE $55
+  E1F4AA: 5B              .BYTE $5B
+  E1F4AB: 06              .BYTE $06
+  E1F4AC: 2E 02           .WORD EVENT_FLAG::UNKNOWN_0558
+  E1F4AE: 6A              .BYTE $6A
+  E1F4AF: 5E              .BYTE $5E
+  E1F4B0: 01              .BYTE $01
+  E1F4B1: 2F 02           .WORD EVENT_FLAG::UNKNOWN_0559
+  E1F4B3: 8C              .BYTE $8C
+  E1F4B4: 7B              .BYTE $7B
+  E1F4B5: 03              .BYTE $03
+  E1F4B6: 30 02           .WORD EVENT_FLAG::UNKNOWN_0560
+  E1F4B8: 1D              .BYTE $1D
+  E1F4B9: 9E              .BYTE $9E
+  E1F4BA: 05              .BYTE $05
+  E1F4BB: 31 02           .WORD EVENT_FLAG::UNKNOWN_0561
+  E1F4BD: 75              .BYTE $75
+  E1F4BE: A6              .BYTE $A6
+  E1F4BF: 02              .BYTE $02
+  E1F4C0: 32 02           .WORD EVENT_FLAG::UNKNOWN_0562
+  E1F4C2: 60              .BYTE $60
+  E1F4C3: BE              .BYTE $BE
+  E1F4C4: 09              .BYTE $09
+  E1F4C5: 33 02           .WORD EVENT_FLAG::UNKNOWN_0563
+  E1F4C7: BB              .BYTE $BB
+  E1F4C8: 5E              .BYTE $5E
+  E1F4C9: 10              .BYTE $10
+  E1F4CA: A9 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_ONET_HINT
+  E1F4CC: FF              .BYTE $FF
+  E1F4CD:             TOWN_MAP_ICON_PLACEMENT_ENTRY_1:
+  E1F4CD: 48              .BYTE $48
+  E1F4CE: 2A              .BYTE $2A
+  E1F4CF: 03              .BYTE $03
+  E1F4D0: 34 02           .WORD EVENT_FLAG::UNKNOWN_0564
+  E1F4D2: 70              .BYTE $70
+  E1F4D3: 2E              .BYTE $2E
+  E1F4D4: 07              .BYTE $07
+  E1F4D5: 35 02           .WORD EVENT_FLAG::UNKNOWN_0565
+  E1F4D7: 20              .BYTE $20
+  E1F4D8: 30              .BYTE $30
+  E1F4D9: 0A              .BYTE $0A
+  E1F4DA: 36 02           .WORD EVENT_FLAG::UNKNOWN_0566
+  E1F4DC: D0              .BYTE $D0
+  E1F4DD: 9A              .BYTE $9A
+  E1F4DE: 08              .BYTE $08
+  E1F4DF: 37 02           .WORD EVENT_FLAG::UNKNOWN_0567
+  E1F4E1: B8              .BYTE $B8
+  E1F4E2: 09              .BYTE $09
+  E1F4E3: 05              .BYTE $05
+  E1F4E4: 38 02           .WORD EVENT_FLAG::UNKNOWN_0568
+  E1F4E6: 78              .BYTE $78
+  E1F4E7: B8              .BYTE $B8
+  E1F4E8: 0B              .BYTE $0B
+  E1F4E9: 39 02           .WORD EVENT_FLAG::UNKNOWN_0569
+  E1F4EB: 60              .BYTE $60
+  E1F4EC: 70              .BYTE $70
+  E1F4ED: 02              .BYTE $02
+  E1F4EE: A1 02           .WORD EVENT_FLAG::UNKNOWN_0673
+  E1F4F0: D0              .BYTE $D0
+  E1F4F1: 3D              .BYTE $3D
+  E1F4F2: 10              .BYTE $10
+  E1F4F3: AA 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_TWOSON_HINT
+  E1F4F5: FF              .BYTE $FF
+  E1F4F6:             TOWN_MAP_ICON_PLACEMENT_ENTRY_2:
+  E1F4F6: 48              .BYTE $48
+  E1F4F7: 6B              .BYTE $6B
+  E1F4F8: 06              .BYTE $06
+  E1F4F9: 3A 02           .WORD EVENT_FLAG::UNKNOWN_0570
+  E1F4FB: 70              .BYTE $70
+  E1F4FC: 3B              .BYTE $3B
+  E1F4FD: 03              .BYTE $03
+  E1F4FE: 3B 02           .WORD EVENT_FLAG::UNKNOWN_0571
+  E1F500: 8C              .BYTE $8C
+  E1F501: 67              .BYTE $67
+  E1F502: 02              .BYTE $02
+  E1F503: 3D 02           .WORD EVENT_FLAG::UNKNOWN_0573
+  E1F505: 7E              .BYTE $7E
+  E1F506: 6B              .BYTE $6B
+  E1F507: 05              .BYTE $05
+  E1F508: 3E 02           .WORD EVENT_FLAG::UNKNOWN_0574
+  E1F50A: 18              .BYTE $18
+  E1F50B: 8E              .BYTE $8E
+  E1F50C: 0C              .BYTE $0C
+  E1F50D: 82 02           .WORD EVENT_FLAG::UNKNOWN_0642
+  E1F50F: B0              .BYTE $B0
+  E1F510: 8E              .BYTE $8E
+  E1F511: 0D              .BYTE $0D
+  E1F512: 81 02           .WORD EVENT_FLAG::UNKNOWN_0641
+  E1F514: 6C              .BYTE $6C
+  E1F515: 5D              .BYTE $5D
+  E1F516: 08              .BYTE $08
+  E1F517: A4 02           .WORD EVENT_FLAG::UNKNOWN_0676
+  E1F519: 73              .BYTE $73
+  E1F51A: 61              .BYTE $61
+  E1F51B: 08              .BYTE $08
+  E1F51C: A5 02           .WORD EVENT_FLAG::UNKNOWN_0677
+  E1F51E: D7              .BYTE $D7
+  E1F51F: 0A              .BYTE $0A
+  E1F520: 10              .BYTE $10
+  E1F521: AB 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_THREEK_HINT
+  E1F523: FF              .BYTE $FF
+  E1F524:             TOWN_MAP_ICON_PLACEMENT_ENTRY_3:
+  E1F524: 74              .BYTE $74
+  E1F525: 0A              .BYTE $0A
+  E1F526: 05              .BYTE $05
+  E1F527: 3F 02           .WORD EVENT_FLAG::UNKNOWN_0575
+  E1F529: C2              .BYTE $C2
+  E1F52A: 28              .BYTE $28
+  E1F52B: 07              .BYTE $07
+  E1F52C: 40 02           .WORD EVENT_FLAG::UNKNOWN_0576
+  E1F52E: AC              .BYTE $AC
+  E1F52F: 84              .BYTE $84
+  E1F530: 02              .BYTE $02
+  E1F531: 41 02           .WORD EVENT_FLAG::UNKNOWN_0577
+  E1F533: 40              .BYTE $40
+  E1F534: 7B              .BYTE $7B
+  E1F535: 03              .BYTE $03
+  E1F536: 42 02           .WORD EVENT_FLAG::UNKNOWN_0578
+  E1F538: 10              .BYTE $10
+  E1F539: C0              .BYTE $C0
+  E1F53A: 0E              .BYTE $0E
+  E1F53B: 80 02           .WORD EVENT_FLAG::UNKNOWN_0640
+  E1F53D: 3E              .BYTE $3E
+  E1F53E: C8              .BYTE $C8
+  E1F53F: 08              .BYTE $08
+  E1F540: A6 02           .WORD EVENT_FLAG::UNKNOWN_0678
+  E1F542: 58              .BYTE $58
+  E1F543: 77              .BYTE $77
+  E1F544: 10              .BYTE $10
+  E1F545: AC 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_FOURSIDE_HINT
+  E1F547: FF              .BYTE $FF
+  E1F548:             TOWN_MAP_ICON_PLACEMENT_ENTRY_4:
+  E1F548: 80              .BYTE $80
+  E1F549: 1B              .BYTE $1B
+  E1F54A: 03              .BYTE $03
+  E1F54B: 43 02           .WORD EVENT_FLAG::UNKNOWN_0579
+  E1F54D: 88              .BYTE $88
+  E1F54E: 09              .BYTE $09
+  E1F54F: 05              .BYTE $05
+  E1F550: 44 02           .WORD EVENT_FLAG::UNKNOWN_0580
+  E1F552: B0              .BYTE $B0
+  E1F553: 12              .BYTE $12
+  E1F554: 06              .BYTE $06
+  E1F555: 45 02           .WORD EVENT_FLAG::UNKNOWN_0581
+  E1F557: AC              .BYTE $AC
+  E1F558: 2E              .BYTE $2E
+  E1F559: 02              .BYTE $02
+  E1F55A: A2 02           .WORD EVENT_FLAG::UNKNOWN_0674
+  E1F55C: 8D              .BYTE $8D
+  E1F55D: 5E              .BYTE $5E
+  E1F55E: 10              .BYTE $10
+  E1F55F: AE 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_SCARABI_HINT
+  E1F561: FF              .BYTE $FF
+  E1F562:             TOWN_MAP_ICON_PLACEMENT_ENTRY_5:
+  E1F562: 40              .BYTE $40
+  E1F563: 04              .BYTE $04
+  E1F564: 03              .BYTE $03
+  E1F565: 46 02           .WORD EVENT_FLAG::UNKNOWN_0582
+  E1F567: 71              .BYTE $71
+  E1F568: 04              .BYTE $04
+  E1F569: 04              .BYTE $04
+  E1F56A: 47 02           .WORD EVENT_FLAG::UNKNOWN_0583
+  E1F56C: A5              .BYTE $A5
+  E1F56D: 04              .BYTE $04
+  E1F56E: 06              .BYTE $06
+  E1F56F: 48 02           .WORD EVENT_FLAG::UNKNOWN_0584
+  E1F571: 61              .BYTE $61
+  E1F572: 6C              .BYTE $6C
+  E1F573: 05              .BYTE $05
+  E1F574: 49 02           .WORD EVENT_FLAG::UNKNOWN_0585
+  E1F576: A0              .BYTE $A0
+  E1F577: 72              .BYTE $72
+  E1F578: 06              .BYTE $06
+  E1F579: 4A 02           .WORD EVENT_FLAG::UNKNOWN_0586
+  E1F57B: 48              .BYTE $48
+  E1F57C: 6C              .BYTE $6C
+  E1F57D: 10              .BYTE $10
+  E1F57E: AD 82           .WORD EVENT_FLAG_UNSET | EVENT_FLAG::FLG_GM_SUMMERS_HINT
+  E1F580: FF              .BYTE $FF
+>>> bankconfig/common/bank21.asm
+  E1F581:             .IF .DEFINED(USA)
+  E1F581:                 .IF .DEFINED(PROTOTYPE19950327)
+  E1F581:                     INSERT_AUDIO_PACK 65
+  E1F581:                 .ELSE
+  E1F581: 6B 0A 00 48         INSERT_AUDIO_PACK 123
+          28 48 88 48 
+          38 48 48 48 
+          ...omitted...
+  E1FFF2:                 .ENDIF
+  E1FFF2:             .ENDIF

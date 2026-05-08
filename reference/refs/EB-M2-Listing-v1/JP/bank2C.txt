@@ -1,0 +1,66 @@
+>>> bankconfig/JP/bank2c.asm
+  000000:             .INCLUDE "bankconfig/common/bank2c.asm"
+>>> bankconfig/common/bank2c.asm
+  EC0000:             .INCLUDE "common.asm"
+  EC0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  EC0000: 08 00 68 6C INSERT_AUDIO_PACK 114
+          B0 95 71 B9 
+          FF FF FF FF 
+          ...omitted...
+  EC23EC: A0 21 00 48 INSERT_AUDIO_PACK 109
+          92 48 22 48 
+          A2 48 32 48 
+          ...omitted...
+  EC4592: 68 21 00 48 INSERT_AUDIO_PACK 107
+          30 49 90 48 
+          A0 48 B0 48 
+          ...omitted...
+  EC6700: 18 00 68 6C INSERT_AUDIO_PACK 98
+          B0 95 2C 9B 
+          B0 95 2C 9B 
+          ...omitted...
+  EC8864:             .IF .DEFINED(JPN)
+  EC8864: 18 00 68 6C     INSERT_AUDIO_PACK 139
+          B0 95 10 99 
+          B0 95 10 99 
+          ...omitted...
+  ECA858: 18 00 68 6C     INSERT_AUDIO_PACK 156
+          B0 95 68 9E 
+          B0 95 68 9E 
+          ...omitted...
+  ECC0E0: 30 00 00 6C     INSERT_AUDIO_PACK 2
+          00 70 99 70 
+          29 71 68 71 
+          ...omitted...
+  ECD924: 22 05 00 48     INSERT_AUDIO_PACK 4
+          3E 48 1E 48 
+          0E 48 2E 48 
+          ...omitted...
+  ECECCC: 08 00 68 6C     INSERT_AUDIO_PACK 165
+          B0 95 26 A1 
+          B0 95 26 A1 
+          ...omitted...
+  ECFFDE:             .ELSEIF .DEFINED(PROTOTYPE19950327)
+  ECFFDE:                 INSERT_AUDIO_PACK 4
+  ECFFDE:                 INSERT_AUDIO_PACK 58
+  ECFFDE:                 INSERT_AUDIO_PACK 133
+  ECFFDE:                 INSERT_AUDIO_PACK 97
+  ECFFDE:                 INSERT_AUDIO_PACK 55
+  ECFFDE:                 INSERT_AUDIO_PACK 106
+  ECFFDE:                 INSERT_AUDIO_PACK 123
+  ECFFDE:                 INSERT_AUDIO_PACK 25
+  ECFFDE:                 INSERT_AUDIO_PACK 15
+  ECFFDE:                 INSERT_AUDIO_PACK 157
+  ECFFDE:                 INSERT_AUDIO_PACK 159
+  ECFFDE:             .ELSE
+  ECFFDE:                 INSERT_AUDIO_PACK 165
+  ECFFDE:                 INSERT_AUDIO_PACK 62
+  ECFFDE:                 INSERT_AUDIO_PACK 58
+  ECFFDE:                 INSERT_AUDIO_PACK 133
+  ECFFDE:                 INSERT_AUDIO_PACK 97
+  ECFFDE:                 INSERT_AUDIO_PACK 55
+  ECFFDE:                 INSERT_AUDIO_PACK 106
+  ECFFDE:                 INSERT_AUDIO_PACK 25
+  ECFFDE:                 INSERT_AUDIO_PACK 15
+  ECFFDE:                 INSERT_AUDIO_PACK 157
+  ECFFDE:             .ENDIF

@@ -1,0 +1,1882 @@
+>>> bankconfig/US/bank0b.asm
+  000000:             .INCLUDE "bankconfig/common/bank0b.asm"
+>>> bankconfig/common/bank0b.asm
+  CB0000:             .INCLUDE "common.asm"
+  CB0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  CB0000:             .INCLUDE "symbols/battle_bgs.inc.asm"
+  CB0000:             BATTLE_BACKGROUND_ARR_43:
+  CB0000: 44 00 20 09     BINARY "battle_bgs/arrangements/43.arr.lzhal"
+          01 20 02 A0 
+          03 20 04 20 
+          ...omitted...
+  CB05F2:             BATTLE_BACKGROUND_ARR_60:
+  CB05F2: E0 5C 00 E0     BINARY "battle_bgs/arrangements/60.arr.lzhal"
+          01 60 02 20 
+          03 20 04 E0 
+          ...omitted...
+  CB0B95:             BATTLE_BACKGROUND_ARR_41:
+  CB0B95: 43 00 20 07     BINARY "battle_bgs/arrangements/41.arr.lzhal"
+          01 20 02 20 
+          03 20 04 60 
+          ...omitted...
+  CB1121:             BATTLE_BACKGROUND_ARR_62:
+  CB1121: 42 00 20 09     BINARY "battle_bgs/arrangements/62.arr.lzhal"
+          01 20 02 20 
+          03 E0 04 A0 
+          ...omitted...
+  CB16A5:             BATTLE_BACKGROUND_GFX_86:
+  CB16A5: 01 FF 00 45     BINARY "battle_bgs/graphics/86.gfx.lzhal"
+          00 FF 22 FF 
+          1C 00 07 FC 
+          ...omitted...
+  CB1C10:             BATTLE_BACKGROUND_ARR_61:
+  CB1C10: E8 65 00 20     BINARY "battle_bgs/arrangements/61.arr.lzhal"
+          13 01 20 02 
+          20 03 E0 04 
+          ...omitted...
+  CB209F:             BATTLE_BACKGROUND_ARR_63:
+  CB209F: 49 00 20 15     BINARY "battle_bgs/arrangements/63.arr.lzhal"
+          01 20 02 20 
+          03 20 04 20 
+          ...omitted...
+  CB2508:             BATTLE_BACKGROUND_ARR_10:
+  CB2508: 00 00 41 20     BINARY "battle_bgs/arrangements/10.arr.lzhal"
+          01 03 20 00 
+          60 02 41 20 
+          ...omitted...
+  CB2958:             BATTLE_BACKGROUND_ARR_40:
+  CB2958: 4A 00 20 05     BINARY "battle_bgs/arrangements/40.arr.lzhal"
+          01 20 02 20 
+          03 60 44 00 
+          ...omitted...
+  CB2D84:             BATTLE_BACKGROUND_ARR_16:
+  CB2D84: E0 27 00 E0     BINARY "battle_bgs/arrangements/16.arr.lzhal"
+          01 A0 02 20 
+          03 60 04 E0 
+          ...omitted...
+  CB31A3:             BATTLE_BACKGROUND_ARR_9:
+  CB31A3: 00 00 41 20     BINARY "battle_bgs/arrangements/9.arr.lzhal"
+          01 00 60 41 
+          00 20 02 02 
+          ...omitted...
+  CB353F:             BATTLE_BACKGROUND_ARR_97:
+  CB353F: 41 00 60 42     BINARY "battle_bgs/arrangements/97.arr.lzhal"
+          01 20 05 00 
+          60 02 60 03 
+          ...omitted...
+  CB38CC:             BATTLE_BACKGROUND_ARR_26:
+  CB38CC: 07 00 20 01     BINARY "battle_bgs/arrangements/26.arr.lzhal"
+          20 02 20 03 
+          20 C5 00 06 
+          ...omitted...
+  CB3C59:             BATTLE_BACKGROUND_ARR_66:
+  CB3C59: 07 00 60 01     BINARY "battle_bgs/arrangements/66.arr.lzhal"
+          20 02 A0 03 
+          20 87 00 00 
+          ...omitted...
+  CB3FC1:             BATTLE_BACKGROUND_ARR_6:
+  CB3FC1: 43 00 20 05     BINARY "battle_bgs/arrangements/6.arr.lzhal"
+          01 E0 02 60 
+          03 E0 41 04 
+          ...omitted...
+  CB431F:             BATTLE_BACKGROUND_GFX_84:
+  CB431F: 09 BB C0 EF     BINARY "battle_bgs/graphics/84.gfx.lzhal"
+          31 FB 00 BD 
+          46 DF 20 42 
+          ...omitted...
+  CB4666:             BATTLE_BACKGROUND_ARR_98:
+  CB4666: 10 00 20 01     BINARY "battle_bgs/arrangements/98.arr.lzhal"
+          60 01 20 00 
+          60 02 60 03 
+          ...omitted...
+  CB498F:             BATTLE_BACKGROUND_ARR_4:
+  CB498F: 52 00 20 00     BINARY "battle_bgs/arrangements/4.arr.lzhal"
+          01 41 20 02 
+          02 60 01 60 
+          ...omitted...
+  CB4CB3:             BATTLE_BACKGROUND_ARR_7:
+  CB4CB3: 4A 00 20 03     BINARY "battle_bgs/arrangements/7.arr.lzhal"
+          01 E0 01 A0 
+          54 00 20 02 
+          ...omitted...
+  CB4FC7:             BATTLE_BACKGROUND_GFX_9:
+  CB4FC7: 47 FF 00 2F     BINARY "battle_bgs/graphics/9.gfx.lzhal"
+          00 47 FF 00 
+          1F 00 01 00 
+          ...omitted...
+  CB529E:             BATTLE_BACKGROUND_ARR_8:
+  CB529E: 00 00 41 20     BINARY "battle_bgs/arrangements/8.arr.lzhal"
+          01 06 20 02 
+          A0 03 60 04 
+          ...omitted...
+  CB556C:             BATTLE_BACKGROUND_ARR_2:
+  CB556C: 00 00 41 20     BINARY "battle_bgs/arrangements/2.arr.lzhal"
+          01 0D 60 00 
+          60 01 60 00 
+          ...omitted...
+  CB5828:             BATTLE_BACKGROUND_ARR_84:
+  CB5828: 0F 00 60 01     BINARY "battle_bgs/arrangements/84.arr.lzhal"
+          A0 02 60 03 
+          A0 04 E0 05 
+          ...omitted...
+  CB5AA8:             BATTLE_BACKGROUND_ARR_86:
+  CB5AA8: 07 00 A0 01     BINARY "battle_bgs/arrangements/86.arr.lzhal"
+          E0 02 E0 03 
+          E0 87 00 00 
+          ...omitted...
+  CB5D27:             BATTLE_BACKGROUND_ARR_51:
+  CB5D27: 44 00 20 05     BINARY "battle_bgs/arrangements/51.arr.lzhal"
+          01 60 02 60 
+          03 60 43 04 
+          ...omitted...
+  CB5F91:             BATTLE_BACKGROUND_ARR_64:
+  CB5F91: 1F 00 20 01     BINARY "battle_bgs/arrangements/64.arr.lzhal"
+          20 02 20 03 
+          E0 04 E0 05 
+          ...omitted...
+  CB61D2:             BATTLE_BACKGROUND_ARR_53:
+  CB61D2: 02 00 20 00     BINARY "battle_bgs/arrangements/53.arr.lzhal"
+          54 20 01 43 
+          20 00 44 20 
+          ...omitted...
+  CB6411:             BATTLE_BACKGROUND_ARR_5:
+  CB6411: 1F 00 20 01     BINARY "battle_bgs/arrangements/5.arr.lzhal"
+          A0 02 20 03 
+          20 04 E0 05 
+          ...omitted...
+  CB662B:             BATTLE_BACKGROUND_ARR_56:
+  CB662B: 41 00 20 01     BINARY "battle_bgs/arrangements/56.arr.lzhal"
+          01 60 84 00 
+          00 45 20 00 
+          ...omitted...
+  CB683F:             BATTLE_BACKGROUND_ARR_93:
+  CB683F: E8 2A 00 20     BINARY "battle_bgs/arrangements/93.arr.lzhal"
+          01 01 E0 42 
+          02 20 01 01 
+          ...omitted...
+  CB6A3D:             BATTLE_BACKGROUND_ARR_59:
+  CB6A3D: 00 00 41 20     BINARY "battle_bgs/arrangements/59.arr.lzhal"
+          01 02 60 00 
+          60 43 02 20 
+          ...omitted...
+  CB6C2B:             BATTLE_BACKGROUND_ARR_89:
+  CB6C2B: 46 00 20 01     BINARY "battle_bgs/arrangements/89.arr.lzhal"
+          01 20 41 02 
+          A0 02 03 A0 
+          ...omitted...
+  CB6E17:             BATTLE_BACKGROUND_GFX_18:
+  CB6E17: 19 C7 AF 0A     BINARY "battle_bgs/graphics/18.gfx.lzhal"
+          98 B1 74 43 
+          D9 B6 92 0F 
+          ...omitted...
+  CB6FFF:             BATTLE_BACKGROUND_ARR_52:
+  CB6FFF: 0F 00 60 01     BINARY "battle_bgs/arrangements/52.arr.lzhal"
+          60 02 A0 03 
+          E0 04 60 05 
+          ...omitted...
+  CB71E5:             BATTLE_BACKGROUND_GFX_4:
+  CB71E5: 2F FF 47 00     BINARY "battle_bgs/graphics/4.gfx.lzhal"
+          FF 2F FF 41 
+          00 FF 0B 01 
+          ...omitted...
+  CB73CB:             BATTLE_BACKGROUND_GFX_25:
+  CB73CB: 0F 0E F9 79     BINARY "battle_bgs/graphics/25.gfx.lzhal"
+          00 10 08 53 
+          50 99 F8 C4 
+          ...omitted...
+  CB75AF:             BATTLE_BACKGROUND_GFX_8:
+  CB75AF: 47 33 0F 47     BINARY "battle_bgs/graphics/8.gfx.lzhal"
+          FF 00 30 00 
+          46 FF 00 16 
+          ...omitted...
+  CB7781:             BATTLE_BACKGROUND_ARR_95:
+  CB7781: 43 00 20 00     BINARY "battle_bgs/arrangements/95.arr.lzhal"
+          01 4E 20 00 
+          8E 00 07 00 
+          ...omitted...
+  CB794F:             BATTLE_BACKGROUND_ARR_94:
+  CB794F: 12 00 20 01     BINARY "battle_bgs/arrangements/94.arr.lzhal"
+          20 02 20 00 
+          20 03 20 04 
+          ...omitted...
+  CB7B12:             BATTLE_BACKGROUND_ARR_101:
+  CB7B12: 41 00 20 1A     BINARY "battle_bgs/arrangements/101.arr.lzhal"
+          01 E0 02 60 
+          02 20 01 A0 
+          ...omitted...
+  CB7CC9:             BATTLE_BACKGROUND_ARR_36:
+  CB7CC9: 55 00 20 01     BINARY "battle_bgs/arrangements/36.arr.lzhal"
+          01 E0 4B 00 
+          20 8F 00 2C 
+          ...omitted...
+  CB7E7B:             BATTLE_BACKGROUND_GFX_16:
+  CB7E7B: 1F 00 FF 01     BINARY "battle_bgs/graphics/16.gfx.lzhal"
+          FE 03 FC 07 
+          F8 0F F0 1F 
+          ...omitted...
+  CB8028:             BATTLE_BACKGROUND_ARR_35:
+  CB8028: 41 00 20 02     BINARY "battle_bgs/arrangements/35.arr.lzhal"
+          01 20 01 4B 
+          20 00 02 20 
+          ...omitted...
+  CB81CC:             BATTLE_BACKGROUND_GFX_53:
+  CB81CC: 27 0F 28 F0     BINARY "battle_bgs/graphics/53.gfx.lzhal"
+          42 00 F0 47 
+          00 0F 43 00 
+          ...omitted...
+  CB836A:             BATTLE_BACKGROUND_ARR_82:
+  CB836A: E8 BF 00 20     BINARY "battle_bgs/arrangements/82.arr.lzhal"
+          00 01 43 20 
+          02 43 20 01 
+          ...omitted...
+  CB8501:             BATTLE_BACKGROUND_ARR_12:
+  CB8501: 07 00 60 01     BINARY "battle_bgs/arrangements/12.arr.lzhal"
+          20 02 60 01 
+          20 87 00 00 
+          ...omitted...
+  CB868C:             BATTLE_BACKGROUND_ARR_49:
+  CB868C: 03 00 60 01     BINARY "battle_bgs/arrangements/49.arr.lzhal"
+          60 41 02 20 
+          87 00 00 87 
+          ...omitted...
+  CB8816:             BATTLE_BACKGROUND_ARR_85:
+  CB8816: 1B 00 20 00     BINARY "battle_bgs/arrangements/85.arr.lzhal"
+          60 01 20 01 
+          60 02 20 02 
+          ...omitted...
+  CB899D:             BATTLE_BACKGROUND_ARR_1:
+  CB899D: 1B 00 20 00     BINARY "battle_bgs/arrangements/1.arr.lzhal"
+          60 01 20 01 
+          60 02 20 02 
+          ...omitted...
+  CB8B24:             BATTLE_BACKGROUND_ARR_99:
+  CB8B24: 44 00 20 13     BINARY "battle_bgs/arrangements/99.arr.lzhal"
+          01 20 02 20 
+          03 E0 04 20 
+          ...omitted...
+  CB8CA8:             BATTLE_BACKGROUND_ARR_96:
+  CB8CA8: 47 00 20 07     BINARY "battle_bgs/arrangements/96.arr.lzhal"
+          01 20 02 20 
+          03 E0 04 E0 
+          ...omitted...
+  CB8E2A:             BATTLE_BACKGROUND_ARR_78:
+  CB8E2A: 47 00 A0 47     BINARY "battle_bgs/arrangements/78.arr.lzhal"
+          01 20 47 00 
+          A0 47 01 20 
+          ...omitted...
+  CB8FAB:             BATTLE_BACKGROUND_GFX_15:
+  CB8FAB: 41 03 C3 41     BINARY "battle_bgs/graphics/15.gfx.lzhal"
+          C3 C0 41 FC 
+          C0 41 FF FC 
+          ...omitted...
+  CB9124:             BATTLE_BACKGROUND_GFX_10:
+  CB9124: 47 FF 00 41     BINARY "battle_bgs/graphics/10.gfx.lzhal"
+          00 01 41 00 
+          03 41 00 07 
+          ...omitted...
+  CB929A:             BATTLE_BACKGROUND_GFX_82:
+  CB929A: 3F 00 2F FF     BINARY "battle_bgs/graphics/82.gfx.lzhal"
+          47 00 FF 2F 
+          FF 2F 00 4F 
+          ...omitted...
+  CB9409:             BATTLE_BACKGROUND_GFX_47:
+  CB9409: 4A 00 FF 08     BINARY "battle_bgs/graphics/47.gfx.lzhal"
+          01 FF 07 FF 
+          1F FF 7E FF 
+          ...omitted...
+  CB955D:             BATTLE_BACKGROUND_ARR_34:
+  CB955D: 1D 00 20 01     BINARY "battle_bgs/arrangements/34.arr.lzhal"
+          A0 01 20 00 
+          A0 02 20 03 
+          ...omitted...
+  CB96AC:             BATTLE_BACKGROUND_ARR_44:
+  CB96AC: 41 00 20 02     BINARY "battle_bgs/arrangements/44.arr.lzhal"
+          01 20 02 41 
+          20 03 41 20 
+          ...omitted...
+  CB97F0:             BATTLE_BACKGROUND_ARR_102:
+  CB97F0: 1E 00 20 01     BINARY "battle_bgs/arrangements/102.arr.lzhal"
+          20 02 20 03 
+          20 04 20 05 
+          ...omitted...
+  CB9932:             BATTLE_BACKGROUND_GFX_52:
+  CB9932: 0F 03 FF 07     BINARY "battle_bgs/graphics/52.gfx.lzhal"
+          FF 0E FF 1C 
+          FF 38 FF 70 
+          ...omitted...
+  CB9A71:             BATTLE_BACKGROUND_ARR_50:
+  CB9A71: 43 00 20 01     BINARY "battle_bgs/arrangements/50.arr.lzhal"
+          01 60 41 02 
+          20 C8 00 08 
+          ...omitted...
+  CB9BAB:             BATTLE_BACKGROUND_GFX_27:
+  CB9BAB: 2A 00 04 01     BINARY "battle_bgs/graphics/27.gfx.lzhal"
+          30 37 30 36 
+          8A 00 01 04 
+          ...omitted...
+  CB9CC8:             BATTLE_BACKGROUND_GFX_98:
+  CB9CC8: 18 03 78 07     BINARY "battle_bgs/graphics/98.gfx.lzhal"
+          F0 0F E0 1E 
+          C0 3C 80 78 
+          ...omitted...
+  CB9DE3:             BATTLE_BACKGROUND_GFX_5:
+  CB9DE3: 26 00 4B 00     BINARY "battle_bgs/graphics/5.gfx.lzhal"
+          FF 28 00 28 
+          FF C4 00 1F 
+          ...omitted...
+  CB9EF3:             BATTLE_BACKGROUND_GFX_3:
+  CB9EF3: 43 0F 00 43     BINARY "battle_bgs/graphics/3.gfx.lzhal"
+          F0 0F 47 00 
+          FF 88 00 00 
+          ...omitted...
+  CB9FFA:             BATTLE_BACKGROUND_GFX_6:
+  CB9FFA: 2F FF 2F 00     BINARY "battle_bgs/graphics/6.gfx.lzhal"
+          0B 33 C3 67 
+          87 C7 07 8F 
+          ...omitted...
+  CBA100:             BATTLE_BACKGROUND_GFX_17:
+  CBA100: 10 1E 3F 58     BINARY "battle_bgs/graphics/17.gfx.lzhal"
+          7F 57 58 5F 
+          D3 3E E7 8D 
+          ...omitted...
+  CBA200:             BATTLE_BACKGROUND_ARR_15:
+  CBA200: 07 00 A0 01     BINARY "battle_bgs/arrangements/15.arr.lzhal"
+          E0 02 E0 03 
+          A0 87 00 00 
+          ...omitted...
+  CBA2FF:             BATTLE_BACKGROUND_ARR_68:
+  CBA2FF: 0D 00 20 01     BINARY "battle_bgs/arrangements/68.arr.lzhal"
+          E0 02 60 03 
+          E0 03 A0 02 
+          ...omitted...
+  CBA3FA:             BATTLE_BACKGROUND_ARR_28:
+  CBA3FA: 03 00 20 01     BINARY "battle_bgs/arrangements/28.arr.lzhal"
+          20 83 00 00 
+          16 02 20 03 
+          ...omitted...
+  CBA4EB:             BATTLE_BACKGROUND_GFX_85:
+  CBA4EB: 0F 00 FF 01     BINARY "battle_bgs/graphics/85.gfx.lzhal"
+          FE 03 FC 07 
+          F8 0F F0 1F 
+          ...omitted...
+  CBA5D4:             BATTLE_BACKGROUND_GFX_1:
+  CBA5D4: 0F 00 FF 01     BINARY "battle_bgs/graphics/1.gfx.lzhal"
+          FE 03 FC 07 
+          F8 0F F0 1F 
+          ...omitted...
+  CBA6BD:             BATTLE_BACKGROUND_ARR_14:
+  CBA6BD: 0D 00 A0 01     BINARY "battle_bgs/arrangements/14.arr.lzhal"
+          A0 02 A0 03 
+          A0 04 A0 05 
+          ...omitted...
+  CBA7A5:             BATTLE_BACKGROUND_GFX_89:
+  CBA7A5: 3F 00 0F 01     BINARY "battle_bgs/graphics/89.gfx.lzhal"
+          00 03 00 07 
+          00 0F 00 1E 
+          ...omitted...
+  CBA889:             BATTLE_BACKGROUND_GFX_93:
+  CBA889: 47 FF 00 2F     BINARY "battle_bgs/graphics/93.gfx.lzhal"
+          00 41 EF 20 
+          02 EF E0 0F 
+          ...omitted...
+  CBA96A:             BATTLE_BACKGROUND_ARR_31:
+  CBA96A: 03 00 20 01     BINARY "battle_bgs/arrangements/31.arr.lzhal"
+          A0 83 00 00 
+          83 00 00 83 
+          ...omitted...
+  CBAA46:             BATTLE_BACKGROUND_GFX_68:
+  CBAA46: 47 FF 00 2F     BINARY "battle_bgs/graphics/68.gfx.lzhal"
+          00 06 E7 00 
+          8F 00 1F 00 
+          ...omitted...
+  CBAB1E:             BATTLE_BACKGROUND_GFX_54:
+  CBAB1E: 0F 00 0F 00     BINARY "battle_bgs/graphics/54.gfx.lzhal"
+          1F 00 3F 78 
+          7F F8 FE 18 
+          ...omitted...
+  CBABF5:             BATTLE_BACKGROUND_GFX_99:
+  CBABF5: E4 2F 00 E0     BINARY "battle_bgs/graphics/99.gfx.lzhal"
+          2C 01 00 03 
+          00 07 00 0F 
+          ...omitted...
+  CBACCB:             BATTLE_BACKGROUND_GFX_24:
+  CBACCB: 47 00 FF 2F     BINARY "battle_bgs/graphics/24.gfx.lzhal"
+          FF 03 01 FE 
+          02 FD 42 00 
+          ...omitted...
+  CBAD9C:             BATTLE_BACKGROUND_ARR_65:
+  CBAD9C: 41 00 20 1B     BINARY "battle_bgs/arrangements/65.arr.lzhal"
+          01 20 02 20 
+          03 20 04 20 
+          ...omitted...
+  CBAE6C:             BATTLE_BACKGROUND_ARR_47:
+  CBAE6C: 41 00 20 0B     BINARY "battle_bgs/arrangements/47.arr.lzhal"
+          01 20 02 20 
+          03 60 04 60 
+          ...omitted...
+  CBAF2D:             BATTLE_BACKGROUND_ARR_55:
+  CBAF2D: 41 00 20 41     BINARY "battle_bgs/arrangements/55.arr.lzhal"
+          01 20 41 02 
+          20 41 03 20 
+          ...omitted...
+  CBAFED:             BATTLE_BACKGROUND_ARR_27:
+  CBAFED: 0D 00 E0 01     BINARY "battle_bgs/arrangements/27.arr.lzhal"
+          A0 02 A0 03 
+          20 04 60 05 
+          ...omitted...
+  CBB0AD:             BATTLE_BACKGROUND_GFX_101:
+  CBB0AD: 3F FF 0B 3E     BINARY "battle_bgs/graphics/101.gfx.lzhal"
+          01 3F 01 1F 
+          03 1F 07 1F 
+          ...omitted...
+  CBB16C:             BATTLE_BACKGROUND_GFX_2:
+  CBB16C: 0C 01 FF 03     BINARY "battle_bgs/graphics/2.gfx.lzhal"
+          FF 07 FF 0F 
+          FF 1F FF 3F 
+          ...omitted...
+  CBB22A:             BATTLE_BACKGROUND_ARR_3:
+  CBB22A: 0F 00 A0 01     BINARY "battle_bgs/arrangements/3.arr.lzhal"
+          A0 02 60 03 
+          A0 04 E0 05 
+          ...omitted...
+  CBB2E1:             BATTLE_BACKGROUND_ARR_70:
+  CBB2E1: 06 00 60 01     BINARY "battle_bgs/arrangements/70.arr.lzhal"
+          60 00 60 01 
+          C4 00 05 41 
+          ...omitted...
+  CBB393:             BATTLE_BACKGROUND_ARR_45:
+  CBB393: 07 00 20 01     BINARY "battle_bgs/arrangements/45.arr.lzhal"
+          E0 01 A0 00 
+          20 87 00 00 
+          ...omitted...
+  CBB441:             BATTLE_BACKGROUND_GFX_7:
+  CBB441: 3F FF 25 01     BINARY "battle_bgs/graphics/7.gfx.lzhal"
+          23 03 05 07 
+          07 0F 0F 3F 
+          ...omitted...
+  CBB4ED:             BATTLE_BACKGROUND_ARR_69:
+  CBB4ED: 0F 00 20 01     BINARY "battle_bgs/arrangements/69.arr.lzhal"
+          60 02 A0 03 
+          60 03 20 02 
+          ...omitted...
+  CBB58D:             BATTLE_BACKGROUND_ARR_54:
+  CBB58D: 03 00 60 01     BINARY "battle_bgs/arrangements/54.arr.lzhal"
+          60 83 00 00 
+          43 02 20 8F 
+          ...omitted...
+  CBB62D:             BATTLE_BACKGROUND_ARR_13:
+  CBB62D: 0F 00 20 01     BINARY "battle_bgs/arrangements/13.arr.lzhal"
+          60 02 A0 03 
+          60 03 20 02 
+          ...omitted...
+  CBB6CD:             BATTLE_BACKGROUND_GFX_70:
+  CBB6CD: 0F 00 03 00     BINARY "battle_bgs/graphics/70.gfx.lzhal"
+          07 0C 0E 04 
+          04 30 00 10 
+          ...omitted...
+  CBB767:             BATTLE_BACKGROUND_GFX_91:
+  CBB767: 02 00 FF FF     BINARY "battle_bgs/graphics/91.gfx.lzhal"
+          24 00 2F FF 
+          43 00 FF 02 
+          ...omitted...
+  CBB800:             BATTLE_BACKGROUND_GFX_14:
+  CBB800: 0E 0F F0 87     BINARY "battle_bgs/graphics/14.gfx.lzhal"
+          F8 C3 FC E1 
+          FE F0 FF 78 
+          ...omitted...
+  CBB88E:             BATTLE_BACKGROUND_GFX_36:
+  CBB88E: E4 23 00 02     BINARY "battle_bgs/graphics/36.gfx.lzhal"
+          03 00 00 C6 
+          00 26 23 03 
+          ...omitted...
+  CBB91A:             BATTLE_BACKGROUND_ARR_58:
+  CBB91A: 42 00 20 03     BINARY "battle_bgs/arrangements/58.arr.lzhal"
+          01 20 01 60 
+          42 00 20 8F 
+          ...omitted...
+  CBB9A5:             BATTLE_BACKGROUND_ARR_23:
+  CBB9A5: 05 00 20 01     BINARY "battle_bgs/arrangements/23.arr.lzhal"
+          A0 01 E0 41 
+          00 20 05 02 
+          ...omitted...
+  CBBA2F:             BATTLE_BACKGROUND_GFX_20:
+  CBBA2F: 0F 00 03 00     BINARY "battle_bgs/graphics/20.gfx.lzhal"
+          07 0C 0E 04 
+          04 30 00 10 
+          ...omitted...
+  CBBAB7:             BATTLE_BACKGROUND_ARR_18:
+  CBBAB7: 07 00 20 01     BINARY "battle_bgs/arrangements/18.arr.lzhal"
+          20 02 60 03 
+          E0 87 00 00 
+          ...omitted...
+  CBBB3C:             BATTLE_BACKGROUND_GFX_65:
+  CBBB3C: 02 FF 00 C3     BINARY "battle_bgs/graphics/65.gfx.lzhal"
+          43 00 81 C3 
+          00 03 23 00 
+          ...omitted...
+  CBBBC0:             BATTLE_BACKGROUND_ARR_32:
+  CBBBC0: 03 00 60 01     BINARY "battle_bgs/arrangements/32.arr.lzhal"
+          A0 83 00 00 
+          83 00 00 83 
+          ...omitted...
+  CBBC3D:             BATTLE_BACKGROUND_ARR_24:
+  CBBC3D: 05 00 20 01     BINARY "battle_bgs/arrangements/24.arr.lzhal"
+          E0 01 A0 41 
+          00 20 05 02 
+          ...omitted...
+  CBBCB9:             BATTLE_BACKGROUND_ARR_20:
+  CBBCB9: 03 00 60 01     BINARY "battle_bgs/arrangements/20.arr.lzhal"
+          60 43 02 20 
+          03 01 20 00 
+          ...omitted...
+  CBBD32:             BATTLE_BACKGROUND_ARR_30:
+  CBBD32: 1F 00 20 01     BINARY "battle_bgs/arrangements/30.arr.lzhal"
+          20 00 20 01 
+          20 00 20 01 
+          ...omitted...
+  CBBDAA:             BATTLE_BACKGROUND_GFX_102:
+  CBBDAA: E4 20 00 46     BINARY "battle_bgs/graphics/102.gfx.lzhal"
+          3C 00 31 3C 
+          47 00 3C 2D 
+          ...omitted...
+  CBBE21:             BATTLE_BACKGROUND_ARR_88:
+  CBBE21: E0 2F 00 E0     BINARY "battle_bgs/arrangements/88.arr.lzhal"
+          01 20 02 E0 
+          01 20 03 E0 
+          ...omitted...
+  CBBE97:             BATTLE_BACKGROUND_ARR_57:
+  CBBE97: 07 00 20 01     BINARY "battle_bgs/arrangements/57.arr.lzhal"
+          E0 01 A0 00 
+          20 87 00 00 
+          ...omitted...
+  CBBF0A:             BATTLE_BACKGROUND_ARR_48:
+  CBBF0A: 07 00 20 01     BINARY "battle_bgs/arrangements/48.arr.lzhal"
+          E0 01 A0 00 
+          20 87 00 00 
+          ...omitted...
+  CBBF7D:             BATTLE_BACKGROUND_GFX_32:
+  CBBF7D: 0D 01 01 03     BINARY "battle_bgs/graphics/32.gfx.lzhal"
+          03 07 07 F0 
+          FF E0 FF 3F 
+          ...omitted...
+  CBBFEE:             BATTLE_BACKGROUND_ARR_91:
+  CBBFEE: 48 00 20 00     BINARY "battle_bgs/arrangements/91.arr.lzhal"
+          01 4B 20 00 
+          00 20 93 00 
+          ...omitted...
+  CBC05E:             BATTLE_BACKGROUND_GFX_51:
+  CBC05E: 30 FF 00 03     BINARY "battle_bgs/graphics/51.gfx.lzhal"
+          41 FF 07 05 
+          FF 0F FF 1F 
+          ...omitted...
+  CBC0CA:             BATTLE_BACKGROUND_ARR_67:
+  CBC0CA: 1F 00 20 01     BINARY "battle_bgs/arrangements/67.arr.lzhal"
+          20 00 20 01 
+          20 00 20 01 
+          ...omitted...
+  CBC133:             BATTLE_BACKGROUND_ARR_29:
+  CBC133: 1F 00 20 00     BINARY "battle_bgs/arrangements/29.arr.lzhal"
+          60 00 20 00 
+          60 00 20 00 
+          ...omitted...
+  CBC19A:             BATTLE_BACKGROUND_GFX_34:
+  CBC19A: 27 00 28 FF     BINARY "battle_bgs/graphics/34.gfx.lzhal"
+          41 00 FF 01 
+          00 FF 24 00 
+          ...omitted...
+  CBC200:             BATTLE_BACKGROUND_ARR_25:
+  CBC200: 07 00 A0 01     BINARY "battle_bgs/arrangements/25.arr.lzhal"
+          E0 02 E0 03 
+          60 87 00 00 
+          ...omitted...
+  CBC265:             BATTLE_BACKGROUND_ARR_17:
+  CBC265: 07 00 20 01     BINARY "battle_bgs/arrangements/17.arr.lzhal"
+          20 02 A0 03 
+          60 87 00 00 
+          ...omitted...
+  CBC2C9:             BATTLE_BACKGROUND_GFX_100:
+  CBC2C9: 43 00 08 43     BINARY "battle_bgs/graphics/100.gfx.lzhal"
+          08 00 4B 00 
+          08 37 08 47 
+          ...omitted...
+  CBC32C:             BATTLE_BACKGROUND_GFX_23:
+  CBC32C: 3F FF 0A DF     BINARY "battle_bgs/graphics/23.gfx.lzhal"
+          FF EF FF F7 
+          FF FB FF FD 
+          ...omitted...
+  CBC38F:             BATTLE_BACKGROUND_ARR_19:
+  CBC38F: 07 00 E0 01     BINARY "battle_bgs/arrangements/19.arr.lzhal"
+          A0 02 60 00 
+          A0 87 00 00 
+          ...omitted...
+  CBC3F2:             BATTLE_BACKGROUND_ARR_46:
+  CBC3F2: 0F 00 20 01     BINARY "battle_bgs/arrangements/46.arr.lzhal"
+          20 02 20 01 
+          60 00 20 03 
+          ...omitted...
+  CBC453:             BATTLE_BACKGROUND_ARR_33:
+  CBC453: 03 00 60 01     BINARY "battle_bgs/arrangements/33.arr.lzhal"
+          20 83 00 00 
+          41 02 20 03 
+          ...omitted...
+  CBC4B2:             BATTLE_BACKGROUND_ARR_22:
+  CBC4B2: 05 00 20 01     BINARY "battle_bgs/arrangements/22.arr.lzhal"
+          A0 02 60 41 
+          03 20 05 04 
+          ...omitted...
+  CBC50F:             BATTLE_BACKGROUND_ARR_21:
+  CBC50F: 03 00 20 01     BINARY "battle_bgs/arrangements/21.arr.lzhal"
+          E0 83 00 00 
+          83 00 00 83 
+          ...omitted...
+  CBC568:             BATTLE_BACKGROUND_ARR_11:
+  CBC568: 43 00 20 43     BINARY "battle_bgs/arrangements/11.arr.lzhal"
+          01 20 43 02 
+          20 43 03 20 
+          ...omitted...
+  CBC5C1:             BATTLE_BACKGROUND_GFX_31:
+  CBC5C1: 2B 00 23 FF     BINARY "battle_bgs/graphics/31.gfx.lzhal"
+          45 FF 00 83 
+          00 07 02 00 
+          ...omitted...
+  CBC618:             BATTLE_BACKGROUND_GFX_88:
+  CBC618: 08 00 00 0F     BINARY "battle_bgs/graphics/88.gfx.lzhal"
+          0F 00 00 0F 
+          0F 00 C8 00 
+          ...omitted...
+  CBC66E:             BATTLE_BACKGROUND_GFX_19:
+  CBC66E: 0C 01 00 03     BINARY "battle_bgs/graphics/19.gfx.lzhal"
+          00 07 00 0F 
+          00 1F 00 3F 
+          ...omitted...
+  CBC6BD:             BATTLE_BACKGROUND_GFX_21:
+  CBC6BD: 01 02 06 41     BINARY "battle_bgs/graphics/21.gfx.lzhal"
+          05 0C 41 0A 
+          19 41 14 32 
+          ...omitted...
+  CBC70B:             BATTLE_BACKGROUND_ARR_92:
+  CBC70B: 5F 00 20 5F     BINARY "battle_bgs/arrangements/92.arr.lzhal"
+          01 20 E8 5F 
+          00 20 5F 02 
+          ...omitted...
+  CBC753:             BATTLE_BACKGROUND_GFX_59:
+  CBC753: 24 00 0E 01     BINARY "battle_bgs/graphics/59.gfx.lzhal"
+          00 03 00 07 
+          00 0F 00 1F 
+          ...omitted...
+  CBC79B:             BATTLE_BACKGROUND_GFX_22:
+  CBC79B: 2F 00 0D 01     BINARY "battle_bgs/graphics/22.gfx.lzhal"
+          01 03 03 07 
+          07 0F 0F 1F 
+          ...omitted...
+  CBC7E3:             BATTLE_BACKGROUND_GFX_97:
+  CBC7E3: 43 0F 00 42     BINARY "battle_bgs/graphics/97.gfx.lzhal"
+          F0 00 00 F0 
+          E4 30 00 43 
+          ...omitted...
+  CBC82A:             BATTLE_BACKGROUND_GFX_94:
+  CBC82A: 30 FF 46 00     BINARY "battle_bgs/graphics/94.gfx.lzhal"
+          FF 25 00 01 
+          08 08 84 00 
+          ...omitted...
+  CBC870:             BATTLE_BACKGROUND_GFX_55:
+  CBC870: 30 00 46 FF     BINARY "battle_bgs/graphics/55.gfx.lzhal"
+          00 31 FF CF 
+          00 1E 0E FF 
+          ...omitted...
+  CBC8B6:             BATTLE_BACKGROUND_GFX_92:
+  CBC8B6: 47 FF 00 30     BINARY "battle_bgs/graphics/92.gfx.lzhal"
+          00 02 FF 00 
+          FF 43 FF 00 
+          ...omitted...
+  CBC8FB:             BATTLE_BACKGROUND_GFX_96:
+  CBC8FB: 48 00 FF 0C     BINARY "battle_bgs/graphics/96.gfx.lzhal"
+          01 FF 03 FF 
+          07 FF 0F FF 
+          ...omitted...
+  CBC93A:             BATTLE_BACKGROUND_GFX_69:
+  CBC93A: 43 0F F0 43     BINARY "battle_bgs/graphics/69.gfx.lzhal"
+          FF 00 47 00 
+          FF 43 0F 00 
+          ...omitted...
+  CBC978:             BATTLE_BACKGROUND_GFX_13:
+  CBC978: 43 0F F0 43     BINARY "battle_bgs/graphics/13.gfx.lzhal"
+          FF 00 47 00 
+          FF 43 0F 00 
+          ...omitted...
+  CBC9B6:             BATTLE_BACKGROUND_GFX_35:
+  CBC9B6: 47 FF 00 2F     BINARY "battle_bgs/graphics/35.gfx.lzhal"
+          00 47 FF 00 
+          47 00 FF 4F 
+          ...omitted...
+  CBC9F3:             BATTLE_BACKGROUND_GFX_95:
+  CBC9F3: 47 FF 00 2F     BINARY "battle_bgs/graphics/95.gfx.lzhal"
+          00 03 C3 3C 
+          81 7E 43 00 
+          ...omitted...
+  CBCA2D:             BATTLE_BACKGROUND_GFX_26:
+  CBCA2D: 3F FF 2F 00     BINARY "battle_bgs/graphics/26.gfx.lzhal"
+          E4 20 FF 56 
+          00 FF 00 00 
+          ...omitted...
+  CBCA67:             BATTLE_BACKGROUND_GFX_28:
+  CBCA67: 2F FF 47 00     BINARY "battle_bgs/graphics/28.gfx.lzhal"
+          FF 2F 00 30 
+          FF 47 00 FF 
+          ...omitted...
+  CBCA9E:             BATTLE_BACKGROUND_GFX_33:
+  CBCA9E: 47 18 1F 47     BINARY "battle_bgs/graphics/33.gfx.lzhal"
+          E0 00 47 E7 
+          1F 47 FF 00 
+          ...omitted...
+  CBCAD4:             BATTLE_BACKGROUND_GFX_78:
+  CBCAD4: 23 00 02 FF     BINARY "battle_bgs/graphics/78.gfx.lzhal"
+          00 FF 83 00 
+          02 35 FF 46 
+          ...omitted...
+  CBCB04:             BATTLE_BACKGROUND_GFX_11:
+  CBCB04: 4F FF 00 47     BINARY "battle_bgs/graphics/11.gfx.lzhal"
+          00 FF 47 FF 
+          00 30 FF 46 
+          ...omitted...
+  CBCB34:             BATTLE_BACKGROUND_GFX_45:
+  CBCB34: 30 FF 0E 01     BINARY "battle_bgs/graphics/45.gfx.lzhal"
+          FF 03 FF 07 
+          FF 0F FF 1F 
+          ...omitted...
+  CBCB5E:             BATTLE_BACKGROUND_GFX_58:
+  CBCB5E: 48 FF 00 0D     BINARY "battle_bgs/graphics/58.gfx.lzhal"
+          FF 01 FF 03 
+          FF 07 FF 0F 
+          ...omitted...
+  CBCB87:             BATTLE_BACKGROUND_GFX_46:
+  CBCB87: 48 00 FF 0D     BINARY "battle_bgs/graphics/46.gfx.lzhal"
+          01 FE 03 FC 
+          07 F8 0F F0 
+          ...omitted...
+  CBCBAF:             BATTLE_BACKGROUND_GFX_57:
+  CBCBAF: 30 FF 1E 00     BINARY "battle_bgs/graphics/57.gfx.lzhal"
+          FF 01 FF 03 
+          FF 07 FF 0F 
+          ...omitted...
+  CBCBD2:             BATTLE_BACKGROUND_GFX_29:
+  CBCBD2: 1F 55 CC AA     BINARY "battle_bgs/graphics/29.gfx.lzhal"
+          98 55 31 AA 
+          63 55 C6 AA 
+          ...omitted...
+  CBCBF4:             BATTLE_BACKGROUND_PALETTE_113:
+  CBCBF4: 00 00 4E 7A     BINARY "battle_bgs/palettes/113.pal"
+          2E 76 2E 76 
+          2E 76 0B 72 
+          ...omitted...
+  CBCC14:             BATTLE_BACKGROUND_PALETTE_112:
+  CBCC14: 00 00 FF 3F     BINARY "battle_bgs/palettes/112.pal"
+          9C 03 1A 03 
+          D8 02 56 02 
+          ...omitted...
+  CBCC34:             BATTLE_BACKGROUND_PALETTE_111:
+  CBCC34: 00 00 FF 7F     BINARY "battle_bgs/palettes/111.pal"
+          BF 03 5D 03 
+          1A 03 D8 02 
+          ...omitted...
+  CBCC54:             BATTLE_BACKGROUND_PALETTE_110:
+  CBCC54: 00 00 12 00     BINARY "battle_bgs/palettes/110.pal"
+          10 00 0E 00 
+          0A 00 08 00 
+          ...omitted...
+  CBCC74:             BATTLE_BACKGROUND_PALETTE_109:
+  CBCC74: 00 00 00 00     BINARY "battle_bgs/palettes/109.pal"
+          23 00 46 00 
+          69 00 8D 00 
+          ...omitted...
+  CBCC94:             BATTLE_BACKGROUND_PALETTE_107:
+  CBCC94: 00 00 C0 35     BINARY "battle_bgs/palettes/107.pal"
+          A0 39 C0 31 
+          62 31 88 3D 
+          ...omitted...
+  CBCCB4:             BATTLE_BACKGROUND_PALETTE_106:
+  CBCCB4: 00 00 00 50     BINARY "battle_bgs/palettes/106.pal"
+          07 5D 31 6A 
+          BD 77 10 5A 
+          ...omitted...
+  CBCCD4:             BATTLE_BACKGROUND_PALETTE_105:
+  CBCCD4: 00 00 14 18     BINARY "battle_bgs/palettes/105.pal"
+          10 14 0D 10 
+          0A 0C 06 08 
+          ...omitted...
+  CBCCF4:             BATTLE_BACKGROUND_PALETTE_104:
+  CBCCF4: 00 00 0C 00     BINARY "battle_bgs/palettes/104.pal"
+          0D 00 0D 00 
+          0D 00 0E 00 
+          ...omitted...
+  CBCD14:             BATTLE_BACKGROUND_PALETTE_103:
+  CBCD14: 00 00 00 20     BINARY "battle_bgs/palettes/103.pal"
+          00 20 00 20 
+          00 20 60 24 
+          ...omitted...
+  CBCD34:             BATTLE_BACKGROUND_PALETTE_101:
+  CBCD34: 00 00 40 75     BINARY "battle_bgs/palettes/101.pal"
+          00 6D E0 60 
+          A0 58 80 50 
+          ...omitted...
+  CBCD54:             BATTLE_BACKGROUND_PALETTE_100:
+  CBCD54: 00 00 83 46     BINARY "battle_bgs/palettes/100.pal"
+          C4 3E C4 3E 
+          C4 3E C4 3E 
+          ...omitted...
+  CBCD74:             BATTLE_BACKGROUND_PALETTE_99:
+  CBCD74: 00 00 00 7C     BINARY "battle_bgs/palettes/99.pal"
+          00 74 00 6C 
+          00 60 00 58 
+          ...omitted...
+  CBCD94:             BATTLE_BACKGROUND_PALETTE_98:
+  CBCD94: 00 00 94 52     BINARY "battle_bgs/palettes/98.pal"
+          4A 29 DE 7B 
+          50 59 98 61 
+          ...omitted...
+  CBCDB4:             BATTLE_BACKGROUND_PALETTE_97:
+  CBCDB4: 00 00 94 52     BINARY "battle_bgs/palettes/97.pal"
+          93 18 72 20 
+          72 28 71 30 
+          ...omitted...
+  CBCDD4:             BATTLE_BACKGROUND_PALETTE_96:
+  CBCDD4: 00 00 E0 03     BINARY "battle_bgs/palettes/96.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  CBCDF4:             BATTLE_BACKGROUND_PALETTE_93:
+  CBCDF4: 00 00 96 1A     BINARY "battle_bgs/palettes/93.pal"
+          9C 53 5A 43 
+          18 33 D8 22 
+          ...omitted...
+  CBCE14:             BATTLE_BACKGROUND_PALETTE_92:
+  CBCE14: 00 00 94 52     BINARY "battle_bgs/palettes/92.pal"
+          06 20 04 18 
+          03 14 02 10 
+          ...omitted...
+  CBCE34:             BATTLE_BACKGROUND_PALETTE_91:
+  CBCE34: 00 00 00 00     BINARY "battle_bgs/palettes/91.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  CBCE54:             BATTLE_BACKGROUND_PALETTE_90:
+  CBCE54: 00 00 00 02     BINARY "battle_bgs/palettes/90.pal"
+          48 48 69 48 
+          8C 4C AE 50 
+          ...omitted...
+  CBCE74:             BATTLE_BACKGROUND_PALETTE_89:
+  CBCE74: 00 00 94 52     BINARY "battle_bgs/palettes/89.pal"
+          00 00 00 0C 
+          00 18 00 20 
+          ...omitted...
+  CBCE94:             BATTLE_BACKGROUND_PALETTE_88:
+  CBCE94: 00 00 80 31     BINARY "battle_bgs/palettes/88.pal"
+          80 31 80 31 
+          80 31 80 31 
+          ...omitted...
+  CBCEB4:             BATTLE_BACKGROUND_PALETTE_87:
+  CBCEB4: 00 00 00 40     BINARY "battle_bgs/palettes/87.pal"
+          00 40 00 40 
+          00 40 00 40 
+          ...omitted...
+  CBCED4:             BATTLE_BACKGROUND_PALETTE_86:
+  CBCED4: 00 00 70 4B     BINARY "battle_bgs/palettes/86.pal"
+          B1 4F 2F 43 
+          CD 3E 8C 36 
+          ...omitted...
+  CBCEF4:             BATTLE_BACKGROUND_PALETTE_85:
+  CBCEF4: 00 00 00 04     BINARY "battle_bgs/palettes/85.pal"
+          00 0C 21 18 
+          43 24 85 30 
+          ...omitted...
+  CBCF14:             BATTLE_BACKGROUND_PALETTE_84:
+  CBCF14: 00 00 00 28     BINARY "battle_bgs/palettes/84.pal"
+          0F 2E CF 25 
+          8E 1D 2D 19 
+          ...omitted...
+  CBCF34:             BATTLE_BACKGROUND_PALETTE_83:
+  CBCF34: 00 00 0C 00     BINARY "battle_bgs/palettes/83.pal"
+          CC 38 16 10 
+          D8 28 12 08 
+          ...omitted...
+  CBCF54:             BATTLE_BACKGROUND_PALETTE_82:
+  CBCF54: 00 00 04 00     BINARY "battle_bgs/palettes/82.pal"
+          06 00 08 00 
+          0A 08 0C 08 
+          ...omitted...
+  CBCF74:             BATTLE_BACKGROUND_PALETTE_79:
+  CBCF74: 00 00 04 10     BINARY "battle_bgs/palettes/79.pal"
+          47 20 88 28 
+          C6 28 09 35 
+          ...omitted...
+  CBCF94:             BATTLE_BACKGROUND_PALETTE_77:
+  CBCF94: 00 00 94 52     BINARY "battle_bgs/palettes/77.pal"
+          C6 08 E8 0C 
+          29 11 6B 15 
+          ...omitted...
+  CBCFB4:             BATTLE_BACKGROUND_PALETTE_73:
+  CBCFB4: 00 00 00 02     BINARY "battle_bgs/palettes/73.pal"
+          48 48 6B 4C 
+          AF 54 F3 58 
+          ...omitted...
+  CBCFD4:             BATTLE_BACKGROUND_PALETTE_70:
+  CBCFD4: 00 00 80 50     BINARY "battle_bgs/palettes/70.pal"
+          00 00 00 0C 
+          20 1C 40 28 
+          ...omitted...
+  CBCFF4:             BATTLE_BACKGROUND_PALETTE_55:
+  CBCFF4: 00 00 EC 42     BINARY "battle_bgs/palettes/55.pal"
+          EB 52 CA 5E 
+          2A 5E 89 61 
+          ...omitted...
+  CBD014:             BATTLE_BACKGROUND_PALETTE_54:
+  CBD014: 00 00 73 4E     BINARY "battle_bgs/palettes/54.pal"
+          0F 00 0E 00 
+          0D 00 0D 00 
+          ...omitted...
+  CBD034:             BATTLE_BACKGROUND_PALETTE_53:
+  CBD034: 00 00 00 20     BINARY "battle_bgs/palettes/53.pal"
+          01 24 03 2C 
+          06 34 09 3C 
+          ...omitted...
+  CBD054:             BATTLE_BACKGROUND_PALETTE_52:
+  CBD054: 00 00 00 20     BINARY "battle_bgs/palettes/52.pal"
+          20 28 40 2C 
+          A0 34 E0 3C 
+          ...omitted...
+  CBD074:             BATTLE_BACKGROUND_PALETTE_51:
+  CBD074: 00 00 D0 20     BINARY "battle_bgs/palettes/51.pal"
+          D0 28 D0 30 
+          D0 30 CE 38 
+          ...omitted...
+  CBD094:             BATTLE_BACKGROUND_PALETTE_50:
+  CBD094: 00 00 98 31     BINARY "battle_bgs/palettes/50.pal"
+          98 31 D8 31 
+          DA 31 DA 31 
+          ...omitted...
+  CBD0B4:             BATTLE_BACKGROUND_PALETTE_49:
+  CBD0B4: 00 00 98 31     BINARY "battle_bgs/palettes/49.pal"
+          98 31 D8 31 
+          DA 31 DA 31 
+          ...omitted...
+  CBD0D4:             BATTLE_BACKGROUND_PALETTE_48:
+  CBD0D4: 00 00 14 33     BINARY "battle_bgs/palettes/48.pal"
+          12 33 14 33 
+          14 33 16 33 
+          ...omitted...
+  CBD0F4:             BATTLE_BACKGROUND_PALETTE_47:
+  CBD0F4: 00 00 50 7B     BINARY "battle_bgs/palettes/47.pal"
+          50 72 50 6A 
+          0E 6A 0E 62 
+          ...omitted...
+  CBD114:             BATTLE_BACKGROUND_PALETTE_46:
+  CBD114: 00 00 CE 48     BINARY "battle_bgs/palettes/46.pal"
+          60 4B 20 47 
+          00 4B E0 46 
+          ...omitted...
+  CBD134:             BATTLE_BACKGROUND_PALETTE_45:
+  CBD134: 00 00 DE 7B     BINARY "battle_bgs/palettes/45.pal"
+          DC 73 D8 73 
+          D6 73 96 6B 
+          ...omitted...
+  CBD154:             BATTLE_BACKGROUND_PALETTE_44:
+  CBD154: 00 00 94 52     BINARY "battle_bgs/palettes/44.pal"
+          00 00 02 00 
+          05 00 07 00 
+          ...omitted...
+  CBD174:             BATTLE_BACKGROUND_PALETTE_43:
+  CBD174: 00 00 94 00     BINARY "battle_bgs/palettes/43.pal"
+          11 10 0D 24 
+          08 28 02 18 
+          ...omitted...
+  CBD194:             BATTLE_BACKGROUND_PALETTE_42:
+  CBD194: 00 00 FF 6C     BINARY "battle_bgs/palettes/42.pal"
+          DC 48 D9 40 
+          B6 38 93 38 
+          ...omitted...
+  CBD1B4:             BATTLE_BACKGROUND_PALETTE_41:
+  CBD1B4: 00 00 00 00     BINARY "battle_bgs/palettes/41.pal"
+          00 00 0A 00 
+          15 00 1F 00 
+          ...omitted...
+  CBD1D4:             BATTLE_BACKGROUND_PALETTE_40:
+  CBD1D4: 00 00 94 52     BINARY "battle_bgs/palettes/40.pal"
+          00 00 64 0C 
+          E8 18 6C 25 
+          ...omitted...
+  CBD1F4:             BATTLE_BACKGROUND_PALETTE_39:
+  CBD1F4: 00 00 D6 5A     BINARY "battle_bgs/palettes/39.pal"
+          73 4E 31 46 
+          10 42 CE 39 
+          ...omitted...
+  CBD214:             BATTLE_BACKGROUND_PALETTE_38:
+  CBD214: 00 00 00 00     BINARY "battle_bgs/palettes/38.pal"
+          00 28 00 4C 
+          00 74 00 68 
+          ...omitted...
+  CBD234:             BATTLE_BACKGROUND_PALETTE_37:
+  CBD234: 00 00 52 52     BINARY "battle_bgs/palettes/37.pal"
+          AD 45 29 39 
+          C6 30 63 24 
+          ...omitted...
+  CBD254:             BATTLE_BACKGROUND_PALETTE_36:
+  CBD254: 00 00 94 52     BINARY "battle_bgs/palettes/36.pal"
+          CC 32 CC 3A 
+          8C 4A 8C 52 
+          ...omitted...
+  CBD274:             BATTLE_BACKGROUND_PALETTE_35:
+  CBD274: 00 00 94 52     BINARY "battle_bgs/palettes/35.pal"
+          C6 38 C6 38 
+          C6 38 08 49 
+          ...omitted...
+  CBD294:             BATTLE_BACKGROUND_PALETTE_34:
+  CBD294: 00 00 94 52     BINARY "battle_bgs/palettes/34.pal"
+          5C 02 5C 02 
+          5C 02 1C 03 
+          ...omitted...
+  CBD2B4:             BATTLE_BACKGROUND_PALETTE_33:
+  CBD2B4: 00 00 94 52     BINARY "battle_bgs/palettes/33.pal"
+          E6 31 E6 31 
+          E6 31 44 41 
+          ...omitted...
+  CBD2D4:             BATTLE_BACKGROUND_PALETTE_32:
+  CBD2D4: 00 00 94 52     BINARY "battle_bgs/palettes/32.pal"
+          80 21 80 21 
+          80 21 80 21 
+          ...omitted...
+  CBD2F4:             BATTLE_BACKGROUND_PALETTE_31:
+  CBD2F4: 00 00 94 52     BINARY "battle_bgs/palettes/31.pal"
+          33 63 12 5B 
+          31 53 31 47 
+          ...omitted...
+  CBD314:             BATTLE_BACKGROUND_PALETTE_30:
+  CBD314: 00 00 9C 22     BINARY "battle_bgs/palettes/30.pal"
+          5C 22 5C 22 
+          5C 22 5C 1A 
+          ...omitted...
+  CBD334:             BATTLE_BACKGROUND_PALETTE_29:
+  CBD334: 00 00 8A 25     BINARY "battle_bgs/palettes/29.pal"
+          84 08 E7 0C 
+          4A 15 AD 21 
+          ...omitted...
+  CBD354:             BATTLE_BACKGROUND_PALETTE_28:
+  CBD354: 00 00 94 52     BINARY "battle_bgs/palettes/28.pal"
+          4A 29 DE 7B 
+          50 59 98 61 
+          ...omitted...
+  CBD374:             BATTLE_BACKGROUND_PALETTE_27:
+  CBD374: 00 00 1C 00     BINARY "battle_bgs/palettes/27.pal"
+          16 28 0E 38 
+          04 20 00 08 
+          ...omitted...
+  CBD394:             BATTLE_BACKGROUND_PALETTE_26:
+  CBD394: 00 00 CE 48     BINARY "battle_bgs/palettes/26.pal"
+          B0 21 B1 1D 
+          D1 1D D2 19 
+          ...omitted...
+  CBD3B4:             BATTLE_BACKGROUND_PALETTE_25:
+  CBD3B4: 00 00 94 52     BINARY "battle_bgs/palettes/25.pal"
+          4A 29 2B 57 
+          AB 4A 2B 3E 
+          ...omitted...
+  CBD3D4:             BATTLE_BACKGROUND_PALETTE_24:
+  CBD3D4: 00 00 B7 2C     BINARY "battle_bgs/palettes/24.pal"
+          B7 2C B7 20 
+          B7 18 16 19 
+          ...omitted...
+  CBD3F4:             BATTLE_BACKGROUND_PALETTE_23:
+  CBD3F4: 00 00 9A 31     BINARY "battle_bgs/palettes/23.pal"
+          9B 35 BB 39 
+          BC 3D DD 45 
+          ...omitted...
+  CBD414:             BATTLE_BACKGROUND_PALETTE_21:
+  CBD414: 00 00 00 02     BINARY "battle_bgs/palettes/21.pal"
+          55 1C 75 18 
+          95 18 D5 14 
+          ...omitted...
+  CBD434:             BATTLE_BACKGROUND_PALETTE_20:
+  CBD434: 00 00 CE 48     BINARY "battle_bgs/palettes/20.pal"
+          E1 56 E1 4E 
+          E1 42 E1 36 
+          ...omitted...
+  CBD454:             BATTLE_BACKGROUND_PALETTE_19:
+  CBD454: 00 00 BD 3F     BINARY "battle_bgs/palettes/19.pal"
+          BA 43 97 43 
+          94 43 91 43 
+          ...omitted...
+  CBD474:             BATTLE_BACKGROUND_PALETTE_18:
+  CBD474: 00 00 66 59     BINARY "battle_bgs/palettes/18.pal"
+          C3 55 03 52 
+          43 52 63 4A 
+          ...omitted...
+  CBD494:             BATTLE_BACKGROUND_PALETTE_17:
+  CBD494: 00 00 94 52     BINARY "battle_bgs/palettes/17.pal"
+          50 09 71 09 
+          B2 0D F4 11 
+          ...omitted...
+  CBD4B4:             BATTLE_BACKGROUND_PALETTE_16:
+  CBD4B4: 00 00 CE 48     BINARY "battle_bgs/palettes/16.pal"
+          E0 5A E0 62 
+          C1 66 A2 6A 
+          ...omitted...
+  CBD4D4:             BATTLE_BACKGROUND_PALETTE_15:
+  CBD4D4: 00 00 5C 22     BINARY "battle_bgs/palettes/15.pal"
+          7C 22 BD 22 
+          FD 22 BC 22 
+          ...omitted...
+  CBD4F4:             BATTLE_BACKGROUND_PALETTE_14:
+  CBD4F4: 00 00 94 52     BINARY "battle_bgs/palettes/14.pal"
+          9A 09 19 0A 
+          98 0E F7 12 
+          ...omitted...
+  CBD514:             BATTLE_BACKGROUND_PALETTE_13:
+  CBD514: 00 00 CE 48     BINARY "battle_bgs/palettes/13.pal"
+          00 5B 00 53 
+          00 43 00 3B 
+          ...omitted...
+  CBD534:             BATTLE_BACKGROUND_PALETTE_12:
+  CBD534: 00 00 94 52     BINARY "battle_bgs/palettes/12.pal"
+          A8 61 E8 65 
+          48 66 A8 6A 
+          ...omitted...
+  CBD554:             BATTLE_BACKGROUND_PALETTE_11:
+  CBD554: 00 00 70 54     BINARY "battle_bgs/palettes/11.pal"
+          51 58 53 58 
+          34 5C 36 60 
+          ...omitted...
+  CBD574:             BATTLE_BACKGROUND_PALETTE_10:
+  CBD574: 00 00 00 78     BINARY "battle_bgs/palettes/10.pal"
+          19 15 B9 14 
+          B9 20 99 2C 
+          ...omitted...
+  CBD594:             BATTLE_BACKGROUND_PALETTE_9:
+  CBD594: 00 00 AA 19     BINARY "battle_bgs/palettes/9.pal"
+          68 19 49 19 
+          4A 15 AD 21 
+          ...omitted...
+  CBD5B4:             BATTLE_BACKGROUND_PALETTE_8:
+  CBD5B4: 00 00 04 63     BINARY "battle_bgs/palettes/8.pal"
+          1A 01 19 01 
+          39 01 39 01 
+          ...omitted...
+  CBD5D4:             BATTLE_BACKGROUND_PALETTE_7:
+  CBD5D4: 00 00 1E 29     BINARY "battle_bgs/palettes/7.pal"
+          F8 4C 17 5D 
+          32 59 4F 51 
+          ...omitted...
+  CBD5F4:             BATTLE_BACKGROUND_PALETTE_6:
+  CBD5F4: 00 00 9F 21     BINARY "battle_bgs/palettes/6.pal"
+          9F 21 7F 25 
+          7F 25 7F 29 
+          ...omitted...
+  CBD614:             BATTLE_BACKGROUND_PALETTE_5:
+  CBD614: 00 00 DE 3B     BINARY "battle_bgs/palettes/5.pal"
+          9E 3B 9E 3B 
+          5C 3B 1C 33 
+          ...omitted...
+  CBD634:             BATTLE_BACKGROUND_PALETTE_4:
+  CBD634: 00 00 5C 39     BINARY "battle_bgs/palettes/4.pal"
+          5C 39 5C 31 
+          5C 31 5C 29 
+          ...omitted...
+  CBD654:             BATTLE_BACKGROUND_PALETTE_3:
+  CBD654: 00 00 56 1A     BINARY "battle_bgs/palettes/3.pal"
+          62 36 42 3A 
+          22 3A 01 3E 
+          ...omitted...
+  CBD674:             BATTLE_BACKGROUND_PALETTE_2:
+  CBD674: 00 00 94 52     BINARY "battle_bgs/palettes/2.pal"
+          4D 37 0C 3B 
+          EA 3A C9 3A 
+          ...omitted...
+  CBD694:             BATTLE_BACKGROUND_PALETTE_1:
+  CBD694: 00 00 94 22     BINARY "battle_bgs/palettes/1.pal"
+          94 22 94 1A 
+          94 1A 94 1A 
+          ...omitted...
+  CBD6B4:             BATTLE_BACKGROUND_GFX_48:
+  CBD6B4: 2F FF 06 0F     BINARY "battle_bgs/graphics/48.gfx.lzhal"
+          FF 1F FF 3F 
+          FF 7F 28 FF 
+          ...omitted...
+  CBD6D2:             BATTLE_BACKGROUND_GFX_50:
+  CBD6D2: 30 FF 0E 01     BINARY "battle_bgs/graphics/50.gfx.lzhal"
+          FF 03 FF 07 
+          FF 0F FF 1F 
+          ...omitted...
+  CBD6ED:             BATTLE_BACKGROUND_GFX_44:
+  CBD6ED: 47 00 FF 48     BINARY "battle_bgs/graphics/44.gfx.lzhal"
+          FF 00 0D FF 
+          01 FF 03 FF 
+          ...omitted...
+  CBD705:             BATTLE_BACKGROUND_GFX_30:
+  CBD705: 02 00 FF 00     BINARY "battle_bgs/graphics/30.gfx.lzhal"
+          24 FF 22 00 
+          45 00 FF 88 
+          ...omitted...
+  CBD71C:             BATTLE_BACKGROUND_GFX_12:
+  CBD71C: 47 2A F3 47     BINARY "battle_bgs/graphics/12.gfx.lzhal"
+          FC C0 47 00 
+          FF 2F FF 47 
+          ...omitted...
+  CBD72E:             BATTLE_BACKGROUND_GFX_49:
+  CBD72E: 47 55 33 47     BINARY "battle_bgs/graphics/49.gfx.lzhal"
+          0F FF 47 15 
+          33 47 0F 00 
+          ...omitted...
+  CBD73D:             BATTLE_BACKGROUND_GFX_67:
+  CBD73D: 30 00 46 FF     BINARY "battle_bgs/graphics/67.gfx.lzhal"
+          00 00 FF 47 
+          FF 00 2F 00 
+          ...omitted...
+  CBD74A:             BATTLE_BACKGROUND_PALETTE_108:
+  CBD74A: 00 00 9E 09     BINARY "battle_bgs/palettes/108.pal"
+          B3 34 9A 20 
+  CBD752:             BATTLE_BACKGROUND_PALETTE_102:
+  CBD752: 00 00 1E 20     BINARY "battle_bgs/palettes/102.pal"
+          52 38 8A 30 
+  CBD75A:             BATTLE_BACKGROUND_PALETTE_95:
+  CBD75A: 22 04 CB 2C     BINARY "battle_bgs/palettes/95.pal"
+          90 55 51 7A 
+  CBD762:             BATTLE_BACKGROUND_PALETTE_94:
+  CBD762: 22 04 52 35     BINARY "battle_bgs/palettes/94.pal"
+          D9 49 5F 5E 
+  CBD76A:             BATTLE_BACKGROUND_PALETTE_81:
+  CBD76A: 00 00 88 28     BINARY "battle_bgs/palettes/81.pal"
+          0C 39 D0 41 
+  CBD772:             BATTLE_BACKGROUND_PALETTE_80:
+  CBD772: 00 00 0C 10     BINARY "battle_bgs/palettes/80.pal"
+          0E 10 54 08 
+  CBD77A:             BATTLE_BACKGROUND_PALETTE_78:
+  CBD77A: 00 00 06 30     BINARY "battle_bgs/palettes/78.pal"
+          08 70 00 38 
+  CBD782:             BATTLE_BACKGROUND_PALETTE_76:
+  CBD782: 00 00 DC 41     BINARY "battle_bgs/palettes/76.pal"
+          9C 40 1E 41 
+  CBD78A:             BATTLE_BACKGROUND_PALETTE_75:
+  CBD78A: 00 00 1E 02     BINARY "battle_bgs/palettes/75.pal"
+          9E 11 18 31 
+  CBD792:             BATTLE_BACKGROUND_PALETTE_74:
+  CBD792: 00 00 D4 12     BINARY "battle_bgs/palettes/74.pal"
+          4A 12 0A 12 
+  CBD79A:             BATTLE_BACKGROUND_PALETTE_72:
+  CBD79A: 00 00 8E 40     BINARY "battle_bgs/palettes/72.pal"
+          D2 28 82 29 
+  CBD7A2:             BATTLE_BACKGROUND_PALETTE_71:
+  CBD7A2: 00 00 1E 13     BINARY "battle_bgs/palettes/71.pal"
+          5C 33 18 33 
+  CBD7AA:             BATTLE_BACKGROUND_PALETTE_69:
+  CBD7AA: 00 00 48 42     BINARY "battle_bgs/palettes/69.pal"
+          C4 41 84 49 
+  CBD7B2:             BATTLE_BACKGROUND_PALETTE_68:
+  CBD7B2: 00 00 0E 70     BINARY "battle_bgs/palettes/68.pal"
+          6A 6C E8 6C 
+  CBD7BA:             BATTLE_BACKGROUND_PALETTE_67:
+  CBD7BA: 00 00 DE 32     BINARY "battle_bgs/palettes/67.pal"
+          58 42 9E 32 
+  CBD7C2:             BATTLE_BACKGROUND_PALETTE_66:
+  CBD7C2: 00 00 D2 32     BINARY "battle_bgs/palettes/66.pal"
+          90 42 CE 3A 
+  CBD7CA:             BATTLE_BACKGROUND_PALETTE_65:
+  CBD7CA: 00 00 9E 09     BINARY "battle_bgs/palettes/65.pal"
+          DC 10 9A 20 
+  CBD7D2:             BATTLE_BACKGROUND_PALETTE_64:
+  CBD7D2: 00 00 D8 18     BINARY "battle_bgs/palettes/64.pal"
+          94 28 54 18 
+  CBD7DA:             BATTLE_BACKGROUND_PALETTE_63:
+  CBD7DA: 00 00 56 28     BINARY "battle_bgs/palettes/63.pal"
+          18 18 58 3C 
+  CBD7E2:             BATTLE_BACKGROUND_PALETTE_62:
+  CBD7E2: 00 00 D0 68     BINARY "battle_bgs/palettes/62.pal"
+          0A 51 8C 40 
+  CBD7EA:             BATTLE_BACKGROUND_PALETTE_61:
+  CBD7EA: 00 00 D0 68     BINARY "battle_bgs/palettes/61.pal"
+          0A 51 8C 40 
+  CBD7F2:             BATTLE_BACKGROUND_PALETTE_60:
+  CBD7F2: 00 00 75 2C     BINARY "battle_bgs/palettes/60.pal"
+          57 45 B9 35 
+  CBD7FA:             BATTLE_BACKGROUND_PALETTE_59:
+  CBD7FA: 00 00 4C 20     BINARY "battle_bgs/palettes/59.pal"
+          4C 38 48 30 
+  CBD802:             BATTLE_BACKGROUND_PALETTE_58:
+  CBD802: 00 00 48 10     BINARY "battle_bgs/palettes/58.pal"
+          8E 20 D4 30 
+  CBD80A:             BATTLE_BACKGROUND_PALETTE_57:
+  CBD80A: 00 00 CE 11     BINARY "battle_bgs/palettes/57.pal"
+          54 12 DA 11 
+  CBD812:             BATTLE_BACKGROUND_PALETTE_56:
+  CBD812: 00 00 04 11     BINARY "battle_bgs/palettes/56.pal"
+          86 21 06 22 
+  CBD81A:             BATTLE_BACKGROUND_PALETTE_22:
+  CBD81A: 00 00 00 11     BINARY "battle_bgs/palettes/22.pal"
+          40 21 C0 19 
+  CBD822:             BATTLE_BACKGROUND_PALETTE_0:
+  CBD822: 00 00 D0 41     BINARY "battle_bgs/palettes/0.pal"
+          0C 39 88 28 
+  CBD82A:             BATTLE_BACKGROUND_GFX_73:
+  CBD82A: 47 00 FF 2F     BINARY "battle_bgs/graphics/73.gfx.lzhal"
+          00 FF       
+  CBD830:             BATTLE_BACKGROUND_ARR_90:
+  CBD830: EB FF 00 20     BINARY "battle_bgs/arrangements/90.arr.lzhal"
+          FF          
+  CBD835:             BATTLE_BACKGROUND_ARR_87:
+  CBD835: EB FF 00 20     BINARY "battle_bgs/arrangements/87.arr.lzhal"
+          FF          
+  CBD83A:             BATTLE_BACKGROUND_ARR_83:
+  CBD83A: EB FF 00 20     BINARY "battle_bgs/arrangements/83.arr.lzhal"
+          FF          
+  CBD83F:             BATTLE_BACKGROUND_ARR_81:
+  CBD83F: EB FF 00 20     BINARY "battle_bgs/arrangements/81.arr.lzhal"
+          FF          
+  CBD844:             BATTLE_BACKGROUND_ARR_80:
+  CBD844: EB FF 00 20     BINARY "battle_bgs/arrangements/80.arr.lzhal"
+          FF          
+  CBD849:             BATTLE_BACKGROUND_ARR_79:
+  CBD849: EB FF 00 20     BINARY "battle_bgs/arrangements/79.arr.lzhal"
+          FF          
+  CBD84E:             BATTLE_BACKGROUND_ARR_77:
+  CBD84E: EB FF 00 20     BINARY "battle_bgs/arrangements/77.arr.lzhal"
+          FF          
+  CBD853:             BATTLE_BACKGROUND_ARR_76:
+  CBD853: EB FF 00 20     BINARY "battle_bgs/arrangements/76.arr.lzhal"
+          FF          
+  CBD858:             BATTLE_BACKGROUND_ARR_75:
+  CBD858: EB FF 00 20     BINARY "battle_bgs/arrangements/75.arr.lzhal"
+          FF          
+  CBD85D:             BATTLE_BACKGROUND_ARR_74:
+  CBD85D: EB FF 00 20     BINARY "battle_bgs/arrangements/74.arr.lzhal"
+          FF          
+  CBD862:             BATTLE_BACKGROUND_ARR_73:
+  CBD862: EB FF 00 20     BINARY "battle_bgs/arrangements/73.arr.lzhal"
+          FF          
+  CBD867:             BATTLE_BACKGROUND_ARR_72:
+  CBD867: EB FF 00 20     BINARY "battle_bgs/arrangements/72.arr.lzhal"
+          FF          
+  CBD86C:             BATTLE_BACKGROUND_ARR_71:
+  CBD86C: EB FF 00 20     BINARY "battle_bgs/arrangements/71.arr.lzhal"
+          FF          
+  CBD871:             BATTLE_BACKGROUND_ARR_0:
+  CBD871: EB FF 00 20     BINARY "battle_bgs/arrangements/0.arr.lzhal"
+          FF          
+  CBD876:             BATTLE_BACKGROUND_GFX_87:
+  CBD876: 3F 00 FF        BINARY "battle_bgs/graphics/87.gfx.lzhal"
+  CBD879:             BATTLE_BACKGROUND_GFX_83:
+  CBD879: 3F 00 FF        BINARY "battle_bgs/graphics/83.gfx.lzhal"
+  CBD87C:             BATTLE_BACKGROUND_GFX_81:
+  CBD87C: 3F 00 FF        BINARY "battle_bgs/graphics/81.gfx.lzhal"
+  CBD87F:             BATTLE_BACKGROUND_GFX_80:
+  CBD87F: 3F 00 FF        BINARY "battle_bgs/graphics/80.gfx.lzhal"
+  CBD882:             BATTLE_BACKGROUND_GFX_79:
+  CBD882: 3F 00 FF        BINARY "battle_bgs/graphics/79.gfx.lzhal"
+  CBD885:             BATTLE_BACKGROUND_GFX_77:
+  CBD885: 3F 00 FF        BINARY "battle_bgs/graphics/77.gfx.lzhal"
+  CBD888:             BATTLE_BACKGROUND_GFX_76:
+  CBD888: 3F 00 FF        BINARY "battle_bgs/graphics/76.gfx.lzhal"
+  CBD88B:             BATTLE_BACKGROUND_GFX_75:
+  CBD88B: 3F 00 FF        BINARY "battle_bgs/graphics/75.gfx.lzhal"
+  CBD88E:             BATTLE_BACKGROUND_GFX_74:
+  CBD88E: 3F 00 FF        BINARY "battle_bgs/graphics/74.gfx.lzhal"
+  CBD891:             BATTLE_BACKGROUND_GFX_72:
+  CBD891: 3F 00 FF        BINARY "battle_bgs/graphics/72.gfx.lzhal"
+  CBD894:             BATTLE_BACKGROUND_GFX_71:
+  CBD894: 3F 00 FF        BINARY "battle_bgs/graphics/71.gfx.lzhal"
+  CBD897:             BATTLE_BACKGROUND_GFX_0:
+  CBD897: 2F 00 FF        BINARY "battle_bgs/graphics/0.gfx.lzhal"
+  CBD89A:             .INCLUDE "data/battle/background_layer_table.asm"
+>>> data/battle/background_layer_table.asm
+  CBD89A:             BTL_ENTRY_BG_TABLE:
+  CBD89A: 00 00 00 00     .WORD BATTLEBG_LAYER::NONE, BATTLEBG_LAYER::NONE ;0
+  CBD89E: 06 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN262, BATTLEBG_LAYER::NONE ;1
+  CBD8A2: 04 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN260, BATTLEBG_LAYER::NONE ;2
+  CBD8A6: 05 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN261, BATTLEBG_LAYER::NONE ;3
+  CBD8AA: 72 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN114, BATTLEBG_LAYER::NONE ;4
+  CBD8AE: 73 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN115, BATTLEBG_LAYER::NONE ;5
+  CBD8B2: 74 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN116, BATTLEBG_LAYER::NONE ;6
+  CBD8B6: 75 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN117, BATTLEBG_LAYER::NONE ;7
+  CBD8BA: 05 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN005, BATTLEBG_LAYER::NONE ;8
+  CBD8BE: 06 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN006, BATTLEBG_LAYER::NONE ;9
+  CBD8C2: 07 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN007, BATTLEBG_LAYER::NONE ;10
+  CBD8C6: 08 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN008, BATTLEBG_LAYER::NONE ;11
+  CBD8CA: 7C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN124, BATTLEBG_LAYER::NONE ;12
+  CBD8CE: 7B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN123, BATTLEBG_LAYER::NONE ;13
+  CBD8D2: 7A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN122, BATTLEBG_LAYER::NONE ;14
+  CBD8D6: 7D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN125, BATTLEBG_LAYER::NONE ;15
+  CBD8DA: 39 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN313, BATTLEBG_LAYER::NONE ;16
+  CBD8DE: 7D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN125, BATTLEBG_LAYER::NONE ;17
+  CBD8E2: 7D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN125, BATTLEBG_LAYER::NONE ;18
+  CBD8E6: 7E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN126, BATTLEBG_LAYER::NONE ;19
+  CBD8EA: 7F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN127, BATTLEBG_LAYER::NONE ;20
+  CBD8EE: 81 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN129, BATTLEBG_LAYER::NONE ;21
+  CBD8F2: 3B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN315, BATTLEBG_LAYER::NONE ;22
+  CBD8F6: 3B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN315, BATTLEBG_LAYER::NONE ;23
+  CBD8FA: 82 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN130, BATTLEBG_LAYER::NONE ;24
+  CBD8FE: 3B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN315, BATTLEBG_LAYER::NONE ;25
+  CBD902: 3A 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN314, BATTLEBG_LAYER::NONE ;26
+  CBD906: 83 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN131, BATTLEBG_LAYER::NONE ;27
+  CBD90A: 7D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN125, BATTLEBG_LAYER::NONE ;28
+  CBD90E: 83 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN131, BATTLEBG_LAYER::NONE ;29
+  CBD912: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;30
+  CBD916: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;31
+  CBD91A: 0C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN012, BATTLEBG_LAYER::NONE ;32
+  CBD91E: 0A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN010, BATTLEBG_LAYER::NONE ;33
+  CBD922: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;34
+  CBD926: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;35
+  CBD92A: 01 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN001, BATTLEBG_LAYER::NONE ;36
+  CBD92E: 0E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN014, BATTLEBG_LAYER::NONE ;37
+  CBD932: 0E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN014, BATTLEBG_LAYER::NONE ;38
+  CBD936: 0D 01 0E 01     .WORD BATTLEBG_LAYER::UNKNOWN269, BATTLEBG_LAYER::UNKNOWN270 ;39
+  CBD93A: 0D 01 0E 01     .WORD BATTLEBG_LAYER::UNKNOWN269, BATTLEBG_LAYER::UNKNOWN270 ;40
+  CBD93E: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;41
+  CBD942: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;42
+  CBD946: 0B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN011, BATTLEBG_LAYER::NONE ;43
+  CBD94A: 0B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN011, BATTLEBG_LAYER::NONE ;44
+  CBD94E: 15 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN021, BATTLEBG_LAYER::NONE ;45
+  CBD952: 15 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN021, BATTLEBG_LAYER::NONE ;46
+  CBD956: 15 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN021, BATTLEBG_LAYER::NONE ;47
+  CBD95A: 0B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN011, BATTLEBG_LAYER::NONE ;48
+  CBD95E: 16 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN022, BATTLEBG_LAYER::NONE ;49
+  CBD962: 14 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN020, BATTLEBG_LAYER::NONE ;50
+  CBD966: 14 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN020, BATTLEBG_LAYER::NONE ;51
+  CBD96A: 16 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN022, BATTLEBG_LAYER::NONE ;52
+  CBD96E: 14 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN020, BATTLEBG_LAYER::NONE ;53
+  CBD972: 10 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN016, BATTLEBG_LAYER::NONE ;54
+  CBD976: 10 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN016, BATTLEBG_LAYER::NONE ;55
+  CBD97A: 01 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN001, BATTLEBG_LAYER::NONE ;56
+  CBD97E: 01 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN001, BATTLEBG_LAYER::NONE ;57
+  CBD982: 0E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN014, BATTLEBG_LAYER::NONE ;58
+  CBD986: 0E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN014, BATTLEBG_LAYER::NONE ;59
+  CBD98A: 0D 01 0E 01     .WORD BATTLEBG_LAYER::UNKNOWN269, BATTLEBG_LAYER::UNKNOWN270 ;60
+  CBD98E: 03 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN003, BATTLEBG_LAYER::NONE ;61
+  CBD992: 03 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN003, BATTLEBG_LAYER::NONE ;62
+  CBD996: 0F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN015, BATTLEBG_LAYER::NONE ;63
+  CBD99A: 19 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN025, BATTLEBG_LAYER::NONE ;64
+  CBD99E: 19 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN025, BATTLEBG_LAYER::NONE ;65
+  CBD9A2: 1B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN027, BATTLEBG_LAYER::NONE ;66
+  CBD9A6: 1A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN026, BATTLEBG_LAYER::NONE ;67
+  CBD9AA: 1C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN028, BATTLEBG_LAYER::NONE ;68
+  CBD9AE: 1B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN027, BATTLEBG_LAYER::NONE ;69
+  CBD9B2: 1A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN026, BATTLEBG_LAYER::NONE ;70
+  CBD9B6: 1A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN026, BATTLEBG_LAYER::NONE ;71
+  CBD9BA: 1B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN027, BATTLEBG_LAYER::NONE ;72
+  CBD9BE: 1C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN028, BATTLEBG_LAYER::NONE ;73
+  CBD9C2: 1C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN028, BATTLEBG_LAYER::NONE ;74
+  CBD9C6: 1B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN027, BATTLEBG_LAYER::NONE ;75
+  CBD9CA: 1D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN029, BATTLEBG_LAYER::NONE ;76
+  CBD9CE: 1B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN027, BATTLEBG_LAYER::NONE ;77
+  CBD9D2: 3D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN317, BATTLEBG_LAYER::NONE ;78
+  CBD9D6: 3D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN317, BATTLEBG_LAYER::NONE ;79
+  CBD9DA: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;80
+  CBD9DE: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;81
+  CBD9E2: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;82
+  CBD9E6: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;83
+  CBD9EA: 1E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN030, BATTLEBG_LAYER::NONE ;84
+  CBD9EE: 3C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN316, BATTLEBG_LAYER::NONE ;85
+  CBD9F2: 1E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN030, BATTLEBG_LAYER::NONE ;86
+  CBD9F6: 1F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN031, BATTLEBG_LAYER::NONE ;87
+  CBD9FA: 3C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN316, BATTLEBG_LAYER::NONE ;88
+  CBD9FE: 1F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN031, BATTLEBG_LAYER::NONE ;89
+  CBDA02: 1F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN031, BATTLEBG_LAYER::NONE ;90
+  CBDA06: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;91
+  CBDA0A: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;92
+  CBDA0E: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;93
+  CBDA12: 3D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN317, BATTLEBG_LAYER::NONE ;94
+  CBDA16: 3D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN317, BATTLEBG_LAYER::NONE ;95
+  CBDA1A: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;96
+  CBDA1E: 20 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN032, BATTLEBG_LAYER::NONE ;97
+  CBDA22: 3D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN317, BATTLEBG_LAYER::NONE ;98
+  CBDA26: 1E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN030, BATTLEBG_LAYER::NONE ;99
+  CBDA2A: 1E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN030, BATTLEBG_LAYER::NONE ;100
+  CBDA2E: 1F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN031, BATTLEBG_LAYER::NONE ;101
+  CBDA32: 1F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN031, BATTLEBG_LAYER::NONE ;102
+  CBDA36: 21 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN033, BATTLEBG_LAYER::NONE ;103
+  CBDA3A: 22 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN034, BATTLEBG_LAYER::NONE ;104
+  CBDA3E: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;105
+  CBDA42: 15 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN021, BATTLEBG_LAYER::NONE ;106
+  CBDA46: 15 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN021, BATTLEBG_LAYER::NONE ;107
+  CBDA4A: 09 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN009, BATTLEBG_LAYER::NONE ;108
+  CBDA4E: 23 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN035, BATTLEBG_LAYER::NONE ;109
+  CBDA52: 23 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN035, BATTLEBG_LAYER::NONE ;110
+  CBDA56: 23 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN035, BATTLEBG_LAYER::NONE ;111
+  CBDA5A: 26 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN038, BATTLEBG_LAYER::NONE ;112
+  CBDA5E: 03 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN259, BATTLEBG_LAYER::NONE ;113
+  CBDA62: 3E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN318, BATTLEBG_LAYER::NONE ;114
+  CBDA66: 3E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN318, BATTLEBG_LAYER::NONE ;115
+  CBDA6A: 3E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN318, BATTLEBG_LAYER::NONE ;116
+  CBDA6E: 03 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN259, BATTLEBG_LAYER::NONE ;117
+  CBDA72: 03 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN259, BATTLEBG_LAYER::NONE ;118
+  CBDA76: 24 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN036, BATTLEBG_LAYER::NONE ;119
+  CBDA7A: 24 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN036, BATTLEBG_LAYER::NONE ;120
+  CBDA7E: 3F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN319, BATTLEBG_LAYER::NONE ;121
+  CBDA82: 3F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN319, BATTLEBG_LAYER::NONE ;122
+  CBDA86: 24 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN036, BATTLEBG_LAYER::NONE ;123
+  CBDA8A: 29 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN041, BATTLEBG_LAYER::NONE ;124
+  CBDA8E: 27 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN039, BATTLEBG_LAYER::NONE ;125
+  CBDA92: 2A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN042, BATTLEBG_LAYER::NONE ;126
+  CBDA96: 28 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN040, BATTLEBG_LAYER::NONE ;127
+  CBDA9A: 2B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN043, BATTLEBG_LAYER::NONE ;128
+  CBDA9E: BD 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN189, BATTLEBG_LAYER::NONE ;129
+  CBDAA2: 40 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN320, BATTLEBG_LAYER::NONE ;130
+  CBDAA6: 2C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN044, BATTLEBG_LAYER::NONE ;131
+  CBDAAA: 9D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN157, BATTLEBG_LAYER::NONE ;132
+  CBDAAE: 20 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN288, BATTLEBG_LAYER::NONE ;133
+  CBDAB2: CB 00 CA 00     .WORD BATTLEBG_LAYER::UNKNOWN203, BATTLEBG_LAYER::UNKNOWN202 ;134
+  CBDAB6: CB 00 CA 00     .WORD BATTLEBG_LAYER::UNKNOWN203, BATTLEBG_LAYER::UNKNOWN202 ;135
+  CBDABA: 30 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN048, BATTLEBG_LAYER::NONE ;136
+  CBDABE: 2E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN046, BATTLEBG_LAYER::NONE ;137
+  CBDAC2: 31 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN049, BATTLEBG_LAYER::NONE ;138
+  CBDAC6: 31 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN049, BATTLEBG_LAYER::NONE ;139
+  CBDACA: 35 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN053, BATTLEBG_LAYER::NONE ;140
+  CBDACE: 35 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN053, BATTLEBG_LAYER::NONE ;141
+  CBDAD2: 41 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN321, BATTLEBG_LAYER::NONE ;142
+  CBDAD6: 36 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN054, BATTLEBG_LAYER::NONE ;143
+  CBDADA: 38 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN056, BATTLEBG_LAYER::NONE ;144
+  CBDADE: 38 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN056, BATTLEBG_LAYER::NONE ;145
+  CBDAE2: 34 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN052, BATTLEBG_LAYER::NONE ;146
+  CBDAE6: 34 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN052, BATTLEBG_LAYER::NONE ;147
+  CBDAEA: 34 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN052, BATTLEBG_LAYER::NONE ;148
+  CBDAEE: 41 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN321, BATTLEBG_LAYER::NONE ;149
+  CBDAF2: 35 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN053, BATTLEBG_LAYER::NONE ;150
+  CBDAF6: 35 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN053, BATTLEBG_LAYER::NONE ;151
+  CBDAFA: 41 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN321, BATTLEBG_LAYER::NONE ;152
+  CBDAFE: 37 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN055, BATTLEBG_LAYER::NONE ;153
+  CBDB02: 39 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN057, BATTLEBG_LAYER::NONE ;154
+  CBDB06: 3D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN061, BATTLEBG_LAYER::NONE ;155
+  CBDB0A: 3B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN059, BATTLEBG_LAYER::NONE ;156
+  CBDB0E: 3A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN058, BATTLEBG_LAYER::NONE ;157
+  CBDB12: 3A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN058, BATTLEBG_LAYER::NONE ;158
+  CBDB16: 39 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN057, BATTLEBG_LAYER::NONE ;159
+  CBDB1A: 3C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN060, BATTLEBG_LAYER::NONE ;160
+  CBDB1E: 3C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN060, BATTLEBG_LAYER::NONE ;161
+  CBDB22: 3E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN062, BATTLEBG_LAYER::NONE ;162
+  CBDB26: 3E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN062, BATTLEBG_LAYER::NONE ;163
+  CBDB2A: 3E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN062, BATTLEBG_LAYER::NONE ;164
+  CBDB2E: 3F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN063, BATTLEBG_LAYER::NONE ;165
+  CBDB32: 3F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN063, BATTLEBG_LAYER::NONE ;166
+  CBDB36: 3D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN061, BATTLEBG_LAYER::NONE ;167
+  CBDB3A: 3B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN059, BATTLEBG_LAYER::NONE ;168
+  CBDB3E: 3B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN059, BATTLEBG_LAYER::NONE ;169
+  CBDB42: 40 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN064, BATTLEBG_LAYER::NONE ;170
+  CBDB46: 41 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN065, BATTLEBG_LAYER::NONE ;171
+  CBDB4A: 42 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN066, BATTLEBG_LAYER::NONE ;172
+  CBDB4E: 47 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN071, BATTLEBG_LAYER::NONE ;173
+  CBDB52: 42 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN322, BATTLEBG_LAYER::NONE ;174
+  CBDB56: 46 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN070, BATTLEBG_LAYER::NONE ;175
+  CBDB5A: 43 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN067, BATTLEBG_LAYER::NONE ;176
+  CBDB5E: 43 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN323, BATTLEBG_LAYER::NONE ;177
+  CBDB62: 0C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN268, BATTLEBG_LAYER::NONE ;178
+  CBDB66: 0C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN268, BATTLEBG_LAYER::NONE ;179
+  CBDB6A: 44 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN068, BATTLEBG_LAYER::NONE ;180
+  CBDB6E: 44 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN068, BATTLEBG_LAYER::NONE ;181
+  CBDB72: 48 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN072, BATTLEBG_LAYER::NONE ;182
+  CBDB76: 48 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN072, BATTLEBG_LAYER::NONE ;183
+  CBDB7A: 0A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN010, BATTLEBG_LAYER::NONE ;184
+  CBDB7E: 0A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN010, BATTLEBG_LAYER::NONE ;185
+  CBDB82: 0A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN010, BATTLEBG_LAYER::NONE ;186
+  CBDB86: 4B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN075, BATTLEBG_LAYER::NONE ;187
+  CBDB8A: 4B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN075, BATTLEBG_LAYER::NONE ;188
+  CBDB8E: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;189
+  CBDB92: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;190
+  CBDB96: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;191
+  CBDB9A: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;192
+  CBDB9E: 4A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN074, BATTLEBG_LAYER::NONE ;193
+  CBDBA2: 4A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN074, BATTLEBG_LAYER::NONE ;194
+  CBDBA6: 4A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN074, BATTLEBG_LAYER::NONE ;195
+  CBDBAA: 4E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN078, BATTLEBG_LAYER::NONE ;196
+  CBDBAE: 50 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN080, BATTLEBG_LAYER::NONE ;197
+  CBDBB2: 51 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN081, BATTLEBG_LAYER::NONE ;198
+  CBDBB6: 51 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN081, BATTLEBG_LAYER::NONE ;199
+  CBDBBA: 51 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN081, BATTLEBG_LAYER::NONE ;200
+  CBDBBE: 4F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN079, BATTLEBG_LAYER::NONE ;201
+  CBDBC2: 4F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN079, BATTLEBG_LAYER::NONE ;202
+  CBDBC6: 4F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN079, BATTLEBG_LAYER::NONE ;203
+  CBDBCA: 50 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN080, BATTLEBG_LAYER::NONE ;204
+  CBDBCE: 50 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN080, BATTLEBG_LAYER::NONE ;205
+  CBDBD2: 52 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN082, BATTLEBG_LAYER::NONE ;206
+  CBDBD6: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;207
+  CBDBDA: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;208
+  CBDBDE: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;209
+  CBDBE2: 49 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN073, BATTLEBG_LAYER::NONE ;210
+  CBDBE6: 52 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN082, BATTLEBG_LAYER::NONE ;211
+  CBDBEA: 52 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN082, BATTLEBG_LAYER::NONE ;212
+  CBDBEE: 4C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN076, BATTLEBG_LAYER::NONE ;213
+  CBDBF2: 4C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN076, BATTLEBG_LAYER::NONE ;214
+  CBDBF6: 99 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN153, BATTLEBG_LAYER::NONE ;215
+  CBDBFA: 99 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN153, BATTLEBG_LAYER::NONE ;216
+  CBDBFE: 9A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN154, BATTLEBG_LAYER::NONE ;217
+  CBDC02: 98 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN152, BATTLEBG_LAYER::NONE ;218
+  CBDC06: 98 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN152, BATTLEBG_LAYER::NONE ;219
+  CBDC0A: 98 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN152, BATTLEBG_LAYER::NONE ;220
+  CBDC0E: 98 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN152, BATTLEBG_LAYER::NONE ;221
+  CBDC12: BA 00 B9 00     .WORD BATTLEBG_LAYER::UNKNOWN186, BATTLEBG_LAYER::UNKNOWN185 ;222
+  CBDC16: 12 01 13 01     .WORD BATTLEBG_LAYER::UNKNOWN274, BATTLEBG_LAYER::UNKNOWN275 ;223
+  CBDC1A: 12 01 13 01     .WORD BATTLEBG_LAYER::UNKNOWN274, BATTLEBG_LAYER::UNKNOWN275 ;224
+  CBDC1E: 12 01 13 01     .WORD BATTLEBG_LAYER::UNKNOWN274, BATTLEBG_LAYER::UNKNOWN275 ;225
+  CBDC22: 14 01 15 01     .WORD BATTLEBG_LAYER::UNKNOWN276, BATTLEBG_LAYER::UNKNOWN277 ;226
+  CBDC26: 14 01 15 01     .WORD BATTLEBG_LAYER::UNKNOWN276, BATTLEBG_LAYER::UNKNOWN277 ;227
+  CBDC2A: 18 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN280, BATTLEBG_LAYER::NONE ;228
+  CBDC2E: 18 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN280, BATTLEBG_LAYER::NONE ;229
+  CBDC32: 18 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN280, BATTLEBG_LAYER::NONE ;230
+  CBDC36: C0 00 BF 00     .WORD BATTLEBG_LAYER::UNKNOWN192, BATTLEBG_LAYER::UNKNOWN191 ;231
+  CBDC3A: C0 00 BF 00     .WORD BATTLEBG_LAYER::UNKNOWN192, BATTLEBG_LAYER::UNKNOWN191 ;232
+  CBDC3E: C0 00 BF 00     .WORD BATTLEBG_LAYER::UNKNOWN192, BATTLEBG_LAYER::UNKNOWN191 ;233
+  CBDC42: 19 01 1A 01     .WORD BATTLEBG_LAYER::UNKNOWN281, BATTLEBG_LAYER::UNKNOWN282 ;234
+  CBDC46: 19 01 1A 01     .WORD BATTLEBG_LAYER::UNKNOWN281, BATTLEBG_LAYER::UNKNOWN282 ;235
+  CBDC4A: 86 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN134, BATTLEBG_LAYER::NONE ;236
+  CBDC4E: 86 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN134, BATTLEBG_LAYER::NONE ;237
+  CBDC52: 87 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN135, BATTLEBG_LAYER::NONE ;238
+  CBDC56: 87 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN135, BATTLEBG_LAYER::NONE ;239
+  CBDC5A: 85 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN133, BATTLEBG_LAYER::NONE ;240
+  CBDC5E: 87 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN135, BATTLEBG_LAYER::NONE ;241
+  CBDC62: 86 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN134, BATTLEBG_LAYER::NONE ;242
+  CBDC66: 87 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN135, BATTLEBG_LAYER::NONE ;243
+  CBDC6A: 84 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN132, BATTLEBG_LAYER::NONE ;244
+  CBDC6E: 85 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN133, BATTLEBG_LAYER::NONE ;245
+  CBDC72: 85 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN133, BATTLEBG_LAYER::NONE ;246
+  CBDC76: 85 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN133, BATTLEBG_LAYER::NONE ;247
+  CBDC7A: 84 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN132, BATTLEBG_LAYER::NONE ;248
+  CBDC7E: 8B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN139, BATTLEBG_LAYER::NONE ;249
+  CBDC82: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;250
+  CBDC86: 8B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN139, BATTLEBG_LAYER::NONE ;251
+  CBDC8A: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;252
+  CBDC8E: 88 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN136, BATTLEBG_LAYER::NONE ;253
+  CBDC92: 89 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN137, BATTLEBG_LAYER::NONE ;254
+  CBDC96: 8B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN139, BATTLEBG_LAYER::NONE ;255
+  CBDC9A: 88 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN136, BATTLEBG_LAYER::NONE ;256
+  CBDC9E: 88 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN136, BATTLEBG_LAYER::NONE ;257
+  CBDCA2: 88 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN136, BATTLEBG_LAYER::NONE ;258
+  CBDCA6: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;259
+  CBDCAA: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;260
+  CBDCAE: 89 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN137, BATTLEBG_LAYER::NONE ;261
+  CBDCB2: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;262
+  CBDCB6: 88 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN136, BATTLEBG_LAYER::NONE ;263
+  CBDCBA: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;264
+  CBDCBE: 8A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN138, BATTLEBG_LAYER::NONE ;265
+  CBDCC2: 55 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN085, BATTLEBG_LAYER::NONE ;266
+  CBDCC6: 56 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN086, BATTLEBG_LAYER::NONE ;267
+  CBDCCA: 55 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN085, BATTLEBG_LAYER::NONE ;268
+  CBDCCE: 57 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN087, BATTLEBG_LAYER::NONE ;269
+  CBDCD2: 54 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN084, BATTLEBG_LAYER::NONE ;270
+  CBDCD6: 54 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN084, BATTLEBG_LAYER::NONE ;271
+  CBDCDA: 56 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN086, BATTLEBG_LAYER::NONE ;272
+  CBDCDE: 8E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN142, BATTLEBG_LAYER::NONE ;273
+  CBDCE2: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;274
+  CBDCE6: 8D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN141, BATTLEBG_LAYER::NONE ;275
+  CBDCEA: 8D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN141, BATTLEBG_LAYER::NONE ;276
+  CBDCEE: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;277
+  CBDCF2: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;278
+  CBDCF6: 8E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN142, BATTLEBG_LAYER::NONE ;279
+  CBDCFA: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;280
+  CBDCFE: 8D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN141, BATTLEBG_LAYER::NONE ;281
+  CBDD02: 8D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN141, BATTLEBG_LAYER::NONE ;282
+  CBDD06: 8C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN140, BATTLEBG_LAYER::NONE ;283
+  CBDD0A: 8D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN141, BATTLEBG_LAYER::NONE ;284
+  CBDD0E: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;285
+  CBDD12: 8F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN143, BATTLEBG_LAYER::NONE ;286
+  CBDD16: 33 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN051, BATTLEBG_LAYER::NONE ;287
+  CBDD1A: 92 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN146, BATTLEBG_LAYER::NONE ;288
+  CBDD1E: 30 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN304, BATTLEBG_LAYER::NONE ;289
+  CBDD22: 92 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN146, BATTLEBG_LAYER::NONE ;290
+  CBDD26: 30 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN304, BATTLEBG_LAYER::NONE ;291
+  CBDD2A: 31 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN305, BATTLEBG_LAYER::NONE ;292
+  CBDD2E: 33 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN051, BATTLEBG_LAYER::NONE ;293
+  CBDD32: 31 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN305, BATTLEBG_LAYER::NONE ;294
+  CBDD36: 92 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN146, BATTLEBG_LAYER::NONE ;295
+  CBDD3A: 90 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN144, BATTLEBG_LAYER::NONE ;296
+  CBDD3E: 90 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN144, BATTLEBG_LAYER::NONE ;297
+  CBDD42: 91 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN145, BATTLEBG_LAYER::NONE ;298
+  CBDD46: 31 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN305, BATTLEBG_LAYER::NONE ;299
+  CBDD4A: 92 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN146, BATTLEBG_LAYER::NONE ;300
+  CBDD4E: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;301
+  CBDD52: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;302
+  CBDD56: 26 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN294, BATTLEBG_LAYER::NONE ;303
+  CBDD5A: 60 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN096, BATTLEBG_LAYER::NONE ;304
+  CBDD5E: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;305
+  CBDD62: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;306
+  CBDD66: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;307
+  CBDD6A: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;308
+  CBDD6E: 60 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN096, BATTLEBG_LAYER::NONE ;309
+  CBDD72: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;310
+  CBDD76: 62 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN098, BATTLEBG_LAYER::NONE ;311
+  CBDD7A: 61 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN097, BATTLEBG_LAYER::NONE ;312
+  CBDD7E: 61 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN097, BATTLEBG_LAYER::NONE ;313
+  CBDD82: 63 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN099, BATTLEBG_LAYER::NONE ;314
+  CBDD86: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;315
+  CBDD8A: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;316
+  CBDD8E: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;317
+  CBDD92: 5F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN095, BATTLEBG_LAYER::NONE ;318
+  CBDD96: 62 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN098, BATTLEBG_LAYER::NONE ;319
+  CBDD9A: 62 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN098, BATTLEBG_LAYER::NONE ;320
+  CBDD9E: 60 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN096, BATTLEBG_LAYER::NONE ;321
+  CBDDA2: 62 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN098, BATTLEBG_LAYER::NONE ;322
+  CBDDA6: 9F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN159, BATTLEBG_LAYER::NONE ;323
+  CBDDAA: 9B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN155, BATTLEBG_LAYER::NONE ;324
+  CBDDAE: 9B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN155, BATTLEBG_LAYER::NONE ;325
+  CBDDB2: 9E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN158, BATTLEBG_LAYER::NONE ;326
+  CBDDB6: 2D 00 02 01     .WORD BATTLEBG_LAYER::UNKNOWN045, BATTLEBG_LAYER::UNKNOWN258 ;327
+  CBDDBA: 2D 00 02 01     .WORD BATTLEBG_LAYER::UNKNOWN045, BATTLEBG_LAYER::UNKNOWN258 ;328
+  CBDDBE: A2 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN162, BATTLEBG_LAYER::NONE ;329
+  CBDDC2: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;330
+  CBDDC6: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;331
+  CBDDCA: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;332
+  CBDDCE: A0 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN160, BATTLEBG_LAYER::NONE ;333
+  CBDDD2: A0 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN160, BATTLEBG_LAYER::NONE ;334
+  CBDDD6: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;335
+  CBDDDA: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;336
+  CBDDDE: A1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN161, BATTLEBG_LAYER::NONE ;337
+  CBDDE2: 9C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN156, BATTLEBG_LAYER::NONE ;338
+  CBDDE6: 9C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN156, BATTLEBG_LAYER::NONE ;339
+  CBDDEA: 9C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN156, BATTLEBG_LAYER::NONE ;340
+  CBDDEE: C6 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN198, BATTLEBG_LAYER::NONE ;341
+  CBDDF2: 97 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN151, BATTLEBG_LAYER::NONE ;342
+  CBDDF6: 44 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN324, BATTLEBG_LAYER::NONE ;343
+  CBDDFA: 1B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN283, BATTLEBG_LAYER::NONE ;344
+  CBDDFE: 97 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN151, BATTLEBG_LAYER::NONE ;345
+  CBDE02: 1B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN283, BATTLEBG_LAYER::NONE ;346
+  CBDE06: C6 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN198, BATTLEBG_LAYER::NONE ;347
+  CBDE0A: 97 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN151, BATTLEBG_LAYER::NONE ;348
+  CBDE0E: 97 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN151, BATTLEBG_LAYER::NONE ;349
+  CBDE12: 0F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN271, BATTLEBG_LAYER::NONE ;350
+  CBDE16: C6 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN198, BATTLEBG_LAYER::NONE ;351
+  CBDE1A: 44 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN324, BATTLEBG_LAYER::NONE ;352
+  CBDE1E: 44 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN324, BATTLEBG_LAYER::NONE ;353
+  CBDE22: 0F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN271, BATTLEBG_LAYER::NONE ;354
+  CBDE26: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;355
+  CBDE2A: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;356
+  CBDE2E: 0F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN271, BATTLEBG_LAYER::NONE ;357
+  CBDE32: 94 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN148, BATTLEBG_LAYER::NONE ;358
+  CBDE36: 1E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN286, BATTLEBG_LAYER::NONE ;359
+  CBDE3A: 1E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN286, BATTLEBG_LAYER::NONE ;360
+  CBDE3E: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;361
+  CBDE42: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;362
+  CBDE46: 0F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN271, BATTLEBG_LAYER::NONE ;363
+  CBDE4A: 94 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN148, BATTLEBG_LAYER::NONE ;364
+  CBDE4E: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;365
+  CBDE52: F3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN243, BATTLEBG_LAYER::NONE ;366
+  CBDE56: 1F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN287, BATTLEBG_LAYER::NONE ;367
+  CBDE5A: 1F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN287, BATTLEBG_LAYER::NONE ;368
+  CBDE5E: 22 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN290, BATTLEBG_LAYER::NONE ;369
+  CBDE62: 23 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN291, BATTLEBG_LAYER::NONE ;370
+  CBDE66: 21 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN289, BATTLEBG_LAYER::NONE ;371
+  CBDE6A: 38 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN312, BATTLEBG_LAYER::NONE ;372
+  CBDE6E: 64 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN100, BATTLEBG_LAYER::NONE ;373
+  CBDE72: 38 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN312, BATTLEBG_LAYER::NONE ;374
+  CBDE76: 66 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN102, BATTLEBG_LAYER::NONE ;375
+  CBDE7A: 22 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN290, BATTLEBG_LAYER::NONE ;376
+  CBDE7E: 23 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN291, BATTLEBG_LAYER::NONE ;377
+  CBDE82: 64 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN100, BATTLEBG_LAYER::NONE ;378
+  CBDE86: 35 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN309, BATTLEBG_LAYER::NONE ;379
+  CBDE8A: 37 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN311, BATTLEBG_LAYER::NONE ;380
+  CBDE8E: 67 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN103, BATTLEBG_LAYER::NONE ;381
+  CBDE92: 64 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN100, BATTLEBG_LAYER::NONE ;382
+  CBDE96: 37 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN311, BATTLEBG_LAYER::NONE ;383
+  CBDE9A: 37 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN311, BATTLEBG_LAYER::NONE ;384
+  CBDE9E: 66 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN102, BATTLEBG_LAYER::NONE ;385
+  CBDEA2: 36 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN310, BATTLEBG_LAYER::NONE ;386
+  CBDEA6: 36 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN310, BATTLEBG_LAYER::NONE ;387
+  CBDEAA: 67 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN103, BATTLEBG_LAYER::NONE ;388
+  CBDEAE: 6A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN106, BATTLEBG_LAYER::NONE ;389
+  CBDEB2: 2F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN303, BATTLEBG_LAYER::NONE ;390
+  CBDEB6: 68 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN104, BATTLEBG_LAYER::NONE ;391
+  CBDEBA: 2B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN299, BATTLEBG_LAYER::NONE ;392
+  CBDEBE: 2B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN299, BATTLEBG_LAYER::NONE ;393
+  CBDEC2: 68 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN104, BATTLEBG_LAYER::NONE ;394
+  CBDEC6: 2B 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN299, BATTLEBG_LAYER::NONE ;395
+  CBDECA: 6A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN106, BATTLEBG_LAYER::NONE ;396
+  CBDECE: 6A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN106, BATTLEBG_LAYER::NONE ;397
+  CBDED2: 69 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN105, BATTLEBG_LAYER::NONE ;398
+  CBDED6: 45 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN325, BATTLEBG_LAYER::NONE ;399
+  CBDEDA: 2F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN303, BATTLEBG_LAYER::NONE ;400
+  CBDEDE: 2F 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN303, BATTLEBG_LAYER::NONE ;401
+  CBDEE2: 6A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN106, BATTLEBG_LAYER::NONE ;402
+  CBDEE6: 29 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN297, BATTLEBG_LAYER::NONE ;403
+  CBDEEA: 6F 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN111, BATTLEBG_LAYER::NONE ;404
+  CBDEEE: D1 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN209, BATTLEBG_LAYER::NONE ;405
+  CBDEF2: 28 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN296, BATTLEBG_LAYER::NONE ;406
+  CBDEF6: 29 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN297, BATTLEBG_LAYER::NONE ;407
+  CBDEFA: 6B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN107, BATTLEBG_LAYER::NONE ;408
+  CBDEFE: 6E 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN110, BATTLEBG_LAYER::NONE ;409
+  CBDF02: 2C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN300, BATTLEBG_LAYER::NONE ;410
+  CBDF06: 2D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN301, BATTLEBG_LAYER::NONE ;411
+  CBDF0A: 6D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN109, BATTLEBG_LAYER::NONE ;412
+  CBDF0E: D4 00 D5 00     .WORD BATTLEBG_LAYER::UNKNOWN212, BATTLEBG_LAYER::UNKNOWN213 ;413
+  CBDF12: D4 00 D5 00     .WORD BATTLEBG_LAYER::UNKNOWN212, BATTLEBG_LAYER::UNKNOWN213 ;414
+  CBDF16: D4 00 D5 00     .WORD BATTLEBG_LAYER::UNKNOWN212, BATTLEBG_LAYER::UNKNOWN213 ;415
+  CBDF1A: 10 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN016, BATTLEBG_LAYER::NONE ;416
+  CBDF1E: 10 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN016, BATTLEBG_LAYER::NONE ;417
+  CBDF22: 1A 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN026, BATTLEBG_LAYER::NONE ;418
+  CBDF26: 59 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN089, BATTLEBG_LAYER::NONE ;419
+  CBDF2A: 59 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN089, BATTLEBG_LAYER::NONE ;420
+  CBDF2E: 03 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN259, BATTLEBG_LAYER::NONE ;421
+  CBDF32: 53 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN083, BATTLEBG_LAYER::NONE ;422
+  CBDF36: 0A 01 0B 01     .WORD BATTLEBG_LAYER::UNKNOWN266, BATTLEBG_LAYER::UNKNOWN267 ;423
+  CBDF3A: BE 00 46 01     .WORD BATTLEBG_LAYER::UNKNOWN190, BATTLEBG_LAYER::UNKNOWN326 ;424
+  CBDF3E: 00 00 00 00     .WORD BATTLEBG_LAYER::NONE, BATTLEBG_LAYER::NONE ;425
+  CBDF42: 32 01 33 01     .WORD BATTLEBG_LAYER::UNKNOWN306, BATTLEBG_LAYER::UNKNOWN307 ;426
+  CBDF46: 03 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN003, BATTLEBG_LAYER::NONE ;427
+  CBDF4A: 03 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN259, BATTLEBG_LAYER::NONE ;428
+  CBDF4E: 31 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN049, BATTLEBG_LAYER::NONE ;429
+  CBDF52: 3C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN060, BATTLEBG_LAYER::NONE ;430
+  CBDF56: 05 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN005, BATTLEBG_LAYER::NONE ;431
+  CBDF5A: 07 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN007, BATTLEBG_LAYER::NONE ;432
+  CBDF5E: 06 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN006, BATTLEBG_LAYER::NONE ;433
+  CBDF62: 32 01 33 01     .WORD BATTLEBG_LAYER::UNKNOWN306, BATTLEBG_LAYER::UNKNOWN307 ;434
+  CBDF66: 33 01 32 01     .WORD BATTLEBG_LAYER::UNKNOWN307, BATTLEBG_LAYER::UNKNOWN306 ;435
+  CBDF6A: 33 01 32 01     .WORD BATTLEBG_LAYER::UNKNOWN307, BATTLEBG_LAYER::UNKNOWN306 ;436
+  CBDF6E: C0 00 BF 00     .WORD BATTLEBG_LAYER::UNKNOWN192, BATTLEBG_LAYER::UNKNOWN191 ;437
+  CBDF72: 2B 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN043, BATTLEBG_LAYER::NONE ;438
+  CBDF76: 9D 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN157, BATTLEBG_LAYER::NONE ;439
+  CBDF7A: 2C 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN044, BATTLEBG_LAYER::NONE ;440
+  CBDF7E: 1C 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN284, BATTLEBG_LAYER::NONE ;441
+  CBDF82: C3 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN195, BATTLEBG_LAYER::NONE ;442
+  CBDF86: 61 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN097, BATTLEBG_LAYER::NONE ;443
+  CBDF8A: 63 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN099, BATTLEBG_LAYER::NONE ;444
+  CBDF8E: D5 00 D4 00     .WORD BATTLEBG_LAYER::UNKNOWN213, BATTLEBG_LAYER::UNKNOWN212 ;445
+  CBDF92: D7 00 D6 00     .WORD BATTLEBG_LAYER::UNKNOWN215, BATTLEBG_LAYER::UNKNOWN214 ;446
+  CBDF96: D9 00 D8 00     .WORD BATTLEBG_LAYER::UNKNOWN217, BATTLEBG_LAYER::UNKNOWN216 ;447
+  CBDF9A: B4 00 B3 00     .WORD BATTLEBG_LAYER::UNKNOWN180, BATTLEBG_LAYER::UNKNOWN179 ;448
+  CBDF9E: B6 00 B5 00     .WORD BATTLEBG_LAYER::UNKNOWN182, BATTLEBG_LAYER::UNKNOWN181 ;449
+  CBDFA2: AA 00 A9 00     .WORD BATTLEBG_LAYER::UNKNOWN170, BATTLEBG_LAYER::UNKNOWN169 ;450
+  CBDFA6: B8 00 B7 00     .WORD BATTLEBG_LAYER::UNKNOWN184, BATTLEBG_LAYER::UNKNOWN183 ;451
+  CBDFAA: B8 00 B7 00     .WORD BATTLEBG_LAYER::UNKNOWN184, BATTLEBG_LAYER::UNKNOWN183 ;452
+  CBDFAE: 11 01 10 01     .WORD BATTLEBG_LAYER::UNKNOWN273, BATTLEBG_LAYER::UNKNOWN272 ;453
+  CBDFB2: 16 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN278, BATTLEBG_LAYER::NONE ;454
+  CBDFB6: AC 00 AB 00     .WORD BATTLEBG_LAYER::UNKNOWN172, BATTLEBG_LAYER::UNKNOWN171 ;455
+  CBDFBA: C2 00 C1 00     .WORD BATTLEBG_LAYER::UNKNOWN194, BATTLEBG_LAYER::UNKNOWN193 ;456
+  CBDFBE: AE 00 AD 00     .WORD BATTLEBG_LAYER::UNKNOWN174, BATTLEBG_LAYER::UNKNOWN173 ;457
+  CBDFC2: 25 01 24 01     .WORD BATTLEBG_LAYER::UNKNOWN293, BATTLEBG_LAYER::UNKNOWN292 ;458
+  CBDFC6: C4 00 00 00     .WORD BATTLEBG_LAYER::NUMBER3, BATTLEBG_LAYER::NONE ;459
+  CBDFCA: C5 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN197, BATTLEBG_LAYER::NONE ;460
+  CBDFCE: 2E 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN302, BATTLEBG_LAYER::NONE ;461
+  CBDFD2: 1D 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN285, BATTLEBG_LAYER::NONE ;462
+  CBDFD6: B2 00 B1 00     .WORD BATTLEBG_LAYER::UNKNOWN178, BATTLEBG_LAYER::UNKNOWN177 ;463
+  CBDFDA: B0 00 AF 00     .WORD BATTLEBG_LAYER::UNKNOWN176, BATTLEBG_LAYER::UNKNOWN175 ;464
+  CBDFDE: A8 00 A7 00     .WORD BATTLEBG_LAYER::UNKNOWN168, BATTLEBG_LAYER::UNKNOWN167 ;465
+  CBDFE2: C7 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN199, BATTLEBG_LAYER::NONE ;466
+  CBDFE6: C9 00 C8 00     .WORD BATTLEBG_LAYER::UNKNOWN201, BATTLEBG_LAYER::UNKNOWN200 ;467
+  CBDFEA: D0 00 00 00     .WORD BATTLEBG_LAYER::UNKNOWN208, BATTLEBG_LAYER::NONE ;468
+  CBDFEE: D3 00 D2 00     .WORD BATTLEBG_LAYER::UNKNOWN211, BATTLEBG_LAYER::UNKNOWN210 ;469
+  CBDFF2: A4 00 A3 00     .WORD BATTLEBG_LAYER::UNKNOWN164, BATTLEBG_LAYER::UNKNOWN163 ;470
+  CBDFF6: A6 00 A5 00     .WORD BATTLEBG_LAYER::UNKNOWN166, BATTLEBG_LAYER::UNKNOWN165 ;471
+  CBDFFA: 2A 01 00 00     .WORD BATTLEBG_LAYER::UNKNOWN298, BATTLEBG_LAYER::NONE ;472
+  CBDFFE: 00 00 00 00     .WORD BATTLEBG_LAYER::NONE, BATTLEBG_LAYER::NONE ;473
+  CBE002: DB 00 DA 00     .WORD BATTLEBG_LAYER::UNKNOWN219, BATTLEBG_LAYER::UNKNOWN218 ;474
+  CBE006: DC 00 00 00     .WORD BATTLEBG_LAYER::GIYGAS_DEVILSMACHINE, BATTLEBG_LAYER::NONE ;475
+  CBE00A: DE 00 DD 00     .WORD BATTLEBG_LAYER::GIYGAS_DEVILSMACHINE_OFF_CUTSCENE2, BATTLEBG_LAYER::GIYGAS_DEVILSMACHINE_OFF_CUTSCENE1 ;476
+  CBE00E: E0 00 DF 00     .WORD BATTLEBG_LAYER::GIYGAS_DEVILSMACHINE_OFF_2, BATTLEBG_LAYER::GIYGAS_DEVILSMACHINE_OFF_1 ;477
+  CBE012: E1 00 00 00     .WORD BATTLEBG_LAYER::GIYGAS_VULNERABLE, BATTLEBG_LAYER::NONE ;478
+  CBE016: E2 00 00 00     .WORD BATTLEBG_LAYER::GIYGAS_UNSTABLE_1, BATTLEBG_LAYER::NONE ;479
+  CBE01A: E3 00 00 00     .WORD BATTLEBG_LAYER::GIYGAS_UNSTABLE_2, BATTLEBG_LAYER::NONE ;480
+  CBE01E: 00 00 00 00     .WORD BATTLEBG_LAYER::NONE, BATTLEBG_LAYER::NONE ;481
+  CBE022: C0 00 BF 00     .WORD BATTLEBG_LAYER::UNKNOWN192, BATTLEBG_LAYER::UNKNOWN191 ;482
+  CBE026: 09 01 00 00     .WORD BATTLEBG_LAYER::GIYGAS_UNUSED, BATTLEBG_LAYER::NONE ;483
+>>> bankconfig/common/bank0b.asm
+  CBE02A:             .IF .DEFINED(USA)
+  CBE02A: 18 00 68 6C     INSERT_AUDIO_PACK 66
+          B0 95 EE 9C 
+          EE 9C 6D 9F 
+          ...omitted...
+  CBFEE2: FC 00 00 48     INSERT_AUDIO_PACK 59
+          0A 48 0A 48 
+          FF 00 00 48 
+          ...omitted...
+  CBFFE4:             .ENDIF

@@ -1,0 +1,1933 @@
+Flag names from the original source code
+
+The following was converted to CCScript by Catador on the PK Hack discord server. They are the flag names found in Mr. Lindblom's floppy disk, as reported here: https://gamehistory.org/earthbound-script-files
+
+"I still don't think these flag names are exactly great but it's what they used for development so better than nothing."
+
+/*
+ *  ONET  - Onett
+ *  TWSN  - Twoson
+ *  HAPPY - Happy-Happy Village
+ *  GRFD  - Peaceful Rest Valley
+ *  THRK  - Threed
+ *  WINS  - Winters
+ *  GPFT  - Grapefruit Falls
+ *  DOSEI - Saturn Valley
+ *  DSRT  - Dusty Dunes Desert
+ *  FOUR  - Fourside
+ *  SUMS  - Summers
+ *  RAMA  - Dalaam
+ *  SKRB  - Scaraba
+ *  MAKYO - Deep Darkness
+ *  GUMI  - Tenda Village
+ *  DKFD  - Lost Underworld
+ *  PAST  - Cave of the Past
+ *  MGKT  - Magicant
+ *  MOON  - Moonside
+ *
+ *  TLPT  - Teleport
+ *  POWR  - Power Spot ("Your Sanctuary")
+ *  SYS   - System
+ *  EVT   - Event
+ *  FMON  - Scripted battles
+ */
+
+define FLG_TEMP_0                      = flag 1
+define FLG_TEMP_1                      = flag 2
+define FLG_TEMP_2                      = flag 3
+define FLG_TEMP_3                      = flag 4
+define FLG_TEMP_4                      = flag 5
+define FLG_TEMP_5                      = flag 6
+define FLG_TEMP_6                      = flag 7
+define FLG_TEMP_7                      = flag 8
+define FLG_TEMP_8                      = flag 9
+define FLG_TEMP_9                      = flag 10
+define FLG_SYS_MONSTER_OFF             = flag 11
+define FLG_POLA                        = flag 12
+define FLG_POLA_GRFD                   = flag 13
+define FLG_JEFF                        = flag 14
+define FLG_POLA_1                      = flag 15
+define FLG_PU                          = flag 16
+define FLG_PU_0                        = flag 17
+define FLG_BUNBUN                      = flag 18
+define FLG_DOG                         = flag 19
+define FLG_PICKEY                      = flag 20
+define FLG_POKEY                       = flag 21
+define FLG_BALLOONMONKEY               = flag 22
+define FLG_WINS_TONY                   = flag 23
+define FLG_BRICKROAD                   = flag 24
+define FLG_FLYINGMAN_1                 = flag 25
+define FLG_FLYINGMAN_2                 = flag 26
+define FLG_FLYINGMAN_3                 = flag 27
+define FLG_FLYINGMAN_4                 = flag 28
+define FLG_FLYINGMAN_5                 = flag 29
+define FLG_MYHOME_POKEY_DISAPPEAR      = flag 30
+define FLG_1FMIZUNO_APPEAR             = flag 31
+define FLG_B1MIZUNO_APPEAR             = flag 32
+define FLG_B2MIZUNO_APPEAR             = flag 33 // This a guess. This flag is only referenced in a missing file ($C9992F to $C9B225) (Set during action script #57)
+define FLG_ONET_2FPICKEY_APPEAR        = flag 34
+define FLG_ONET_2FPOKEY_APPEAR         = flag 35
+define FLG_ONET_KANBANCOP_APPEAR       = flag 36
+define FLG_ONET_MINCES_APPEAR          = flag 37
+define FLG_POLICE_5COP_APPEAR          = flag 38
+define FLG_POLICE_KANBANCOP_APPEAR     = flag 39
+define FLG_ONET_GUARDSHARK_DISAPPEAR   = flag 40
+// Flag 41 is never referenced in the messages
+define FLG_TWSN_CHAOSAPPLE_APPEAR      = flag 42
+define FLG_TWSN_MICHIKO_APPEAR         = flag 43
+define FLG_HAPPY_POKEY_APPEAR          = flag 44
+define FLG_GRFD_POKEY_APPEAR           = flag 45
+define FLG_THRK_BIKINIZOMBI_APPEAR     = flag 46
+define FLG_THRK_BROKEN_SKYW_APPEAR     = flag 47
+define FLG_THRK_FIXED_SKYW_APPEAR      = flag 48
+define FLG_THRK_MATENT_APPEAR          = flag 49
+define FLG_WINS_BRICK_THANKS_APPEAR    = flag 50
+define FLG_WINS_CAPSULE_PEOPLE_APPEAR  = flag 51
+define FLG_SEBASTIAN_DISAPPEAR         = flag 52
+define FLG_WINS_BRICK_BARKER_DISAPPEAR = flag 53
+define FLG_DSRT_SYOZI_DUNGEON_APPEAR   = flag 54
+define FLG_DSRT_SYOZI_DISAPPEAR        = flag 55
+// Flag 56 is never referenced in the messages
+define FLG_FOUR_DEPT_BOSS_APPEAR       = flag 57
+define FLG_FOUR_KOMORITA_APPEAR        = flag 58
+define FLG_FOUR_MAID_APPEAR            = flag 59
+define FLG_FOUR_TONCHIKI_APPEAR        = flag 60
+define FLG_SUMS_MASSAGE_APPEAR         = flag 61
+define FLG_SKRB_BRICKROAD_DISAPPEAR    = flag 62
+define FLG_MOON_R_DISAPPEAR            = flag 63
+define FLG_WIN_FRANK                   = flag 64
+// Flag 65 is never referenced in the messages
+define FLG_TWSN_WIN_TONCHIKI           = flag 66
+define FLG_HAPPY_WIN_GUARD             = flag 67
+define FLG_WIN_CARPAINTER              = flag 68
+define FLG_WIN_MATENT                  = flag 69
+define FLG_WIN_GANSEKIMAN              = flag 70
+define FLG_WIN_GEPPU                   = flag 71
+define FLG_WIN_DSRT_BOSS               = flag 72
+define FLG_WIN_GIEGU                   = flag 73
+define FLG_WIN_OSCAR                   = flag 74
+define FLG_WIN_MANIMANI                = flag 75
+define FLG_ITEM_TRACY                  = flag 76
+define FLG_ITEM_KAKUREGA_C             = flag 77
+define FLG_ITEM_PRETZ                  = flag 78
+define FLG_ITEM_XYZ                    = flag 79
+define FLG_KEY_TABIGOYA                = flag 80
+define FLG_ITEM_CYCLE                  = flag 81
+define FLG_ITEM_PHONE                  = flag 82
+define FLG_ITEM_TACO_ERASER            = flag 83
+define FLG_TWSN_ITEM_ISABELLA          = flag 84
+define FLG_TWSN_ITEM_TONCHIKI          = flag 85
+define FLG_ITEM_FRANKLINBADGE          = flag 86
+define FLG_ITEM_HAEMITU                = flag 87
+define FLG_ITEM_GAUS                   = flag 88
+define FLG_ITEM_MUKUCHI                = flag 89
+define FLG_DSRT_ITEM_DIA               = flag 90
+define FLG_ITEM_BANANA                 = flag 91
+define FLG_GUMI_OLDMAN_ITEM            = flag 92
+define FLG_MGKT_GETITEM_CAP            = flag 93
+define FLG_MYHOME_MAMA_YEAH            = flag 94
+define FLG_MYHOME_PHONE                = flag 95
+define FLG_MYHOME_POKEY                = flag 96
+define FLG_MYHOME_POKEY_ENTER          = flag 97
+define FLG_PAPA_MYHOME                 = flag 98
+define FLG_GOT_CAPEESTATE              = flag 99
+define FLG_INSEKI                      = flag 100
+define FLG_INSEKI_MIZUNO_B2            = flag 101
+define FLG_LIBRARY_INFO_MUKUCHI        = flag 102
+define FLG_LIBRARY_TOILET              = flag 103
+define FLG_ONET_AMBRAMI                = flag 104
+define FLG_ONET_GATEOPEN               = flag 105
+// Flag 106 is only referenced in a missing file ($C9992F to $C9B225) (Used by 4 NPCs in Onett hotel)
+define FLG_ONET_LARDNA                 = flag 107
+define FLG_OPEN_TABIGOYA               = flag 108
+define FLG_POLICE_KANBANCOP_HEAR       = flag 109
+define FLG_STEP_CAPEESTATE             = flag 110
+define FLG_TWSN_TACO_DISCOVER          = flag 111
+define FLG_TWSN_APPLE_THANKS           = flag 112
+define FLG_TWSN_ASHI                   = flag 113
+define FLG_TWSN_DEPT_A                 = flag 114
+define FLG_TWSN_MICHIKO_THANKYOU       = flag 115
+define FLG_TWSN_ORANGE_LATER           = flag 116
+define FLG_TWSN_ORANGE_THANKS          = flag 117
+define FLG_TWSN_PAUL_UPSET             = flag 118
+define FLG_TWSN_TONZURA_FREE           = flag 119
+define FLG_HAPPY_AUTOSHOP              = flag 120
+define FLG_HAPPY_AUTOSHOP_FOUL         = flag 121
+define FLG_HAPPY_CARPAINTER_ITEMFULL   = flag 122
+define FLG_HAPPY_USHI                  = flag 123
+define FLG_PUT_ZOMBI_HOIHOI            = flag 124
+define FLG_THRK_ZOMBI_CAPTURED         = flag 125
+define FLG_CAPSULE_OK                  = flag 126
+define FLG_WINS_ANDONUT                = flag 127
+define FLG_WINS_START                  = flag 128
+define FLG_WINS_TASCO_ACROSS           = flag 129
+define FLG_DOSEI_ANDONUT               = flag 130
+define FLG_DOSEI_SECRETCODE            = flag 131
+define FLG_INFO_XYZ                    = flag 132
+define FLG_SPACETUNNEL2_START          = flag 133
+define FLG_XYZ_OK                      = flag 134
+define FLG_DSRT_BLACKSESAME            = flag 135
+define FLG_DSRT_CLEAR                  = flag 136
+define FLG_DSRT_SYOZI_1                = flag 137
+define FLG_DSRT_WHITESESAME            = flag 138
+define FLG_FOUR_DEPT_OK                = flag 139
+define FLG_FOUR_KOMORITA               = flag 140
+define FLG_FOUR_MAID_48                = flag 141
+define FLG_FOUR_MAID_THANKS            = flag 142
+define FLG_FOUR_OK                     = flag 143
+// Flag 144 is never referenced in the messages (It is referenced in action script #256)
+define FLG_FOUR_TONCHIKI               = flag 145
+define FLG_FOUR_TONZURA_FREE           = flag 146
+define FLG_FOUR_TONZURA_THANKS         = flag 147
+define FLG_SUMS_HIEROGLYPH             = flag 148
+define FLG_SUMS_RAMMA_START            = flag 149
+define FLG_RAMA_MASTER                 = flag 150
+define FLG_SKRB_YARIMAN                = flag 151
+define FLG_SPHINX                      = flag 152
+define FLG_GUMI_CAVEOPEN               = flag 153
+define FLG_GUMI_INFO_MUKUCHI           = flag 154
+define FLG_GUMI_USEBOOK                = flag 155
+define FLG_DKFD_ROCK_A                 = flag 156
+define FLG_DKFD_ROCK_B                 = flag 157
+define FLG_DKFD_ROCK_C                 = flag 158
+define FLG_MGKT_TOMB6                  = flag 159
+define FLG_MOON_INVISIBLE_1            = flag 160
+define FLG_MOON_INVISIBLE_2            = flag 161
+define FLG_MOON_INVISIBLE_3            = flag 162
+define FLG_MOON_INVISIBLE_4            = flag 163
+define FLG_MOON_INVISIBLE_5            = flag 164
+define FLG_MOON_INVISIBLEMAN           = flag 165
+define FLG_MOON_NUMBERMAN_B1           = flag 166
+define FLG_MOON_NUMBERMAN_B2           = flag 167
+define FLG_MOON_NUMBERMAN_B3           = flag 168
+define FLG_DAY_AFTER                   = flag 169
+// Flag 170 is never referenced in the messages
+define FLG_DOSEI_GOODS1                = flag 171
+define FLG_DOSEI_GOODS2                = flag 172
+define FLG_DOSEI_GOODS3                = flag 173
+define FLG_DSRT_SWITCH                 = flag 174
+define FLG_HAPPY_SWITCH                = flag 175
+define FLG_HEAL_DIA                    = flag 176
+define FLG_HEAL_OHARAI                 = flag 177
+define FLG_HEAL_SIBIRE                 = flag 178
+define FLG_PIZZA_SIZE                  = flag 179
+define FLG_DELIVERY_PIZZA              = flag 180
+define FLG_DELIVERY_UNSOU              = flag 181
+define FLG_POWR_GIAN                   = flag 182
+define FLG_POWR_LLPT                   = flag 183
+define FLG_POWR_RAIN                   = flag 184
+define FLG_POWR_MLKY                   = flag 185
+define FLG_POWR_MGNT                   = flag 186
+define FLG_POWR_PINK                   = flag 187
+define FLG_POWR_LUMI                   = flag 188
+define FLG_POWR_FIRE                   = flag 189
+define FLG_WIN_GIAN_BOSS               = flag 190
+define FLG_WIN_LLPT_BOSS               = flag 191
+define FLG_WIN_RAIN_BOSS               = flag 192
+define FLG_WIN_MLKY_BOSS               = flag 193
+define FLG_WIN_MGNT_BOSS               = flag 194
+define FLG_WIN_PINK_BOSS               = flag 195
+define FLG_WIN_LUMI_BOSS               = flag 196
+define FLG_WIN_FIRE_BOSS               = flag 197
+define FLG_WARP_GRFD_YAMAGOYA          = flag 198
+define FLG_SYS_PHONE_PAPA              = flag 199
+define FLG_SYS_PHONE_MYHOME            = flag 200
+define FLG_SYS_PHONE_MYHOME2           = flag 201
+define FLG_SYS_PHONE_PIZZA             = flag 202
+define FLG_SYS_PHONE_STOIC             = flag 203
+define FLG_SYS_FLYINGMAN_DEAD_A        = flag 204
+define FLG_SYS_FLYINGMAN_DEAD_B        = flag 205
+define FLG_SYS_FLYINGMAN_DEAD_C        = flag 206
+define FLG_SYS_FLYINGMAN_DEAD_D        = flag 207
+define FLG_SYS_FLYINGMAN_DEAD_E        = flag 208
+define FLG_TLPT_ONET                   = flag 209
+define FLG_TLPT_TWSN                   = flag 210
+define FLG_TLPT_THRK                   = flag 211
+define FLG_TLPT_WINS                   = flag 212
+define FLG_TLPT_BAKA                   = flag 213
+define FLG_TLPT_FOUR                   = flag 214
+define FLG_TLPT_SUMS                   = flag 215
+define FLG_TLPT_RAMA                   = flag 216
+define FLG_TLPT_SKRB                   = flag 217
+define FLG_TLPT_MAKY                   = flag 218
+define FLG_TLPT_GUMI                   = flag 219
+define FLG_TLPT_DKFD                   = flag 220
+define FLG_BOX_RAMA_1                  = flag 221
+define FLG_BOX_RAMA_2                  = flag 222
+define FLG_BOX_DKFD_1                  = flag 223
+define FLG_SHOP_TOOK                   = flag 224
+define FLG_SHOP_SOLD                   = flag 225
+define FLG_SHOP_01                     = flag 226
+define FLG_SHOP_02                     = flag 227
+define FLG_SHOP_03                     = flag 228
+define FLG_SHOP_04                     = flag 229
+define FLG_SHOP_05                     = flag 230
+define FLG_SHOP_06                     = flag 231
+define FLG_SHOP_07                     = flag 232
+define FLG_SHOP_08                     = flag 233
+define FLG_SHOP_09                     = flag 234
+define FLG_SHOP_10                     = flag 235
+define FLG_SHOP_11                     = flag 236
+define FLG_SHOP_12                     = flag 237
+define FLG_SHOP_13                     = flag 238
+define FLG_SHOP_14                     = flag 239
+define FLG_SHOP_15                     = flag 240
+define FLG_SHOP_16                     = flag 241
+define FLG_SHOP_17                     = flag 242
+define FLG_SHOP_18                     = flag 243
+define FLG_SHOP_19                     = flag 244
+define FLG_SHOP_20                     = flag 245
+define FLG_SHOP_21                     = flag 246
+define FLG_SHOP_22                     = flag 247
+define FLG_SHOP_23                     = flag 248
+define FLG_SHOP_24                     = flag 249
+define FLG_SHOP_25                     = flag 250
+define FLG_SHOP_26                     = flag 251
+define FLG_SHOP_27                     = flag 252
+define FLG_SHOP_28                     = flag 253
+define FLG_SHOP_29                     = flag 254
+define FLG_SHOP_30                     = flag 255
+define FLG_SHOP_31                     = flag 256
+define FLG_SHOP_32                     = flag 257
+define FLG_SHOP_33                     = flag 258
+define FLG_SHOP_34                     = flag 259
+define FLG_SHOP_35                     = flag 260
+define FLG_SHOP_36                     = flag 261
+define FLG_SHOP_37                     = flag 262
+define FLG_SHOP_38                     = flag 263
+define FLG_SHOP_39                     = flag 264
+define FLG_SHOP_40                     = flag 265
+define FLG_SHOP_41                     = flag 266
+define FLG_SHOP_42                     = flag 267
+define FLG_SHOP_43                     = flag 268
+define FLG_SHOP_44                     = flag 269
+define FLG_SHOP_45                     = flag 270
+define FLG_SHOP_46                     = flag 271
+define FLG_DSRT_YUMBO_SHIGE_APPEAR     = flag 272
+define FLG_RAMA_OK                     = flag 273
+define FLG_SKRB_BRICKROAD_MAKYO_APPEAR = flag 274
+define FLG_MASTER_TLPT                 = flag 275
+define FLG_WIN_GEROPP                  = flag 276
+define FLG_WIN_DSRT_BOSS_A             = flag 277
+define FLG_WIN_DSRT_BOSS_B             = flag 278
+define FLG_WIN_DSRT_BOSS_C             = flag 279
+define FLG_WIN_DSRT_BOSS_D             = flag 280
+define FLG_WIN_DSRT_BOSS_E             = flag 281
+define FLG_DSRT_DUNGEON_OK             = flag 282
+define FLG_WIN_PYRAMID_BOSS            = flag 283
+define FLG_GRFD_LLPT_TACO_DISAPPEAR    = flag 284
+define FLG_DKFD_END_GET_READY          = flag 285
+define FLG_FOUR_GUARDROBOT_A_DISAPPEAR = flag 286
+define FLG_WINS_DAYBREAK               = flag 287
+define FLG_MAKYO_USE_TAKANOME          = flag 288
+define FLG_ONET_COPA_DISAPPEAR         = flag 289
+define FLG_ONET_COPB_DISAPPEAR         = flag 290
+define FLG_ONET_COPC_DISAPPEAR         = flag 291
+define FLG_ONET_COPD_DISAPPEAR         = flag 292
+define FLG_ONET_COPE_DISAPPEAR         = flag 293
+define FLG_WARP_APPLE_TWSN             = flag 294
+define FLG_MYHOME_KNOCK_APPEAR         = flag 295
+define FLG_THRK_BIKINIZOMBI_F_APPEAR   = flag 296
+define FLG_THRK_BIKINIZOMBI_P_APPEAR   = flag 297
+define FLG_THRK_HOTELZOMBI_APPEAR      = flag 298
+define FLG_WINS_STONE_TACO_DISAPPEAR   = flag 299
+define FLG_THRK_GRAVEZOMBI_DISAPPEAR   = flag 300
+define FLG_MYHOME_POKEY_APPEAR         = flag 301
+define FLG_INSEKI_HITMAN_APPEAR        = flag 302
+define FLG_ONET_MYHOME_BUNBUN_APPEAR   = flag 303
+define FLG_DOG_LATER_APPEAR            = flag 304
+// Flag 305 is never referenced in the messages
+define FLG_B3MIZUNO_A_APPEAR           = flag 306
+define FLG_B3MIZUNO_B_APPEAR           = flag 307
+define FLG_B4MIZUNO_APPEAR             = flag 308
+define FLG_TWSN_TONZURABUS_APPEAR      = flag 309
+define FLG_MYHOME_POKEY2_APPEAR        = flag 310
+define FLG_WINS_ROPE_SWITCH            = flag 311
+define FLG_TUNNEL_TWSN_THRK_WR         = flag 312
+define FLG_TUNNEL_TWSN_THRK_BR         = flag 313
+define FLG_TUNNEL_TWSN_THRK_TR         = flag 314
+define FLG_TUNNEL_THRK_TWSN_WL         = flag 315
+define FLG_TUNNEL_THRK_TWSN_BL         = flag 316
+define FLG_FOUR_TONZURABUS_APPEAR      = flag 317
+define FLG_FOUR_BLDG_TONZURA_APPEAR    = flag 318
+define FLG_TWSN_CHAOS_STAGE_START      = flag 319
+// Flag 320 is never referenced in the messages
+define FLG_TWSN_INFO_TONCHIKI          = flag 321
+define FLG_TWSN_PAUL                   = flag 322
+define FLG_ITEM_BUBBLE_GUM             = flag 323
+define FLG_SHOP_47                     = flag 324
+define FLG_SHOP_48                     = flag 325
+define FLG_SHOP_49                     = flag 326
+define FLG_DKFD_ST3_APPEAR             = flag 327
+define FLG_DKFD_ANDONUT_A_APPEAR       = flag 328
+define FLG_DKFD_APPLE_A_APPEAR         = flag 329
+define FLG_DKFD_DOSEI_A_APPEAR         = flag 330
+define FLG_DKFD_ANDONUT_B_APPEAR       = flag 331
+define FLG_DKFD_ST2_APPEAR             = flag 332
+define FLG_DSRT_YUMBO_B_APPEAR         = flag 333
+define FLG_WINS_BMONKEY_DISAPPEAR      = flag 334
+define FLG_WINS_TONY_CROUCH_APPEAR     = flag 335
+define FLG_ITEM_KEY_PUPUKA             = flag 336
+define FLG_SUMS_STOIC_RESERVED         = flag 337
+define FLG_BMONKEY_ROPE                = flag 338
+define FLG_TWSN_APPLE_DISAPPEAR        = flag 339
+// Flag 340 is never referenced in the messages
+define FLG_TWSN_INFO_TACO              = flag 341
+define FLG_SPHINX_OK                   = flag 342
+define FLG_ITEM_HIEROGLYPH             = flag 343
+define FLG_WINS_TASSI_ENTER            = flag 344
+define FLG_BMONKEY_TASS                = flag 345
+define FLG_SUMS_OMAR_B_APPEAR          = flag 346
+define FLG_SKRB_PYRAMID_OK             = flag 347
+define FLG_ITEM_TAKANOME               = flag 348
+define FLG_FIRE_PARTY_APPEAR           = flag 349
+define FLG_FOUR_ELEV                   = flag 350
+define FLG_HAPPY_UPRIGHT_1_DISAPPEAR   = flag 351
+define FLG_HAPPY_UPRIGHT_2_DISAPPEAR   = flag 352
+define FLG_HAPPY_UPRIGHT_3_DISAPPEAR   = flag 353
+define FLG_HAPPY_UPRIGHT_4_DISAPPEAR   = flag 354
+define FLG_HAPPY_UPRIGHT_5_DISAPPEAR   = flag 355
+define FLG_HAPPY_UPRIGHT_6_DISAPPEAR   = flag 356
+define FLG_FOUR_MIHARI_1_DISAPPEAR     = flag 357
+define FLG_FOUR_MIHARI_2_DISAPPEAR     = flag 358
+define FLG_FOUR_MIHARI_3_DISAPPEAR     = flag 359
+define FLG_FOUR_MIHARI_4_DISAPPEAR     = flag 360
+define FLG_FOUR_MIHARI_5_DISAPPEAR     = flag 361
+define FLG_FOUR_YUDANROBO_DISAPPEAR    = flag 362
+define FLG_ONET_SHARK_A_DISAPPEAR      = flag 363
+define FLG_ONET_SHARK_B_DISAPPEAR      = flag 364
+define FLG_ONET_SHARK_C_DISAPPEAR      = flag 365
+define FLG_GPFT_MINIGEPPU_A_DISAPPEAR  = flag 366
+define FLG_GPFT_MINIGEPPU_D_DISAPPEAR  = flag 367
+define FLG_GPFT_MINIGEPPU_E_DISAPPEAR  = flag 368
+define FLG_GPFT_PASSWORD_OK            = flag 369
+define FLG_STEP_DSRT                   = flag 370
+define FLG_STEP_MGKT                   = flag 371
+define FLG_STEP_PAST                   = flag 372
+define FLG_THRK_MATENT_FACE_APPEAR     = flag 373
+define FLG_FOUR_TOPOLO_BOY_B_APPEAR    = flag 374
+define FLG_MYHOME_START                = flag 375
+define FLG_PHONE_FOUR_APPLE_ICHIGO     = flag 376
+define FLG_PHONE_FOUR_APPLE_MONO       = flag 377
+define FLG_PHONE_FOUR_ORANGE_MONO      = flag 378
+define FLG_PHONE_GUMI_APPLE            = flag 379
+define FLG_PHONE_GUMI_ORANGE           = flag 380
+// Flag 381 is never referenced in the messages
+define FLG_DKFD_DOSEI_ST1_APPEAR       = flag 382
+define FLG_HOTEL_PAPERBOY_APPEAR       = flag 383
+define FLG_POWR_ALL                    = flag 384
+define FLG_ITEM_CONTACTLENS            = flag 385
+define FLG_FMON_MOON_A_DISAPPEAR       = flag 386
+define FLG_FMON_MOON_B_DISAPPEAR       = flag 387
+define FLG_FMON_MOON_B_2_DISAPPEAR     = flag 388
+define FLG_FMON_MOON_C_DISAPPEAR       = flag 389
+define FLG_FMON_PYRA_A_A_DISAPPEAR     = flag 390
+define FLG_FMON_PYRA_A_B_DISAPPEAR     = flag 391
+define FLG_FMON_PYRA_A_C_DISAPPEAR     = flag 392
+define FLG_FMON_PYRA_A_D_DISAPPEAR     = flag 393
+define FLG_FMON_PYRA_A_E_DISAPPEAR     = flag 394
+define FLG_FMON_PYRA_A_F_DISAPPEAR     = flag 395
+define FLG_FMON_PYRA_A_G_DISAPPEAR     = flag 396
+define FLG_FMON_PYRA_A_H_DISAPPEAR     = flag 397
+define FLG_FMON_PYRA_A_I_DISAPPEAR     = flag 398
+define FLG_FMON_PYRA_A_J_DISAPPEAR     = flag 399
+define FLG_FMON_PYRA_A_K_DISAPPEAR     = flag 400
+define FLG_FMON_PYRA_A_L_DISAPPEAR     = flag 401
+define FLG_FMON_PYRA_A_M_DISAPPEAR     = flag 402
+define FLG_FMON_PYRA_A_N_DISAPPEAR     = flag 403
+define FLG_FMON_PYRA_A_O_DISAPPEAR     = flag 404
+define FLG_FMON_PYRA_A_P_DISAPPEAR     = flag 405
+define FLG_FMON_PYRA_A_Q_DISAPPEAR     = flag 406
+define FLG_FMON_PYRA_B_A_DISAPPEAR     = flag 407
+define FLG_FMON_PYRA_B_B_DISAPPEAR     = flag 408
+define FLG_FMON_PYRA_B_C_DISAPPEAR     = flag 409
+define FLG_FMON_PYRA_B_D_DISAPPEAR     = flag 410
+define FLG_FMON_PYRA_B_E_DISAPPEAR     = flag 411
+define FLG_FMON_PYRA_B_F_DISAPPEAR     = flag 412
+define FLG_FMON_PYRA_B_G_DISAPPEAR     = flag 413
+define FLG_FMON_PYRA_B_H_DISAPPEAR     = flag 414
+define FLG_FMON_PYRA_B_I_DISAPPEAR     = flag 415
+define FLG_FMON_BRICK_A_A_DISAPPEAR    = flag 416
+define FLG_FMON_BRICK_A_B_DISAPPEAR    = flag 417
+define FLG_FMON_BRICK_B_A_DISAPPEAR    = flag 418
+define FLG_FMON_BRICK_B_B_DISAPPEAR    = flag 419
+define FLG_FMON_BRICK_C_A_DISAPPEAR    = flag 420
+define FLG_FMON_BRICK_C_B_DISAPPEAR    = flag 421
+define FLG_ONET_DAYBREAK               = flag 422
+define FLG_INFO_POWR                   = flag 423
+define FLG_GUMI_1_BOOK                 = flag 424
+define FLG_GUMI_2_BOOK                 = flag 425
+define FLG_GUMI_3_BOOK                 = flag 426
+define FLG_GUMI_4_BOOK                 = flag 427
+define FLG_GUMI_5_BOOK                 = flag 428
+define FLG_GUMI_6_BOOK                 = flag 429
+define FLG_GUMI_7_BOOK                 = flag 430
+define FLG_GUMI_8_BOOK                 = flag 431 // This is a guess. This flag is never referenced in the messages
+define FLG_GUMI_9_BOOK                 = flag 432 // "Fill inventory with Skip Sandwich DX when checking nothing" debug flag
+define FLG_THRK_HOTELMAN_DISAPPEAR     = flag 433
+define FLG_FMON_STONE_BOSS_DISAPPEAR   = flag 434
+define FLG_FMON_PYRA_BOSS_DISAPPEAR    = flag 435
+define FLG_FMON_KRAKEN2_A_DISAPPEAR    = flag 436
+define FLG_FMON_KRAKEN2_B_DISAPPEAR    = flag 437
+define FLG_FMON_KRAKEN2_C_DISAPPEAR    = flag 438
+define FLG_MAKYO_MTRUFFLE_1_DISAPPEAR  = flag 439
+define FLG_MAKYO_MTRUFFLE_2_DISAPPEAR  = flag 440
+define FLG_MAKYO_MTRUFFLE_3_DISAPPEAR  = flag 441
+define FLG_MAKYO_MTRUFFLE_4_DISAPPEAR  = flag 442
+define FLG_MAKYO_MTRUFFLE_5_DISAPPEAR  = flag 443
+define FLG_MYHOME_DOG_MOVED            = flag 444
+define FLG_SKRB_YARIMAN_B_APPEAR       = flag 445
+define FLG_DELIVERY_CUSTOMER           = flag 446
+// Flag 447 is never referenced in the messages
+// Flag 448 is never referenced in the messages
+define FLG_POLICE_STRONG_B_APPEAR      = flag 449
+define FLG_POLICE_STRONG_DISAPPEAR     = flag 450
+define FLG_SARUDUNGEON_A_OK            = flag 451
+define FLG_SARUDUNGEON_B_OK            = flag 452
+define FLG_SARUDUNGEON_C_OK            = flag 453
+define FLG_SARUDUNGEON_D_OK            = flag 454
+define FLG_SARUDUNGEON_E_OK            = flag 455
+define FLG_SARUDUNGEON_F_OK            = flag 456
+define FLG_SARUDUNGEON_G_OK            = flag 457
+define FLG_SARUDUNGEON_H_OK            = flag 458
+define FLG_SARUDUNGEON_I_OK            = flag 459
+define FLG_SARUDUNGEON_J_OK            = flag 460
+define FLG_SARUDUNGEON_K_OK            = flag 461
+define FLG_SARUDUNGEON_L_OK            = flag 462
+define FLG_SARUDUNGEON_M_OK            = flag 463
+define FLG_SARUDUNGEON_N_OK            = flag 464
+define FLG_SARUDUNGEON_O_OK            = flag 465
+define FLG_INSEKI_PICKEY_APPEAR        = flag 466
+define FLG_MYHOME_DOOR_CLOSE           = flag 467
+define FLG_ONET_POKEY_DOOR_CLOSE       = flag 468
+define FLG_YAZIUMA_DISAPPEAR           = flag 469
+define FLG_YAZIUMA_TRACY               = flag 470
+define FLG_YAZIUMA_MAMA                = flag 471
+define FLG_YAZIUMA_POKEY               = flag 472
+define FLG_KAIDAN_TRACY_APPEAR         = flag 473
+define FLG_GENKAN_MAMA_APPEAR          = flag 474
+define FLG_SYS_COMEBACK                = flag 475
+define FLG_INSEKI_STOPPER_APPEAR       = flag 476
+define FLG_MYHOME_SLEEPNES_APPEAR      = flag 477
+define FLG_SHOP_50                     = flag 478
+define FLG_PHOTO_MYHOME                = flag 479
+define FLG_PHOTO_ONETMISAKI            = flag 480
+define FLG_PHOTO_CYCLESHOP             = flag 481
+define FLG_PHOTO_RIVER                 = flag 482
+define FLG_PHOTO_CABIN                 = flag 483
+define FLG_PHOTO_CHAOS                 = flag 484
+define FLG_PHOTO_TACY                  = flag 485
+define FLG_PHOTO_MAZE                  = flag 486
+define FLG_PHOTO_HAKABA                = flag 487
+define FLG_PHOTO_WATERFALL             = flag 488
+define FLG_PHOTO_ONSEN                 = flag 489
+define FLG_PHOTO_TENTO                 = flag 490
+define FLG_PHOTO_BONE                  = flag 491 // ??
+define FLG_PHOTO_EXCAVATION            = flag 492
+define FLG_PHOTO_BRIDGE                = flag 493
+define FLG_PHOTO_DINO_MUSEUM           = flag 494
+define FLG_PHOTO_DINOSOR               = flag 495
+define FLG_PHOTO_BUILDING              = flag 496
+define FLG_PHOTO_DEPT                  = flag 497
+define FLG_PHOTO_RAMMA                 = flag 498
+define FLG_PHOTO_RAMMA_FIELD           = flag 499
+define FLG_PHOTO_STONEHENGE            = flag 500
+define FLG_PHOTO_SUMS_HOTEL            = flag 501
+define FLG_PHOTO_SUMS_REST             = flag 502
+define FLG_PHOTO_SUMS_BEACH            = flag 503
+define FLG_PHOTO_TOTO                  = flag 504
+define FLG_PHOTO_SKARABI               = flag 505
+define FLG_PHOTO_PYRAMID               = flag 506
+define FLG_PHOTO_DUNGEONMAN            = flag 507
+define FLG_PHOTO_MAKYOU                = flag 508
+define FLG_PHOTO_GUMI                  = flag 509
+define FLG_PHOTO_SATURN                = flag 510
+define FLG_ITEM_MAP                    = flag 511
+define FLG_ITEM_ESCAPE_MOUSE           = flag 512
+define FLG_MYHOME_2F_1F                = flag 513
+define FLG_MYHOME_SLEEP                = flag 514
+define FLG_WIN_FRANK_ONLY              = flag 515
+define FLG_DSRT_SARU_TACO_DISAPPEAR    = flag 516
+define FLG_MYHOME_LIGHT_ON             = flag 517
+define FLG_DSRT_BOSS_1                 = flag 518
+define FLG_DSRT_BOSS_2                 = flag 519
+define FLG_DSRT_BOSS_3                 = flag 520
+define FLG_DSRT_BOSS_4                 = flag 521
+define FLG_ANIM_PORT_0                 = flag 522
+define FLG_ANIM_PORT_1                 = flag 523
+define FLG_ANIM_PORT_2                 = flag 524
+define FLG_ANIM_PORT_3                 = flag 525 // This is a guess. This flag is never referenced in the messages
+define FLG_ANIM_PORT_4                 = flag 526
+define FLG_ANIM_PORT_5                 = flag 527
+define FLG_ANIM_PORT_6                 = flag 528
+define FLG_ANIM_PORT_7                 = flag 529 // This is a guess. This flag is never referenced in the messages
+define FLG_MYHOME_TRACY_DISAPPEAR      = flag 530
+define FLG_MYHOME_1F_TRACY_APPEAR      = flag 531
+define FLG_BGM_INSEKI_FALL_A           = flag 532
+define FLG_BGM_INSEKI_FALL_B           = flag 533
+define FLG_BGM_BUS                     = flag 534
+define FLG_BGM_TBUS                    = flag 535
+define FLG_BGM_TONZURA_FREE            = flag 536
+define FLG_BGM_TASSY                   = flag 537
+define FLG_DOSEI_APPLE_APPEAR          = flag 538
+define FLG_SYS_INPUT_PLAYER_NAME       = flag 539
+define FLG_SYS_INPUT_NAME_KANA         = flag 540
+define FLG_THRK_PRISON_OPEN            = flag 541
+define FLG_BGM_FUNE1                   = flag 542
+define FLG_BGM_FUNE2                   = flag 543
+define FLG_BGM_WINT1                   = flag 544
+define FLG_MGKT_BACK_LLPT              = flag 545
+define FLG_MGKT_BACK_MLKY              = flag 546
+define FLG_MGKT_BACK_MGNT              = flag 547
+define FLG_MGKT_BACK_FIRE              = flag 548
+define FLG_TWSN_FIELD_TONZ_DISAPPEAR   = flag 549
+define FLG_ITEM_GREATORANGE            = flag 550
+define FLG_TWSN_APPLE_FOOD             = flag 551
+define FLG_ITEM_HOIHOI                 = flag 552
+define FLG_ITEM_TICKET                 = flag 553
+define FLG_ITEM_TOFU                   = flag 554
+define FLG_FOUR_DEPT_SWITCH            = flag 555
+define FLG_FOUR_DEPT_MSGCHG            = flag 556
+define FLG_TOTO_SAILOR_MSGCHG          = flag 557
+// Flags 558~586 are never referenced in the messages
+define FLG_BGM_FLYINGMAN               = flag 587
+define FLG_THRK_INFO_D_DISAPPEAR       = flag 588
+define FLG_THRK_HOTEL_BOY_APPEAR       = flag 589
+define FLG_THRK_PEOPLE_APPEAR          = flag 590
+define FLG_FOUR_SARU_B_APPEAR          = flag 591
+define FLG_FOUR_SARU_K_APPEAR          = flag 592
+define FLG_BGM_TELEPORT                = flag 593
+define FLG_FOUR_INFO_D_APPEAR          = flag 594
+define FLG_RAMA_258_DISAPPEAR          = flag 595
+define FLG_TLPT_DSRT                   = flag 596
+define FLG_SHOP_51                     = flag 597
+define FLG_SHOP_52                     = flag 598
+define FLG_SHOP_53                     = flag 599
+define FLG_SHOP_54                     = flag 600
+define FLG_FMON_HIEROGLYPH_A_DISAPPEAR = flag 601
+define FLG_FMON_HIEROGLYPH_B_DISAPPEAR = flag 602
+define FLG_FMON_BOSS_GRAVE_DISAPPEAR   = flag 603
+define FLG_ITEM_KEY_LOCKER             = flag 604
+define FLG_WINS_LOCKER_FAILED          = flag 605
+define FLG_SKRB_DUNGEONMAN_OPEN        = flag 606
+define FLG_FOUR_MISSFAKE               = flag 607
+define FLG_DSRT_SWITCH_BEFORE          = flag 608
+define FLG_WINS_TACO_DISAPPEAR         = flag 609
+// Flag 610 is never referenced in the messages
+define FLG_TWSN_MESSENGER_APPEAR       = flag 611
+define FLG_TWSN_TONCHIKI_R_DISAPPEAR   = flag 612
+define FLG_DSRT_TSARU_DISAPPEAR        = flag 613
+define FLG_DSRT_TSARU_A_APPEAR         = flag 614
+define FLG_DSRT_TSARU_B_APPEAR         = flag 615
+define FLG_DKFD_GUMI_BOSS              = flag 616
+define FLG_SUMS_STOIC_WIFE_DISAPPEAR   = flag 617
+define FLG_ITEM_KOKESHI                = flag 618
+define FLG_WINS_KOKESHI_DISAPPEAR      = flag 619
+define FLG_WINS_LABO_MOUSE_APPEAR      = flag 620
+define FLG_WINS_LABO_MONKEY_APPEAR     = flag 621
+define FLG_WINS_KANAI_APPEAR           = flag 622
+define FLG_THRK_BUIL_B_MAN_APPEAR      = flag 623
+define FLG_TWSN_TONCHIKI_APPEAR        = flag 624
+define FLG_FOUR_POKEY                  = flag 625
+define FLG_THRK_ESCAPER_APPEAR         = flag 626
+define FLG_ONET_STONE_REJECTED         = flag 627
+define FLG_DOSEI_PU_BOX_APPEAR         = flag 628
+define FLG_DOSEI_ONSEN_GERO            = flag 629
+define FLG_WINS_TASS_BMONKEY_APPEAR    = flag 630
+define FLG_MOON_MONOTOLY_DISAPPEAR     = flag 631
+define FLG_ONET_DOOR_CLOSE             = flag 632
+define FLG_ONET_MIZUNO_DOOR_OPEN       = flag 633
+define FLG_ONET_POLA_TELEPATHY         = flag 634
+define FLG_TWSN_POLA_TELEPATHY         = flag 635
+define FLG_WINS_POLA_TELEPATHY         = flag 636
+define FLG_RAMA_PU_APPEAR              = flag 637
+define FLG_TWSN_POLA_APPEAR            = flag 638
+define FLG_MGKT_TONCHIKI_DISAPPEAR     = flag 639
+// Flags 640~642 are never referenced in the messages
+define FLG_ONET_MYHOME_END_MAMA        = flag 643
+define FLG_ITEM_DOSEI_RIBBON           = flag 644
+define FLG_DELIVERY_UNSOU_B            = flag 645
+define FLG_DELIVERY_CUSTOMER_B         = flag 646
+define FLG_DELIVERY_CUSTOMER_C         = flag 647
+define FLG_DELIVERY_CUSTOMER_D         = flag 648
+define FLG_GUMI_TALKERSTONE            = flag 649
+define FLG_ITEM_MONKY_MIND             = flag 650
+define FLG_DKFD_DOOR_DISAPPEAR         = flag 651
+define FLG_RAMA_RABBIT_DISAPPEAR       = flag 652
+define FLG_SHOP_55                     = flag 653
+define FLG_MAKYO_TRADER_DEBT           = flag 654
+define FLG_BGM_SW                      = flag 655
+define FLG_SHOPTEMP_1                  = flag 656
+define FLG_SHOPTEMP_2                  = flag 657
+define FLG_SHOPTEMP_3                  = flag 658
+define FLG_SHOPTEMP_4                  = flag 659
+define FLG_HAPPY_SYSMSGCHG             = flag 660
+define FLG_BGM_SOUL                    = flag 661
+define FLG_BGM_DUNGEONMAN              = flag 662
+define FLG_ONET_LUCY_CHU               = flag 663
+define FLG_FOUR_STAIRWAY_APPEAR        = flag 664
+define FLG_ITEM_LETTER_1               = flag 665
+define FLG_ITEM_LETTER_2               = flag 666
+define FLG_ITEM_LETTER_3               = flag 667
+define FLG_DOSEI_SYOZI                 = flag 668
+define FLG_BOX_THRK_MATENT             = flag 669
+define FLG_ITEM_SIGNBOARD              = flag 670
+// Flag 671 is never referenced in the messages
+define FLG_FOUR_HELI_DISAPPEAR         = flag 672
+// Flag 673 is never referenced in the messages
+// Flag 674 is never referenced in the messages
+define FLG_DELIVERY_HOIHOI             = flag 675
+// Flags 676~678 are never referenced in the messages
+// Flag 679 is only referenced in a missing file ($C9992F to $C9B225) (Called by the double doors in Topolla Theater leading to the auditorium)
+define FLG_FOUR_VENUS_ENCORE           = flag 680
+define FLG_GM_ONET_HINT                = flag 681
+define FLG_GM_TWOSON_HINT              = flag 682
+define FLG_GM_THREEK_HINT              = flag 683
+define FLG_GM_FOURSIDE_HINT            = flag 684
+define FLG_GM_SUMMERS_HINT             = flag 685
+define FLG_GM_SCARABI_HINT             = flag 686
+define FLG_SUMS_MUSEUM_PHONE_RING      = flag 687
+define FLG_MYHOME_PHONE_TRACY          = flag 688
+define FLG_MYHOME_PHONE_PAULA          = flag 689
+define FLG_FOUR_PAULA_TAKOKESHI        = flag 690
+define FLG_SKRB_PU_TAKANOME            = flag 691
+define FLG_GLOBAL_LOST_TAKOKESHI       = flag 692
+define FLG_GLOBAL_LOST_TAKANOME        = flag 693
+define FLG_DELIVERY_UNSOU_TAKOKESHI    = flag 694
+define FLG_DELIVERY_UNSOU_TAKANOME     = flag 695
+define FLG_WINS_JEFF_REPAIR            = flag 696
+define FLG_ONET_SHARK_2F_DISAPPEAR     = flag 697
+define FLG_PHOTO_1                     = flag 698
+define FLG_PHOTO_2                     = flag 699
+define FLG_PHOTO_3                     = flag 700
+define FLG_PHOTO_4                     = flag 701
+define FLG_PHOTO_5                     = flag 702
+define FLG_PHOTO_6                     = flag 703
+define FLG_PHOTO_7                     = flag 704
+define FLG_PHOTO_8                     = flag 705
+define FLG_PHOTO_9                     = flag 706
+define FLG_PHOTO_10                    = flag 707
+define FLG_PHOTO_11                    = flag 708
+define FLG_PHOTO_12                    = flag 709
+define FLG_PHOTO_13                    = flag 710
+define FLG_PHOTO_14                    = flag 711
+define FLG_PHOTO_15                    = flag 712
+define FLG_PHOTO_16                    = flag 713
+define FLG_PHOTO_17                    = flag 714
+define FLG_PHOTO_18                    = flag 715
+define FLG_PHOTO_19                    = flag 716
+define FLG_PHOTO_20                    = flag 717
+define FLG_PHOTO_21                    = flag 718
+define FLG_PHOTO_22                    = flag 719
+define FLG_PHOTO_23                    = flag 720
+define FLG_PHOTO_24                    = flag 721
+define FLG_PHOTO_25                    = flag 722
+define FLG_PHOTO_26                    = flag 723
+define FLG_PHOTO_27                    = flag 724
+define FLG_PHOTO_28                    = flag 725
+define FLG_PHOTO_29                    = flag 726
+define FLG_PHOTO_30                    = flag 727
+define FLG_PHOTO_31                    = flag 728
+define FLG_PHOTO_32                    = flag 729
+define FLG_ONET_BAKERY_OBASAN          = flag 730
+define FLG_SHOP_56                     = flag 731
+define FLG_SHOP_57                     = flag 732
+define FLG_SHOP_58                     = flag 733
+define FLG_ONET_HPTL_A                 = flag 734
+define FLG_ONET_HPTL_B                 = flag 735
+define FLG_FOUR_PETENERA               = flag 736
+define FLG_TWSN_HOTEL_A                = flag 737
+define FLG_TWSN_HOTEL_A_END            = flag 738
+define FLG_TWSN_PAUL_CRY               = flag 739
+define FLG_THRK_PEOPLE_DISAPPEAR       = flag 740
+define FLG_FOUR_MONOTOLY_APPEAR        = flag 741
+define FLG_ONET_LARDNA_APPEAR          = flag 742
+define FLG_STEP_HAPPY                  = flag 743
+define FLG_HAPPY_THUNDER               = flag 744
+define FLG_DSRT_TJAB_MOVE              = flag 745
+define FLG_ONET_ESTATE_DOOR_OPEN       = flag 746
+define FLG_TWSN_TONZURA_GO             = flag 747
+define FLG_WINS_SKYW_DISAPPEAR         = flag 748
+define FLG_MYHOME_NES_CHANGE           = flag 749
+define FLG_STEP_ONET                   = flag 750
+define FLG_TWSN_CHAOS_ONSTAGE          = flag 751
+// Flag 752 is never referenced in the messages
+define FLG_MYHOME_PHONE_RING           = flag 753
+define FLG_SYS_DISTLPT                 = flag 754
+define FLG_ITEM_TAISHITA               = flag 755
+define FLG_DUNGEONMAN                  = flag 756
+define FLG_DSRT_DIA_RESERVE            = flag 757
+define FLG_BGM_MGKT_IN                 = flag 758
+define FLG_FOUR_TOPOLO_AB_APPEAR       = flag 759
+define FLG_BGM_PUBL_WARP               = flag 760
+define FLG_THRK_TUNNEL_CLOSE           = flag 761
+define FLG_DSRT_KANBAN_44_MOVE         = flag 762
+define FLG_MYHOME_TO_BE                = flag 763
+define FLG_DSRT_INFO_TLPT              = flag 764
+define FLG_DOSEI_INFO_EQUIP            = flag 765
+define FLG_WINS_ESCAPE_MOUSE_NG        = flag 766
+define FLG_DKFD_GUMI_E_READED          = flag 767
+define FLG_GLOBAL_MUSEUM_PAID          = flag 768
+define FLG_MYHOME_TRACY_FINAL          = flag 769
+define FLG_PHONE_ESCARGO_FINAL         = flag 770
+define FLG_PHONE_PIZZA_FINAL           = flag 771
+define FLG_PHONE_PAPA_FINAL            = flag 772
+define FLG_THRK_OZISAN_D_DISAPPEAR     = flag 773
+define FLG_MOON_WARP_X                 = flag 774
+define FLG_SYS_DIS_2H_PAPA             = flag 775
+define FLG_GLOBAL_POLA_KIDNAPPED       = flag 776
+define FLG_GUMI_OLDMAN_END             = flag 777
+define FLG_SYS_DIS_MOUSE               = flag 778
+define FLG_SYS_DISTLPT_EVENT           = flag 779
+define FLG_THRK_URBAN_ZOMBI_GONE       = flag 780
+
+
+What follows is the stuff that was already on this wiki page, which is in little-endian and may or may not be accurate.
+Misc. flags (mostly sprite visibility toggles)
+
+    01 00 = Special flag (resets on map reload?)
+    02 00 = Default secondary message flag. Resets on map reload.
+    03 00 = Special flag (resets on map reload?)
+    04 00 = Special flag (resets on map reload?)
+    05 00 = Special flag (resets on map reload?)
+    06 00 = Changes default music in the back room of the police station to boss area music when ON
+    07 00 = Special flag (resets on map reload?)
+    08 00 = Special flag (resets on map reload?)
+    09 00 = Special flag (resets on map reload?)
+    0A 00 = Special flag (resets on map reload?) (seems to prevent travel by bus)
+    0B 00 = Random enemies suppression flag. When set, enemies will not appear.
+    0C 00 = Marks that Paula's parents know she was rescued from the Happy-Happy Village cabin
+    0D 00 = Marks that Paula has been rescued from the Happy-Happy Village cabin. Returns the Happy Happy Village colors to normal, and removes Paula (TPT# 0x1B5) from the cabin.
+    0E 00 = Marks that Jeff rescued Ness and Paula in Threed. Men are inside Circus Tent; Cave Boy in Andonuts' lab (set somewhere around when you receive the Zombie Paper)
+    0F 00 = Stronger enemies spawn in Winters when set (Paula rescued from Monotoli). Paula by Monotoli's side in Fourside
+    10 00 = Marks that Poo has joined the party
+    11 00 = Marks that Poo is away learning Starstorm. Starmaster takes Poo away to learn Starstorm.
+    12 00 = Buzz Buzz is part of your party.
+    13 00 = Set when King joins your party. Renders King 0x10 (Sleeping by the couch) invisible.
+    14 00 = Marks that Picky has joined your party. Found Picky at the meteorite.
+    15 00 = Porky joins your party in Ness’s house. Allows you to leave the house.
+    16 00 = Marks that Bubble Monkey is in your party. Female monkey, takes Bubble Monkey from Jeff when ON
+    17 00 = Set when Tony joins your party. Makes Tony sleeping in bed invisible
+    18 00 = Dungeon Man joins your party. Allows the getting stuck in trees and whatnot
+    19 00 = Set when Flying Man #1 joins your party
+    1A 00 = Set when Flying Man #2 joins your party
+    1B 00 = Set when Flying Man #3 joins your party
+    1C 00 = Set when Flying Man #4 joins your party
+    1D 00 = Set when Flying Man #5 joins your party
+    1E 00 = Set when Pokey joins your party, causes Ness' dad to call at the beginning of the game
+    1F 00 = Lier inside his house, above passage
+    20 00 = Lier at bottom of his cave in first room
+    21 00 = Lier waiting in the second cave room
+    22 00 = Picky at his house (post-Starman Jr.) when ON
+    23 00 = Pokey in his room in Onett when ON. Set when Buzz Buzz dies, cleared after defeating Captain Strong
+    24 00 = Activates the policeman waiting for NEss (TPT# 0x7E) at the base of the Giant Step hill (or Traveling Entertainer's Shack)
+    25 00 = Set when Picky joins your party, cleared when defeating Captain Strong. Aloysis Minch at home when ON
+    26 00 = Set when Captain Strong orders you to follow him, cleared when defeating him (also cleared on unknown hotspot). Activates encounter with Onett Police Force
+    27 00 = Police man in Onett Police Station when ON. Captain Strong related. Set after the cop at the Traveling Entertainers Shack talks to you, cleared when defeating Captain Strong
+    28 00 = Render the Shark guarding Frank's door invisible. Marks that you have defeated the Yes Man Junior that's guarding the Arcade backyard
+    29 00 = Ticket status in Twoson's theatre (man guarding entrance flag)
+    2A 00 = Apple Kid waiting to give Pencil Eraser in Burglin Park
+    2B 00 = Runaway Five fan inside the backstage area
+    2C 00 = Pokey waiting to "fake-apologise" outside the Happy-Happy headquarters
+    2D 00 = Pokey, Crows, and Insane Cultists outside of the cabin where Paula is being held
+    2E 00 = Zombie Chick outside Hotel when ON
+    2F 00 = Broken Sky Runner flag in Threed Graveyard when ON
+    30 00 = Fixed Sky Runner in Threed graveyard flag
+    31 00 = The Boogey Tent is set up in the south end of Threed.
+    32 00 = Brick Road is at Winters when ON
+    33 00 = Marks that NPCs in Stonehenge should be freed and walk around outside of their capsules.
+    34 00 = People freed from tubes in Starman Base when ON (Starman DX defeat flag?)
+    35 00 = Talked to Brick Road in Winters. Completed Brick Road’s Winters dungeon
+    36 00 = Montague at beginning of mining cave when ON
+    37 00 = Related to "36 00"? (Set after giving food to Gerardo Montague)
+    38 00 = Shown ticket at Topolla flag (man guarding entrance)
+    39 00 = Blackout in the Fourside Department Store (Dept. Store Spook ready to be fought). Arms Dealer in Fourside Dept. Store
+    3A 00 = Fourside sewers open (Given the Signed Banana to Mr. Spoon)
+    3B 00 = Elektra outside the Monotoli Building in Fourside
+    3C 00 = Activates Everdred (TPT# 0x3B8) and the crowd of onlookers (TPT# 0x3B9 - 0x3BE) in Fourside
+    3D 00 = Marks that the Magic Cake lady has been identified within Club Stoic. Activates her 2nd text.
+    3E 00 = Dungeon Man, in desert, but not spoken to
+    3F 00 = Man guarding Mani Mani passage in Moonside (need Invis-o-man to pass)
+    40 00 = Marks that you have defeated Frank. Secondary text for defeating Frank is activated, and the policeman in Mayor Pirkle's office will let you pass.
+    41 00 =
+    42 00 = Marks that you have defeated Everdred
+    43 00 = Marks that you have defeated the Unassuming Local Guy who's monitoring the Banana/Egg stand. Unassuming Local Guy guarding Banana/egg stand present when OFF
+    44 00 = Marks that you have defeated Carpainter (text changed, banana/egg stand deactivated)
+    45 00 = Marks that you have defeated the Boogey Tent. Map changed to show him gone.
+    46 00 = Marks that you have defeated the Starman Deluxe. People captured in Starmen Base when OFF
+    47 00 = Marks that you have defeated Master Belch
+    48 00 = Marks that you have defeated all of the "Third Strongest Moles"
+    49 00 = Marks that you have defeated Giygas. Secondary text for defeating Giygas, and background music "Because I Love You" is set for all areas.
+    4A 00 = Marks that you have defeated Ness's Nightmare. Activates Phase Distorter in Saturn Valley as well as another Saturn Salesman (and person in Winters tent?)
+    4B 00 = Marks that you have defeated the Mani-Mani Statue. Broken Phase Distorter in Cave of Past (present)
+    4C 00 = Marks that you have got the Cookie from Tracy in Ness’s house
+    4D 00 = Marks that you have gained Mr. Baseball Cap in the tree house (Traveling Entertainer's Shack) in Onett
+    4E 00 = Marks that you have got the Travel Charm from one of the Traveling Entertainers. Guys in front of shack gone when ON)
+    4F 00 = Marks that you've retrieved the Meteorite piece from Onett.
+    50 00 = Marks that you've retrieved the Shack Key from B.H. Pirkle, and changes his lines
+    51 00 = Marks that you received the Bicycle from Punk-Sure in Twoson
+    52 00 = Marks that you have gained the Receiver Phone from Apple Kid’s Mouse
+    53 00 = Marks that you have gained Pencil Eraser from Apple Kid
+    54 00 = Marks that you have gained the Hand-Aid from Paula’s Mom
+    55 00 = Marks that you have gained the Wad of Bills from Everdred
+    56 00 = Marks that you have gained the Franklin Badge from Paula
+    57 00 = Marks that you have gained the Fly Honey from the Boogey Tent trashcan
+    58 00 = Marks that you have gained the Bad Key Machine from Maxwell
+    59 00 = Marks that you have gained the Shyness Book from the Onett library
+    5A 00 = Marks that you have gained a Diamond from Montague Bros
+    5B 00 = Marks that you have gained the Signed Banana from Venus
+    5C 00 = Marks that you have gained the Bag of Dragonite / Tendakraut from the Tenda Chief
+    5D 00 = Marks that you have gained the Baseball Cap from Ness in Magicant
+    5E 00 = Marks that you have got the Cracked bat and followed Mom's advice to bring King along. Ternary text for Pokey before leaving the house ("I'll follow at a safe distance.").
+    5F 00 = Dad is currently calling the phone in Ness's house. Makes the phone answer Dad's call instead of bringing up the menu.
+    60 00 = Pokey waiting for you to say "goodbye" to Mom. Secondary text for Pokey before leaving the house ("Before we go, why don't you say "goodbye" to your mom.").
+    61 00 =
+    62 00 = Set after you answer the first call from Dad. When clear, the telephone from Ness's house just says "@Beeeep..."
+    63 00 = Marks that you have bought the $7500 house in Onett. Onett House for Sale man flag
+    64 00 = Set after you wake up Picky. Used for King's "I don't wanna go outside" text
+    65 00 = Secondary text flag for Lier X. Agerate
+    66 00 = Talked about the book Overcoming Shyness with the masked boy in the library
+    67 00 = Marks that the man in the Onett library has already run into the bathroom. (Also used by unused Onett bathroom man dialogue)
+    68 00 = Set after Pokey and Picky are punished. Sets the Onett music as normal daytime, and Pokey doesn't block the path anymore.
+    69 00 = Secondary text for defeating Captain Strong is activated. Road to Twoson open
+    6A 00 = Turns on when leaving Onett hotel main lobby. Switches couple from being in the lobby to being in left-most room.
+    6B 00 = Onett sunrise when exiting Pokey's house
+    6C 00 = Traveling Entertainer's Shack unlocked
+    6D 00 = Referenced in unused text, so technically unused? (Unused Onett cop dialogue)
+    6E 00 =
+    6F 00 = Marks that you have visited the Iron Pencil in Peaceful Rest Valley.
+    70 00 = Marks that you invested $200 into Apple Kid's inventions. Activates 2nd text for Apple Kid's mouse to give you the Receiver phone.
+    71 00 = Marks that you have returned the Bicycle (Punk guy calls Ness "Stubby legs")
+    72 00 = Secondary text flag for a guy in the Twoson department store
+    73 00 = Marks that you have already got into the Chaos Theater backstage
+    74 00 = Marks which of Orange Kid's two lines he should use when he's "hard at work" (toggled every time you view one of these lines)
+    75 00 = Marks that you have invested in Orange Kid
+    76 00 = (Paula's dad outside their house?)
+    77 00 = Runaway Five bus behind Twoson theatre & band in the Twoson Theatre
+    78 00 = Marks that you have paid in the food stand in Happy-Happy Village. Used for secondary text for the Unassuming Local Guy. Cleared when you talk to him
+    79 00 = Marks that you have not paid in the food stand in Happy-Happy Village
+    7A 00 = Marks that you have received the Key to the Cabin where Paula is held in Happy-Happy Village. Carpainter defeated when ON. Activates his Mani-Mani text. Allows bridge in Peaceful Rest Valley to be fixed
+    7B 00 = Secondary text flag for the blue cow in Happy-Happy Village. Only used when Carpainter is still in power
+    7C 00 = Zombie Paper on Threed tent floor
+    7D 00 = Zombie Paper used flag. Zombies captured in Threed tent, people inside the tent
+    7E 00 = Makes the book 'Overcoming Shyness' appear in Onett (prior to obtaining it)
+    7F 00 = When ON, you can get into the Sky Runner in Andonuts's lab (?)
+    80 00 = Jeff sleeping in bed when OFF
+    81 00 = Tessie has emerged from the water at least once (?)
+    82 00 = Marks that you have talked to Andonuts at least once (?)
+    83 00 = Marks that Mr. Saturn told you to wait three minutes in the waterfall
+    84 00 = Able to get the Meteorite Piece in Onett
+    85 00 = Can get in the Phase Distorter version two
+    86 00 = Given Zexonyte to Dr. Andonuts
+    87 00 = Talked to the black sesame seed flag
+    88 00 = Traffic Jam in Dusty Dunes Desert when OFF
+    89 00 = Marks that you have given food to Montague in Dusty Dunes Desert
+    8A 00 = Talked to the white sesame seed flag
+    8B 00 = Lady guarding path in Jackie's bar
+    8C 00 = Marks that you have spoken to Mr. Spoon about Venus, Now she will give Signed Banana.
+    8D 00 = Marks that you have obtained Trout Flavored Yogurt from Electra in the Monotoli building.
+    8E 00 = Marks that you have given Yogurt Machine to Electra. Activates elevator lady sprite 0×0365.
+    8F 00 = (Pokey still in Fourside flag)
+    90 00 =
+    91 00 = Everdred wanders off to die. Activates 2nd text of all onlookers
+    92 00 = UNKNOWN -- READ FROM $C29298 (Flag ID is stored in ROM at $D57A2C). (Runaway Five are free from Topolla Theatre in Fourside, people outside Dept. Store?)
+    93 00 = Venus is in Topolla when ON, Runaway Five when OFF
+    94 00 = Hieroglyph read for first time by Poo. Pyramid text able to be read and interacted with.
+    95 00 = Set to ON when you start playing as Poo in Dalaam
+    96 00 = Set to ON when you start playing as Poo in Dalaam
+    97 00 = Ness and Co. are informed that they need to get a Submarine to cross the river to Deep Darkness.
+    98 00 = Allows you to step onto the tiles to try to open up the Pyramid’s doors.
+    99 00 = Rock in Tenda Cave lifted when OFF
+    9A 00 = Marks that you have spoken with Tenda Chief the first time. Allows Apple Kid to call outside the village.
+    9B 00 = Tendas are no longer shy when ON
+    9C 00 =
+    9D 00 = Marks that you have read the last Flying Man’s tombstone. (Why does this exist?)
+    9E 00 =
+    9F 00 = Set to ON when you read the last Flying Man tombstone (unknown purpose, if any)
+    A0 00 =
+    A1 00 =
+    A2 00 =
+    A3 00 =
+    A4 00 =
+    A5 00 = Invisible Man in Moonside unspoken to
+    A6 00 = Marks that you have spoken to the backwards-counting person once in Moonside. Activates their 2nd text.
+    A7 00 = Marks that you have spoken to the backwards-counting person 2x in Moonside. Activates their 3rd text.
+    A8 00 = Marks that you have spoken to the backwards-counting person 3x in Moonside. Activates their final text.
+    A9 00 = Phase Distorter version two is being built (?). Activates 2nd text for him and Apple Kid.
+    AA 00 =
+    AB 00 = Marks that you have received Cup of Lifenoodles from Mr. Saturn
+    AC 00 = Marks that you have received Mr. Saturn Coin from Mr. Saturn
+    AD 00 = Marks that you have received Stag Beetle from Mr. Saturn
+    AE 00 = Runaway Five in debt in Topolla Theater? Set when learning about the debt?. People gathered around Dusty Dunes excavation when ON
+    AF 00 = Set when receiving the Pencil Eraser and cleared when defeating Carpainter. Maybe has something to do with the Peaceful Rest Valley bridge
+    B0 00 = Used by blue haired hospital guy. "Soften" selected.
+    B1 00 = Used by blue haired hospital guy. "Purify" selected.
+    B2 00 = Used by blue haired hospital guy. "Restore Feeling" selected.
+    B3 00 = Mach Pizza large pizza delivery pending
+    B4 00 = Mach Pizza small pizza delivery pending
+    B5 00 = Escargo Express delivery pending
+    B6 00 = Marks that Ness has experienced Giant Step and recorded it on the Sound Stone
+    B7 00 = Marks that Ness has experienced Lilliput Steps and recorded it on the Sound Stone
+    B8 00 = Marks that Ness has experienced Milky Well and recorded it on the Sound Stone
+    B9 00 = Marks that Ness has experienced Rainy Circle and recorded it on the Sound Stone
+    BA 00 = Marks that Ness has experienced Magnet Hill and recorded it on the Sound Stone
+    BB 00 = Marks that Ness has experienced Pink Cloud and recorded it on the Sound Stone
+    BC 00 = Marks that Ness has experienced Lumine Hall and recorded it on the Sound Stone
+    BD 00 = Marks that Ness has experienced Fire Spring and recorded it on the Sound Stone
+
+Sanctuary boss defeat flags
+
+If one of these is set, the Shining Spot sprite entry is removed. There may also be related text changes.
+
+    BE 00 = Titanic Ant (TPT# 0xD1) has been defeated.
+    BF 00 = Mondo Mole (TPT# 0x1C3) has been defeated.
+    C1 00 = Trillionage Sprout (TPT# 0x2C1) has been defeated.
+    C0 00 = Shrooom! (TPT# 0x2A4) has been defeated.
+    C2 00 = Plague Rat of Doom (TPT# 0x3E3) has been defeated.
+    C3 00 = Thunder and Storm (TPT# 0x45E) have been defeated.
+    C4 00 = Electro Specter (TPT# 0x4DE) has been defeated.
+    C5 00 = Carbon/Diamond Dog (TPT# 0x4FC) has been defeated.
+
+More misc. flags
+
+    C6 00 =
+    C7 00 = The player knows phone number 1. (Dad)
+    C8 00 = The player knows phone number 2. (Mom)
+    C9 00 = The player knows phone number 3. (Escargo Express)
+    CA 00 = The player knows phone number 4. (Mach Pizza)
+    CB 00 = The player knows phone number 5. (Stoic Club)
+    CC 00 = Flying Man Grave visibility flag
+    CD 00 = Flying Man Grave visibility flag
+    CE 00 = Flying Man Grave visibility flag
+    CF 00 = Flying Man Grave visibility flag
+    D0 00 = Flying Man Grave visibility flag
+    D1 00 = Teleport destination 1 (Onett)
+    D2 00 = Teleport destination 2 (Twoson)
+    D3 00 = Teleport destination 3 (Threed)
+    D4 00 = Teleport destination 4 (Winters)
+    D5 00 = Teleport destination 5 (Saturn Valley)
+    D6 00 = Teleport destination 6 (Fourside)
+    D7 00 = Teleport destination 7 (Summers)
+    D8 00 = Teleport destination 8 (Dalaam)
+    D9 00 = Teleport destination 9 (Scaraba)
+    DA 00 = Teleport destination 10 (Deep Darkness)
+    DB 00 = Teleport destination 11 (Tenda Village)
+    DC 00 = Teleport destination 12 (Underworld)
+    DD 00 = Part of an unused present box script that gives a Brain Food Lunch, mixed in with Dalaam's scripts
+    DE 00 = Part of an unused present box script that gives a Refreshing Herb, mixed in with Dalaam's scripts
+    DF 00 = Marks that you have gotten the Horn of Life from the broken Phase Distorter
+    E0 00 = Indicates that the shop keeper should say "thank you" after the player buys an item (doesn't happen when you buy a weapon and don't sell your old one)
+    E1 00 = Indicates that the shop keeper should say "thank you" after the player sells an item
+    E2 00 = At the Onett weapons shop / opening a normal gift box / selling to the guy with the blue hat (For Sale Sign) / at a blue healer with the first set of prices
+    E3 00 = At shop 2 / opening a trash can / selling to the big smile lady (For Sale Sign) / at a blue healer with the second set of prices
+    E4 00 = At shop 4 / opening a treasure chest / selling to the blond guy (For Sale Sign) / at a blue healer with the third set of prices
+    E5 00 = At shop 4 / opening a casket / selling to the punk guy (For Sale Sign) / at a blue healer with the fourth set of prices
+    E6 00 = At shop 5 / at a blue healer with the fifth set of prices
+    E7 00 = At shop 6 / at a blue healer with the sixth set of prices
+    E8 00 = At shop 7 / at a blue healer with the seventh set of prices
+    E9 00 = At shop 8 / at a blue healer with the eighth set of prices
+    EA 00 = At the woman's shop on the Twoson Dept. Store's 3rd floor
+    EB 00 = At the Jamaican guy's shop in Burglin Park
+    EC 00 = At the bake shop in Burglin Park
+    ED 00 = At the condiments shop in Burglin Park
+    EE 00 = At the banana lady's shop in Burglin Park
+    EF 00 = At the consumables shop in the Happy Happy drugstore
+    F0 00 = At the equipment shop in the Happy Happy drugstore
+    F1 00 = At the equipment shop in Threed's drugstore
+    F2 00 = At the consumables shop in Threed's drugstore
+    F3 00 = At the arms dealer in Threed
+    F4 00 = At the bakery in Threed
+    F5 00 = At the drugstore in Winters
+    F6 00 = At the Cave Boy shop in Andonuts' lab
+    F7 00 = At the items seller near Grapefruit Falls
+    F8 00 = At the equipment shop in Saturn Valley
+    F9 00 = At the pendant shop in Saturn Valley
+    FA 00 = At the consumables shop in Saturn Valley
+    FB 00 = At the equipment shop in the Dusty Dunes Desert drugstore
+    FC 00 = At the consumables shop in the Dusty Dunes Desert drugstore
+    FD 00 = At the shop near the mines in Dusty Dunes Desert
+    FE 00 = At the arms dealer in Dusty Dunes Desert
+    FF 00 = At the bakery in Fourside
+    00 01 = At the equipment store on the Fourside Dept. Store's 3rd floor
+    01 01 = At the consumables store on the Fourside Dept. Store's 3rd floor
+    02 01 = At the bakery in the Fourside Dept. Store
+    03 01 = At the toy store on the Fourside Dept. Store's 4th floor
+    04 01 = At the sports outlet on the Fourside Dept. Store's 4th floor
+    05 01 = At the burger shop in the Fourside Dept. Store
+    06 01 = At the condiments shop in the Fourside Dept. Store
+    07 01 = At the arms dealer in the Fourside Dept. Store
+    08 01 = At the punk guy's shop in Fourside
+    09 01 = At the shop in Summers
+    0A 01 = At the restaurant in Summers
+    0B 01 = At the shop in Toto
+    0C 01 = At the gelato stand in Summers
+    0D 01 = At the Magic Cake lady's shop
+    0E 01 = At the restaurant in Dalaam
+    0F 01 = At Hassan's shop in Scaraba
+    10 01 = Montague dude ready to give you Diamond flag
+    11 01 = Poo has completed his Moo training when ON. Activates 2nd text for Poo's master to TP to Summers.
+    12 01 = Dungeon Man stuck in palm trees.
+    13 01 = Teleportation learned from the Monkey when ON.
+    14 01 = Master Barf flag.
+    15 01 = First "Third Strongest Mole" (Guardian mole) defeated
+    16 01 = Second "Third Strongest Mole" (Guardian mole) defeated
+    17 01 = Third "Third Strongest Mole" (Guardian mole) defeated
+    18 01 = Fourth "Third Strongest Mole" (Guardian mole) defeated
+    19 01 = Fifth "Third Strongest Mole" (Guardian mole) defeated
+    1A 01 =
+    1B 01 =
+    1C 01 = Pencil Statue in Peaceful Rest Valley flag
+    1D 01 = Talked to Apple Kid in the Cave of the Present. Makes Andonuts move to the edge of the cliff when talking to him in Cave of the Past when ON. Activates 2nd text about having to become robots
+    1E 01 =
+    1F 01 =
+    20 01 = Changes the Deep Darkness color pallet to lit up when the Hawk Eye is used.
+    21 01 = First cop is waiting to battle Ness in Police Station room
+    22 01 = Second cop is waiting to battle Ness in Police Station room
+    23 01 = Third cop is waiting to battle Ness in Police Station room
+    24 01 = Fourth cop is waiting to battle Ness in Police Station room
+    25 01 = Fifth cop is waiting to battle Ness in Police Station room
+    26 01 = Apple Kid's mouse blocks the door out of his house
+    27 01 = Activates Pokey knocking on the door in Ness' house.
+    28 01 = Zombie Chick inside hotel, by desk flag
+    29 01 =
+    2A 01 = Zombie Chick ambush in hotel flag
+    2B 01 = Eraser Statue in Stonehenge Base flag
+    2C 01 = Removes the Zombie guards in the northeast of the Threed cemetery.
+    2D 01 = Activates Picky (TPT# 0x7C) sleeping on the hilltop.
+    2E 01 =
+    2F 01 = Buzz Buzz dying on Minch's floor when ON
+    30 01 =
+    31 01 =
+    32 01 = Lier in his tunnel (pt. 1) when on
+    33 01 = Lier in his tunnel (pt. 2) when on
+    34 01 = Lier in front of Mani Mani when on
+    35 01 = Paid Twoson Runaway 5 debt/ Runaway 5 Bus waiting to go to Threed (fan activated when ON)
+    36 01 = Pokey waiting for Ness on his couch
+    37 01 = Rope in Winter cave (up when OFF)
+    38 01 =
+    39 01 = Dept. Store Spook flag (people there when OFF, Spook there when ON, etc)
+    3A 01 =
+    3B 01 =
+    3C 01 =
+    3D 01 = (Runaway 5 bus outside Monotoli bldg.)
+    3E 01 = Clumsy Robot defeated flag (Runaway 5 in room with Clumsy Robot)
+    3F 01 =
+    40 01 =
+    41 01 =
+    42 01 =
+    43 01 =
+    44 01 =
+    45 01 =
+    46 01 =
+    47 01 =
+    48 01 = Andonuts in Cave of Past (present), unspoken to
+    49 01 =
+    4A 01 = (saturn in Cave of Past (present))
+    4B 01 = Andonuts (reluctant to robotize Ness and co.) in Cave of Past (present)
+    4C 01 = Phase Distorter (left) in Cave of Past (present)
+    4D 01 = Cranes at Dusty Dunes excavation site when OFF
+    4E 01 = Bubble Monkey in Winters Store flag
+    4F 01 = Tony fence boost when ON
+    50 01 = Received key to Dungeon Man (?)
+    51 01 = Allows entry into the Stoic Club
+    52 01 =
+    53 01 =
+    54 01 =
+    55 01 = Marks that the Pencil Eraser has been invented (and that Apple Kid has called Ness, telling him to get it)
+    56 01 = Pyramid Doors
+    57 01 = Hieroglyph copy obtained in Summers museum
+    58 01 = Tessie when ON
+    59 01 =
+    5A 01 = Arab guy guarding the Hieroglyphs is waiting for Poo's Ruby OFF. Waits inside hieroglyph room and talks about Porky when ON.
+    5B 01 = Pharaoh case in pyramid flag (moves when you hit the tile)
+    5C 01 = Hawk Eye is waiting to be picked up when OFF
+    5D 01 = Party at Sanctuary as awakened from Magicant when ON
+    5E 01 =
+    5F 01 = Insane Cultist present to fight in giant room when OFF
+    60 01 = Insane Cultist present to fight in giant room when OFF
+    61 01 = Insane Cultist present to fight in giant room when OFF
+    62 01 = Insane Cultist present to fight in giant room when OFF
+    63 01 = Insane Cultist present to fight in giant room when OFF
+    64 01 = Insane Cultist present to fight in giant room when OFF
+    65 01 = Sentry Robot present when OFF
+    66 01 = Sentry Robot present when OFF
+    67 01 = Sentry Robot present when OFF
+    68 01 = Sentry Robot present when OFF
+    69 01 = Sentry Robot present when OFF
+    6A 01 = Clumsy Robot preset when OFF
+    6B 01 = Render a Shark near the front door of the Arcade (outside) invisible
+    6C 01 = Render a Shark near the front door of the Arcade (outside) invisible
+    6D 01 = Render the Shark near the front door of the Arcade (inside) invisible
+    6E 01 = Slimy Pile at start of Belch's Base when OFF (and man in Threed?)
+    6F 01 = Slimy Pile at end of Belch's Base when OFF
+    70 01 = Slimy Pile in Belch's Base when OFF
+    71 01 =
+    72 01 =
+    73 01 =
+    74 01 = Prayer in-action flag (sets sprites for use for praying during Giygas battle) (young King, too?)
+    75 01 =
+    76 01 = Man guarding way to backstage at Topolla flag
+    77 01 = (people in Onett?)
+    78 01 =
+    79 01 =
+    7A 01 =
+    7B 01 = (Andonuts in his lab)
+    7C 01 =
+    7D 01 =
+    7E 01 = (saturn in cave of past (present))
+    7F 01 = "Next Morning" flag for hotels - set after staying the night at a hotel. Unset upon exiting.
+    80 01 = All Sound Stone melodies acquired
+    81 01 = Contact Lens in Dusty Dunes when OFF
+    82 01 =
+    83 01 = Enemy present in Jackie's Cafe (Moonside) when OFF
+    84 01 = Enemy present in Museum (Moonside) when OFF
+    85 01 = Abstract Art in Hospital (Moonside) when OFF
+    86 01 =
+    87 01 =
+    88 01 = Guardian Heiroglyph when OFF
+    89 01 = Guardian Heiroglyph when OFF
+    8A 01 = Guardian Heiroglyph when OFF (pharoah case room)
+    8B 01 = Guardian Heiroglyph when OFF (pharoah case room)
+    8C 01 = Guardian Heiroglyph when OFF
+    8D 01 = Guardian Heiroglyph when OFF
+    8E 01 = Guardian Heiroglyph when OFF
+    8F 01 = Guardian Heiroglyph when OFF
+    90 01 = Guardian Heiroglyph when OFF
+    91 01 = Guardian Heiroglyph when OFF
+    92 01 = Guardian Heiroglyph when OFF
+    93 01 = Guardian Heiroglyph when OFF
+    94 01 = Guardian Heiroglyph when OFF
+    95 01 = Guardian Heiroglyph when OFF
+    96 01 = Guardian Heiroglyph when OFF
+    97 01 = Lethal Asp Heiroglyph when OFF
+    98 01 = Lethal Asp Heiroglyph when OFF
+    99 01 = Lethal Asp Heiroglyph when OFF
+    9A 01 = Lethal Asp Heiroglyph when OFF
+    9B 01 = Lethal Asp Heiroglyph when OFF
+    9C 01 = Lethal Asp Heiroglyph when OFF
+    9D 01 = Lethal Asp Heiroglyph when OFF
+    9E 01 = Lethal Asp Heiroglyph when OFF
+    9F 01 = Lethal Asp Heiroglyph when OFF
+    A0 01 = Duck in Brick Road maze when OFF
+    A1 01 = Duck in Brick Road maze when OFF
+    A2 01 = Protoplasm in Brick Road maze when OFF
+    A3 01 = Protoplasm in Brick Road maze when OFF
+    A4 01 = Rat in Brick Road maze when OFF
+    A5 01 = Rat in Brick Road maze when OFF
+    A6 01 = Ness is in bed (Onett Flyover text flag) (when ON, daytime Onett)
+    A7 01 =
+
+Tenda Horn of Life Trader Flags
+
+    A8 01 = Marks that you have traded for the Plain Bread
+    A9 01 = Marks that you have traded for the Plain Yogurt
+    AA 01 = Marks that you have traded for the second Plain Bread
+    AB 01 = Marks that you have traded for the Spicy Jerky
+    AC 01 = Marks that you have traded for the Bag of Dragonite
+    AD 01 = Marks that you have traded for the Talisman Coin
+    AE 01 = Marks that you have traded for the Hall of Fame Bat
+
+More Misc. Flags
+
+    AF 01 =
+    B0 01 = A rather useless debug flag (your inventory fills up with Skip Sandwich DX when you check air)
+    B1 01 = (man in Threed Hotel...visibility for Zombie Chick?)
+    B2 01 = Starman DX in base when OFF
+    B3 01 = Petrified Royal Guard in Pyramid when OFF
+    B4 01 = Kraken in Sea of Eden when OFF
+    B5 01 = Kraken in Sea of Eden when OFF
+    B6 01 = Kraken in Sea of Eden when OFF
+    B7 01 = Magic Truffle flag
+    B8 01 = Magic Truffle flag
+    B9 01 = Magic Truffle flag
+    BA 01 = Magic Truffle flag
+    BB 01 = Magic Truffle flag
+    BC 01 = Marks that you have asked King to join you at the beginning of the game. Makes King say alternate text after rescuing Picky.
+    BD 01 = (man in South Scaraba; Yellow Sub flag?)
+    BE 01 = For Sale Sign customer pending (Guy with blue hat)
+    BF 01 =
+    C0 01 =
+    C1 01 = Chief Strong waiting to take you to back room when ON
+    C2 01 = (Chief Strong at desk)
+
+Monkey cave monkey flags
+
+When set, the monkeys have been given the item listed next to them. They are listed with the path you take to get to them (for example, if you were to go through the left door, then the right, then the left, it would be listed as "LRL".)
+
+    C3 01 = First room, on right - Skip sandwich
+    C4 01 = First room, on left - Picnic lunch
+
+    C5 01 = L, on Right - Wet towel
+    C6 01 = L, on Left - Pizza
+
+    C7 01 = R, on Right - Protein drink
+    C8 01 = R, on Left - Pizza
+
+    C9 01 = LR, on Right - Hamburger
+    CA 01 = LR, on Left - Hamburger
+
+    CB 01 = RL, on Right - King banana
+    CC 01 = RL, on Left - Hamburger
+
+    CD 01 = RR, on Right - Fresh egg
+    CE 01 = RR, on Left - Ruler
+
+Even more misc. flags
+
+    CF 01 = Obtained the Fresh Egg at least once from the monkey in the monkey caves.
+    D0 01 =
+    D1 01 = Picky's at the meteorite when ON
+    D2 01 = Picky sleeping at meteorite (?)
+    D3 01 =
+    D4 01 = Locks the door to the Minch residence. No message is displayed.
+    D5 01 = Activates Mom 0x0E (Pokey is knocking on the door) and deactivates Mom 0x0F (all other situations). Also shows Onett roadblocks and police when OFF.
+    D6 01 = Secondary text for Tracy ("Do you think Mom will let me stay up late tonight?").
+    D7 01 = Secondary text for Mom ("Be careful! Come home as soon as you can.").
+    D8 01 = Secondary text after talking to Pokey on the hilltop.
+    D9 01 = Activates Tracy (TPT# 0x19) in 2F hallway, and background music "Annoying Knock" is set throughout Ness' house.
+    DA 01 = Activates Mom (TPT# 0x94) outside Ness' house.
+    DB 01 = ??? (Cleared when quitting after death, set when continuing after death.) This flag ID is also stored in $C30184
+    DC 01 = Activates roadblocks (TPT# 0xBB-BC) on the top of the hill.
+    DD 01 = Activates Ness' head (TPT# 0x1A), sleeping, and ZZ sprites
+    DE 01 =
+    DF 01 = Activates the check for the photo outside of Ness's house
+    E0 01 = Activates the check for the photo in the house for sale in Onett
+    E1 01 = Activates the check for the photo outside the bike shop in Twoson
+    E2 01 = Activates the check for the photo in the dead end in Peaceful Rest Valley
+    E3 01 = Activates the check for the photo at the cabin in Peaceful Rest Valley
+    E4 01 = Activates the check for the photo at Chaos Theater
+    E5 01 = Activates the check for the photo at Lake Tess
+    E6 01 = Unused; would activate a check for the photo in the Brick Road dungeon in Winters
+    E7 01 = Activates the check for the photo at the gravestone in Threed
+    E8 01 = Activates the check for the photo at Grapefruit Falls
+    E9 01 = Activates the check for the photo at the Saturn Valley hot springs
+    EA 01 = Activates the check for the photo outside the circus tent in Threed
+    EB 01 = Unused; would activate a check for the photo with the black sesame seed in Dusty Dunes Desert
+    EC 01 = Activates the check for the photo at the gold mine in Dusty Dunes Desert
+    ED 01 = Activates the check for the photo on the bridge to Fourside
+    EE 01 = Activates the check for the photo outside the dinosaur museum in Fourside
+    EF 01 = Activates the check for the photo with the dinosaur bones in the museum in Fourside
+    F0 01 = Activates the check for the photo near the Monotoli Building in Fourside
+    F1 01 = Activates the check for the photo in the Fourside department store
+    F2 01 = Activates the check for the photo in the throne room in Dalaam
+    F3 01 = Activates the check for the photo outside the palace in Dalaam
+    F4 01 = Activates the check for the photo at Stonehenge
+    F5 01 = Activates the check for the photo outside the hotel in Summers
+    F6 01 = Activates the check for the photo in the restaurant in Summers
+    F7 01 = Activates the check for the photo on the beach in Summers
+    F8 01 = Activates the check for the photo with the sailor in Toto
+    F9 01 = Activates the check for the photo in the marketplace in Scaraba
+    FA 01 = Activates the check for the photo at the pyramid in Scaraba
+    FB 01 = Activates the check for the photo in the desert south of Scaraba
+    FC 01 = Activates the check for the photo with a myna bird in Deep Darkness.
+    FD 01 = Makes Ness's photo sprite appear above the other party members, for the photo in Tenda Village
+    FE 01 = Activates the check for the final photo in Saturn Valley at the end of the game; also prevents the photo cutscene from playing, so that you don't see the photographer come down from the sky or anything.
+    FF 01 = When set, signals that the Onett librarian has given you the map item (202) – with the map in the inventory, the X button opens it up too.
+    00 02 = Exit Mouse availability flag
+    01 02 =
+    02 02 = "Next Morning" flag for Ness's house - set after staying the night at home. Unset upon exiting.
+    03 02 =
+    04 02 = Pencil Statue in Monkey Caves
+    05 02 = Changes the BG pallets of Ness' house to "lights-on" status.
+    06 02 =
+    07 02 =
+    08 02 =
+    09 02 =
+    0A 02 =
+    0B 02 = Deactivates Onett Townspeople.
+    0C 02 =
+    0D 02 =
+    0E 02 =
+    0F 02 =
+    10 02 =
+    11 02 =
+    12 02 = Deactivates Tracy (TPT# 0x1E) in her bedroom.
+    13 02 = Activates Tracy (TPT# 0x14) in the living room.
+    14 02 = Sets background music "Meteor Fall" for Ness' room.
+    15 02 = Sound effect "Meteor Crash" will not be played when the party enters Ness' room.
+    16 02 =
+    17 02 =
+    18 02 = Sets music in Fourside to Runaway Brothers ready to go (before bus ride back to Threek)
+    19 02 =
+    1A 02 =
+    1B 02 =
+    1C 02 =
+    1D 02 = Door locked in Threed Graveyard (Ness and Paula stuck)
+    1E 02 =
+    1F 02 =
+    20 02 =
+    21 02 = Final Sanctuary obtained = Lilliput Steps (where to return after Magicant)
+    22 02 = Final Sanctuary obtained = Milky Well (where to return after Magicant)
+    23 02 = Final Sanctuary obtained = Pink Cloud (where to return after Magicant)
+    24 02 = Final Sanctuary obtained = Fire Spring (where to return after Magicant)
+    25 02 = (Lucky and Gorgeous behind Twoson's theatre)
+    26 02 = Marks that you received the Super Orange Machine (Suporma) from Orange Kid
+    27 02 = Marks that you gave some food to Apple Kid in Twoson when ON.
+    28 02 = Marks that the player received the Zombie Paper
+    29 02 =
+    2A 02 =
+    2B 02 =
+    2C 02 =
+    2D 02 =
+    2E 02 =
+    2F 02 =
+    30 02 =
+    31 02 =
+    32 02 =
+    33 02 =
+    34 02 =
+    35 02 =
+    36 02 =
+    37 02 =
+    38 02 =
+    39 02 =
+    3A 02 =
+    3B 02 =
+    3C 02 =
+    3D 02 =
+    3E 02 =
+    3F 02 =
+    40 02 =
+    41 02 =
+    42 02 =
+    43 02 =
+    44 02 = Insane Cultist movement flag
+    45 02 =
+    46 02 =
+    47 02 =
+    48 02 =
+    49 02 =
+    4A 02 =
+    4B 02 = There's a Flying Man in the party (used to set the Magicant background music to the Flying Man music)
+    4C 02 =
+    4D 02 = Employee in Threed hotel ("A few days ago, some zombies got some kids at this hotel.")
+    4E 02 = (people in Threed?; Saturns in cave?)
+    4F 02 = (monkey outside of Jackie's?)
+    50 02 = (mistaken teleport outside Jackie's?)
+    51 02 =
+    52 02 = (man outside Topolla?)
+    53 02 = Star Master waiting for Poo at base of Mu Training area
+    54 02 =
+    55 02 =
+    56 02 =
+    57 02 =
+    58 02 =
+    59 02 = Shattered Man #1 present in hieroglyph room when OFF.
+    5A 02 = Shattered Man #2 present in hieroglyph room when OFF.
+    5B 02 = Slimy Pile at end of Threed-to-Saturn Valley cave when OFF
+    5C 02 =
+    5D 02 =
+    5E 02 = Door to Dungeon Man is open
+    5F 02 = Set to ON after talking to the manager of the Topolla Theater for the first time
+    60 02 =
+    61 02 = Pencil Statue in Winters
+    62 02 =
+    63 02 = (man outside Paula's house?)
+    64 02 = Everdred ready to battle from roof when OFF
+    65 02 = Monkey by Tallah Rama's side flag
+    66 02 = Monkey in Dusty Dunes (telling you to go down to Tallah Rama?) when on
+    67 02 = Monkey in Dusty Dunes ready to teach teleport when ON
+    68 02 =
+    69 02 = Magic Cake woman flag (in club when OFF, at beach when ON)
+    6A 02 = Marks that the player received the Eraser Eraser
+    6B 02 =
+    6C 02 = Apple Kid Mouse in Winters Lab (during Starman DX abduction)
+    6D 02 = (Bubble Monkey and wife in Winters Lab)
+    6E 02 =
+    6F 02 = (man in Threed?)
+    70 02 = Everdred in his house when ON (turned on after fighting Everdred, even if you lose)
+    71 02 =
+    72 02 = (Man in Threed, by tent?)
+    73 02 = Tracy has the Sound Stone (this happens if Ness's inventory is full when Buzz Buzz dies. It doesn't go into the Escargo Express inventory, just in case that's full also. Instead, talk to Tracy with this flag set and she'll give it to you.)
+    74 02 =
+    75 02 =
+    76 02 = Bubble Monkey at Loch Tess (Ness and co) when ON
+    77 02 = (Monotoli in front of Mani Mani in Moonside)
+    78 02 = (Onett saxaphone player?)
+    79 02 = Lier's house door unlocked
+    7A 02 = Begins first telepathic dream from Paula
+    7B 02 = Begins second telepathic dream from Paula, also makes her dad run in front of the Twoson Hotel
+    7C 02 =
+    7D 02 = Poo on his throne in Dalaam (post-Giygas?)
+    7E 02 = Paula in her room when ON (left Paula at her house after Giygas?)
+    7F 02 = (Everdred in Magicant when off)
+    81 02 =
+    82 02 =
+    83 02 =
+    84 02 =
+    85 02 = Escargo Express Pick-up pending
+    86 02 = For Sale Sign customer pending (Big smile lady)
+    87 02 = For Sale Sign customer pending (Blond guy)
+    88 02 = For Sale Sign customer pending (Punk guy)
+    89 02 =
+    8A 02 = Marks that you have received the Monkey's Love
+    8B 02 = (Montague at Saturn Valley when ON, gate closed in Lost Underworld when OFF)
+    8C 02 = Carrot Key use flag (rabbits at Dalaam)
+    8D 02 =
+    8E 02 = Marks that you have let the "Tough business man" from Deep Darkness pay the doctor fee for you
+    8F 02 =
+    90 02 = Current shop doesn't have a cash register (do "bing!" sound instead of "cha-ching!")
+    91 02 =
+    92 02 =
+    93 02 =
+    94 02 =
+    95 02 =
+    96 02 =
+    97 02 = Marks that you have returned the Overcoming Shyness book to the Onett Library (and as result, gotten kiss from the lady in the library)
+    98 02 = Monotoli activating the secret passage flag
+    99 02 =
+    9A 02 =
+    9B 02 =
+    9C 02 =
+    9D 02 = Renders the trash can (/w Fly Honey) inside the Boogey Tent as visible
+    9E 02 = Marks that you have bought the For Sale Sign
+    9F 02 =
+    A0 02 = Helicopter is waiting on helipad when off
+    A1 02 =
+    A2 02 =
+    A3 02 = Mach Pizza delivery pending (Zombie Paper)
+    A4 02 =
+    A5 02 =
+    A6 02 =
+    A7 02 =
+    A8 02 =
+    A9 02 =
+    AA 02 =
+    AB 02 =
+    AC 02 =
+    AD 02 =
+    AE 02 =
+    AF 02 = Telephone in Scaraba Cultural Museum is ringing (Mr. Spoon)
+    B0 02 = Set to ON when calling Mom for the first time
+    B1 02 = Set to OFF when you call Mom for the first time after having Paula in your party
+    B2 02 = Related someway to the phone call you receive from Escargo Express when Poo leaves to learn Starstorm and he has the Pencil Eraser or the Hawk Eye
+    B3 02 = Also related to the phone call mentioned above. If set, Poo has the Hawk Eye. Otherwise he has the Pencil Eraser (?? needs confirm)
+    B4 02 = Escargo Express delivery pending special item/Pencil Eraser?
+    B5 02 = Escargo Express delivery pending special item/Hawk Eye?
+    B6 02 = Escargo Express delivery pending special item/Pencil Eraser?
+    B7 02 = Escargo Express delivery pending special item/Hawk Eye?
+    B8 02 = Set to ON after Jeff fixes a broken item. But why, and when is it set to OFF?
+    B9 02 = Render the attacking Shark (Arcade 2F) invisible
+    BA 02 = Puts the photo in front of Ness’s house into the end game collection and prevents photo guy from showing when ON.
+    BB 02 = Puts the photo inside the rundown buyable house into the end game collection and prevents photo guy from showing when ON.
+    BC 02 = Puts the photo in front of the Twoson bike shop into the end game collection and prevents photo guy from showing when ON.
+    BD 02 = Puts the photo of Peaceful Rest Valley into the end game collection and prevents photo guy from showing when ON.
+    BE 02 = Puts the photo in front of Paula's shack into the end game collection and prevents photo guy from showing when ON.
+    BF 02 = Puts the photo in front of Chaos Theater into the end game collection and prevents photo guy from showing when ON.
+    C0 02 = Puts the photo at Lake Tess into the end game collection and prevents photo guy from showing when ON.
+    C1 02 = Puts the photo in Brick Road's Winters dungeon into the end game collection and prevents the photo guy from showing when ON.
+    C2 02 = Puts the photo in the Threed cemetery into the end game collection and prevents photo guy from showing when ON.
+    C3 02 = Puts the photo at the Belch waterfall into the end game collection and prevents photo guy from showing when ON.
+    C4 02 = Puts the photo at Saturn Valley (upper right) into the end game collection and prevents photo guy from showing when ON.
+    C5 02 = Puts the photo in front of the Threed circus tent into the end game collection and prevents photo guy from showing when ON.
+    C6 02 = Puts the photo with the Black Sesame Seed in the Dusty Dunes Desert (north end) into the end game collection and prevents photo guy from showing when ON.
+    C7 02 = Puts the photo at the Dusty Dunes Desert mine entrance into the end game collection and prevents photo guy from showing when ON.
+    C8 02 = Puts the photo at the Fourside tunnel entrance into the end game collection and prevents photo guy from showing when ON.
+    C9 02 = Puts the photo at the Fourside museum entrance into the end game collection and prevents photo guy from showing when ON.
+    CA 02 = Puts the photo in front of the dinosaur in the Fourside museum into the end game collection and prevents photo guy from showing when ON.
+    CB 02 = Puts the photo behind the Monotoli building in Fourside into the end game collection and prevents photo guy from showing when ON.
+    CC 02 = Puts the photo at the toy shop in the Fourside department store into the end game collection and prevents photo guy from showing when ON.
+    CD 02 = Puts the photo at the Dalaam throne room into the end game collection and prevents photo guy from showing when ON.
+    CE 02 = Puts the photo in front of the Dalaam palace entrance into the end game collection and prevents photo guy from showing when ON.
+    CF 02 = Puts the photo at Stonehenge into the end game collection and prevents photo guy from showing when ON.
+    D0 02 = Puts the photo in front of the Summers hotel into the end game collection and prevents photo guy from showing when ON.
+    D1 02 = Puts the photo in the Summers restaurant into the end game collection and prevents photo guy from showing when ON.
+    D2 02 = Puts the photo on the Summers beach into the end game collection and prevents photo guy from showing when ON.
+    D3 02 = Puts the photo at the Summers docks into the end game collection and prevents photo guy from showing when ON.
+    D4 02 = Puts the photo in Scaraba town into the end game collection and prevents photo guy from showing when ON.
+    D5 02 = Puts the photo in front of the Scaraba pyramid into the end game collection and prevents photo guy from showing when ON.
+    D6 02 = Puts the photo in the south Scaraba desert into the end game collection and prevents photo guy from showing when ON.
+    D7 02 = Puts the photo in the Deep Darkness into the end game collection and prevents photo guy from showing when ON.
+    D8 02 = Puts the photo in Tenda village into the end game collection and prevents photo guy from showing when ON.
+    D9 02 = Puts the photo of Phase Distorter in Saturn Valley into the end game collection and prevents photo guy from showing when ON.
+    DA 02 = Got "speak to people more than once" advice from woman in Onett bakery
+    DB 02 =
+    DC 02 =
+    DD 02 =
+    DE 02 = Marks that the patient in the Onett Hospital told you that he runs the place, as a joke
+    DF 02 = Marks that you have talked to ??? in the Onett Hospital
+    E0 02 = Marks that you have delivered the Contact Lenses to Penetella Giovanni (and got the Pair of Dirty Socks)
+    E1 02 = Marks that you have spoken to the table guy in Twoson hotel at least 9 times
+    E2 02 = Marks that you have spoken to the table guy in Twoson hotel at least 17 times and got $50 from him
+    E3 02 =
+    E4 02 = (people in Threed?)
+    E5 02 = (Monotoli in front of desk in his room when ON)
+    E6 02 = Lardna at home when ON
+    E7 02 = Marks that you have entered Happy Happy Village
+    E8 02 =
+    E9 02 = Quest for yogurt machine begun; Talah Rama blocking passage in monkey cave when OFF
+    EA 02 = When set, you can enter the $7500 dollar house in Onett
+    EB 02 =
+    EC 02 = Sky Runner in Winters Lab
+    ED 02 = Set Ness' sprite as pajamas. (Except when in Magicant or 198X.)
+    EE 02 = Secondary text for Mom if you go outside without talking to her ("What was that noise? You don't seem scared at all. Be careful!").
+    EF 02 = Removes Chaos Theater from audience (for the Runaway Five concert). Certain sprite problems arise on stage if this is not done.
+    F0 02 = (general hint man flag?)
+    F1 02 = Telephone in Ness's house is ringing (Deep Darkness "tough business man")
+    F2 02 = Denies PSI Teleportation. Set when Escargo Express, Mach Pizza or For Sale Sign customers are pending. Used for the "couldn't get there" phone calls perhaps?. Mach Pizza guy supposed to deliver Zombie Paper when ON
+    F3 02 = Found the Insignificant Item in the Threed hospital
+    F4 02 = Marks that Dungeon Man is in your party. Prevents you from re-entering the "small entrance" or the Pyramid with him.
+    F5 02 = George Montague tried to give you the Diamond, but your inventory was full. Allows you to get the Diamond by talking to him.
+    F6 02 =
+    F7 02 =
+    F8 02 =
+    F9 02 =
+    FA 02 = Secondary hole in Dungeon Man open for use
+    FB 02 =
+    FC 02 =
+    FD 02 = Learned the functions of the Phase Distorter version two (can't get in yet)
+    FE 02 = Set after defeating Starman DX, cleared when either talking to Apple Kid, talking to Dr. Andonuts or picking up the "Overcoming Shyness" book. Prevents you from using the Exit Mouse with the following message: "For some reason, the exit mouse isn't being agreeable."
+    FF 02 =
+    01 03 =
+    02 03 = Set after calling Escargo Express after defeating Giygas. When this flag is set, the game just displays "Beeeep..." when calling Escargo Express.
+    03 03 =
+    04 03 = Set after calling Dad after defeating Giygas. When this flag is set, the game just displays "Beeeep..." when calling Dad.
+    05 03 = (men in Threed Circus Tent?)
+    06 03 =
+    07 03 =
+    08 03 = Related to Paula in trouble??? (makes a kid in the Polestar Preschool say "Help Paula! Hurry, hurry!")
+    09 03 =
+    0A 03 = Set after death, cleared after entering an "Exit Mouse-compatible" room?. Causes Exit Mouse to be asleep and unusable, used to display the following message: "@(At this point in time, the mouse is fast asleep.)".
+    0B 03 =
+    0C 03 =
+    0D 03 =
+    0E 03 =
+    0F 03 =
+    10 03 =
+    11 03 =
+    12 03 =
+    13 03 =
+    14 03 =
+    15 03 =
+    16 03 =
+    17 03 =
+    18 03 =
+    19 03 =
+    1A 03 =
+    1B 03 =
+    1C 03 =
+    1D 03 =
+    1E 03 =
+    1F 03 =
+
+Item box flags
+Onett and Giant Step
+
+    20 03 - Onett hilltop (Bread roll)
+    21 03 - Garbage can next to Burger Shop (Hamburger)
+    22 03 - Box on route from Onett to Twoson (Hamburger)
+    23 03 - Trash can east of Hotel (Empty)
+    24 03 - Trash can next to Arcade, guarded by a Shark (Can of fruit juice)
+    25 03 - Box in Tracy's room (Cracked bat)
+    26 03 - Third box in the Giant Step caves, closest to the Titanic Ant (Hamburger)
+    27 03 - First box in the Giant Step caves, closest to the shack (Skip sandwich)
+    28 03 - Second box in the Giant Step caves (Cold remedy)
+
+Twoson
+
+    29 03 - Box on the side of the road connecting Twoson and Threed (Skip sandwich)
+    2A 03 - Box in Paula's room at the Preschool (Teddy bear)
+    2B 03 - Trash can in Apple Kid's house (Broken machine)
+
+Happy Happy Village
+
+    2C 03 - Box in the HH-HQ (Croissant?)
+    2D 03 - Another box in the HH-HQ (Skip sandwich?)
+
+Peaceful Rest Valley
+
+    2E 03 - Box east of the busted bridge (Luck capsule)
+    2F 03 - Box north of the pencil statue (Hard hat)
+    30 03 - Box south of the busted bridge (Croissant)
+    31 03 - Box east of the pencil statue (Travel charm)
+    32 03 - Box southeast of the busted bridge (Bomb)
+    33 03 - Box south of the entrance to the cave that leads to HHV (Cup of Lifenoodles)
+
+Lilliput Steps
+
+    34 03 - Box by Mondo Mole (PSI caramel)
+    35 03 - Box south of entrance (Great charm)
+    36 03 - Box to the far east of the entrance (Croissant)
+
+Threed
+
+    37 03 - Trash can in the Cemetery (Insecticide spray)
+    38 03 - Trash can outside the Hint Man's office (Teddy bear)
+    39 03 - Trash can outside the Drugstore/Mach Pizza branch (Empty)
+    3A 03 - Trash can east of the Bakery (Skip sandwich)
+    3B 03 - First coffin in the Underground Road (Skip sandwich DX)
+    3C 03 - Second coffin in the Underground Road (Silver bracelet)
+
+Snow Wood Boarding School
+
+    3D 03 - Box in Snow Wood (Cookie)
+    3E 03 - Another box in Snow Wood (Cookie)
+    3F 03 - Another box in Snow Wood (Cookie)
+    40 03 - Another box in Snow Wood (Cookie)
+    41 03 - Another box in Snow Wood (Cookie)
+    42 03 - Another box in Snow Wood (Cookie)
+    43 03 - Another box in Snow Wood (Cookie)
+
+Winters
+
+    44 03 - Box in Dr. Andonuts's lab (Broken pipe)
+    45 03 - A box in the Brick Road maze (Broken iron)
+    46 03 - A box in the Brick Road maze (Stun gun)
+    47 03 - A box in the Brick Road maze (Insecticide spray)
+    48 03 - A box in the Brick Road maze (Croissant)
+    49 03 - A box in the Brick Road maze (Bread roll)
+    4A 03 - Box east of the 4th Shining Spot (Cheap bracelet)
+    4B 03 - Box below the 4th Shining Spot (Bottle rocket)
+    4C 03 - First box in the Pond Cave (Hamburger)
+
+Stonehenge Base
+
+The first part of the base has five segments, then the Starman Super area, then the flashing-lights room.
+
+    4D 03 - Box south of the end of the flashing-lights room (Broken trumpet)
+    4E 03 - Box in the fourth segment (Guts capsule)
+    4F 03 - Box east of the entrance to the Starman Super area (Broken harmonica)
+    50 03 - Box southeast of the entrance to the Starman Super area (PSI caramel)
+    51 03 - Box in the flashing-lights room (Pixie bracelet)
+    52 03 - Box near the end of the fifth segment (Cup of Lifenoodles)
+    53 03 - Box north of the end of the flashing-lights room (Speed capsule)
+    54 03 - Box in the third segment (Spicy jerky)
+
+Belch's Base
+
+    55 03 - Trash can in the second off-the-main-path room (Broken laser)
+    56 03 - Trash can in the first off-the-main-path room (Bomb)
+    57 03 - Trash can in the third off-the-main-path room (HP-sucker)
+    58 03 - Trash can in the third off-the-main-path room (Vital capsule)
+    59 03 - Trash can in the third off-the-main-path room (Calorie stick)
+    5A 03 - Trash can in the second off-the-main-path room (IQ capsule)
+
+Milky Well and Saturn Valley
+
+    5B 03 - Box northwest of the 3rd Shining Spot (Coin of slumber)
+    5C 03 - Box south of Grapefruit Falls (Bomb)
+    5D 03 - Box north of the end of the Underground Road (Protein drink)
+    5E 03 - Box in the cave to Saturn Valley (Bottle rocket)
+    5F 03 - Box on top of the ladder in Saturn Valley (Rust promoter)
+    60 03 - Trash can in a cave in Saturn Valley (Sudden guts pill)
+    61 03 - Trash can in a cave in Saturn Valley (Protractor)
+    62 03 - Trash can in a cave in Saturn Valley (Broken spray can)
+
+Monkey Caves
+
+    63 03 - Golden box in Monkey Caves after Hamburger Monkey (Flame pendant)
+    64 03 - Trash can in Monkey Caves after Hamburger Monkey (Broken tube)
+    65 03 - Golden box in Monkey Caves after Hamburger Monkey (Bag of Dragonite)
+    66 03 - Trash can in Monkey Caves after Fresh Egg Monkey (Neutralizer)
+    67 03 - Golden box (right) in Talah Rama's room (Cup of Lifenoodles)
+    68 03 - Golden box (left) in Talah Rama's room (Brain Food Lunch)
+    69 03 - Golden box in Monkey Caves after Picnic Lunch Monkey (Pizza)
+    6A 03 - Golden box in Monkey Caves after Skip Sandwich Monkey (Wet towel)
+    6B 03 - Golden box in Monkey Caves after Pizza Monkey (Pizza)
+    6C 03 - Golden box in Monkey Caves after Wet Towel Monkey (Hamburger)
+    6D 03 - Golden box in Monkey Caves after Wet Towel Monkey (Ruler)
+    6E 03 - Golden box in Monkey Caves after Pizza Monkey (Protein drink)
+    6F 03 - Golden box in Monkey Caves after Protein Drink Monkey (Hamburger)
+    70 03 - Golden box (left) in Monkey Caves after King Banana Monkey (Hamburger)
+    71 03 - Golden box (right) in Monkey Caves after King Banana Monkey (Picnic Lunch)
+
+Dusty Dunes Desert
+
+    72 03 - Box northwest of the the Desert Casino (Big bottle rocket)
+    73 03 - Box in the northwestern corner of the Desert (Double burger)
+    74 03 - Box north of the contact lens (Double burger)
+    75 03 - Box northeast of the black sesame seed (Cup of Lifenoodles)
+    76 03 - Box at the oasis with the monkey (Skip sandwich DX)
+    77 03 - Box in the northeastern corner of the Desert (PSI caramel)
+    78 03 - Box north of the Desert sign west of the Casino ($1000)
+    79 03 - Box in the eastern part of the Desert (Sudden guts pill)
+
+Desert Gold Mine
+
+    7A 03 - Box by the mole west of the Exit Mouse room (PSI caramel)
+    7B 03 - Left box by the mole southwest of the Exit Mouse room (Platinum band)
+    7C 03 - Box by the mole north of the mine entrance (IQ capsule)
+    7D 03 - Box by the mole north of the Exit Mouse room (Guts capsule)
+    7E 03 - Right box by the mole southwest of the Exit Mouse room (Luck capsule)
+    7F 03 - Box by the mole northwest of the Exit Mouse room (Coin of defense)
+    80 03 - Box in the side hall north of the Exit Mouse room (Secret herb)
+    81 03 - Box in the side hall northwest of the Exit Mouse room (Teddy bear)
+    82 03 - Box down the ladder southwest of the Exit Mouse room (Super bomb)
+    83 03 - Box east and a long way south of the Exit Mouse room (Big bottle rocket)
+    84 03 - Lower box in the Exit Mouse room (Croissant)
+    85 03 - Box west of the mole northwest of the Exit Mouse room (Calorie stick)
+    86 03 - Upper box in the Exit Mouse room (Picnic lunch)
+    87 03 - Box south of the Exit Mouse room (Bomb)
+
+Fourside
+
+    88 03 - Box in Magnet Hill (Carrot key)
+
+Monotoli Building
+
+    89 03 - Box in room with one long table (Sudden guts pill)
+    8A 03 - Box in room with two smaller tables (Vital capsule)
+
+Moonside
+
+    8B 03 - Box southwest of the Mani Mani (Night pendant)
+    8C 03 - Box east of the Mani Mani (Handbag strap)
+    8D 03 - Box next to the hospital (Double burger)
+    8E 03 - Box south of the Cafe (Protein drink)
+    8F 03 - Box west of the Monotoli Building Helipad (Secret herb)
+
+Fourside Sewers
+
+    90 03 - Trash can in second sewer segment (Rust promoter DX)
+    91 03 - Trash can in room in third sewer segment (Broken bazooka)
+    92 03 - Trash can in eastern room in first sewer segment (Broken spray can)
+    93 03 - Trash can in room west of the first sewer segment (Croissant)
+    94 03 - Trash can in western room in first sewer segment (Broken iron)
+
+Pyramid
+
+The Gold Coffin Room is the room above the Hawk Eye with the gold coffin - the Switch Room has the floor tile that moves the aforementioned coffin.
+
+    95 03 - Coffin northwest of the Gold Coffin Room (Bag of Dragonite)
+    96 03 - Left coffin in room between Gold Coffin Room and Switch Room (Speed capsule)
+    97 03 - Coffin in room between the Gold Coffin Room and Entrance Room (Viper)
+    98 03 - Coffin in room east of the Hawk Eye Room (Diamond band)
+    99 03 - Right coffin in room between Gold Coffin Room and Switch Room (Cup of Lifenoodles)
+    9A 03 - Coffin in Switch Room (Rain pendant)
+
+Dungeon Man
+
+    9B 03 - Box by "useful items after a long walk" sign (Cup of Lifenoodles)
+    9C 03 - Box on upper ledge east of entrance (Talisman ribbon)
+    9D 03 - Box on second floor by "dungeon exploring is tough but fun" sign (Sudden guts pill)
+    9E 03 - Box northwest of rope to third floor (PSI caramel)
+    9F 03 - Box by the "place an item at a dead end" sign on the first floor (Molokheiya soup)
+    A0 03 - Box on ledge south of the "smells like flowers" sign on the second floor (Pizza)
+    A1 03 - Box by the "work hard, you'll get good stuff" sign (Super plush bear)
+    A2 03 - Box northeast of the "easy-to-get items are often disappointing" sign (Snake)
+    A3 03 - Box by the "This board is probably unnecessary" sign on second floor ($10)
+    A4 03 - Box by second floor Return Hole (IQ capsule)
+    A5 03 - Box by third floor Good Night Bench (Wet towel)
+    A6 03 - Box beside the "easy-to-get items are often disappointing" sign ($5)
+
+Dalaam
+
+    A7 03 - Top box in throne room (Brain food lunch)
+    A8 03 - Right box in throne room (Cup of Lifenoodles)
+    A9 03 - Left box in throne room (Brain stone)
+    AA 03 - Box in house west of the "preet poot" guy (Bottle of water)
+    AB 03 - Right box in Dalaam Restaurant (Bowl of rice gruel)
+    AC 03 - Box in house next to the Dalaam Restaurant (Jar of delisauce)
+    AD 03 - Left box in Dalaam Restaurant (Bottle of water)
+
+Pink Cloud
+
+    AE 03 - Box by hole leading to Shining Spot (Rock candy)
+    AF 03 - Box below the hole above the entrance (Sudden guts pill)
+    B0 03 - Box below the hole near the Shining Spot (Bracer of kings)
+
+Deep Darkness
+
+    B1 03 - Box in the southwest corner of Deep Darkness (Souvenir coin)
+    B2 03 - Box southeast of the Tenda cave and northeast of the previous box (Rock candy)
+    B3 03 - Box by the yellow bird (IQ capsule)
+    B4 03 - Box by the crashed helicopter (Cup of Lifenoodles)
+    B5 03 - Box at the edge of the dark area (Banana)
+    B6 03 - Box east of the yellow bird (Beef jerky)
+
+Lumine Hall
+
+    B7 03 - Box southwest of the Shining Spot (Rabbit's foot)
+    B8 03 - Box next to a hole leading to the "Earth's belly button" rock (Cup of Lifenoodles)
+    B9 03 - Box southwest of the "Thanks for talking to me" rock (Rock candy)
+    BA 03 - Box due west of the entrance (Diadem of kings)
+    BB 03 - Box due north of the entrance (Luck capsule)
+    BC 03 - Box northeast of the "Earth's belly button" rock (Luxury jerky)
+    BD 03 - Box southeast of the "Underground talking rock talks more than me" rock (IQ capsule)
+    BE 03 - Box below and south of the ladder to the far right of the Shining Spot (Bottle of DXwater)
+    BF 03 - Box next to the "Underground talking rock talks more than me" rock (Super bomb)
+
+Tenda Village
+
+    C0 03 - Trash can in the Weird Junk area (Death ray)
+
+Lost Underworld
+
+    C1 03 - Box south of Tenda Village II (Brain food lunch)
+    C2 03 - Box in eastern end of the Underworld (Horn of life)
+    C3 03 - Box in northeastern corner of the Underworld (Sea pendant)
+    C4 03 - Box northeast of Tenda Village II (Guts capsule)
+    C5 03 - Box southwest of Tenda Village II (Cloak of kings)
+
+Fire Spring
+
+    C6 03 - Box southeast of Shining Spot (Moon beam gun)
+    C7 03 - Box in cave southwest of the previous box (Horn of life)
+    C8 03 - Box in southeast corner of Fire Spring (Cherub's band)
+    C9 03 - Box southwest of Shining Spot (Bag of Dragonite)
+    CA 03 - Box in cave opposite entrance (Speed capsule)
+
+Magicant
+
+There are four sections to Magicant: the green area, the white area, the red area, and the Sea of Eden.
+
+    CB 03 - Box by the other Ness in the red area (Bag of Dragonite)
+    CC 03 - Box west of the line of people in the white area (PSI caramel)
+    CD 03 - Box north of the entrance to the red area (Goddess band)
+    CE 03 - Box in northern red area (Magicant bat)
+    CF 03 - Box in southwestern red area (Magic tart)
+
+Cave of the Past
+
+    D0 03 - Box southwest of the first warp orb (Legendary bat)
+
+Unknown or unused flags
+
+    D1 03 =
+    D2 03 =
+    D3 03 =
+    D4 03 =
+    D5 03 =
+    D6 03 =
+    D7 03 =
+    D8 03 =
+    D9 03 =
+    DA 03 =
+    DB 03 =
+    DC 03 =
+    DD 03 =
+    DE 03 =
+    DF 03 =
+    E0 03 =
+    E1 03 =
+    E2 03 =
+    E3 03 =
+    E4 03 =
+    E5 03 =
+    E6 03 =
+    E7 03 =
+    E8 03 =
+    E9 03 =
+    EA 03 =
+    EB 03 =
+    EC 03 =
+    ED 03 =
+    EE 03 =
+    EF 03 =
+    F0 03 =
+    F1 03 =
+    F2 03 =
+    F3 03 =
+    F4 03 =
+    F5 03 =
+    F6 03 =
+    F7 03 =
+    F8 03 =
+    F9 03 =
+    FA 03 =
+    FB 03 =
+    FC 03 =
+    FD 03 =
+    FE 03 =
+    FF 03 =
+    00 04 = last available flag in EB!

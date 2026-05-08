@@ -1,0 +1,39 @@
+>>> bankconfig/JP/bank1d.asm
+  000000:             .INCLUDE "bankconfig/common/bank1d.asm"
+>>> bankconfig/common/bank1d.asm
+  DD0000:             .INCLUDE "common.asm"
+  DD0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  DD0000:             .INCLUDE "symbols/map.inc.asm"
+  DD0000:             MAP_DATA_TILE_SET_GRAPHICS_0:
+  DD0000: 3F 00 42 FE     BINARY "maps/gfx/0.gfx.lzhal"
+          FF 08 FD FF 
+          FE FE FA FE 
+          ...omitted...
+  DD3294:             MAP_DATA_TILE_SET_GRAPHICS_1:
+  DD3294: E4 20 00 0E     LOCALEBINARY "maps/gfx/1.gfx.lzhal"
+          FF 00 FF 01 
+          FE 03 FC 07 
+          ...omitted...
+  DD5F17:             MAP_DATA_TILE_SET_GRAPHICS_9:
+  DD5F17: E4 20 00 46     BINARY "maps/gfx/9.gfx.lzhal"
+          FF 00 00 FF 
+          47 FF 00 42 
+          ...omitted...
+  DD89A2:             MAP_DATA_TILE_SET_GRAPHICS_3:
+  DD89A2: 3F 00 47 FF     LOCALEBINARY "maps/gfx/3.gfx.lzhal"
+          00 2F 00 47 
+          FF 80 2F 80 
+          ...omitted...
+  DDB7D3:             MAP_DATA_TILE_SET_GRAPHICS_4:
+  DDB7D3: 3F 00 22 FF     LOCALEBINARY "maps/gfx/4.gfx.lzhal"
+          04 77 FF 7F 
+          FF DF 22 FF 
+          ...omitted...
+  DDDF9A:             MAP_DATA_TILE_SET_GRAPHICS_5:
+  DDDF9A: E4 20 00 0A     LOCALEBINARY "maps/gfx/5.gfx.lzhal"
+          FC 00 78 00 
+          30 00 03 00 
+          ...omitted...
+  DDFF29:             .IF .DEFINED(USA)
+  DDFF29:                 INSERT_AUDIO_PACK 75
+  DDFF29:             .ENDIF

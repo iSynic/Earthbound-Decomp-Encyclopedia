@@ -1,0 +1,189 @@
+>>> bankconfig/US/bank2d.asm
+  000000:             .INCLUDE "bankconfig/common/bank2d.asm"
+>>> bankconfig/common/bank2d.asm
+  ED0000:             .INCLUDE "common.asm"
+  ED0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  ED0000:             .IF .DEFINED(USA)
+  ED0000: 01 0A 00 48     INSERT_AUDIO_PACK 121
+          1E 48 6E 48 
+          2E 48 2E 48 
+          ...omitted...
+  ED0A07: 71 06 00 48     INSERT_AUDIO_PACK 87
+          2A 48 1A 48 
+          5A 48 6A 48 
+          ...omitted...
+  ED1406: E9 02 00 58     INSERT_AUDIO_PACK 132
+          0C 58 1C 58 
+          2C 58 FF 00 
+          ...omitted...
+  ED1DFF: 18 00 68 6C     INSERT_AUDIO_PACK 116
+          B0 95 B1 97 
+          B0 95 B1 97 
+          ...omitted...
+  ED27F7:                 .IF .DEFINED(PROTOTYPE19950327)
+  ED27F7:                     INSERT_AUDIO_PACK 71
+  ED27F7:                 .ENDIF
+  ED27F7: 98 09 00 58     INSERT_AUDIO_PACK 34
+          66 58 56 58 
+          16 58 26 58 
+          ...omitted...
+  ED3195:                 .IF .DEFINED(PROTOTYPE19950327)
+  ED3195:                     INSERT_AUDIO_PACK 61
+  ED3195:                 .ENDIF
+  ED3195: 01 09 00 48     INSERT_AUDIO_PACK 119
+          14 48 44 48 
+          34 48 54 48 
+          ...omitted...
+  ED3A9C:                 .IF !.DEFINED(PROTOTYPE19950327)
+  ED3A9C: C9 08 00 58         INSERT_AUDIO_PACK 141
+          62 58 12 58 
+          22 58 12 58 
+          ...omitted...
+  ED436B:                 .ENDIF
+  ED436B: 36 08 00 58     INSERT_AUDIO_PACK 48
+          20 58 10 58 
+          30 58 10 58 
+          ...omitted...
+  ED4BA7: 32 08 00 58     INSERT_AUDIO_PACK 39
+          0C 58 2C 58 
+          1C 58 FF 00 
+          ...omitted...
+  ED53DF: 0E 06 00 48     INSERT_AUDIO_PACK 150
+          14 48 24 48 
+          24 48 44 48 
+          ...omitted...
+  ED5C01: 02 08 00 48     INSERT_AUDIO_PACK 120
+          28 48 38 48 
+          18 48 68 48 
+          ...omitted...
+  ED6409: CB 04 00 58     INSERT_AUDIO_PACK 38
+          1E 58 0E 58 
+          2E 58 3E 58 
+          ...omitted...
+  ED6C06: 08 00 68 6C     INSERT_AUDIO_PACK 161
+          B0 95 DD 95 
+          FF FF FF FF 
+          ...omitted...
+  ED73E2: CE 07 00 58     INSERT_AUDIO_PACK 68
+          AA 58 1A 58 
+          2A 58 3A 58 
+          ...omitted...
+  ED7BB6: CD 07 00 58     INSERT_AUDIO_PACK 104
+          54 58 64 58 
+          44 58 24 58 
+          ...omitted...
+  ED8389: 92 07 00 48     INSERT_AUDIO_PACK 90
+          74 48 24 48 
+          34 48 44 48 
+          ...omitted...
+  ED8B21: 88 06 00 48     INSERT_AUDIO_PACK 86
+          62 48 22 48 
+          12 48 32 48 
+          ...omitted...
+  ED91AF: 6F 06 00 48     INSERT_AUDIO_PACK 100
+          0A 48 1A 48 
+          FF 00 02 48 
+          ...omitted...
+  ED9824: 69 06 00 58     INSERT_AUDIO_PACK 26
+          16 58 56 58 
+          46 58 46 58 
+          ...omitted...
+  ED9E93: 3E 06 00 58     INSERT_AUDIO_PACK 43
+          50 58 20 58 
+          10 58 30 58 
+          ...omitted...
+  EDA4D7: 94 04 00 48     INSERT_AUDIO_PACK 162
+          4E 48 0E 48 
+          3E 48 1E 48 
+          ...omitted...
+  EDAB12: 1E 06 00 48     INSERT_AUDIO_PACK 85
+          28 48 38 48 
+          58 48 18 48 
+          ...omitted...
+  EDB136: 17 06 00 48     INSERT_AUDIO_PACK 99
+          52 48 22 48 
+          42 48 32 48 
+          ...omitted...
+  EDB753: C0 02 00 58     INSERT_AUDIO_PACK 28
+          0E 58 1E 58 
+          1E 58 2E 58 
+          ...omitted...
+  EDBD60: 3C 01 00 58     INSERT_AUDIO_PACK 10
+          08 58 FF 00 
+          00 58 00 00 
+          ...omitted...
+  EDC36C: FC 05 00 48     INSERT_AUDIO_PACK 117
+          0E 48 1E 48 
+          2E 48 3E 48 
+          ...omitted...
+  EDC96E: 33 01 00 48     INSERT_AUDIO_PACK 77
+          0A 48 1A 48 
+          FF 00 02 48 
+          ...omitted...
+  EDCF55: 65 02 00 48     INSERT_AUDIO_PACK 19
+          2C 48 0C 48 
+          1C 48 FF 00 
+          ...omitted...
+  EDD539: BE 05 00 58     INSERT_AUDIO_PACK 57
+          62 58 12 58 
+          22 58 42 58 
+          ...omitted...
+  EDDAFD: 61 02 00 58     INSERT_AUDIO_PACK 14
+          40 58 10 58 
+          10 58 20 58 
+          ...omitted...
+  EDE0AE: A8 05 00 48     INSERT_AUDIO_PACK 158
+          1E 48 2E 48 
+          3E 48 0E 48 
+          ...omitted...
+  EDE65C: 92 05 00 58     INSERT_AUDIO_PACK 30
+          0C 58 1C 58 
+          2C 58 FF 00 
+          ...omitted...
+  EDEBF4: 89 05 00 58     INSERT_AUDIO_PACK 134
+          40 58 20 58 
+          10 58 10 58 
+          ...omitted...
+  EDF183:                 .IF .DEFINED(PROTOTYPE19950327)
+  EDF183:                     INSERT_AUDIO_PACK 16
+  EDF183:                 .ELSE
+  EDF183: 87 05 00 48         INSERT_AUDIO_PACK 113
+          12 48 22 48 
+          22 48 52 48 
+          ...omitted...
+  EDF710: 86 05 00 58         INSERT_AUDIO_PACK 146
+          24 58 14 58 
+          34 58 44 58 
+          ...omitted...
+  EDFC9C: 5C 03 00 58         INSERT_AUDIO_PACK 29
+          1E 58 0E 58 
+          0E 58 2E 58 
+          ...omitted...
+  EDFFFE:                 .ENDIF
+  EDFFFE:             .ELSE
+  EDFFFE:                 INSERT_AUDIO_PACK 140
+  EDFFFE:                 INSERT_AUDIO_PACK 94
+  EDFFFE:                 INSERT_AUDIO_PACK 65
+  EDFFFE:                 INSERT_AUDIO_PACK 62
+  EDFFFE:                 INSERT_AUDIO_PACK 58
+  EDFFFE:                 INSERT_AUDIO_PACK 133
+  EDFFFE:                 INSERT_AUDIO_PACK 97
+  EDFFFE:                 INSERT_AUDIO_PACK 55
+  EDFFFE:                 INSERT_AUDIO_PACK 106
+  EDFFFE:                 INSERT_AUDIO_PACK 123
+  EDFFFE:                 INSERT_AUDIO_PACK 25
+  EDFFFE:                 INSERT_AUDIO_PACK 15
+  EDFFFE:                 INSERT_AUDIO_PACK 157
+  EDFFFE:                 INSERT_AUDIO_PACK 121
+  EDFFFE:                 INSERT_AUDIO_PACK 87
+  EDFFFE:                 INSERT_AUDIO_PACK 132
+  EDFFFE:                 INSERT_AUDIO_PACK 116
+  EDFFFE:                 INSERT_AUDIO_PACK 71
+  EDFFFE:                 INSERT_AUDIO_PACK 34
+  EDFFFE:                 INSERT_AUDIO_PACK 61
+  EDFFFE:                 INSERT_AUDIO_PACK 119
+  EDFFFE:                 INSERT_AUDIO_PACK 141
+  EDFFFE:                 INSERT_AUDIO_PACK 48
+  EDFFFE:                 INSERT_AUDIO_PACK 39
+  EDFFFE:                 INSERT_AUDIO_PACK 127
+  EDFFFE:             .ENDIF

@@ -1,0 +1,21 @@
+>>> bankconfig/US/bank23.asm
+  000000:             .INCLUDE "bankconfig/common/bank23.asm"
+>>> bankconfig/common/bank23.asm
+  E30000:             .INCLUDE "common.asm"
+  E30000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  E30000: 24 00 2C 6C INSERT_AUDIO_PACK 3
+          C4 87 63 94 
+          FF 9A 05 9E 
+          ...omitted...
+  E35F64: 28 00 68 6C INSERT_AUDIO_PACK 70
+          B0 95 94 A5 
+          B0 95 94 A5 
+          ...omitted...
+  E3B0FA: 28 00 68 6C INSERT_AUDIO_PACK 37
+          B0 95 EE 9C 
+          EE 9C 8C 9E 
+          ...omitted...
+  E3FDCC: 20 02 00 58 INSERT_AUDIO_PACK 32
+          1E 58 2E 58 
+          0E 58 2E 58 
+          ...omitted...

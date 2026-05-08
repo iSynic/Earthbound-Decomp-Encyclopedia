@@ -1,0 +1,597 @@
+Text windows
+
+    00: 13x8 window at (1, 1). Common use: the standard gameplay menu.
+    01: 19x8 window at (12, 1). Common use: the standard text window.
+    02: 24x16 window at (7, 1). Common use: displaying characters' inventories.
+    03: 6x10 window at (1, 1). Common use: the Use/Give/Drop/Help menu.
+    04: 11x6 window at (1, 3). Common use: PSI targetting/cost description box.
+    05: 11x16 window at (20, 1). Common use: the phone menu.
+    06: 20x10 window at (8, 1). Common use: the Equip menu.
+    07: 13x16 window at (18, 1). Common use: the list of equippable items of one type. Also used by the Tenda who trades for Horn of life.
+    08: 30x18 window at (1, 1). Common use: the Status window.
+    09: 19x18 window at (12, 1). Common use: store windows.
+    0A: 8x4 window at (1, 10). Common use: the cash:on:hand window.
+    0B: 11x4 window at (1, 15). Common use:
+    0C: 19x16 window at (12, 1). Common use:
+    0D: 24x16 window at (7, 1). Common use:
+    0E: 24x6 window at (4, 1). Common use: battle messages window.
+    0F: 21x6 window at (1, 1). Common use: standard battle menu.
+    10: 8x8 window at (4, 1). Common use: the Offense/Recover/Assist PSI menu (in battle)
+    11: 12x4 window at (12, 1). Common use:
+    12: 14x6 window at (1, 1). Common use: Jeff's battle menu
+    13: 30x8 window at (1, 2). Common use: the file selection menu.
+    14: 22x4 window at (5, 9). Common use: the Continue/Copy/Delete/Setup menu.
+    15: 12x8 window at (10, 16). Common use: the copy file menu (with 2 slots available).
+    16: 12x6 window at (10, 16). Common use: the copy file menu (wiht 1 slot available).
+    17: 21x10 window at (6, 17). Common use: the delete file confirmation window.
+    18: 16x10 window at (3, 14). Common use: the text speed selection menu.
+    19: 18x8 window at (8, 15). Common use: the sound mode selection menu.
+    1A: 8x4 window at (5, 4). Common use: the box showing selected letters of a character's name.
+    1B: 17x4 window at (13, 4). Common use: the 'Name this friend" message box.
+    1C: 30x16 window at (1, 9). Common use: a letter selection box.
+    1D: 7x4 window at (7, 3). Common use: Ness's name confirmation box.
+    1E: 7x4 window at (7, 7). Common use: Paula's name confirmation box.
+    1F: 7x4 window at (7, 11). Common use: Jeff's name confirmation box.
+    20: 7x4 window at (7, 15). Common use: Poo's name confirmation box.
+    21: 8x4 window at (20, 3). Common use: King's name confirmation box.
+    22: 13x6 window at (15, 7). Common use: favorite food confirmation box.
+    23: 13x6 window at (15, 13). Common use: favorite thing confirmation box.
+    24: 24x4 window at (4, 21). Common use: the "Are you sure" confirmation box.
+    25: 13x8 window at (18, 6). Common use: Menus with three entries (hospital, ordering pizza).
+    26: 12x4 window at (12, 1). Common use: Shows the current PSI name when selecting a target for single enemy or single row PSI
+    27: 26x6 window at (3, 3). Common use:
+    28: 7x4 window at (1, 1). Common use: Item management targeting prompt (Who/Whom/Which/Where) box.
+    29: 15x4 window at (16, 8). Common use: Select a party member (when you have two party members)
+    2A: 21x4 window at (10, 8). Common use: Select a party member (when you have three party members)
+    2B: 27x4 window at (4, 8). Common use: Select a party member (when you have four party members)
+    2C: 24x16 window at (8, 2). Common use: the Give Items window
+    2D: 15x6 window at (3, 11). Common use: Offense/Defense Equipment menu
+    2E: 8x10 window at (4, 1). Common use: the Offense/Recover/Assist/Other PSI menu (out of battle - from the Status screen)
+    2F: 30x10 window at (1, 9). Common use: PSI info window (when viewed from the Status screen)
+    30: 28x6 window at (1, 1). Common use: Paula's battle menu
+    31: 20x4 window at (10, 4). Common use: Window used to target an enemy in battle. "To the XXX"
+    32: 15x16 window at (14, 11). Common use:
+    33: 9x4 window at (22, 8). Common use: Select a party member (when you have one party member)
+    34: 18x18 window at (7, 9). Common use:
+
+Status afflictions
+
+Status effects
+
+    01 01 = Normal
+    01 02 = Unconscious
+    01 03 = Diamondized
+    01 04 = Paralyzed
+    01 05 = Nauseous
+    01 06 = Poisoned
+    01 07 = Sunstroke
+    01 08 = Sniffling
+    02 02 = Mushroomized
+    02 03 = Possessed
+    06 02 = Homesick
+
+Battle effects (heals after battle)
+
+    03 02 = Asleep
+    03 03 = Crying
+    03 04 = Solidified
+    04 02 = Feeling strange
+    05 02 = Can't concentrate
+
+Characters
+
+    00: Load value from memory
+    01: Ness
+    02: Paula
+    03: Jeff
+    04: Poo
+    05: Pokey
+    06: Picky
+    07: King
+    08: Tony
+    09: Bubble Monkey
+    0A: Brick Road
+    0B: Flying Man (1)
+    0C: Flying Man (2)
+    0D: Flying Man (3)
+    0E: Flying Man (4)
+    0F: Flying Man (5)
+    10: Teddy Bear
+    11: Teddy Bear (Super Plush Bear)
+    12-FE: Invalid results
+    FF: All characters
+
+Items
+
+This list can also be obtained from PK Hack's Item Editor.
+
+    00: Load value from memory
+    01: Franklin badge
+    02: Teddy bear
+    03: Super plush bear
+    04: Broken machine
+    05: Broken gadget
+    06: Broken air gun
+    07: Broken spray can
+    08: Broken laser
+    09: Broken iron
+    0A: Broken pipe
+    0B: Broken cannon
+    0C: Broken tube
+    0D: Broken bazooka
+    0E: Broken trumpet
+    0F: Broken harmonica
+    10: Broken antenna
+    11: Cracked bat
+    12: Tee ball bat
+    13: Sand lot bat
+    14: Minor league bat
+    15: Mr. Baseball bat
+    16: Big league bat
+    17: Hall of fame bat
+    18: Magicant bat
+    19: Legendary bat
+    1A: Gutsy bat
+    1B: Casey bat
+    1C: Fry pan
+    1D: Thick fry pan
+    1E: Deluxe fry pan
+    1F: Chef's fry pan
+    20: French fry pan
+    21: Magic fry pan
+    22: Holy fry pan
+    23: Sword of kings
+    24: Pop gun
+    25: Stun gun
+    26: Toy air gun
+    27: Magnum air gun
+    28: Zip gun
+    29: Laser gun
+    2A: Hyper beam
+    2B: Crusher beam
+    2C: Spectrum beam
+    2D: Death ray
+    2E: Baddest beam
+    2F: Moon beam gun
+    30: Gaia beam
+    31: Yo-yo
+    32: Slingshot
+    33: Bionic slingshot
+    34: Trick yo-yo
+    35: Combat yo-yo
+    36: Travel charm
+    37: Great charm
+    38: Crystal charm
+    39: Rabbit's foot
+    3A: Flame pendant
+    3B: Rain pendant
+    3C: Night pendant
+    3D: Sea pendant
+    3E: Star pendant
+    3F: Cloak of kings
+    40: Cheap bracelet
+    41: Copper bracelet
+    42: Silver bracelet
+    43: Gold bracelet
+    44: Platinum band
+    45: Diamond band
+    46: Pixie's bracelet
+    47: Cherub's band
+    48: Goddess band
+    49: Bracer of kings
+    4A: Baseball cap
+    4B: Holmes hat
+    4C: Mr. Baseball cap
+    4D: Hard hat
+    4E: Ribbon
+    4F: Red ribbon
+    50: Goddess ribbon
+    51: Coin of slumber
+    52: Coin of defense
+    53: Lucky coin
+    54: Talisman coin
+    55: Shiny coin
+    56: Souvenir coin
+    57: Diadem of kings
+    58: Cookie
+    59: Bag of fries
+    5A: Hamburger
+    5B: Boiled egg
+    5C: Fresh Egg
+    5D: Picnic lunch
+    5E: Pasta di Summers
+    5F: Pizza
+    60: Chef's special
+    61: Large pizza
+    62: PSI caramel
+    63: Magic truffle
+    64: Brain food lunch
+    65: Rock candy
+    66: Croissant
+    67: Bread roll
+    68: Pak of bubble gum
+    69: Jar Of Fly Honey
+    6A: Can Of fruit juice
+    6B: Royal iced tea
+    6C: Protein drink
+    6D: Kraken soup
+    6E: Bottle of water
+    6F: Cold remedy
+    70: Vial of serum
+    71: IQ capsule
+    72: Guts capsule
+    73: Speed capsule
+    74: Vital capsule
+    75: Luck capsule
+    76: Ketchup packet
+    77: Sugar packet
+    78: Tin of Cocoa
+    79: Carton of cream
+    7A: Sprig of parsley
+    7B: Jar of hot sauce
+    7C: Salt packet
+    7D: Backstage pass
+    7E: Jar of delisauce
+    7F: Wet towel
+    80: Refreshing herb
+    81: Secret herb
+    82: Horn of life
+    83: Counter-PSI unit
+    84: Shield killer
+    85: Bazooka
+    86: Heavy bazooka
+    87: HP-sucker
+    88: Hungry HP-sucker
+    89: X-Terminator spray
+    8A: Slime generator
+    8B: Yogurt dispenser
+    8C: Ruler
+    8D: Snake bag
+    8E: Mummy wrap
+    8F: Protractor
+    90: Bottle rocket
+    91: Big bottle rocket
+    92: Multi bottle rocket
+    93: Bomb
+    94: Super bomb
+    95: Insecticide spray
+    96: Rust promoter
+    97: Rust promoter DX
+    98: Pair of dirty socks
+    99: Stag beetle
+    9A: Toothbrush
+    9B: Handbag Strap
+    9C: Pharaoh's Curse
+    9D: Defense Shower
+    9E: Letter From Mom
+    9F: Sudden Guts Pill
+    A0: Bag Of Dragonite
+    A1: Defense Spray
+    A2: Piggy Nose
+    A3: For Sale sign
+    A4: Shyness book
+    A5: Picture postcard
+    A6: King banana
+    A7: Letter from Tony
+    A8: Chick
+    A9: Chicken
+    AA: Key to the shack
+    AB: Key to the cabin
+    AC: Bad key machine
+    AD: Temporary goods
+    AE: Zombie paper
+    AF: Hawk eye
+    B0: Bicycle
+    B1: ATM card
+    B2: Show ticket
+    B3: Letter from kids
+    B4: Wad Of bills
+    B5: Receiver phone
+    B6: Diamond
+    B7: Signed banana
+    B8: Pencil eraser
+    B9: Hieroglyph copy
+    BA: Meteotite
+    BB: Contact lens
+    BC: Hand-Aid
+    BD: Trout Yogurt
+    BE: Banana
+    BF: Calorie Stick
+    C0: Key To The Tower
+    C1: Meteorite Piece
+    C2: Earth Pendant
+    C3: Neutralizer
+    C4: Sound Stone
+    C5: Exit mouse
+    C6: Gelato de resort
+    C7: Snake
+    C8: Viper
+    C9: Brain stone
+    CA: Town map
+    CB: Video relaxant
+    CC: Suporma
+    CD: Key to the locker
+    CE: Insignificant item
+    CF: Magic tart
+    D0: Tiny ruby
+    D1: Monkey's love
+    D2: Eraser eraser
+    D3: Tendakraut
+    D4: T-Rex's bat
+    D5: Big League bat
+    D6: Ultimate bat
+    D7: Double beam
+    D8: Platinum band
+    D9: Diamond band
+    DA: Defense ribbon
+    DB: Talisman ribbon
+    DC: Saturn ribbon
+    DD: Coin Of silence
+    DE: Charm coin
+    DF: Cup Of noodles
+    E0: Skip sandwich
+    E1: Skip sandwich DX
+    E2: Lucky sandwich
+    E3: Lucky sandwich
+    E4: Lucky sandwich
+    E5: Lucky sandwich
+    E6: Lucky sandwich
+    E7: Lucky sandwich
+    E8: Cup Of coffee
+    E9: Double burger
+    EA: Peanut cheese bar
+    EB: Piggy jelly
+    EC: Bowl Of rice gruel
+    ED: Bean croquette
+    EE: Molokheiya soup
+    EF: Plain roll
+    F0: Kabob
+    F1: Plain yogurt
+    F2: Beef jerky
+    F3: Mammoth burger
+    F4: Spicy jerky
+    F5: Luxury jerky
+    F6: Bottle Of DXwater
+    F7: Magic pudding
+    F8: Non-stick frypan
+    F9: Mr. Saturn coin
+    FA: Meteornium
+    FB: Popsicle
+    FC: Cup Of Lifenoodles
+    FD: Carrot key
+    FE-FF: Invalid results
+
+Text characters
+
+    00: P
+    01: Q
+    02: R
+    03: S
+    04: T
+    05: U
+    06: V
+    07: W
+    08: X
+    09: Y
+    0A: Z
+    0B: α
+    0C: β
+    0D: γ
+    0E: Σ
+    0F: Ω
+    10: (A space one pixel wide)
+    11: a
+    12: b
+    13: c
+    14: d
+    15: e
+    16: f
+    17: g
+    18: h
+    19: i
+    1A: j
+    1B: k
+    1C: l
+    1D: m
+    1E: n
+    1F: o
+    20: (Space)
+    21: q
+    22: E (The E in a purple circle used for 'Equipped')
+    23: s
+    24: t
+    25: u
+    26: v
+    27: w
+    28: x
+    29: y
+    2A: z
+    2B: [
+    2C: ♪
+    2D: ]
+    2E: ~
+    2F: O (Larger than the regular O)
+    30-4F: Invalid results
+    50: (Space)
+    51: !
+    52: "
+    53: ?
+    54: $
+    55: %
+    56: 00 (used for 'cents')
+    57: '
+    58: (
+    59: )
+    5A: *
+    5B: +
+    5C: ,
+    5D: -
+    5E: .
+    5F: /
+    60: 0
+    61: 1
+    62: 2
+    63: 3
+    64: 4
+    65: 5
+    66: 6
+    67: 7
+    68: 8
+    69: 9
+    6A: :
+    6B: ;
+    6C: “
+    6D: =
+    6E:  ?
+    6F: ?
+    70: •
+    71: A
+    72: B
+    73: C
+    74: D
+    75: E
+    76: F
+    77: G
+    78: H
+    79: I
+    7A: J
+    7B: K
+    7C: L
+    7D: M
+    7E: N
+    7F: O
+    80: P
+    81: Q
+    82: R
+    83: S
+    84: T
+    85: U
+    86: V
+    87: W
+    88: X
+    89: Y
+    8A: Z
+    8B: α
+    8C: β
+    8D: γ
+    8E: Σ
+    8F: Ω
+    90: (A space one pixel wide)
+    91: a
+    92: b
+    93: c
+    94: d
+    95: e
+    96: f
+    97: g
+    98: h
+    99: i
+    9A: j
+    9B: k
+    9C: l
+    9D: m
+    9E: n
+    9F: o
+    A0: p
+    A1: q
+    A2: r
+    A3: s
+    A4: t
+    A5: u
+    A6: v
+    A7: w
+    A8: x
+    A9: y
+    AA: z
+    AB: [
+    AC: ♪
+    AD: ]
+    AE: ~
+    AF: O (Larger than the regular O)
+    B0-CF: Invalid results
+    D0: (Space)
+    D1: !
+    D2: "
+    D3: ?
+    D4: $
+    D5: %
+    D6: 00 (used for 'cents')
+    D7: '
+    D8: (
+    D9: )
+    DA: *
+    DB: +
+    DC: ,
+    DD: -
+    DE: .
+    DF: /
+    E0: 0
+    E1: 1
+    E2: 2
+    E3: 3
+    E4: 4
+    E5: 5
+    E6: 6
+    E7: 7
+    E8: 8
+    E9: 9
+    EA: :
+    EB: ;
+    EC: “
+    ED: =
+    EE:  ?
+    EF: ?
+    F0: •
+    F1: A
+    F2: B
+    F3: C
+    F4: D
+    F5: E
+    F6: F
+    F7: G
+    F8: H
+    F9: I
+    FA: J
+    FB: K
+    FC: L
+    FD: M
+    FE: N
+    FF: O
+
+Effects
+
+Effect arguments for control codes like [1F 1E XX XX YY]
+
+    00 - Not entirely sure
+    01 - Instant appearance
+    02 - Slowly blinks into existence
+    03 - Fades in, horizontal lines
+    04 - Fades in, vertical lines
+    05 - Sprays in to view
+
+    06 - Instant disappearance
+    07 - Slowly blinks out of existence
+    08 - Fades out, horizontal lines
+    09 - Fades out, vertical lines
+    0A - Sprays out of view
+    0B - This and anything after it seem to break the ROM; input locks up
+
+Sound Effects
+
+See http://starmen.net/pkhack/ccscript/Reference.html#c_sound
+Generated Sprites
+
+Generated sprites are made by the following 3 control codes: [1F 1A], [1F 1C], and [1F F3]. What sprites appear can be manipulated by changing the sprite groups involved, which are listed in brackets. They seem to always use the sprite frame in the "up" position (top left corner of sprite group).
+
+    01 = 3 White Surprise Lines (Above Head) [Sprite Group 218]
+    02 = Walkie Talkie (From Captain Strong) [Sprite Group 352]
+    03 = Exclamation Point Word Bubble [Sprite Group 232]
+    04 = Light Bulb [Sprite Group 194]
+    05 = Sky Walker Lightning Sparks [Sprite Group 421]
+    06 = Happy People Flag (unused) [Sprite Group 366]
+    07 = Nice's Head (Drummer from Runaway Brothers) This on is off to the left [Sprite Group 448]
+    08 = Nice's Head (Drummer from Runaway Brothers) This one is off to the right [Sprite Group 448]
+    09 = Heart (unused) [Sprite Group 351]
+    0A = Bus Driver's Head (This on is off to the left) [Sprite Group 448]
+    0B = Bus Driver's Head (This one is off to the right) [Sprite Group 448]
+    0C and beyond = Glitches the game

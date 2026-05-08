@@ -1,0 +1,886 @@
+General information
+
+Every window has the following six "registers", divided into two parts:
+
+    Active Memory
+        Working Memory (4 bytes)
+        Argumentary Memory (4 bytes)
+        Secondary Memory (2 bytes)
+    Storage Memory
+        Working Memory Storage (4 bytes)
+        Argumentary Memory Storage (4 bytes)
+        Secondary Memory Storage (2 bytes)
+
+Storage Memory is simply used to store copies of the registers in Active Memory. The only thing that can be done with it is to copy values to and from Active Memory using codes 1B 00 and 1B 01.
+
+Working Memory is generally used to hold return values from control codes, and is also used in controlling program flow.
+
+Argumentary Memory (also called Argumentative Memory) is usually used to pass values to control codes. That's why it's called "argumentary", because it contains the argument of the control code in programming terms.
+
+Secondary Memory isn't used very much, but it is used in forming simple loops and can be used as an extra register, since it can be copied to and from the other active registers.
+
+Arguments for control codes may be found listed in the Standard Argument Listing, or in PK Hack itself.
+00-17 - General parsing
+
+[00] (Line Break)
+
+This code causes a line break in a text window. The cursor will drop down to the start of the next line. If the cursor is already at the bottom of the window, the text will simply be scrolled up and will start printing again at the start of the same line. As commonly used in EB, a [00] will either be followed by a bullet symbol (type @ in most EB editors) or two spaces to keep everything nice and lined up.
+
+[01] (Start on Blank Line)
+
+This code behaves similarly to [00]. It will cause the text window's cursor to drop down to the next line. However, this code will have no effect if the cursor is already on a blank line. This code is useful for ensuring that text will be printed on a new line when you do not know what text will precede it, such as after a menu or conditional jump.
+
+[02] (Stop Parsing)
+
+This code marks the end of a text block or text string. Upon reading a [02], the engine will stop looking at this particular block and go on with whatever it was doing prior to reading it. It's very important to put this at the end of all text blocks! Otherwise, the engine will just keep surfing through ROM data until it hits one, or enough non-text code to make it glitch horribly. Ever seen the infamous "Multi-Task code" that makes the engine keep reading seemingly unrelated text blocks endlessly (Game Genie EE64-54A1)? Well, that's exactly what we're talking about here. That code merely disables the effect of the [02] control code.
+
+[03] (Halt Parsing with Prompt - Variable)
+
+This code pauses text reading and waits until the player presses the A button. It also displays the blinking triangle along the bottom of the window. Note that its effect changes when in-battle: When text speed is set to medium or fast, it will simply act as a short delay. If you want to make sure it stops with the blinking triangle when in battle, you should use [14] (Halt Parsing with Prompt) (see that code's entry for more details). Common usage of [03]'s in EarthBound is to place it before [00] (Line Breaks). That way, the player won't miss anything that scrolls by too quickly.
+
+[04 XX XX] (Toggle On Event Flag)
+
+This code sets a value of 1 to event flag $XXXX. The flag is then considered to be toggled "on." Remember to reverse the flag number - to toggle on $0123, you would use [04 23 01].
+
+[05 XX XX] (Toggle Off Event Flag)
+
+This code sets a value of 0 to event flag $XXXX. The flag is then considered to be toggled "off." Remember to reverse the flag number - to toggle off $0123, you would use [05 23 01].
+
+[06 XX XX YY YY YY YY] (Event-Dependent Pointer)
+
+This code checks the status of event flag $XXXX. If its value is set to 0x01 (Boolean True), it jumps to pointer $YYYYYY and continues reading from there. If the flag is set to 0x00 (Boolean False), the code does nothing and the engine simply continues past it.
+
+[07 XX XX] (Return Event Flag)
+
+This code checks the status of event flag $XXXX, and fills the Working Memory data with that value. This is useful if you need to use the value of an event flag in conjunction with the Boolean Pointer codes, [1B 02 XX XX XX 00] (Boolean-False Pointer) and [1B 03 XX XX XX XX] (Boolean-True Pointer) (see those codes' entries for more information). Note: The code string [07 XX XX][1B 03 XX XX XX XX] is exactly the same as using a [06 XX XX YY YY YY YY] (Event-Dependent Pointer), except it overwrites whatever's currently in Working Memory.
+
+[08 XX XX XX XX] (Reference Pointer)
+
+This code references the data at $XXXXXX. It will read all the text there until it reaches a [02] (Stop Parsing) code. When that happens, it will continue parsing from the [08 XX XX XX XX] code that initally made the reference. Contrast this against the [0A XX XX XX XX] (Jump Pointer) (see that code's entry for more information).
+
+[09 XX (YY YY YY YY)] (Multiple-Address Jump Pointer)
+
+This code behaves similarly to [0A XX XX XX XX] (Jump Pointer); however, it has the added benefit of being able to have multiple branching pointers within itself. This one does take a bit of explanation. The value of the first argument, $XX, determines how many pointers there will be in the code. Codes that change lengths based upon the value of an argument are somewhat rare, but this one is fairly straightforward. For example, if $XX were 0x01, the format of the code would be [09 XX YY YY YY YY]. However, if we changed $XX to 0x02, the format would change to [09 XX Y1 Y1 Y1 Y1 Y2 Y2 Y2 Y2]. If $XX is 0x03, the code becomes [09 XX Y1 Y1 Y1 Y1 Y2 Y2 Y2 Y2 Y3 Y3 Y3 Y3]. By this point you should get the idea. The upper limit on this is 0xFF, or 255 pointers, though one would hope you'd never have to fill in that many pointer spaces. [09 XX (YY YY YY YY)] starts by checking the Working Memory. It then compares that value against $XX. If the number in memory is either 0x00 or higher than $XX, the code will be ignored and the text will continue parsing past it. Otherwise, the code will select a pointer based on the memory value. If the value is 0x01, it will use the first pointer in the code's list; if the value's 0x02, it uses the second one, and so forth for the rest of them. The code jumps to the data at the selected pointer and parses from that location as normal. As with [0A XX XX XX XX], it will not return to the location of the original [09 XX (YY YY YY YY)] when it reaches a [02] (Stop Parsing) code; it will simply stop parsing.
+
+[0A XX XX XX XX] (Jump Pointer)
+
+This code jumps to the data at $XXXXXX and parses from that location as normal. It will not return to the location of the original [0A XX XX XX XX] when it reaches a [02] (Stop Parsing) code, it will simply stop parsing. Contrast this against the [08 XX XX XX XX] (Reference Pointer) (see that code's entry for more information).
+
+[0B XX] (Perform Boolean True Check - Equal to Working Memory)
+
+This code will compare the value in Working Memory to $XX. It will then change the value in Working Memory based on the result; the value will be set to 0x00 (Boolean False) if it's not equal to $XX, or 0x01 (Boolean True) if it is equal. This code lets you run the Boolean pointers, [1B 02 XX XX XX XX] (Boolean-False Pointer) and [1B 03 XX XX XX XX] (Boolean-True Pointer), based on the results of ANY code that stores data to Working Memory. This allows for lots of flexibility in terms of conditional text based on whether you have a given item, who's in the player's party, or even what side the player is checking something on, just to cite a few examples. Keep in mind, though, this code DOES delete what value is in the Working Memory in the process! If you wanted a sequence of [0B XX] checks for various values, you'd want to use [1B 00] (Copy All Memory to Storage) before each [0B XX] code and [1B 01] (Copy All Storage to Memory) after any boolean pointers following them to make sure that the original value being checked is not lost (see those codes' entries for more information).
+
+[0C XX] (Perform Boolean False Check - Equal to Working Memory)
+
+This code will compare the value in Working Memory to $XX. It will then change the value in Working Memory based on the result; the value will be set to 0x00 (Boolean False) if it is equal to $XX, or 0x01 (Boolean True) if it's not equal. This code lets you run the Boolean pointers, [1B 02 XX XX XX XX] (Boolean-False Pointer) and [1B 03 XX XX XX XX] (Boolean-True Pointer), based on the results of ANY code that stores data to Working Memory. This allows for lots of flexibility in terms of conditional text based on whether you have a given item, who's in the player's party, or even what side the player is checking something on, just to cite a few examples. Keep in mind, though, this code DOES delete what value is in the Working Memory in the process! If you wanted a sequence of [0C XX] checks for various values, you'd want to use [1B 00] (Copy All Memory to Storage) before each [0C XX] code and [1B 01] (Copy All Storage to Memory) after any boolean pointers following them to make sure that the original value being checked is not lost (see those codes' entries for more information).
+
+[0D XX] (Copy to Argumentative Memory)
+
+This code will copy the value stored in either Working or Secondary Memory into Argumentary Memory. It will not affect the value stored in the register copied from. The $XX value determines what memory to copy from, where a value 0x00 indicates Working Memory, and 0x01 indicates Secondary Memory.
+
+[0E XX] (Store to Secondary Memory)
+
+This code stores the value in $XX to Secondary Memory. There are not many codes that manipulate Secondary Memory. However, using [0E XX][0D 01] is the simplest way to load a constant value into Argumentary Memory.
+
+[0F] (Increment Secondary Memory)
+
+This code will increase the value stored in Secondary Memory by 1. In general, this code is used to create simple loops.
+
+[10 XX] (Delay Parsing)
+
+This code stops the text parsing briefly for dramatic purposes. The duration of the pause is controlled by the value of XX. The engine reads this value as units 1/60th of a second long. Therefore, a one-second pause would be [10 3C], a two-second pause [10 78], and so forth. The maximum value - 0xFF - is a 4.25 second pause. These can be used any time in text when you want a pause of a specific length. String them together to achieve longer pauses.
+
+[11] (Create Selection Menu from Strings)
+
+[12] (Clear Text Line)
+
+This code erases all of the text on the current line and moves the cursor back to the beginning. This is often used in text menus, number selectors, and other similar cases. It's not commonly used in cases of generic conversational text.
+
+[13] (Halt Parsing without Prompt)
+
+The [13] code is highly similar to the codes [03] (Halt Parsing with Prompt - Variable), and [14] (Halt Parsing with Prompt). Like those other two, it stops parsing text until the player presses the A button. However, the main difference here is that it does not display the blinking triangle prompt. This is commonly used when you want the player to have to hit A, but don't have a text window open at the time. Also, it's standard procedure to place a [13] before a [02] (Stop Parsing). That way, the player must confirm the end of the block and closing of the window, but without leading them to believe there's more text to come as a [03] might.
+
+[14] (Halt Parsing with Prompt)
+
+This code is virtually identical to [03] (Halt Parsing with Prompt - Variable). It pauses the text, displays a blinking triangle prompt, and waits until the player presses the A button. However, the main difference is that its function does not change when you're in battle. This is the code you want to use if you're composing text to be displayed in battle.
+
+[15 XX] (Display Compressed Text/Bank 0)
+[16 XX] (Display Compressed Text/Bank 1)
+[17 XX] (Display Compressed Text/Bank 2)
+
+These three codes all work to make EB's text more efficient. Each code links to one of three banks of text. Each bank contains 256 (0x00 - 0xFF) different phrases, words, and character clusters. As the engine parses the code, it will reference entry $XX from the proper bank, and substitute the text in that entry for the [15/16/17] code itself. JHack's text editor automatically compresses its text, so you won't have to manually convert for these codes. However, if you're entering your text in another program (say, a hex editor), you can also use CT-Boing Ultra to compress it.
+18 - Window management
+
+[18 00] (Close Current Window)
+
+This code closes the most recently-used text window. Typically, only one window will be open at any given time, but if there are multiples open due to [18 01 XX] (Open Text Window) or another code, the one that was most recently opened (or most recently parsed in) will be the first to go. If you want to close a specific window but aren't currently parsing in it, use a [18 03 XX] (Switch To Window) code (see the above codes' entries for more information).
+
+[18 01 XX] (Open Text Window)
+
+This code opens a text window and selects it as the focus window for parsing text. The $XX argument determines the size and position of the window, which it reads from a database in the ROM. Note that the engine will not support opening more than one of the same window. If window type $XX is already open, this code will close it and then open it again, effectively clearing it like [18 06] (Clear Current Window).
+
+[18 02] (Save Text Window State)
+
+This code saves information about the current window's text cursor position, font, color, and number padding setting. This state is often restored by other control codes that do text rendering, after they finish.
+
+[18 03 XX] (Switch To Window)
+
+This code selects the window type $XX as the focus for parsing text. Any text data read by the engine following this code will be displayed in this window. If a window is overlapping the one switched to, the engine will not bring it 'forward' so all of it is visible. NOTE: Do not use this code if the window type $XX has not already been opened! Attempting to switch to a closed window type will immediately crash the game.
+
+[18 04] (Close All Windows)
+
+This code, fairly straightforward, simply closes all opened windows. This does not need to be used at the end of a text block, as the engine automatically performs that action. However, in cases where animation, movement, or teleportation are used, one would be well advised to close the windows beforehand. If you wish to halt parsing of the text while windows are closed, [13] (Halt Parsing without Prompt) should be used rather than [03] (Halt Parsing with Prompt - Variable) or [14] (Halt Parsing with Prompt). The other two will display the triangle prompt icon floating in the top-left corner of the screen.
+
+[18 05 XX YY] (Force Text Alignment)
+
+This code forces text to appear in a specific location in a window. $XX is rendered as the X-axis offset (horizontal), with 0 representing the left-hand side of the window and bigger numbers moving the position to the right. $YY is rendered as the Y-axis offset (vertical), and is measured in rows (16 pixels each), with 0 representing the top row of the window and bigger numbers moving the position down that many rows from the top. In the localized version of EarthBound, a global flag at address $5E71 in working RAM controls whether the unit of $XX is in pixels or in tiles (in Mother 2, it's always tiles). This code is extensively used in the status menu, among other locations.
+
+[18 06] (Clear Current Window)
+
+This code eliminates whatever text that's displayed in the current window. The cursor will be returned to the top left corner of the window, as if it had just been opened.
+
+[18 07 XX XX XX XX YY] (Compare Window Register to Number)
+
+This code compares the number X to the window register given in Y (0 for working memory, 1 for argumentary memory, and 2 for secondary memory). It returns 0, 1, or 2 depending on if the register's value is less than, equal to, or greater than X, respectively. Note that an X of 0 does not access argumentary memory.
+
+[18 08 XX] (Selection Menu in Window, No Cancelling)
+
+This code behaves like [11], except that it first switches to window XX, and it doesn't allow the player to press B to back out.
+
+[18 09 XX] (Selection Menu in Window)
+
+This code behaves like [11], except that it first switches to window XX.
+
+[18 0A] (Show Wallet Window)
+
+This code opens a small window in the center-left of the screen, and automatically displays the amount of money on hand. This is used in various places, notably in the code for stores and telephones.
+
+[18 0D XX YY] (Print Character Status Info)
+
+When YY = 01, this code opens window 8 and displays the stats for character XX in it, as if the player went to the pause menu and chose "Status." If XX is 0, the value in working memory is used instead of XX. The character doesn't actually need to be in the party for this to work. After the stats get printed to the screen, script execution continues inside of the status window until the script manually switches away from it.
+
+Functionality for YY = 02 appears to have been removed. All other values of YY do nothing.
+19-1A
+
+[19 02] (Load String to Memory)
+
+This code adds a menu option to the game. The text associated with this option is stored immediately after the control code, ending with either [01 XX XX XX XX] or [02]. The additional argument when a menu option name ends with 01 refers to the address of a script that runs when the option is highlighted in a menu.
+
+[19 04] (Clear all loaded strings)
+[19 05 XX YY YY] (Inflict Status Change)
+
+Inflicts status change YY YY on character XX. See Standard Argument Listing for further information.
+
+[19 10 XX] (Return Character Number)
+
+This code returns to the register the ID value of whatever the party member is at a certain slot/position in the party. For example, if your current party consists of Ness, Paula and Jeff, but Ness is unconscious, using the control code [19 10 01] will return the ID value of 02, which corresponds to Paula. However, if Ness is revived, this very same control code will return the value of 01 instead, 01 being the value for Ness.
+
+[19 11 XX] (Return One Letter from a Character's Name)
+
+This code looks at the value in Secondary Memory, takes the letter in that position in character $XX's name, and puts its value into Working Memory. The corresponding values can be found in the Standard Argument Listing. Knowing this value generally isn't necessary, as this code is almost always followed by [0D 00][1C 03 00] to print the letter in question.
+
+[19 14] (Return One Item from Escargo Express Storage)
+
+This code looks at the value in Secondary Memory to determine which item to return: a value of 01 returns the first item, 02 the second item, etc. If there is no item at that position, this code returns 0. After returning the item, Secondary Memory is incremented so that the code can be used to get the next item immediately, without using [0F].
+
+[19 16 XX YY] (Return Byte YY of Character's Status)
+
+This code checks if character XX is in the party, and if so, it returns their YYth status group. If $YY = 8, the party-wide overworld status group will be accessed as normal. Otherwise, if the specified party member isn't in the party, it returns 0. If $XX is 0, the value in Working Memory is used instead of $XX. If $YY is 0, the value in Argumentary Memory is used instead of $YY.
+
+[19 18 XX] (Return amount of exp needed to levelup. Used in Dad's save text)
+[19 19 XX YY] (Return YYth Item from Character XX's Inventory)
+
+This code is used to determine the ID of an item owned by character $XX, in their $YYth inventory slot. If $XX is 0, the value in working memory is used instead of $XX. If $YY is 0, the value in argumentary memory is used instead of $YY. There is no bounds checking, so make sure the character number is always between 1 and 4 and the inventory slot number is always between 1 and 14.
+
+This code sets working memory to the character number whose inventory was checked, and it sets argumentary memory to the item number in the requested.
+
+[19 1A XX] (Return XXth item in Escargo Express inventory)
+
+This code sets working memory to the value of the $XXth item in item storage. If $XX is 0, the value in argumentary memory is used instead of $XX.
+
+[19 1B XX] (Return Number of Strings Loaded with [19 02] for Window XX)
+[19 1C XX YY] (Queue Item for Delivery/Pickup)
+
+This code removes the YYth item in character $XX's inventory and puts it in the first free spot of a queue of 3 items, along with information about the item's original owner. If $XX is 255 ($FF), an item will be removed from the Escargo Express storage instead of a player's inventory. If $XX is 0, the value in working memory is used instead of $XX. If $YY is 0, the value in argumentary memory is used instead of $YY. The list of queued items can only hold three items; attempting to add more will result in the item being lost.
+
+[19 1D XX YY] (Return Information about Queued Delivery/Pickup Item)
+
+This code retrieves information about the $XXth item in the list of items queued for delivery/pickup. It sets working memory to the original owner of the item, and it sets argumentary memory to the actual item. If $YY is nonzero, that spot in the queue is made free for a new item to be added, removing the item from the list.
+
+[19 1E] (Return Amount of Change. In other words, store the delta amount in the Result register. Related to [1C 0F])
+[19 1F] (Return Battle Action Argument)
+[19 20] (Return Number of Party Members)
+[19 21 XX] (Return Category of Food Item)
+
+This code checks the "type" field of item XX in the item configuration table. For foods, it returns 1, 2, or 3 into working memory depending on if the item is food, drink, or condiment (respectively). For other items, the result returned may not be useful.
+
+[19 22 XX YY ZZ ZZ] (Return Direction from Character to Object)
+[19 23 XX XX YY ZZ ZZ] (Return Direction from NPC to Object)
+[19 24 XX XX YY ZZ ZZ] (Return Direction from Generated Sprite to Object)
+
+These three codes find the direction (1 through 8) from a source object $XXXX (type given in the control code description) to a different object $ZZZZ of type $YY. The valid types are 01, 02, and 03, corresponding to the characters, NPCs, and generated sprites, respectively.
+
+If $XXXX is 0, working memory is used instead of $XXXX. If $ZZZZ is 0, argumentary memory is used instead of $ZZZZ.
+
+These codes store their results in argumentary memory, for easy chaining with codes that make objects face in specific directions.
+
+[19 25 XX] (Return Item ID of Condiment to Use on Food)
+
+When used in a script for a party member doing a battle action, this code verifies that item $XX is a food item and searches the party member's inventory for the first condiment that can be applied to the food. If the item has the normal food item type and there is a condiment in the inventory, working memory will be set to the item ID of that condiment. Otherwise, if there is no condiment in the party member's inventory or item $XX is not food, the code will set working memory to 0. If $XX is 0, the value in argumentary memory will be used instead of $XX.
+
+[19 26 XX] (Set Respawn Point to the Current Coordinates)
+
+This code sets the coordinates to respawn at after dying to whatever the party leader's current coordinates are, and sets the destination of the unused "Teleport Box" battle action to warp point $XX, or the value in argumentary memory is $XX is 0.
+
+[19 27 XX] (Return Value of a Statistic)
+
+This code puts the numerical value of statistic $XX into working memory. If a statistic is not actually a number, the 3-byte-long pointer to the statistic is returned instead.
+
+[19 28 XX] (Return One Letter from a Statistic)
+
+Similar to [19 11 XX], this code looks at the value in Secondary Memory, takes the letter in that position of statistic $XX's string, and puts its value into Working Memory. The corresponding values of characters can be found in the Standard Argument Listing. This only works for statistics that are stored internally as strings, not as numbers. A list of all the statistics can be found in the documentation for [1C 01 XX] below.
+
+[1A 00 WW WW WW WW XX XX XX XX YY YY YY YY ZZ ZZ ZZ ZZ AA] (Current Party Member Selection Menu, No Cancel)
+[1A 01 WW WW WW WW XX XX XX XX YY YY YY YY ZZ ZZ ZZ ZZ AA] (Current Party Member Selection Menu)
+
+These two codes ([1A 00] and [1A 01]) both display a current party member selection menu. The only difference between them is that [1A 01] allows the player to "cancel" selection with the B button; with [1A 00], the B button does nothing and you must select one of the party members to continue.
+
+The first four parameters are the addresses of scripts to run when a specific party member is highlighted in the menu. In many in-game uses of [1A 01], an address may be set to 0 to indicate that no script should run when the given option is highlighted.
+
+The last parameter (AA) appears to control whether or not to display the menu. If it is 1, the menu will be displayed; otherwise, it will not.
+
+[1A 04] (Selection Menu, No Cancelling)
+
+This code behaves like [11], except that it doesn't allow the player to press B to back out of the menu.
+
+[1A 05 XX YY] Display the inventory of character YY in window XX.
+[1A 06 XX] (Display Shop Menu)
+[1A 07] (Display Escargo Express Items)
+[1A 08] (Selection Menu, Persistent Strings, No Cancelling)
+
+This code behaves like [11], except that it keeps the strings loaded with [19 02] in memory so that they can be reused, and it doesn't allow the player to press B to back out of the menu.
+
+[1A 09] (Selection Menu, Persistent Strings)
+
+This code behaves like [11], except that it keeps the strings loaded with [19 02] in memory so that they can be reused.
+
+[1A 0A] (Make Phone Call)
+
+This control code opens the phone call menu and calls the script of whatever person is called. Working memory is set to the telephone contacts table ID of the person who was called, or 0 if no one was called.
+
+[1A 0B] (Display Teleport Menu)
+
+1B - Memory
+
+[1B 00] (Copy Active Memory to Storage)
+
+This code copies the values in all Active Memory to their respective Storage Memory registers. This will overwrite whatever is in Working Memory Storage, Argumentative Memory Storage, and Secondary Memory Storage. The values will remain in the Active Memory registers. This is the most commonly used way to store memory data before using a boolean check or another code that will fill an Active Memory register with its results.
+
+[1B 01] (Copy Storage to Active Memory)
+
+This code copies the values in all Storage Memory to their respective Active Memory registers. This will overwrite whatever is in Active Working Memory, Active Argumentative Memory, and Active Secondary Memory. The values will remain in the Storage Memory registers. This code is often used following a boolean check or other code that manipulates the value in an Active Memory register, when the initial value has been saved using a [1B 00] (Copy All Memory to Storage) code.
+
+[1B 02 XX XX XX XX] (Boolean-False Pointer)
+
+This code checks the value stored in Working Memory. If its value is set to 0x00 (Boolean False), it jumps to pointer $XXXXXX and continues reading from there. If the flag is set to 0x01 (Boolean True), the code does nothing and the engine simply continues past it. Any other value stored in Working Memory will be treated as 0x01 and the code will be summarily ignored. As a jump pointer, it will not return to the location of the original [1B 02 XX XX XX XX] when it reaches a [02] (Stop Parsing) code, it will simply stop parsing.
+
+[1B 03 XX XX XX XX] (Boolean-True Pointer)
+
+This code checks the value stored in Working Memory. If the flag is set to 0x00 (Boolean False), the code does nothing and the engine simply continues past it. If its value is set to 0x01 (Boolean True), it jumps to pointer $XXXXXX and continues reading from there. Any other value stored in Working Memory will be treated as 0x01 and the the engine will successfully jump to the pointer. As a jump pointer, it will not return to the location of the original [1B 02 XX XX XX XX] when it reaches a [02] (Stop Parsing) code, it will simply stop parsing.
+
+[1B 04] (Swap Working and Argumentative Memory)
+
+This code exchanges the values in the Working and Argumentative Memory registers. Whatever is in Working Memory will be placed in Argumentative Memory, and whatever's in Argumentative Memory will be placed in Working Memory. This is useful when you've used a code to generate some value or another, and want to use it in a code that accepts values from Argumentative Memory.
+
+[1B 05] (Copy Active Memory to WRAM)
+[1B 06] (Copy WRAM to Active Memory)
+
+1C - Text
+
+[1C 00 XX] (Text Color Effects)
+[1C 01 XX] (Display Statistics)
+
+Displays various statistics from the player and the Chosen Four. Displays the following:
+
+    0: (Load index from argument register)
+    1: Japanese Player's name
+    2: Player name
+    3: Dog's name
+    4: Favorite food
+    5: PSI Special
+    6: Cash on hand
+    7: ATM balance
+    8: Ness's Name
+    9: Ness's Level
+    0A: Ness's EXP
+    0B: Ness: current HP
+    0C: Ness: rolling HP target
+    0D: Ness: maximum HP
+    0E: Ness: current PP
+    0F: Ness: rolling PP target
+    10: Ness: maximum PP
+    11: Ness: Total Offense
+    12: Ness: Total Defense
+    13: Ness: Total Speed
+    14: Ness: Total Guts
+    15: Ness: Total Luck
+    16: Ness: Total Vitality
+    17: Ness: Total IQ
+    18: Ness: Base IQ
+    19: Ness: Base Offense
+    1A: Ness: Base Defense
+    1B: Ness: Base Speed
+    1C: Ness: Base Guts
+    1D: Ness: Base Luck
+    1E: Paula: Name
+    1F: Paula: Level
+    20: Paula: EXP
+    21: Paula: current HP
+    22: Paula: rolling HP target
+    23: Paula: maximum HP
+    24: Paula: current PP
+    25: Paula: rolling PP target
+    26: Paula: maximum PP
+    27: Paula: Total Offense
+    28: Paula: Total Defense
+    29: Paula: Total Speed
+    2A: Paula: Total Guts
+    2B: Paula: Total Luck
+    2C: Paula: Total Vitality
+    2D: Paula: Total IQ
+    2E: Paula: Base IQ
+    2F: Paula: Base Offense
+    30: Paula: Base Defense
+    31: Paula: Base Speed
+    32: Paula: Base Guts
+    33: Paula: Base Luck
+    34: Jeff: Name
+    35: Jeff: Level
+    36: Jeff: EXP
+    37: Jeff: current HP
+    38: Jeff: rolling HP target
+    39: Jeff: maximum HP
+    3A: Jeff: current PP
+    3B: Jeff: rolling PP target
+    3C: Jeff: maximum PP
+    3D: Jeff: Total Offense
+    3E: Jeff: Total Defense
+    3F: Jeff: Total Speed
+    40: Jeff: Total Guts
+    41: Jeff: Total Luck
+    42: Jeff: Total Vitality
+    43: Jeff: Total IQ
+    44: Jeff: Base IQ
+    45: Jeff: Base Offense
+    46: Jeff: Base Defense
+    47: Jeff: Base Speed
+    48: Jeff: Base Guts
+    49: Jeff: Base Luck
+    4A: Poo: Name
+    4B: Poo: Level
+    4C: Poo: EXP
+    4D: Poo: current HP
+    4E: Poo: rolling HP target
+    4F: Poo: maximum HP
+    50: Poo: current PP
+    51: Poo: rolling PP target
+    52: Poo: maximum PP
+    53: Poo: Total Offense
+    54: Poo: Total Defense
+    55: Poo: Total Speed
+    56: Poo: Total Guts
+    57: Poo: Total Luck
+    58: Poo: Total Vitality
+    59: Poo: Total IQ
+    5A: Poo: Base IQ
+    5B: Poo: Base Offense
+    5C: Poo: Base Defense
+    5D: Poo: Base Speed
+    5E: Poo: Base Guts
+    5F: Poo: Base Luck
+
+[1C 02 XX] (Display Character Name)
+
+This code prints the names of the characters that can join your party in the current window. The value of $XX decides which name to print. [1C 02 XX] uses the Standard Argument Listing for playable characters and NPCs. If $XX is 0x00, the value stored in Argumentary Memory will be used instead of $XX. In EarthBound but not in Mother 2, if $XX is 0xFF, the value stored in Working Memory Storage will be used instead of $XX.
+
+[1C 03 XX] (Display Text Character)
+
+This code prints out text character $XX. In general, this code will always be used with 00 as the argument, loading a previously previously determined value from Argumentary Memory. See [19 11 XX]. If you should ever want to use this code with a constant argument, refer to the Standard Argument Listing for values.
+
+[1C 04] (Open HP/PP Windows)
+
+This code opens the HP/PP status windows at the bottom of the screen. It's often used in cases where either stat is being changed or in the item shop windows. The windows will close when the text block they were opened in stops parsing.
+
+[1C 05 XX] (Display Item Name)
+
+This code prints the name of an item in the current window. The value of $XX is the item number that should be displayed. However, if the value used is 0x00, the engine will instead use the value stored in Argumentary Memory in its place. As there can be over 200 items in EarthBound, it would be inefficient to display all possible arguments here. However, conveniently enough, the Item Editor will display the correct number value next to the item name itself, which should provide as suitable a reference means as any hacker needs.
+
+[1C 06 XX] (Display Teleport Destination Name)
+
+This code prints the name of a destination from the Teleport psychic ability in the current window. The $XX value can be any one of the entries, with values ranging from 0x01 to 0x10. If the value used is 0x00, the engine will instead use the value stored in Argumentary Memory in its place. Any other value will result in a null response. These names can be seen and edited in the Teleport Destination Editor in JHack.
+
+[1C 07 XX] (Display Text Strings Horizontally)
+
+[1C 08 XX] (Display Text Graphics)
+
+This code prints special images, typically seen in battle text, in the current window. There are only two known arguments. An $XX value of 0x01 will display the "SMAAAASH!" graphic, and a value of 0x02 will display the "YOU WON!" graphic. Any other value will result in a null response. [1C 08 XX] does not load values from the Argumentary Memory in the event that the $XX value is 0x00.
+
+[1C 09 XX] (Set Number Padding for Current Window)
+
+This code will change the number padding setting of the current window to $XX. If $XX has its most significant bit set, then space is set aside every time a number is printed for (less significant nybble + 1) digits, and the number is right-aligned to that space if possible. If $XX's most significant bit is not set, then the padding is disabled and numbers will print normally.
+
+[1C 0A XX XX XX XX] (Display Numeric Value)
+
+This code prints the value of $XXXXXXXX as a decimal number in the current window. If the value of $XXXXXXXX is 0x00000000, the engine will instead read the value stored in Argumentary Memory, and display that value as a decimal number. Care must be taken not to display a number greater than 9,999,999; due to a faulty range check, printing such numbers can corrupt memory, including the number of the current window. This applies equally to all number printing commands involving 32-bit numbers.
+
+[1C 0B XX XX XX XX] (Display Numeric Value as Money)
+
+This code prints the value of $XXXXXXXX as a monetary value in the current window. It is formatted like the money values in EarthBound's store windows; the number is aligned to the right side of the window, with a "$" character preceding it and the ".00" character following it. If the value of $XXXXXXXX is 0x00000000, the engine will instead read the value stored in Argumentary Memory, and display that value as a decimal number.
+
+[1C 0C XX] (Display Text Strings Vertically)
+
+[1C 0D] (Display Action User Name)
+[1C 0E] (Display Action Target Name)
+
+In a battle action, these codes print the name of the character/enemy doing or receiving the action, respectively. For enemies whose "the" flag is set, the word "the" (capitalized to "The" if the last character printed was a bullet point/@) will be printed before their name.
+
+[1C 0F] (Display Amount of Change)
+
+This code is used to display amount of HP damage/recovery, PP recovery, stat increases at level-up, etc.
+
+[1C 11] (Display Party Description; Mother 2 only)
+
+This control code displays a description of the party. The game counts how many party members there are that are not unconscious or diamondized, and determines who the party leader is. If there are 2 or more living party members, it will print the party leader's name followed by たち (meaning "everyone in (party leader)'s party"). Otherwise, it will only print the party leader's name with no suffix. This control code was repurposed in EarthBound (see the next control code below), and all uses of it were replaced by a call to a script instead.
+
+[1C 11 XX] (Make Room to Display Text Character; EarthBound only)
+
+This code checks if printing character $XX would take up too much space on the current line, and inserts a new line if it would. If $XX is 0x00, the value stored in Argumentary Memory will be used instead of $XX. As such, it can be used in a way similar to the zero-width space in Unicode, if you intersperse it between every letter of a name that's printed one letter at a time. The game uses this code to prevent the extra-long player name from printing incorrectly.
+
+[1C 12 XX] (Display PSI Name)
+
+[1C 13 XX YY] (Display Battle Animation)
+
+This code will play a PSI animation in combat. XX is used when the ability targets an ally, while YY is used when it targets an enemy. The list of available PSI animations are as follows:
+
+    01: Counter PSI Unit
+    02: Brainshock Alpha
+    03: Brainshock Beta
+    04: HP Sucker
+    05: Defense Down Alpha
+    06: Defense Down Omega
+    07: Fire Alpha
+    08: Fire Beta
+    09: Fire Gamma
+    0A: Fire Omega
+    0B: Flash Alpha
+    0C: Flash Beta
+    0D: Flash Gamma
+    0E: Flash Omega
+    0F: Freeze Alpha
+    10: Freeze Beta
+    11: Freeze Gamma
+    12: Freeze Omega
+    13: Special Alpha
+    14: Special Beta
+    15: Special Gamma
+    16: Special Omega
+    17: Paralysis Alpha
+    18: Paralysis Omega
+    19: Magnet Alpha
+    1A: Magnet Omega
+    1B: Shield Killer
+    1C: Hypnosis Alpha
+    1D: Hypnosis Omega
+    1E: Hungry HP Sucker
+    1F: Starstorm Alpha
+    20: Starstorm Omega
+    21: Thunder Alpha/Beta
+    22: Thunder Gamma/Omega
+    23: Glitch Out?
+    24: Enemy Attack, Towards Party: RED - PK Fire
+    25: Enemy Attack, Towards Party: ORANGE - Unused in Earthbound
+    26: Enemy Attack, Towards Party: BROWNISH ORANGE - Unused in Earthbound
+    27: Enemy Attack, Towards Party: DARK BLUE - Defense Down
+    28: Enemy Attack, Towards Party: WHITE - PK Flash
+    29: Enemy Attack, Towards Party: BRIGHT BLUE - PK Freeze
+    2a: Enemy Attack, Towards Party: PINK - PK Special
+    2b: Enemy Attack, Towards Party: GREEN - Paralysis
+    2c: Enemy Attack, Towards Party: GREENISH WHITE - PSI Magnet
+    2d: Enemy Attack, Towards Party: BLUEISH WHITE - PK Starstorm
+    2e: Enemy Attack, Towards Party: YELLOW - PK Thunder
+    2f: Shakes Screen Back and Forth - Hypnosis, Brainshock, (Tornado Attack)
+    30: Shakes Screen Rapidly (Teleport Box Effect) - Unused in Earthbound
+    31: Nothing
+    32: White Shield, Enveloping Party - Shield alpha/zeta
+    33: Gold Shield, Enveloping Party - Shield beta/omega
+    34: Purple Shield, Enveloping Party - PSI Shield alpha/zeta
+    35: Blue Shield, Enveloping Party - PSI Shield beta/omega
+    36: Giygas Attack (Expanding Pink Circle, Directed At Party)
+
+[1C 14 XX] (Load Gender or Number of Action User; EarthBound only)
+
+This code loads its result into Working Memory. If the value of XX is 01, it returns the gender of the current action user. If the value of XX is 02 or any other value, it returns the number of living battlers on the user's team (i.e. the number of enemies or the number of living party members).
+
+[1C 15 XX] (Load Gender or Number of Action Target; EarthBound only)
+
+This code behaves identically to [1C 14 XX], except that it returns data about the action target and their team.
+1D - Inventory and money
+
+[1D 00 XX YY] (Give Item to Character and Return Recipient)
+
+This code will add an item to a character's inventory. The value in $XX stands for the character number, and the $YY value stands for the item number to be added. Nothing will occur if the character does not have any empty slots in his or her inventory. However, if any character recieves the item successfully, the value of Working Memory will also be changed to the number of the character whom recieved the item. This and $XX use the Standard Argument Listing for playable characters and NPCs, and the value of $YY is the item number that will be added. Check the Standard Argument Listing for more details on usage.
+
+[1D 01 XX YY] (Take Item from Character)
+
+This code will remove an item from a character's inventory. The value in $XX stands for the character number, and the $YY value stands for the item number to be removed. $XX uses the standard Argument Listing for playable characters and NPCs, and the value of $YY is the item number that will be added. Nothing will occur if the character does not have the item in his or her inventory. Check the Standard Argument Listing for more details on usage.
+
+[1D 02 XX] (Perform Boolean True Check - Item type)
+
+This code will check the type of the item in the argument register. An $XX of 01 will check for items (valued 0-15) not covered in the other types (Franklin Badge, Teddy Bears, etc.), 02 checks for items (valued 16-31) that can be equipped (weapons, body, arms, others), 03 checks for items (valued 32-47) that are edible (food, drink, condiment, stat capsules, etc.), and 04 checks for items (valued 48-63) that are other types of usable items (Sale sign, Jeff's items, Horn of Life, etc.).
+
+[1D 03 XX] (Find Character with Inventory Vacancy)
+
+This code will check the inventory of the character whose ID is equal to $XX for empty spots. If $XX is 0, the character ID will be taken from argumentary memory. If the character ID is 0xFF, working memory will be set to the ID of the first person in the party who has room for an item, or 0 if there isn't one. Otherwise, if the character number is not 0xFF, working memory will be set to that same character ID if the character has an empty spot in their inventory, or 0 if their inventory is full. (Note that when $XX is not 0xFF, this code can check for inventory vacancies even if the specified character isn't in the party; [1D 03 02] will always check for vacancies in Paula's inventory.)
+
+$XX uses the standard Argument Listing for playable characters. Check the Standard Argument Listing for more details on usage.
+
+[1D 04 XX YY] (Perform Boolean True Check - Equipped Item)
+
+This code will check if the character XX has item YY equipped, and set working memory to 1 if it is and 0 if it's not. If XX == 0, then the character name will be taken from working memory. If YY == 0, the item will be taken from argumentary memory.
+
+[1D 05 XX YY] (Perform Boolean True Check - Presence of Item)
+
+This code will check the inventory of the character whose number is equal to $XX to see if they are carrying the item whose number is stored in $YY. If $XX = 0, the value in Working Memory will be used instead of $XX. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage. Notably, the character number -- meaning $XX, or Working Memory when $XX = 0 -- may be set to 0xFF to mean checking everyone's inventory. If $YY = 0, the value in Argumentary Memory will be used instead of $YY.
+
+If the specified character has the item, then Working Memory will be set to the ID of that character. (When the specified character number was $FF, this means the first party member whose inventory contains the item.) Otherwise, if the specified character does not have the item, Working Memory will be set to 0x00.
+
+[1D 06 XX XX XX XX] (Increase ATM Balance)
+
+This code will increase the balance stored in the ATM by the value of $XXXXXXXX. If the value of $XXXXXXXX is 0x00000000, the engine will instead read the value stored in Argumentary Memory and increase the ATM balance accordingly. The ATM balance can not exceed a value of 9,999,999 (0x98967F).
+
+[1D 07 XX XX XX XX] (Decrease ATM Balance)
+
+This code will decrease the balance stored in the ATM by the value of $XXXXXXXX. If the value of $XXXXXXXX is 0x00000000, the engine will instead read the value stored in Argumentary Memory and decrease the ATM balance accordingly. The ATM balance can not be reduced below 0. That'd just be silly.
+
+[1D 08 XX XX] (Increase Wallet Balance)
+
+This code will increase the balance stored in the Wallet by the value of $XXXX. If the value of $XXXX is 0x0000, the engine will instead read the value stored in Argumentary Memory and increase the Wallet balance accordingly. The Wallet balance can not exceed a value of 99,999 (0x01869F); if you try, it will be capped to 99,999 silently. This code sets working memory to the resulting wallet balance.
+
+[1D 09 XX XX] (Decrease Wallet Balance)
+
+This code will decrease the balance stored in the Wallet by the value of $XXXX. If the value of $XXXX is 0x0000, the engine will instead read the value stored in Argumentary Memory and decrease the Wallet balance accordingly. The Wallet balance can not be reduced below 0; if you try, working memory will be set to 1. If the balance is decreased successfully, however, working memory will be set to 0.
+
+[1D 0A XX] (Return Price of Item)
+
+This code will change the value stored in Working Memory to match the price of the item whose number is stored in $XX. To use this returned information you will likely have to transfer it to Argumentary Memory, using [1B 04] (Swap Working and Argumentative Memory) or [0D XX] (Copy to Argumentative Memory). See those codes' entries for more information.
+
+[1D 0B XX] (Return Selling Price of Item)
+
+This code will change the value stored in Working Memory to match one half of the price of the item whose number is stored in $XX. To use this returned information you will likely have to transfer it to Argumentary Memory, using [1B 04] (Swap Working and Argumentative Memory) or [0D XX] (Copy to Argumentative Memory). See those codes' entries for more information.
+
+[1D 0C XX XX] (Check If Item Can Be Stored By Escargo Express)
+
+This code checks the $YYth item in character $XX's inventory. If an item is okay to store and Escargo Express's item storage has room, the code returns 0. If an item is not okay to store but Escargo Express's item storage has room, the code returns 1. If an item is okay to store but Escargo Express's item storage is full, the code returns 2. If an item is not okay to store and Escargo Express's item storage also is full, the code returns 3.
+
+[1D 0D XX YY YY] (Check for Status Ailment)
+
+[1D 0E XX YY] (Give Item to Character, Return Recipient and Number of Items)
+
+This code will add an item to a character's inventory. The value in $XX stands for the character number, and the $YY value stands for the item number to be added. Nothing will occur if the character does not have any empty slots in his or her inventory. However, if any character receives the item successfully, the value of Argumentative Memory will also be changed to the number of items they have in their inventory (including the new one). Additionally, the value of Working memory will be changed to the number of the character whom recieved the item $XX uses the standard Argument Listing for playable characters and NPCs, and the value of $YY is the item number that will be added. Check the Standard Argument Listing for more details on usage.
+
+[1D 0F XX YY] (Remove Character XX's YYth Inventory Item)
+
+This code removes the item belonging to the specified character in the specified inventory slot. After removing the item, working memory is set to the ID of the character from which the item was removed, and argumentary memory is set to the ID of the item that was removed. This makes it easy to add the item back via 1D 0E above. If $XX is 0, working memory is used instead of $XX. If $YY is 0, argumentary memory is used instead of $YY.
+
+[1D 10 XX YY] (Perform Boolean True Check - Item in Slot Equipped)
+
+This code checks if the item in Slot YY of Character XX's INVENTORY is equipped. That is, YY is not looking at equipment slots, it's looking at the particular item in that position in the character's inventory.
+
+[1D 11 XX YY] (Check If Inventory Item is Usable)
+
+This code checks if character $XX can use the $YYth item in their inventory. If $XX is 0, working memory is used in place of $XX. If $YY is 0, argumentary memory is used in place of $YY.
+
+[1D 12 XX YY] (Immediately Store Character XX's YYth Item with Escargo Express)
+[1D 13 XX YY] (Immediately Withdraw Storage Item YY and Give to Character XX)
+[1D 14 XX XX XX XX] (Check for Cash on Hand) *True if X<$
+[1D 15 XX XX] (Return Total Price for Base Price X per Person)
+
+This code multiplies $XX by the number of conscious party members and puts the result in working memory. (Diamondized party members are still considered "conscious" in this context.) If $XX is 0, then the literal value 0 is used. This is apparently a bug or typo on the developers' part; there is logic that attempts to get the value of argumentary memory in this case, but the value isn't used for anything. (The GBA version of Mother 2 fixes this bug in its equivalent of this code; if $XX is 0, then argumentary memory is used in place of $XX.) This code is often used to determine hotel prices and bus fares.
+
+[1D 17 XX XX XX XX] (Check for Cash in ATM)
+[1D 18 XX] (Add Item to Escargo Express)
+
+This code adds the item XX to the Escargo Express' inventory. XX being the hex ID value of the item.
+
+[1D 19 XX] (Boolean Check for Number of Party Members)
+
+This code checks whether the party has fewer than $XX party members (counting only the Chosen Four, not any NPC party members). If $XX is 0, argumentary memory is used in place of $XX. If the party has fewer than $XX party members, working memory is set to 1; otherwise, working memory is set to 0.
+
+[1D 20] (Check for User Targeting Self)
+[1D 21 XX] (Generate Random Number)
+
+This code sets Working Memory to a random number in the range 0 to $XX, inclusive (meaning $XX and 0 can both be generated). If $XX = 0, argumentary memory is used in place of $XX.
+
+[1D 22] (Check for Exit Mouse Compatibility)
+[1D 23 XX] (Offensive or Defensive Item Check)
+
+This code returns 1 if the equippable item with ID $XX is a weapon and 2 if it is meant to be equipped on a character instead. For non-equippable items, the result may not be useful. If $XX is 0, argumentary memory is used instead of $XX.
+
+[1D 24 XX] (Return Cash Earned Since Last Call)
+
+This code returns a running total of the money added to Ness's bank account since the last time he called his dad. If $XX == 2, the number will also be reset to zero.
+1E - Stats
+
+[1E 00 XX YY] (Recover HP by Percent)
+
+This code will increase the Current HP Stat of character number $XX by $YY percent of that character's Maximum HP Stat value. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current HP Stat may not be increased beyond the Maximum HP Stat value. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 01 XX YY] (Deplete HP by Percent)
+
+This code will decrease the Current HP Stat of character number $XX by $YY percent of that character's Maximum HP Stat value. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current HP Stat may not be decreased below zero. If a character's HP is reduced below zero, their status will change to "Unconscious" when the text block ends. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 02 XX YY] (Recover HP by Amount)
+
+This code will increase the Current HP Stat of character number $XX by $YY points. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current HP Stat may not be increased beyond the Maximum HP Stat value. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 03 XX YY] (Deplete HP by Amount)
+
+This code will decrease the Current HP Stat of character number $XX by $YY points. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current HP Stat may not be decreased below zero. If a character's HP is reduced below zero, their status will change to "Unconscious" when the text block ends. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 04 XX YY] (Restore PP by Percent)
+
+This code will increase the Current PP Stat of character number $XX by $YY percent of that character's Maximum PP Stat value. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current PP Stat may not be increased beyond the Maximum PP Stat value. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 05 XX YY] (Consume PP by Percent)
+
+This code will decrease the Current PP Stat of character number $XX by $YY percent of that character's Maximum PP Stat value. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current PP Stat may not be decreased below zero. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 06 XX YY] (Restore PP by Amount)
+
+This code will increase the Current PP Stat of character number $XX by $YY points. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current PP Stat may not be increased beyond the Maximum PP Stat value. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 07 XX YY] (Consume PP by Amount)
+
+This code will decrease the Current PP Stat of character number $XX by $YY points. If this code is used while the HP/PP status windows are open, changes in the stat will be shown as rolling values. The Current PP Stat may not be decreased below zero. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 08 XX YY] (Change Character Level Stat)
+
+This code will increase the Level Stat of character number $XX to level number $YY. Related statistic boosts and PSI gains are automatically factored but are not displayed in text form. If this code is used while the HP/PP status windows are open, changes in either stat will be shown as rolling values. The Experience Stat may exceed a value of 0x63 (99), however graphical glitching may occur if the HP and PP stats are raised beyond their normal display limits. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 09 XX YY YY YY YY] (Boost Experience Stat)
+
+This code will increase the Experience Stat of character number $XX by $YYYYYYYY points. If this code causes the Experience Stat to pass a level-up threshold, the appropriate level-up text will be displayed in the current window and the level-up background music will play (the music will override map music until it is forcibly reset by a code such as [1F 03] (Restore Default Music)). The Experience Stat can not exceed a value of 9,999,999 (0x98967F). $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+In the past, this control code was incorrectly labeled as only taking 4 argument bytes (XX YY YY YY, missing a YY at the end).
+
+[1E 0A XX YY] (Boost IQ Stat)
+
+This code will increase the IQ Stat of character number $XX by $YY points. The IQ Stat is only one byte in length, so if this code causes it to increase beyond 0xFF, only the low byte will be used. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 0B XX YY] (Boost Guts Stat)
+
+This code will increase the Guts Stat of character number $XX by $YY points. The Guts Stat is only one byte in length, so if this code causes it to increase beyond 0xFF, only the low byte will be used. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 0C XX YY] (Boost Speed Stat)
+
+This code will increase the Speed Stat of character number $XX by $YY points. The Speed Stat is only one byte in length, so if this code causes it to increase beyond 0xFF, only the low byte will be used. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 0D XX YY] (Boost Vitality Stat)
+
+This code will increase the Vitality Stat of character number $XX by $YY points. The Vitality Stat is only one byte in length, so if this code causes it to increase beyond 0xFF, only the low byte will be used. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+
+[1E 0E XX YY] (Boost Luck Stat)
+
+This code will increase the Luck Stat of character number $XX by $YY points. The Luck Stat is only one byte in length, so if this code causes it to increase beyond 0xFF, only the low byte will be used. $XX uses the standard Argument Listing for playable characters and NPCs. Check the Standard Argument Listing for more details on usage.
+1F - Sound and Misc
+
+[1F 00 XX YY] (Play Music Track)
+[1F 01 XX] (Stop Music)
+[1F 02 XX] (Play Sound Effect)
+[1F 03] (Restore Default Music)
+[1F 04 XX] (Toggle Text Printing Sound)
+
+This code controls whether or not printing text should play a sound effect. If $XX = 01, the text will do whatever is normal for the current situation (making noise outside of battle, staying quiet inside of battle). If $XX = 02, text will always make noise. If $XX = 03, text will never make noise.
+
+[1F 05] (Disallow Sector Boundaries to Change Music)
+[1F 06] (Allow Sector Boundaries to Change Music)
+[1F 07 XX] (Apply Music Effect)
+[1F 11 XX] (Add Party Member)
+[1F 12 XX] (Remove Party Member)
+[1F 13 XX YY] (Change Direction of Character)
+[1F 14 XX] (Change Direction of Party Members)
+[1F 15 XX XX YY YY ZZ] (Generate Active Sprite)
+
+XX XX is the sprite number, YY YY is the sprite's movement script, ZZ is appearance style
+
+[1F 16 XX XX YY] (Change Direction of TPT Entry)
+[1F 17 XX XX YY YY ZZ] (Generate Active TPT Entry)
+
+XX XX is the TPT entry, YY YY is the sprite's movement script, ZZ is appearance style
+
+[1F 18 XX XX XX XX XX XX XX] (NO-OP)
+
+This code does absolutely nothing, aside from consume 7 argument bytes.
+
+[1F 19 XX XX XX XX XX XX XX] (NO-OP)
+
+This code is exactly the same as [1F 18]; their subroutines are identical to the last byte.
+
+[1F 1A XX XX YY] (Generate Floating Sprite near TPT Entry)
+
+This is the 1st code to generate a floating sprite, this one generates a floating sprite by a TPT entry created by the [1F 17] code. [1F 1A XX XX YY] follows the Standard Argument Listing for Generated Sprites.
+
+[1F 1B XX XX] (Delete Floating Sprite - TPT)
+
+This code deletes the floating sprite XX created by the [1F 1A] code.
+
+[1F 1C XX YY] (Generate Floating Sprite near Character)
+
+This is the 2nd code to generate a floating sprite, this time by a character. [1F 1C XX XX YY] follows the Standard Argument Listing for Characters and for Generated Sprites.
+
+[1F 1D XX] (Delete Floating Sprite - Character)
+
+This code deletes floating sprite XX created by the [1F 1C] code.
+
+[1F 1E XX XX YY] (Delete TPT Entry from Screen)
+
+Deletes TPT entry XX XX from the screen, using effect YY. Effects are documented here.
+
+[1F 1F XX XX YY] (Delete Generated Sprite from Screen)
+
+This code deletes the generated sprite XX created by the [1F 15] code.
+
+[1F 20 XX YY] (Trigger PSI-style Teleport)
+[1F 21 XX] (Teleport to Preset Coordinates)
+
+This teleport you to one of the locations according to the teleport_destination_table.yml
+
+[1F 23 XX XX] (Trigger Battle Scene)
+
+Starts a battle with the specified enemy group entry.
+
+[1F 30] (Set Normal Font)
+[1F 31] (Set Mr. Saturn Font)
+[1F 40 XX XX] (NO-OP)
+[1F 41 XX] (Trigger Special Event)
+
+This code does something different depending on the value of $XX:
+
+    01: Plays the coffee scene from Saturn Valley.
+    02: Plays the tea scene from Tenda Village.
+    03: Opens the menu for entering the player's name in Summers and sets working memory.
+    04: Originally opened the menu for entering the player's name in Japanese in Tenda Village. This code was only used in Mother 2, not in EarthBound, but it remainds functional and uses an English keyboard.
+    05: Sets the "overworld status suppression" (OSS) flag, preventing the player from taking damage on the overworld even if they are underwater or have a status that deals damage over time.
+    06: Clears the "overworld status suppression" (OSS) flag, allowing the player to take damage on the overworld again. If flag 49 00 (in CCScript dumps, flag 73) is set, this instead sets the OSS flag as if 05 were used.
+    07: Opens a view of the town map for the current area, if a map exists. Working memory is set to the ID of the town map that is displayed, or 0 if the current area does not have a town map.
+    08: Sets working memory to 1 if the current action user is an enemy, or 0 if the current action user is on the player's side.
+    09: Shows the normal sound stone screen that can be canceled by pressing a button.
+    0A: Shows a still image of the title screen that fades away when the player presses a button.
+    0B: Shows the "Cast" scene that plays during the first part of the ending.
+    0C: Shows the "Credits" scene with the names of the developers and the photos taken by the photo man.
+    0D: Causes all HP and PP meters to begin scrolling randomly, as when Ness powers up at the end of Magicant.
+    0E: Resets the effect caused by 0D.
+    0F: Clears all event flags in the game.
+    10: Shows the final sound stone screen that cannot be canceled early.
+    11: Attempts to inflict homesickness on Ness based on his level. Sets working memory to 1 if Ness became homesick, otherwise 0.
+    12: Kicks Ness out of bicycle mode if he is currently in it. Sets working memory to 1 if Ness was just on a bicycle, otherwise 0.
+
+Unless stated otherwise, this code sets working memory to 0.
+
+[1F 50] (Disable Controller Input)
+[1F 51] (Enable Controller Input)
+[1F 52 XX] (Generate Number Selector)
+
+This code creates a menu in the current window allowing the user to input a number. $XX is the number of digits the number can have. If the user cancels the menu with the B button, working memory and argumentary memory are both set to 0; otherwise, working memory is set to the number the user chooses and argumentary memory is not modified.
+
+[1F 60 XX] (Delay Parsing for up to $XX frames)
+
+This code stops the script from progressing until either $XX frames have passed or the player presses a button. If $XX is 0, a default number of frames depending on the current text speed is used instead (30 for fast, 60 for medium, 0 for slow). With an argument of 0, this code is identical to [03] in battle on medium and fast text speeds.
+
+[1F 61] (Movement Code Trigger)
+
+This code stops the script from executing until a movement script on an NPC or other sprite allows it to proceed again.
+
+[1F 62 XX] "Set blinking triangle flag"
+[1F 63 XX XX XX XX] (Screen-Reload Pointer)
+[1F 64] (Backup party)
+
+Creates a backup of the current party NPCs and wallet money. Deletes all party NPCs and zeros out the wallet money. (Used for Jeff and Poo sequences)
+
+[1F 65] (Restore party)
+
+Restores the backup made from [1F 64]. (Used for Jeff and Poo sequences)
+
+[1F 66 XX YY ZZ ZZ ZZ ZZ] (Activate Map Hotspot)
+
+This code sets up the hotspot in slot $XX with the data of hotspot $YY in the map hotspot table, and sets the script associated with this hotspot to $ZZZZZZZZ.
+
+The game has 2 "slots" (numbered 1 and 2) that it uses to keep track of which hotspots are currently active. Only one hotspot can be loaded into one slot at a time. If the slot number ($XX) is 0, then argumentary memory is used instead of $XX.
+
+A hotspot is an area on the map that runs a script when stepped on for more than a single frame (or, less commonly, when stepped out of for more than a single frame). The coordinates for these are stored in the map hotspot table. If the index into the map hotspot table ($YY) is 0, then working memory is used instead of $YY.
+
+The script that a hotspot runs is not stored in the map hotspot table; the script is included with this control code. This means that you can use the same hotspot to run two different scripts at two different points in the game.
+
+[1F 67 XX] (Deactivate Map Hotspot)
+
+This code deactivates the hotspot loaded in slot $XX. If $XX is 0, then argumentary memory is used instead of $XX.
+
+[1F 68] (Store Coordinates to Memory)
+[1F 69] (Teleport to Stored Coordinates)
+[1F 71 XX YY] (Realize PSI Power)
+[1F 81 XX YY] (Check If Item is Usable)
+
+This code checks if character $XX can use the item with ID $YY. If $XX is 0, working memory is used in place of $XX. If $YY is 0, argumentary memory is used in place of $YY.
+
+[1F 83 XX YY] (Equip Character XX with Their YYth Item)
+
+This code equips character $XX with the $YYth item in their inventory. If $XX is 0, working memory is used in place of $XX. If $YY is 0, argumentary memory is used in place of $YY. This code sets argumentary memory to the inventory slot number of the previous equipment that was removed in order to equip the $YYth item; if there was no item equipped there before, argumentary memory is set to 0.
+
+[1F 90] (Open Phone Menu and Return Player Choice)
+[1F A0] (Open Present)
+
+This code sets the current NPC's flag and makes it face upward, the direction that presents face when they are considered open.
+
+[1F A1] (Close Present)
+
+This code clears the current NPC's flag and makes it face downward, the direction that presents face when they are considered unopened.
+
+[1F A2] (Check TPT Entry Flag)
+[1F B0] (Save the Game)
+[1F C0 XX (YY YY YY YY)] (Multiple-Address Reference Pointer)
+[1F D0 XX] (Attempt to Fix Items)
+
+This code looks at each broken item in Jeff's inventory and determines if Jeff's IQ is sufficient to fix it. If the code comes across a fixable broken item, it removes the broken item from Jeff's inventory and replaces it with the fixed item. The number of the broken item is put into Argumentary Memory and the number of the new, fixed item in put into Working Memory. There is a XX% chance that this code will work, otherwise it will do nothing.
+
+[1F D1] (Return Direction of Nearby Magic Truffle)
+
+This code looks for an NPC or other sprite with a graphics ID of 376, used for Magic Truffle locations, among the currently loaded NPCs and sprite entries, and it sets Working Memory depending on what it finds. (The searching logic for the magic truffle sprite stops as soon as it finds any magic truffle; it will not search for the closest one if there are multiple.) If there is no currently loaded magic truffle sprite, Working Memory is set to 0. If the player is not within a 128x128 pixel box around the magic truffle sprite, Working Memory is set to 1. Otherwise, if the player is within the 128x128 pixel box but is not within a smaller diamond extending 32 pixels vertically and horizontally (i.e., the Manhattan distance from the player to the truffle is greater than 16 pixels), Working Memory is set to 10. Otherwise, Working Memory is set to a value in the range 2 through 9 depending on the direction from the player to the magic truffle. The directions start from 2 instead of 1 but otherwise match the order of facing directions in other commands (2 is Up, 3 is Up+Right, 4 is Right, etc. rotating clockwise)
+
+[1F D2 XX] (Summon Traveling Photographer)
+[1F D3 XX] (Trigger Timed Event)
+[1F E1 XX YY ZZ] (Change Map Palette)
+
+XX is tileset number, YY is palette number, and ZZ is speed of transition
+
+[1F E4 XX XX YY] (Change Direction of Generated Sprite)
+[1F E5 XX] (Freeze Character XX Movement)
+[1F E6 XX XX] (Freeze TPT Entry XX XX Movement)
+[1F E7 XX XX] (Freeze Sprite Entry XX XX Movement)
+[1F E8 XX] (Unfreeze Character XX Movement)
+[1F E9 XX XX] (Unfreeze TPT Entry XX XX Movement)
+[1F EA XX XX] (Unfreeze Sprite Entry XX XX Movement)
+[1F EB XX YY] (Render Character Invisible)
+[1F EC XX YY] (Render Character Visible)
+[1F ED] (Stop Camera from Focusing on a TPT Entry or Generated Sprite)
+[1F EE XX XX] (Focus Camera on TPT Entry)
+[1F EF XX XX] (Focus Camera on Generated Sprite)
+[1F F0] (Activate Bicycle)
+[1F F1 XX XX YY YY] (Give TPT Entry a New Movement Pattern)
+[1F F2 XX XX YY YY] (Give Sprite a New Movement Pattern)
+[1F F3 XX XX YY] (Generate Floating Sprite Near Generated Sprite)
+
+This is the 3rd code to generate a floating sprite, this time by another sprite that has been created by the [1F 15] code. [1F F3 XX XX YY] follows the Standard Argument Listing for Generated Sprites.
+
+[1F F4 XX XX] (Delete Floating Sprite - Generated Sprite)
+
+This code deletes floating sprite XX created by the [1F F3] code. 

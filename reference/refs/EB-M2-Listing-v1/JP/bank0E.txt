@@ -1,0 +1,1374 @@
+>>> bankconfig/JP/bank0e.asm
+  000000:             .INCLUDE "bankconfig/common/bank0e.asm"
+>>> bankconfig/common/bank0e.asm
+  CE0000:             .INCLUDE "common.asm"
+  CE0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  CE0000:             .INCLUDE "symbols/battle_sprites.inc.asm"
+  CE0000:             .INCLUDE "symbols/misc.inc.asm"
+  CE0000:             BATTLE_SPRITE_82:
+  CE0000: E4 2B 00 03     BINARY "battle_sprites/82.gfx.lzhal"
+          07 07 18 18 
+          2B 00 02 07 
+          ...omitted...
+  CE0305:             BATTLE_SPRITE_6:
+  CE0305: E4 83 00 0B     BINARY "battle_sprites/6.gfx.lzhal"
+          01 01 03 03 
+          07 06 0F 0C 
+          ...omitted...
+  CE0601:             BATTLE_SPRITE_31:
+  CE0601: E4 A5 00 09     BINARY "battle_sprites/31.gfx.lzhal"
+          0F 0F 12 1F 
+          23 3F 43 7F 
+          ...omitted...
+  CE08F3:             BATTLE_SPRITE_50:
+  CE08F3: 29 00 23 01     BINARY "battle_sprites/50.gfx.lzhal"
+          01 07 07 8F 
+          00 00 1F 3E 
+          ...omitted...
+  CE0BD6:             BATTLE_SPRITE_109:
+  CE0BD6: E4 46 00 08     BINARY "battle_sprites/109.gfx.lzhal"
+          80 00 C0 00 
+          62 00 22 00 
+          ...omitted...
+  CE0EB3:             BATTLE_SPRITE_53:
+  CE0EB3: E4 2D 00 00     BINARY "battle_sprites/53.gfx.lzhal"
+          07 C7 00 2E 
+          D6 00 36 01 
+          ...omitted...
+  CE118D:             BATTLE_SPRITE_103:
+  CE118D: 2D 00 01 01     BINARY "battle_sprites/103.gfx.lzhal"
+          01 86 00 00 
+          D2 00 16 05 
+          ...omitted...
+  CE1461:             BATTLE_SPRITE_98:
+  CE1461: E4 A9 00 05     BINARY "battle_sprites/98.gfx.lzhal"
+          1F 1F 27 3F 
+          5B 7F 29 00 
+          ...omitted...
+  CE170A:             BATTLE_SPRITE_68:
+  CE170A: E4 27 00 07     BINARY "battle_sprites/68.gfx.lzhal"
+          01 01 06 07 
+          18 1E 73 6F 
+          ...omitted...
+  CE19A9:             BATTLE_SPRITE_52:
+  CE19A9: E4 29 00 05     BINARY "battle_sprites/52.gfx.lzhal"
+          07 07 0C 0F 
+          02 03 29 00 
+          ...omitted...
+  CE1C2E:             BATTLE_SPRITE_8:
+  CE1C2E: E5 07 00 07     BINARY "battle_sprites/8.gfx.lzhal"
+          20 20 58 58 
+          34 24 2C 34 
+          ...omitted...
+  CE1EB1:             BATTLE_SPRITE_21:
+  CE1EB1: E4 85 00 23     BINARY "battle_sprites/21.gfx.lzhal"
+          01 05 03 02 
+          07 04 03 02 
+          ...omitted...
+  CE2133:             BATTLE_SPRITE_43:
+  CE2133: E4 81 00 11     BINARY "battle_sprites/43.gfx.lzhal"
+          01 01 07 07 
+          0F 0F 1C 1F 
+          ...omitted...
+  CE239C:             BATTLE_SPRITE_7:
+  CE239C: E4 AB 00 03     BINARY "battle_sprites/7.gfx.lzhal"
+          05 05 07 07 
+          2B 00 8F 00 
+          ...omitted...
+  CE25E6:             BATTLE_SPRITE_5:
+  CE25E6: E4 A5 00 01     BINARY "battle_sprites/5.gfx.lzhal"
+          01 01 41 02 
+          03 41 05 06 
+          ...omitted...
+  CE2830:             BATTLE_SPRITE_26:
+  CE2830: E5 2B 00 03     BINARY "battle_sprites/26.gfx.lzhal"
+          3D 3D C3 C3 
+          2B 00 03 3D 
+          ...omitted...
+  CE2A5E:             BATTLE_SPRITE_61:
+  CE2A5E: E5 09 00 05     BINARY "battle_sprites/61.gfx.lzhal"
+          60 60 50 50 
+          3D 2D 29 00 
+          ...omitted...
+  CE2C7E:             BATTLE_SPRITE_24:
+  CE2C7E: E5 81 00 0F     BINARY "battle_sprites/24.gfx.lzhal"
+          01 01 07 06 
+          0F 08 1B 10 
+          ...omitted...
+  CE2E9B:             BATTLE_SPRITE_92:
+  CE2E9B: E5 05 00 09     BINARY "battle_sprites/92.gfx.lzhal"
+          01 01 03 02 
+          07 05 0E 0A 
+          ...omitted...
+  CE30B7:             BATTLE_SPRITE_33:
+  CE30B7: E5 21 00 41     BINARY "battle_sprites/33.gfx.lzhal"
+          04 00 00 02 
+          24 00 03 07 
+          ...omitted...
+  CE32C9:             BATTLE_SPRITE_29:
+  CE32C9: 29 00 05 0D     BINARY "battle_sprites/29.gfx.lzhal"
+          0D 12 1F 2F 
+          31 8C 00 00 
+          ...omitted...
+  CE34C5:             BATTLE_SPRITE_69:
+  CE34C5: E4 81 00 0F     BINARY "battle_sprites/69.gfx.lzhal"
+          04 04 24 24 
+          04 04 15 15 
+          ...omitted...
+  CE36B1:             BATTLE_SPRITE_49:
+  CE36B1: 2B 00 03 01     BINARY "battle_sprites/49.gfx.lzhal"
+          01 01 01 8F 
+          00 00 25 00 
+          ...omitted...
+  CE3897:             BATTLE_SPRITE_80:
+  CE3897: E5 27 00 23     BINARY "battle_sprites/80.gfx.lzhal"
+          01 03 02 03 
+          03 02 27 00 
+          ...omitted...
+  CE3A60:             BATTLE_SPRITE_3:
+  CE3A60: E4 85 00 09     BINARY "battle_sprites/3.gfx.lzhal"
+          01 01 03 03 
+          06 06 0C 0C 
+          ...omitted...
+  CE3C0F:             BATTLE_SPRITE_45:
+  CE3C0F: 23 00 0B 60     BINARY "battle_sprites/45.gfx.lzhal"
+          60 93 F3 97 
+          94 AC AB 58 
+          ...omitted...
+  CE3DB9:             BATTLE_SPRITE_20:
+  CE3DB9: E4 21 00 0F     BINARY "battle_sprites/20.gfx.lzhal"
+          3F 3F 20 3F 
+          2C 3F 13 1F 
+          ...omitted...
+  CE3F63:             BATTLE_SPRITE_91:
+  CE3F63: 3F 00 1F 1C     BINARY "battle_sprites/91.gfx.lzhal"
+          1C 3F 3F 6E 
+          66 F7 E7 EA 
+          ...omitted...
+  CE4104:             BATTLE_SPRITE_19:
+  CE4104: 25 00 01 01     BINARY "battle_sprites/19.gfx.lzhal"
+          01 27 03 87 
+          00 00 27 02 
+          ...omitted...
+  CE429C:             BATTLE_SPRITE_2:
+  CE429C: 3F 00 05 1C     BINARY "battle_sprites/2.gfx.lzhal"
+          1C 3E 22 7D 
+          43 41 FE 99 
+          ...omitted...
+  CE4432:             BATTLE_SPRITE_25:
+  CE4432: E4 81 00 E0     BINARY "battle_sprites/25.gfx.lzhal"
+          2D 0C 0C 1F 
+          13 3F 2C 7F 
+          ...omitted...
+  CE45BF:             BATTLE_SPRITE_17:
+  CE45BF: 09 00 00 07     BINARY "battle_sprites/17.gfx.lzhal"
+          07 08 08 16 
+          16 11 11 41 
+          ...omitted...
+  CE4745:             BATTLE_SPRITE_76:
+  CE4745: E4 23 00 0B     BINARY "battle_sprites/76.gfx.lzhal"
+          01 01 07 07 
+          1F 1C 3F 2F 
+          ...omitted...
+  CE48C8:             BATTLE_SPRITE_15:
+  CE48C8: 2D 00 01 1F     BINARY "battle_sprites/15.gfx.lzhal"
+          1F 86 00 00 
+          D0 00 16 07 
+          ...omitted...
+  CE4A4A:             BATTLE_SPRITE_48:
+  CE4A4A: E4 61 00 1D     BINARY "battle_sprites/48.gfx.lzhal"
+          3C 3C 7A 46 
+          B9 FF C4 BF 
+          ...omitted...
+  CE4BAE:             BATTLE_SPRITE_70:
+  CE4BAE: E5 A9 00 01     BINARY "battle_sprites/70.gfx.lzhal"
+          03 03 23 04 
+          29 00 8F 01 
+          ...omitted...
+  CE4D0E:             BATTLE_SPRITE_57:
+  CE4D0E: 03 00 00 0C     BINARY "battle_sprites/57.gfx.lzhal"
+          0C 23 12 27 
+          02 8F 00 00 
+          ...omitted...
+  CE4E6D:             BATTLE_SPRITE_1:
+  CE4E6D: 2B 00 03 01     BINARY "battle_sprites/1.gfx.lzhal"
+          01 02 02 8E 
+          00 00 00 03 
+          ...omitted...
+  CE4FCC:             BATTLE_SPRITE_47:
+  CE4FCC: E4 8B 00 00     BINARY "battle_sprites/47.gfx.lzhal"
+          01 26 00 0A 
+          03 00 0C 00 
+          ...omitted...
+  CE5128:             BATTLE_SPRITE_46:
+  CE5128: 0F 00 00 31     BINARY "battle_sprites/46.gfx.lzhal"
+          31 73 72 5A 
+          4A 2E 2E 17 
+          ...omitted...
+  CE5283:             BATTLE_SPRITE_4:
+  CE5283: 27 00 07 03     BINARY "battle_sprites/4.gfx.lzhal"
+          03 04 07 08 
+          0F 18 1F 8A 
+          ...omitted...
+  CE53DB:             BATTLE_SPRITE_77:
+  CE53DB: E4 29 00 05     BINARY "battle_sprites/77.gfx.lzhal"
+          03 03 04 07 
+          0A 0D 29 00 
+          ...omitted...
+  CE5527:             BATTLE_SPRITE_65:
+  CE5527: E4 81 00 01     BINARY "battle_sprites/65.gfx.lzhal"
+          01 01 23 03 
+          0B 0E 0F 71 
+          ...omitted...
+  CE5673:             BATTLE_SPRITE_85:
+  CE5673: E4 9F 00 03     BINARY "battle_sprites/85.gfx.lzhal"
+          0E 0E 07 07 
+          25 03 25 01 
+          ...omitted...
+  CE57BD:             BATTLE_SPRITE_44:
+  CE57BD: 3F 00 07 03     BINARY "battle_sprites/44.gfx.lzhal"
+          03 07 07 0F 
+          0C 1F 1B 23 
+          ...omitted...
+  CE58FD:             BATTLE_SPRITE_58:
+  CE58FD: 3F 00 E0 29     BINARY "battle_sprites/58.gfx.lzhal"
+          01 01 06 06 
+          0B 0B 1C 18 
+          ...omitted...
+  CE5A3B:             BATTLE_SPRITE_18:
+  CE5A3B: 2B 00 03 03     BINARY "battle_sprites/18.gfx.lzhal"
+          03 06 06 8F 
+          00 00 27 00 
+          ...omitted...
+  CE5B5F:             BATTLE_SPRITE_59:
+  CE5B5F: 3F 00 E0 21     BINARY "battle_sprites/59.gfx.lzhal"
+          03 03 0D 0D 
+          12 12 25 21 
+          ...omitted...
+  CE5C78:             BATTLE_SPRITE_16:
+  CE5C78: E4 85 00 05     BINARY "battle_sprites/16.gfx.lzhal"
+          01 01 03 03 
+          07 07 41 0E 
+          ...omitted...
+  CE5D8A:             BATTLE_SPRITE_66:
+  CE5D8A: E4 21 00 01     BINARY "battle_sprites/66.gfx.lzhal"
+          06 06 25 09 
+          01 78 78 23 
+          ...omitted...
+  CE5E8A:             BATTLE_SPRITE_90:
+  CE5E8A: E4 A9 00 05     BINARY "battle_sprites/90.gfx.lzhal"
+          07 07 1A 1A 
+          24 24 29 00 
+          ...omitted...
+  CE5F82:             BATTLE_SPRITE_88:
+  CE5F82: E4 85 00 09     BINARY "battle_sprites/88.gfx.lzhal"
+          03 03 07 04 
+          0F 08 0E 09 
+          ...omitted...
+  CE606D:             BATTLE_SPRITE_0:
+  CE606D: E4 83 00 01     BINARY "battle_sprites/0.gfx.lzhal"
+          03 03 41 04 
+          07 01 07 07 
+          ...omitted...
+  CE6158:             BATTLE_SPRITE_42:
+  CE6158: E4 89 00 05     BINARY "battle_sprites/42.gfx.lzhal"
+          07 07 1E 1D 
+          3C 2F 29 00 
+          ...omitted...
+  CE6230:             BATTLE_SPRITE_89:
+  CE6230: E4 AB 00 03     BINARY "battle_sprites/89.gfx.lzhal"
+          3C 3C CE FE 
+          2B 00 03 3C 
+          ...omitted...
+  CE62EE:             .INCLUDE "data/battle/battle_sprites_pointers.asm"
+>>> data/battle/battle_sprites_pointers.asm
+  CE62EE:             BATTLE_SPRITES_POINTERS:
+  CE62EE: 6D 60 CE 00     .DWORD BATTLE_SPRITE_0
+  CE62F2: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE62F3: 6D 4E CE 00     .DWORD BATTLE_SPRITE_1
+  CE62F7: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE62F8: 9C 42 CE 00     .DWORD BATTLE_SPRITE_2
+  CE62FC: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE62FD: 60 3A CE 00     .DWORD BATTLE_SPRITE_3
+  CE6301: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6302: 83 52 CE 00     .DWORD BATTLE_SPRITE_4
+  CE6306: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6307: E6 25 CE 00     .DWORD BATTLE_SPRITE_5
+  CE630B: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE630C: 05 03 CE 00     .DWORD BATTLE_SPRITE_6
+  CE6310: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6311: 9C 23 CE 00     .DWORD BATTLE_SPRITE_7
+  CE6315: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6316: 2E 1C CE 00     .DWORD BATTLE_SPRITE_8
+  CE631A: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE631B: AF E6 CD 00     .DWORD BATTLE_SPRITE_9
+  CE631F: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6320: 83 E3 CD 00     .DWORD BATTLE_SPRITE_10
+  CE6324: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6325: 02 B8 CD 00     .DWORD BATTLE_SPRITE_11
+  CE6329: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE632A: E8 D9 CD 00     .DWORD BATTLE_SPRITE_12
+  CE632E: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE632F: AA 83 CD 00     .DWORD BATTLE_SPRITE_13
+  CE6333: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6334: 7B C2 CD 00     .DWORD BATTLE_SPRITE_14
+  CE6338: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6339: C8 48 CE 00     .DWORD BATTLE_SPRITE_15
+  CE633D: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE633E: 78 5C CE 00     .DWORD BATTLE_SPRITE_16
+  CE6342: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6343: BF 45 CE 00     .DWORD BATTLE_SPRITE_17
+  CE6347: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6348: 3B 5A CE 00     .DWORD BATTLE_SPRITE_18
+  CE634C: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE634D: 04 41 CE 00     .DWORD BATTLE_SPRITE_19
+  CE6351: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6352: B9 3D CE 00     .DWORD BATTLE_SPRITE_20
+  CE6356: 02              .BYTE BATTLE_SPRITE_SIZE::_64X32
+  CE6357: B1 1E CE 00     .DWORD BATTLE_SPRITE_21
+  CE635B: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE635C: 1D A5 CD 00     .DWORD BATTLE_SPRITE_22
+  CE6360: 02              .BYTE BATTLE_SPRITE_SIZE::_64X32
+  CE6361: 73 FC CD 00     .DWORD BATTLE_SPRITE_23
+  CE6365: 02              .BYTE BATTLE_SPRITE_SIZE::_64X32
+  CE6366: 7E 2C CE 00     .DWORD BATTLE_SPRITE_24
+  CE636A: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE636B: 32 44 CE 00     .DWORD BATTLE_SPRITE_25
+  CE636F: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6370: 30 28 CE 00     .DWORD BATTLE_SPRITE_26
+  CE6374: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6375: 3E F3 CD 00     .DWORD BATTLE_SPRITE_27
+  CE6379: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE637A: DB E9 CD 00     .DWORD BATTLE_SPRITE_28
+  CE637E: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE637F: C9 32 CE 00     .DWORD BATTLE_SPRITE_29
+  CE6383: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6384: 66 F9 CD 00     .DWORD BATTLE_SPRITE_30
+  CE6388: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6389: 01 06 CE 00     .DWORD BATTLE_SPRITE_31
+  CE638D: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE638E: F0 C5 CD 00     .DWORD BATTLE_SPRITE_32
+  CE6392: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6393: B7 30 CE 00     .DWORD BATTLE_SPRITE_33
+  CE6397: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6398: AD D6 CD 00     .DWORD BATTLE_SPRITE_34
+  CE639C: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE639D: 93 65 CD 00     .DWORD BATTLE_SPRITE_35
+  CE63A1: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63A2: EE 55 CD 00     .DWORD BATTLE_SPRITE_36
+  CE63A6: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63A7: D7 79 CD 00     .DWORD BATTLE_SPRITE_37
+  CE63AB: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63AC: 94 3F CD 00     .DWORD BATTLE_SPRITE_38
+  CE63B0: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63B1: 59 39 CD 00     .DWORD BATTLE_SPRITE_39
+  CE63B5: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63B6: 5C 18 CD 00     .DWORD BATTLE_SPRITE_40
+  CE63BA: 05              .BYTE BATTLE_SPRITE_SIZE::_128X64
+  CE63BB: 19 2B CD 00     .DWORD BATTLE_SPRITE_41
+  CE63BF: 05              .BYTE BATTLE_SPRITE_SIZE::_128X64
+  CE63C0: 58 61 CE 00     .DWORD BATTLE_SPRITE_42
+  CE63C4: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE63C5: 33 21 CE 00     .DWORD BATTLE_SPRITE_43
+  CE63C9: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63CA: BD 57 CE 00     .DWORD BATTLE_SPRITE_44
+  CE63CE: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE63CF: 0F 3C CE 00     .DWORD BATTLE_SPRITE_45
+  CE63D3: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE63D4: 28 51 CE 00     .DWORD BATTLE_SPRITE_46
+  CE63D8: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE63D9: CC 4F CE 00     .DWORD BATTLE_SPRITE_47
+  CE63DD: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63DE: 4A 4A CE 00     .DWORD BATTLE_SPRITE_48
+  CE63E2: 02              .BYTE BATTLE_SPRITE_SIZE::_64X32
+  CE63E3: B1 36 CE 00     .DWORD BATTLE_SPRITE_49
+  CE63E7: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63E8: F3 08 CE 00     .DWORD BATTLE_SPRITE_50
+  CE63EC: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63ED: 44 A1 CD 00     .DWORD BATTLE_SPRITE_51
+  CE63F1: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE63F2: A9 19 CE 00     .DWORD BATTLE_SPRITE_52
+  CE63F6: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63F7: B3 0E CE 00     .DWORD BATTLE_SPRITE_53
+  CE63FB: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE63FC: FF BE CD 00     .DWORD BATTLE_SPRITE_54
+  CE6400: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6401: 42 91 CD 00     .DWORD BATTLE_SPRITE_55
+  CE6405: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6406: AA 45 CD 00     .DWORD BATTLE_SPRITE_56
+  CE640A: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE640B: 0E 4D CE 00     .DWORD BATTLE_SPRITE_57
+  CE640F: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6410: FD 58 CE 00     .DWORD BATTLE_SPRITE_58
+  CE6414: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6415: 5F 5B CE 00     .DWORD BATTLE_SPRITE_59
+  CE6419: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE641A: 1F DD CD 00     .DWORD BATTLE_SPRITE_60
+  CE641E: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE641F: 5E 2A CE 00     .DWORD BATTLE_SPRITE_61
+  CE6423: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6424: CF CC CD 00     .DWORD BATTLE_SPRITE_62
+  CE6428: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6429: 47 B4 CD 00     .DWORD BATTLE_SPRITE_63
+  CE642D: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE642E: 26 0E CD 00     .DWORD BATTLE_SPRITE_64
+  CE6432: 05              .BYTE BATTLE_SPRITE_SIZE::_128X64
+  CE6433: 27 55 CE 00     .DWORD BATTLE_SPRITE_65
+  CE6437: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6438: 8A 5D CE 00     .DWORD BATTLE_SPRITE_66
+  CE643C: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE643D: 87 B0 CD 00     .DWORD BATTLE_SPRITE_67
+  CE6441: 02              .BYTE BATTLE_SPRITE_SIZE::_64X32
+  CE6442: 0A 17 CE 00     .DWORD BATTLE_SPRITE_68
+  CE6446: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6447: C5 34 CE 00     .DWORD BATTLE_SPRITE_69
+  CE644B: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE644C: AE 4B CE 00     .DWORD BATTLE_SPRITE_70
+  CE6450: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6451: 53 E0 CD 00     .DWORD BATTLE_SPRITE_71
+  CE6455: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6456: 65 9D CD 00     .DWORD BATTLE_SPRITE_72
+  CE645A: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE645B: 3D 5B CD 00     .DWORD BATTLE_SPRITE_73
+  CE645F: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6460: B6 6A CD 00     .DWORD BATTLE_SPRITE_74
+  CE6464: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6465: 69 60 CD 00     .DWORD BATTLE_SPRITE_75
+  CE6469: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE646A: 45 47 CE 00     .DWORD BATTLE_SPRITE_76
+  CE646E: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE646F: DB 53 CE 00     .DWORD BATTLE_SPRITE_77
+  CE6473: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE6474: 59 F6 CD 00     .DWORD BATTLE_SPRITE_78
+  CE6478: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6479: 1F F0 CD 00     .DWORD BATTLE_SPRITE_79
+  CE647D: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE647E: 97 38 CE 00     .DWORD BATTLE_SPRITE_80
+  CE6482: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6483: 60 C9 CD 00     .DWORD BATTLE_SPRITE_81
+  CE6487: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6488: 00 00 CE 00     .DWORD BATTLE_SPRITE_82
+  CE648C: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE648D: 71 D3 CD 00     .DWORD BATTLE_SPRITE_83
+  CE6491: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE6492: BF AC CD 00     .DWORD BATTLE_SPRITE_84
+  CE6496: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6497: 73 56 CE 00     .DWORD BATTLE_SPRITE_85
+  CE649B: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE649C: 8F 32 CD 00     .DWORD BATTLE_SPRITE_86
+  CE64A0: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64A1: CE 7E CD 00     .DWORD BATTLE_SPRITE_87
+  CE64A5: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64A6: 82 5F CE 00     .DWORD BATTLE_SPRITE_88
+  CE64AA: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE64AB: 30 62 CE 00     .DWORD BATTLE_SPRITE_89
+  CE64AF: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE64B0: 8A 5E CE 00     .DWORD BATTLE_SPRITE_90
+  CE64B4: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE64B5: 63 3F CE 00     .DWORD BATTLE_SPRITE_91
+  CE64B9: 01              .BYTE BATTLE_SPRITE_SIZE::_32X32
+  CE64BA: 9B 2E CE 00     .DWORD BATTLE_SPRITE_92
+  CE64BE: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE64BF: 24 D0 CD 00     .DWORD BATTLE_SPRITE_93
+  CE64C3: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE64C4: DF 74 CD 00     .DWORD BATTLE_SPRITE_94
+  CE64C8: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64C9: 8A 95 CD 00     .DWORD BATTLE_SPRITE_95
+  CE64CD: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64CE: 9D 50 CD 00     .DWORD BATTLE_SPRITE_96
+  CE64D2: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64D3: 55 22 CD 00     .DWORD BATTLE_SPRITE_97
+  CE64D7: 05              .BYTE BATTLE_SPRITE_SIZE::_128X64
+  CE64D8: 61 14 CE 00     .DWORD BATTLE_SPRITE_98
+  CE64DC: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE64DD: CB 8C CD 00     .DWORD BATTLE_SPRITE_99
+  CE64E1: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64E2: 4B 4B CD 00     .DWORD BATTLE_SPRITE_100
+  CE64E6: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64E7: D3 6F CD 00     .DWORD BATTLE_SPRITE_101
+  CE64EB: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64EC: F4 A8 CD 00     .DWORD BATTLE_SPRITE_102
+  CE64F0: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64F1: 8D 11 CE 00     .DWORD BATTLE_SPRITE_103
+  CE64F5: 03              .BYTE BATTLE_SPRITE_SIZE::_32X64
+  CE64F6: 3F 88 CD 00     .DWORD BATTLE_SPRITE_104
+  CE64FA: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE64FB: 84 99 CD 00     .DWORD BATTLE_SPRITE_105
+  CE64FF: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6500: 82 BB CD 00     .DWORD BATTLE_SPRITE_106
+  CE6504: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE6505: 00 00 CD 00     .DWORD BATTLE_SPRITE_107
+  CE6509: 06              .BYTE BATTLE_SPRITE_SIZE::_128X128
+  CE650A: FE EC CD 00     .DWORD BATTLE_SPRITE_108
+  CE650E: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+  CE650F: D6 0B CE 00     .DWORD BATTLE_SPRITE_109
+  CE6513: 04              .BYTE BATTLE_SPRITE_SIZE::_64X64
+>>> bankconfig/common/bank0e.asm
+  CE6514:             BATTLE_SPRITE_PALETTES:
+  CE6514: 00 00 C0 42     BINARY "battle_sprites/palettes/0.pal"
+          60 3A 00 32 
+          C0 2D 60 25 
+          ...omitted...
+  CE6534: 07 7C DE 7B     BINARY "battle_sprites/palettes/1.pal"
+          39 67 92 42 
+          C0 42 40 3A 
+          ...omitted...
+  CE6554: E0 7F DE 7B     BINARY "battle_sprites/palettes/2.pal"
+          5A 6B F7 5E 
+          52 4A EF 3D 
+          ...omitted...
+  CE6574: 20 33 DE 4A     BINARY "battle_sprites/palettes/3.pal"
+          5E 4A 7E 41 
+          1E 30 35 24 
+          ...omitted...
+  CE6594: E0 1B DE 7B     BINARY "battle_sprites/palettes/4.pal"
+          14 63 B0 4E 
+          2D 46 CB 3D 
+          ...omitted...
+  CE65B4: F8 03 7E 5B     BINARY "battle_sprites/palettes/5.pal"
+          B8 3A 58 36 
+          D3 2D 50 21 
+          ...omitted...
+  CE65D4: F9 01 60 57     BINARY "battle_sprites/palettes/6.pal"
+          C0 42 40 3A 
+          CA 2D 47 1D 
+          ...omitted...
+  CE65F4: 1A 00 DE 5B     BINARY "battle_sprites/palettes/7.pal"
+          D8 42 98 36 
+          F3 2D 90 21 
+          ...omitted...
+  CE6614: 08 1D DE 7B     BINARY "battle_sprites/palettes/8.pal"
+          5A 6B 92 42 
+          34 7A 40 3A 
+          ...omitted...
+  CE6634: 87 40 DE 7B     BINARY "battle_sprites/palettes/9.pal"
+          39 67 92 42 
+          C0 42 40 3A 
+          ...omitted...
+  CE6654: 00 4E DE 7B     BINARY "battle_sprites/palettes/10.pal"
+          3B 5B 77 3B 
+          36 36 AF 2D 
+          ...omitted...
+  CE6674: 00 26 DE 4A     BINARY "battle_sprites/palettes/11.pal"
+          5E 4A 7E 41 
+          1E 30 35 24 
+          ...omitted...
+  CE6694: 80 06 0D 14     BINARY "battle_sprites/palettes/12.pal"
+          05 30 00 10 
+          00 04 00 04 
+          ...omitted...
+  CE66B4: D7 02 7E 5B     BINARY "battle_sprites/palettes/13.pal"
+          77 4A 58 36 
+          D3 2D 8D 21 
+          ...omitted...
+  CE66D4: 37 01 1F 77     BINARY "battle_sprites/palettes/14.pal"
+          59 6E B3 41 
+          ED 5C 47 1D 
+          ...omitted...
+  CE66F4: 11 00 1F 77     BINARY "battle_sprites/palettes/15.pal"
+          7D 5E DB 41 
+          1D 29 F6 54 
+          ...omitted...
+  CE6714: A5 14 FF 53     BINARY "battle_sprites/palettes/16.pal"
+          18 5B 1D 4A 
+          9C 3D 1B 31 
+          ...omitted...
+  CE6734: 25 2C DE 7B     BINARY "battle_sprites/palettes/17.pal"
+          38 5D F2 69 
+          00 7F 40 4E 
+          ...omitted...
+  CE6754: E0 34 DE 7B     BINARY "battle_sprites/palettes/18.pal"
+          5A 6B F2 69 
+          00 7F 40 4E 
+          ...omitted...
+  CE6774: 40 1D DE 4A     BINARY "battle_sprites/palettes/19.pal"
+          5E 4A D7 4C 
+          5E 31 7C 1E 
+          ...omitted...
+  CE6794: 00 00 05 10     BINARY "battle_sprites/palettes/20.pal"
+          05 10 27 20 
+          64 18 88 20 
+          ...omitted...
+  CE67B4: AE 01 7E 5B     BINARY "battle_sprites/palettes/21.pal"
+          0C 43 8B 42 
+          0A 46 89 45 
+          ...omitted...
+  CE67D4: AC 00 1F 77     BINARY "battle_sprites/palettes/22.pal"
+          59 6E B3 41 
+          ED 5C 47 1D 
+          ...omitted...
+  CE67F4: 08 00 DE 7B     BINARY "battle_sprites/palettes/23.pal"
+          FF 4F 1C 2B 
+          BB 1E 5A 0A 
+          ...omitted...
+  CE6814: 42 0C DE 7B     BINARY "battle_sprites/palettes/24.pal"
+          5A 6B 92 42 
+          34 7A 9C 71 
+          ...omitted...
+  CE6834: 01 10 DE 7B     BINARY "battle_sprites/palettes/25.pal"
+          5A 6B 5E 4C 
+          3D 3E 5E 65 
+          ...omitted...
+  CE6854: 80 1C DE 7B     BINARY "battle_sprites/palettes/26.pal"
+          9D 43 3C 2F 
+          BB 1E 5A 0A 
+          ...omitted...
+  CE6874: C0 10 FF 53     BINARY "battle_sprites/palettes/27.pal"
+          FF 46 DF 35 
+          DF 28 B8 2C 
+          ...omitted...
+  CE6894: C0 00 32 7B     BINARY "battle_sprites/palettes/28.pal"
+          B1 6E 50 62 
+          CE 59 6D 4D 
+          ...omitted...
+  CE68B4: 08 01 7E 5B     BINARY "battle_sprites/palettes/29.pal"
+          0C 43 8B 43 
+          0A 46 0D 12 
+          ...omitted...
+  CE68D4: 66 00 9E 2F     BINARY "battle_sprites/palettes/30.pal"
+          1E 3F 3F 2E 
+          BF 09 FA 38 
+          ...omitted...
+  CE68F4: 03 00 1F 77     BINARY "battle_sprites/palettes/31.pal"
+          59 6E B3 41 
+          ED 5C 47 1D 
+          ...omitted...
+  CE6914:             SWIRL_DATA:
+  CE6914:             SWIRL_DATA_0:
+  CE6914: 01 7F FF 00     BINARY "swirls/0.swirl"
+          61 FF 00 00 
+  CE691C:             SWIRL_DATA_1:
+  CE691C: 01 6B FF 00     BINARY "swirls/1.swirl"
+          82 82 87 80 
+          87 03 7F 87 
+          ...omitted...
+  CE6933:             SWIRL_DATA_2:
+  CE6933: 04 6B FF 00     BINARY "swirls/2.swirl"
+          FF 00 91 82 
+          8A FF 00 80 
+          ...omitted...
+  CE6984:             SWIRL_DATA_3:
+  CE6984: 04 5E FF 00     BINARY "swirls/3.swirl"
+          FF 00 9D 82 
+          88 FF 00 7E 
+          ...omitted...
+  CE6A05:             SWIRL_DATA_4:
+  CE6A05: 04 5E FF 00     BINARY "swirls/4.swirl"
+          FF 00 91 82 
+          8C FF 00 7D 
+          ...omitted...
+  CE6A9D:             SWIRL_DATA_5:
+  CE6A9D: 04 5E FF 00     BINARY "swirls/5.swirl"
+          FF 00 8A 82 
+          8C FF 00 7D 
+          ...omitted...
+  CE6B48:             SWIRL_DATA_6:
+  CE6B48: 04 56 FF 00     BINARY "swirls/6.swirl"
+          FF 00 92 70 
+          72 FF 00 6E 
+          ...omitted...
+  CE6C1A:             SWIRL_DATA_7:
+  CE6C1A: 04 4F FF 00     BINARY "swirls/7.swirl"
+          FF 00 99 85 
+          94 FF 00 7F 
+          ...omitted...
+  CE6CF8:             SWIRL_DATA_8:
+  CE6CF8: 04 4F FF 00     BINARY "swirls/8.swirl"
+          FF 00 99 85 
+          94 FF 00 7F 
+          ...omitted...
+  CE6DEA:             SWIRL_DATA_9:
+  CE6DEA: 04 4F FF 00     BINARY "swirls/9.swirl"
+          FF 00 92 85 
+          94 FF 00 7F 
+          ...omitted...
+  CE6F02:             SWIRL_DATA_10:
+  CE6F02: 04 4F FF 00     BINARY "swirls/10.swirl"
+          FF 00 92 85 
+          94 FF 00 7F 
+          ...omitted...
+  CE701F:             SWIRL_DATA_11:
+  CE701F: 04 37 FF 00     BINARY "swirls/11.swirl"
+          FF 00 A6 85 
+          97 FF 00 7D 
+          ...omitted...
+  CE718B:             SWIRL_DATA_12:
+  CE718B: 04 37 FF 00     BINARY "swirls/12.swirl"
+          FF 00 B0 85 
+          97 FF 00 7D 
+          ...omitted...
+  CE7307:             SWIRL_DATA_13:
+  CE7307: 04 37 FF 00     BINARY "swirls/13.swirl"
+          FF 00 9D 85 
+          97 FF 00 7D 
+          ...omitted...
+  CE74D2:             SWIRL_DATA_14:
+  CE74D2: 04 37 FF 00     BINARY "swirls/14.swirl"
+          FF 00 A5 85 
+          97 FF 00 7D 
+          ...omitted...
+  CE76B1:             SWIRL_DATA_15:
+  CE76B1: 04 17 FF 00     BINARY "swirls/15.swirl"
+          FF 00 BD 82 
+          8F FF 00 77 
+          ...omitted...
+  CE78DF:             SWIRL_DATA_16:
+  CE78DF: 04 17 FF 00     BINARY "swirls/16.swirl"
+          FF 00 C5 82 
+          8F FF 00 77 
+          ...omitted...
+  CE7B3C:             SWIRL_DATA_17:
+  CE7B3C: 04 17 FF 00     BINARY "swirls/17.swirl"
+          FF 00 AC 82 
+          8F FF 00 77 
+          ...omitted...
+  CE7DD9:             SWIRL_DATA_18:
+  CE7DD9: 04 C3 40 8F     BINARY "swirls/18.swirl"
+          FF 00 3D 8A 
+          FF 00 3B 81 
+          ...omitted...
+  CE80F2:             SWIRL_DATA_19:
+  CE80F2: 04 C3 40 8F     BINARY "swirls/19.swirl"
+          FF 00 3D 8A 
+          FF 00 3B 81 
+          ...omitted...
+  CE83DE:             SWIRL_DATA_20:
+  CE83DE: 01 98 40 FF     BINARY "swirls/20.swirl"
+          3D FF 3B FF 
+          39 FF 37 FF 
+          ...omitted...
+  CE8523:             SWIRL_DATA_21:
+  CE8523: 01 98 40 FF     BINARY "swirls/21.swirl"
+          3D FF 3B FF 
+          39 FF 37 FF 
+          ...omitted...
+  CE85B9:             SWIRL_DATA_22:
+  CE85B9: 01 7F 00 FF     BINARY "swirls/22.swirl"
+          61 00 FF 00 
+  CE85C1:             SWIRL_DATA_23:
+  CE85C1: 01 7F FF 00     BINARY "swirls/23.swirl"
+          61 FF 00 00 
+  CE85C9:             SWIRL_DATA_24:
+  CE85C9: 04 67 FF 00     BINARY "swirls/24.swirl"
+          FF 00 86 7D 
+          83 FF 00 79 
+          ...omitted...
+  CE8616:             SWIRL_DATA_25:
+  CE8616: 04 67 FF 00     BINARY "swirls/25.swirl"
+          FF 00 85 7A 
+          86 FF 00 78 
+          ...omitted...
+  CE865B:             SWIRL_DATA_26:
+  CE865B: 04 66 FF 00     BINARY "swirls/26.swirl"
+          FF 00 88 7A 
+          86 FF 00 78 
+          ...omitted...
+  CE86AE:             SWIRL_DATA_27:
+  CE86AE: 04 65 FF 00     BINARY "swirls/27.swirl"
+          FF 00 86 7A 
+          86 FF 00 78 
+          ...omitted...
+  CE870D:             SWIRL_DATA_28:
+  CE870D: 04 64 FF 00     BINARY "swirls/28.swirl"
+          FF 00 88 7A 
+          86 FF 00 77 
+          ...omitted...
+  CE876A:             SWIRL_DATA_29:
+  CE876A: 04 62 FF 00     BINARY "swirls/29.swirl"
+          FF 00 89 7C 
+          84 FF 00 79 
+          ...omitted...
+  CE87CF:             SWIRL_DATA_30:
+  CE87CF: 04 61 FF 00     BINARY "swirls/30.swirl"
+          FF 00 89 7A 
+          86 FF 00 76 
+          ...omitted...
+  CE883E:             SWIRL_DATA_31:
+  CE883E: 04 5F FF 00     BINARY "swirls/31.swirl"
+          FF 00 8D 79 
+          87 FF 00 76 
+          ...omitted...
+  CE88C3:             SWIRL_DATA_32:
+  CE88C3: 04 5C FF 00     BINARY "swirls/32.swirl"
+          FF 00 90 79 
+          87 FF 00 75 
+          ...omitted...
+  CE8956:             SWIRL_DATA_33:
+  CE8956: 04 58 FF 00     BINARY "swirls/33.swirl"
+          FF 00 92 7C 
+          84 FF 00 76 
+          ...omitted...
+  CE8A0D:             SWIRL_DATA_34:
+  CE8A0D: 04 53 FF 00     BINARY "swirls/34.swirl"
+          FF 00 97 77 
+          89 FF 00 72 
+          ...omitted...
+  CE8AE2:             SWIRL_DATA_35:
+  CE8AE2: 04 4A FF 00     BINARY "swirls/35.swirl"
+          FF 00 9B 77 
+          89 FF 00 71 
+          ...omitted...
+  CE8BFF:             SWIRL_DATA_36:
+  CE8BFF: 04 39 FF 00     BINARY "swirls/36.swirl"
+          FF 00 A9 7D 
+          83 FF 00 71 
+          ...omitted...
+  CE8D94:             SWIRL_DATA_37:
+  CE8D94: 04 10 FF 00     BINARY "swirls/37.swirl"
+          FF 00 BF 7A 
+          86 FF 00 6D 
+          ...omitted...
+  CE9013:             SWIRL_DATA_38:
+  CE9013: 04 68 FF 00     BINARY "swirls/38.swirl"
+          FF 00 8D 81 
+          82 FF 00 81 
+          ...omitted...
+  CE9066:             SWIRL_DATA_39:
+  CE9066: 04 67 FF 00     BINARY "swirls/39.swirl"
+          FF 00 83 7E 
+          7F FF 00 7E 
+          ...omitted...
+  CE90BB:             SWIRL_DATA_40:
+  CE90BB: 04 68 FF 00     BINARY "swirls/40.swirl"
+          FF 00 86 7A 
+          7D FF 00 7C 
+          ...omitted...
+  CE9105:             SWIRL_DATA_41:
+  CE9105: 04 67 FF 00     BINARY "swirls/41.swirl"
+          FF 00 03 85 
+          86 FF 00 82 
+          ...omitted...
+  CE9148:             SWIRL_DATA_42:
+  CE9148: 04 64 FF 00     BINARY "swirls/42.swirl"
+          FF 00 84 81 
+          82 FF 00 81 
+          ...omitted...
+  CE91A7:             SWIRL_DATA_43:
+  CE91A7: 04 64 FF 00     BINARY "swirls/43.swirl"
+          FF 00 92 7E 
+          7F FF 00 7E 
+          ...omitted...
+  CE9212:             SWIRL_DATA_44:
+  CE9212: 04 65 FF 00     BINARY "swirls/44.swirl"
+          FF 00 96 79 
+          7D FF 00 7B 
+          ...omitted...
+  CE9277:             SWIRL_DATA_45:
+  CE9277: 04 65 FF 00     BINARY "swirls/45.swirl"
+          FF 00 8B 89 
+          8A FF 00 75 
+          ...omitted...
+  CE92D8:             SWIRL_DATA_46:
+  CE92D8: 04 60 FF 00     BINARY "swirls/46.swirl"
+          FF 00 83 83 
+          84 FF 00 83 
+          ...omitted...
+  CE934B:             SWIRL_DATA_47:
+  CE934B: 04 5E FF 00     BINARY "swirls/47.swirl"
+          FF 00 88 7C 
+          7E FF 00 7D 
+          ...omitted...
+  CE93E6:             SWIRL_DATA_48:
+  CE93E6: 04 5E FF 00     BINARY "swirls/48.swirl"
+          FF 00 92 77 
+          79 FF 00 78 
+          ...omitted...
+  CE9481:             SWIRL_DATA_49:
+  CE9481: 04 5E FF 00     BINARY "swirls/49.swirl"
+          FF 00 03 8D 
+          8E FF 00 8C 
+          ...omitted...
+  CE9509:             SWIRL_DATA_50:
+  CE9509: 04 58 FF 00     BINARY "swirls/50.swirl"
+          FF 00 01 87 
+          88 FF 00 02 
+          ...omitted...
+  CE95A4:             SWIRL_DATA_51:
+  CE95A4: 04 51 FF 00     BINARY "swirls/51.swirl"
+          FF 00 8C 7E 
+          7F FF 00 7E 
+          ...omitted...
+  CE969F:             SWIRL_DATA_52:
+  CE969F: 04 4F FF 00     BINARY "swirls/52.swirl"
+          FF 00 A0 72 
+          75 FF 00 74 
+          ...omitted...
+  CE97B2:             SWIRL_DATA_53:
+  CE97B2: 04 4E FF 00     BINARY "swirls/53.swirl"
+          FF 00 02 9D 
+          9E FF 00 9D 
+          ...omitted...
+  CE98C8:             SWIRL_DATA_54:
+  CE98C8: 04 36 FF 00     BINARY "swirls/54.swirl"
+          FF 00 02 95 
+          96 FF 00 82 
+          ...omitted...
+  CE9A34:             SWIRL_DATA_55:
+  CE9A34: 04 0F FF 00     BINARY "swirls/55.swirl"
+          FF 00 93 7F 
+          80 FF 00 80 
+          ...omitted...
+  CE9CFA:             SWIRL_DATA_56:
+  CE9CFA: 04 DE 3C 58     BINARY "swirls/56.swirl"
+          FF 00 3E 5B 
+          FF 00 41 5E 
+          ...omitted...
+  CEA069:             SWIRL_DATA_57:
+  CEA069: 04 BD 00 77     BINARY "swirls/57.swirl"
+          DE EF 04 79 
+          DE EF 0A 7B 
+          ...omitted...
+  CEA3A3:             SWIRL_DATA_58:
+  CEA3A3: 04 8B 00 BC     BINARY "swirls/58.swirl"
+          CD FF 00 BE 
+          CD FF 00 C0 
+          ...omitted...
+  CEA5AD:             SWIRL_DATA_59:
+  CEA5AD: 01 7F 00 FF     BINARY "swirls/59.swirl"
+          61 00 FF 00 
+  CEA5B5:             SWIRL_DATA_60:
+  CEA5B5: 04 6F FF 00     BINARY "swirls/60.swirl"
+          FF 00 01 00 
+          01 FF FF 70 
+          ...omitted...
+  CEA5C6:             SWIRL_DATA_61:
+  CEA5C6: 04 6F FF 00     BINARY "swirls/61.swirl"
+          FF 00 83 00 
+          02 FE FF FF 
+          ...omitted...
+  CEA5DF:             SWIRL_DATA_62:
+  CEA5DF: 04 6B FF 00     BINARY "swirls/62.swirl"
+          FF 00 89 00 
+          01 FF FF FF 
+          ...omitted...
+  CEA610:             SWIRL_DATA_63:
+  CEA610: 04 67 FF 00     BINARY "swirls/63.swirl"
+          FF 00 91 00 
+          01 FF FF FF 
+          ...omitted...
+  CEA661:             SWIRL_DATA_64:
+  CEA661: 04 61 FF 00     BINARY "swirls/64.swirl"
+          FF 00 9F 00 
+          02 FE FF FF 
+          ...omitted...
+  CEA6EA:             SWIRL_DATA_65:
+  CEA6EA: 04 57 FF 00     BINARY "swirls/65.swirl"
+          FF 00 B1 00 
+          01 FF FF FF 
+          ...omitted...
+  CEA7BB:             SWIRL_DATA_66:
+  CEA7BB: 04 4D FF 00     BINARY "swirls/66.swirl"
+          FF 00 C5 00 
+          01 FF FF FF 
+          ...omitted...
+  CEA8DC:             SWIRL_DATA_67:
+  CEA8DC: 04 41 FF 00     BINARY "swirls/67.swirl"
+          FF 00 DF 00 
+          02 FE FF FF 
+          ...omitted...
+  CEAA65:             SWIRL_DATA_68:
+  CEAA65: 04 33 FF 00     BINARY "swirls/68.swirl"
+          FF 00 FB 00 
+          02 FE FF FF 
+          ...omitted...
+  CEAC5E:             SWIRL_DATA_69:
+  CEAC5E: 04 21 FF 00     BINARY "swirls/69.swirl"
+          FF 00 FF 00 
+          01 FF FF FF 
+          ...omitted...
+  CEAEE0:             SWIRL_DATA_70:
+  CEAEE0: 04 0F FF 00     BINARY "swirls/70.swirl"
+          FF 00 FF 00 
+          01 FF FF FF 
+          ...omitted...
+  CEB1F2:             SWIRL_DATA_71:
+  CEB1F2: 04 FF FF 00     BINARY "swirls/71.swirl"
+          FF 00 00 07 
+          F9 FF FF 00 
+          ...omitted...
+  CEB576:             SWIRL_DATA_72:
+  CEB576: 04 FF FF 00     BINARY "swirls/72.swirl"
+          FF 00 00 1D 
+          E3 FF FF 00 
+          ...omitted...
+  CEB8FA:             SWIRL_DATA_73:
+  CEB8FA: 04 FF FF 00     BINARY "swirls/73.swirl"
+          FF 00 00 35 
+          CB FF FF 00 
+          ...omitted...
+  CEBC7E:             SWIRL_DATA_74:
+  CEBC7E: 04 FF FF 00     BINARY "swirls/74.swirl"
+          FF 00 00 4F 
+          B1 FF FF 00 
+          ...omitted...
+  CEC002:             SWIRL_DATA_75:
+  CEC002: 04 FF FF 00     BINARY "swirls/75.swirl"
+          FF 00 00 6B 
+          95 FF FF 00 
+          ...omitted...
+  CEC386:             SWIRL_DATA_76:
+  CEC386: 01 FF 78 88     BINARY "swirls/76.swirl"
+          00 FF 76 8A 
+          00 FF 74 8C 
+          ...omitted...
+  CEC54A:             SWIRL_DATA_77:
+  CEC54A: 04 D9 59 A7     BINARY "swirls/77.swirl"
+          FF 00 00 FF 
+          FF 00 57 A9 
+          ...omitted...
+  CEC817:             SWIRL_DATA_78:
+  CEC817: 01 B7 37 C9     BINARY "swirls/78.swirl"
+          00 FF 35 CB 
+          00 FF 33 CD 
+          ...omitted...
+  CEC8F8:             SWIRL_DATA_79:
+  CEC8F8: 01 93 14 EC     BINARY "swirls/79.swirl"
+          00 FF 12 EE 
+          00 FF 10 F0 
+          ...omitted...
+  CEC950:             SWIRL_DATA_80:
+  CEC950: 01 7F 00 FF     BINARY "swirls/80.swirl"
+          61 00 FF 00 
+  CEC958:             SWIRL_DATA_81:
+  CEC958: 01 7F 00 FF     BINARY "swirls/81.swirl"
+          61 00 FF 00 
+  CEC960:             SWIRL_DATA_82:
+  CEC960: 01 39 FF 00     BINARY "swirls/82.swirl"
+          6E 00 FF 39 
+          FF 00 00    
+  CEC96B:             SWIRL_DATA_83:
+  CEC96B: 01 39 FF 00     BINARY "swirls/83.swirl"
+          01 00 FF 32 
+          FF 00 08 00 
+          ...omitted...
+  CEC982:             SWIRL_DATA_84:
+  CEC982: 01 57 FF 00     BINARY "swirls/84.swirl"
+          01 00 FF 14 
+          FF 00 08 00 
+          ...omitted...
+  CEC999:             SWIRL_DATA_85:
+  CEC999: 01 6C FF 00     BINARY "swirls/85.swirl"
+          01 00 FF 02 
+          FF 00 03 00 
+          ...omitted...
+  CEC9B0:             SWIRL_DATA_86:
+  CEC9B0: 01 6F FF 00     BINARY "swirls/86.swirl"
+          03 00 FF 6E 
+          FF 00 00    
+  CEC9BB:             SWIRL_DATA_87:
+  CEC9BB: 01 6F FF 00     BINARY "swirls/87.swirl"
+          03 1D E3 6E 
+          FF 00 00    
+  CEC9C6:             SWIRL_DATA_88:
+  CEC9C6: 01 6F FF 00     BINARY "swirls/88.swirl"
+          03 5A A6 6E 
+          FF 00 00    
+  CEC9D1:             SWIRL_DATA_89:
+  CEC9D1: 01 6F FF 00     BINARY "swirls/89.swirl"
+          03 70 90 6E 
+          FF 00 00    
+  CEC9DC:             SWIRL_DATA_90:
+  CEC9DC: 01 6F FF 00     BINARY "swirls/90.swirl"
+          03 75 8B 6E 
+          FF 00 00    
+  CEC9E7:             SWIRL_DATA_91:
+  CEC9E7: 01 6F FF 00     BINARY "swirls/91.swirl"
+          03 7C 84 6E 
+          FF 00 00    
+  CEC9F2:             SWIRL_DATA_92:
+  CEC9F2: 01 6F FF 00     BINARY "swirls/92.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CEC9FD:             SWIRL_DATA_93:
+  CEC9FD: 01 6F FF 00     BINARY "swirls/93.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA08:             SWIRL_DATA_94:
+  CECA08: 01 6F FF 00     BINARY "swirls/94.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA13:             SWIRL_DATA_95:
+  CECA13: 01 6F FF 00     BINARY "swirls/95.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA1E:             SWIRL_DATA_96:
+  CECA1E: 01 6F FF 00     BINARY "swirls/96.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA29:             SWIRL_DATA_97:
+  CECA29: 01 6F FF 00     BINARY "swirls/97.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA34:             SWIRL_DATA_98:
+  CECA34: 01 6F FF 00     BINARY "swirls/98.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA3F:             SWIRL_DATA_99:
+  CECA3F: 01 6F FF 00     BINARY "swirls/99.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA4A:             SWIRL_DATA_100:
+  CECA4A: 01 6F FF 00     BINARY "swirls/100.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA55:             SWIRL_DATA_101:
+  CECA55: 01 6F FF 00     BINARY "swirls/101.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA60:             SWIRL_DATA_102:
+  CECA60: 01 6F FF 00     BINARY "swirls/102.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA6B:             SWIRL_DATA_103:
+  CECA6B: 01 6F FF 00     BINARY "swirls/103.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA76:             SWIRL_DATA_104:
+  CECA76: 01 6F FF 00     BINARY "swirls/104.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA81:             SWIRL_DATA_105:
+  CECA81: 01 6F FF 00     BINARY "swirls/105.swirl"
+          03 7E 81 6E 
+          FF 00 00    
+  CECA8C:             SWIRL_DATA_106:
+  CECA8C: 01 70 FF 00     BINARY "swirls/106.swirl"
+          01 7F 80 6F 
+          FF 00 00    
+  CECA97:             SWIRL_DATA_107:
+  CECA97: 01 70 FF 00     BINARY "swirls/107.swirl"
+          01 7F 80 6F 
+          FF 00 00    
+  CECAA2:             SWIRL_DATA_108:
+  CECAA2: 01 7F FF 00     BINARY "swirls/108.swirl"
+          61 FF 00 00 
+  CECAAA:             SWIRL_DATA_109:
+  CECAAA: 01 7F FF 00     BINARY "swirls/109.swirl"
+          61 FF 00 00 
+  CECAB2:             SWIRL_DATA_110:
+  CECAB2: 01 11 FF 00     BINARY "swirls/110.swirl"
+          01 00 FF 1F 
+          FF 00 01 00 
+          ...omitted...
+  CECAE1:             SWIRL_DATA_111:
+  CECAE1: 01 82 FF 00     BINARY "swirls/111.swirl"
+          00 FF 07 FF 
+          00 01 00 FF 
+          ...omitted...
+  CECB8D:             SWIRL_DATA_112:
+  CECB8D: 01 82 FF 00     BINARY "swirls/112.swirl"
+          00 FF 03 FF 
+          00 01 00 FF 
+          ...omitted...
+  CECC8D:             SWIRL_DATA_113:
+  CECC8D: 01 82 FF 00     BINARY "swirls/113.swirl"
+          00 FF 03 FF 
+          00 01 00 FF 
+          ...omitted...
+  CECDE1:             SWIRL_DATA_114:
+  CECDE1: 01 86 FF 00     BINARY "swirls/114.swirl"
+          00 FF FF 00 
+          00 FF FF 00 
+          ...omitted...
+  CECF51:             SWIRL_DATA_115:
+  CECF51: 01 86 FF 00     BINARY "swirls/115.swirl"
+          00 FF FF 00 
+          00 FF FF 00 
+          ...omitted...
+  CED0DD:             SWIRL_DATA_116:
+  CED0DD: 01 8E FF 00     BINARY "swirls/116.swirl"
+          00 FF FF 00 
+          00 FF FF 00 
+          ...omitted...
+  CED285:             SWIRL_DATA_117:
+  CED285: 01 FF FF 00     BINARY "swirls/117.swirl"
+          00 FF FF 00 
+          00 FF FF 00 
+          ...omitted...
+  CED449:             SWIRL_DATA_118:
+  CED449: 01 01 FF 00     BINARY "swirls/118.swirl"
+          03 00 FF 8D 
+          FF 00 00 FF 
+          ...omitted...
+  CED5F0:             SWIRL_DATA_119:
+  CED5F0: 01 01 FF 00     BINARY "swirls/119.swirl"
+          03 00 FF 85 
+          FF 00 00 FF 
+          ...omitted...
+  CED77B:             SWIRL_DATA_120:
+  CED77B: 01 01 FF 00     BINARY "swirls/120.swirl"
+          03 00 FF 01 
+          FF 00 03 00 
+          ...omitted...
+  CED8EA:             SWIRL_DATA_121:
+  CED8EA: 01 01 FF 00     BINARY "swirls/121.swirl"
+          03 00 FF 01 
+          FF 00 03 00 
+          ...omitted...
+  CEDA3C:             SWIRL_DATA_122:
+  CEDA3C: 01 01 FF 00     BINARY "swirls/122.swirl"
+          07 00 FF 01 
+          FF 00 03 00 
+          ...omitted...
+  CEDB3A:             SWIRL_DATA_123:
+  CEDB3A: 01 01 FF 00     BINARY "swirls/123.swirl"
+          07 00 FF 01 
+          FF 00 07 00 
+          ...omitted...
+  CEDBE4:             SWIRL_DATA_124:
+  CEDBE4: 01 01 FF 00     BINARY "swirls/124.swirl"
+          0F 00 FF 01 
+          FF 00 0F 00 
+          ...omitted...
+  CEDC3A:             SWIRL_DATA_125:
+  CEDC3A: 01 01 FF 00     BINARY "swirls/125.swirl"
+          7F 00 FF 60 
+          00 FF 00    
+  CEDC45:             .INCLUDE "data/battle/swirl_pointers.asm"
+>>> data/battle/swirl_pointers.asm
+  CEDC45:             SWIRL_POINTER_TABLE:
+  CEDC45: 14 69           .WORD .LOWORD(SWIRL_DATA_0)
+  CEDC47: 1C 69           .WORD .LOWORD(SWIRL_DATA_1)
+  CEDC49: 33 69           .WORD .LOWORD(SWIRL_DATA_2)
+  CEDC4B: 84 69           .WORD .LOWORD(SWIRL_DATA_3)
+  CEDC4D: 05 6A           .WORD .LOWORD(SWIRL_DATA_4)
+  CEDC4F: 9D 6A           .WORD .LOWORD(SWIRL_DATA_5)
+  CEDC51: 48 6B           .WORD .LOWORD(SWIRL_DATA_6)
+  CEDC53: 1A 6C           .WORD .LOWORD(SWIRL_DATA_7)
+  CEDC55: F8 6C           .WORD .LOWORD(SWIRL_DATA_8)
+  CEDC57: EA 6D           .WORD .LOWORD(SWIRL_DATA_9)
+  CEDC59: 02 6F           .WORD .LOWORD(SWIRL_DATA_10)
+  CEDC5B: 1F 70           .WORD .LOWORD(SWIRL_DATA_11)
+  CEDC5D: 8B 71           .WORD .LOWORD(SWIRL_DATA_12)
+  CEDC5F: 07 73           .WORD .LOWORD(SWIRL_DATA_13)
+  CEDC61: D2 74           .WORD .LOWORD(SWIRL_DATA_14)
+  CEDC63: B1 76           .WORD .LOWORD(SWIRL_DATA_15)
+  CEDC65: DF 78           .WORD .LOWORD(SWIRL_DATA_16)
+  CEDC67: 3C 7B           .WORD .LOWORD(SWIRL_DATA_17)
+  CEDC69: D9 7D           .WORD .LOWORD(SWIRL_DATA_18)
+  CEDC6B: F2 80           .WORD .LOWORD(SWIRL_DATA_19)
+  CEDC6D: DE 83           .WORD .LOWORD(SWIRL_DATA_20)
+  CEDC6F: 23 85           .WORD .LOWORD(SWIRL_DATA_21)
+  CEDC71: B9 85           .WORD .LOWORD(SWIRL_DATA_22)
+  CEDC73: C1 85           .WORD .LOWORD(SWIRL_DATA_23)
+  CEDC75: C9 85           .WORD .LOWORD(SWIRL_DATA_24)
+  CEDC77: 16 86           .WORD .LOWORD(SWIRL_DATA_25)
+  CEDC79: 5B 86           .WORD .LOWORD(SWIRL_DATA_26)
+  CEDC7B: AE 86           .WORD .LOWORD(SWIRL_DATA_27)
+  CEDC7D: 0D 87           .WORD .LOWORD(SWIRL_DATA_28)
+  CEDC7F: 6A 87           .WORD .LOWORD(SWIRL_DATA_29)
+  CEDC81: CF 87           .WORD .LOWORD(SWIRL_DATA_30)
+  CEDC83: 3E 88           .WORD .LOWORD(SWIRL_DATA_31)
+  CEDC85: C3 88           .WORD .LOWORD(SWIRL_DATA_32)
+  CEDC87: 56 89           .WORD .LOWORD(SWIRL_DATA_33)
+  CEDC89: 0D 8A           .WORD .LOWORD(SWIRL_DATA_34)
+  CEDC8B: E2 8A           .WORD .LOWORD(SWIRL_DATA_35)
+  CEDC8D: FF 8B           .WORD .LOWORD(SWIRL_DATA_36)
+  CEDC8F: 94 8D           .WORD .LOWORD(SWIRL_DATA_37)
+  CEDC91: 13 90           .WORD .LOWORD(SWIRL_DATA_38)
+  CEDC93: 66 90           .WORD .LOWORD(SWIRL_DATA_39)
+  CEDC95: BB 90           .WORD .LOWORD(SWIRL_DATA_40)
+  CEDC97: 05 91           .WORD .LOWORD(SWIRL_DATA_41)
+  CEDC99: 48 91           .WORD .LOWORD(SWIRL_DATA_42)
+  CEDC9B: A7 91           .WORD .LOWORD(SWIRL_DATA_43)
+  CEDC9D: 12 92           .WORD .LOWORD(SWIRL_DATA_44)
+  CEDC9F: 77 92           .WORD .LOWORD(SWIRL_DATA_45)
+  CEDCA1: D8 92           .WORD .LOWORD(SWIRL_DATA_46)
+  CEDCA3: 4B 93           .WORD .LOWORD(SWIRL_DATA_47)
+  CEDCA5: E6 93           .WORD .LOWORD(SWIRL_DATA_48)
+  CEDCA7: 81 94           .WORD .LOWORD(SWIRL_DATA_49)
+  CEDCA9: 09 95           .WORD .LOWORD(SWIRL_DATA_50)
+  CEDCAB: A4 95           .WORD .LOWORD(SWIRL_DATA_51)
+  CEDCAD: 9F 96           .WORD .LOWORD(SWIRL_DATA_52)
+  CEDCAF: B2 97           .WORD .LOWORD(SWIRL_DATA_53)
+  CEDCB1: C8 98           .WORD .LOWORD(SWIRL_DATA_54)
+  CEDCB3: 34 9A           .WORD .LOWORD(SWIRL_DATA_55)
+  CEDCB5: FA 9C           .WORD .LOWORD(SWIRL_DATA_56)
+  CEDCB7: 69 A0           .WORD .LOWORD(SWIRL_DATA_57)
+  CEDCB9: A3 A3           .WORD .LOWORD(SWIRL_DATA_58)
+  CEDCBB: AD A5           .WORD .LOWORD(SWIRL_DATA_59)
+  CEDCBD: B5 A5           .WORD .LOWORD(SWIRL_DATA_60)
+  CEDCBF: C6 A5           .WORD .LOWORD(SWIRL_DATA_61)
+  CEDCC1: DF A5           .WORD .LOWORD(SWIRL_DATA_62)
+  CEDCC3: 10 A6           .WORD .LOWORD(SWIRL_DATA_63)
+  CEDCC5: 61 A6           .WORD .LOWORD(SWIRL_DATA_64)
+  CEDCC7: EA A6           .WORD .LOWORD(SWIRL_DATA_65)
+  CEDCC9: BB A7           .WORD .LOWORD(SWIRL_DATA_66)
+  CEDCCB: DC A8           .WORD .LOWORD(SWIRL_DATA_67)
+  CEDCCD: 65 AA           .WORD .LOWORD(SWIRL_DATA_68)
+  CEDCCF: 5E AC           .WORD .LOWORD(SWIRL_DATA_69)
+  CEDCD1: E0 AE           .WORD .LOWORD(SWIRL_DATA_70)
+  CEDCD3: F2 B1           .WORD .LOWORD(SWIRL_DATA_71)
+  CEDCD5: 76 B5           .WORD .LOWORD(SWIRL_DATA_72)
+  CEDCD7: FA B8           .WORD .LOWORD(SWIRL_DATA_73)
+  CEDCD9: 7E BC           .WORD .LOWORD(SWIRL_DATA_74)
+  CEDCDB: 02 C0           .WORD .LOWORD(SWIRL_DATA_75)
+  CEDCDD: 86 C3           .WORD .LOWORD(SWIRL_DATA_76)
+  CEDCDF: 4A C5           .WORD .LOWORD(SWIRL_DATA_77)
+  CEDCE1: 17 C8           .WORD .LOWORD(SWIRL_DATA_78)
+  CEDCE3: F8 C8           .WORD .LOWORD(SWIRL_DATA_79)
+  CEDCE5: 50 C9           .WORD .LOWORD(SWIRL_DATA_80)
+  CEDCE7: 58 C9           .WORD .LOWORD(SWIRL_DATA_81)
+  CEDCE9: 60 C9           .WORD .LOWORD(SWIRL_DATA_82)
+  CEDCEB: 6B C9           .WORD .LOWORD(SWIRL_DATA_83)
+  CEDCED: 82 C9           .WORD .LOWORD(SWIRL_DATA_84)
+  CEDCEF: 99 C9           .WORD .LOWORD(SWIRL_DATA_85)
+  CEDCF1: B0 C9           .WORD .LOWORD(SWIRL_DATA_86)
+  CEDCF3: BB C9           .WORD .LOWORD(SWIRL_DATA_87)
+  CEDCF5: C6 C9           .WORD .LOWORD(SWIRL_DATA_88)
+  CEDCF7: D1 C9           .WORD .LOWORD(SWIRL_DATA_89)
+  CEDCF9: DC C9           .WORD .LOWORD(SWIRL_DATA_90)
+  CEDCFB: E7 C9           .WORD .LOWORD(SWIRL_DATA_91)
+  CEDCFD: F2 C9           .WORD .LOWORD(SWIRL_DATA_92)
+  CEDCFF: FD C9           .WORD .LOWORD(SWIRL_DATA_93)
+  CEDD01: 08 CA           .WORD .LOWORD(SWIRL_DATA_94)
+  CEDD03: 13 CA           .WORD .LOWORD(SWIRL_DATA_95)
+  CEDD05: 1E CA           .WORD .LOWORD(SWIRL_DATA_96)
+  CEDD07: 29 CA           .WORD .LOWORD(SWIRL_DATA_97)
+  CEDD09: 34 CA           .WORD .LOWORD(SWIRL_DATA_98)
+  CEDD0B: 3F CA           .WORD .LOWORD(SWIRL_DATA_99)
+  CEDD0D: 4A CA           .WORD .LOWORD(SWIRL_DATA_100)
+  CEDD0F: 55 CA           .WORD .LOWORD(SWIRL_DATA_101)
+  CEDD11: 60 CA           .WORD .LOWORD(SWIRL_DATA_102)
+  CEDD13: 6B CA           .WORD .LOWORD(SWIRL_DATA_103)
+  CEDD15: 76 CA           .WORD .LOWORD(SWIRL_DATA_104)
+  CEDD17: 81 CA           .WORD .LOWORD(SWIRL_DATA_105)
+  CEDD19: 8C CA           .WORD .LOWORD(SWIRL_DATA_106)
+  CEDD1B: 97 CA           .WORD .LOWORD(SWIRL_DATA_107)
+  CEDD1D: A2 CA           .WORD .LOWORD(SWIRL_DATA_108)
+  CEDD1F: AA CA           .WORD .LOWORD(SWIRL_DATA_109)
+  CEDD21: B2 CA           .WORD .LOWORD(SWIRL_DATA_110)
+  CEDD23: E1 CA           .WORD .LOWORD(SWIRL_DATA_111)
+  CEDD25: 8D CB           .WORD .LOWORD(SWIRL_DATA_112)
+  CEDD27: 8D CC           .WORD .LOWORD(SWIRL_DATA_113)
+  CEDD29: E1 CD           .WORD .LOWORD(SWIRL_DATA_114)
+  CEDD2B: 51 CF           .WORD .LOWORD(SWIRL_DATA_115)
+  CEDD2D: DD D0           .WORD .LOWORD(SWIRL_DATA_116)
+  CEDD2F: 85 D2           .WORD .LOWORD(SWIRL_DATA_117)
+  CEDD31: 49 D4           .WORD .LOWORD(SWIRL_DATA_118)
+  CEDD33: F0 D5           .WORD .LOWORD(SWIRL_DATA_119)
+  CEDD35: 7B D7           .WORD .LOWORD(SWIRL_DATA_120)
+  CEDD37: EA D8           .WORD .LOWORD(SWIRL_DATA_121)
+  CEDD39: 3C DA           .WORD .LOWORD(SWIRL_DATA_122)
+  CEDD3B: 3A DB           .WORD .LOWORD(SWIRL_DATA_123)
+  CEDD3D: E4 DB           .WORD .LOWORD(SWIRL_DATA_124)
+  CEDD3F: 3A DC           .WORD .LOWORD(SWIRL_DATA_125)
+>>> bankconfig/common/bank0e.asm
+  CEDD41:             SWIRL_PRIMARY_TABLE:
+  CEDD41: 00 00 00 00     .BYTE $00, $00, $00, $00, $02, $00, $17, $00, $04, $17, $0F, $00, $03, $26, $16, $00, $04, $3C, $15, $00, $02, $51, $1C, $00, $03, $6D, $11, $00
+          02 00 17 00 
+          04 17 0F 00 
+          ...omitted...
+  CEDD5D:             SOUND_STONE_GFX:
+  CEDD5D: E4 23 00 0B     LOCALEBINARY "graphics/sound_stone.gfx.lzhal"
+          3F 7F 7F C0 
+          FF B7 FF 7F 
+          ...omitted...
+  CEF80A:             SOUND_STONE_PALETTE:
+  CEF80A: 00 00 00 00     BINARY "sound_stone.pal"
+          63 0C 25 11 
+          08 21 4A 29 
+          ...omitted...
+  CEF8CA:             .IF .DEFINED(USA)
+  CEF8CA:                 INSERT_AUDIO_PACK 102
+  CEF8CA:             .ENDIF

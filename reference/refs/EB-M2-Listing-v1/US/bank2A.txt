@@ -1,0 +1,40 @@
+>>> bankconfig/US/bank2a.asm
+  000000:             .INCLUDE "bankconfig/common/bank2a.asm"
+>>> bankconfig/common/bank2a.asm
+  EA0000:             .INCLUDE "common.asm"
+  EA0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  EA0000: 18 00 68 6C INSERT_AUDIO_PACK 54
+          B0 95 FF A3 
+          B0 95 FF A3 
+          ...omitted...
+  EA337A: 18 00 68 6C INSERT_AUDIO_PACK 52
+          B0 95 CB 95 
+          BE B1 82 B7 
+          ...omitted...
+  EA6594: 08 00 68 6C INSERT_AUDIO_PACK 72
+          B0 95 E8 C6 
+          B0 95 E8 C6 
+          ...omitted...
+  EA96F6: 18 00 68 6C INSERT_AUDIO_PACK 89
+          B0 95 21 A9 
+          B0 95 21 A9 
+          ...omitted...
+  EAC590: 18 00 68 6C INSERT_AUDIO_PACK 35
+          B0 95 6C 9D 
+          6C 9D A2 A6 
+          ...omitted...
+  EAF124:             .IF .DEFINED(JPN)
+  EAF124:                 INSERT_AUDIO_PACK 125
+  EAF124:             .ELSEIF .DEFINED(PROTOTYPE19950327)
+  EAF124:                 INSERT_AUDIO_PACK 62
+  EAF124:                 INSERT_AUDIO_PACK 31
+  EAF124:             .ELSE
+  EAF124: 61 0D 00 58     INSERT_AUDIO_PACK 140
+          76 58 66 58 
+          16 58 26 58 
+          ...omitted...
+  EAFE8B: 51 01 00 48     INSERT_AUDIO_PACK 145
+          08 48 FF 00 
+          00 48 00 00 
+          ...omitted...
+  EAFFE2:             .ENDIF

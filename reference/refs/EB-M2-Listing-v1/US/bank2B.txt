@@ -1,0 +1,37 @@
+>>> bankconfig/US/bank2b.asm
+  000000:             .INCLUDE "bankconfig/common/bank2b.asm"
+>>> bankconfig/common/bank2b.asm
+  EB0000:             .INCLUDE "common.asm"
+  EB0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  EB0000: 18 00 68 6C INSERT_AUDIO_PACK 44
+          B0 95 CB 95 
+          B0 95 CB 95 
+          ...omitted...
+  EB29E8: 18 00 68 6C INSERT_AUDIO_PACK 21
+          B0 95 EE 9C 
+          EE 9C 9F A0 
+          ...omitted...
+  EB520C: 70 00 00 6C INSERT_AUDIO_PACK 5
+          00 70 99 70 
+          29 71 4B 76 
+          ...omitted...
+  EB78D6: 18 00 68 6C INSERT_AUDIO_PACK 40
+          B0 95 44 B9 
+          B0 95 44 B9 
+          ...omitted...
+  EB9F8E: 18 00 68 6C INSERT_AUDIO_PACK 33
+          B0 95 82 A5 
+          B0 95 82 A5 
+          ...omitted...
+  EBC4E8: 28 00 68 6C INSERT_AUDIO_PACK 105
+          B0 95 EE 9C 
+          EE 9C 6C A6 
+          ...omitted...
+  EBE9E4: 38 14 00 48 INSERT_AUDIO_PACK 154
+          1A 48 4A 48 
+          5A 48 6A 48 
+          ...omitted...
+  EBFE22: D7 01 00 58 INSERT_AUDIO_PACK 13
+          1A 58 0A 58 
+          FF 00 02 58 
+          ...omitted...

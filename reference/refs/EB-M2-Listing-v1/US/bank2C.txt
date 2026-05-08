@@ -1,0 +1,81 @@
+>>> bankconfig/US/bank2c.asm
+  000000:             .INCLUDE "bankconfig/common/bank2c.asm"
+>>> bankconfig/common/bank2c.asm
+  EC0000:             .INCLUDE "common.asm"
+  EC0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  EC0000: 08 00 68 6C INSERT_AUDIO_PACK 114
+          B0 95 71 B9 
+          FF FF FF FF 
+          ...omitted...
+  EC23EC: A0 21 00 48 INSERT_AUDIO_PACK 109
+          92 48 22 48 
+          A2 48 32 48 
+          ...omitted...
+  EC4592: 68 21 00 48 INSERT_AUDIO_PACK 107
+          30 49 90 48 
+          A0 48 B0 48 
+          ...omitted...
+  EC6700: 18 00 68 6C INSERT_AUDIO_PACK 98
+          B0 95 2C 9B 
+          B0 95 2C 9B 
+          ...omitted...
+  EC8864:             .IF .DEFINED(JPN)
+  EC8864:                 INSERT_AUDIO_PACK 139
+  EC8864:                 INSERT_AUDIO_PACK 156
+  EC8864:                 INSERT_AUDIO_PACK 2
+  EC8864:                 INSERT_AUDIO_PACK 4
+  EC8864:                 INSERT_AUDIO_PACK 165
+  EC8864:             .ELSEIF .DEFINED(PROTOTYPE19950327)
+  EC8864:                 INSERT_AUDIO_PACK 4
+  EC8864:                 INSERT_AUDIO_PACK 58
+  EC8864:                 INSERT_AUDIO_PACK 133
+  EC8864:                 INSERT_AUDIO_PACK 97
+  EC8864:                 INSERT_AUDIO_PACK 55
+  EC8864:                 INSERT_AUDIO_PACK 106
+  EC8864:                 INSERT_AUDIO_PACK 123
+  EC8864:                 INSERT_AUDIO_PACK 25
+  EC8864:                 INSERT_AUDIO_PACK 15
+  EC8864:                 INSERT_AUDIO_PACK 157
+  EC8864:                 INSERT_AUDIO_PACK 159
+  EC8864:             .ELSE
+  EC8864: 08 00 68 6C     INSERT_AUDIO_PACK 165
+          B0 95 26 A1 
+          B0 95 26 A1 
+          ...omitted...
+  EC9B76: 5C 0C 00 58     INSERT_AUDIO_PACK 62
+          22 58 42 58 
+          62 58 52 58 
+          ...omitted...
+  ECA7D8: 08 00 68 6C     INSERT_AUDIO_PACK 58
+          B0 95 DE A0 
+          B0 95 DE A0 
+          ...omitted...
+  ECB38A: BE 02 00 58     INSERT_AUDIO_PACK 133
+          08 58 FF 00 
+          00 58 00 00 
+          ...omitted...
+  ECBF28: EF 07 00 48     INSERT_AUDIO_PACK 97
+          14 48 24 48 
+          34 48 54 48 
+          ...omitted...
+  ECCAA1: 8F 04 00 58     INSERT_AUDIO_PACK 55
+          10 58 20 58 
+          30 58 20 58 
+          ...omitted...
+  ECD5D8: 23 0B 00 58     INSERT_AUDIO_PACK 106
+          26 58 16 58 
+          56 58 16 58 
+          ...omitted...
+  ECE101: 45 01 00 48     INSERT_AUDIO_PACK 25
+          16 48 06 48 
+          00 00 26 48 
+          ...omitted...
+  ECEB51: 21 0A 00 48     INSERT_AUDIO_PACK 15
+          16 48 56 48 
+          26 48 36 48 
+          ...omitted...
+  ECF578: D3 00 00 48     INSERT_AUDIO_PACK 157
+          04 48 00 00 
+          14 48 34 48 
+          ...omitted...
+  ECFF94:             .ENDIF

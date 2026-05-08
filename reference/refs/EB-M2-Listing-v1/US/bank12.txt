@@ -1,0 +1,1233 @@
+>>> bankconfig/US/bank12.asm
+  000000:             .INCLUDE "bankconfig/common/bank12.asm"
+>>> bankconfig/common/bank12.asm
+  D20000:             .INCLUDE "common.asm"
+  D20000:             .INCLUDE "symbols/overworld_sprites.inc.asm"
+  D20000:             SPRITE_GROUP_POO:
+  D20000:             SPRITE_0123:
+  D20000: 01 01 03 03     BINARY "overworld_sprites/gfx/0123.gfx"
+          0F 0F 1F 1F 
+          3F 3F 7F 7F 
+          ...omitted...
+  D200C0:             SPRITE_0124:
+  D200C0: 01 01 03 03     BINARY "overworld_sprites/gfx/0124.gfx"
+          0F 0F 13 13 
+          2F 2F 5F 5F 
+          ...omitted...
+  D20180:             SPRITE_0125:
+  D20180: 00 00 00 00     BINARY "overworld_sprites/gfx/0125.gfx"
+          01 01 0F 0F 
+          1F 1F 3F 3F 
+          ...omitted...
+  D20240:             SPRITE_0126:
+  D20240: 00 00 01 01     BINARY "overworld_sprites/gfx/0126.gfx"
+          0F 0F 1F 1F 
+          3F 3F 7F 7F 
+          ...omitted...
+  D20300:             SPRITE_0127:
+  D20300: 00 00 01 01     BINARY "overworld_sprites/gfx/0127.gfx"
+          0F 0F 17 17 
+          2F 2F 3F 3F 
+          ...omitted...
+  D203C0:             SPRITE_0128:
+  D203C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0128.gfx"
+          01 01 0F 0F 
+          17 17 2F 2F 
+          ...omitted...
+  D20480:             SPRITE_0129:
+  D20480: 00 00 00 00     BINARY "overworld_sprites/gfx/0129.gfx"
+          01 01 07 07 
+          0B 0B 17 17 
+          ...omitted...
+  D20540:             SPRITE_0130:
+  D20540: 00 00 01 01     BINARY "overworld_sprites/gfx/0130.gfx"
+          07 07 0B 0B 
+          17 17 2F 2F 
+          ...omitted...
+  D20600:             SPRITE_GROUP_JEFF:
+  D20600:             SPRITE_0131:
+  D20600: 1F 1F 20 20     BINARY "overworld_sprites/gfx/0131.gfx"
+          45 40 D5 C0 
+          95 80 4F 4F 
+          ...omitted...
+  D206C0:             SPRITE_0132:
+  D206C0: 1F 1F 20 20     BINARY "overworld_sprites/gfx/0132.gfx"
+          45 40 D5 C0 
+          95 80 95 80 
+          ...omitted...
+  D20780:             SPRITE_0133:
+  D20780: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0133.gfx"
+          14 10 2A 20 
+          54 40 54 40 
+          ...omitted...
+  D20840:             SPRITE_0134:
+  D20840: 0F 0F 14 10     BINARY "overworld_sprites/gfx/0134.gfx"
+          2A 20 54 40 
+          54 40 32 30 
+          ...omitted...
+  D20900:             SPRITE_0135:
+  D20900: 0F 0F 10 10     BINARY "overworld_sprites/gfx/0135.gfx"
+          25 20 55 40 
+          55 40 3F 3F 
+          ...omitted...
+  D209C0:             SPRITE_0136:
+  D209C0: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0136.gfx"
+          10 10 25 20 
+          55 40 55 40 
+          ...omitted...
+  D20A80:             SPRITE_0137:
+  D20A80: 00 00 07 07     BINARY "overworld_sprites/gfx/0137.gfx"
+          18 18 22 20 
+          4A 40 4A 40 
+          ...omitted...
+  D20B40:             SPRITE_0138:
+  D20B40: 07 07 18 18     BINARY "overworld_sprites/gfx/0138.gfx"
+          22 20 4A 40 
+          4A 40 2A 20 
+          ...omitted...
+  D20C00:             SPRITE_GROUP_PAULA:
+  D20C00:             SPRITE_0139:
+  D20C00: 6E 6E 91 F1     BINARY "overworld_sprites/gfx/0139.gfx"
+          8B E0 84 C0 
+          8C C0 57 40 
+          ...omitted...
+  D20CC0:             SPRITE_0140:
+  D20CC0: 7E 7E 81 FD     BINARY "overworld_sprites/gfx/0140.gfx"
+          8B F0 84 C0 
+          4C 40 56 40 
+          ...omitted...
+  D20D80:             SPRITE_0141:
+  D20D80: 00 00 0E 0E     BINARY "overworld_sprites/gfx/0141.gfx"
+          3F 31 60 40 
+          44 40 66 60 
+          ...omitted...
+  D20E40:             SPRITE_0142:
+  D20E40: 0E 0E 3F 31     BINARY "overworld_sprites/gfx/0142.gfx"
+          60 40 44 40 
+          66 60 60 40 
+          ...omitted...
+  D20F00:             SPRITE_0143:
+  D20F00: 76 76 89 F9     BINARY "overworld_sprites/gfx/0143.gfx"
+          A9 E0 58 40 
+          4E 40 BF 8C 
+          ...omitted...
+  D20FC0:             SPRITE_0144:
+  D20FC0: 00 00 76 76     BINARY "overworld_sprites/gfx/0144.gfx"
+          89 F9 A9 E0 
+          58 40 4E 40 
+          ...omitted...
+  D21080:             SPRITE_0145:
+  D21080: 00 00 37 37     BINARY "overworld_sprites/gfx/0145.gfx"
+          40 7E 82 F8 
+          82 F0 AC C0 
+          ...omitted...
+  D21140:             SPRITE_0146:
+  D21140: 37 37 40 7E     BINARY "overworld_sprites/gfx/0146.gfx"
+          82 F8 82 F0 
+          AC C0 6A 40 
+          ...omitted...
+  D21200:             SPRITE_GROUP_DIRT_SCOOPER:
+  D21200:             SPRITE_0147:
+  D21200: 00 00 00 00     BINARY "overworld_sprites/gfx/0147.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D21680:             SPRITE_GROUP_PHASE_DISTORTER:
+  D21680:             SPRITE_0148:
+  D21680: 00 00 00 00     BINARY "overworld_sprites/gfx/0148.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D21B00:             SPRITE_GROUP_SKY_RUNNER:
+  D21B00:             SPRITE_0149:
+  D21B00: 00 00 00 00     BINARY "overworld_sprites/gfx/0149.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D21F80:             SPRITE_GROUP_CAT:
+  D21F80:             SPRITE_0150:
+  D21F80: 00 00 00 00     BINARY "overworld_sprites/gfx/0150.gfx"
+          00 00 00 00 
+          00 00 01 01 
+          ...omitted...
+  D220A0:             SPRITE_0151:
+  D220A0: 00 00 00 00     BINARY "overworld_sprites/gfx/0151.gfx"
+          00 00 00 00 
+          00 00 01 01 
+          ...omitted...
+  D221C0:             SPRITE_0152:
+  D221C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0152.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D222E0:             SPRITE_0153:
+  D222E0: 00 00 00 00     BINARY "overworld_sprites/gfx/0153.gfx"
+          00 00 00 00 
+          00 00 08 08 
+          ...omitted...
+  D22400:             SPRITE_GROUP_DOG:
+  D22400:             SPRITE_0154:
+  D22400: 00 00 00 00     BINARY "overworld_sprites/gfx/0154.gfx"
+          00 00 00 00 
+          00 00 03 03 
+          ...omitted...
+  D22520:             SPRITE_0155:
+  D22520: 00 00 00 00     BINARY "overworld_sprites/gfx/0155.gfx"
+          00 00 00 00 
+          00 00 03 03 
+          ...omitted...
+  D22640:             SPRITE_0156:
+  D22640: 00 00 00 00     BINARY "overworld_sprites/gfx/0156.gfx"
+          00 00 00 00 
+          00 00 38 38 
+          ...omitted...
+  D22760:             SPRITE_0157:
+  D22760: 00 00 00 00     BINARY "overworld_sprites/gfx/0157.gfx"
+          00 00 00 00 
+          38 38 7C 44 
+          ...omitted...
+  D22880:             SPRITE_GROUP_KING:
+  D22880:             SPRITE_0158:
+  D22880: 00 00 00 00     BINARY "overworld_sprites/gfx/0158.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D229A0:             SPRITE_0159:
+  D229A0: 00 00 00 00     BINARY "overworld_sprites/gfx/0159.gfx"
+          00 00 00 00 
+          00 00 01 01 
+          ...omitted...
+  D22AC0:             SPRITE_0160:
+  D22AC0: 00 00 00 00     BINARY "overworld_sprites/gfx/0160.gfx"
+          00 00 00 00 
+          00 00 0C 0C 
+          ...omitted...
+  D22BE0:             SPRITE_0161:
+  D22BE0: 00 00 00 00     BINARY "overworld_sprites/gfx/0161.gfx"
+          00 00 00 00 
+          0C 0C 3F 33 
+          ...omitted...
+  D22D00:             SPRITE_GROUP_SATURN_VALLEY_ATM:
+  D22D00:             SPRITE_0162:
+  D22D00: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0162.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D22F00:             SPRITE_0163:
+  D22F00: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0163.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D23100:             SPRITE_GROUP_MAGNET_HILL:
+  D23100:             SPRITE_0164:
+  D23100: 00 00 00 00     BINARY "overworld_sprites/gfx/0164.gfx"
+          02 02 07 05 
+          03 03 02 02 
+          ...omitted...
+  D23300:             SPRITE_0165:
+  D23300: 00 02 00 02     BINARY "overworld_sprites/gfx/0165.gfx"
+          02 00 07 18 
+          03 01 00 02 
+          ...omitted...
+  D23500:             SPRITE_GROUP_BABY_CRADLE:
+  D23500:             SPRITE_0166:
+  D23500: 00 00 00 00     BINARY "overworld_sprites/gfx/0166.gfx"
+          00 00 00 00 
+          00 00 01 00 
+          ...omitted...
+  D23700:             SPRITE_0167:
+  D23700: 00 00 00 00     BINARY "overworld_sprites/gfx/0167.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D23900:             SPRITE_GROUP_CASKET:
+  D23900:             SPRITE_0168:
+  D23900: 00 00 00 00     BINARY "overworld_sprites/gfx/0168.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D23B00:             SPRITE_0169:
+  D23B00: 00 00 00 00     BINARY "overworld_sprites/gfx/0169.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D23D00:             SPRITE_GROUP_HINT_MAN:
+  D23D00:             SPRITE_0170:
+  D23D00: 00 00 00 00     BINARY "overworld_sprites/gfx/0170.gfx"
+          7F 7F 40 40 
+          40 40 52 52 
+          ...omitted...
+  D23F00:             SPRITE_0171:
+  D23F00: 00 00 01 01     BINARY "overworld_sprites/gfx/0171.gfx"
+          FE FE 80 80 
+          80 80 A4 A4 
+          ...omitted...
+  D24100:             SPRITE_GROUP_CAMEL:
+  D24100:             SPRITE_0172:
+  D24100: 00 00 00 00     BINARY "overworld_sprites/gfx/0172.gfx"
+          01 01 02 02 
+          0F 0F 1F 1F 
+          ...omitted...
+  D24300:             SPRITE_0173:
+  D24300: 00 00 01 01     BINARY "overworld_sprites/gfx/0173.gfx"
+          02 02 0F 0F 
+          1F 1F 7F 7D 
+          ...omitted...
+  D24500:             SPRITE_GROUP_COW:
+  D24500:             SPRITE_0174:
+  D24500: 00 00 00 00     BINARY "overworld_sprites/gfx/0174.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D24700:             SPRITE_0175:
+  D24700: 00 00 00 00     BINARY "overworld_sprites/gfx/0175.gfx"
+          00 00 00 00 
+          00 00 01 01 
+          ...omitted...
+  D24900:             SPRITE_GROUP_BUBBLE_MONKEY_WITH_BUBBLE:
+  D24900:             SPRITE_0176:
+  D24900: 00 00 00 00     BINARY "overworld_sprites/gfx/0176.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D24B00:             SPRITE_0177:
+  D24B00: 00 00 00 00     BINARY "overworld_sprites/gfx/0177.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D24D00:             SPRITE_GROUP_DEPT_STORE_MOOK:
+  D24D00:             SPRITE_0178:
+  D24D00: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0178.gfx"
+          00 00 01 01 
+          01 01 00 00 
+          ...omitted...
+  D24F00:             SPRITE_0179:
+  D24F00: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0179.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25100:             SPRITE_GROUP_YOUR_SANCTUARY_BOSS:
+  D25100:             SPRITE_0180:
+  D25100: 00 00 00 00     BINARY "overworld_sprites/gfx/0180.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25300:             SPRITE_0181:
+  D25300: 00 00 00 00     BINARY "overworld_sprites/gfx/0181.gfx"
+          00 00 00 00 
+          01 01 00 00 
+          ...omitted...
+  D25500:             SPRITE_GROUP_MASTER_BELCH:
+  D25500:             SPRITE_0182:
+  D25500: 00 00 00 00     BINARY "overworld_sprites/gfx/0182.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25700:             SPRITE_0183:
+  D25700: 00 00 00 00     BINARY "overworld_sprites/gfx/0183.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25900:             SPRITE_GROUP_EGO_ORB:
+  D25900:             SPRITE_0184:
+  D25900: 00 00 00 00     BINARY "overworld_sprites/gfx/0184.gfx"
+          00 00 01 01 
+          02 03 05 06 
+          ...omitted...
+  D25B00:             SPRITE_0185:
+  D25B00: 00 00 00 00     BINARY "overworld_sprites/gfx/0185.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25D00:             SPRITE_GROUP_MASTER_BARF:
+  D25D00:             SPRITE_0186:
+  D25D00: 00 00 00 00     BINARY "overworld_sprites/gfx/0186.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D25F00:             SPRITE_0187:
+  D25F00: 00 00 00 00     BINARY "overworld_sprites/gfx/0187.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D26100:             SPRITE_GROUP_TERRITORIAL_OAK:
+  D26100:             SPRITE_0188:
+  D26100: 00 00 00 00     BINARY "overworld_sprites/gfx/0188.gfx"
+          00 00 00 00 
+          03 03 03 02 
+          ...omitted...
+  D26300:             SPRITE_0189:
+  D26300: 00 00 00 00     BINARY "overworld_sprites/gfx/0189.gfx"
+          00 00 01 01 
+          01 01 07 07 
+          ...omitted...
+  D26500:             SPRITE_GROUP_KRAKEN:
+  D26500:             SPRITE_0190:
+  D26500: 00 00 03 03     BINARY "overworld_sprites/gfx/0190.gfx"
+          0E 0C 18 10 
+          3B 20 3F 20 
+          ...omitted...
+  D26700:             SPRITE_0191:
+  D26700: 00 00 00 00     BINARY "overworld_sprites/gfx/0191.gfx"
+          00 00 03 03 
+          0E 0C 18 10 
+          ...omitted...
+  D26900:             SPRITE_GROUP_MANI_MANI:
+  D26900:             SPRITE_0192:
+  D26900: 00 00 00 00     BINARY "overworld_sprites/gfx/0192.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D26B00:             SPRITE_0193:
+  D26B00: 00 00 00 00     BINARY "overworld_sprites/gfx/0193.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D26D00:             SPRITE_GROUP_DEMONIC_PETUNIA:
+  D26D00:             SPRITE_0194:
+  D26D00: 00 00 00 00     BINARY "overworld_sprites/gfx/0194.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D26F00:             SPRITE_0195:
+  D26F00: 00 00 00 00     BINARY "overworld_sprites/gfx/0195.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D27100:             SPRITE_GROUP_RUNAWAY_FIVE_SAX_PLAYER:
+  D27100:             SPRITE_0196:
+  D27100: 1F 1F 11 1F     LOCALEBINARY "overworld_sprites/gfx/0196.gfx"
+          0B 0F 0D 0F 
+          0F 0F 1F 10 
+          ...omitted...
+  D271C0:             SPRITE_0197:
+  D271C0: 00 00 1F 1F     LOCALEBINARY "overworld_sprites/gfx/0197.gfx"
+          13 1F 08 0F 
+          0F 0F 1F 1F 
+          ...omitted...
+  D27280:             SPRITE_0198:
+  D27280: 00 00 0F 0F     LOCALEBINARY "overworld_sprites/gfx/0198.gfx"
+          09 09 06 07 
+          1B 1F 0F 08 
+          ...omitted...
+  D27340:             SPRITE_0199:
+  D27340: 0F 0F 09 09     LOCALEBINARY "overworld_sprites/gfx/0199.gfx"
+          06 07 1B 1F 
+          0F 08 0F 0F 
+          ...omitted...
+  D27400:             SPRITE_0200:
+  D27400: 3F 3F 22 3E     LOCALEBINARY "overworld_sprites/gfx/0200.gfx"
+          17 1F 1B 1F 
+          1F 1F 3F 20 
+          ...omitted...
+  D274C0:             SPRITE_GROUP_RUNAWAY_FIVE_BASS_PLAYER:
+  D274C0:             SPRITE_0201:
+  D274C0: 1F 1F 10 1D     LOCALEBINARY "overworld_sprites/gfx/0201.gfx"
+          1D 1D 23 23 
+          7F 6C FF 80 
+          ...omitted...
+  D27580:             SPRITE_0202:
+  D27580: 1F 1F 10 1D     LOCALEBINARY "overworld_sprites/gfx/0202.gfx"
+          1F 1F 3F 3F 
+          7F 7F FF 9F 
+          ...omitted...
+  D27640:             SPRITE_0203:
+  D27640: 07 07 04 06     LOCALEBINARY "overworld_sprites/gfx/0203.gfx"
+          07 07 07 04 
+          0F 0B 3F 38 
+          ...omitted...
+  D27700:             SPRITE_0204:
+  D27700: 00 00 07 07     LOCALEBINARY "overworld_sprites/gfx/0204.gfx"
+          04 06 07 07 
+          3F 3C 3F 27 
+          ...omitted...
+  D277C0:             SPRITE_0205:
+  D277C0: 1F 1F 10 1D     LOCALEBINARY "overworld_sprites/gfx/0205.gfx"
+          1D 1D 23 23 
+          7F 6C FF 80 
+          ...omitted...
+  D27880:             SPRITE_GROUP_RUNAWAY_FIVE_DRUMMER:
+  D27880:             SPRITE_0206:
+  D27880: 07 07 08 0F     LOCALEBINARY "overworld_sprites/gfx/0206.gfx"
+          04 07 0F 0F 
+          18 18 10 10 
+          ...omitted...
+  D27940:             SPRITE_0207:
+  D27940: 07 07 08 0F     LOCALEBINARY "overworld_sprites/gfx/0207.gfx"
+          04 07 0F 0F 
+          13 13 10 10 
+          ...omitted...
+  D27A00:             SPRITE_0208:
+  D27A00: 07 07 08 0F     LOCALEBINARY "overworld_sprites/gfx/0208.gfx"
+          04 07 0B 0B 
+          10 10 3F 3F 
+          ...omitted...
+  D27AC0:             SPRITE_0209:
+  D27AC0: 00 00 07 07     LOCALEBINARY "overworld_sprites/gfx/0209.gfx"
+          08 0F 04 07 
+          0B 0B 10 10 
+          ...omitted...
+  D27B80:             SPRITE_0210:
+  D27B80: 0F 0F 10 1F     LOCALEBINARY "overworld_sprites/gfx/0210.gfx"
+          08 0F 1F 1F 
+          20 20 20 20 
+          ...omitted...
+  D27C40:             SPRITE_GROUP_TENDA:
+  D27C40:             SPRITE_0211:
+  D27C40: 00 00 00 00     BINARY "overworld_sprites/gfx/0211.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D27D00:             SPRITE_0212:
+  D27D00: 00 00 00 00     BINARY "overworld_sprites/gfx/0212.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D27DC0:             SPRITE_0213:
+  D27DC0: 00 00 00 00     BINARY "overworld_sprites/gfx/0213.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D27E80:             SPRITE_0214:
+  D27E80: 00 00 00 00     BINARY "overworld_sprites/gfx/0214.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D27F40:             SPRITE_0215:
+  D27F40: 00 00 00 00     BINARY "overworld_sprites/gfx/0215.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D28000:             SPRITE_GROUP_SHATTERED_MAN:
+  D28000:             SPRITE_0216:
+  D28000: 07 07 0F 0F     BINARY "overworld_sprites/gfx/0216.gfx"
+          13 1C 1F 1F 
+          27 38 3F 3F 
+          ...omitted...
+  D280C0:             SPRITE_0217:
+  D280C0: 07 07 0F 0F     BINARY "overworld_sprites/gfx/0217.gfx"
+          13 1C 1F 1F 
+          27 38 3F 3F 
+          ...omitted...
+  D28180:             SPRITE_0218:
+  D28180: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0218.gfx"
+          1F 1F 27 38 
+          3F 3F 4F 70 
+          ...omitted...
+  D28240:             SPRITE_0219:
+  D28240: 0F 0F 1F 1F     BINARY "overworld_sprites/gfx/0219.gfx"
+          27 38 3F 3F 
+          4F 70 7F 7F 
+          ...omitted...
+  D28300:             SPRITE_0220:
+  D28300: 00 00 00 00     BINARY "overworld_sprites/gfx/0220.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D283C0:             SPRITE_GROUP_STINKY_GHOST:
+  D283C0:             SPRITE_0221:
+  D283C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0221.gfx"
+          00 00 00 00 
+          00 00 07 07 
+          ...omitted...
+  D28480:             SPRITE_0222:
+  D28480: 00 00 00 00     BINARY "overworld_sprites/gfx/0222.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D28540:             SPRITE_0223:
+  D28540: 00 00 00 00     BINARY "overworld_sprites/gfx/0223.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D28600:             SPRITE_0224:
+  D28600: 00 00 00 00     BINARY "overworld_sprites/gfx/0224.gfx"
+          00 00 00 00 
+          07 07 3E 3D 
+          ...omitted...
+  D286C0:             SPRITE_0225:
+  D286C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0225.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D28780:             SPRITE_GROUP_INSTANT_REVITALIZING_DEVICE:
+  D28780:             SPRITE_0226:
+  D28780: 00 00 00 00     BINARY "overworld_sprites/gfx/0226.gfx"
+          00 00 3F 3F 
+          5D 73 3F 3F 
+          ...omitted...
+  D28A80:             SPRITE_GROUP_PALACE_DECORATIONS:
+  D28A80:             SPRITE_0227:
+  D28A80: 00 00 00 00     BINARY "overworld_sprites/gfx/0227.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D28D80:             SPRITE_GROUP_HELICOPTER_BLADE:
+  D28D80:             SPRITE_0228:
+  D28D80: 00 00 07 00     BINARY "overworld_sprites/gfx/0228.gfx"
+          38 07 7F 3F 
+          4F 3E 38 07 
+          ...omitted...
+  D28E80:             SPRITE_0229:
+  D28E80: 00 00 07 00     BINARY "overworld_sprites/gfx/0229.gfx"
+          38 07 65 3E 
+          55 3F 38 07 
+          ...omitted...
+  D28F80:             SPRITE_0230:
+  D28F80: 00 00 00 00     BINARY "overworld_sprites/gfx/0230.gfx"
+          1F 1F 38 3F 
+          3F 3F 00 00 
+          ...omitted...
+  D29080:             SPRITE_GROUP_BROKEN_HELICOPTER:
+  D29080:             SPRITE_0231:
+  D29080: 00 00 00 00     BINARY "overworld_sprites/gfx/0231.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D29380:             SPRITE_GROUP_SPRING:
+  D29380:             SPRITE_0232:
+  D29380: 00 00 00 00     BINARY "overworld_sprites/gfx/0232.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D29480:             SPRITE_0233:
+  D29480: 00 00 00 00     BINARY "overworld_sprites/gfx/0233.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D29580:             SPRITE_0234:
+  D29580: 1C 00 3E 1C     BINARY "overworld_sprites/gfx/0234.gfx"
+          7F 36 FF 65 
+          FF 48 FF 10 
+          ...omitted...
+  D29680:             SPRITE_GROUP_YELLOW_DRAPES_CLOSED:
+  D29680:             SPRITE_0235:
+  D29680: 03 03 04 04     BINARY "overworld_sprites/gfx/0235.gfx"
+          04 04 07 04 
+          03 02 02 02 
+          ...omitted...
+  D29980:             SPRITE_GROUP_YELLOW_DRAPES_OPEN:
+  D29980:             SPRITE_0236:
+  D29980: 7F 7F 80 80     BINARY "overworld_sprites/gfx/0236.gfx"
+          80 80 86 80 
+          FF 86 F9 FF 
+          ...omitted...
+  D29C80:             SPRITE_GROUP_DRAPES_CLOSED:
+  D29C80:             SPRITE_0237:
+  D29C80: 00 00 00 00     BINARY "overworld_sprites/gfx/0237.gfx"
+          00 00 3F 3F 
+          20 2F 30 3F 
+          ...omitted...
+  D29F80:             SPRITE_GROUP_FLAME:
+  D29F80:             SPRITE_0238:
+  D29F80: 00 00 00 00     BINARY "overworld_sprites/gfx/0238.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2A080:             SPRITE_0239:
+  D2A080: 00 00 00 00     BINARY "overworld_sprites/gfx/0239.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2A180:             SPRITE_0240:
+  D2A180: 10 00 10 00     BINARY "overworld_sprites/gfx/0240.gfx"
+          10 00 18 00 
+          1C 00 0E 00 
+          ...omitted...
+  D2A280:             SPRITE_GROUP_GUY_IN_RED_CAR:
+  D2A280:             SPRITE_0241:
+  D2A280: 00 00 00 00     BINARY "overworld_sprites/gfx/0241.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2A580:             SPRITE_GROUP_BROKEN_PHASE_DISTORTER:
+  D2A580:             SPRITE_0242:
+  D2A580: 00 00 00 00     BINARY "overworld_sprites/gfx/0242.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2A880:             SPRITE_GROUP_MAGIC_TART_STAND:
+  D2A880:             SPRITE_0243:
+  D2A880: 00 00 00 00     BINARY "overworld_sprites/gfx/0243.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2AB80:             SPRITE_GROUP_TELEPHONE:
+  D2AB80:             SPRITE_0244:
+  D2AB80: 00 00 00 00     BINARY "overworld_sprites/gfx/0244.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2AC40:             SPRITE_0245:
+  D2AC40: 00 00 00 00     BINARY "overworld_sprites/gfx/0245.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2AD00:             SPRITE_0246:
+  D2AD00: 00 00 00 00     BINARY "overworld_sprites/gfx/0246.gfx"
+          01 01 11 11 
+          09 09 00 00 
+          ...omitted...
+  D2ADC0:             SPRITE_0247:
+  D2ADC0: 00 00 00 00     BINARY "overworld_sprites/gfx/0247.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2AE80:             SPRITE_GROUP_ELECTRA:
+  D2AE80:             SPRITE_0248:
+  D2AE80: 07 3F 1D 6E     BINARY "overworld_sprites/gfx/0248.gfx"
+          19 7F 2E 66 
+          28 60 22 20 
+          ...omitted...
+  D2AF40:             SPRITE_0249:
+  D2AF40: 03 3B 15 6E     BINARY "overworld_sprites/gfx/0249.gfx"
+          00 78 00 70 
+          18 70 22 20 
+          ...omitted...
+  D2B000:             SPRITE_0250:
+  D2B000: 00 00 07 07     BINARY "overworld_sprites/gfx/0250.gfx"
+          0D 0E 19 1F 
+          2E 26 28 20 
+          ...omitted...
+  D2B0C0:             SPRITE_0251:
+  D2B0C0: 07 07 0D 0E     BINARY "overworld_sprites/gfx/0251.gfx"
+          19 1F 2E 26 
+          28 20 66 40 
+          ...omitted...
+  D2B180:             SPRITE_GROUP_MU_GHOST:
+  D2B180:             SPRITE_0252:
+  D2B180: 00 00 00 00     BINARY "overworld_sprites/gfx/0252.gfx"
+          00 00 00 00 
+          00 00 00 03 
+          ...omitted...
+  D2B480:             SPRITE_GROUP_HEALER:
+  D2B480:             SPRITE_0253:
+  D2B480: 00 00 00 00     BINARY "overworld_sprites/gfx/0253.gfx"
+          30 30 48 78 
+          A7 FF 87 FF 
+          ...omitted...
+  D2B540:             SPRITE_0254:
+  D2B540: 00 00 00 00     BINARY "overworld_sprites/gfx/0254.gfx"
+          30 30 48 78 
+          A7 FF 87 FF 
+          ...omitted...
+  D2B600:             SPRITE_0255:
+  D2B600: 00 00 00 00     BINARY "overworld_sprites/gfx/0255.gfx"
+          00 00 00 00 
+          07 07 0E 0E 
+          ...omitted...
+  D2B6C0:             SPRITE_0256:
+  D2B6C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0256.gfx"
+          00 00 07 07 
+          0E 0E 1F 19 
+          ...omitted...
+  D2B780:             SPRITE_GROUP_TONY:
+  D2B780:             SPRITE_0257:
+  D2B780: 1F 1F 3F 3F     BINARY "overworld_sprites/gfx/0257.gfx"
+          FF FF 3F 3F 
+          7F 7F 7F 7F 
+          ...omitted...
+  D2B840:             SPRITE_0258:
+  D2B840: 1F 1F 3F 3F     BINARY "overworld_sprites/gfx/0258.gfx"
+          FF FF 3F 3F 
+          7F 7F 7F 7F 
+          ...omitted...
+  D2B900:             SPRITE_0259:
+  D2B900: 00 00 1F 1F     BINARY "overworld_sprites/gfx/0259.gfx"
+          3F 3F FF FF 
+          7F 7F 7F 7F 
+          ...omitted...
+  D2B9C0:             SPRITE_0260:
+  D2B9C0: 1F 1F 3F 3F     BINARY "overworld_sprites/gfx/0260.gfx"
+          FF FF 7F 7F 
+          7F 7F 33 33 
+          ...omitted...
+  D2BA80:             SPRITE_GROUP_VENUS_MOTHER:
+  D2BA80:             SPRITE_0261:
+  D2BA80: 0E 0E 39 31     BINARY "overworld_sprites/gfx/0261.gfx"
+          27 20 7F 54 
+          73 63 F7 D7 
+          ...omitted...
+  D2BB40:             SPRITE_0262:
+  D2BB40: 0E 0E 39 31     BINARY "overworld_sprites/gfx/0262.gfx"
+          27 24 7D 54 
+          72 60 EA C0 
+          ...omitted...
+  D2BC00:             SPRITE_0263:
+  D2BC00: 0E 0E 39 31     BINARY "overworld_sprites/gfx/0263.gfx"
+          27 20 7F 54 
+          5B 4B 37 37 
+          ...omitted...
+  D2BCC0:             SPRITE_0264:
+  D2BCC0: 00 00 0E 0E     BINARY "overworld_sprites/gfx/0264.gfx"
+          39 31 27 20 
+          7F 54 5B 4B 
+          ...omitted...
+  D2BD80:             SPRITE_GROUP_APPLE_KID:
+  D2BD80:             SPRITE_0265:
+  D2BD80: 00 00 07 07     BINARY "overworld_sprites/gfx/0265.gfx"
+          0F 0F 1F 1F 
+          3F 3F 3F 3F 
+          ...omitted...
+  D2BE40:             SPRITE_0266:
+  D2BE40: 00 00 07 07     BINARY "overworld_sprites/gfx/0266.gfx"
+          0F 0F 1F 1F 
+          3F 3F 3F 3F 
+          ...omitted...
+  D2BF00:             SPRITE_0267:
+  D2BF00: 00 00 00 00     BINARY "overworld_sprites/gfx/0267.gfx"
+          07 07 0F 0F 
+          1F 1F 3F 3F 
+          ...omitted...
+  D2BFC0:             SPRITE_0268:
+  D2BFC0: 00 00 07 07     BINARY "overworld_sprites/gfx/0268.gfx"
+          0F 0F 1F 1F 
+          3F 3F 3F 3F 
+          ...omitted...
+  D2C080:             SPRITE_GROUP_ORANGE_KID:
+  D2C080:             SPRITE_0269:
+  D2C080: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0269.gfx"
+          1F 10 36 22 
+          37 27 38 28 
+          ...omitted...
+  D2C140:             SPRITE_0270:
+  D2C140: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0270.gfx"
+          1F 10 3D 20 
+          2A 20 2A 20 
+          ...omitted...
+  D2C200:             SPRITE_0271:
+  D2C200: 00 00 01 01     BINARY "overworld_sprites/gfx/0271.gfx"
+          1F 1F 3F 20 
+          7E 50 78 78 
+          ...omitted...
+  D2C2C0:             SPRITE_0272:
+  D2C2C0: 01 01 1F 1F     BINARY "overworld_sprites/gfx/0272.gfx"
+          3F 20 7E 50 
+          78 78 26 26 
+          ...omitted...
+  D2C380:             SPRITE_GROUP_FOURSIDE_MUSEUM_GUY:
+  D2C380:             SPRITE_0273:
+  D2C380: 00 00 1F 1F     BINARY "overworld_sprites/gfx/0273.gfx"
+          7F 7F FF FF 
+          FF FF FF FF 
+          ...omitted...
+  D2C440:             SPRITE_0274:
+  D2C440: 00 00 1F 1F     BINARY "overworld_sprites/gfx/0274.gfx"
+          7F 7F FF FF 
+          FF FF FF FF 
+          ...omitted...
+  D2C500:             SPRITE_0275:
+  D2C500: 00 00 00 00     BINARY "overworld_sprites/gfx/0275.gfx"
+          0F 0F 3F 3F 
+          7F 7F 7F 7F 
+          ...omitted...
+  D2C5C0:             SPRITE_0276:
+  D2C5C0: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0276.gfx"
+          3F 3F 7F 7F 
+          7F 7F 3F 3F 
+          ...omitted...
+  D2C680:             SPRITE_GROUP_MINERS_BROTHER:
+  D2C680:             SPRITE_0277:
+  D2C680: 07 07 08 08     BINARY "overworld_sprites/gfx/0277.gfx"
+          10 11 7C 62 
+          8D 82 7F 7F 
+          ...omitted...
+  D2C740:             SPRITE_0278:
+  D2C740: 07 07 08 08     BINARY "overworld_sprites/gfx/0278.gfx"
+          10 11 7C 62 
+          8D 82 7F 7F 
+          ...omitted...
+  D2C800:             SPRITE_0279:
+  D2C800: 00 00 07 07     BINARY "overworld_sprites/gfx/0279.gfx"
+          08 08 10 11 
+          3C 22 4D 42 
+          ...omitted...
+  D2C8C0:             SPRITE_0280:
+  D2C8C0: 07 07 08 08     BINARY "overworld_sprites/gfx/0280.gfx"
+          10 11 3C 22 
+          4D 42 3F 3F 
+          ...omitted...
+  D2C980:             SPRITE_GROUP_MINER:
+  D2C980:             SPRITE_0281:
+  D2C980: 07 07 08 0F     BINARY "overworld_sprites/gfx/0281.gfx"
+          10 1F 3D 3F 
+          3F 3F 10 10 
+          ...omitted...
+  D2CA40:             SPRITE_0282:
+  D2CA40: 07 07 08 0F     BINARY "overworld_sprites/gfx/0282.gfx"
+          10 1F 3D 3F 
+          3F 3F 1F 1F 
+          ...omitted...
+  D2CB00:             SPRITE_0283:
+  D2CB00: 00 00 07 07     BINARY "overworld_sprites/gfx/0283.gfx"
+          08 0F 10 1F 
+          3D 3F 3F 3F 
+          ...omitted...
+  D2CBC0:             SPRITE_0284:
+  D2CBC0: 07 07 08 0F     BINARY "overworld_sprites/gfx/0284.gfx"
+          10 1F 3D 3F 
+          3F 3F 10 10 
+          ...omitted...
+  D2CC80:             SPRITE_GROUP_MR_SATURN:
+  D2CC80:             SPRITE_0285:
+  D2CC80: 00 00 00 00     BINARY "overworld_sprites/gfx/0285.gfx"
+          00 00 00 00 
+          00 02 00 07 
+          ...omitted...
+  D2CD40:             SPRITE_0286:
+  D2CD40: 00 00 00 00     BINARY "overworld_sprites/gfx/0286.gfx"
+          00 00 00 00 
+          00 02 00 07 
+          ...omitted...
+  D2CE00:             SPRITE_0287:
+  D2CE00: 00 00 00 00     BINARY "overworld_sprites/gfx/0287.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2CEC0:             SPRITE_0288:
+  D2CEC0: 00 00 00 00     BINARY "overworld_sprites/gfx/0288.gfx"
+          00 00 00 00 
+          00 00 00 01 
+          ...omitted...
+  D2CF80:             SPRITE_GROUP_TENDA_CHIEF:
+  D2CF80:             SPRITE_0289:
+  D2CF80: 00 00 00 00     BINARY "overworld_sprites/gfx/0289.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2D040:             SPRITE_0290:
+  D2D040: 00 00 00 00     BINARY "overworld_sprites/gfx/0290.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2D100:             SPRITE_0291:
+  D2D100: 00 00 00 00     BINARY "overworld_sprites/gfx/0291.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2D1C0:             SPRITE_0292:
+  D2D1C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0292.gfx"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  D2D280:             SPRITE_GROUP_STARMASTER:
+  D2D280:             SPRITE_0293:
+  D2D280: 03 03 0F 0F     BINARY "overworld_sprites/gfx/0293.gfx"
+          1F 1F 3F 3F 
+          7F 7F 7F 77 
+          ...omitted...
+  D2D340:             SPRITE_0294:
+  D2D340: 03 03 0D 0F     BINARY "overworld_sprites/gfx/0294.gfx"
+          1F 1F 3F 33 
+          7F 7F 7F 7F 
+          ...omitted...
+  D2D400:             SPRITE_0295:
+  D2D400: 00 00 03 03     BINARY "overworld_sprites/gfx/0295.gfx"
+          0F 0F 1F 1F 
+          3F 3F 7F 7F 
+          ...omitted...
+  D2D4C0:             SPRITE_0296:
+  D2D4C0: 03 03 0F 0F     BINARY "overworld_sprites/gfx/0296.gfx"
+          1F 1F 3F 3F 
+          7F 7F 7F 7B 
+          ...omitted...
+  D2D580:             SPRITE_GROUP_VENUS:
+  D2D580:             SPRITE_0297:
+  D2D580: 07 07 1C 18     BINARY "overworld_sprites/gfx/0297.gfx"
+          13 10 3F 2A 
+          39 31 7B 69 
+          ...omitted...
+  D2D640:             SPRITE_0298:
+  D2D640: 07 07 1C 18     BINARY "overworld_sprites/gfx/0298.gfx"
+          13 10 31 20 
+          28 20 51 40 
+          ...omitted...
+  D2D700:             SPRITE_0299:
+  D2D700: 0F 0F 34 30     BINARY "overworld_sprites/gfx/0299.gfx"
+          53 40 74 50 
+          7C 78 3F 39 
+          ...omitted...
+  D2D7C0:             SPRITE_0300:
+  D2D7C0: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0300.gfx"
+          34 30 53 40 
+          74 50 7C 78 
+          ...omitted...
+  D2D880:             SPRITE_GROUP_MONOTOLI:
+  D2D880:             SPRITE_0301:
+  D2D880: 0F 0F 3F 3F     BINARY "overworld_sprites/gfx/0301.gfx"
+          20 3F FF FF 
+          50 70 7F 5F 
+          ...omitted...
+  D2D940:             SPRITE_0302:
+  D2D940: 0F 0F 3F 3F     BINARY "overworld_sprites/gfx/0302.gfx"
+          20 3F FF FF 
+          20 3F 55 7E 
+          ...omitted...
+  D2DA00:             SPRITE_0303:
+  D2DA00: 0F 0F 3F 3F     BINARY "overworld_sprites/gfx/0303.gfx"
+          20 3F FF FF 
+          42 43 7F 7E 
+          ...omitted...
+  D2DAC0:             SPRITE_0304:
+  D2DAC0: 0F 0F 3F 3F     BINARY "overworld_sprites/gfx/0304.gfx"
+          20 3F FF FF 
+          42 43 7F 7E 
+          ...omitted...
+  D2DB80:             SPRITE_GROUP_DALAAM_GIRL:
+  D2DB80:             SPRITE_0305:
+  D2DB80: 01 01 03 02     BINARY "overworld_sprites/gfx/0305.gfx"
+          07 07 3D 3F 
+          6A 7F 6F 7F 
+          ...omitted...
+  D2DC40:             SPRITE_0306:
+  D2DC40: 01 01 03 03     BINARY "overworld_sprites/gfx/0306.gfx"
+          07 06 3D 3F 
+          6B 7F 6A 7F 
+          ...omitted...
+  D2DD00:             SPRITE_0307:
+  D2DD00: 07 07 0F 0A     BINARY "overworld_sprites/gfx/0307.gfx"
+          0F 0F 35 3F 
+          5A 7F 7A 7F 
+          ...omitted...
+  D2DDC0:             SPRITE_0308:
+  D2DDC0: 00 00 07 07     BINARY "overworld_sprites/gfx/0308.gfx"
+          0F 0A 0F 0F 
+          35 3F 5A 7F 
+          ...omitted...
+  D2DE80:             SPRITE_GROUP_DR_ANDONUTS:
+  D2DE80:             SPRITE_0309:
+  D2DE80: 00 00 18 18     BINARY "overworld_sprites/gfx/0309.gfx"
+          34 2C 77 5B 
+          5F 73 5F 6F 
+          ...omitted...
+  D2DF40:             SPRITE_0310:
+  D2DF40: 00 00 18 18     BINARY "overworld_sprites/gfx/0310.gfx"
+          34 2C 77 5B 
+          5D 71 53 63 
+          ...omitted...
+  D2E000:             SPRITE_0311:
+  D2E000: 00 00 00 00     BINARY "overworld_sprites/gfx/0311.gfx"
+          00 00 00 00 
+          07 07 0E 0E 
+          ...omitted...
+  D2E0C0:             SPRITE_0312:
+  D2E0C0: 00 00 00 00     BINARY "overworld_sprites/gfx/0312.gfx"
+          00 00 07 07 
+          0E 0E 1F 1F 
+          ...omitted...
+  D2E180:             SPRITE_GROUP_BRICK_ROAD:
+  D2E180:             SPRITE_0313:
+  D2E180: 1B 1B 0F 0F     BINARY "overworld_sprites/gfx/0313.gfx"
+          3F 3E 1F 1F 
+          7F 6F 3F 3F 
+          ...omitted...
+  D2E240:             SPRITE_0314:
+  D2E240: 1B 1B 0F 0F     BINARY "overworld_sprites/gfx/0314.gfx"
+          3F 3E 1F 1F 
+          7F 7F 3F 3F 
+          ...omitted...
+  D2E300:             SPRITE_0315:
+  D2E300: 00 00 1B 1B     BINARY "overworld_sprites/gfx/0315.gfx"
+          0F 0F 3F 3C 
+          1F 1F 7F 6F 
+          ...omitted...
+  D2E3C0:             SPRITE_0316:
+  D2E3C0: 1B 1B 0F 0F     BINARY "overworld_sprites/gfx/0316.gfx"
+          3F 3C 1F 1F 
+          7F 6F 3F 3F 
+          ...omitted...
+  D2E480:             SPRITE_GROUP_FEMALE_MONKEY:
+  D2E480:             SPRITE_0317:
+  D2E480: 00 00 0E 0E     BINARY "overworld_sprites/gfx/0317.gfx"
+          17 19 10 1F 
+          11 1F 0F 0F 
+          ...omitted...
+  D2E540:             SPRITE_0318:
+  D2E540: 00 00 0E 0E     BINARY "overworld_sprites/gfx/0318.gfx"
+          17 19 10 1F 
+          13 1F 0C 0F 
+          ...omitted...
+  D2E600:             SPRITE_0319:
+  D2E600: 00 00 00 00     BINARY "overworld_sprites/gfx/0319.gfx"
+          06 06 0D 0B 
+          0B 0E 0E 0F 
+          ...omitted...
+  D2E6C0:             SPRITE_0320:
+  D2E6C0: 00 00 06 06     BINARY "overworld_sprites/gfx/0320.gfx"
+          0D 0B 0B 0E 
+          0E 0F 1F 1F 
+          ...omitted...
+  D2E780:             SPRITE_GROUP_CARPAINTER:
+  D2E780:             SPRITE_0321:
+  D2E780: 03 03 34 37     BINARY "overworld_sprites/gfx/0321.gfx"
+          49 79 4F 7F 
+          5B 7A 33 33 
+          ...omitted...
+  D2E840:             SPRITE_0322:
+  D2E840: 03 03 34 37     BINARY "overworld_sprites/gfx/0322.gfx"
+          48 7B 44 7D 
+          45 7D 25 3D 
+          ...omitted...
+  D2E900:             SPRITE_0323:
+  D2E900: 00 00 07 07     BINARY "overworld_sprites/gfx/0323.gfx"
+          08 0F 1E 1A 
+          1F 1F 1D 15 
+          ...omitted...
+  D2E9C0:             SPRITE_0324:
+  D2E9C0: 07 07 08 0F     BINARY "overworld_sprites/gfx/0324.gfx"
+          1E 1A 1F 1F 
+          1D 15 3D 3D 
+          ...omitted...
+  D2EA80:             SPRITE_GROUP_EVERDRED:
+  D2EA80:             SPRITE_0325:
+  D2EA80: 03 07 05 07     LOCALEBINARY "overworld_sprites/gfx/0325.gfx"
+          3F 3F 3E 3F 
+          0F 0F 1F 1B 
+          ...omitted...
+  D2EB40:             SPRITE_0326:
+  D2EB40: 03 07 05 07     BINARY "overworld_sprites/gfx/0326.gfx"
+          3F 3F 3E 3F 
+          0F 0F 1F 1F 
+          ...omitted...
+  D2EC00:             SPRITE_0327:
+  D2EC00: 03 07 05 07     BINARY "overworld_sprites/gfx/0327.gfx"
+          3F 3F 3E 3F 
+          0F 0F 1F 16 
+          ...omitted...
+  D2ECC0:             SPRITE_0328:
+  D2ECC0: 00 00 03 07     BINARY "overworld_sprites/gfx/0328.gfx"
+          05 07 3F 3F 
+          3E 3F 0F 0F 
+          ...omitted...
+  D2ED80:             SPRITE_GROUP_PAULAS_MOTHER:
+  D2ED80:             SPRITE_0329:
+  D2ED80: 07 07 18 18     BINARY "overworld_sprites/gfx/0329.gfx"
+          17 10 2F 2B 
+          38 30 2F 2F 
+          ...omitted...
+  D2EE40:             SPRITE_0330:
+  D2EE40: 07 07 18 18     BINARY "overworld_sprites/gfx/0330.gfx"
+          10 10 29 29 
+          34 30 24 20 
+          ...omitted...
+  D2EF00:             SPRITE_0331:
+  D2EF00: 0F 0F 30 30     BINARY "overworld_sprites/gfx/0331.gfx"
+          4C 40 5A 52 
+          7B 7A 3D 3C 
+          ...omitted...
+  D2EFC0:             SPRITE_0332:
+  D2EFC0: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0332.gfx"
+          30 30 4C 40 
+          5A 52 7B 7A 
+          ...omitted...
+  D2F080:             SPRITE_GROUP_PAULAS_FATHER:
+  D2F080:             SPRITE_0333:
+  D2F080: 0F 0F 10 10     BINARY "overworld_sprites/gfx/0333.gfx"
+          24 20 2A 22 
+          2F 2F 37 37 
+          ...omitted...
+  D2F140:             SPRITE_0334:
+  D2F140: 0F 0F 10 10     BINARY "overworld_sprites/gfx/0334.gfx"
+          24 20 28 20 
+          20 20 24 20 
+          ...omitted...
+  D2F200:             SPRITE_0335:
+  D2F200: 07 07 08 08     BINARY "overworld_sprites/gfx/0335.gfx"
+          16 14 16 16 
+          1F 1F 1F 1F 
+          ...omitted...
+  D2F2C0:             SPRITE_0336:
+  D2F2C0: 00 00 07 07     BINARY "overworld_sprites/gfx/0336.gfx"
+          08 08 16 14 
+          16 16 1F 1F 
+          ...omitted...
+  D2F380:             SPRITE_GROUP_FRANK:
+  D2F380:             SPRITE_0337:
+  D2F380: 01 01 02 02     BINARY "overworld_sprites/gfx/0337.gfx"
+          04 04 0D 0C 
+          1F 1E 3F 3F 
+          ...omitted...
+  D2F440:             SPRITE_0338:
+  D2F440: 01 01 02 02     BINARY "overworld_sprites/gfx/0338.gfx"
+          04 04 0D 0C 
+          10 10 24 20 
+          ...omitted...
+  D2F500:             SPRITE_0339:
+  D2F500: 01 01 02 02     BINARY "overworld_sprites/gfx/0339.gfx"
+          04 04 0F 0E 
+          1F 1F 3F 3F 
+          ...omitted...
+  D2F5C0:             SPRITE_0340:
+  D2F5C0: 00 00 01 01     BINARY "overworld_sprites/gfx/0340.gfx"
+          02 02 04 04 
+          0F 0E 1F 1F 
+          ...omitted...
+  D2F680:             SPRITE_GROUP_LIER_X_AGERATE:
+  D2F680:             SPRITE_0341:
+  D2F680: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0341.gfx"
+          5F 5F 7F 7F 
+          7F 7F 3C 3C 
+          ...omitted...
+  D2F740:             SPRITE_0342:
+  D2F740: 00 00 0F 0F     BINARY "overworld_sprites/gfx/0342.gfx"
+          5F 5F 7F 7F 
+          7F 7F 3F 3F 
+          ...omitted...
+  D2F800:             SPRITE_0343:
+  D2F800: 2E 2E 3D 3D     BINARY "overworld_sprites/gfx/0343.gfx"
+          3D 3D 1F 1F 
+          08 08 1F 1F 
+          ...omitted...
+  D2F8C0:             SPRITE_0344:
+  D2F8C0: 00 00 2E 2E     BINARY "overworld_sprites/gfx/0344.gfx"
+          3D 3D 3D 3D 
+          1F 1F 08 08 
+          ...omitted...
+  D2F980:             SPRITE_GROUP_MACH_PIZZA_GUY:
+  D2F980:             SPRITE_0345:
+  D2F980: 1F 1F 1C 1F     BINARY "overworld_sprites/gfx/0345.gfx"
+          1C 1F 1C 1F 
+          1F 1C FF FF 
+          ...omitted...
+  D2FA40:             SPRITE_0346:
+  D2FA40: 1F 1F 1C 1F     BINARY "overworld_sprites/gfx/0346.gfx"
+          1C 1F 1C 1F 
+          1F 1C FF FF 
+          ...omitted...
+  D2FB00:             SPRITE_0347:
+  D2FB00: 00 00 1F 1F     BINARY "overworld_sprites/gfx/0347.gfx"
+          1C 1F 1C 1F 
+          1C 1F 1F 1C 
+          ...omitted...
+  D2FBC0:             SPRITE_0348:
+  D2FBC0: 1F 1F 1C 1F     BINARY "overworld_sprites/gfx/0348.gfx"
+          1C 1F 1C 1F 
+          1F 1C FF FF 
+          ...omitted...
+  D2FC80:             SPRITE_GROUP_LUCKY:
+  D2FC80:             SPRITE_0349:
+  D2FC80: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0349.gfx"
+          0F 0F 09 0F 
+          3F 3F 08 08 
+          ...omitted...
+  D2FD40:             SPRITE_0350:
+  D2FD40: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0350.gfx"
+          0F 0F 09 0F 
+          3F 3F 0F 0F 
+          ...omitted...
+  D2FE00:             SPRITE_0351:
+  D2FE00: 00 00 1F 1F     LOCALEBINARY "overworld_sprites/gfx/0351.gfx"
+          13 1F 7F 7F 
+          1F 1F 3F 3F 
+          ...omitted...
+  D2FEC0:             SPRITE_0352:
+  D2FEC0: 00 00 00 00     LOCALEBINARY "overworld_sprites/gfx/0352.gfx"
+          1F 1F 13 1F 
+          7F 7F 1F 1F 
+          ...omitted...
+  D2FF80:             SPRITE_GROUP_MONOTOLI_SECRET_DOOR_SMALL:
+  D2FF80:             SPRITE_0353:
+  D2FF80: FF 7F FF 7F     BINARY "overworld_sprites/gfx/0353.gfx"
+          FE 7E FD 7D 
+          FB 7B F6 76 
+          ...omitted...

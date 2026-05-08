@@ -1,0 +1,388 @@
+>>> bankconfig/JP/bank20.asm
+  000000:             .INCLUDE "bankconfig/common/bank20.asm"
+>>> bankconfig/common/bank20.asm
+  E00000:             .INCLUDE "common.asm"
+  E00000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  E00000:             .INCLUDE "symbols/misc.inc.asm"
+  E00000:             TEXT_WINDOW_GFX:
+  E00000: 2F 00 47 FF     LOCALEBINARY "graphics/text_window.gfx.lzhal"
+          00 47 00 FF 
+          2F FF 0B 0F 
+          ...omitted...
+  E010C2:             FLAVOURED_TEXT_GFX:
+  E010C2: 0A 0F 0F 3F     BINARY "graphics/flavoured_text.gfx.lzhal"
+          30 70 4F 60 
+          5F C0 BF C3 
+          ...omitted...
+  E0110E:             .IF .DEFINED(USA)
+  E0110E:                 MOTHER2_ROMAJI_FONT:
+  E0110E:                     LOCALEBINARY "fonts/romaji.gfx"
+  E0110E:                 COMPRESSED_SRAM:
+  E0110E:                     LOCALEBINARY "mystery_sram.bin.lzhal"
+  E0110E:                 MRSATURN_FONT_DATA:
+  E0110E:                     LOCALEBINARY "fonts/mrsaturn.bin"
+  E0110E:                 MRSATURN_FONT_GFX:
+  E0110E:                     LOCALEBINARY "fonts/mrsaturn.gfx"
+  E0110E:             .ELSE
+  E0110E:                 MOTHER2_ROMAJI_FONT:
+  E0110E: FF FF FF FF         LOCALEBINARY "fonts/hppp.gfx"
+          FF FF FF FF 
+          FF FF FF FF 
+          ...omitted...
+  E01F0E:             .ENDIF
+  E01F0E:             .INCLUDE "data/text_window_properties.asm"
+>>> data/text_window_properties.asm
+  E01F0E:             TEXT_WINDOW_PROPERTIES:
+  E01F0E:             .IF .DEFINED(JPN)
+  E01F0E: 00 00           .WORD $000
+  E01F10: 00              .BYTE $00
+  E01F11: 40 00           .WORD $040
+  E01F13: 01              .BYTE $01
+  E01F14: 80 00           .WORD $080
+  E01F16: 01              .BYTE $01
+  E01F17: C0 00           .WORD $0C0
+  E01F19: 01              .BYTE $01
+  E01F1A: 00 01           .WORD $100
+  E01F1C: 01              .BYTE $01
+  E01F1D:             .ELSE
+  E01F1D:                 .WORD $000
+  E01F1D:                 .BYTE $01
+  E01F1D:                 .WORD $040
+  E01F1D:                 .BYTE $08
+  E01F1D:                 .WORD $080
+  E01F1D:                 .BYTE $08
+  E01F1D:                 .WORD $0C0
+  E01F1D:                 .BYTE $08
+  E01F1D:                 .WORD $100
+  E01F1D:                 .BYTE $08
+  E01F1D:             .ENDIF
+>>> bankconfig/common/bank20.asm
+  E01F1D:             .INCLUDE "data/text_window_flavour_palettes.asm"
+>>> data/text_window_flavour_palettes.asm
+  E01F1D:             TEXT_WINDOW_FLAVOUR_PALETTES:
+  E01F1D: 00 00           RGB 0, 0, 0
+  E01F1F: DE 7B           RGB 30, 30, 30
+  E01F21: 59 3A           RGB 25, 18, 14
+  E01F23: 42 08           RGB 2, 2, 2
+  E01F25: 80 3B           RGB 0, 28, 14
+  E01F27: DE 7B           RGB 30, 30, 30
+  E01F29: 93 42           RGB 19, 20, 16
+  E01F2B: 42 08           RGB 2, 2, 2
+  E01F2D: 80 3B           RGB 0, 28, 14
+  E01F2F: DE 7B           RGB 30, 30, 30
+  E01F31: BF 4C           RGB 31, 5, 19
+  E01F33: BF 4C           RGB 31, 5, 19
+  E01F35: 80 3B           RGB 0, 28, 14
+  E01F37: DE 7B           RGB 30, 30, 30
+  E01F39: 4E 7D           RGB 14, 10, 31
+  E01F3B: 42 08           RGB 2, 2, 2
+  E01F3D: 80 3B           RGB 0, 28, 14
+  E01F3F: DE 7B           RGB 30, 30, 30
+  E01F41: 12 56           RGB 18, 16, 21
+  E01F43: 52 76           RGB 18, 18, 29
+  E01F45: 80 3B           RGB 0, 28, 14
+  E01F47: E7 1C           RGB 7, 7, 7
+  E01F49: A5 14           RGB 5, 5, 5
+  E01F4B: 42 08           RGB 2, 2, 2
+  E01F4D: 80 3B           RGB 0, 28, 14
+  E01F4F: DE 7B           RGB 30, 30, 30
+  E01F51: EE 68           RGB 14, 7, 26
+  E01F53: EE 68           RGB 14, 7, 26
+  E01F55: 80 3B           RGB 0, 28, 14
+  E01F57: DE 7B           RGB 30, 30, 30
+  E01F59: 51 4A           RGB 17, 18, 18
+  E01F5B: 42 08           RGB 2, 2, 2
+  E01F5D: 00 00           RGB 0, 0, 0
+  E01F5F: DE 5F           RGB 30, 30, 23
+  E01F61: E6 3B           RGB 6, 31, 14
+  E01F63: 25 14           RGB 5, 1, 5
+  E01F65: 80 3B           RGB 0, 28, 14
+  E01F67: FF 77           RGB 31, 31, 29
+  E01F69: 6D 3A           RGB 13, 19, 14
+  E01F6B: 25 14           RGB 5, 1, 5
+  E01F6D: 80 3B           RGB 0, 28, 14
+  E01F6F: DE 5F           RGB 30, 30, 23
+  E01F71: BF 4C           RGB 31, 5, 19
+  E01F73: BF 4C           RGB 31, 5, 19
+  E01F75: 80 3B           RGB 0, 28, 14
+  E01F77: BF 57           RGB 31, 29, 21
+  E01F79: 4F 79           RGB 15, 10, 30
+  E01F7B: 25 14           RGB 5, 1, 5
+  E01F7D: 80 3B           RGB 0, 28, 14
+  E01F7F: DE 5F           RGB 30, 30, 23
+  E01F81: 6C 56           RGB 12, 19, 21
+  E01F83: 4C 5F           RGB 12, 26, 23
+  E01F85: 80 3B           RGB 0, 28, 14
+  E01F87: E7 1C           RGB 7, 7, 7
+  E01F89: A5 14           RGB 5, 5, 5
+  E01F8B: 42 08           RGB 2, 2, 2
+  E01F8D: 80 3B           RGB 0, 28, 14
+  E01F8F: DE 5F           RGB 30, 30, 23
+  E01F91: 52 79           RGB 18, 10, 30
+  E01F93: 52 79           RGB 18, 10, 30
+  E01F95: 80 3B           RGB 0, 28, 14
+  E01F97: BF 57           RGB 31, 29, 21
+  E01F99: 4D 5F           RGB 13, 26, 23
+  E01F9B: C7 28           RGB 7, 6, 10
+  E01F9D: 00 00           RGB 0, 0, 0
+  E01F9F: DE 5F           RGB 30, 30, 23
+  E01FA1: 9C 2D           RGB 28, 12, 11
+  E01FA3: 25 14           RGB 5, 1, 5
+  E01FA5: 80 3B           RGB 0, 28, 14
+  E01FA7: FF 77           RGB 31, 31, 29
+  E01FA9: 93 3E           RGB 19, 20, 15
+  E01FAB: 25 14           RGB 5, 1, 5
+  E01FAD: 80 3B           RGB 0, 28, 14
+  E01FAF: DE 5F           RGB 30, 30, 23
+  E01FB1: 1B 1C           RGB 27, 0, 7
+  E01FB3: 1B 1C           RGB 27, 0, 7
+  E01FB5: 80 3B           RGB 0, 28, 14
+  E01FB7: BF 57           RGB 31, 29, 21
+  E01FB9: 4E 7D           RGB 14, 10, 31
+  E01FBB: 25 14           RGB 5, 1, 5
+  E01FBD: 80 3B           RGB 0, 28, 14
+  E01FBF: DE 5F           RGB 30, 30, 23
+  E01FC1: BA 49           RGB 26, 13, 18
+  E01FC3: 3F 56           RGB 31, 17, 21
+  E01FC5: 80 3B           RGB 0, 28, 14
+  E01FC7: E7 1C           RGB 7, 7, 7
+  E01FC9: A5 14           RGB 5, 5, 5
+  E01FCB: 42 08           RGB 2, 2, 2
+  E01FCD: 80 3B           RGB 0, 28, 14
+  E01FCF: DE 5F           RGB 30, 30, 23
+  E01FD1: 50 71           RGB 16, 10, 28
+  E01FD3: 50 71           RGB 16, 10, 28
+  E01FD5: 80 3B           RGB 0, 28, 14
+  E01FD7: BF 67           RGB 31, 29, 25
+  E01FD9: 5F 56           RGB 31, 18, 21
+  E01FDB: 88 24           RGB 8, 4, 9
+  E01FDD: 00 00           RGB 0, 0, 0
+  E01FDF: DE 5F           RGB 30, 30, 23
+  E01FE1: 6D 1F           RGB 13, 27, 7
+  E01FE3: 25 14           RGB 5, 1, 5
+  E01FE5: 80 3B           RGB 0, 28, 14
+  E01FE7: FF 67           RGB 31, 31, 25
+  E01FE9: 51 42           RGB 17, 18, 16
+  E01FEB: 25 14           RGB 5, 1, 5
+  E01FED: 80 3B           RGB 0, 28, 14
+  E01FEF: DE 5F           RGB 30, 30, 23
+  E01FF1: BF 4C           RGB 31, 5, 19
+  E01FF3: BF 4C           RGB 31, 5, 19
+  E01FF5: 80 3B           RGB 0, 28, 14
+  E01FF7: BF 57           RGB 31, 29, 21
+  E01FF9: 4F 79           RGB 15, 10, 30
+  E01FFB: 25 14           RGB 5, 1, 5
+  E01FFD: 80 3B           RGB 0, 28, 14
+  E01FFF: 86 10           RGB 6, 4, 4
+  E02001: B6 36           RGB 22, 21, 13
+  E02003: 9B 1B           RGB 27, 28, 6
+  E02005: 80 3B           RGB 0, 28, 14
+  E02007: E7 1C           RGB 7, 7, 7
+  E02009: A5 14           RGB 5, 5, 5
+  E0200B: 42 08           RGB 2, 2, 2
+  E0200D: 80 3B           RGB 0, 28, 14
+  E0200F: DE 5F           RGB 30, 30, 23
+  E02011: 52 79           RGB 18, 10, 30
+  E02013: 52 79           RGB 18, 10, 30
+  E02015: 80 3B           RGB 0, 28, 14
+  E02017: FF 6B           RGB 31, 31, 26
+  E02019: FD 2F           RGB 29, 31, 11
+  E0201B: C9 28           RGB 9, 6, 10
+  E0201D: 00 00           RGB 0, 0, 0
+  E0201F: DE 5F           RGB 30, 30, 23
+  E02021: 19 16           RGB 25, 16, 5
+  E02023: 25 14           RGB 5, 1, 5
+  E02025: 80 3B           RGB 0, 28, 14
+  E02027: FE 63           RGB 30, 31, 24
+  E02029: 73 3A           RGB 19, 19, 14
+  E0202B: 25 14           RGB 5, 1, 5
+  E0202D: 80 3B           RGB 0, 28, 14
+  E0202F: DE 5F           RGB 30, 30, 23
+  E02031: BF 4C           RGB 31, 5, 19
+  E02033: BF 4C           RGB 31, 5, 19
+  E02035: 80 3B           RGB 0, 28, 14
+  E02037: BF 57           RGB 31, 29, 21
+  E02039: 4F 79           RGB 15, 10, 30
+  E0203B: 25 14           RGB 5, 1, 5
+  E0203D: 80 3B           RGB 0, 28, 14
+  E0203F: DE 5F           RGB 30, 30, 23
+  E02041: B6 39           RGB 22, 13, 14
+  E02043: 5B 1A           RGB 27, 18, 6
+  E02045: 80 3B           RGB 0, 28, 14
+  E02047: E7 1C           RGB 7, 7, 7
+  E02049: A5 14           RGB 5, 5, 5
+  E0204B: 42 08           RGB 2, 2, 2
+  E0204D: 80 3B           RGB 0, 28, 14
+  E0204F: DE 5F           RGB 30, 30, 23
+  E02051: 52 79           RGB 18, 10, 30
+  E02053: 52 79           RGB 18, 10, 30
+  E02055: 80 3B           RGB 0, 28, 14
+  E02057: BF 57           RGB 31, 29, 21
+  E02059: 9C 2A           RGB 28, 20, 10
+  E0205B: 68 14           RGB 8, 3, 5
+  E0205D: 00 00           RGB 0, 0, 0
+  E0205F: 1F 2E           RGB 31, 16, 11
+  E02061: 5C 2D           RGB 28, 10, 11
+  E02063: 25 14           RGB 5, 1, 5
+  E02065: 80 3B           RGB 0, 28, 14
+  E02067: BF 52           RGB 31, 21, 20
+  E02069: 18 25           RGB 24, 8, 9
+  E0206B: 25 14           RGB 5, 1, 5
+  E0206D: 80 3B           RGB 0, 28, 14
+  E0206F: 9F 57           RGB 31, 28, 21
+  E02071: FF 68           RGB 31, 7, 26
+  E02073: FF 68           RGB 31, 7, 26
+  E02075: 80 3B           RGB 0, 28, 14
+  E02077: 5F 4B           RGB 31, 26, 18
+  E02079: 52 79           RGB 18, 10, 30
+  E0207B: 25 14           RGB 5, 1, 5
+  E0207D: 80 3B           RGB 0, 28, 14
+  E0207F: DF 46           RGB 31, 22, 17
+  E02081: B9 34           RGB 25, 5, 13
+  E02083: 95 1C           RGB 21, 4, 7
+  E02085: 80 3B           RGB 0, 28, 14
+  E02087: E7 1C           RGB 7, 7, 7
+  E02089: A5 14           RGB 5, 5, 5
+  E0208B: 42 08           RGB 2, 2, 2
+  E0208D: 80 3B           RGB 0, 28, 14
+  E0208F: 5F 4F           RGB 31, 26, 19
+  E02091: 52 79           RGB 18, 10, 30
+  E02093: 52 79           RGB 18, 10, 30
+  E02095: 80 3B           RGB 0, 28, 14
+  E02097: 5F 4B           RGB 31, 26, 18
+  E02099: 18 25           RGB 24, 8, 9
+  E0209B: AE 24           RGB 14, 5, 9
+  E0209D:             .IF .DEFINED(USA)
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 22, 15, 7
+  E0209D:                 RGB 5, 1, 5
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 19, 20, 16
+  E0209D:                 RGB 5, 1, 5
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 31, 5, 24
+  E0209D:                 RGB 31, 5, 24
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 15, 10, 30
+  E0209D:                 RGB 5, 1, 5
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 18, 16, 21
+  E0209D:                 RGB 18, 18, 29
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 7, 7, 7
+  E0209D:                 RGB 5, 5, 5
+  E0209D:                 RGB 2, 2, 2
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 15, 10, 30
+  E0209D:                 RGB 15, 10, 30
+  E0209D:                 RGB 0, 28, 14
+  E0209D:                 RGB 30, 30, 30
+  E0209D:                 RGB 17, 18, 18
+  E0209D:                 RGB 5, 1, 5
+  E0209D:             .ENDIF
+>>> bankconfig/common/bank20.asm
+  E0209D:             .IF .DEFINED(JPN)
+  E0209D:                 MRSATURN_FONT_DATA:
+  E0209D: FF F7 FF F7         LOCALEBINARY "fonts/unknown.gfx"
+          FF 00 FF F7 
+          FF F7 FF A0 
+          ...omitted...
+  E0309D:             .INCLUDE "data/unknown/E01FC8-jp.asm"
+>>> data/unknown/E01FC8-jp.asm
+  E0309D:             LAST_TEXT_PALETTE:
+  E0309D: 80 3B           RGB 0, 28, 14
+  E0309F: DE 7B           RGB 30, 30, 30
+  E030A1: F6 1D           RGB 22, 15, 7
+  E030A3: 25 14           RGB 5, 1, 5
+  E030A5: 80 3B           RGB 0, 28, 14
+  E030A7: DE 7B           RGB 30, 30, 30
+  E030A9: 93 42           RGB 19, 20, 16
+  E030AB: 25 14           RGB 5, 1, 5
+  E030AD: 80 3B           RGB 0, 28, 14
+  E030AF: DE 7B           RGB 30, 30, 30
+  E030B1: BF 60           RGB 31, 5, 24
+  E030B3: BF 60           RGB 31, 5, 24
+  E030B5: 80 3B           RGB 0, 28, 14
+  E030B7: DE 7B           RGB 30, 30, 30
+  E030B9: 4F 79           RGB 15, 10, 30
+  E030BB: 25 14           RGB 5, 1, 5
+  E030BD: 80 3B           RGB 0, 28, 14
+  E030BF: DE 7B           RGB 30, 30, 30
+  E030C1: 12 56           RGB 18, 16, 21
+  E030C3: 52 76           RGB 18, 18, 29
+  E030C5: 80 3B           RGB 0, 28, 14
+  E030C7: E7 1C           RGB 7, 7, 7
+  E030C9: A5 14           RGB 5, 5, 5
+  E030CB: 42 08           RGB 2, 2, 2
+  E030CD: 80 3B           RGB 0, 28, 14
+  E030CF: DE 7B           RGB 30, 30, 30
+  E030D1: 4F 79           RGB 15, 10, 30
+  E030D3: 4F 79           RGB 15, 10, 30
+  E030D5: 80 3B           RGB 0, 28, 14
+  E030D7: DE 7B           RGB 30, 30, 30
+  E030D9: 51 4A           RGB 17, 18, 18
+  E030DB: 25 14           RGB 5, 1, 5
+>>> bankconfig/common/bank20.asm
+  E030DD:             .ENDIF
+  E030DD:             .INCLUDE "data/movement_text_string_palette.asm"
+>>> data/movement_text_string_palette.asm
+  E030DD:             MOVEMENT_TEXT_STRING_PALETTE:
+  E030DD: 00 00           RGB 0,0,0
+  E030DF: 51 46           RGB 17, 18, 17
+  E030E1: 51 46           RGB 17, 18, 17
+  E030E3: FF 6F           RGB 31, 31, 27
+>>> bankconfig/common/bank20.asm
+  E030E5:             .INCLUDE "data/map/town_map_gfx_pointers.asm"
+>>> data/map/town_map_gfx_pointers.asm
+  E030E5:             TOWN_MAP_GFX_POINTER_TABLE:
+  E030E5: FD 30 E0 00     .DWORD TOWN_MAP_ONETT
+  E030E9: 75 58 E0 00     .DWORD TOWN_MAP_TWOSON
+  E030ED: 76 76 E0 00     .DWORD TOWN_MAP_THREED
+  E030F1: D8 92 E0 00     .DWORD TOWN_MAP_FOURSIDE
+  E030F5: 13 BD E0 00     .DWORD TOWN_MAP_SCARABA
+  E030F9: 76 D7 E0 00     .DWORD TOWN_MAP_SUMMERS
+>>> bankconfig/common/bank20.asm
+  E030FD:             TOWN_MAP_ONETT:
+  E030FD: E0 37 2B 49     BINARY "town_maps/0.bin.lzhal"
+          DE 6B 9A 57 
+          5C 2E D3 29 
+          ...omitted...
+  E05875:             TOWN_MAP_TWOSON:
+  E05875: E0 37 2B 49     BINARY "town_maps/1.bin.lzhal"
+          DE 6B 78 57 
+          9C 2A 82 1D 
+          ...omitted...
+  E07676:             TOWN_MAP_THREED:
+  E07676: E0 37 2B 49     LOCALEBINARY "town_maps/2.bin.lzhal"
+          DE 6B 58 4F 
+          EA 25 5F 04 
+          ...omitted...
+  E092D8:             TOWN_MAP_FOURSIDE:
+  E092D8: E0 37 2B 49     BINARY "town_maps/3.bin.lzhal"
+          FA 67 77 4F 
+          B4 42 F0 33 
+          ...omitted...
+  E0BD13:             TOWN_MAP_SCARABA:
+  E0BD13: 1F 00 00 FF     LOCALEBINARY "town_maps/4.bin.lzhal"
+          53 29 22 A8 
+          3D 4B 35 2A 
+          ...omitted...
+  E0D776:             TOWN_MAP_SUMMERS:
+  E0D776: E0 39 20 21     BINARY "town_maps/5.bin.lzhal"
+          DE 6B FF 46 
+          F4 4F 67 4B 
+          ...omitted...
+  E0FC88:             .IF .DEFINED(USA)
+  E0FC88:                 INSERT_AUDIO_PACK 110
+  E0FC88:                 .IF .DEFINED(PROTOTYPE19950327)
+  E0FC88:                     INSERT_AUDIO_PACK 143
+  E0FC88:                 .ELSE
+  E0FC88:                     INSERT_AUDIO_PACK 6
+  E0FC88:                 .ENDIF
+  E0FC88:             .ENDIF

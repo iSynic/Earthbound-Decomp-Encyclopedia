@@ -1,0 +1,334 @@
+>>> bankconfig/US/bank1f.asm
+  000000:             .INCLUDE "bankconfig/common/bank1f.asm"
+>>> bankconfig/common/bank1f.asm
+  DF0000:             .INCLUDE "common.asm"
+  DF0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  DF0000:             .INCLUDE "symbols/map.inc.asm"
+  DF0000:             MAP_DATA_TILE_SET_GRAPHICS_12:
+  DF0000: 3F 00 22 7F     LOCALEBINARY "maps/gfx/12.gfx.lzhal"
+          0C 40 A0 E0 
+          BF D0 A8 D8 
+          ...omitted...
+  DF2938:             MAP_DATA_TILE_SET_GRAPHICS_16:
+  DF2938: 3F 00 06 9F     BINARY "maps/gfx/16.gfx.lzhal"
+          00 C3 00 F0 
+          00 FC 43 00 
+          ...omitted...
+  DF512A:             MAP_DATA_TILE_SET_GRAPHICS_17:
+  DF512A: 3F 00 03 FF     LOCALEBINARY "maps/gfx/17.gfx.lzhal"
+          00 FF 07 41 
+          FF 1F 41 FF 
+          ...omitted...
+  DF6BE8:             MAP_DATA_TILE_SET_GRAPHICS_18:
+  DF6BE8: E4 20 00 41     BINARY "maps/gfx/18.gfx.lzhal"
+          FF 00 0A FF 
+          03 FC 0F F0 
+          ...omitted...
+  DF818B:             MAP_DATA_TILE_SET_GRAPHICS_19:
+  DF818B: E4 20 00 09     BINARY "maps/gfx/19.gfx.lzhal"
+          0F 40 5F B0 
+          BF 24 7F 46 
+          ...omitted...
+  DF9F57:             MAP_DATA_TILE_SET_GRAPHICS_15:
+  DF9F57: E4 20 00 47     LOCALEBINARY "maps/gfx/15.gfx.lzhal"
+          FF 00 2E 00 
+          2F FF 2F 00 
+          ...omitted...
+  DFC243:             MAP_DATA_TILE_ANIMATION_GFX_0:
+  DFC243: 3F 00 42 FE     BINARY "maps/anim_gfx/0.gfx.lzhal"
+          FF 08 FD FF 
+          FE FE FA FE 
+          ...omitted...
+  DFC93B:             MAP_DATA_TILE_ANIMATION_GFX_1:
+  DFC93B: E4 20 00 0E     BINARY "maps/anim_gfx/1.gfx.lzhal"
+          FF 00 FF 01 
+          FE 03 FC 07 
+          ...omitted...
+  DFCB7F:             MAP_DATA_TILE_ANIMATION_GFX_2:
+  DFCB7F: E7 FF 00 E7     BINARY "maps/anim_gfx/2.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFCB98:             MAP_DATA_TILE_ANIMATION_GFX_3:
+  DFCB98: E7 FF 00 E7     BINARY "maps/anim_gfx/3.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFCBB1:             MAP_DATA_TILE_ANIMATION_GFX_4:
+  DFCBB1: E7 FF 00 E7     BINARY "maps/anim_gfx/4.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFCBCA:             MAP_DATA_TILE_ANIMATION_GFX_5:
+  DFCBCA: E4 20 00 0A     BINARY "maps/anim_gfx/5.gfx.lzhal"
+          7E 00 3C 00 
+          18 00 81 00 
+          ...omitted...
+  DFD000:             MAP_DATA_TILE_ANIMATION_GFX_6:
+  DFD000: E4 20 00 46     BINARY "maps/anim_gfx/6.gfx.lzhal"
+          FF 00 00 FF 
+          44 FF 00 02 
+          ...omitted...
+  DFD6EE:             MAP_DATA_TILE_ANIMATION_GFX_7:
+  DFD6EE: 3F 00 24 FF     BINARY "maps/anim_gfx/7.gfx.lzhal"
+          00 DB 22 FF 
+          00 FD 26 FF 
+          ...omitted...
+  DFDD57:             MAP_DATA_TILE_ANIMATION_GFX_8:
+  DFDD57: 3F 00 13 BF     BINARY "maps/anim_gfx/8.gfx.lzhal"
+          40 1F E0 87 
+          F8 85 FA 40 
+          ...omitted...
+  DFE1EB:             MAP_DATA_TILE_ANIMATION_GFX_9:
+  DFE1EB: E7 FF 00 E7     BINARY "maps/anim_gfx/9.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFE204:             MAP_DATA_TILE_ANIMATION_GFX_10:
+  DFE204: E7 FF 00 E7     BINARY "maps/anim_gfx/10.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFE21D:             MAP_DATA_TILE_ANIMATION_GFX_11:
+  DFE21D: E7 FF 00 E7     BINARY "maps/anim_gfx/11.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFE236:             MAP_DATA_TILE_ANIMATION_GFX_12:
+  DFE236: 3F 00 22 7F     BINARY "maps/anim_gfx/12.gfx.lzhal"
+          0C 40 A0 E0 
+          BF D0 A8 D8 
+          ...omitted...
+  DFE402:             MAP_DATA_TILE_ANIMATION_GFX_13:
+  DFE402: 3F 00 10 FF     BINARY "maps/anim_gfx/13.gfx.lzhal"
+          FF 40 FF C0 
+          FF 81 FF 02 
+          ...omitted...
+  DFE4C8:             MAP_DATA_TILE_ANIMATION_GFX_14:
+  DFE4C8: E7 FF 00 E7     BINARY "maps/anim_gfx/14.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DFE4E1:             .INCLUDE "data/map/palette_anim_pointer_table.asm"
+>>> data/map/palette_anim_pointer_table.asm
+  DFE4E1:             MAP_DATA_PALETTE_ANIM_POINTER_TABLE:
+  DFE4E1: 5D E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_1
+  DFE4E5: 66 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_2
+  DFE4E9: 6F E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_3
+  DFE4ED: 7A E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_4
+  DFE4F1: 82 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_5
+  DFE4F5: 8B E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_6
+  DFE4F9: 93 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_7
+  DFE4FD: 9B E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_8
+  DFE501: A8 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_9
+  DFE505: AD E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_10
+  DFE509: B2 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_11
+  DFE50D: B7 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_12
+  DFE511: BC E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_13
+  DFE515: C1 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_14
+  DFE519: C6 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_15
+  DFE51D: CB E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_16
+  DFE521: D0 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_17
+  DFE525: D5 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_18
+  DFE529: DA E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_19
+  DFE52D: DF E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_20
+  DFE531: E4 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_21
+  DFE535: E9 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_22
+  DFE539: EE E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_23
+  DFE53D: F3 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_24
+  DFE541: F8 E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_25
+  DFE545: FD E5 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_26
+  DFE549: 02 E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_27
+  DFE54D: 07 E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_28
+  DFE551: 0C E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_29
+  DFE555: 11 E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_30
+  DFE559: 16 E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_31
+>>> bankconfig/common/bank1f.asm
+  DFE55D:             .INCLUDE "data/map/palette_anim_secondary_table.asm"
+>>> data/map/palette_anim_secondary_table.asm
+  DFE55D:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE:
+  DFE55D:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_1:
+  DFE55D: 1B E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_1
+  DFE561: 04              .BYTE $04
+  DFE562: 0A                  .BYTE $0A
+  DFE563: 0A                  .BYTE $0A
+  DFE564: 0A                  .BYTE $0A
+  DFE565: 0A                  .BYTE $0A
+  DFE566:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_2:
+  DFE566: B2 E6 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_2
+  DFE56A: 04              .BYTE $04
+  DFE56B: 0F                  .BYTE $0F
+  DFE56C: 0F                  .BYTE $0F
+  DFE56D: 0F                  .BYTE $0F
+  DFE56E: 0F                  .BYTE $0F
+  DFE56F:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_3:
+  DFE56F: 3D E7 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_3
+  DFE573: 06              .BYTE $06
+  DFE574: 14                  .BYTE $14
+  DFE575: 14                  .BYTE $14
+  DFE576: 14                  .BYTE $14
+  DFE577: 14                  .BYTE $14
+  DFE578: 14                  .BYTE $14
+  DFE579: 14                  .BYTE $14
+  DFE57A:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_4:
+  DFE57A: E0 E8 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_4
+  DFE57E: 03              .BYTE $03
+  DFE57F: 0F                  .BYTE $0F
+  DFE580: 0F                  .BYTE $0F
+  DFE581: 14                  .BYTE $14
+  DFE582:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_5:
+  DFE582: 6C E9 DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_5
+  DFE586: 04              .BYTE $04
+  DFE587: 0F                  .BYTE $0F
+  DFE588: 0F                  .BYTE $0F
+  DFE589: 0F                  .BYTE $0F
+  DFE58A: 0F                  .BYTE $0F
+  DFE58B:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_6:
+  DFE58B: 56 EA DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_6
+  DFE58F: 03              .BYTE $03
+  DFE590: 0F                  .BYTE $0F
+  DFE591: 0F                  .BYTE $0F
+  DFE592: 0F                  .BYTE $0F
+  DFE593:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_7:
+  DFE593: 31 EB DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_7
+  DFE597: 03              .BYTE $03
+  DFE598: 3C                  .BYTE $3C
+  DFE599: 08                  .BYTE $08
+  DFE59A: 08                  .BYTE $08
+  DFE59B:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_8:
+  DFE59B: AC EB DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_8
+  DFE59F: 08              .BYTE $08
+  DFE5A0: 1E                  .BYTE $1E
+  DFE5A1: 0A                  .BYTE $0A
+  DFE5A2: 0A                  .BYTE $0A
+  DFE5A3: 0A                  .BYTE $0A
+  DFE5A4: 0A                  .BYTE $0A
+  DFE5A5: 0A                  .BYTE $0A
+  DFE5A6: 0A                  .BYTE $0A
+  DFE5A7: 0A                  .BYTE $0A
+  DFE5A8:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_9:
+  DFE5A8: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5AC: 00              .BYTE $00
+  DFE5AD:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_10:
+  DFE5AD: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5B1: 00              .BYTE $00
+  DFE5B2:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_11:
+  DFE5B2: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5B6: 00              .BYTE $00
+  DFE5B7:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_12:
+  DFE5B7: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5BB: 00              .BYTE $00
+  DFE5BC:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_13:
+  DFE5BC: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5C0: 00              .BYTE $00
+  DFE5C1:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_14:
+  DFE5C1: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5C5: 00              .BYTE $00
+  DFE5C6:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_15:
+  DFE5C6: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5CA: 00              .BYTE $00
+  DFE5CB:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_16:
+  DFE5CB: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5CF: 00              .BYTE $00
+  DFE5D0:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_17:
+  DFE5D0: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5D4: 00              .BYTE $00
+  DFE5D5:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_18:
+  DFE5D5: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5D9: 00              .BYTE $00
+  DFE5DA:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_19:
+  DFE5DA: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5DE: 00              .BYTE $00
+  DFE5DF:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_20:
+  DFE5DF: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5E3: 00              .BYTE $00
+  DFE5E4:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_21:
+  DFE5E4: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5E8: 00              .BYTE $00
+  DFE5E9:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_22:
+  DFE5E9: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5ED: 00              .BYTE $00
+  DFE5EE:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_23:
+  DFE5EE: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5F2: 00              .BYTE $00
+  DFE5F3:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_24:
+  DFE5F3: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5F7: 00              .BYTE $00
+  DFE5F8:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_25:
+  DFE5F8: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE5FC: 00              .BYTE $00
+  DFE5FD:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_26:
+  DFE5FD: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE601: 00              .BYTE $00
+  DFE602:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_27:
+  DFE602: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE606: 00              .BYTE $00
+  DFE607:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_28:
+  DFE607: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE60B: 00              .BYTE $00
+  DFE60C:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_29:
+  DFE60C: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE610: 00              .BYTE $00
+  DFE611:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_30:
+  DFE611: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE615: 00              .BYTE $00
+  DFE616:             MAP_DATA_PALETTE_ANIM_SECONDARY_TABLE_ENTRY_31:
+  DFE616: 46 EC DF 00     .DWORD MAP_DATA_PALETTE_ANIM_ENTRY_NONE
+  DFE61A: 00              .BYTE $00
+>>> bankconfig/common/bank1f.asm
+  DFE61B:             .INCLUDE "data/map/palette_anim_table.asm"
+>>> data/map/palette_anim_table.asm
+  DFE61B:             ; Each entry is compressed.
+  DFE61B:             MAP_DATA_PALETTE_ANIM_TABLE:
+  DFE61B:             MAP_DATA_PALETTE_ANIM_ENTRY_1:
+  DFE61B: 3D 00 E0 21     .BYTE $3D, $00, $E0, $21, $86, $10, $29, $71, $DB, $32, $EC, $20, $C8, $18, $E9, $18, $0E, $1D, $56, $32, $94, $25, $72, $25, $BC, $19, $DD, $1C, $FC, $1D, $02, $14, $43, $10, $64, $0C, $00, $00, $8B, $00, $20, $0B, $7F, $26, $94, $25, $DA, $21, $56, $15, $D0, $18, $14, $10, $85, $00, $38, $3F, $00, $01, $86, $10, $9F, $00, $00, $F0, $3F, $00, $60, $03, $29, $71, $DC, $33,<... long line trimmed>
+          86 10 29 71 
+          DB 32 EC 20 
+          ...omitted...
+  DFE6B2:             MAP_DATA_PALETTE_ANIM_ENTRY_2:
+  DFE6B2: 27 00 00 85     .BYTE $27, $00, $00, $85, $22, $00, $01, $FF, $03, $2D, $00, $03, $05, $0C, $1F, $30, $88, $00, $00, $32, $00, $03, $04, $1C, $13, $7C, $9B, $00, $20, $03, $85, $00, $FF, $03, $35, $00, $01, $FF, $03, $F0, $23, $00, $38, $03, $A0, $04, $E0, $37, $93, $00, $20, $01, $FF, $03, $95, $00, $16, $01, $AA, $4C, $F0, $4F, $00, $0E, $01, $AA, $4C, $35, $00, $85, $00, $CC, $03, $44,<... long line trimmed>
+          22 00 01 FF 
+          03 2D 00 03 
+          ...omitted...
+  DFE73D:             MAP_DATA_PALETTE_ANIM_ENTRY_3:
+  DFE73D: 01 00 00 4E     .BYTE $01, $00, $00, $4E, $E0, $7F, $1D, $2B, $49, $E0, $7F, $F8, $55, $D4, $1C, $CE, $1C, $6A, $35, $60, $3B, $82, $3E, $E0, $25, $A0, $1D, $50, $41, $0F, $3D, $D0, $38, $ED, $30, $C4, $0C, $83, $00, $1E, $1A, $95, $65, $CF, $40, $4C, $20, $9D, $2E, $3C, $2E, $B2, $29, $70, $21, $47, $1C, $6C, $30, $7C, $3F, $DA, $32, $D0, $38, $CD, $2C, $86, $8A, $00, $3D, $1F, $FF, $7F,<... long line trimmed>
+          E0 7F 1D 2B 
+          49 E0 7F F8 
+          ...omitted...
+  DFE8E0:             MAP_DATA_PALETTE_ANIM_ENTRY_4:
+  DFE8E0: 01 00 00 47     .BYTE $01, $00, $00, $47, $18, $5B, $E0, $25, $82, $18, $83, $00, $D6, $3F, $A8, $34, $A6, $28, $83, $10, $00, $00, $89, $70, $3C, $19, $82, $18, $65, $1C, $09, $1D, $2D, $21, $79, $1C, $D6, $3F, $8A, $19, $CA, $10, $4B, $01, $79, $1C, $9F, $00, $18, $85, $00, $18, $3F, $00, $01, $86, $10, $9F, $00, $60, $F0, $21, $00, $60, $93, $00, $02, $01, $8D, $3A, $8D, $00, $18, $11,<... long line trimmed>
+          18 5B E0 25 
+          82 18 83 00 
+          ...omitted...
+  DFE96C:             MAP_DATA_PALETTE_ANIM_ENTRY_5:
+  DFE96C: E4 3F 00 1D     .BYTE $E4, $3F, $00, $1D, $03, $15, $8F, $7C, $00, $10, $01, $08, $04, $14, $00, $00, $7F, $6B, $FE, $7F, $FF, $7F, $94, $4B, $12, $33, $83, $25, $0B, $35, $28, $2D, $C5, $1C, $23, $00, $85, $00, $42, $0F, $00, $04, $00, $08, $90, $35, $E9, $28, $58, $55, $D7, $58, $A9, $24, $67, $18, $93, $00, $58, $03, $55, $29, $2F, $2D, $8D, $00, $70, $E4, $61, $00, $03, $03, $15, $8F,<... long line trimmed>
+          03 15 8F 7C 
+          00 10 01 08 
+          ...omitted...
+  DFEA56:             MAP_DATA_PALETTE_ANIM_ENTRY_6:
+  DFEA56: 1C 00 00 BA     .BYTE $1C, $00, $00, $BA, $31, $7C, $31, $0C, $20, $50, $18, $FC, $1D, $BB, $46, $17, $7E, $72, $69, $F8, $30, $6C, $1C, $8C, $00, $17, $34, $B3, $34, $4A, $22, $00, $8D, $00, $00, $05, $23, $17, $E4, $15, $D6, $14, $85, $00, $14, $02, $CC, $30, $4B, $E4, $24, $00, $46, $FF, $7F, $0D, $D7, $2D, $FF, $7F, $0B, $18, $3A, $1A, $BF, $3E, $AF, $34, $0B, $18, $23, $00, $0B, $1A,<... long line trimmed>
+          31 7C 31 0C 
+          20 50 18 FC 
+          ...omitted...
+  DFEB31:             MAP_DATA_PALETTE_ANIM_ENTRY_7:
+  DFEB31: 27 00 01 60     .BYTE $27, $00, $01, $60, $20, $35, $00, $89, $00, $00, $E4, $33, $00, $01, $86, $10, $9F, $00, $40, $F0, $41, $00, $20, $00, $46, $22, $00, $19, $01, $08, $A1, $1C, $00, $08, $24, $04, $02, $04, $06, $10, $04, $08, $82, $08, $42, $04, $62, $24, $41, $1C, $42, $18, $00, $00, $8A, $00, $C0, $00, $00, $91, $00, $CC, $F0, $43, $00, $3E, $89, $00, $C2, $F0, $35, $00, $EC, $00,<... long line trimmed>
+          20 35 00 89 
+          00 00 E4 33 
+          ...omitted...
+  DFEBAC:             MAP_DATA_PALETTE_ANIM_ENTRY_8:
+  DFEBAC: 1F 29 55 DD     .BYTE $1F, $29, $55, $DD, $73, $6B, $28, $69, $20, $B1, $3A, $E9, $2D, $79, $57, $10, $42, $6E, $21, $2B, $1D, $E8, $18, $12, $3D, $EE, $34, $AC, $30, $05, $11, $00, $00, $87, $00, $00, $05, $A1, $1C, $82, $18, $85, $7F, $8D, $00, $0E, $01, $01, $08, $3F, $00, $01, $86, $10, $9F, $00, $40, $F0, $3F, $00, $40, $0D, $00, $00, $DD, $73, $69, $20, $67, $18, $50, $2A, $A9, $21,<... long line trimmed>
+          73 6B 28 69 
+          20 B1 3A E9 
+          ...omitted...
+  DFEC46:             MAP_DATA_PALETTE_ANIM_ENTRY_NONE:
+>>> bankconfig/common/bank1f.asm
+  DFEC46:             .IF .DEFINED(USA)
+  DFEC46:                 .IF .DEFINED(PROTOTYPE19950327)
+  DFEC46:                     INSERT_AUDIO_PACK 165
+  DFEC46:                 .ELSE
+  DFEC46: 22 05 00 48         INSERT_AUDIO_PACK 4
+          3E 48 1E 48 
+          0E 48 2E 48 
+          ...omitted...
+  DFFFEE:                 .ENDIF
+  DFFFEE:             .ENDIF

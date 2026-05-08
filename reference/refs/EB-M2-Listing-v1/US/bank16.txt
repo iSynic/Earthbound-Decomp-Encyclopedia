@@ -1,0 +1,35 @@
+>>> bankconfig/US/bank16.asm
+  000000:             .INCLUDE "bankconfig/common/bank16.asm"
+>>> bankconfig/common/bank16.asm
+  D60000:             .INCLUDE "common.asm"
+  D60000:             .INCLUDE "symbols/map.inc.asm"
+  D60000:             MAP_DATA_TILE_TABLE_CHUNK_1:
+  D60000: 00 00 00 25     BINARY "maps/tiles/chunk_01.bin"
+          AA AA 28 2B 
+          25 AA 28 2B 
+          ...omitted...
+  D62800:             MAP_DATA_TILE_TABLE_CHUNK_2:
+  D62800: 00 00 25 B9     BINARY "maps/tiles/chunk_02.bin"
+          93 93 19 1C 
+          B9 93 BB 1C 
+          ...omitted...
+  D65000:             MAP_DATA_TILE_TABLE_CHUNK_3:
+  D65000: 00 24 1B 91     LOCALEBINARY "maps/tiles/chunk_03.bin"
+          B5 B5 19 05 
+          91 B5 94 19 
+          ...omitted...
+  D68000:             MAP_DATA_TILE_TABLE_CHUNK_4:
+  D68000: 00 40 05 AC     BINARY "maps/tiles/chunk_04.bin"
+          1C 1C BB B9 
+          AC 1C AF 19 
+          ...omitted...
+  D6A800:             MAP_DATA_TILE_TABLE_CHUNK_5:
+  D6A800: 00 24 05 1C     BINARY "maps/tiles/chunk_05.bin"
+          1C E9 94 91 
+          5E 5F 63 BB 
+          ...omitted...
+  D6D000:             MAP_DATA_TILE_TABLE_CHUNK_6:
+  D6D000: 00 40 1C 0F     BINARY "maps/tiles/chunk_06.bin"
+          62 68 AF AC 
+          1C 1C 6A 94 
+          ...omitted...

@@ -1,0 +1,71 @@
+>>> bankconfig/US/bank1e.asm
+  000000:             .INCLUDE "bankconfig/common/bank1e.asm"
+>>> bankconfig/common/bank1e.asm
+  DE0000:             .INCLUDE "common.asm"
+  DE0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  DE0000:             .INCLUDE "symbols/map.inc.asm"
+  DE0000:             MAP_DATA_TILE_SET_GRAPHICS_6:
+  DE0000: E4 20 00 46     BINARY "maps/gfx/6.gfx.lzhal"
+          FF 00 00 FF 
+          44 FF 00 02 
+          ...omitted...
+  DE32C9:             MAP_DATA_TILE_SET_GRAPHICS_7:
+  DE32C9: 3F 00 24 FF     BINARY "maps/gfx/7.gfx.lzhal"
+          00 DB 22 FF 
+          00 FD 26 FF 
+          ...omitted...
+  DE543F:             MAP_DATA_TILE_SET_GRAPHICS_8:
+  DE543F: 3F 00 13 BF     BINARY "maps/gfx/8.gfx.lzhal"
+          40 1F E0 87 
+          F8 85 FA 40 
+          ...omitted...
+  DE747E:             MAP_DATA_TILE_SET_GRAPHICS_2:
+  DE747E: 3F 00 47 FF     LOCALEBINARY "maps/gfx/2.gfx.lzhal"
+          00 30 00 47 
+          FF 00 2E 00 
+          ...omitted...
+  DEA101:             MAP_DATA_TILE_SET_GRAPHICS_10:
+  DEA101: 3F 00 2F FF     LOCALEBINARY "maps/gfx/10.gfx.lzhal"
+          2F 01 47 00 
+          FF 2F 00 2F 
+          ...omitted...
+  DECE3A:             MAP_DATA_TILE_SET_GRAPHICS_11:
+  DECE3A: 3F 00 2F FF     LOCALEBINARY "maps/gfx/11.gfx.lzhal"
+          2F 01 47 0F 
+          F0 2F F8 47 
+          ...omitted...
+  DEF0E7:             MAP_DATA_TILE_ANIMATION_GFX_15:
+  DEF0E7: E7 FF 00 E7     BINARY "maps/anim_gfx/15.gfx.lzhal"
+          FF 00 E7 FF 
+          00 E7 FF 00 
+          ...omitted...
+  DEF100:             MAP_DATA_TILE_ANIMATION_GFX_16:
+  DEF100: 3F 00 25 03     BINARY "maps/anim_gfx/16.gfx.lzhal"
+          0B 05 05 0F 
+          0F 17 17 2C 
+          ...omitted...
+  DEF2CF:             MAP_DATA_TILE_ANIMATION_GFX_17:
+  DEF2CF: 3F 00 03 FF     BINARY "maps/anim_gfx/17.gfx.lzhal"
+          00 FF 07 41 
+          FF 1F 41 FF 
+          ...omitted...
+  DEF5EB:             MAP_DATA_TILE_ANIMATION_GFX_18:
+  DEF5EB: E4 20 00 0E     BINARY "maps/anim_gfx/18.gfx.lzhal"
+          FF 00 FF 01 
+          FE 03 FC 07 
+          ...omitted...
+  DEF869:             MAP_DATA_TILE_ANIMATION_GFX_19:
+  DEF869: E4 20 00 09     BINARY "maps/anim_gfx/19.gfx.lzhal"
+          0F 40 5F B0 
+          BF 24 7F 46 
+          ...omitted...
+  DEFCDD:             .IF .DEFINED(USA)
+  DEFCDD:                 .IF .DEFINED(PROTOTYPE19950327)
+  DEFCDD:                     INSERT_AUDIO_PACK 152
+  DEFCDD:                 .ELSE
+  DEFCDD: F1 02 00 58         INSERT_AUDIO_PACK 143
+          0A 58 1A 58 
+          FF 00 00 58 
+          ...omitted...
+  DEFFD4:                 .ENDIF
+  DEFFD4:             .ENDIF

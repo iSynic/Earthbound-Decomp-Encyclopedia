@@ -1,0 +1,43 @@
+>>> bankconfig/JP/bank1b.asm
+  000000:             .INCLUDE "bankconfig/common/bank1b.asm"
+>>> bankconfig/common/bank1b.asm
+  DB0000:             .INCLUDE "common.asm"
+  DB0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  DB0000:             .INCLUDE "symbols/map.inc.asm"
+  DB0000:             MAP_DATA_TILE_ARRANGEMENT_8:
+  DB0000: 4F CA 1D 4C     BINARY "maps/arrangements/8.arr.lzhal"
+          8B 18 05 98 
+          D9 01 19 02 
+          ...omitted...
+  DB26C1:             MAP_DATA_TILE_ARRANGEMENT_9:
+  DB26C1: 03 C0 0D C1     BINARY "maps/arrangements/9.arr.lzhal"
+          0D 83 00 00 
+          02 E0 0D E1 
+          ...omitted...
+  DB617F:             MAP_DATA_TILE_ARRANGEMENT_16:
+  DB617F: 3F 00 08 6C     BINARY "maps/arrangements/16.arr.lzhal"
+          09 6D 09 8B 
+          09 50 09 8A 
+          ...omitted...
+  DB7C22:             MAP_DATA_TILE_ARRANGEMENT_17:
+  DB7C22: 4F FA 55 01     LOCALEBINARY "maps/arrangements/17.arr.lzhal"
+          83 58 41 60 
+          18 01 83 18 
+          ...omitted...
+  DB920E:             MAP_DATA_TILE_ARRANGEMENT_10:
+  DB920E: 3F 00 00 05     LOCALEBINARY "maps/arrangements/10.arr.lzhal"
+          41 19 EB 0B 
+          59 50 58 06 
+          ...omitted...
+  DBC6C2:             MAP_DATA_TILE_ARRANGEMENT_11:
+  DBC6C2: 3F 00 16 42     LOCALEBINARY "maps/arrangements/11.arr.lzhal"
+          18 5E 18 EE 
+          18 EF 18 16 
+          ...omitted...
+  DBF2D4:             .IF .DEFINED(USA)
+  DBF2D4:                 .IF .DEFINED(PROTOTYPE19950327)
+  DBF2D4:                     INSERT_AUDIO_PACK 140
+  DBF2D4:                 .ELSE
+  DBF2D4:                     INSERT_AUDIO_PACK 65
+  DBF2D4:                 .ENDIF
+  DBF2D4:             .ENDIF

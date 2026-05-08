@@ -21,6 +21,7 @@ const disallowedExtensions = new Set([
   ".spc",
   ".wav",
   ".brr",
+  ".ebm",
   ".gfx",
   ".pal",
   ".arr",

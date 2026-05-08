@@ -1,0 +1,26 @@
+>>> bankconfig/JP/bank22.asm
+  000000:             .INCLUDE "bankconfig/common/bank22.asm"
+>>> bankconfig/common/bank22.asm
+  E20000:             .INCLUDE "common.asm"
+  E20000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  E20000: 70 00 00 6C INSERT_AUDIO_PACK 108
+          00 70 3E 80 
+          00 70 3E 80 
+          ...omitted...
+  E277F0: 20 00 00 6C INSERT_AUDIO_PACK 0
+          00 70 1B 70 
+          2B 7E 46 7E 
+          ...omitted...
+  E2ED2C:             .IF .DEFINED(JPN)
+  E2ED2C: 18 00 68 6C     INSERT_AUDIO_PACK 110
+          B0 95 22 99 
+          B0 95 22 99 
+          ...omitted...
+  E2FD0A: CC 02 00 48     INSERT_AUDIO_PACK 6
+          2E 48 0E 48 
+          1E 48 1E 48 
+          ...omitted...
+  E2FFDC:             .ELSE
+  E2FFDC:                 INSERT_AUDIO_PACK 36
+  E2FFDC:                 INSERT_AUDIO_PACK 18
+  E2FFDC:             .ENDIF

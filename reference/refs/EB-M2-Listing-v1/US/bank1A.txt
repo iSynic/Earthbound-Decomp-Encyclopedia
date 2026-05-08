@@ -1,0 +1,223 @@
+>>> bankconfig/US/bank1a.asm
+  000000:             .INCLUDE "bankconfig/common/bank1a.asm"
+>>> bankconfig/common/bank1a.asm
+  DA0000:             .INCLUDE "common.asm"
+  DA0000:             .INCLUDE "symbols/audiopacks.inc.asm"
+  DA0000:             .INCLUDE "symbols/map.inc.asm"
+  DA0000:             MAP_DATA_TILE_ARRANGEMENT_5:
+  DA0000: 4F 01 08 42     BINARY "maps/arrangements/5.arr.lzhal"
+          01 1C 01 87 
+          5C 85 00 22 
+          ...omitted...
+  DA1342:             MAP_DATA_TILE_ARRANGEMENT_6:
+  DA1342: 4F D8 0D 45     BINARY "maps/arrangements/6.arr.lzhal"
+          DC 0C 14 AD 
+          0D AE 0D DC 
+          ...omitted...
+  DA4EA3:             MAP_DATA_TILE_ARRANGEMENT_7:
+  DA4EA3: 4F 4E 10 41     LOCALEBINARY "maps/arrangements/7.arr.lzhal"
+          4F 15 03 AF 
+          14 C9 14 85 
+          ...omitted...
+  DA7CA7:             MAP_DATA_PALETTE_0:
+  DA7CA7: 00 00 73 1A     BINARY "maps/palettes/0.pal"
+          94 22 10 1A 
+          8C 11 08 0D 
+          ...omitted...
+  DA7FA7:             MAP_DATA_PALETTE_1:
+  DA7FA7: A6 01 DE 6B     LOCALEBINARY "maps/palettes/1.pal"
+          58 4F FA 25 
+          14 4B FF 03 
+          ...omitted...
+  DA81E7:             MAP_DATA_PALETTE_2:
+  DA81E7: 00 00 DE 6B     LOCALEBINARY "maps/palettes/2.pal"
+          78 57 FA 25 
+          14 3F FF 27 
+          ...omitted...
+  DA84E7:             MAP_DATA_PALETTE_3:
+  DA84E7: 47 80 9D 7F     LOCALEBINARY "maps/palettes/3.pal"
+          B2 72 FE 68 
+          DE 4A 9F 7F 
+          ...omitted...
+  DA8667:             MAP_DATA_PALETTE_4:
+  DA8667: 00 00 F7 5B     BINARY "maps/palettes/4.pal"
+          14 43 B4 42 
+          F0 33 34 3E 
+          ...omitted...
+  DA87E7:             MAP_DATA_PALETTE_5:
+  DA87E7: 00 00 00 00     BINARY "maps/palettes/5.pal"
+          00 00 00 00 
+          F5 7C 00 00 
+          ...omitted...
+  DA8AE7:             MAP_DATA_PALETTE_6:
+  DA8AE7: 00 00 DE 6B     LOCALEBINARY "maps/palettes/6.pal"
+          58 4F 14 2A 
+          14 4B FF 03 
+          ...omitted...
+  DA9027:             MAP_DATA_PALETTE_7:
+  DA9027: 00 00 DE 6B     BINARY "maps/palettes/7.pal"
+          59 4F FF 5F 
+          36 57 94 36 
+          ...omitted...
+  DA90E7:             MAP_DATA_PALETTE_8:
+  DA90E7: 00 00 DE 47     BINARY "maps/palettes/8.pal"
+          3B 43 97 36 
+          E0 03 19 43 
+          ...omitted...
+  DA9267:             MAP_DATA_PALETTE_9:
+  DA9267: 00 00 00 00     BINARY "maps/palettes/9.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  DA96E7:             MAP_DATA_PALETTE_10:
+  DA96E7: 00 00 29 23     BINARY "maps/palettes/10.pal"
+          93 47 4F 47 
+          B4 29 39 3E 
+          ...omitted...
+  DA9CE7:             MAP_DATA_PALETTE_11:
+  DA9CE7: 00 00 E0 7F     LOCALEBINARY "maps/palettes/11.pal"
+          FF 73 B7 5F 
+          B2 62 E0 7F 
+          ...omitted...
+  DAA2E7:             MAP_DATA_PALETTE_12:
+  DAA2E7: 00 00 4A 1F     LOCALEBINARY "maps/palettes/12.pal"
+          DC 7F BA 7F 
+          50 56 DC 7F 
+          ...omitted...
+  DAA8E7:             MAP_DATA_PALETTE_13:
+  DAA8E7: 1F 01 DE 6B     LOCALEBINARY "maps/palettes/13.pal"
+          58 4F FF 5F 
+          15 47 94 36 
+          ...omitted...
+  DAABE7:             MAP_DATA_PALETTE_14:
+  DAABE7: 00 00 CF 26     LOCALEBINARY "maps/palettes/14.pal"
+          BC 7F 99 7B 
+          50 5A BB 7F 
+          ...omitted...
+  DAB1E7:             MAP_DATA_PALETTE_15:
+  DAB1E7: 00 00 AB 1A     LOCALEBINARY "maps/palettes/15.pal"
+          F8 52 B6 4E 
+          D1 31 B6 4A 
+          ...omitted...
+  DAB7E7:             MAP_DATA_PALETTE_16:
+  DAB7E7: 00 00 31 32     LOCALEBINARY "maps/palettes/16.pal"
+          8A 29 48 21 
+          CC 2D 31 3A 
+          ...omitted...
+  DABAE7:             MAP_DATA_PALETTE_17:
+  DABAE7: 00 00 2D 27     LOCALEBINARY "maps/palettes/17.pal"
+          3D 53 BF 6B 
+          F1 2D 19 57 
+          ...omitted...
+  DAC0E7:             MAP_DATA_PALETTE_18:
+  DAC0E7: 00 00 DE 47     BINARY "maps/palettes/18.pal"
+          7B 3B D8 32 
+          F4 29 E9 22 
+          ...omitted...
+  DAC1A7:             MAP_DATA_PALETTE_19:
+  DAC1A7: 00 00 5E 57     BINARY "maps/palettes/19.pal"
+          B9 46 96 46 
+          98 46 76 3E 
+          ...omitted...
+  DAC6E7:             MAP_DATA_PALETTE_20:
+  DAC6E7: 00 00 FF 7F     LOCALEBINARY "maps/palettes/20.pal"
+          DF 6F 9F 53 
+          5B 1E BF 67 
+          ...omitted...
+  DACCE7:             MAP_DATA_PALETTE_21:
+  DACCE7: 00 00 36 4A     BINARY "maps/palettes/21.pal"
+          74 41 8D 30 
+          4C 20 12 51 
+          ...omitted...
+  DAD0A7:             MAP_DATA_PALETTE_22:
+  DAD0A7: 00 00 79 5B     BINARY "maps/palettes/22.pal"
+          98 36 D4 1D 
+          2E 15 DD 67 
+          ...omitted...
+  DAD467:             MAP_DATA_PALETTE_23:
+  DAD467: 00 00 FF 7F     BINARY "maps/palettes/23.pal"
+          FC 6F 98 63 
+          E0 7F E0 7F 
+          ...omitted...
+  DAD767:             MAP_DATA_PALETTE_24:
+  DAD767: 00 00 2D 35     LOCALEBINARY "maps/palettes/24.pal"
+          08 29 C5 14 
+          E0 7F E0 7F 
+          ...omitted...
+  DADB27:             MAP_DATA_PALETTE_25:
+  DADB27: 00 00 FF 38     BINARY "maps/palettes/25.pal"
+          9A 4C 0E 2C 
+          98 52 9F 67 
+          ...omitted...
+  DAE127:             MAP_DATA_PALETTE_26:
+  DAE127: 00 00 DD 73     BINARY "maps/palettes/26.pal"
+          B1 19 6F 15 
+          4E 15 E9 10 
+          ...omitted...
+  DAE5A7:             MAP_DATA_PALETTE_27:
+  DAE5A7: 00 00 E0 03     LOCALEBINARY "maps/palettes/27.pal"
+          E0 03 6D 01 
+          4A 01 E0 03 
+          ...omitted...
+  DAE967:             MAP_DATA_PALETTE_28:
+  DAE967: 00 00 00 00     BINARY "maps/palettes/28.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  DAEDE7:             MAP_DATA_PALETTE_29:
+  DAEDE7: 00 00 00 00     BINARY "maps/palettes/29.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  DAF267:             MAP_DATA_PALETTE_30:
+  DAF267: 00 00 00 00     BINARY "maps/palettes/30.pal"
+          00 00 00 00 
+          00 00 00 00 
+          ...omitted...
+  DAF4A7:             MAP_DATA_PALETTE_31:
+  DAF4A7: 00 00 83 1C     BINARY "maps/palettes/31.pal"
+          20 0C 41 1C 
+          E7 2C A3 14 
+          ...omitted...
+  DAFAA7:             .INCLUDE "data/map/unknown_map_palette_pointer_table.asm"
+>>> data/map/unknown_map_palette_pointer_table.asm
+  DAFAA7:             MAP_DATA_UNKNOWN_PALETTE_PTR_TABLE:
+  DAFAA7: A7 7C DA        PTR3 MAP_DATA_PALETTE_0
+  DAFAAA: A7 7F DA        PTR3 MAP_DATA_PALETTE_1
+  DAFAAD: E7 81 DA        PTR3 MAP_DATA_PALETTE_2
+  DAFAB0: E7 84 DA        PTR3 MAP_DATA_PALETTE_3
+  DAFAB3: 67 86 DA        PTR3 MAP_DATA_PALETTE_4
+  DAFAB6: E7 87 DA        PTR3 MAP_DATA_PALETTE_5
+  DAFAB9: E7 8A DA        PTR3 MAP_DATA_PALETTE_6
+  DAFABC: 27 90 DA        PTR3 MAP_DATA_PALETTE_7
+  DAFABF: E7 90 DA        PTR3 MAP_DATA_PALETTE_8
+  DAFAC2: 67 92 DA        PTR3 MAP_DATA_PALETTE_9
+  DAFAC5: E7 96 DA        PTR3 MAP_DATA_PALETTE_10
+  DAFAC8: E7 9C DA        PTR3 MAP_DATA_PALETTE_11
+  DAFACB: E7 A2 DA        PTR3 MAP_DATA_PALETTE_12
+  DAFACE: E7 A8 DA        PTR3 MAP_DATA_PALETTE_13
+  DAFAD1: E7 AB DA        PTR3 MAP_DATA_PALETTE_14
+  DAFAD4: E7 B1 DA        PTR3 MAP_DATA_PALETTE_15
+  DAFAD7: E7 B7 DA        PTR3 MAP_DATA_PALETTE_16
+  DAFADA: E7 BA DA        PTR3 MAP_DATA_PALETTE_17
+  DAFADD: E7 C0 DA        PTR3 MAP_DATA_PALETTE_18
+  DAFAE0: A7 C1 DA        PTR3 MAP_DATA_PALETTE_19
+  DAFAE3: E7 C6 DA        PTR3 MAP_DATA_PALETTE_20
+  DAFAE6: E7 CC DA        PTR3 MAP_DATA_PALETTE_21
+  DAFAE9: A7 D0 DA        PTR3 MAP_DATA_PALETTE_22
+  DAFAEC: 67 D4 DA        PTR3 MAP_DATA_PALETTE_23
+  DAFAEF: 67 D7 DA        PTR3 MAP_DATA_PALETTE_24
+  DAFAF2: 27 DB DA        PTR3 MAP_DATA_PALETTE_25
+  DAFAF5: 27 E1 DA        PTR3 MAP_DATA_PALETTE_26
+  DAFAF8: A7 E5 DA        PTR3 MAP_DATA_PALETTE_27
+  DAFAFB: 67 E9 DA        PTR3 MAP_DATA_PALETTE_28
+  DAFAFE: E7 ED DA        PTR3 MAP_DATA_PALETTE_29
+  DAFB01: 67 F2 DA        PTR3 MAP_DATA_PALETTE_30
+  DAFB04: A7 F4 DA        PTR3 MAP_DATA_PALETTE_31
+>>> bankconfig/common/bank1a.asm
+  DAFB07:             .IF .DEFINED(USA)
+  DAFB07: E1 04 00 48     INSERT_AUDIO_PACK 111
+          20 48 10 48 
+          30 48 30 48 
+          ...omitted...
+  DAFFEE:             .ENDIF

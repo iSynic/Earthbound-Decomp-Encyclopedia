@@ -1,0 +1,280 @@
+>>> bankconfig/US/bank0d.asm
+  000000:             .INCLUDE "bankconfig/common/bank0d.asm"
+>>> bankconfig/common/bank0d.asm
+  CD0000:             .INCLUDE "common.asm"
+  CD0000:             .INCLUDE "symbols/battle_sprites.inc.asm"
+  CD0000:             BATTLE_SPRITE_107:
+  CD0000: E5 67 00 07     BINARY "battle_sprites/107.gfx.lzhal"
+          01 00 02 01 
+          04 03 09 07 
+          ...omitted...
+  CD0E26:             BATTLE_SPRITE_64:
+  CD0E26: E4 8D 00 00     BINARY "battle_sprites/64.gfx.lzhal"
+          03 C7 00 8E 
+          D6 00 96 01 
+          ...omitted...
+  CD185C:             BATTLE_SPRITE_40:
+  CD185C: 23 00 0B 01     BINARY "battle_sprites/40.gfx.lzhal"
+          01 0E 0F 31 
+          3F 4F 7F 31 
+          ...omitted...
+  CD2255:             BATTLE_SPRITE_97:
+  CD2255: E5 CD 00 00     BINARY "battle_sprites/97.gfx.lzhal"
+          1C C7 01 CE 
+          D2 01 D6 05 
+          ...omitted...
+  CD2B19:             BATTLE_SPRITE_41:
+  CD2B19: E5 45 00 03     BINARY "battle_sprites/41.gfx.lzhal"
+          1C 1C 1E 12 
+          41 17 11 01 
+          ...omitted...
+  CD328F:             BATTLE_SPRITE_86:
+  CD328F: E0 3F 01 01     BINARY "battle_sprites/86.gfx.lzhal"
+          07 07 1F 1F 
+          3F 3E 7F 7E 
+          ...omitted...
+  CD3959:             BATTLE_SPRITE_39:
+  CD3959: 41 00 01 23     BINARY "battle_sprites/39.gfx.lzhal"
+          00 02 08 08 
+          00 62 00 01 
+          ...omitted...
+  CD3F94:             BATTLE_SPRITE_38:
+  CD3F94: E4 49 00 05     BINARY "battle_sprites/38.gfx.lzhal"
+          3F 3F 7F 42 
+          F7 89 29 00 
+          ...omitted...
+  CD45AA:             BATTLE_SPRITE_56:
+  CD45AA: 3F 00 1F 70     BINARY "battle_sprites/56.gfx.lzhal"
+          70 78 78 7E 
+          6E 37 2F 3B 
+          ...omitted...
+  CD4B4B:             BATTLE_SPRITE_100:
+  CD4B4B: E4 23 00 06     BINARY "battle_sprites/100.gfx.lzhal"
+          3C 3C 5E 42 
+          4E 62 A7 41 
+          ...omitted...
+  CD509D:             BATTLE_SPRITE_96:
+  CD509D: 13 0B 0B 1F     BINARY "battle_sprites/96.gfx.lzhal"
+          14 29 29 3F 
+          2A 2F 3A 2A 
+          ...omitted...
+  CD55EE:             BATTLE_SPRITE_36:
+  CD55EE: 27 00 07 06     BINARY "battle_sprites/36.gfx.lzhal"
+          06 01 01 00 
+          00 01 01 8F 
+          ...omitted...
+  CD5B3D:             BATTLE_SPRITE_73:
+  CD5B3D: E4 45 00 09     BINARY "battle_sprites/73.gfx.lzhal"
+          01 01 06 06 
+          0F 0B 1E 17 
+          ...omitted...
+  CD6069:             BATTLE_SPRITE_75:
+  CD6069: 27 00 23 01     BINARY "battle_sprites/75.gfx.lzhal"
+          23 02 8B 00 
+          00 23 03 85 
+          ...omitted...
+  CD6593:             BATTLE_SPRITE_35:
+  CD6593: E4 65 00 01     BINARY "battle_sprites/35.gfx.lzhal"
+          30 30 41 38 
+          28 41 3C 24 
+          ...omitted...
+  CD6AB6:             BATTLE_SPRITE_74:
+  CD6AB6: E5 2B 00 03     BINARY "battle_sprites/74.gfx.lzhal"
+          01 01 02 02 
+          2B 00 02 01 
+          ...omitted...
+  CD6FD3:             BATTLE_SPRITE_101:
+  CD6FD3: E4 2B 00 00     BINARY "battle_sprites/101.gfx.lzhal"
+          01 62 01 2B 
+          00 03 01 01 
+          ...omitted...
+  CD74DF:             BATTLE_SPRITE_94:
+  CD74DF: E4 2D 00 00     BINARY "battle_sprites/94.gfx.lzhal"
+          01 C7 00 2E 
+          D0 00 36 01 
+          ...omitted...
+  CD79D7:             BATTLE_SPRITE_37:
+  CD79D7: E4 5F 00 05     BINARY "battle_sprites/37.gfx.lzhal"
+          06 06 39 39 
+          40 40 41 91 
+          ...omitted...
+  CD7ECE:             BATTLE_SPRITE_87:
+  CD7ECE: E4 5F 00 1F     BINARY "battle_sprites/87.gfx.lzhal"
+          0F 0F 3F 3F 
+          7F 7F FF FF 
+          ...omitted...
+  CD83AA:             BATTLE_SPRITE_13:
+  CD83AA: 2B 00 03 01     BINARY "battle_sprites/13.gfx.lzhal"
+          01 01 01 8F 
+          00 00 08 00 
+          ...omitted...
+  CD883F:             BATTLE_SPRITE_104:
+  CD883F: E4 4D 00 00     BINARY "battle_sprites/104.gfx.lzhal"
+          01 C7 00 4E 
+          D6 00 56 01 
+          ...omitted...
+  CD8CCB:             BATTLE_SPRITE_99:
+  CD8CCB: E4 A1 00 11     BINARY "battle_sprites/99.gfx.lzhal"
+          03 03 04 04 
+          05 05 0B 09 
+          ...omitted...
+  CD9142:             BATTLE_SPRITE_55:
+  CD9142: E4 49 00 00     BINARY "battle_sprites/55.gfx.lzhal"
+          01 62 01 01 
+          07 07 29 00 
+          ...omitted...
+  CD958A:             BATTLE_SPRITE_95:
+  CD958A: E4 61 00 01     BINARY "battle_sprites/95.gfx.lzhal"
+          01 01 25 03 
+          25 07 03 00 
+          ...omitted...
+  CD9984:             BATTLE_SPRITE_105:
+  CD9984: E4 63 00 0B     BINARY "battle_sprites/105.gfx.lzhal"
+          02 02 05 07 
+          1F 1F 2F 3E 
+          ...omitted...
+  CD9D65:             BATTLE_SPRITE_72:
+  CD9D65: E4 43 00 02     BINARY "battle_sprites/72.gfx.lzhal"
+          03 03 06 24 
+          04 C7 00 45 
+          ...omitted...
+  CDA144:             BATTLE_SPRITE_51:
+  CDA144: E4 5F 00 1F     BINARY "battle_sprites/51.gfx.lzhal"
+          0F 0F 3F 30 
+          7F 40 D3 AE 
+          ...omitted...
+  CDA51D:             BATTLE_SPRITE_22:
+  CDA51D: 23 00 0B 0F     BINARY "battle_sprites/22.gfx.lzhal"
+          0F 10 10 20 
+          37 20 2D 23 
+          ...omitted...
+  CDA8F4:             BATTLE_SPRITE_102:
+  CDA8F4: E7 27 00 07     BINARY "battle_sprites/102.gfx.lzhal"
+          1C 1C 13 1F 
+          18 13 0C 09 
+          ...omitted...
+  CDACBF:             BATTLE_SPRITE_84:
+  CDACBF: E5 4B 00 00     BINARY "battle_sprites/84.gfx.lzhal"
+          01 C7 01 4C 
+          D2 01 54 07 
+          ...omitted...
+  CDB087:             BATTLE_SPRITE_67:
+  CDB087: 23 00 0B 06     BINARY "battle_sprites/67.gfx.lzhal"
+          00 03 00 36 
+          00 1C 00 19 
+          ...omitted...
+  CDB447:             BATTLE_SPRITE_63:
+  CDB447: E4 67 00 03     BINARY "battle_sprites/63.gfx.lzhal"
+          03 03 04 04 
+          41 0E 0A 27 
+          ...omitted...
+  CDB802:             BATTLE_SPRITE_11:
+  CDB802: E4 3F 00 0F     BINARY "battle_sprites/11.gfx.lzhal"
+          08 08 15 1D 
+          53 5F B2 FF 
+          ...omitted...
+  CDBB82:             BATTLE_SPRITE_106:
+  CDBB82: E4 67 00 01     BINARY "battle_sprites/106.gfx.lzhal"
+          01 01 41 02 
+          03 01 04 07 
+          ...omitted...
+  CDBEFF:             BATTLE_SPRITE_54:
+  CDBEFF: E4 69 00 05     BINARY "battle_sprites/54.gfx.lzhal"
+          07 07 09 0F 
+          16 10 29 00 
+          ...omitted...
+  CDC27B:             BATTLE_SPRITE_14:
+  CDC27B: E4 A9 00 00     BINARY "battle_sprites/14.gfx.lzhal"
+          01 63 01 00 
+          06 29 00 05 
+          ...omitted...
+  CDC5F0:             BATTLE_SPRITE_32:
+  CDC5F0: 29 00 05 0E     BINARY "battle_sprites/32.gfx.lzhal"
+          0E 11 1F 2C 
+          3F 8B 00 00 
+          ...omitted...
+  CDC960:             BATTLE_SPRITE_81:
+  CDC960: 19 07 07 3D     BINARY "battle_sprites/81.gfx.lzhal"
+          3D 7E 7E 7B 
+          7B 7A 7A 79 
+          ...omitted...
+  CDCCCF:             BATTLE_SPRITE_62:
+  CDCCCF: 25 00 09 03     LOCALEBINARY "battle_sprites/62.gfx.lzhal"
+          03 0F 0C 1D 
+          11 37 27 6D 
+          ...omitted...
+  CDD01D:             BATTLE_SPRITE_93:
+  CDD01D: 23 00 0B 07     BINARY "battle_sprites/93.gfx.lzhal"
+          07 1C 18 29 
+          20 46 49 66 
+          ...omitted...
+  CDD36A:             BATTLE_SPRITE_83:
+  CDD36A: 0F 00 00 70     BINARY "battle_sprites/83.gfx.lzhal"
+          70 F8 88 AF 
+          A7 F7 F3 7F 
+          ...omitted...
+  CDD6A6:             BATTLE_SPRITE_34:
+  CDD6A6: 29 00 05 03     BINARY "battle_sprites/34.gfx.lzhal"
+          03 02 03 03 
+          03 8D 00 00 
+          ...omitted...
+  CDD9E1:             BATTLE_SPRITE_12:
+  CDD9E1: E4 E5 00 09     BINARY "battle_sprites/12.gfx.lzhal"
+          07 07 1E 19 
+          3D 22 7F 47 
+          ...omitted...
+  CDDD18:             BATTLE_SPRITE_60:
+  CDDD18: 29 00 05 01     BINARY "battle_sprites/60.gfx.lzhal"
+          01 03 02 04 
+          04 8C 00 00 
+          ...omitted...
+  CDE04C:             BATTLE_SPRITE_71:
+  CDE04C: E4 47 00 02     BINARY "battle_sprites/71.gfx.lzhal"
+          03 03 05 24 
+          07 27 00 05 
+          ...omitted...
+  CDE37C:             BATTLE_SPRITE_10:
+  CDE37C: E4 83 00 0B     BINARY "battle_sprites/10.gfx.lzhal"
+          01 01 07 07 
+          0F 0E 19 1E 
+          ...omitted...
+  CDE6A8:             BATTLE_SPRITE_9:
+  CDE6A8: E4 81 00 13     BINARY "battle_sprites/9.gfx.lzhal"
+          48 40 0C 08 
+          00 00 20 20 
+          ...omitted...
+  CDE9D4:             BATTLE_SPRITE_28:
+  CDE9D4: E4 87 00 26     BINARY "battle_sprites/28.gfx.lzhal"
+          01 00 21 27 
+          00 86 00 89 
+          ...omitted...
+  CDECF7:             BATTLE_SPRITE_108:
+  CDECF7: E5 5F 00 1B     BINARY "battle_sprites/108.gfx.lzhal"
+          0E 0E 1F 11 
+          1D 17 3F 37 
+          ...omitted...
+  CDF018:             BATTLE_SPRITE_79:
+  CDF018: E4 21 00 29     BINARY "battle_sprites/79.gfx.lzhal"
+          20 05 60 60 
+          C0 C0 00 00 
+          ...omitted...
+  CDF337:             BATTLE_SPRITE_27:
+  CDF337: 27 00 01 01     BINARY "battle_sprites/27.gfx.lzhal"
+          01 23 03 01 
+          00 01 89 00 
+          ...omitted...
+  CDF652:             BATTLE_SPRITE_78:
+  CDF652: E4 21 00 07     BINARY "battle_sprites/78.gfx.lzhal"
+          07 07 4E 4E 
+          FE F6 5C 54 
+          ...omitted...
+  CDF95F:             BATTLE_SPRITE_30:
+  CDF95F: 25 08 01 14     BINARY "battle_sprites/30.gfx.lzhal"
+          1C 41 1C 14 
+          03 2A 36 3A 
+          ...omitted...
+  CDFC6C:             BATTLE_SPRITE_23:
+  CDFC6C: E4 22 00 04     LOCALEBINARY "battle_sprites/23.gfx.lzhal"
+          20 00 30 00 
+          10 41 00 18 
+          ...omitted...
