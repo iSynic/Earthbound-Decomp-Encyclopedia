@@ -31,10 +31,14 @@ for (const entry of catalog.entries) {
   entry.searchText = String(generatedSearchText || fallbackSearchText).toLowerCase();
 }
 const entries = new Map(catalog.entries.map((entry) => [entry.id, entry]));
-const searchDocuments = new Map((catalog.searchIndex?.documents || []).map((document) => [document.id, document]));
+let searchDocuments = new Map((catalog.searchIndex?.documents || []).map((document) => [document.id, document]));
 const referenceIndex = buildReferenceIndex();
-const relationshipGraph = catalog.relationshipGraph || { stats: {}, nodes: [], edges: [], neighborhoods: {}, topHubs: [] };
-const graphNodes = new Map((relationshipGraph.nodes || []).map((node) => [node.id, node]));
+let relationshipGraph = catalog.relationshipGraph || { stats: {}, nodes: [], edges: [], neighborhoods: {}, topHubs: [] };
+let graphNodes = new Map((relationshipGraph.nodes || []).map((node) => [node.id, node]));
+let searchIndexLoading = false;
+let searchIndexLoadError = "";
+let relationshipGraphLoading = false;
+let relationshipGraphLoadError = "";
 const sourceCompareIndexes = {};
 const ASM_MNEMONICS = new Set([
   "adc", "and", "asl", "bcc", "bcs", "beq", "bit", "bmi", "bne", "bpl", "bra", "brk", "brl", "bvc", "bvs",
@@ -1795,6 +1799,26 @@ function referenceCard({ id, title, meta, summary, tags = [] }) {
 }
 
 function renderRelationshipGraphDocument() {
+  if (!graphNodes.size && relationshipGraph?.chunk) {
+    ensureRelationshipGraphLoaded();
+    const stats = relationshipGraph.stats || {};
+    return `
+      <section class="graphWorkbench">
+        <div class="graphHeader">
+          <div>
+            <div class="graphEyebrow">Graph Focus</div>
+            <h2>Relationship Graph</h2>
+            <p>${escapeHtml(relationshipGraphLoading ? "Loading generated relationship graph..." : relationshipGraphLoadError || "Relationship graph is available on demand.")}</p>
+          </div>
+          <div class="graphStats">
+            <span>${Number(stats.nodeCount || 0).toLocaleString("en-US")} nodes</span>
+            <span>${Number(stats.edgeCount || 0).toLocaleString("en-US")} edges</span>
+            <span>${Number(stats.linkedNodeCount || 0).toLocaleString("en-US")} linked</span>
+          </div>
+        </div>
+      </section>
+    `;
+  }
   const focusId = isContentVisible(entries.get(state.graphFocusId)) ? state.graphFocusId : "overview";
   const focusEntry = entries.get(focusId) || entries.get("overview");
   const hubs = (relationshipGraph.topHubs || []).filter((id) => isContentVisible(entries.get(id)));
@@ -1833,6 +1857,9 @@ function renderRelationshipGraphDocument() {
 
 function renderEntryGraphPreview(entry) {
   if (entry.id === "search-results") {
+    return "";
+  }
+  if (!graphNodes.size) {
     return "";
   }
   const neighbors = graphNeighbors(entry.id, 10);
@@ -2151,6 +2178,62 @@ function loadDeferredData(key, chunk) {
       entry.dataLoading = "";
       entry.dataLoadError = "Could not load the generated data chunk.";
     }
+    renderDocument();
+  };
+  document.head.appendChild(script);
+}
+
+function ensureSearchIndexLoaded() {
+  const chunk = catalog.searchIndex?.chunk;
+  if (!chunk || searchDocuments.size || searchIndexLoading || searchIndexLoadError) {
+    return;
+  }
+  searchIndexLoading = true;
+  const script = document.createElement("script");
+  script.src = chunk;
+  script.onload = () => {
+    searchIndexLoading = false;
+    const loaded = window.ENCYCLOPEDIA_SEARCH_INDEX;
+    if (!loaded?.documents?.length) {
+      searchIndexLoadError = "Search index chunk loaded without documents.";
+      renderSearchResults(search(searchInput.value, 9, state.searchFacet));
+      return;
+    }
+    catalog.searchIndex = loaded;
+    searchDocuments = new Map(loaded.documents.map((document) => [document.id, document]));
+    renderSearchResults(search(searchInput.value, 9, state.searchFacet));
+  };
+  script.onerror = () => {
+    searchIndexLoading = false;
+    searchIndexLoadError = "Could not load the generated search index.";
+    renderSearchResults(search(searchInput.value, 9, state.searchFacet));
+  };
+  document.head.appendChild(script);
+}
+
+function ensureRelationshipGraphLoaded() {
+  const chunk = relationshipGraph?.chunk;
+  if (!chunk || graphNodes.size || relationshipGraphLoading || relationshipGraphLoadError) {
+    return;
+  }
+  relationshipGraphLoading = true;
+  const script = document.createElement("script");
+  script.src = chunk;
+  script.onload = () => {
+    relationshipGraphLoading = false;
+    const loaded = window.ENCYCLOPEDIA_RELATIONSHIP_GRAPH;
+    if (!loaded?.neighborhoods) {
+      relationshipGraphLoadError = "Relationship graph chunk loaded without neighborhoods.";
+      renderDocument();
+      return;
+    }
+    relationshipGraph = loaded;
+    graphNodes = new Map((relationshipGraph.nodes || []).map((node) => [node.id, node]));
+    renderDocument();
+  };
+  script.onerror = () => {
+    relationshipGraphLoading = false;
+    relationshipGraphLoadError = "Could not load the generated relationship graph.";
     renderDocument();
   };
   document.head.appendChild(script);
@@ -2917,7 +3000,7 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
       const document = searchDocuments.get(entry.id);
       const haystack = document
         ? `${document.exact || ""} ${document.titleText || ""} ${document.metaText || ""} ${document.bodyText || ""}`
-        : entry.searchText || "";
+        : compactEntrySearchText(entry);
       const allTermsMatch = terms.every((term) => haystack.includes(term));
       let score = 0;
       const reasons = [];
@@ -2941,6 +3024,24 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
     .slice(0, limit === Infinity ? undefined : limit);
 }
 
+function compactEntrySearchText(entry) {
+  return [
+    entry.id,
+    entry.title,
+    entry.kind,
+    entry.summary,
+    ...(entry.aliases || []),
+    ...(entry.addresses || []),
+    ...(entry.banks || []),
+    entry.sourceFile?.path,
+    entry.sourceFile?.role,
+    ...(entry.sourceFile?.labels || []),
+    ...(entry.sourceFile?.sourceUnits || []).map((unit) => `${unit.label || ""} ${unit.address || ""} ${unit.range || ""}`),
+    ...(entry.sourceRefs || []).map((ref) => `${ref.label || ""} ${ref.path || ""}`),
+    ...(entry.noteRefs || []).map((ref) => `${ref.label || ""} ${ref.path || ""}`)
+  ].filter(Boolean).join(" ").toLowerCase();
+}
+
 function isGuideMetaQuery(query) {
   return /^(public\s+(status\s+)?truthfulness|release\s+(readiness|checklist|artifact|policy)|catalog\s+build(\s+status)?|project\s+status|source\s+readiness)$/i.test(String(query || "").trim());
 }
@@ -2956,6 +3057,17 @@ function matchReasonForTerm(entry, document, term) {
 
 function renderSearchResults(results) {
   if (!results.length) {
+    if (searchIndexLoading || searchIndexLoadError) {
+      searchResults.hidden = false;
+      searchResults.innerHTML = `
+        <div class="searchIndexStatus">
+          ${searchIndexLoading ? "Loading full search index..." : escapeHtml(searchIndexLoadError)}
+        </div>
+      `;
+      currentSearchResults = [];
+      searchSelectionIndex = 0;
+      return;
+    }
     searchResults.hidden = true;
     searchResults.innerHTML = "";
     currentSearchResults = [];
@@ -2980,6 +3092,9 @@ function renderSearchResults(results) {
     `<div class="searchFacetBar">
       ${totalByFacet.map((facet) => `<button type="button" class="searchFacet${facet.id === state.searchFacet ? " active" : ""}" data-search-facet="${escapeHtml(facet.id)}">${escapeHtml(facet.label)} <span>${Number(facet.count).toLocaleString()}</span></button>`).join("")}
     </div>`,
+    searchIndexLoading || searchIndexLoadError
+      ? `<div class="searchIndexStatus">${searchIndexLoading ? "Loading full search index..." : escapeHtml(searchIndexLoadError)}</div>`
+      : "",
     ...results.map(({ entry, reason }, index) => `
       <button type="button" class="searchItem${index === searchSelectionIndex ? " active" : ""}" data-entry-id="${escapeHtml(entry.id)}" data-search-index="${index}" aria-selected="${index === searchSelectionIndex ? "true" : "false"}">
         <div class="searchItemTitle">${escapeHtml(entry.title)}</div>
@@ -3145,6 +3260,9 @@ function displayKindLabel(entry) {
 
 searchInput.addEventListener("input", (event) => {
   searchSelectionIndex = 0;
+  if (event.target.value.trim().length >= 2) {
+    ensureSearchIndexLoaded();
+  }
   renderSearchResults(search(event.target.value, 9, state.searchFacet));
 });
 

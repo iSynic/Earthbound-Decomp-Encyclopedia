@@ -672,6 +672,13 @@ input {
   white-space: nowrap;
 }
 
+.searchIndexStatus {
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
 .tabsRow {
   border-bottom: 1px solid var(--line);
   background: var(--panel-soft);

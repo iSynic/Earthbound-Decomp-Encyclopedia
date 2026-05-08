@@ -97,8 +97,23 @@ if (!fs.existsSync(catalogPath)) {
       violations.push(`catalog still contains removed workspace entry ${id}`);
     }
   }
-  if (!Array.isArray(catalog.searchIndex?.documents) || !catalog.searchIndex.documents.length) {
-    violations.push("catalog searchIndex.documents is missing or empty");
+  if (!catalog.searchIndex?.chunk || !fs.existsSync(path.join(appRoot, "public", catalog.searchIndex.chunk))) {
+    violations.push("catalog searchIndex chunk is missing");
+  }
+  if (!catalog.relationshipGraph?.chunk || !fs.existsSync(path.join(appRoot, "public", catalog.relationshipGraph.chunk))) {
+    violations.push("catalog relationshipGraph chunk is missing");
+  }
+  if (Array.isArray(catalog.searchIndex?.documents) && catalog.searchIndex.documents.length > 100) {
+    violations.push("startup catalog embeds too many search documents; keep the full search index deferred");
+  }
+  for (const fileName of ["catalog.js", "catalog.json"]) {
+    const filePath = path.join(appRoot, "public", "generated", fileName);
+    if (fs.existsSync(filePath) && fs.statSync(filePath).size > 25 * 1024 * 1024) {
+      violations.push(`public/generated/${fileName} is larger than 25 MB; startup catalog should stay thin`);
+    }
+  }
+  if (!catalog.searchIndex?.documentCount) {
+    violations.push("catalog searchIndex documentCount is missing");
   }
   if (!catalog.referenceSync || !catalog.referenceSync.generatedAt) {
     violations.push("catalog referenceSync metadata is missing a generatedAt timestamp");

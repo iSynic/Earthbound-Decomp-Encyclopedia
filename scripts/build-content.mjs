@@ -18,7 +18,7 @@ const contentDir = path.join(appRoot, "content");
 const generatedDir = path.join(appRoot, "public", "generated");
 const entryBodyDir = path.join(generatedDir, "entry-bodies");
 const sourceSnapshotPath = path.join(generatedDir, "source-snapshot.json");
-const heavyBodyThreshold = 14000;
+const heavyBodyThreshold = privateMode ? 1200 : 14000;
 const searchTextLimit = 6000;
 
 const notesDir = path.join(repoRoot, "notes");
@@ -896,7 +896,7 @@ function compactSearchText(entry, fullBody) {
   ].filter(Boolean).join(" ");
 
   const bodyLimit = privateMode
-    ? (entry.sourceFile ? 450 : 1600)
+    ? (entry.sourceFile ? 120 : 1600)
     : searchTextLimit;
   const bodyTerms = uniqueSearchTerms(fullBody, bodyLimit);
   return `${metadata} ${bodyTerms}`.replace(/\s+/g, " ").trim();
@@ -922,7 +922,7 @@ function searchIndexDocument(entry) {
     paths
   ]).join(" ").toLowerCase();
   const bodyLimit = privateMode
-    ? (entry.sourceFile ? 450 : 1600)
+    ? (entry.sourceFile ? 120 : 1600)
     : searchTextLimit;
   return {
     id: entry.id,
@@ -1041,6 +1041,15 @@ function writeDeferredDataChunk(key, value) {
   return `generated/entry-bodies/${fileName}`;
 }
 
+function writeGeneratedGlobalChunk(fileName, globalName, value) {
+  fs.writeFileSync(
+    path.join(generatedDir, fileName),
+    `window.${globalName} = ${JSON.stringify(value)};\n`,
+    "utf8"
+  );
+  return `generated/${fileName}`;
+}
+
 function deferHeavyBodies() {
   const stats = {
     count: 0,
@@ -1066,7 +1075,6 @@ function deferHeavyBodies() {
       "utf8"
     );
 
-    entry.searchText = compactSearchText(entry, fullBody);
     entry.body = deferredBodyStub(entry, fullBody);
     entry.bodyChunk = `generated/entry-bodies/${fileName}`;
     entry.bodySize = fullBody.length;
@@ -1076,6 +1084,50 @@ function deferHeavyBodies() {
   }
 
   return stats;
+}
+
+function compactRefs(refs, limit) {
+  return (refs || [])
+    .slice(0, limit)
+    .map((ref) => ({
+      entryId: ref.entryId,
+      label: ref.label,
+      path: ref.path
+    }));
+}
+
+function thinStartupEntries() {
+  for (const entry of entries) {
+    delete entry.searchText;
+    if (entry.aliases) {
+      entry.aliases = entry.aliases.slice(0, 4);
+    }
+    if (entry.related) {
+      entry.related = entry.related.slice(0, 4);
+    }
+    if (entry.noteRefs) {
+      entry.noteRefs = compactRefs(entry.noteRefs, 2);
+    }
+    if (entry.sourceRefs) {
+      entry.sourceRefs = compactRefs(entry.sourceRefs, 2);
+    }
+    if (entry.relatedNotes) {
+      entry.relatedNotes = entry.relatedNotes
+        .slice(0, 2)
+        .map((ref) => ({
+          id: ref.id,
+          title: ref.title,
+          reason: ref.reason
+        }));
+    }
+    if (entry.sourceFile) {
+      entry.sourceFile = {
+        ...entry.sourceFile,
+        labels: (entry.sourceFile.labels || []).slice(0, 48),
+        sourceUnits: (entry.sourceFile.sourceUnits || []).slice(0, 32)
+      };
+    }
+  }
 }
 
 function buildRelationshipGraph() {
@@ -4328,6 +4380,25 @@ const searchIndex = buildSearchIndex();
 const deferredBodyStats = deferHeavyBodies();
 const facets = buildFacets();
 const navSections = buildNavSections();
+const searchIndexChunk = writeGeneratedGlobalChunk("search-index.js", "ENCYCLOPEDIA_SEARCH_INDEX", searchIndex);
+const relationshipGraphChunk = writeGeneratedGlobalChunk("relationship-graph.js", "ENCYCLOPEDIA_RELATIONSHIP_GRAPH", relationshipGraph);
+thinStartupEntries();
+const startupSearchIndex = {
+  schema: searchIndex.schema,
+  generatedAt: searchIndex.generatedAt,
+  strategy: searchIndex.strategy,
+  documentCount: searchIndex.documents.length,
+  chunk: searchIndexChunk,
+  documents: []
+};
+const startupRelationshipGraph = {
+  stats: relationshipGraph.stats,
+  topHubs: relationshipGraph.topHubs,
+  chunk: relationshipGraphChunk,
+  nodes: [],
+  edges: [],
+  neighborhoods: {}
+};
 
 const catalog = {
   generatedAt: new Date().toISOString(),
@@ -4370,8 +4441,8 @@ const catalog = {
   heavyBodyThreshold,
   deferredBodyCount: deferredBodyStats.count,
   deferredBodyChars: deferredBodyStats.deferredChars,
-  relationshipGraph,
-  searchIndex,
+  relationshipGraph: startupRelationshipGraph,
+  searchIndex: startupSearchIndex,
   entries
 };
 
