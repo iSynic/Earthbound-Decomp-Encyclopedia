@@ -662,6 +662,16 @@ input {
   margin-top: 3px;
 }
 
+.searchItemPath {
+  color: var(--faint);
+  font-family: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  margin-top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .tabsRow {
   border-bottom: 1px solid var(--line);
   background: var(--panel-soft);
@@ -1639,6 +1649,100 @@ pre {
   min-width: 0;
 }
 
+.sourceComparePanel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.sourceCompareHeader {
+  align-items: start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.sourceCompareHeader h3 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+
+.sourceCompareHeader p,
+.sourceCompareHint {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.sourceCompareCandidates {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.compareCandidate {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(13, 14, 12, 0.45);
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.compareCandidate:hover,
+.compareCandidate.active {
+  border-color: rgba(143, 210, 191, 0.56);
+  background: rgba(23, 58, 50, 0.24);
+}
+
+.compareCandidate span {
+  font-weight: 700;
+}
+
+.compareCandidate small {
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sourceCompareSplit {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.comparePane {
+  min-width: 0;
+}
+
+.comparePaneHeader {
+  align-items: start;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.comparePaneHeader div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.comparePaneHeader span {
+  color: var(--muted);
+  font-family: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
 .sourcePlaceholder {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -2159,7 +2263,8 @@ th {
   }
 
   .domainRow,
-  .sourceReaderGrid {
+  .sourceReaderGrid,
+  .sourceCompareSplit {
     grid-template-columns: minmax(0, 1fr);
   }
 

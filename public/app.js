@@ -35,6 +35,7 @@ const searchDocuments = new Map((catalog.searchIndex?.documents || []).map((docu
 const referenceIndex = buildReferenceIndex();
 const relationshipGraph = catalog.relationshipGraph || { stats: {}, nodes: [], edges: [], neighborhoods: {}, topHubs: [] };
 const graphNodes = new Map((relationshipGraph.nodes || []).map((node) => [node.id, node]));
+const sourceCompareIndexes = {};
 const ASM_MNEMONICS = new Set([
   "adc", "and", "asl", "bcc", "bcs", "beq", "bit", "bmi", "bne", "bpl", "bra", "brk", "brl", "bvc", "bvs",
   "clc", "cld", "cli", "clv", "cmp", "cop", "cpx", "cpy", "dec", "dex", "dey", "eor", "inc", "inx", "iny",
@@ -61,6 +62,7 @@ const state = {
   searchFacet: "all",
   tableSort: {},
   railExpanded: {},
+  compareTargets: {},
 };
 const KIND_ORDER = [
   "chapter",
@@ -517,6 +519,23 @@ function renderDocument() {
       } catch {
         button.textContent = "Copy failed";
       }
+    });
+  });
+  documentEl.querySelectorAll("[data-compare-target-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-compare-target-id") || "";
+      if (!entries.has(targetId)) {
+        return;
+      }
+      state.compareTargets[entry.id] = targetId;
+      if (entry.bodyChunk && !entry.fullBodyLoaded) {
+        loadDeferredBody(entry.id);
+      }
+      const target = entries.get(targetId);
+      if (target?.bodyChunk && !target.fullBodyLoaded) {
+        loadDeferredBody(targetId);
+      }
+      renderDocument();
     });
   });
   documentEl.querySelectorAll("[data-scroll-target]").forEach((button) => {
@@ -978,6 +997,7 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
+      ${renderSourceComparePanel(entry)}
       <div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
           ${renderSourceOutline(file, labelAnchors)}
@@ -1055,6 +1075,262 @@ function renderRelatedSystemsPanel(entry) {
 function sourceCodeFromBody(body) {
   const match = String(body || "").match(/```(?:asm|asar)?\n([\s\S]*?)```/i);
   return match ? match[1].replace(/\n$/, "") : "";
+}
+
+function renderSourceComparePanel(entry) {
+  if (!["source-file", "reference-source"].includes(entry.kind)) {
+    return "";
+  }
+  const candidates = findSourceCompareCandidates(entry).slice(0, 10);
+  if (!candidates.length) {
+    return "";
+  }
+  const targetKindLabel = entry.kind === "reference-source" ? "local source" : "Herringway / ebsrc";
+  const selectedId = state.compareTargets[entry.id] || "";
+  const selected = selectedId ? candidates.find((candidate) => candidate.entry.id === selectedId) : null;
+  return `
+    <section class="sourceComparePanel">
+      <div class="sourceCompareHeader">
+        <div>
+          <h3>Compare With ${escapeHtml(targetKindLabel)}</h3>
+          <p>${escapeHtml(comparePanelHelp(entry))}</p>
+        </div>
+      </div>
+      <div class="sourceCompareCandidates">
+        ${candidates.map((candidate, index) => `
+          <button type="button" class="compareCandidate${candidate.entry.id === selectedId ? " active" : ""}" data-compare-target-id="${escapeHtml(candidate.entry.id)}">
+            <span>${escapeHtml(candidate.entry.title)}</span>
+            <small>${escapeHtml(compareCandidateMeta(candidate))}</small>
+          </button>
+        `).join("")}
+      </div>
+      ${selected ? renderSelectedSourceComparison(entry, selected) : `
+        <div class="sourceCompareHint">
+          <strong>${escapeHtml(candidates[0].entry.title)}</strong> is the strongest match. Select a row to load a focused side-by-side snippet.
+        </div>
+      `}
+    </section>
+  `;
+}
+
+function comparePanelHelp(entry) {
+  return entry.kind === "reference-source"
+    ? "Matched by address-style labels, source paths, and local source-unit ranges."
+    : "Matched by local addresses, source-unit ranges, labels, and Herringway file names.";
+}
+
+function compareCandidateMeta(candidate) {
+  const entry = candidate.entry;
+  return [
+    sourceOriginLabel(entry),
+    entry.sourceFile?.path || "",
+    candidate.reason ? `matched ${candidate.reason}` : ""
+  ].filter(Boolean).join(" - ");
+}
+
+function renderSelectedSourceComparison(entry, candidate) {
+  const target = candidate.entry;
+  const currentCode = entry.fullBodyLoaded || !entry.bodyChunk ? sourceCodeFromBody(entry.body || "") : "";
+  const targetCode = target.fullBodyLoaded || !target.bodyChunk ? sourceCodeFromBody(target.body || "") : "";
+  const currentSnippet = currentCode ? sourceCompareSnippet(currentCode, candidate.keys) : "";
+  const targetSnippet = targetCode ? sourceCompareSnippet(targetCode, candidate.keys) : "";
+  const currentStatus = currentCode ? `${currentSnippet.lineStart}-${currentSnippet.lineEnd}` : compareLoadText(entry);
+  const targetStatus = targetCode ? `${targetSnippet.lineStart}-${targetSnippet.lineEnd}` : compareLoadText(target);
+  return `
+    <div class="sourceCompareSplit">
+      ${renderComparePane(entry, currentSnippet, currentStatus)}
+      ${renderComparePane(target, targetSnippet, targetStatus)}
+    </div>
+  `;
+}
+
+function renderComparePane(entry, snippet, status) {
+  const pathLabel = entry.sourceFile?.path || entry.title;
+  return `
+    <div class="comparePane">
+      <div class="comparePaneHeader">
+        <div>
+          <strong>${escapeHtml(sourceOriginLabel(entry))}</strong>
+          <span>${escapeHtml(pathLabel)}</span>
+        </div>
+        <button type="button" class="hubCardAction secondary" data-entry-id="${escapeHtml(entry.id)}">Open</button>
+      </div>
+      ${snippet ? renderCodeBlock(snippet.code, "asm") : `
+        <div class="sourcePlaceholder">
+          ${escapeHtml(status)}
+          ${renderDeferredBodyLoader(entry)}
+        </div>
+      `}
+    </div>
+  `;
+}
+
+function compareLoadText(entry) {
+  if (entry.bodyLoading) {
+    return "Loading source body...";
+  }
+  if (entry.bodyLoadError) {
+    return entry.bodyLoadError;
+  }
+  return entry.bodyChunk ? "Source body is available on demand." : "No source body is available.";
+}
+
+function sourceCompareSnippet(code, keys) {
+  const lines = String(code || "").split("\n");
+  const variants = sourceCompareKeyVariants(keys);
+  let index = lines.findIndex((line) => variants.some((variant) => line.toLowerCase().includes(variant)));
+  if (index < 0) {
+    index = 0;
+  }
+  const start = Math.max(0, index - 8);
+  const end = Math.min(lines.length, index + 34);
+  return {
+    code: lines.slice(start, end).join("\n"),
+    lineStart: start + 1,
+    lineEnd: end
+  };
+}
+
+function findSourceCompareCandidates(entry) {
+  const targetKind = entry.kind === "reference-source" ? "source-file" : "reference-source";
+  const keys = extractSourceCompareKeys(entry);
+  if (!keys.size) {
+    return [];
+  }
+  const index = sourceCompareIndex(targetKind);
+  const candidates = new Map();
+  for (const key of keys) {
+    for (const candidate of index.get(key) || []) {
+      if (candidate.entry.id === entry.id) {
+        continue;
+      }
+      const existing = candidates.get(candidate.entry.id) || {
+        entry: candidate.entry,
+        keys: new Set(),
+        score: 0,
+        reasons: new Set()
+      };
+      existing.keys.add(key);
+      existing.score += sourceCompareScore(entry, candidate.entry, key);
+      existing.reasons.add(displayAddressKey(key));
+      candidates.set(candidate.entry.id, existing);
+    }
+  }
+  return [...candidates.values()]
+    .map((candidate) => ({
+      ...candidate,
+      keys: [...candidate.keys],
+      reason: [...candidate.reasons].slice(0, 4).join(", ")
+    }))
+    .sort((a, b) => b.score - a.score || sourceCompareSortText(a.entry).localeCompare(sourceCompareSortText(b.entry)));
+}
+
+function sourceCompareIndex(kind) {
+  if (sourceCompareIndexes[kind]) {
+    return sourceCompareIndexes[kind];
+  }
+  const index = new Map();
+  for (const entry of catalog.entries) {
+    if (entry.kind !== kind || !isContentVisible(entry)) {
+      continue;
+    }
+    const keys = extractSourceCompareKeys(entry);
+    for (const key of keys) {
+      if (!index.has(key)) {
+        index.set(key, []);
+      }
+      index.get(key).push({ entry, keys });
+    }
+  }
+  sourceCompareIndexes[kind] = index;
+  return index;
+}
+
+function extractSourceCompareKeys(entry) {
+  const textParts = [
+    entry.title,
+    entry.summary,
+    entry.sourceFile?.path,
+    entry.sourceFile?.fileName,
+    ...(entry.sourceFile?.labels || []),
+    ...(entry.addresses || []),
+    ...(entry.sourceFile?.sourceUnits || []).flatMap((unit) => [unit.range, unit.name]),
+    searchDocuments.get(entry.id)?.exact,
+    searchDocuments.get(entry.id)?.titleText,
+    searchDocuments.get(entry.id)?.metaText,
+    searchDocuments.get(entry.id)?.bodyText
+  ];
+  const keys = new Set();
+  for (const text of textParts) {
+    for (const key of sourceAddressKeysFromText(text)) {
+      keys.add(key);
+    }
+  }
+  const bank = String(entry.sourceFile?.bank || "").toUpperCase();
+  if (entry.kind === "source-file" && /^[C-E][0-9]$/.test(bank)) {
+    const sameBankKeys = [...keys].filter((key) => key.startsWith(bank));
+    if (sameBankKeys.length) {
+      return new Set(sameBankKeys);
+    }
+  }
+  return keys;
+}
+
+function sourceAddressKeysFromText(text) {
+  const keys = new Set();
+  const value = String(text || "");
+  value.replace(/\b([C-E][0-9]):([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+    keys.add(`${bank}${offset}`.toUpperCase());
+    return "";
+  });
+  value.replace(/\b([C-E][0-9])([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+    keys.add(`${bank}${offset}`.toUpperCase());
+    return "";
+  });
+  return keys;
+}
+
+function sourceCompareScore(current, candidate, key) {
+  let score = 10;
+  const compact = key.toLowerCase();
+  const colon = displayAddressKey(key).toLowerCase();
+  const candidateText = [
+    candidate.title,
+    candidate.sourceFile?.path,
+    candidate.sourceFile?.fileName
+  ].join(" ").toLowerCase();
+  if (candidate.title.toLowerCase() === key.toLowerCase()) {
+    score += 80;
+  }
+  if (candidateText.includes(compact) || candidateText.includes(colon)) {
+    score += 35;
+  }
+  if ((candidate.sourceFile?.sourceUnits || []).some((unit) => String(unit.range || "").toLowerCase().startsWith(colon))) {
+    score += 70;
+  }
+  if ((candidate.sourceFile?.labels || []).some((label) => label.toLowerCase().includes(compact))) {
+    score += 18;
+  }
+  if (current.kind !== candidate.kind) {
+    score += 12;
+  }
+  return score;
+}
+
+function sourceCompareSortText(entry) {
+  return `${entry.sourceFile?.path || ""} ${entry.title || ""}`;
+}
+
+function sourceCompareKeyVariants(keys) {
+  return [...new Set((keys || []).flatMap((key) => {
+    const compact = String(key || "").toLowerCase();
+    return [compact, displayAddressKey(compact).toLowerCase(), `$${compact}`];
+  }))];
+}
+
+function displayAddressKey(key) {
+  const value = String(key || "").toUpperCase().replace(/[^A-F0-9]/g, "");
+  return value.length === 6 ? `${value.slice(0, 2)}:${value.slice(2)}` : String(key || "");
 }
 
 function renderCompactEntryList(items) {
@@ -2648,7 +2924,8 @@ function renderSearchResults(results) {
     ...results.map(({ entry, reason }, index) => `
       <button type="button" class="searchItem${index === searchSelectionIndex ? " active" : ""}" data-entry-id="${escapeHtml(entry.id)}" data-search-index="${index}" aria-selected="${index === searchSelectionIndex ? "true" : "false"}">
         <div class="searchItemTitle">${escapeHtml(entry.title)}</div>
-        <div class="searchItemMeta">${escapeHtml([displayKindLabel(entry), entry.banks && entry.banks.length ? `Bank ${entry.banks.join(", ")}` : "", reason ? `matched ${reason}` : ""].filter(Boolean).join(" - "))}</div>
+        <div class="searchItemMeta">${escapeHtml(searchResultMeta(entry, reason))}</div>
+        ${searchResultPath(entry) ? `<div class="searchItemPath">${escapeHtml(searchResultPath(entry))}</div>` : ""}
       </button>
     `),
     `<button type="button" class="searchItem${searchSelectionIndex === results.length ? " active" : ""}" data-entry-id="${fullResultsId}" data-search-index="${results.length}" aria-selected="${searchSelectionIndex === results.length ? "true" : "false"}">
@@ -2676,7 +2953,7 @@ function renderSearchResults(results) {
       "",
       ...[...grouped.entries()].sort(([a], [b]) => kindRank(a) - kindRank(b)).map(([kind, group]) => [
       `## ${displayKindLabel({ kind })}`,
-      group.map(({ entry, reason }) => `- [[${entry.id}|${entry.title}]] - ${[displayKindLabel(entry), reason ? `matched ${reason}` : "", entry.summary || entry.kind].filter(Boolean).join("; ")}`).join("\n")
+      group.map(({ entry, reason }) => `- [[${entry.id}|${entry.title}]] - ${[searchResultMeta(entry, reason), searchResultPath(entry), entry.summary || entry.kind].filter(Boolean).join("; ")}`).join("\n")
       ].join("\n"))
     ].join("\n\n");
   }
@@ -2704,6 +2981,46 @@ function renderSearchResults(results) {
       });
     });
   });
+}
+
+function searchResultMeta(entry, reason = "") {
+  return [
+    displayKindLabel(entry),
+    sourceOriginLabel(entry),
+    entry.banks && entry.banks.length ? `Bank ${entry.banks.join(", ")}` : "",
+    reason ? `matched ${reason}` : ""
+  ].filter(Boolean).join(" - ");
+}
+
+function searchResultPath(entry) {
+  return entry.sourceFile?.path
+    || entry.sourceRefs?.[0]?.path
+    || entry.noteRefs?.[0]?.path
+    || "";
+}
+
+function sourceOriginLabel(entry) {
+  const pathLabel = entry?.sourceFile?.path || entry?.sourceRefs?.[0]?.path || entry?.noteRefs?.[0]?.path || "";
+  const text = `${entry?.title || ""} ${entry?.summary || ""} ${pathLabel}`.toLowerCase();
+  if (entry?.kind === "reference-source" || pathLabel.includes("refs/ebsrc-main/") || /herringway|ebsrc/.test(text)) {
+    return "Herringway / ebsrc";
+  }
+  if (entry?.kind === "source-file" || pathLabel.startsWith("src/")) {
+    return "Local decomp";
+  }
+  if (entry?.kind === "reference-script" || pathLabel.includes("earthbound-script-source-1995-03-25")) {
+    return "1995 script source";
+  }
+  if (entry?.kind === "reference-document" || entry?.kind === "reference-table" || pathLabel.startsWith("refs/")) {
+    return "Bundled reference";
+  }
+  if (entry?.kind === "note") {
+    return "Project notes";
+  }
+  if (entry?.kind === "routine" || entry?.kind === "symbol") {
+    return "Local code index";
+  }
+  return "";
 }
 
 function openSearchSelection() {

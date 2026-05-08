@@ -27,6 +27,8 @@
     "dist:linux": "npm run dist:linux:appimage",
     "dist:linux:appimage": "npm run prepare:release && electron-builder --linux AppImage --x64",
     "dist:linux:zip": "npm run prepare:release && electron-builder --linux zip --x64",
+    "web:build": "node scripts/build-web.mjs",
+    "web:publish": "npm run web:build && node scripts/publish-pages.mjs",
     "start": "electron .",
     "dev": "npm run build:content && electron .",
     "dev:codex": "npm run build:content:codex && electron .",
