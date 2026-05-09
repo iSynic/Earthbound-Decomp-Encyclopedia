@@ -543,11 +543,16 @@ function renderDocument() {
   documentEl.querySelectorAll("[data-compare-target-id]").forEach((button) => {
     button.addEventListener("click", () => {
       const targetId = button.getAttribute("data-compare-target-id") || "";
+      const ownerId = button.getAttribute("data-compare-owner-id") || entry.id;
+      const currentId = button.getAttribute("data-compare-current-id") || entry.id;
       if (!entries.has(targetId)) {
         return;
       }
-      state.compareTargets[entry.id] = targetId;
-      if (entry.bodyChunk && !entry.fullBodyLoaded) {
+      state.compareTargets[ownerId] = targetId;
+      const current = entries.get(currentId);
+      if (current?.bodyChunk && !current.fullBodyLoaded) {
+        loadDeferredBody(current.id);
+      } else if (entry.bodyChunk && !entry.fullBodyLoaded) {
         loadDeferredBody(entry.id);
       }
       const target = entries.get(targetId);
@@ -1030,7 +1035,7 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
-      ${renderSourceComparePanel(reader.scaffoldEntry || activeEntry)}
+      ${renderSourceComparePanel(reader.scaffoldEntry || activeEntry, activeEntry)}
       <div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
           ${renderSourceOutline(file, labelAnchors)}
@@ -1153,7 +1158,7 @@ function sourceCodeFromBody(body) {
   return match ? match[1].replace(/\n$/, "") : "";
 }
 
-function renderSourceComparePanel(entry) {
+function renderSourceComparePanel(entry, displayEntry = entry) {
   if (!["source-file", "reference-source"].includes(entry.kind)) {
     return "";
   }
@@ -1201,13 +1206,17 @@ function renderSourceComparePanel(entry) {
       </div>
       <div class="sourceCompareCandidates">
         ${candidates.map((candidate, index) => `
-          <button type="button" class="compareCandidate${candidate.entry.id === selectedId ? " active" : ""}" data-compare-target-id="${escapeHtml(candidate.entry.id)}">
+          <button type="button"
+            class="compareCandidate${candidate.entry.id === selectedId ? " active" : ""}"
+            data-compare-owner-id="${escapeHtml(entry.id)}"
+            data-compare-current-id="${escapeHtml(displayEntry.id)}"
+            data-compare-target-id="${escapeHtml(candidate.entry.id)}">
             <span>${escapeHtml(candidate.entry.title)}</span>
             <small>${escapeHtml(compareCandidateMeta(candidate))}</small>
           </button>
         `).join("")}
       </div>
-      ${selected ? renderSelectedSourceComparison(entry, selected) : `
+      ${selected ? renderSelectedSourceComparison(displayEntry, selected) : `
         <div class="sourceCompareHint">
           <strong>${escapeHtml(candidates[0].entry.title)}</strong> is the strongest match. Select a row to load a focused side-by-side snippet.
         </div>
