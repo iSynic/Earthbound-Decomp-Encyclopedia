@@ -1783,6 +1783,20 @@ pre {
   min-width: 0;
 }
 
+.sourceCompareSplit .codeBlockWrap {
+  margin-bottom: 0;
+}
+
+.sourceCompareSplit .codeBlockWrap.collapsed pre {
+  height: 340px;
+  max-height: 340px;
+  overflow: auto;
+}
+
+.sourceCompareSplit .codeBlockWrap:not(.collapsed) pre {
+  max-height: none;
+}
+
 .comparePaneHeader {
   align-items: start;
   display: flex;

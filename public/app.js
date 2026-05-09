@@ -2461,7 +2461,9 @@ function enhanceCodeBlocks() {
       return;
     }
     const lineCount = pre.querySelectorAll(".codeLine").length || (pre.textContent || "").split("\n").length;
+    const isCompareBlock = Boolean(pre.closest(".sourceCompareSplit"));
     const isLongBlock = lineCount >= 36;
+    const shouldCollapse = isLongBlock || isCompareBlock;
     const language = pre.querySelector("code")?.dataset?.language || "";
     const textLines = (pre.textContent || "").split("\n");
     const longestLine = textLines.reduce((longest, line) => Math.max(longest, line.length), 0);
@@ -2470,21 +2472,23 @@ function enhanceCodeBlocks() {
     const wrapper = document.createElement("div");
     wrapper.className = [
       "codeBlockWrap",
-      isLongBlock ? "collapsed" : "",
+      shouldCollapse ? "collapsed" : "",
       shouldWrapByDefault ? "wrapCode" : ""
     ].filter(Boolean).join(" ");
     const controls = document.createElement("div");
     controls.className = "codeControls";
 
-    if (isLongBlock) {
+    if (shouldCollapse) {
+      const expandLabel = isCompareBlock ? `Expand pane (${lineCount} lines)` : `Expand code (${lineCount} lines)`;
+      const collapseLabel = isCompareBlock ? "Collapse pane" : "Collapse code";
       const button = document.createElement("button");
       button.className = "codeToggle";
       button.type = "button";
-      button.textContent = `Expand code (${lineCount} lines)`;
+      button.textContent = expandLabel;
       button.setAttribute("aria-expanded", "false");
       button.addEventListener("click", () => {
         const isCollapsed = wrapper.classList.toggle("collapsed");
-        button.textContent = isCollapsed ? `Expand code (${lineCount} lines)` : "Collapse code";
+        button.textContent = isCollapsed ? expandLabel : collapseLabel;
         button.setAttribute("aria-expanded", String(!isCollapsed));
       });
       controls.appendChild(button);
@@ -2502,7 +2506,7 @@ function enhanceCodeBlocks() {
     });
     controls.appendChild(wrapButton);
 
-    if (!isLongBlock) {
+    if (!shouldCollapse) {
       const spacer = document.createElement("span");
       spacer.className = "codeLineCount";
       spacer.textContent = `${lineCount} lines`;
