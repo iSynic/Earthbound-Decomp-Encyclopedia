@@ -1267,6 +1267,9 @@ function findSourceCompareCandidates(entry) {
       if (candidate.entry.id === entry.id) {
         continue;
       }
+      if (!isSourceCompareCompatible(entry, candidate.entry, key)) {
+        continue;
+      }
       const existing = candidates.get(candidate.entry.id) || {
         entry: candidate.entry,
         keys: new Set(),
@@ -1310,18 +1313,19 @@ function sourceCompareIndex(kind) {
 }
 
 function extractSourceCompareKeys(entry) {
+  const labels = entry.sourceFile?.labels || [];
+  const units = entry.sourceFile?.sourceUnits || [];
   const textParts = [
     entry.title,
     entry.summary,
     entry.sourceFile?.path,
     entry.sourceFile?.fileName,
-    ...(entry.sourceFile?.labels || []),
+    ...labels,
     ...(entry.addresses || []),
-    ...(entry.sourceFile?.sourceUnits || []).flatMap((unit) => [unit.range, unit.name]),
+    ...units.flatMap((unit) => [unit.range, unit.name, unit.label, unit.address]),
     searchDocuments.get(entry.id)?.exact,
     searchDocuments.get(entry.id)?.titleText,
-    searchDocuments.get(entry.id)?.metaText,
-    searchDocuments.get(entry.id)?.bodyText
+    searchDocuments.get(entry.id)?.metaText
   ];
   const keys = new Set();
   for (const text of textParts) {
@@ -1337,6 +1341,58 @@ function extractSourceCompareKeys(entry) {
     }
   }
   return keys;
+}
+
+function isSourceCompareCompatible(current, candidate, key) {
+  const currentBank = sourceCompareBank(current);
+  const candidateBank = sourceCompareBank(candidate);
+  if (currentBank && candidateBank && currentBank !== candidateBank) {
+    return false;
+  }
+  if (currentBank && !candidateBank) {
+    return sourceCompareStructuredText(candidate).includes(key.toLowerCase());
+  }
+  return true;
+}
+
+function sourceCompareBank(entry) {
+  const explicit = [
+    entry.sourceFile?.bank,
+    ...(entry.banks || [])
+  ].map((value) => String(value || "").toUpperCase()).find((value) => /^[C-E][0-9A-F]$/.test(value));
+  if (explicit) {
+    return explicit;
+  }
+
+  const pathLabel = String(entry.sourceFile?.path || "");
+  const ebsrcBank = pathLabel.match(/(?:^|\/)bank([0-2][0-9a-f])(?:\.|_|\b)/i)
+    || pathLabel.match(/(?:^|\/)bank([0-2][0-9a-f])\.inc\.asm$/i);
+  if (ebsrcBank) {
+    const bankNumber = Number.parseInt(ebsrcBank[1], 16);
+    if (bankNumber >= 0 && bankNumber <= 0x2f) {
+      return `${String.fromCharCode("C".charCodeAt(0) + Math.floor(bankNumber / 0x10))}${(bankNumber % 0x10).toString(16).toUpperCase()}`;
+    }
+  }
+
+  if (/refs\/ebsrc-main\/ebsrc-main\/src\/data\/events\/scripts\//i.test(pathLabel)) {
+    return "C3";
+  }
+
+  const structured = sourceCompareStructuredText(entry);
+  const addressMatch = structured.match(/\b([c-e][0-9a-f])[:_ -]?[0-9a-f]{4}\b/i);
+  return addressMatch ? addressMatch[1].toUpperCase() : "";
+}
+
+function sourceCompareStructuredText(entry) {
+  return [
+    entry.title,
+    entry.summary,
+    entry.sourceFile?.path,
+    entry.sourceFile?.fileName,
+    ...(entry.addresses || []),
+    ...(entry.sourceFile?.labels || []),
+    ...(entry.sourceFile?.sourceUnits || []).flatMap((unit) => [unit.range, unit.name, unit.label, unit.address])
+  ].filter(Boolean).join(" ").toLowerCase();
 }
 
 function sourceAddressKeysFromText(text) {
