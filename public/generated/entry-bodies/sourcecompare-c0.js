@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_DEFERRED_DATA = window.ENCYCLOPEDIA_DEFERRED_DATA || {};
+window.ENCYCLOPEDIA_DEFERRED_DATA["sourceCompare:C0"] = [{"localEntryId":"source-file-src-c0-bank-c0-helpers-asar","referenceEntryId":"reference-source-refs-ebsrc-main-ebsrc-main-src-bankconfig-us-bank00","bank":"C0","range":"Bank C0","matchKind":"bankconfig include","confidence":"fallback","localPath":"src/c0/bank_c0_helpers_asar.asm","referencePath":"refs/ebsrc-main/ebsrc-main/src/bankconfig/US/bank00.asm","labels":[]}];

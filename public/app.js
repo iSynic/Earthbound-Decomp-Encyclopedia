@@ -40,6 +40,8 @@ let searchIndexLoadError = "";
 let relationshipGraphLoading = false;
 let relationshipGraphLoadError = "";
 const sourceCompareIndexes = {};
+const sourceCompareLoading = {};
+const sourceCompareLoadErrors = {};
 const ASM_MNEMONICS = new Set([
   "adc", "and", "asl", "bcc", "bcs", "beq", "bit", "bmi", "bne", "bpl", "bra", "brk", "brl", "bvc", "bvs",
   "clc", "cld", "cli", "clv", "cmp", "cop", "cpx", "cpy", "dec", "dex", "dey", "eor", "inc", "inx", "iny",
@@ -1028,7 +1030,7 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
-      ${renderSourceComparePanel(activeEntry)}
+      ${renderSourceComparePanel(reader.scaffoldEntry || activeEntry)}
       <div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
           ${renderSourceOutline(file, labelAnchors)}
@@ -1155,6 +1157,33 @@ function renderSourceComparePanel(entry) {
   if (!["source-file", "reference-source"].includes(entry.kind)) {
     return "";
   }
+  const chunkState = sourceCompareChunkState(entry);
+  if (chunkState.available && !chunkState.loaded && !chunkState.error) {
+    ensureSourceCompareChunkLoaded(chunkState);
+    const targetKindLabel = entry.kind === "reference-source" ? "local source" : "Herringway / ebsrc";
+    return `
+      <section class="sourceComparePanel">
+        <div class="sourceCompareHeader">
+          <div>
+            <h3>Compare With ${escapeHtml(targetKindLabel)}</h3>
+            <p>Loading compact Bank ${escapeHtml(chunkState.bank)} comparison metadata...</p>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+  if (chunkState.error) {
+    return `
+      <section class="sourceComparePanel">
+        <div class="sourceCompareHeader">
+          <div>
+            <h3>Compare Source</h3>
+            <p>${escapeHtml(chunkState.error)}</p>
+          </div>
+        </div>
+      </section>
+    `;
+  }
   const candidates = findSourceCompareCandidates(entry).slice(0, 10);
   if (!candidates.length) {
     return "";
@@ -1189,8 +1218,8 @@ function renderSourceComparePanel(entry) {
 
 function comparePanelHelp(entry) {
   return entry.kind === "reference-source"
-    ? "Matched by address-style labels, source paths, and local source-unit ranges."
-    : "Matched by local addresses, source-unit ranges, labels, and Herringway file names.";
+    ? "Matched by the generated ebsrc US bank placement map, address labels, and local source ranges."
+    : "Matched by the generated ebsrc US bank placement map, local addresses, source-unit ranges, and labels.";
 }
 
 function compareCandidateMeta(candidate) {
@@ -1198,6 +1227,8 @@ function compareCandidateMeta(candidate) {
   return [
     sourceOriginLabel(entry),
     entry.sourceFile?.path || "",
+    candidate.range || "",
+    candidate.confidence ? `${candidate.confidence} confidence` : "",
     candidate.reason ? `matched ${candidate.reason}` : ""
   ].filter(Boolean).join(" - ");
 }
@@ -1249,6 +1280,86 @@ function compareLoadText(entry) {
   return entry.bodyChunk ? "Source body is available on demand." : "No source body is available.";
 }
 
+function sourceCompareChunkState(entry) {
+  const bank = sourceCompareBank(entry);
+  const configured = bank ? catalog.sourceCompareChunks?.[bank] : null;
+  const key = configured && typeof configured === "object" ? configured.key : bank ? `sourceCompare:${bank}` : "";
+  const chunk = configured && typeof configured === "object" ? configured.chunk : configured;
+  const records = key ? window.ENCYCLOPEDIA_DEFERRED_DATA[key] : null;
+  return {
+    bank,
+    key,
+    chunk,
+    records: Array.isArray(records) ? records : [],
+    available: Boolean(bank && key && chunk),
+    loaded: Array.isArray(records),
+    loading: Boolean(sourceCompareLoading[bank]),
+    error: bank ? sourceCompareLoadErrors[bank] : ""
+  };
+}
+
+function ensureSourceCompareChunkLoaded(chunkState) {
+  if (!chunkState.available || chunkState.loaded || chunkState.loading || chunkState.error) {
+    return;
+  }
+  sourceCompareLoading[chunkState.bank] = true;
+  const script = document.createElement("script");
+  script.src = chunkState.chunk;
+  script.onload = () => {
+    sourceCompareLoading[chunkState.bank] = false;
+    if (!window.ENCYCLOPEDIA_DEFERRED_DATA[chunkState.key]) {
+      sourceCompareLoadErrors[chunkState.bank] = "The comparison chunk loaded, but did not publish comparison metadata.";
+    }
+    renderDocument();
+  };
+  script.onerror = () => {
+    sourceCompareLoading[chunkState.bank] = false;
+    sourceCompareLoadErrors[chunkState.bank] = "Could not load the generated comparison metadata.";
+    renderDocument();
+  };
+  document.head.appendChild(script);
+}
+
+function precomputedSourceCompareCandidates(entry) {
+  const chunkState = sourceCompareChunkState(entry);
+  if (!chunkState.loaded) {
+    return null;
+  }
+  const wantsReference = entry.kind !== "reference-source";
+  return chunkState.records
+    .filter((record) => wantsReference ? record.localEntryId === entry.id : record.referenceEntryId === entry.id)
+    .map((record) => {
+      const targetId = wantsReference ? record.referenceEntryId : record.localEntryId;
+      const target = entries.get(targetId);
+      if (!target || !isContentVisible(target)) {
+        return null;
+      }
+      const keys = unique([
+        ...(record.labels || []),
+        ...sourceAddressKeysFromText(record.range),
+        record.localPath,
+        record.referencePath
+      ]);
+      return {
+        entry: target,
+        keys,
+        score: compareConfidenceScore(record.confidence),
+        reason: record.matchKind || "placement map",
+        confidence: record.confidence,
+        range: record.range
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.score - a.score || sourceCompareSortText(a.entry).localeCompare(sourceCompareSortText(b.entry)));
+}
+
+function compareConfidenceScore(confidence) {
+  if (confidence === "high") return 100;
+  if (confidence === "medium") return 70;
+  if (confidence === "low") return 35;
+  return 10;
+}
+
 function sourceCompareSnippet(code, keys) {
   const lines = String(code || "").split("\n");
   const variants = sourceCompareKeyVariants(keys);
@@ -1266,6 +1377,13 @@ function sourceCompareSnippet(code, keys) {
 }
 
 function findSourceCompareCandidates(entry) {
+  const precomputed = precomputedSourceCompareCandidates(entry);
+  if (precomputed) {
+    return precomputed;
+  }
+  if (Object.keys(catalog.sourceCompareChunks || {}).length && entry.sourceFile?.compareBank) {
+    return [];
+  }
   const targetKind = entry.kind === "reference-source" ? "source-file" : "reference-source";
   const keys = extractSourceCompareKeys(entry);
   if (!keys.size) {
@@ -1368,6 +1486,7 @@ function isSourceCompareCompatible(current, candidate, key) {
 
 function sourceCompareBank(entry) {
   const explicit = [
+    entry.sourceFile?.compareBank,
     entry.sourceFile?.bank,
     ...(entry.banks || [])
   ].map((value) => String(value || "").toUpperCase()).find((value) => /^[C-E][0-9A-F]$/.test(value));
@@ -1409,11 +1528,11 @@ function sourceCompareStructuredText(entry) {
 function sourceAddressKeysFromText(text) {
   const keys = new Set();
   const value = String(text || "");
-  value.replace(/\b([C-E][0-9]):([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+  value.replace(/\b([C-E][0-9A-F]):([0-9A-F]{4})\b/gi, (_, bank, offset) => {
     keys.add(`${bank}${offset}`.toUpperCase());
     return "";
   });
-  value.replace(/\b([C-E][0-9])([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+  value.replace(/\b([C-E][0-9A-F])([0-9A-F]{4})\b/gi, (_, bank, offset) => {
     keys.add(`${bank}${offset}`.toUpperCase());
     return "";
   });

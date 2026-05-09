@@ -919,6 +919,7 @@ function searchIndexDocument(entry) {
     ...(entry.aliases || []),
     ...(entry.addresses || []),
     ...(entry.banks || []),
+    entry.compareSearchTerms,
     paths
   ]).join(" ").toLowerCase();
   const bodyLimit = privateMode
@@ -935,6 +936,7 @@ function searchIndexDocument(entry) {
       entry.kind,
       entry.summary,
       paths,
+      entry.compareSearchTerms,
       headings,
       labels,
       ...(entry.addresses || []),
@@ -1127,6 +1129,7 @@ function thinStartupEntries() {
         sourceUnits: (entry.sourceFile.sourceUnits || []).slice(0, 32)
       };
     }
+    delete entry.compareSearchTerms;
   }
 }
 
@@ -1263,6 +1266,75 @@ function addressFromFileName(name) {
     return "";
   }
   return `${match[1].toUpperCase()}:${match[2].toUpperCase()}`;
+}
+
+function addressParts(value) {
+  const normalized = String(value || "").toUpperCase().replace(/[^A-F0-9]/g, "");
+  const match = normalized.match(/^([C-E][0-9A-F])([0-9A-F]{4})$/);
+  if (!match) {
+    return null;
+  }
+  return {
+    bank: match[1],
+    key: `${match[1]}${match[2]}`,
+    address: `${match[1]}:${match[2]}`,
+    offset: Number.parseInt(match[2], 16)
+  };
+}
+
+function displayAddressKey(key) {
+  const parts = addressParts(key);
+  return parts ? parts.address : String(key || "");
+}
+
+function sourceAddressKeysFromText(text) {
+  const keys = new Set();
+  const value = String(text || "");
+  value.replace(/\b([C-E][0-9A-F]):([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+    keys.add(`${bank}${offset}`.toUpperCase());
+    return "";
+  });
+  value.replace(/\b([C-E][0-9A-F])([0-9A-F]{4})\b/gi, (_, bank, offset) => {
+    keys.add(`${bank}${offset}`.toUpperCase());
+    return "";
+  });
+  return [...keys];
+}
+
+function sourceRangeFromText(text) {
+  const match = String(text || "").match(/\b([C-E][0-9A-F]):([0-9A-F]{4})\.\.([C-E][0-9A-F]):([0-9A-F]{4})\b/i);
+  if (!match) {
+    return null;
+  }
+  const start = addressParts(`${match[1]}${match[2]}`);
+  const end = addressParts(`${match[3]}${match[4]}`);
+  if (!start || !end || start.bank !== end.bank) {
+    return null;
+  }
+  return {
+    bank: start.bank,
+    startKey: start.key,
+    endKey: end.key,
+    startOffset: start.offset,
+    endOffset: end.offset,
+    label: `${start.address}..${end.address}`
+  };
+}
+
+function sourceRangesFromText(text, limit = 240) {
+  const ranges = [];
+  const value = String(text || "");
+  const pattern = /\b([C-E][0-9A-F]):([0-9A-F]{4})\.\.([C-E][0-9A-F]):([0-9A-F]{4})\b/gi;
+  for (const match of value.matchAll(pattern)) {
+    const parsed = sourceRangeFromText(match[0]);
+    if (parsed) {
+      ranges.push(parsed);
+      if (ranges.length >= limit) {
+        break;
+      }
+    }
+  }
+  return ranges;
 }
 
 function fencedCode(language, value) {
@@ -3987,6 +4059,352 @@ function addReferenceSourceEntries() {
   });
 }
 
+function ebsrcBankToLocalBank(bankHex) {
+  const bankNumber = Number.parseInt(bankHex, 16);
+  if (!Number.isFinite(bankNumber) || bankNumber < 0 || bankNumber > 0x2f) {
+    return "";
+  }
+  return `${String.fromCharCode("C".charCodeAt(0) + Math.floor(bankNumber / 0x10))}${(bankNumber % 0x10).toString(16).toUpperCase()}`;
+}
+
+function resolveEbsrcIncludeRelativePath(includePath) {
+  const normalized = includePath.replaceAll("\\", "/").replace(/^\.?\//, "");
+  const candidates = [
+    `refs/ebsrc-main/ebsrc-main/src/${normalized}`,
+    `refs/ebsrc-main/ebsrc-main/include/${normalized}`,
+    `refs/ebsrc-main/ebsrc-main/${normalized}`
+  ];
+  return candidates.find((candidate) => pathEntryIds.has(candidate) || fs.existsSync(path.join(repoRoot, candidate))) || "";
+}
+
+function sourceFileLabels(entry) {
+  return (entry?.sourceFile?.labels || []).map((label) => String(label || "")).filter(Boolean);
+}
+
+function localSourceEntryRange(entry) {
+  const sourceFile = entry.sourceFile || {};
+  const ranges = [];
+  for (const unit of sourceFile.sourceUnits || []) {
+    const parsed = sourceRangeFromText(unit.range);
+    if (parsed) {
+      ranges.push(parsed);
+    }
+  }
+  ranges.push(...sourceRangesFromText(entry.body, 240));
+  for (const value of [sourceFile.firstAddress, ...(entry.addresses || [])]) {
+    const parts = addressParts(value);
+    if (parts) {
+      ranges.push({
+        bank: parts.bank,
+        startKey: parts.key,
+        endKey: parts.key,
+        startOffset: parts.offset,
+        endOffset: parts.offset + 1,
+        label: parts.address
+      });
+    }
+  }
+  return ranges.filter((range) => range.bank === sourceFile.bank);
+}
+
+function sourceEntryAddressKeys(entry) {
+  const keys = new Set();
+  const sourceFile = entry.sourceFile || {};
+  for (const value of [
+    entry.title,
+    sourceFile.path,
+    sourceFile.fileName,
+    sourceFile.firstAddress,
+    ...(entry.addresses || []),
+    ...sourceFileLabels(entry),
+    ...(sourceFile.sourceUnits || []).flatMap((unit) => [unit.range, unit.name, unit.label, unit.address])
+  ]) {
+    for (const key of sourceAddressKeysFromText(value)) {
+      keys.add(key);
+    }
+  }
+  return [...keys];
+}
+
+function buildEbsrcPlacements() {
+  if (!privateMode || !fs.existsSync(ebsrcRoot)) {
+    return { placementsByBank: new Map(), bankConfigByBank: new Map() };
+  }
+
+  const placementsByBank = new Map();
+  const bankConfigByBank = new Map();
+  const bankConfigDir = path.join(ebsrcRoot, "src", "bankconfig", "US");
+  if (!fs.existsSync(bankConfigDir)) {
+    return { placementsByBank, bankConfigByBank };
+  }
+
+  const bankConfigs = walkFiles(bankConfigDir, (filePath) => /^bank[0-2][0-9a-f]\.asm$/i.test(path.basename(filePath)))
+    .sort((a, b) => a.localeCompare(b));
+  for (const configPath of bankConfigs) {
+    const bankMatch = path.basename(configPath).match(/^bank([0-2][0-9a-f])\.asm$/i);
+    const bank = bankMatch ? ebsrcBankToLocalBank(bankMatch[1]) : "";
+    if (!bank) {
+      continue;
+    }
+    const configRelativePath = repoRelative(configPath);
+    const configEntryId = pathEntryIds.get(configRelativePath) || entryIdForPath("reference-source", configRelativePath);
+    bankConfigByBank.set(bank, {
+      entryId: configEntryId,
+      path: configRelativePath
+    });
+
+    const text = fs.readFileSync(configPath, "utf8");
+    const includes = [...text.matchAll(/^\s*\.INCLUDE\s+"([^"]+)"/gmi)].map((match, index) => ({
+      includePath: match[1],
+      order: index
+    }));
+    for (const include of includes) {
+      const relativePath = resolveEbsrcIncludeRelativePath(include.includePath);
+      const entryId = relativePath ? pathEntryIds.get(relativePath) : "";
+      const entry = entryId ? entries.find((candidate) => candidate.id === entryId) : null;
+      if (!entry || entry.kind !== "reference-source") {
+        continue;
+      }
+      const labels = sourceFileLabels(entry);
+      const keys = unique([
+        ...sourceAddressKeysFromText(relativePath),
+        ...labels.flatMap((label) => sourceAddressKeysFromText(label))
+      ]).filter((key) => addressParts(key)?.bank === bank);
+      const startParts = keys.map((key) => addressParts(key)).filter(Boolean).sort((a, b) => a.offset - b.offset)[0] || null;
+      placementsByBank.set(bank, [
+        ...(placementsByBank.get(bank) || []),
+        {
+          entryId,
+          path: relativePath,
+          bank,
+          order: include.order,
+          labels: labels.slice(0, 16),
+          keys: keys.slice(0, 20),
+          startKey: startParts?.key || "",
+          startOffset: startParts?.offset ?? null,
+          range: ""
+        }
+      ]);
+    }
+  }
+
+  for (const [bank, placements] of placementsByBank) {
+    const sorted = placements.sort((a, b) => a.order - b.order || a.path.localeCompare(b.path));
+    for (let index = 0; index < sorted.length; index += 1) {
+      const placement = sorted[index];
+      if (placement.startOffset === null) {
+        continue;
+      }
+      const nextAnchored = sorted.slice(index + 1).find((candidate) => candidate.startOffset !== null && candidate.startOffset > placement.startOffset);
+      if (nextAnchored) {
+        placement.endKey = nextAnchored.startKey;
+        placement.endOffset = nextAnchored.startOffset;
+        placement.range = `${displayAddressKey(placement.startKey)}..${displayAddressKey(nextAnchored.startKey)}`;
+      } else {
+        placement.endKey = placement.startKey;
+        placement.endOffset = placement.startOffset + 1;
+        placement.range = displayAddressKey(placement.startKey);
+      }
+    }
+    placementsByBank.set(bank, sorted);
+  }
+
+  return { placementsByBank, bankConfigByBank };
+}
+
+function rangesOverlap(left, right) {
+  if (!left || !right || left.bank !== right.bank) {
+    return false;
+  }
+  return left.startOffset < right.endOffset && right.startOffset < left.endOffset;
+}
+
+function compareMatchKind(score) {
+  if (score.exactLabel) return "exact label";
+  if (score.sameAddress) return "same address";
+  if (score.rangeOverlap) return "range overlap";
+  if (score.bankconfigInclude) return "bankconfig include";
+  return "nearby bank region";
+}
+
+function compareConfidence(matchKind) {
+  if (matchKind === "exact label" || matchKind === "same address") return "high";
+  if (matchKind === "range overlap") return "medium";
+  if (matchKind === "bankconfig include") return "fallback";
+  return "low";
+}
+
+function compactCompareRecord(localEntry, referenceEntry, bank, matchKind, range, labels = []) {
+  return {
+    localEntryId: localEntry.id,
+    referenceEntryId: referenceEntry.id,
+    bank,
+    range,
+    matchKind,
+    confidence: compareConfidence(matchKind),
+    localPath: localEntry.sourceFile?.path || "",
+    referencePath: referenceEntry.sourceFile?.path || "",
+    labels: labels.slice(0, 6)
+  };
+}
+
+function addSourceCompareMap() {
+  if (!privateMode || !fs.existsSync(ebsrcRoot)) {
+    return {};
+  }
+
+  const { placementsByBank, bankConfigByBank } = buildEbsrcPlacements();
+  const entryById = new Map(entries.map((entry) => [entry.id, entry]));
+  const localEntries = entries.filter((entry) =>
+    entry.kind === "source-file"
+    && entry.sourceFile?.bank
+    && !entry.canonicalEntryId
+    && !/\.bytes\.asar\.asm$/i.test(entry.sourceFile.path || "")
+  );
+  const recordsByBank = new Map();
+  const compareCounts = new Map();
+
+  for (const localEntry of localEntries) {
+    const bank = localEntry.sourceFile.bank;
+    const placements = placementsByBank.get(bank) || [];
+    const localRanges = localSourceEntryRange(localEntry);
+    const localKeys = sourceEntryAddressKeys(localEntry).filter((key) => addressParts(key)?.bank === bank);
+    const localLabels = new Set(sourceFileLabels(localEntry).map((label) => label.toUpperCase()));
+    const candidates = new Map();
+
+    for (const placement of placements) {
+      const referenceEntry = entryById.get(placement.entryId);
+      if (!referenceEntry) {
+        continue;
+      }
+      const score = {
+        value: 0,
+        exactLabel: false,
+        sameAddress: false,
+        rangeOverlap: false,
+        bankconfigInclude: false,
+        labels: []
+      };
+      for (const label of placement.labels || []) {
+        if (localLabels.has(label.toUpperCase())) {
+          score.exactLabel = true;
+          score.value += 120;
+          score.labels.push(label);
+        }
+      }
+      if (localKeys.some((key) => (placement.keys || []).includes(key) || placement.startKey === key)) {
+        score.sameAddress = true;
+        score.value += 100;
+      }
+      if (placement.startOffset !== null && placement.endOffset !== null) {
+        const placementRange = {
+          bank,
+          startOffset: placement.startOffset,
+          endOffset: placement.endOffset
+        };
+        if (localRanges.some((range) => rangesOverlap(range, placementRange))) {
+          score.rangeOverlap = true;
+          score.value += 70;
+        }
+      }
+      if (!score.value) {
+        continue;
+      }
+      score.value += Math.max(0, 30 - Math.abs((localRanges[0]?.startOffset ?? 0) - (placement.startOffset ?? 0)) / 0x800);
+      const matchKind = compareMatchKind(score);
+      candidates.set(placement.entryId, {
+        referenceEntry,
+        placement,
+        score: score.value,
+        matchKind,
+        labels: unique([...score.labels, ...localKeys.map(displayAddressKey), ...(placement.labels || []).slice(0, 2)])
+      });
+    }
+
+    let matches = [...candidates.values()]
+      .sort((a, b) => b.score - a.score || a.placement.path.localeCompare(b.placement.path))
+      .slice(0, 8);
+    if (!matches.length && bankConfigByBank.has(bank)) {
+      const fallback = bankConfigByBank.get(bank);
+      const referenceEntry = entryById.get(fallback.entryId);
+      if (referenceEntry) {
+        matches = [{
+          referenceEntry,
+          placement: {
+            path: fallback.path,
+            range: `Bank ${bank}`
+          },
+          score: 1,
+          matchKind: "bankconfig include",
+          labels: localKeys.map(displayAddressKey).slice(0, 4)
+        }];
+      }
+    }
+
+    if (!matches.length) {
+      continue;
+    }
+
+    localEntry.sourceFile.compareBank = bank;
+    localEntry.sourceFile.hasEbsrcCompare = true;
+    localEntry.sourceFile.compareCount = matches.length;
+    const searchableMatches = matches.filter((match) => match.matchKind !== "bankconfig include").slice(0, 2);
+    if (searchableMatches.length) {
+      localEntry.compareSearchTerms = unique([
+        localEntry.sourceFile.path,
+        bank,
+        ...localKeys.map(displayAddressKey).slice(0, 6),
+        ...searchableMatches.flatMap((match) => [match.referenceEntry.sourceFile?.path, match.matchKind, match.placement.range])
+      ]).join(" ");
+    }
+    compareCounts.set(localEntry.id, matches.length);
+
+    for (const match of matches) {
+      const record = compactCompareRecord(
+        localEntry,
+        match.referenceEntry,
+        bank,
+        match.matchKind,
+        match.placement.range || localRanges[0]?.label || `Bank ${bank}`,
+        match.labels
+      );
+      recordsByBank.set(bank, [...(recordsByBank.get(bank) || []), record]);
+      const referenceFile = match.referenceEntry.sourceFile;
+      if (referenceFile) {
+        referenceFile.compareBank = bank;
+        referenceFile.hasEbsrcCompare = true;
+        referenceFile.compareCount = (referenceFile.compareCount || 0) + 1;
+      }
+      if (match.matchKind !== "bankconfig include") {
+        match.referenceEntry.compareSearchTerms = unique([
+          match.referenceEntry.compareSearchTerms,
+          match.referenceEntry.sourceFile?.path,
+          localEntry.sourceFile.path,
+          bank,
+          match.placement.range,
+          match.matchKind,
+          ...match.labels.slice(0, 4)
+        ]).join(" ");
+      }
+    }
+  }
+
+  const chunks = {};
+  for (const [bank, records] of [...recordsByBank.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const key = `sourceCompare:${bank}`;
+    const deduped = [...new Map(records.map((record) => [
+      `${record.localEntryId}\u0000${record.referenceEntryId}\u0000${record.matchKind}\u0000${record.range}`,
+      record
+    ])).values()];
+    chunks[bank] = {
+      key,
+      chunk: writeDeferredDataChunk(key, deduped),
+      count: deduped.length
+    };
+  }
+  return chunks;
+}
+
 function referenceDocumentLanguage(fileName) {
   const lower = fileName.toLowerCase();
   if (lower.endsWith(".asm")) return "asm";
@@ -4387,6 +4805,7 @@ for (const entry of entries) {
   }
 }
 
+const sourceCompareChunks = addSourceCompareMap();
 pruneGuideMetaReferences();
 scrubEntriesForAuthoredRelease();
 
@@ -4448,6 +4867,7 @@ const catalog = {
   referenceSync,
   navSections,
   facets,
+  sourceCompareChunks,
   localWorkspaceContract,
   artifactPolicy: {
     checkedIn: [
