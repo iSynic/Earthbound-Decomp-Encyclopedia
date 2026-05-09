@@ -3526,6 +3526,10 @@ function addSourceFileEntries() {
     if (file.hasRoutineEntry) {
       const existingEntry = entries.find((entry) => entry.id === file.entryId);
       if (existingEntry) {
+        if (file.isByteListing) {
+          existingEntry.excludeFromSearch = true;
+          existingEntry.canonicalEntryId = file.semanticSource?.entryId || "";
+        }
         existingEntry.sourceFile = {
           path: file.relativePath,
           fileName: file.fileName,
@@ -3539,6 +3543,25 @@ function addSourceFileEntries() {
           backingSource: file.backingSource,
           semanticSource: file.semanticSource
         };
+        existingEntry.aliases = unique([
+          ...(existingEntry.aliases || []),
+          file.relativePath,
+          file.fileName,
+          file.backingSource?.path,
+          file.semanticSource?.path
+        ]);
+        if (file.backingSource && !(existingEntry.sourceRefs || []).some((ref) => ref.path === file.backingSource.path)) {
+          existingEntry.sourceRefs = [
+            ...(existingEntry.sourceRefs || []),
+            sourceRef(file.backingSource.path, file.backingSource.label)
+          ];
+        }
+        if (file.semanticSource && !(existingEntry.sourceRefs || []).some((ref) => ref.path === file.semanticSource.path)) {
+          existingEntry.sourceRefs = [
+            ...(existingEntry.sourceRefs || []),
+            sourceRef(file.semanticSource.path, file.semanticSource.label)
+          ];
+        }
         existingEntry.relatedNotes = file.relatedNotes;
         existingEntry.noteRefs = unique([
           ...(existingEntry.noteRefs || []),
@@ -3616,6 +3639,8 @@ function addSourceFileEntries() {
         file.semanticSource?.entryId,
         ...file.relatedNotes.slice(0, 4).map((note) => note.id)
       ]),
+      excludeFromSearch: file.isByteListing,
+      canonicalEntryId: file.isByteListing ? (file.semanticSource?.entryId || "") : "",
       showInToc: false,
       body: [
         `Source path: \`${file.relativePath}\`.`,
@@ -3648,18 +3673,28 @@ function addSourceFileEntries() {
     });
   }
 
-  const bankRows = [...byBank.entries()]
+  const primarySourceFiles = files.filter((file) => !file.isByteListing || !file.semanticSource);
+  const primaryByBank = new Map();
+  for (const file of primarySourceFiles) {
+    if (file.bank) {
+      primaryByBank.set(file.bank, [...(primaryByBank.get(file.bank) || []), file]);
+    }
+  }
+
+  const bankRows = [...primaryByBank.entries()]
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(([bank, bankFiles]) => {
       const routineCount = bankFiles.filter((file) => file.hasRoutineEntry).length;
       const scaffoldCount = bankFiles.length - routineCount;
-      return `- [[${sourceBankIndexId(bank)}|Bank ${bank} source]]: ${bankFiles.length} files (${routineCount} routine pages, ${scaffoldCount} scaffold/data files)`;
+      const byteListingCount = bankFiles.filter((file) => file.backingSource).length;
+      return `- [[${sourceBankIndexId(bank)}|Bank ${bank} source]]: ${bankFiles.length} logical files (${routineCount} routine pages, ${scaffoldCount} scaffold/data files, ${byteListingCount} byte listings available)`;
     });
 
-  for (const [bank, bankFiles] of [...byBank.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+  for (const [bank, bankFiles] of [...primaryByBank.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
     const bankLower = bank.toLowerCase();
     const routineCount = bankFiles.filter((file) => file.hasRoutineEntry).length;
     const scaffoldCount = bankFiles.length - routineCount;
+    const byteListingCount = bankFiles.filter((file) => file.backingSource).length;
     const sortedFiles = bankFiles.sort((a, b) => (a.address || "").localeCompare(b.address || "") || a.relativePath.localeCompare(b.relativePath));
     const bankFileRows = sortedFiles.map((file) => ({
       id: file.entryId,
@@ -3670,14 +3705,17 @@ function addSourceFileEntries() {
       lineCount: file.lineCount,
       labelCount: file.labels.length,
       sourceUnitCount: file.sourceUnits.length,
-      relatedNoteCount: file.relatedNotes.length
+      relatedNoteCount: file.relatedNotes.length,
+      byteListingEntryId: file.backingSource?.entryId || "",
+      byteListingPath: file.backingSource?.path || "",
+      byteListingRange: file.backingSource?.range || ""
     }));
     const bankFilesChunk = writeDeferredDataChunk(`${sourceBankIndexId(bank)}:bankFiles`, bankFileRows);
     addEntry({
       id: sourceBankIndexId(bank),
       title: `Bank ${bank} Source Files`,
       kind: "source",
-      summary: `Generated source browser for ${bankFiles.length} checked-in Bank ${bank} .asm files.`,
+      summary: `Generated source browser for ${bankFiles.length} logical Bank ${bank} source files.`,
       aliases: [`bank ${bank} source`, `${bank} asm files`, `${bank} source files`, `src/${bankLower}`],
       banks: [bank],
       sourceBank: {
@@ -3685,6 +3723,7 @@ function addSourceFileEntries() {
         fileCount: bankFiles.length,
         routineCount,
         scaffoldCount,
+        byteListingCount,
         bankFilesChunk,
         bankFilesKey: `${sourceBankIndexId(bank)}:bankFiles`,
         previewFiles: bankFileRows.slice(0, 12)
@@ -3698,11 +3737,12 @@ function addSourceFileEntries() {
       ]),
       showInToc: false,
       body: [
-        `Bank \`${bank}\` has ${bankFiles.length} checked-in source files in \`src/${bankLower}\`.`,
+        `Bank \`${bank}\` has ${bankFiles.length} logical source files in \`src/${bankLower}\`. Byte-preserving companions are opened as source-reader tabs instead of duplicate bank rows.`,
         "",
         "## Coverage",
         `- Routine/source-heavy entries: ${routineCount}`,
         `- Scaffold/data source entries: ${scaffoldCount}`,
+        `- Byte listings available: ${byteListingCount}`,
         "",
         "## Files",
         "The app loads the full bank file table on demand. Search can still resolve source paths, labels, addresses, and filenames from the startup index.",
@@ -3717,12 +3757,12 @@ function addSourceFileEntries() {
     id: "source-browser",
     title: "Source Browser",
     kind: "source",
-    summary: `Generated browser for all ${files.length} checked-in source .asm files across ${byBank.size} banks.`,
+    summary: `Generated browser for ${primarySourceFiles.length} logical source files across ${primaryByBank.size} banks.`,
     aliases: ["all source", "source browser", "asm browser", "checked-in source", "source code", "decomp source"],
-    related: ["source-tree", "reference-source-browser", "routine-index", "bank-map", ...[...byBank.keys()].map((bank) => sourceBankIndexId(bank))],
+    related: ["source-tree", "reference-source-browser", "routine-index", "bank-map", ...[...primaryByBank.keys()].map((bank) => sourceBankIndexId(bank))],
     showInToc: true,
     body: [
-      "This page indexes every checked-in `.asm` source file from the configured decomp source root.",
+      "This page indexes logical `.asm` source units from the configured decomp source root. Byte-preserving `.bytes.asar.asm` companions stay searchable and open inside the source reader, but they are not duplicated as normal bank rows.",
       "",
       "For the traditional Herringway/`ebsrc` source layout, open [[reference-source-browser|Herringway / ebsrc Source]].",
       "",

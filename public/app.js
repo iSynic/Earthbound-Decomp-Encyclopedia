@@ -925,7 +925,7 @@ function renderSourceBankPage(entry) {
     <div class="deferredBody">
       <div>
         <div class="deferredTitle">Full bank file table deferred</div>
-        <div class="deferredText">Showing ${rows.length} preview files. Load the full ${Number(sourceBank.fileCount || rows.length).toLocaleString()} file table when you need dense source navigation.</div>
+        <div class="deferredText">Showing ${rows.length} preview source units. Load the full ${Number(sourceBank.fileCount || rows.length).toLocaleString()} logical source-unit table when you need dense source navigation.</div>
         ${entry.dataLoadError ? `<div class="deferredError">${escapeHtml(entry.dataLoadError)}</div>` : ""}
       </div>
       <button type="button" class="loadBodyButton" data-load-data-key="${escapeHtml(key)}" data-load-data-chunk="${escapeHtml(sourceBank.bankFilesChunk || "")}" ${entry.dataLoading ? "disabled" : ""}>
@@ -936,9 +936,10 @@ function renderSourceBankPage(entry) {
   return `
     <section class="sourceBankPage">
       <div class="sourceStatsBar">
-        <span>${Number(sourceBank.fileCount || rows.length).toLocaleString()} files</span>
+        <span>${Number(sourceBank.fileCount || rows.length).toLocaleString()} logical files</span>
         <span>${Number(sourceBank.routineCount || 0).toLocaleString()} routines</span>
         <span>${Number(sourceBank.scaffoldCount || 0).toLocaleString()} scaffold/data</span>
+        ${sourceBank.byteListingCount ? `<span>${Number(sourceBank.byteListingCount).toLocaleString()} byte listings</span>` : ""}
       </div>
       ${renderSourceFileTable(sortedRows, sort)}
       ${loadPanel}
@@ -966,6 +967,7 @@ function renderSourceFileTable(rows, sort) {
     ["address", "Address"],
     ["path", "Path"],
     ["role", "Role"],
+    ["views", "Views"],
     ["lineCount", "Lines"],
     ["labelCount", "Labels"],
     ["sourceUnitCount", "Units"],
@@ -982,6 +984,7 @@ function renderSourceFileTable(rows, sort) {
             <td>${row.address ? `<code>${escapeHtml(row.address)}</code>` : ""}</td>
             <td><button type="button" class="tableEntryLink" data-entry-id="${escapeHtml(row.id)}">${escapeHtml(row.path || row.title || row.id)}</button></td>
             <td>${escapeHtml(row.role || "")}</td>
+            <td>${renderSourceRowViews(row)}</td>
             <td>${Number(row.lineCount || 0).toLocaleString()}</td>
             <td>${Number(row.labelCount || 0).toLocaleString()}</td>
             <td>${Number(row.sourceUnitCount || 0).toLocaleString()}</td>
@@ -991,6 +994,14 @@ function renderSourceFileTable(rows, sort) {
       </table>
     </div>
   `;
+}
+
+function renderSourceRowViews(row) {
+  const views = ["Source"];
+  if (row.byteListingEntryId || row.byteListingPath) {
+    views.push("Byte listing");
+  }
+  return `<span class="sourceViews">${views.map((view) => `<span>${escapeHtml(view)}</span>`).join("")}</span>`;
 }
 
 function renderSourceFileReader(entry) {
