@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-modulus8"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/modulus8.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MODULUS8`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMODULUS8:\n\tJSL DIVISION8S_DIVISOR_POSITIVE\n\tTYA\n\tRTL\n```";

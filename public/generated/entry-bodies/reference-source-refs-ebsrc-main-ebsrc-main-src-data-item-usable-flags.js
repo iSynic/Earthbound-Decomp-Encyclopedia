@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-item-usable-flags"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/item_usable_flags.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `ITEM_USABLE_FLAGS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nITEM_USABLE_FLAGS:\n\t.BYTE ITEM_FLAGS::NESS_CAN_USE\n\t.BYTE ITEM_FLAGS::PAULA_CAN_USE\n\t.BYTE ITEM_FLAGS::JEFF_CAN_USE\n\t.BYTE ITEM_FLAGS::POO_CAN_USE\n```";

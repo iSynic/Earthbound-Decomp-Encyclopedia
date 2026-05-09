@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-sound-stone-unknown5"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/sound_stone_unknown5.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `SOUND_STONE_UNKNOWN5`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSOUND_STONE_UNKNOWN5:\n\t.BYTE $00\n\t.BYTE $04\n\t.BYTE $08\n\t.BYTE $0C\n\t.BYTE $24\n\t.BYTE $20\n\t.BYTE $28\n\t.BYTE $2C\n```";

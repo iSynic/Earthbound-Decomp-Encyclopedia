@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-rand-long"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/rand_long.asm`.\n## File Role\nebsrc source.\n## Labels\n- `RAND_LONG`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nRAND_LONG:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tJSL RAND\n\tSEP #PROC_FLAGS::ACCUM8\n\tRTS\n```";

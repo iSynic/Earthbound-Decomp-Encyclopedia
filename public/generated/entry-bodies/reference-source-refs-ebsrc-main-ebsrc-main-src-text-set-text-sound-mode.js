@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-set-text-sound-mode"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/set_text_sound_mode.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_TEXT_SOUND_MODE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_TEXT_SOUND_MODE:\n\tBEGIN_C_FUNCTION\n\tSTACK_RESERVE_PARAM_INT16\n\tEND_STACK_VARS\n\tSTA TEXT_SOUND_MODE\n\tEND_C_FUNCTION\n```";

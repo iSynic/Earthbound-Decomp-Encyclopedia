@@ -1128,6 +1128,8 @@ function thinStartupEntries() {
         labels: (entry.sourceFile.labels || []).slice(0, 48),
         sourceUnits: (entry.sourceFile.sourceUnits || []).slice(0, 32)
       };
+      delete entry.sourceRefs;
+      delete entry.noteRefs;
     }
     delete entry.compareSearchTerms;
   }
@@ -4256,7 +4258,7 @@ function addSourceCompareMap() {
   const { placementsByBank, bankConfigByBank } = buildEbsrcPlacements();
   const entryById = new Map(entries.map((entry) => [entry.id, entry]));
   const localEntries = entries.filter((entry) =>
-    entry.kind === "source-file"
+    ["source-file", "routine"].includes(entry.kind)
     && entry.sourceFile?.bank
     && !entry.canonicalEntryId
     && !/\.bytes\.asar\.asm$/i.test(entry.sourceFile.path || "")

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-get-window-focus"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/get_window_focus.asm`.\n## File Role\nebsrc source.\n## Labels\n- `GET_WINDOW_FOCUS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nGET_WINDOW_FOCUS:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tLDA CURRENT_FOCUS_WINDOW\n\tEND_C_FUNCTION\n```";

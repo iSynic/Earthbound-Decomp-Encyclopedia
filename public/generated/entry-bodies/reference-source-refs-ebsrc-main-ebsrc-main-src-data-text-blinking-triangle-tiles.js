@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-text-blinking-triangle-tiles"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/text/blinking_triangle_tiles.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `BLINKING_TRIANGLE_TILES`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBLINKING_TRIANGLE_TILES:\n\t.WORD $3C14, $3C15, $BC11\n```";

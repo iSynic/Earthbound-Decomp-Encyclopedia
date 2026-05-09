@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-enable-blinking-triangle"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/enable_blinking_triangle.asm`.\n## File Role\nebsrc source.\n## Labels\n- `ENABLE_BLINKING_TRIANGLE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nENABLE_BLINKING_TRIANGLE:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tSTA BLINKING_TRIANGLE_FLAG\n\tEND_C_FUNCTION\n```";

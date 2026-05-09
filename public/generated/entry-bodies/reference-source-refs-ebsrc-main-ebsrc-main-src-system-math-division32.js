@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-division32"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/division32.asm`.\n## File Role\nebsrc source.\n## Labels\n- `DIVISION32`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDIVISION32:\n\tLDA $08\n\tEOR $0C\n\tSTA TEMP_DIVIDEND\n\tJSL DIVISION32S\n\tROL TEMP_DIVIDEND\n\tBCC @UNKNOWN0\n\tNEGATE_INT_ASSIGN $06\n@UNKNOWN0:\n\tRTL\n```";

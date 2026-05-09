@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-misc-swirl-colours"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/misc_swirl_colours.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `MISC_SWIRL_COLOURS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMISC_SWIRL_COLOURS:\n\t.BYTE 15,15,15\n\t.BYTE 15,15,0\n\t.BYTE 15,7,15\n\t.BYTE 0,0,15\n\t.BYTE 31,0,12\n```";

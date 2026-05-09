@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-powers-of-two-8"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/powers_of_two_8.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `POWERS_OF_TWO_8BIT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nPOWERS_OF_TWO_8BIT:\n\t.BYTE 1<<0\n\t.BYTE 1<<1\n\t.BYTE 1<<2\n\t.BYTE 1<<3\n\t.BYTE 1<<4\n\t.BYTE 1<<5\n\t.BYTE 1<<6\n\t.BYTE 1<<7\n```";

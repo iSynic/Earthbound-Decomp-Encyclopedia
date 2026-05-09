@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-ness-pajama-flag"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/ness_pajama_flag.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `NESS_PAJAMA_FLAG`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nNESS_PAJAMA_FLAG:\n\t.WORD EVENT_FLAG::FLG_MYHOME_NES_CHANGE\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-asl16"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/asl16.asm`.\n## File Role\nebsrc source.\n## Labels\n- `ASL16`\n- `ASL16_ENTRY2`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nASL16:\n\tASL\nASL16_ENTRY2:\n\tDEY\n\tBPL ASL16\n\tRTL\n```";

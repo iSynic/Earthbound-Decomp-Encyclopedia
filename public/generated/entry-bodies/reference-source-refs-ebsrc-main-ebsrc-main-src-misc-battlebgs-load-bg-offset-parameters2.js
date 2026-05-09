@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-misc-battlebgs-load-bg-offset-parameters2"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/misc/battlebgs/load_bg_offset_parameters2.asm`.\n## File Role\nebsrc source.\n## Labels\n- `LOAD_BG_OFFSET_PARAMETERS2`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nLOAD_BG_OFFSET_PARAMETERS2:\n\tSTA BACKGROUND_DISTORTION_COMPRESSION_RATE\n\tRTL\n```";

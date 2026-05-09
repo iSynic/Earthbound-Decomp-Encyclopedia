@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-print-menu-items-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/print_menu_items_redirect.asm`.\n## File Role\nebsrc source.\n## Labels\n- `REDIRECT_PRINT_MENU_ITEMS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_PRINT_MENU_ITEMS:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSR PRINT_MENU_ITEMS\n\tEND_C_FUNCTION\n```";

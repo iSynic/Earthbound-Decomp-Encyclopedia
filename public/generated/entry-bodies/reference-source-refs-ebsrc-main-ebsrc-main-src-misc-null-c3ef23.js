@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-misc-null-c3ef23"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/misc/null/C3EF23.asm`.\n## File Role\nebsrc source.\n## Labels\n- `NULL_C3EF23`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nNULL_C3EF23:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tRTL\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-unknown-c1-c10fa3-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/unknown/C1/C10FA3_redirect.asm`.\n## File Role\nebsrc source.\n## Labels\n- `REDIRECT_C10FA3`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_C10FA3:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSR UNKNOWN_C10FA3\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-get-secondary-memory"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/get_secondary_memory.asm`.\n## File Role\nebsrc source.\n## Labels\n- `GET_SECONDARY_MEMORY`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nGET_SECONDARY_MEMORY:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tJSR GET_ACTIVE_WINDOW_ADDRESS\n\tTAX\n\tLDA a:window_stats::secondary_memory,X\n\tEND_C_FUNCTION\n```";

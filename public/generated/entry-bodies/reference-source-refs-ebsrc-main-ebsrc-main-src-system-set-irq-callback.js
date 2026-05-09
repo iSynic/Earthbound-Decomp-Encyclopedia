@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-set-irq-callback"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/set_irq_callback.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_IRQ_CALLBACK`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_IRQ_CALLBACK:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8\n\tSTA IRQ_CALLBACK\n\tRTL\n```";

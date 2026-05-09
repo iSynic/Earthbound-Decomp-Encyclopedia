@@ -1017,6 +1017,8 @@ function renderSourceFileReader(entry) {
   const file = activeEntry.sourceFile || {};
   const code = activeEntry.deferredBody && !activeEntry.fullBodyLoaded ? "" : sourceCodeFromBody(activeEntry.body || "");
   const labelAnchors = code ? sourceLabelAnchorsFromCode(code) : new Map();
+  const compareEntry = reader.scaffoldEntry || activeEntry;
+  const hasActiveComparison = selectedSourceCompareTarget(compareEntry);
   return `
     <section class="sourceReader">
       ${renderSourceReaderTabs(entry, reader)}
@@ -1035,15 +1037,15 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
-      ${renderSourceComparePanel(reader.scaffoldEntry || activeEntry, activeEntry)}
-      <div class="sourceReaderGrid">
+      ${renderSourceComparePanel(compareEntry, activeEntry)}
+      ${hasActiveComparison ? "" : `<div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
           ${renderSourceOutline(file, labelAnchors)}
         </aside>
         <div class="sourceCodePanel">
           ${code ? renderCodeBlock(code, "asm") : `<div class="sourcePlaceholder">Full source is loaded on demand.</div>${renderDeferredBodyLoader(activeEntry)}`}
         </div>
-      </div>
+      </div>`}
       ${activeEntry.deferredBody && !activeEntry.fullBodyLoaded && !activeEntry.bodyLoadError ? "" : renderRelatedNotesPanel(entry)}
       ${activeEntry.deferredBody && !activeEntry.fullBodyLoaded && !activeEntry.bodyLoadError ? "" : renderRelatedSystemsPanel(entry)}
     </section>
@@ -1159,7 +1161,7 @@ function sourceCodeFromBody(body) {
 }
 
 function renderSourceComparePanel(entry, displayEntry = entry) {
-  if (!["source-file", "reference-source"].includes(entry.kind)) {
+  if (!entry.sourceFile && entry.kind !== "reference-source") {
     return "";
   }
   const chunkState = sourceCompareChunkState(entry);
@@ -1195,7 +1197,7 @@ function renderSourceComparePanel(entry, displayEntry = entry) {
   }
   const targetKindLabel = entry.kind === "reference-source" ? "local source" : "Herringway / ebsrc";
   const selectedId = state.compareTargets[entry.id] || "";
-  const selected = selectedId ? candidates.find((candidate) => candidate.entry.id === selectedId) : null;
+  const selected = selectedSourceCompareTarget(entry, candidates);
   return `
     <section class="sourceComparePanel">
       <div class="sourceCompareHeader">
@@ -1225,6 +1227,15 @@ function renderSourceComparePanel(entry, displayEntry = entry) {
   `;
 }
 
+function selectedSourceCompareTarget(entry, candidates = null) {
+  const selectedId = state.compareTargets[entry.id] || "";
+  if (!selectedId) {
+    return null;
+  }
+  const sourceCandidates = candidates || findSourceCompareCandidates(entry).slice(0, 10);
+  return sourceCandidates.find((candidate) => candidate.entry.id === selectedId) || null;
+}
+
 function comparePanelHelp(entry) {
   return entry.kind === "reference-source"
     ? "Matched by the generated ebsrc US bank placement map, address labels, and local source ranges."
@@ -1246,9 +1257,9 @@ function renderSelectedSourceComparison(entry, candidate) {
   const target = candidate.entry;
   const currentCode = entry.fullBodyLoaded || !entry.bodyChunk ? sourceCodeFromBody(entry.body || "") : "";
   const targetCode = target.fullBodyLoaded || !target.bodyChunk ? sourceCodeFromBody(target.body || "") : "";
-  const currentSnippet = currentCode ? sourceCompareSnippet(currentCode, candidate.keys) : "";
+  const currentSnippet = currentCode ? fullSourceCompareSnippet(currentCode) : "";
   const targetSnippet = targetCode ? sourceCompareSnippet(targetCode, candidate.keys) : "";
-  const currentStatus = currentCode ? `${currentSnippet.lineStart}-${currentSnippet.lineEnd}` : compareLoadText(entry);
+  const currentStatus = currentCode ? "full file" : compareLoadText(entry);
   const targetStatus = targetCode ? `${targetSnippet.lineStart}-${targetSnippet.lineEnd}` : compareLoadText(target);
   return `
     <div class="sourceCompareSplit">
@@ -1256,6 +1267,16 @@ function renderSelectedSourceComparison(entry, candidate) {
       ${renderComparePane(target, targetSnippet, targetStatus)}
     </div>
   `;
+}
+
+function fullSourceCompareSnippet(code) {
+  const lines = String(code || "").split("\n");
+  return {
+    code: lines.join("\n"),
+    lineStart: 1,
+    lineEnd: lines.length,
+    fullFile: true
+  };
 }
 
 function renderComparePane(entry, snippet, status) {

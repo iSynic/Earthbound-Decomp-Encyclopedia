@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-script-03"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/script/03.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MOVEMENT_CODE_03`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMOVEMENT_CODE_03:\n\tLDA [$80],Y\n\tTAX\n\tINY\n\tINY\n\tLDA [$80],Y\n\tSTA $82\n\tTXY\n\tRTS\n```";

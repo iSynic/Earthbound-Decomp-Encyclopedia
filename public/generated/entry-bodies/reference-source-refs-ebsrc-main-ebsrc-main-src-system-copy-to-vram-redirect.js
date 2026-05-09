@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-copy-to-vram-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/copy_to_vram_redirect.asm`.\n## File Role\nebsrc source.\n## Labels\n- `REDIRECT_C0865F`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_C0865F:\n\tJSR COPY_TO_VRAM\n\tRTL\n```";

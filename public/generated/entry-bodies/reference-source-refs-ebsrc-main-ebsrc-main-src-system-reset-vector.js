@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-reset-vector"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/reset_vector.asm`.\n## File Role\nebsrc source.\n## Labels\n- `RESET_VECTOR`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nRESET_VECTOR:\n.IF .DEFINED(USA)\n\tCLC\n\tXCE\n.ENDIF\n\tJMP f:RESET\n```";

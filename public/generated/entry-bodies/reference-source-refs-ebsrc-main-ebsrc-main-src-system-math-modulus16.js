@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-modulus16"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/modulus16.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MODULUS16`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMODULUS16:\n\tJSL DIVISION16S_DIVISOR_POSITIVE\n\tTYA\n\tRTL\n```";

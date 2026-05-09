@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-free-tile-safe"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/free_tile_safe.asm`.\n## File Role\nebsrc source.\n## Labels\n- `FREE_TILE_SAFE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nFREE_TILE_SAFE:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tAND #$03FF\n\tCMP #64\n\tBEQ @UNKNOWN0\n\tCMP #0\n\tBEQ @UNKNOWN0\n\tJSL FREE_TILE\n@UNKNOWN0:\n\tEND_C_FUNCTION\n```";

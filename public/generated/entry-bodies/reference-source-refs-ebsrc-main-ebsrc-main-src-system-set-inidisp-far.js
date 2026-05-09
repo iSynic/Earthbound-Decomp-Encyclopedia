@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-set-inidisp-far"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/set_inidisp_far.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_INIDISP_FAR`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_INIDISP_FAR:\n\tJSR SET_INIDISP\n\tRTL\n```";

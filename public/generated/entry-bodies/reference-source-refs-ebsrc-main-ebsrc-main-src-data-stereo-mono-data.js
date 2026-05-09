@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-stereo-mono-data"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/stereo_mono_data.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `STEREO_MONO_DATA`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSTEREO_MONO_DATA:\n\t.BYTE $01, $00, $31, $04, $00, $00, $00\n\t.BYTE $01, $00, $31, $04, $01, $00, $00\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-antipiracy-final-battle-antipiracy-check-proto"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/antipiracy/final_battle_antipiracy_check-proto.asm`.\n## File Role\nebsrc source.\n## Labels\n- `FINAL_BATTLE_ANTIPIRACY_CHECK`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nFINAL_BATTLE_ANTIPIRACY_CHECK:\n\tLDA #$0000\n\tRTL\n```";

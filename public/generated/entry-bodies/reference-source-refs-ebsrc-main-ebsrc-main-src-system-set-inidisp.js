@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-set-inidisp"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/set_inidisp.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_INIDISP`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_INIDISP:\n\tPHP\n\tSEP #PROC_FLAGS::ACCUM8\n\tAND #$008F\n\tSTA INIDISP_MIRROR\n\tPLP\n\tRTS\n```";

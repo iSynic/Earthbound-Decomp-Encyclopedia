@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-sprite-direction-mapping-8-direction"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/sprite_direction_mapping_8_direction.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `SPRITE_DIRECTION_MAPPING_8_DIRECTION`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSPRITE_DIRECTION_MAPPING_8_DIRECTION:\n\t.WORD $0000, $0004, $0001, $0005, $0002, $0006, $0003, $0007\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-mult8"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/mult8.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MULT8`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMULT8:\n\tREP #PROC_FLAGS::ACCUM8\n\tSTA f:WRMPYA\n\tNOP\n\tNOP\n\tLDA f:RDMPYL\n\tSEP #PROC_FLAGS::ACCUM8\n\tRTL\n```";

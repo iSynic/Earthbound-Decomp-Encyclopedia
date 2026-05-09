@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-hide-hppp-windows-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/hide_hppp_windows_redirect.asm`.\n## File Role\nebsrc source.\n## Labels\n- `REDIRECT_HIDE_HPPP_WINDOWS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_HIDE_HPPP_WINDOWS:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSR HIDE_HPPP_WINDOWS\n\tEND_C_FUNCTION\n```";

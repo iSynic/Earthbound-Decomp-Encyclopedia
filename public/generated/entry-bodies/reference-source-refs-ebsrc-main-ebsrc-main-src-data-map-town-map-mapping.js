@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-map-town-map-mapping"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/map/town_map_mapping.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `TOWN_MAP_MAPPING`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nTOWN_MAP_MAPPING:\n\t.WORD $0011\n\t.WORD $0012\n\t.WORD $0013\n\t.WORD $0014\n\t.WORD $0015\n\t.WORD $0016\n```";

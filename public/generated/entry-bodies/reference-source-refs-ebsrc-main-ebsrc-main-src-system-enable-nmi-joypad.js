@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-enable-nmi-joypad"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/enable_nmi_joypad.asm`.\n## File Role\nebsrc source.\n## Labels\n- `ENABLE_NMI_JOYPAD`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nENABLE_NMI_JOYPAD:\n\tPHP\n\tSEP #PROC_FLAGS::ACCUM8\n\tLDA NMITIMEN_MIRROR\n\tORA #$0081\n\tSTA NMITIMEN_MIRROR\n\tSTA f:NMITIMEN\n\tPLP\n\tRTL\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-irq-vector"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/irq_vector.asm`.\n## File Role\nebsrc source.\n## Labels\n- `IRQ_VECTOR`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nIRQ_VECTOR:\n\tJMP f:IRQ\n```";

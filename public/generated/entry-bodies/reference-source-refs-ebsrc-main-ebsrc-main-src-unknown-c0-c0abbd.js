@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-unknown-c0-c0abbd"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/unknown/C0/C0ABBD.asm`.\n## File Role\nebsrc source.\n## Labels\n- `UNKNOWN_C0ABBD`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C0ABBD:\n\tSEP #PROC_FLAGS::ACCUM8\n\tSTA f:APUIO0\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8\n\tRTL\n```";
