@@ -1818,6 +1818,67 @@ pre {
   overflow-wrap: anywhere;
 }
 
+.ebsrcAlignmentPanel {
+  background: rgba(143, 210, 191, 0.045);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 16px 0;
+  padding: 14px;
+}
+
+.ebsrcAlignmentHeader {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ebsrcAlignmentHeader h3 {
+  margin: 0 0 4px;
+}
+
+.ebsrcAlignmentHeader p,
+.ebsrcAlignmentHeader span,
+.microcopy {
+  color: var(--muted);
+  margin: 0;
+}
+
+.ebsrcAlignmentHeader span {
+  font-size: 12px;
+  text-align: right;
+}
+
+.denseTableWrap.compact {
+  margin: 0;
+}
+
+.alignmentStatus {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.alignmentStatus.source_alias_integrated,
+.alignmentStatus.source_alias_ready {
+  border-color: rgba(127, 255, 212, 0.42);
+  color: var(--accent);
+}
+
+.alignmentStatus.local_primary_stronger {
+  border-color: rgba(235, 196, 128, 0.38);
+  color: #ebc480;
+}
+
+.alignmentStatus.docs_crosswalk_only {
+  border-color: rgba(188, 188, 188, 0.24);
+}
+
 .sourcePlaceholder {
   border: 1px solid var(--line);
   border-radius: 8px;

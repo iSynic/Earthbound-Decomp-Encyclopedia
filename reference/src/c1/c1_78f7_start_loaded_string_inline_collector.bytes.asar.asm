@@ -38,6 +38,9 @@ org $C178F7
 !TextCommandFamilyFrameOffset = $FFEE
 !TextCommandCallbackFrameOffset = $FFF0
 !ContinueLoadedStringInlineCollector = $7889
+
+; ebsrc: LOAD_STRING (text/ccs/load_string.asm)
+!LOAD_STRING = $78F7
 !StartLoadedStringInlineCollector = $78F7
 !GetCharacterNumberHelper = $4723
 !GetCharacterNameLetterHelper = $47CC

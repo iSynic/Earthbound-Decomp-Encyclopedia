@@ -6,6 +6,9 @@ hirom
 org $C216C9
 
 !C0ABC6_StopMusicAndLatchNoTrack = $C0ABC6
+
+; ebsrc: STOP_MUSIC_REDIRECT (audio/stop_music_redirect.asm)
+!STOP_MUSIC_REDIRECT = REDIRECT_STOP_MUSIC
 REDIRECT_STOP_MUSIC:
 !C216C9_StopMusicRedirect = REDIRECT_STOP_MUSIC
     rep #$31

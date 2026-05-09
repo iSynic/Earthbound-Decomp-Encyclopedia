@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T18:01:15.355Z",
+  "generatedAt": "2026-05-09T21:54:03.003Z",
   "buildMode": "private",
   "sourceRoot": "bundled-private-reference",
   "appRoot": "F:\\Earthbound Decomp - Encyclopedia",
@@ -8,13 +8,13 @@
   },
   "counts": {
     "asset-manifests": 38,
-    "manifests": 72,
-    "notes": 1089,
+    "manifests": 74,
+    "notes": 1096,
     "README.md": 1,
     "refs": 423,
     "src": 7033
   },
-  "fileCount": 8656,
+  "fileCount": 8665,
   "changesSinceLastBuild": {
     "hasPreviousSnapshot": true,
     "added": [],
@@ -23,26 +23,26 @@
     "total": 0
   },
   "latest": [
-    "src/ef/table_141_data_unknown_efef70_asm.bytes.asar.asm",
-    "src/ef/ef_eb3d_eb5f_debug_cursor_tilemap_data.bytes.asar.asm",
-    "src/ef/ef_eb2a_eb3d_debug_color_math_dma_reset.bytes.asar.asm",
-    "src/ef/ef_eb1d_eb2a_debug_color_math_window_table.bytes.asar.asm",
-    "src/ef/ef_df0b_e175_debug_overlay_tile_helpers.bytes.asar.asm",
-    "src/ef/ef_e175_eb1d_debug_menu_runtime_helpers.bytes.asar.asm",
-    "src/ef/ef_de1a_df0b_debug_view_character_overlay.bytes.asar.asm",
-    "src/ef/ef_dcbc_de1a_debug_check_position_overlay.bytes.asar.asm",
-    "src/ef/ef_dabd_dcbc_debug_menu_text_number_helpers.bytes.asar.asm",
-    "src/ef/ef_d95e_dabd_debug_menu_graphics_state_init.bytes.asar.asm",
-    "src/ef/ef_d8b5_d95e_debug_menu_option_strings.bytes.asar.asm",
-    "src/ef/ef_d6d4_d8b5_debug_sound_menu_controller.bytes.asar.asm",
-    "src/ef/ef_d56f_d6d4_debug_sound_menu_helpers.bytes.asar.asm",
-    "src/ef/ef_c51b_d56f_text_glyph_mask_tables.bytes.asar.asm",
-    "src/ef/ef_4e20_c51b_text_payload_data.bytes.asar.asm",
-    "src/ef/ef_4a40_4e20_sound_stone_presentation_table_data.bytes.asar.asm",
-    "src/ef/ef_101b_4a40_map_tileset_sprite_table_data.bytes.asar.asm",
-    "src/ef/ef_0ca7_delivery_selector_helper_cluster.bytes.asar.asm",
-    "src/ef/ef_0c3d_0ca7_front_unknown_tail_helpers.bytes.asar.asm",
-    "src/ef/ef_05a9_0c3d_save_sram_helpers.bytes.asar.asm"
+    "notes/ef-byte-equivalence-validation.md",
+    "notes/c1-byte-equivalence-validation.md",
+    "notes/c0-byte-equivalence-validation.md",
+    "notes/c2-byte-equivalence-validation.md",
+    "notes/c4-byte-equivalence-validation.md",
+    "notes/readable-source-bank-closure.md",
+    "notes/ebsrc-restored-reference-drift-audit.md",
+    "manifests/ebsrc-restored-reference-drift-audit.json",
+    "notes/source-readiness-triage.md",
+    "notes/ebsrc-community-crosswalk.md",
+    "notes/ebsrc-knowns-integration-candidates.md",
+    "manifests/ebsrc-knowns-integration-candidates.json",
+    "src/ef/asset_debug_menu_font.bytes.asar.asm",
+    "src/ef/asset_debug_menu_font.asm",
+    "src/c4/coffee_tea_and_flyover_scene_interpreters.bytes.asar.asm",
+    "src/c4/coffee_tea_and_flyover_scene_interpreters.asm",
+    "src/c2/c2_2f38_init_battle_scripted.bytes.asar.asm",
+    "src/c2/c2_2f38_init_battle_scripted.asm",
+    "src/c2/c2_2a2c_save_current_game.bytes.asar.asm",
+    "src/c2/c2_2a2c_save_current_game.asm"
   ],
   "files": [
     {
@@ -263,7 +263,7 @@
     {
       "path": "manifests/audio-duration-readiness-rollup.json",
       "size": 6831,
-      "mtimeMs": 1778280115075
+      "mtimeMs": 1778356279050
     },
     {
       "path": "manifests/audio-duration-uncertainty-register.json",
@@ -278,7 +278,7 @@
     {
       "path": "manifests/audio-exact-duration-triage.json",
       "size": 298755,
-      "mtimeMs": 1778280115319
+      "mtimeMs": 1778356279053
     },
     {
       "path": "manifests/audio-export-duration-policy.json",
@@ -428,7 +428,7 @@
     {
       "path": "manifests/audio-sequence-command-semantics.json",
       "size": 14138,
-      "mtimeMs": 1778280115331
+      "mtimeMs": 1778356279057
     },
     {
       "path": "manifests/audio-sequence-control-flow-frontier.json",
@@ -463,7 +463,7 @@
     {
       "path": "manifests/audio-spc700-control-reader-frontier.json",
       "size": 36830,
-      "mtimeMs": 1778280115086
+      "mtimeMs": 1778356279060
     },
     {
       "path": "manifests/audio-spc700-dispatch-trace-frontier.json",
@@ -473,7 +473,7 @@
     {
       "path": "manifests/audio-spc700-driver-dispatch-frontier.json",
       "size": 20850,
-      "mtimeMs": 1778280115088
+      "mtimeMs": 1778356279063
     },
     {
       "path": "manifests/audio-spc700-ff-target-review.json",
@@ -483,12 +483,12 @@
     {
       "path": "manifests/audio-spc700-sounddriver-source-ingest.json",
       "size": 2616,
-      "mtimeMs": 1778280115092
+      "mtimeMs": 1778356279066
     },
     {
       "path": "manifests/audio-spc700-source-effect-frontier.json",
       "size": 12700,
-      "mtimeMs": 1778280115332
+      "mtimeMs": 1778356279068
     },
     {
       "path": "manifests/audio-zero-ef-return-frontier.json",
@@ -589,6 +589,16 @@
       "path": "manifests/eb-m2-needs-review-triage.json",
       "size": 114007,
       "mtimeMs": 1777550073494
+    },
+    {
+      "path": "manifests/ebsrc-knowns-integration-candidates.json",
+      "size": 6530506,
+      "mtimeMs": 1778359465338
+    },
+    {
+      "path": "manifests/ebsrc-restored-reference-drift-audit.json",
+      "size": 156710,
+      "mtimeMs": 1778359500351
     },
     {
       "path": "manifests/symbol-aliases.json",
@@ -723,7 +733,7 @@
     {
       "path": "notes/audio-duration-readiness-rollup.md",
       "size": 5322,
-      "mtimeMs": 1778280115101
+      "mtimeMs": 1778356279074
     },
     {
       "path": "notes/audio-duration-uncertainty-register.md",
@@ -738,7 +748,7 @@
     {
       "path": "notes/audio-exact-duration-triage.md",
       "size": 9162,
-      "mtimeMs": 1778120603992
+      "mtimeMs": 1778356247598
     },
     {
       "path": "notes/audio-export-duration-policy.md",
@@ -893,7 +903,7 @@
     {
       "path": "notes/audio-sequence-command-semantics.md",
       "size": 3629,
-      "mtimeMs": 1778280115353
+      "mtimeMs": 1778356279080
     },
     {
       "path": "notes/audio-sequence-control-flow-frontier.md",
@@ -928,7 +938,7 @@
     {
       "path": "notes/audio-spc700-control-reader-frontier.md",
       "size": 2596,
-      "mtimeMs": 1778280115106
+      "mtimeMs": 1778356279083
     },
     {
       "path": "notes/audio-spc700-dispatch-trace-frontier.md",
@@ -938,7 +948,7 @@
     {
       "path": "notes/audio-spc700-driver-dispatch-frontier.md",
       "size": 3497,
-      "mtimeMs": 1778280115108
+      "mtimeMs": 1778356279086
     },
     {
       "path": "notes/audio-spc700-ff-target-review.md",
@@ -948,12 +958,12 @@
     {
       "path": "notes/audio-spc700-sounddriver-source-ingest.md",
       "size": 1953,
-      "mtimeMs": 1778280115111
+      "mtimeMs": 1778356279089
     },
     {
       "path": "notes/audio-spc700-source-effect-frontier.md",
       "size": 2331,
-      "mtimeMs": 1778280115354
+      "mtimeMs": 1778356279091
     },
     {
       "path": "notes/audio-zero-ef-return-frontier.md",
@@ -2013,7 +2023,7 @@
     {
       "path": "notes/c0-byte-equivalence-validation.md",
       "size": 68987,
-      "mtimeMs": 1778279143160
+      "mtimeMs": 1778359557761
     },
     {
       "path": "notes/c0-c4-integration-pass.md",
@@ -2098,7 +2108,7 @@
     {
       "path": "notes/c1-byte-equivalence-validation.md",
       "size": 23845,
-      "mtimeMs": 1778085053150
+      "mtimeMs": 1778359557763
     },
     {
       "path": "notes/c1-display-helper-runtime-polish.md",
@@ -2213,7 +2223,7 @@
     {
       "path": "notes/c2-byte-equivalence-validation.md",
       "size": 32046,
-      "mtimeMs": 1778085053706
+      "mtimeMs": 1778359557750
     },
     {
       "path": "notes/c2-call-for-help-runtime-polish.md",
@@ -3333,7 +3343,7 @@
     {
       "path": "notes/c4-byte-equivalence-validation.md",
       "size": 18405,
-      "mtimeMs": 1778083957160
+      "mtimeMs": 1778359557640
     },
     {
       "path": "notes/c4-early-ppu-and-text-tile-helpers-0000-0085.md",
@@ -4607,13 +4617,48 @@
     },
     {
       "path": "notes/ebsrc-bank-c0-map.md",
-      "size": 83806,
-      "mtimeMs": 1778084444656
+      "size": 83730,
+      "mtimeMs": 1778352746760
+    },
+    {
+      "path": "notes/ebsrc-bank-c1-map.md",
+      "size": 48450,
+      "mtimeMs": 1778352746885
+    },
+    {
+      "path": "notes/ebsrc-bank-c2-map.md",
+      "size": 47114,
+      "mtimeMs": 1778352747008
+    },
+    {
+      "path": "notes/ebsrc-bank-c3-map.md",
+      "size": 130093,
+      "mtimeMs": 1778352747156
     },
     {
       "path": "notes/ebsrc-bank-c4-map.md",
       "size": 71064,
-      "mtimeMs": 1778083973953
+      "mtimeMs": 1778352747284
+    },
+    {
+      "path": "notes/ebsrc-bank-ef-map.md",
+      "size": 16142,
+      "mtimeMs": 1778352747403
+    },
+    {
+      "path": "notes/ebsrc-community-crosswalk.md",
+      "size": 27532,
+      "mtimeMs": 1778359465347
+    },
+    {
+      "path": "notes/ebsrc-knowns-integration-candidates.md",
+      "size": 40367,
+      "mtimeMs": 1778359465341
+    },
+    {
+      "path": "notes/ebsrc-restored-reference-drift-audit.md",
+      "size": 17347,
+      "mtimeMs": 1778359500352
     },
     {
       "path": "notes/ec-build-candidate-ranges.md",
@@ -4693,7 +4738,7 @@
     {
       "path": "notes/ef-byte-equivalence-validation.md",
       "size": 4100,
-      "mtimeMs": 1778279144093
+      "mtimeMs": 1778359561194
     },
     {
       "path": "notes/ef-debug-menu-controller-and-loader-d6d4-dabd.md",
@@ -5462,8 +5507,8 @@
     },
     {
       "path": "notes/project-status.md",
-      "size": 23651,
-      "mtimeMs": 1777550106927
+      "size": 24017,
+      "mtimeMs": 1778352764728
     },
     {
       "path": "notes/psi-animation-bundle-contracts.md",
@@ -5493,7 +5538,7 @@
     {
       "path": "notes/readable-source-bank-closure.md",
       "size": 1783,
-      "mtimeMs": 1778085079784
+      "mtimeMs": 1778359500431
     },
     {
       "path": "notes/reference-community-earthbound-docs.md",
@@ -5597,8 +5642,8 @@
     },
     {
       "path": "notes/source-readiness-triage.md",
-      "size": 16492,
-      "mtimeMs": 1778118388467
+      "size": 16690,
+      "mtimeMs": 1778359500031
     },
     {
       "path": "notes/source-scaffold-status.md",
@@ -8417,23 +8462,23 @@
     },
     {
       "path": "src/c0/c0_19e2_refresh_map_strips_around_camera.asm",
-      "size": 2156,
-      "mtimeMs": 1778079917033
+      "size": 2262,
+      "mtimeMs": 1778359447815
     },
     {
       "path": "src/c0/c0_19e2_refresh_map_strips_around_camera.bytes.asar.asm",
-      "size": 1717,
-      "mtimeMs": 1778280115721
+      "size": 1901,
+      "mtimeMs": 1778359447827
     },
     {
       "path": "src/c0/c0_1a63_refresh_map_strip_via0_e16_far_wrapper.asm",
-      "size": 730,
-      "mtimeMs": 1778079917082
+      "size": 851,
+      "mtimeMs": 1778359447834
     },
     {
       "path": "src/c0/c0_1a63_refresh_map_strip_via0_e16_far_wrapper.bytes.asar.asm",
-      "size": 352,
-      "mtimeMs": 1778280115723
+      "size": 483,
+      "mtimeMs": 1778359447841
     },
     {
       "path": "src/c0/c0_1a69_reset_entity_slot_state_tables.asm",
@@ -9887,13 +9932,13 @@
     },
     {
       "path": "src/c0/c0_8616_queue_vram_transfer_from_dp_source.asm",
-      "size": 1094,
-      "mtimeMs": 1777563867647
+      "size": 1201,
+      "mtimeMs": 1778359447853
     },
     {
       "path": "src/c0/c0_8616_queue_vram_transfer_from_dp_source.bytes.asar.asm",
-      "size": 494,
-      "mtimeMs": 1778280116014
+      "size": 616,
+      "mtimeMs": 1778359447860
     },
     {
       "path": "src/c0/c0_8643_submit_queued_or_immediate_vram_transfer.asm",
@@ -11767,13 +11812,13 @@
     },
     {
       "path": "src/c0/c0_aa07_action_script_fade_out_with_mosaic.asm",
-      "size": 903,
-      "mtimeMs": 1777525502890
+      "size": 1044,
+      "mtimeMs": 1778359447869
     },
     {
       "path": "src/c0/c0_aa07_action_script_fade_out_with_mosaic.bytes.asar.asm",
-      "size": 514,
-      "mtimeMs": 1778280116720
+      "size": 679,
+      "mtimeMs": 1778359447876
     },
     {
       "path": "src/c0/c0_aa23_script_wrapper_c47765_read_two_words.asm",
@@ -13187,13 +13232,13 @@
     },
     {
       "path": "src/c0/c0_f21e_run_gas_station_intro_screen_loop.asm",
-      "size": 7618,
-      "mtimeMs": 1778082245936
+      "size": 7756,
+      "mtimeMs": 1778359447883
     },
     {
       "path": "src/c0/c0_f21e_run_gas_station_intro_screen_loop.bytes.asar.asm",
-      "size": 6426,
-      "mtimeMs": 1778280117046
+      "size": 6807,
+      "mtimeMs": 1778359447890
     },
     {
       "path": "src/c0/c0_f41e_frame_callback_process_command_stream.asm",
@@ -13272,13 +13317,13 @@
     },
     {
       "path": "src/c1/c1_0166_run_text_halt_control_worker.asm",
-      "size": 6707,
-      "mtimeMs": 1777564813686
+      "size": 6769,
+      "mtimeMs": 1778359447898
     },
     {
       "path": "src/c1/c1_0166_run_text_halt_control_worker.bytes.asar.asm",
-      "size": 5654,
-      "mtimeMs": 1778280117060
+      "size": 5932,
+      "mtimeMs": 1778359447905
     },
     {
       "path": "src/c1/c1_02d0_wait_for_text_state_flag9641.asm",
@@ -13722,13 +13767,13 @@
     },
     {
       "path": "src/c1/c1_33b0_rebuild_open_menu_text_entry_records.asm",
-      "size": 48529,
-      "mtimeMs": 1778118388499
+      "size": 50315,
+      "mtimeMs": 1778359447913
     },
     {
       "path": "src/c1/c1_33b0_rebuild_open_menu_text_entry_records.bytes.asar.asm",
-      "size": 47565,
-      "mtimeMs": 1778280117156
+      "size": 49340,
+      "mtimeMs": 1778359447923
     },
     {
       "path": "src/c1/c1_4103_build_text_command24_bit_jump_target.asm",
@@ -13892,23 +13937,23 @@
     },
     {
       "path": "src/c1/c1_575d_test_equipped_item_presence_for_text_command.asm",
-      "size": 45840,
-      "mtimeMs": 1778118388502
+      "size": 47606,
+      "mtimeMs": 1778359447932
     },
     {
       "path": "src/c1/c1_575d_test_equipped_item_presence_for_text_command.bytes.asar.asm",
-      "size": 46061,
-      "mtimeMs": 1778280117182
+      "size": 47817,
+      "mtimeMs": 1778359447941
     },
     {
       "path": "src/c1/c1_621f_finalize_text_command1_fc0_jump_multi2_target.asm",
-      "size": 71467,
-      "mtimeMs": 1778118388504
+      "size": 74271,
+      "mtimeMs": 1778359447944
     },
     {
       "path": "src/c1/c1_621f_finalize_text_command1_fc0_jump_multi2_target.bytes.asar.asm",
-      "size": 69804,
-      "mtimeMs": 1778280117186
+      "size": 72598,
+      "mtimeMs": 1778359447957
     },
     {
       "path": "src/c1/c1_7274_stage_bank_deposit_accumulator_text_value.asm",
@@ -13962,13 +14007,13 @@
     },
     {
       "path": "src/c1/c1_78f7_start_loaded_string_inline_collector.asm",
-      "size": 16228,
-      "mtimeMs": 1778118388508
+      "size": 16665,
+      "mtimeMs": 1778359447965
     },
     {
       "path": "src/c1/c1_78f7_start_loaded_string_inline_collector.bytes.asar.asm",
-      "size": 16072,
-      "mtimeMs": 1778280117196
+      "size": 16499,
+      "mtimeMs": 1778359447973
     },
     {
       "path": "src/c1/c1_7ae3_load_display_text_pointer_substitution_slot.asm",
@@ -14452,13 +14497,13 @@
     },
     {
       "path": "src/c1/c1_adb4_determine_battle_targetting.asm",
-      "size": 26818,
-      "mtimeMs": 1778118388526
+      "size": 28057,
+      "mtimeMs": 1778359447982
     },
     {
       "path": "src/c1/c1_adb4_determine_battle_targetting.bytes.asar.asm",
-      "size": 24902,
-      "mtimeMs": 1778280117285
+      "size": 26111,
+      "mtimeMs": 1778359447990
     },
     {
       "path": "src/c1/c1_b5b6_open_battle_psi_user_selection.asm",
@@ -14672,43 +14717,43 @@
     },
     {
       "path": "src/c1/c1_dd3b_redirect_show_hppp_windows.asm",
-      "size": 758,
-      "mtimeMs": 1777525713892
+      "size": 811,
+      "mtimeMs": 1778357247503
     },
     {
       "path": "src/c1/c1_dd3b_redirect_show_hppp_windows.bytes.asar.asm",
-      "size": 374,
-      "mtimeMs": 1778280117324
+      "size": 431,
+      "mtimeMs": 1778357247504
     },
     {
       "path": "src/c1/c1_dd41_redirect_hide_hppp_windows.asm",
-      "size": 758,
-      "mtimeMs": 1777525713894
+      "size": 811,
+      "mtimeMs": 1778357247510
     },
     {
       "path": "src/c1/c1_dd41_redirect_hide_hppp_windows.bytes.asar.asm",
-      "size": 374,
-      "mtimeMs": 1778280117329
+      "size": 431,
+      "mtimeMs": 1778357247512
     },
     {
       "path": "src/c1/c1_dd47_redirect_create_window.asm",
-      "size": 734,
-      "mtimeMs": 1777525713895
+      "size": 779,
+      "mtimeMs": 1778357247515
     },
     {
       "path": "src/c1/c1_dd47_redirect_create_window.bytes.asar.asm",
-      "size": 353,
-      "mtimeMs": 1778280117331
+      "size": 402,
+      "mtimeMs": 1778357247517
     },
     {
       "path": "src/c1/c1_dd4d_redirect_set_window_focus.asm",
-      "size": 751,
-      "mtimeMs": 1777525713896
+      "size": 802,
+      "mtimeMs": 1778357247522
     },
     {
       "path": "src/c1/c1_dd4d_redirect_set_window_focus.bytes.asar.asm",
-      "size": 368,
-      "mtimeMs": 1778280117336
+      "size": 423,
+      "mtimeMs": 1778357247524
     },
     {
       "path": "src/c1/c1_dd53_redirect_text_entry_helper0_fa3.asm",
@@ -14722,13 +14767,13 @@
     },
     {
       "path": "src/c1/c1_dd59_redirect_close_focus_window.asm",
-      "size": 765,
-      "mtimeMs": 1777525713898
+      "size": 820,
+      "mtimeMs": 1778357247527
     },
     {
       "path": "src/c1/c1_dd59_redirect_close_focus_window.bytes.asar.asm",
-      "size": 380,
-      "mtimeMs": 1778280117345
+      "size": 439,
+      "mtimeMs": 1778357247528
     },
     {
       "path": "src/c1/c1_dd5f_battle_display_close_and_sync_wait.asm",
@@ -14782,13 +14827,13 @@
     },
     {
       "path": "src/c1/c1_dd9f_display_current_action_table_text_mode1.asm",
-      "size": 16002,
-      "mtimeMs": 1778078918185
+      "size": 16479,
+      "mtimeMs": 1778359447997
     },
     {
       "path": "src/c1/c1_dd9f_display_current_action_table_text_mode1.bytes.asar.asm",
-      "size": 14030,
-      "mtimeMs": 1778280117367
+      "size": 14772,
+      "mtimeMs": 1778359448005
     },
     {
       "path": "src/c1/c1_e1a2_null_far_callback.asm",
@@ -14892,13 +14937,13 @@
     },
     {
       "path": "src/c1/c1_f616_open_or_refresh_sound_setting_selection.asm",
-      "size": 40830,
-      "mtimeMs": 1778118388533
+      "size": 42271,
+      "mtimeMs": 1778359448013
     },
     {
       "path": "src/c1/c1_f616_open_or_refresh_sound_setting_selection.bytes.asar.asm",
-      "size": 39690,
-      "mtimeMs": 1778280117385
+      "size": 41106,
+      "mtimeMs": 1778359448022
     },
     {
       "path": "src/c1/c1_ff2c_update_lead_entity_type_redraw_flag.asm",
@@ -15242,23 +15287,23 @@
     },
     {
       "path": "src/c2/c2_16c9_stop_music_redirect.asm",
-      "size": 713,
-      "mtimeMs": 1777525734484
+      "size": 820,
+      "mtimeMs": 1778359448028
     },
     {
       "path": "src/c2/c2_16c9_stop_music_redirect.bytes.asar.asm",
-      "size": 347,
-      "mtimeMs": 1778280117467
+      "size": 468,
+      "mtimeMs": 1778359448034
     },
     {
       "path": "src/c2/c2_16d0_play_sound_and_refresh_hp_pp_rollers.asm",
-      "size": 943,
-      "mtimeMs": 1778044352277
+      "size": 1087,
+      "mtimeMs": 1778359448046
     },
     {
       "path": "src/c2/c2_16d0_play_sound_and_refresh_hp_pp_rollers.bytes.asar.asm",
-      "size": 558,
-      "mtimeMs": 1778280117470
+      "size": 704,
+      "mtimeMs": 1778359448047
     },
     {
       "path": "src/c2/c2_16db_arbitrate_party_overlay_entity_presence.asm",
@@ -15562,13 +15607,13 @@
     },
     {
       "path": "src/c2/c2_2a2c_save_current_game.asm",
-      "size": 747,
-      "mtimeMs": 1778045175410
+      "size": 842,
+      "mtimeMs": 1778359448053
     },
     {
       "path": "src/c2/c2_2a2c_save_current_game.bytes.asar.asm",
-      "size": 392,
-      "mtimeMs": 1778280117586
+      "size": 484,
+      "mtimeMs": 1778359448059
     },
     {
       "path": "src/c2/c2_2a3a_transfer_inventory_item_between_characters_maintaining_equipment.asm",
@@ -15582,13 +15627,13 @@
     },
     {
       "path": "src/c2/c2_2f38_init_battle_scripted.asm",
-      "size": 3158,
-      "mtimeMs": 1777525734526
+      "size": 3249,
+      "mtimeMs": 1778359448071
     },
     {
       "path": "src/c2/c2_2f38_init_battle_scripted.bytes.asar.asm",
-      "size": 2601,
-      "mtimeMs": 1778280117592
+      "size": 2812,
+      "mtimeMs": 1778359448078
     },
     {
       "path": "src/c2/c2_3008_save_and_clear_temporary_party_source_state.asm",
@@ -17362,13 +17407,13 @@
     },
     {
       "path": "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.asm",
-      "size": 6676,
-      "mtimeMs": 1778098124564
+      "size": 6761,
+      "mtimeMs": 1778357247536
     },
     {
       "path": "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.bytes.asar.asm",
-      "size": 5767,
-      "mtimeMs": 1778280117996
+      "size": 5822,
+      "mtimeMs": 1778357247538
     },
     {
       "path": "src/c3/data_battle_visual_tables_f2b1_f5f9.asm",
@@ -18522,13 +18567,13 @@
     },
     {
       "path": "src/c4/coffee_tea_and_flyover_scene_interpreters.asm",
-      "size": 17356,
-      "mtimeMs": 1778118388822
+      "size": 17924,
+      "mtimeMs": 1778359448088
     },
     {
       "path": "src/c4/coffee_tea_and_flyover_scene_interpreters.bytes.asar.asm",
-      "size": 12413,
-      "mtimeMs": 1778280118197
+      "size": 12884,
+      "mtimeMs": 1778359448096
     },
     {
       "path": "src/c4/coffee_tea_tile_buffer_helpers.asm",
@@ -43052,13 +43097,13 @@
     },
     {
       "path": "src/ef/asset_debug_menu_font.asm",
-      "size": 5526,
-      "mtimeMs": 1777525880445
+      "size": 5606,
+      "mtimeMs": 1778359448103
     },
     {
       "path": "src/ef/asset_debug_menu_font.bytes.asar.asm",
-      "size": 5041,
-      "mtimeMs": 1778280137168
+      "size": 5199,
+      "mtimeMs": 1778359448110
     },
     {
       "path": "src/ef/bank_ef_helpers_asar.asm",

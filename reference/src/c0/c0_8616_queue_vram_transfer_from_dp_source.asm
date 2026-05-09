@@ -18,6 +18,9 @@
 ; C0:8616
 
 PREPARE_VRAM_COPY:
+
+; ebsrc: TRANSFER_TO_VRAM (system/transfer_to_vram.asm)
+TRANSFER_TO_VRAM = PREPARE_VRAM_COPY
 C08616_QueueVramTransfer_FromDpSource = PREPARE_VRAM_COPY
     rep #$30
     ; Stage caller registers and DP source pointer for C0:8643/C0:865F.

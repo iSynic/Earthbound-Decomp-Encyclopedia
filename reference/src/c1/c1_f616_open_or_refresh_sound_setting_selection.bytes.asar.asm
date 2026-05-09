@@ -441,6 +441,9 @@ C1F7F3_OpenOrRefreshSoundSettingSelection_LF7F3:
     tya
     pld
     rts
+
+; ebsrc: FILE_SELECT_MENU_LOOP (intro/file_select_menu_loop.asm)
+!FILE_SELECT_MENU_LOOP = FILE_MENU_LOOP
 FILE_MENU_LOOP:
 !C1F805_RunFileSelectMenuLoop = FILE_MENU_LOOP
     rep #$31

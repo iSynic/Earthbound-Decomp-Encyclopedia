@@ -58,6 +58,9 @@ PromptTilePointerBank     = $10
 ; C1:0166
 
 CC_13_14:
+
+; ebsrc: HALT (text/ccs/halt.asm)
+HALT = CC_13_14
 C10166_RunTextHaltControlWorker = CC_13_14
     rep #$31
     phd

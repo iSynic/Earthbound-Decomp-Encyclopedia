@@ -18,6 +18,9 @@ C12E42_LightWindowTick                   = $C12E42
 ; C2:16D0
 
 PLAY_SOUND_AND_TICK_LIGHT_WINDOW:
+
+; ebsrc: PLAY_SOUND_AND_UNKNOWN (audio/play_sound_and_unknown.asm)
+PLAY_SOUND_AND_UNKNOWN = PLAY_SOUND_AND_TICK_LIGHT_WINDOW
 C216D0_PlaySoundAndTickLightWindow = PLAY_SOUND_AND_TICK_LIGHT_WINDOW
 C216D0_PlaySoundAndRefreshHpPpRollers = PLAY_SOUND_AND_TICK_LIGHT_WINDOW
     rep #$31

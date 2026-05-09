@@ -279,6 +279,9 @@ C1624E_C1621F_FinalizeTextCommand1FC0JumpMulti2Target_L624E:
 C16306_C1621F_FinalizeTextCommand1FC0JumpMulti2Target_L6306:
     pld
     rts
+
+; ebsrc: JUMP_MULTI2 (text/ccs/jump_multi2.asm)
+!JUMP_MULTI2 = CC_1F_C0
 CC_1F_C0:
 !C16308_HandleTextCommand1FC0JumpMulti2 = CC_1F_C0
     rep #$31
@@ -1252,6 +1255,9 @@ CC_1F_62:
     jsr !C10036_SetBlinkingTriangleState
     lda.w #!ZeroWord
     rts
+
+; ebsrc: SET_CHARACTER_LEVEL (text/ccs/set_character_level.asm)
+!SET_CHARACTER_LEVEL = CC_1E_08
 CC_1E_08:
 !C16A01_SetCharacterLevelTextCommand = CC_1E_08
     rep #$31
@@ -2019,6 +2025,9 @@ C16F5F_RunQueuedPoseDescriptorEntityScript:
 C16F9D_ReturnFromPoseScriptTextCommand:
     pld
     rts
+
+; ebsrc: TEST_ITEM_IS_CONDIMENT (text/ccs/test_item_is_condiment.asm)
+!TEST_ITEM_IS_CONDIMENT = CC_19_25
 CC_19_25:
 !C16F9F_ClassifyCondimentItemTextCommand = CC_19_25
     rep #$31
@@ -2049,6 +2058,9 @@ C16FB5_FindCondimentForResolvedFoodItem:
     lda.w #!ZeroWord
     pld
     rts
+
+; ebsrc: TRIGGER_BATTLE (text/ccs/trigger_battle.asm)
+!TRIGGER_BATTLE = CC_1F_23
 CC_1F_23:
 !C16FD1_InitScriptedBattleTextCommand = CC_1F_23
     rep #$31

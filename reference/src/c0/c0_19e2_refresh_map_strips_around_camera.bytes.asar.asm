@@ -7,6 +7,9 @@ org $C019E2
 
 !C00AC5_Load_VerticalMovementMapStripPayload = $0AC5
 !C00CF3_Load_VerticalMovementCollisionStripPayload = $0CF3
+
+; ebsrc: RELOAD_MAP (overworld/reload_map.asm)
+!RELOAD_MAP = C019E2_Refresh_MapStripsAroundCamera
 C019E2_Refresh_MapStripsAroundCamera:
     rep #$31
     phd

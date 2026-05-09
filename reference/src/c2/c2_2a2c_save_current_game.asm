@@ -19,6 +19,9 @@ CurrentSaveSlot = $B4A1
 ; C2:2A2C
 
 SAVE_CURRENT_GAME:
+
+; ebsrc: SAVE_GAME (misc/save_game.asm)
+SAVE_GAME = SAVE_CURRENT_GAME
 C22A2C_SaveCurrentGame = SAVE_CURRENT_GAME
     rep #$31
     lda CurrentSaveSlot

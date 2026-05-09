@@ -126,6 +126,7 @@ C1DD9F_DisplayCurrentActionTableTextMode1:
     pld
     rtl
 REDIRECT_REMOVE_ITEM_FROM_INVENTORY:
+REMOVE_ITEM_FROM_INVENTORY_REDIRECT = REDIRECT_REMOVE_ITEM_FROM_INVENTORY
 C1DDC6_RedirectRemoveItemFromInventory = REDIRECT_REMOVE_ITEM_FROM_INVENTORY
     rep #$31
     jsr C18C27_RemoveItemFromCharacterInventorySlot
@@ -141,6 +142,9 @@ C1DDD3_RedirectC3E6F8Helper = REDIRECT_C3E6F8
     jsl C3E6F8_ClearFocusedPartyHpPpActorAndBlankRow
     rtl
 SELECTION_MENU_ITEM_SETUP:
+
+; ebsrc: SELECTION_MENU_SETUP (text/selection_menu_setup.asm)
+SELECTION_MENU_SETUP = SELECTION_MENU_ITEM_SETUP
 C1DDDA_BuildSelectionMenuSetupAndRedirects = SELECTION_MENU_ITEM_SETUP
     rep #$31
     phd

@@ -343,6 +343,9 @@ C1AF50_ReturnBattleTargetAddress:
     ora $02
     rep #$10
     pld
+
+; ebsrc: USE_ITEM (overworld/use_item.asm)
+USE_ITEM = C1AF73_UseItemBattleOrFieldBridge
 C1AF73_UseItemBattleOrFieldBridge:
     rts
     rep #$31

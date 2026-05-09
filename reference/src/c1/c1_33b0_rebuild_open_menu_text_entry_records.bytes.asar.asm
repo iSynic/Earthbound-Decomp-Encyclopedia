@@ -227,6 +227,9 @@ C1349D_RebuildOpenMenuTextEntryRecords_L349D:
     jsr !C1163C_RefreshActiveTextEntryChain
     pld
     rts
+
+; ebsrc: OPEN_MENU (overworld/open_menu.asm)
+!OPEN_MENU = OPEN_MENU_BUTTON
 OPEN_MENU_BUTTON:
 !C134A7_RunOpenMenuSelectionLoop = OPEN_MENU_BUTTON
     rep #$31

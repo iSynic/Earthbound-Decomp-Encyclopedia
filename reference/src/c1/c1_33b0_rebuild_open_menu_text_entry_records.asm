@@ -240,6 +240,9 @@ C1349D_RebuildOpenMenuTextEntryRecords_L349D:
     pld
     rts
 OPEN_MENU_BUTTON:
+
+; ebsrc: OPEN_MENU (overworld/open_menu.asm)
+OPEN_MENU = OPEN_MENU_BUTTON
 C134A7_RunOpenMenuSelectionLoop = OPEN_MENU_BUTTON
     rep #$31
     phd

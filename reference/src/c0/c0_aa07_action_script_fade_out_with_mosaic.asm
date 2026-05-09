@@ -17,6 +17,9 @@ C08814_SetDisplayTransitionMode = $C08814
 ; C0:AA07
 
 ACTIONSCRIPT_FADE_OUT_WITH_MOSAIC:
+
+; ebsrc: FADE_OUT_WITH_MOSAIC (overworld/actionscript/fade_out_with_mosaic.asm)
+FADE_OUT_WITH_MOSAIC = ACTIONSCRIPT_FADE_OUT_WITH_MOSAIC
 C0AA07_ActionScript_FadeOutWithMosaic = ACTIONSCRIPT_FADE_OUT_WITH_MOSAIC
     jsl $C09D94
     pha

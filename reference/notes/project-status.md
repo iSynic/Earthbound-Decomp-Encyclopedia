@@ -16,6 +16,11 @@ before this becomes true human-readable source.
   reference through generated crosswalk manifests. Meaningful EB-M2 labels are
   preferred only when they are exact-address and role-compatible; `UNKNOWN_*`
   placeholders remain aliases when local names are stronger.
+- The restored `refs/ebsrc-main` tree has a generated drift audit at
+  `notes/ebsrc-restored-reference-drift-audit.md`. For priority banks `C0`,
+  `C1`, `C2`, `C3`, `C4`, and `EF`, every restored ebsrc `unknown/...` entry is
+  already superseded by a local source classification or name; ebsrc remains a
+  corroborating reference, not a replacement source of truth.
 - `notes/source-scaffold-status.md` is the dashboard for the full bank table.
 - `notes/readable-source-bank-closure.md` is the stricter dashboard for the
   completed readable-source closure phase: decoded asm versus preserved

@@ -14,6 +14,9 @@ org $C22F38
 !C2E9C8_PollBattleTransitionComplete = $C2E9C8
 !C3EE4D_RefreshPostBattleState = $C3EE4D
 !C4A7B0_UnknownFrameBattleWaitHelper = $C4A7B0
+
+; ebsrc: INIT_SCRIPTED (battle/init_scripted.asm)
+!INIT_SCRIPTED = INIT_BATTLE_SCRIPTED
 INIT_BATTLE_SCRIPTED:
 !C22F38_InitBattleScripted = INIT_BATTLE_SCRIPTED
     rep #$31

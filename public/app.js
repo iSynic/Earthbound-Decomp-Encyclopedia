@@ -1008,6 +1008,9 @@ function renderSourceRowViews(row) {
   if (row.byteListingEntryId || row.byteListingPath) {
     views.push("Byte listing");
   }
+  if (row.ebsrcAlignmentCount) {
+    views.push(row.ebsrcAlias ? `ebsrc: ${row.ebsrcAlias}` : "ebsrc crosswalk");
+  }
   return `<span class="sourceViews">${views.map((view) => `<span>${escapeHtml(view)}</span>`).join("")}</span>`;
 }
 
@@ -1037,6 +1040,7 @@ function renderSourceFileReader(entry) {
           ${file.firstAddress ? `<button type="button" class="hubCardAction secondary" data-copy-text="${escapeHtml(file.firstAddress)}" data-copy-label="Copy address">Copy address</button>` : ""}
         </div>
       </div>
+      ${renderEbsrcAlignmentPanel(compareEntry)}
       ${renderSourceComparePanel(compareEntry, activeEntry)}
       ${hasActiveComparison ? "" : `<div class="sourceReaderGrid">
         <aside class="sourceOutlinePanel">
@@ -1113,6 +1117,60 @@ function renderSourceOutline(file, labelAnchors = new Map()) {
       }).join("")}</div>` : `<p>No labels indexed.</p>`}
     </section>
   `;
+}
+
+function renderEbsrcAlignmentPanel(entry) {
+  const alignment = entry?.sourceFile?.ebsrcAlignment;
+  const records = alignment?.records || [];
+  if (!records.length) {
+    return "";
+  }
+  const rows = records.slice(0, 6);
+  const statusCounts = Object.entries(alignment.counts || {})
+    .map(([status, count]) => `${ebsrcAlignmentStatusLabel(status)}: ${count}`)
+    .join(" · ");
+  return `
+    <section class="ebsrcAlignmentPanel">
+      <div class="ebsrcAlignmentHeader">
+        <div>
+          <h3>Community ebsrc Crosswalk</h3>
+          <p>Local behavior names stay primary; restored ebsrc names are shown as navigation aliases or reference vocabulary.</p>
+        </div>
+        ${statusCounts ? `<span>${escapeHtml(statusCounts)}</span>` : ""}
+      </div>
+      <div class="denseTableWrap compact">
+        <table class="denseTable ebsrcAlignmentTable">
+          <thead>
+            <tr>
+              <th>Local primary</th>
+              <th>ebsrc reference</th>
+              <th>Status</th>
+              <th>Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map((record) => `<tr>
+              <td>${record.localName ? `<code>${escapeHtml(record.localName)}</code>` : ""}</td>
+              <td>${record.ebsrcSymbol ? `<code>${escapeHtml(record.ebsrcSymbol)}</code>` : escapeHtml(record.ebsrcPath || "")}</td>
+              <td><span class="alignmentStatus ${escapeHtml(record.status || "")}">${escapeHtml(ebsrcAlignmentStatusLabel(record.status))}</span></td>
+              <td>${[record.start, record.end].filter(Boolean).map((value) => `<code>${escapeHtml(value)}</code>`).join("..")}</td>
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+      ${records.length > rows.length ? `<p class="microcopy">${records.length - rows.length} more crosswalk rows are indexed for this source.</p>` : ""}
+    </section>
+  `;
+}
+
+function ebsrcAlignmentStatusLabel(status) {
+  return {
+    source_alias_integrated: "source-compatible alias",
+    source_alias_ready: "safe alias candidate",
+    local_primary_stronger: "local name primary",
+    docs_crosswalk_only: "reference-only crosswalk",
+    blocked_conflict_or_unproven: "review required"
+  }[status] || String(status || "crosswalk").replaceAll("_", " ");
 }
 
 function sourceLabelAnchorsFromCode(code) {

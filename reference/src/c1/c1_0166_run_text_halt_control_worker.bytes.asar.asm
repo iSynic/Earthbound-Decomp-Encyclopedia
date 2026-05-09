@@ -37,6 +37,9 @@ org $C10166
 !PromptRowOffset = $04
 !PromptTilePointerLo = $0E
 !PromptTilePointerBank = $10
+
+; ebsrc: HALT (text/ccs/halt.asm)
+!HALT = CC_13_14
 CC_13_14:
 !C10166_RunTextHaltControlWorker = CC_13_14
     rep #$31

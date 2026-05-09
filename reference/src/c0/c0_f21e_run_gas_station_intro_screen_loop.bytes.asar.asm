@@ -23,6 +23,9 @@ org $C0F21E
 !C426ED_ApplyPaletteComponentInterpolationStep = $C426ED
 !C49740_FinishPaletteFadeWorkBuffer = $C49740
 !C4FBBD_PlaySoundStoneMelody = $C4FBBD
+
+; ebsrc: GAS_STATION_LOAD (intro/gas_station_load.asm)
+!GAS_STATION_LOAD = C0F21E_RunGasStationIntroScreenLoop
 C0F21E_RunGasStationIntroScreenLoop:
     rep #$31
     phd

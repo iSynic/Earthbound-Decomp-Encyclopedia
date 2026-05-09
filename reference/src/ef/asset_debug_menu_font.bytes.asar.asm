@@ -5,6 +5,8 @@
 hirom
 org $EFEB5F
 
+; ebsrc: LOAD_MENU (system/debug/load_menu.asm)
+!LOAD_MENU = DEBUG_MENU_FONT
 DEBUG_MENU_FONT:
 !EFEB5F_AssetDebugMenuFont = DEBUG_MENU_FONT
 !EFEB5F_EfDebugCursorTilemapDataEnd = DEBUG_MENU_FONT

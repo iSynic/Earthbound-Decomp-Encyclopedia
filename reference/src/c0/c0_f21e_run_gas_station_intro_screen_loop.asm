@@ -33,6 +33,8 @@ C4FBBD_PlaySoundStoneMelody                       = $C4FBBD
 ; ---------------------------------------------------------------------------
 ; C0:F21E
 
+; ebsrc: GAS_STATION_LOAD (intro/gas_station_load.asm)
+GAS_STATION_LOAD = C0F21E_RunGasStationIntroScreenLoop
 C0F21E_RunGasStationIntroScreenLoop:
     rep #$31
     phd

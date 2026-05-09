@@ -6,6 +6,9 @@ hirom
 org $C01A63
 
 !C00E16_Upload_VerticalMovementMapStrip = $0E16
+
+; ebsrc: INITIALIZE_MAP (overworld/initialize_map.asm)
+!INITIALIZE_MAP = C01A63_Refresh_MapStripVia0E16_FarWrapper
 C01A63_Refresh_MapStripVia0E16_FarWrapper:
     rep #$31
     jsr !C00E16_Upload_VerticalMovementMapStrip

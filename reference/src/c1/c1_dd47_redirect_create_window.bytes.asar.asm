@@ -7,6 +7,7 @@ org $C1DD47
 
 !C1004EE_CreateWindow_Internal = $04EE
 REDIRECT_CREATE_WINDOW:
+!CREATE_WINDOW_REDIRECT = REDIRECT_CREATE_WINDOW
 !C1DD47_RedirectCreateWindow = REDIRECT_CREATE_WINDOW
     rep #$31
     jsr !C1004EE_CreateWindow_Internal

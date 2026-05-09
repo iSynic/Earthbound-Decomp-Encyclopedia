@@ -25,6 +25,9 @@ C4A7B0_UnknownFrameBattleWaitHelper = $C4A7B0
 ; C2:2F38
 
 INIT_BATTLE_SCRIPTED:
+
+; ebsrc: INIT_SCRIPTED (battle/init_scripted.asm)
+INIT_SCRIPTED = INIT_BATTLE_SCRIPTED
 C22F38_InitBattleScripted = INIT_BATTLE_SCRIPTED
     rep #$31
     phd

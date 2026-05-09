@@ -73,6 +73,9 @@ org $C49D6A
 !INPUT_STATE_28 = $0028
 !LowByteMask = $00FF
 !ZeroWord = $0000
+
+; ebsrc: COFFEE_TEA_SCENE (text/coffee_tea_scene.asm)
+!COFFEE_TEA_SCENE = COFFEETEA_SCENE
 COFFEETEA_SCENE:
 !C49D6A_RunCoffeeTeaScene = COFFEETEA_SCENE
     rep #$31

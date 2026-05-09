@@ -15,10 +15,10 @@ Generated from ebsrc bankconfig include order, ebsrc bank symbols, and local sou
 
 | Start | End | Size | Status | Include | ebsrc Symbol | Local Name | Kind |
 | --- | --- | ---: | --- | --- | --- | --- | --- |
-| C0:F41E | C0:10000 | 3042 | `exact` | `intro/gas_station.asm` | `GAS_STATION` | `FrameCallback_ProcessCommandStream` | `named-code` |
-| C0:10000 |  | 0 | `open` | `intro/load_gas_station_flash_palette.asm` | `LOAD_GAS_STATION_FLASH_PALETTE` | `` | `named-code` |
-| C0:10000 |  | 0 | `open` | `intro/load_gas_station_palette.asm` | `LOAD_GAS_STATION_PALETTE` | `` | `named-code` |
-| C0:10000 |  | 0 | `open` | `ending/credits_scroll_frame.asm` | `` | `` | `named-include` |
+| C0:F41E |  | 3042 | `exact` | `intro/gas_station.asm` | `GAS_STATION` | `FrameCallback_ProcessCommandStream` | `named-code` |
+|  |  | 0 | `open` | `intro/load_gas_station_flash_palette.asm` | `LOAD_GAS_STATION_FLASH_PALETTE` | `` | `named-code` |
+|  |  | 0 | `open` | `intro/load_gas_station_palette.asm` | `LOAD_GAS_STATION_PALETTE` | `` | `named-code` |
+|  |  | 0 | `open` | `ending/credits_scroll_frame.asm` | `` | `` | `named-include` |
 
 ## Current Exact Frontier Candidates
 
@@ -198,13 +198,13 @@ Generated from ebsrc bankconfig include order, ebsrc bank symbols, and local sou
 | 159 | C0:6578 | C0:65A3 | 43 | `exact` | yes | `unknown/C0/C06578.asm` | `UNKNOWN_C06578` | `` |
 | 160 | C0:65A3 | C0:65C2 | 31 | `exact` | yes | `unknown/C0/C065A3.asm` | `UNKNOWN_C065A3` | `` |
 | 161 | C0:65C2 | C0:69F7 | 1077 | `exact` | yes | `unknown/C0/C065C2.asm` | `UNKNOWN_C065C2` | `Probe_Type6DoorCandidate` |
-| 162 | C0:69F7 | C0:6A07 | 16 | `exact` | yes | `overworld/screen_transition.asm` | `UNKNOWN_C069F7` | `Get_CurrentPositionMusicOrAreaId` |
-| 163 | C0:6A07 | C0:6A1B | 20 | `exact` | yes | `overworld/get_screen_transition_sound_effect.asm` | `UNKNOWN_C06A07` | `Apply_CurrentPositionMusicOrAreaId` |
+| 162 | C0:69F7 | C0:6A07 | 16 | `exact` | yes | `overworld/screen_transition.asm` | `UNKNOWN_C069F7` | `Get_CurrentPositionMusicTrack` |
+| 163 | C0:6A07 | C0:6A1B | 20 | `exact` | yes | `overworld/get_screen_transition_sound_effect.asm` | `UNKNOWN_C06A07` | `Apply_CurrentPositionMusicTrack` |
 | 164 | C0:68F4 | C0:69AF | 187 | `exact` | yes | `unknown/C0/C068F4.asm` | `UNKNOWN_C068F4` | `` |
 | 165 | C0:69AF |  | 0 | `open` |  | `unknown/C0/C069AF.asm` | `UNKNOWN_C069AF` | `` |
 | 166 |  |  | 0 | `open` |  | `overworld/change_music_5DD6.asm` | `CHANGE_MUSIC_5DD6` | `` |
-| 167 | C0:69F7 | C0:6A07 | 16 | `exact` | yes | `unknown/C0/C069F7.asm` | `UNKNOWN_C069F7` | `Get_CurrentPositionMusicOrAreaId` |
-| 168 | C0:6A07 | C0:6A1B | 20 | `exact` | yes | `unknown/C0/C06A07.asm` | `UNKNOWN_C06A07` | `Apply_CurrentPositionMusicOrAreaId` |
+| 167 | C0:69F7 | C0:6A07 | 16 | `exact` | yes | `unknown/C0/C069F7.asm` | `UNKNOWN_C069F7` | `Get_CurrentPositionMusicTrack` |
+| 168 | C0:6A07 | C0:6A1B | 20 | `exact` | yes | `unknown/C0/C06A07.asm` | `UNKNOWN_C06A07` | `Apply_CurrentPositionMusicTrack` |
 | 169 | C0:6A1B | C0:6A8B | 112 | `exact` | yes | `unknown/C0/C06A1B.asm` | `` | `MovementTriggerType0_QueueDoorDestination` |
 | 170 | C0:6A8B | C0:6A8E | 3 | `exact` | yes | `unknown/C0/C06A8B.asm` | `` | `MovementTriggerType5Or7_NoOp` |
 | 171 | C0:6A8E | C0:6A91 | 3 | `exact` | yes | `unknown/C0/C06A8E.asm` | `` | `MovementTriggerType6_NoOp` |
@@ -698,7 +698,7 @@ Generated from ebsrc bankconfig include order, ebsrc bank symbols, and local sou
 | 659 | C0:F21E | C0:F41E | 512 | `exact` | yes | `intro/gas_station_load.asm` | `` | `RunGasStationIntroScreenLoop` |
 | 660 | C0:F1D2 | C0:F21E | 76 | `exact` | yes | `unknown/C0/C0F1D2.asm` | `` | `RunIntroTimedPaletteFadeTail` |
 | 661 | C0:F21E | C0:F41E | 512 | `exact` | yes | `unknown/C0/C0F21E.asm` | `` | `RunGasStationIntroScreenLoop` |
-| 662 | C0:F41E | C0:10000 | 3042 | `exact` | yes | `intro/gas_station.asm` | `GAS_STATION` | `FrameCallback_ProcessCommandStream` |
-| 663 | C0:10000 |  | 0 | `open` |  | `intro/load_gas_station_flash_palette.asm` | `LOAD_GAS_STATION_FLASH_PALETTE` | `` |
-| 664 | C0:10000 |  | 0 | `open` |  | `intro/load_gas_station_palette.asm` | `LOAD_GAS_STATION_PALETTE` | `` |
-| 665 | C0:10000 |  | 0 | `open` |  | `ending/credits_scroll_frame.asm` | `` | `` |
+| 662 | C0:F41E |  | 3042 | `exact` | yes | `intro/gas_station.asm` | `GAS_STATION` | `FrameCallback_ProcessCommandStream` |
+| 663 |  |  | 0 | `open` |  | `intro/load_gas_station_flash_palette.asm` | `LOAD_GAS_STATION_FLASH_PALETTE` | `` |
+| 664 |  |  | 0 | `open` |  | `intro/load_gas_station_palette.asm` | `LOAD_GAS_STATION_PALETTE` | `` |
+| 665 |  |  | 0 | `open` |  | `ending/credits_scroll_frame.asm` | `` | `` |

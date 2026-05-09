@@ -7,6 +7,7 @@ org $C1DD4D
 
 !C10007E_SetWindowFocus_Internal = $007E
 REDIRECT_SET_WINDOW_FOCUS:
+!SET_WINDOW_FOCUS_REDIRECT = REDIRECT_SET_WINDOW_FOCUS
 !C1DD4D_RedirectSetWindowFocus = REDIRECT_SET_WINDOW_FOCUS
     rep #$31
     jsr !C10007E_SetWindowFocus_Internal

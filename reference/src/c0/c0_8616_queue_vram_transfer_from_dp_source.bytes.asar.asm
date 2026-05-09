@@ -5,6 +5,8 @@
 hirom
 org $C08616
 
+; ebsrc: TRANSFER_TO_VRAM (system/transfer_to_vram.asm)
+!TRANSFER_TO_VRAM = PREPARE_VRAM_COPY
 PREPARE_VRAM_COPY:
 !C08616_QueueVramTransfer_FromDpSource = PREPARE_VRAM_COPY
     rep #$30

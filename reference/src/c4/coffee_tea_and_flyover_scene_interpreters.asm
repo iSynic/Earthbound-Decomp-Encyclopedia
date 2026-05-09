@@ -107,6 +107,9 @@ ZeroWord                                     = $0000
 ; bytes, waits for input release, clears $7DFE..$84FE, sets $5E6E = $00FF, and
 ; restores C4/C0 presentation state.
 COFFEETEA_SCENE:
+
+; ebsrc: COFFEE_TEA_SCENE (text/coffee_tea_scene.asm)
+COFFEE_TEA_SCENE = COFFEETEA_SCENE
 C49D6A_RunCoffeeTeaScene = COFFEETEA_SCENE
     rep #$31
     phd

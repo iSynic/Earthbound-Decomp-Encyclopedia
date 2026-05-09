@@ -77,6 +77,7 @@ const entries = [];
 const entryIds = new Set();
 const pathEntryIds = new Map();
 const noteEntries = [];
+const ebsrcAlignment = loadEbsrcAlignmentCrosswalk();
 
 const topicConfigs = [
   {
@@ -580,6 +581,159 @@ function repoRelative(filePath) {
   return path.relative(repoRoot, filePath).replaceAll("\\", "/");
 }
 
+function normalizeRepoPath(value) {
+  return String(value || "").replaceAll("\\", "/").replace(/^\.\/+/, "");
+}
+
+function loadEbsrcAlignmentCrosswalk() {
+  const manifestPath = path.join(repoRoot, "manifests", "ebsrc-knowns-integration-candidates.json");
+  const empty = {
+    available: false,
+    manifestPath: "manifests/ebsrc-knowns-integration-candidates.json",
+    counts: {},
+    byLocalPath: new Map()
+  };
+  if (!fs.existsSync(manifestPath)) {
+    return empty;
+  }
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    const byLocalPath = new Map();
+    const counts = {};
+    const records = Array.isArray(manifest.candidates) ? manifest.candidates : [];
+    for (const candidate of records) {
+      const status = candidate.community_alignment_status || candidate.status || "";
+      if (!status) {
+        continue;
+      }
+      counts[status] = (counts[status] || 0) + 1;
+      const localPath = normalizeRepoPath(candidate.local_source_path);
+      const includePath = normalizeRepoPath(candidate.include_path);
+      const ebsrcSymbol = String(candidate.ebsrc_symbol || "").trim();
+      const record = {
+        status,
+        localPath,
+        localName: String(candidate.local_name || "").trim(),
+        ebsrcSymbol,
+        ebsrcKind: String(candidate.ebsrc_kind || "").trim(),
+        ebsrcPath: includePath ? `refs/ebsrc-main/ebsrc-main/src/${includePath}` : "",
+        start: candidate.start || "",
+        end: candidate.end || "",
+        lane: candidate.lane || "",
+        confidence: candidate.community_alignment_confidence || "",
+        reason: candidate.reason || "",
+        recommendedAction: candidate.recommended_action || ""
+      };
+      if (localPath && shouldAttachEbsrcAlignmentRecord(record)) {
+        byLocalPath.set(localPath, [...(byLocalPath.get(localPath) || []), record]);
+      }
+    }
+    for (const [localPath, localRecords] of byLocalPath.entries()) {
+      byLocalPath.set(localPath, sortEbsrcAlignmentRecords(localRecords).slice(0, 12));
+    }
+    return {
+      available: true,
+      manifestPath: repoRelative(manifestPath),
+      counts,
+      byLocalPath,
+      summary: manifest.summary || {},
+      statusCatalog: manifest.community_alignment_statuses || {}
+    };
+  } catch (error) {
+    console.warn(`Could not load ebsrc alignment crosswalk: ${error.message}`);
+    return empty;
+  }
+}
+
+function shouldAttachEbsrcAlignmentRecord(record) {
+  if (["source_alias_integrated", "source_alias_ready", "local_primary_stronger"].includes(record.status)) {
+    return Boolean(record.ebsrcSymbol || record.ebsrcPath);
+  }
+  if (record.status === "docs_crosswalk_only") {
+    return Boolean(record.ebsrcSymbol);
+  }
+  return false;
+}
+
+function ebsrcAlignmentStatusRank(status) {
+  return {
+    source_alias_integrated: 0,
+    source_alias_ready: 1,
+    local_primary_stronger: 2,
+    docs_crosswalk_only: 3,
+    blocked_conflict_or_unproven: 4
+  }[status] ?? 9;
+}
+
+function sortEbsrcAlignmentRecords(records) {
+  return [...records].sort((a, b) => {
+    return ebsrcAlignmentStatusRank(a.status) - ebsrcAlignmentStatusRank(b.status)
+      || String(a.start || "").localeCompare(String(b.start || ""))
+      || String(a.ebsrcSymbol || a.ebsrcPath).localeCompare(String(b.ebsrcSymbol || b.ebsrcPath));
+  });
+}
+
+function ebsrcAlignmentForPath(relativePath) {
+  const records = ebsrcAlignment.byLocalPath.get(normalizeRepoPath(relativePath)) || [];
+  if (!records.length) {
+    return null;
+  }
+  const counts = {};
+  for (const record of records) {
+    counts[record.status] = (counts[record.status] || 0) + 1;
+  }
+  return {
+    records,
+    counts
+  };
+}
+
+function ebsrcAlignmentAliases(alignment) {
+  return unique((alignment?.records || [])
+    .flatMap((record) => [record.ebsrcSymbol, record.ebsrcPath, record.localName, record.start, record.end])
+    .filter(Boolean));
+}
+
+function ebsrcAlignmentSearchTerms(alignment) {
+  return ebsrcAlignmentAliases(alignment)
+    .concat((alignment?.records || []).flatMap((record) => [record.status, record.confidence, record.lane]))
+    .filter(Boolean)
+    .join(" ");
+}
+
+function ebsrcAlignmentStatusLabel(status) {
+  return {
+    source_alias_integrated: "source-compatible alias",
+    source_alias_ready: "safe alias candidate",
+    local_primary_stronger: "local name primary",
+    docs_crosswalk_only: "reference-only crosswalk",
+    blocked_conflict_or_unproven: "review required"
+  }[status] || status.replaceAll("_", " ");
+}
+
+function ebsrcAlignmentBodySection(alignment) {
+  const records = alignment?.records || [];
+  if (!records.length) {
+    return [];
+  }
+  return [
+    "## Community ebsrc Crosswalk",
+    "Local behavior-oriented names stay primary. Restored Herringway/`ebsrc` names are shown here as community navigation terms, not as independent behavior proof.",
+    "",
+    "| Local primary | ebsrc reference | Status | Range |",
+    "| --- | --- | --- | --- |",
+    ...records.slice(0, 12).map((record) => [
+      `\`${record.localName || "local source"}\``,
+      record.ebsrcSymbol ? `\`${record.ebsrcSymbol}\`` : `\`${record.ebsrcPath || "ebsrc reference"}\``,
+      ebsrcAlignmentStatusLabel(record.status),
+      [record.start, record.end].filter(Boolean).join("..") || "-"
+    ].join(" | ").replace(/^/, "| ").replace(/$/, " |")),
+    records.length > 12 ? `\n${records.length - 12} more crosswalk rows are kept in the generated manifest.` : "",
+    "",
+    `Open [[ebsrc-community-crosswalk|ebsrc Community Crosswalk]] for the policy and full status breakdown.`
+  ].filter(Boolean);
+}
+
 function walkFiles(root, predicate = () => true) {
   const output = [];
   if (!fs.existsSync(root)) {
@@ -978,7 +1132,7 @@ function buildFacets() {
 function buildNavSections() {
   return [
     { title: "Overview", ids: ["overview", "narrative-index", "learning-path-index"] },
-    { title: "Source", ids: ["source-browser", "source-tree", "reference-source-browser", "routine-index", "bank-map"] },
+    { title: "Source", ids: ["source-browser", "source-tree", "reference-source-browser", "ebsrc-community-crosswalk", "routine-index", "bank-map"] },
     { title: "Notes", ids: ["note-index", "reference-library", "reference-tables", "script-source-index"] },
     { title: "Systems", ids: ["systems-hub", "topic-index"] },
     { title: "Tools/Validation", ids: [] }
@@ -3113,6 +3267,7 @@ function parseSourceModule(filePath) {
     externalContracts,
     callTargets: asmCallTargets(text),
     size: text.length,
+    ebsrcAlignment: ebsrcAlignmentForPath(relativePath),
     sourceEmbed: sourceEmbed(text)
   };
 }
@@ -3184,7 +3339,8 @@ function addSourceModuleEntries() {
         module.relativePath,
         module.fileName,
         module.primaryLabel,
-        ...module.labels.slice(0, 10)
+        ...module.labels.slice(0, 10),
+        ...ebsrcAlignmentAliases(module.ebsrcAlignment)
       ].filter(Boolean),
       addresses: [
         module.address,
@@ -3197,9 +3353,12 @@ function addSourceModuleEntries() {
         module.bank ? `bank-${module.bank.toLowerCase()}` : "",
         module.bank ? `routine-index-${module.bank.toLowerCase()}` : "",
         "source-tree",
+        module.ebsrcAlignment ? "ebsrc-community-crosswalk" : "",
+        module.ebsrcAlignment ? pathEntryIds.get("notes/ebsrc-community-crosswalk.md") : "",
         ...linkedTargets.slice(0, 10).map((item) => item.module.id),
         ...incoming.slice(0, 10)
       ]),
+      compareSearchTerms: ebsrcAlignmentSearchTerms(module.ebsrcAlignment),
       showInToc: false,
       body: [
         module.address ? `Primary address: \`${module.address}\`.` : "No primary address was inferred from the filename or label.",
@@ -3226,6 +3385,8 @@ function addSourceModuleEntries() {
         incoming.length ? "## Referenced By" : "",
         incoming.slice(0, 18).map((callerId) => `- [[${callerId}|${entries.find((entry) => entry.id === callerId)?.title || callerId}]]`).join("\n"),
         incoming.length > 18 ? `- ${incoming.length - 18} more incoming references omitted from this compact list.` : "",
+        "",
+        ...ebsrcAlignmentBodySection(module.ebsrcAlignment),
         "",
         "## Source Code",
         module.sourceEmbed.note,
@@ -3271,7 +3432,7 @@ function addSourceModuleEntries() {
         ? `${module.bank} primary source symbol at ${module.address}.`
         : `Primary source symbol for ${module.fileName}.`,
       maturity: "generated-source",
-      aliases: [module.primaryLabel, module.title, module.fileName, module.relativePath],
+      aliases: [module.primaryLabel, module.title, module.fileName, module.relativePath, ...ebsrcAlignmentAliases(module.ebsrcAlignment)],
       addresses: module.address ? [module.address] : [],
       banks: module.bank ? [module.bank] : [],
       sourceRefs: [sourceRef(module.relativePath, module.relativePath)],
@@ -3279,8 +3440,10 @@ function addSourceModuleEntries() {
         module.id,
         module.bank ? `bank-${module.bank.toLowerCase()}` : "",
         module.bank ? `routine-index-${module.bank.toLowerCase()}` : "",
-        "routine-index"
+        "routine-index",
+        module.ebsrcAlignment ? "ebsrc-community-crosswalk" : ""
       ]),
+      compareSearchTerms: ebsrcAlignmentSearchTerms(module.ebsrcAlignment),
       showInToc: false,
       body: [
         `\`${module.primaryLabel}\` is the primary exported label for [[${module.id}|${module.title}]].`,
@@ -3298,7 +3461,9 @@ function addSourceModuleEntries() {
         module.callTargets.slice(0, 24).map((target) => {
           const targetModule = labelToModule.get(target);
           return targetModule ? `- [[${targetModule.id}|${target}]]` : `- \`${target}\``;
-        }).join("\n")
+        }).join("\n"),
+        "",
+        ...ebsrcAlignmentBodySection(module.ebsrcAlignment)
       ].filter(Boolean).join("\n")
     });
   }
@@ -3541,6 +3706,7 @@ function parseSourceFile(filePath) {
     isByteListing,
     semanticPath,
     byteListingPath: isByteListing ? "" : byteListingPathForSemantic(relativePath),
+    ebsrcAlignment: ebsrcAlignmentForPath(relativePath),
     sourceEmbed: sourceEmbed(text)
   };
 }
@@ -3615,15 +3781,18 @@ function addSourceFileEntries() {
           firstAddress: file.address,
           sourceUnits: file.sourceUnits.slice(0, 80),
           backingSource: file.backingSource,
-          semanticSource: file.semanticSource
+          semanticSource: file.semanticSource,
+          ebsrcAlignment: file.ebsrcAlignment
         };
         existingEntry.aliases = unique([
           ...(existingEntry.aliases || []),
           file.relativePath,
           file.fileName,
           file.backingSource?.path,
-          file.semanticSource?.path
+          file.semanticSource?.path,
+          ...ebsrcAlignmentAliases(file.ebsrcAlignment)
         ]);
+        existingEntry.compareSearchTerms = [existingEntry.compareSearchTerms, ebsrcAlignmentSearchTerms(file.ebsrcAlignment)].filter(Boolean).join(" ");
         if (file.backingSource && !(existingEntry.sourceRefs || []).some((ref) => ref.path === file.backingSource.path)) {
           existingEntry.sourceRefs = [
             ...(existingEntry.sourceRefs || []),
@@ -3651,6 +3820,8 @@ function addSourceFileEntries() {
         existingEntry.related = unique([
           ...(existingEntry.related || []),
           file.bank ? sourceBankIndexId(file.bank) : "",
+          file.ebsrcAlignment ? "ebsrc-community-crosswalk" : "",
+          file.ebsrcAlignment ? pathEntryIds.get("notes/ebsrc-community-crosswalk.md") : "",
           ...file.relatedNotes.slice(0, 4).map((note) => note.id)
         ]);
       }
@@ -3670,7 +3841,8 @@ function addSourceFileEntries() {
           file.title,
           file.backingSource?.path,
           file.semanticSource?.path,
-          ...file.labels.slice(0, 8)
+          ...file.labels.slice(0, 8),
+          ...ebsrcAlignmentAliases(file.ebsrcAlignment)
         ].filter(Boolean),
       addresses: [
         file.address,
@@ -3688,7 +3860,8 @@ function addSourceFileEntries() {
         firstAddress: file.address,
         sourceUnits: file.sourceUnits.slice(0, 80),
         backingSource: file.backingSource,
-        semanticSource: file.semanticSource
+        semanticSource: file.semanticSource,
+        ebsrcAlignment: file.ebsrcAlignment
       },
       relatedNotes: file.relatedNotes,
       sourceRefs: [
@@ -3711,8 +3884,11 @@ function addSourceFileEntries() {
         "source-tree",
         file.backingSource?.entryId,
         file.semanticSource?.entryId,
+        file.ebsrcAlignment ? "ebsrc-community-crosswalk" : "",
+        file.ebsrcAlignment ? pathEntryIds.get("notes/ebsrc-community-crosswalk.md") : "",
         ...file.relatedNotes.slice(0, 4).map((note) => note.id)
       ]),
+      compareSearchTerms: ebsrcAlignmentSearchTerms(file.ebsrcAlignment),
       excludeFromSearch: file.isByteListing,
       canonicalEntryId: file.isByteListing ? (file.semanticSource?.entryId || "") : "",
       showInToc: false,
@@ -3738,6 +3914,8 @@ function addSourceFileEntries() {
         file.labels.length ? "## Labels" : "",
         file.labels.slice(0, 40).map((label) => `- \`${label}\``).join("\n"),
         file.labels.length > 40 ? `- ${file.labels.length - 40} more labels omitted from this compact list.` : "",
+        "",
+        ...ebsrcAlignmentBodySection(file.ebsrcAlignment),
         "",
         "## Source Code",
         file.sourceEmbed.note,
@@ -3780,6 +3958,9 @@ function addSourceFileEntries() {
       labelCount: file.labels.length,
       sourceUnitCount: file.sourceUnits.length,
       relatedNoteCount: file.relatedNotes.length,
+      ebsrcAlignmentCount: file.ebsrcAlignment?.records?.length || 0,
+      ebsrcAlignmentStatus: file.ebsrcAlignment?.records?.[0]?.status || "",
+      ebsrcAlias: file.ebsrcAlignment?.records?.find((record) => record.ebsrcSymbol)?.ebsrcSymbol || "",
       byteListingEntryId: file.backingSource?.entryId || "",
       byteListingPath: file.backingSource?.path || "",
       byteListingRange: file.backingSource?.range || ""
@@ -4702,6 +4883,64 @@ function addAssetManifestEntries() {
   });
 }
 
+function addEbsrcCommunityCrosswalkEntry() {
+  if (!sourceCatalogMode || !ebsrcAlignment.available) {
+    return;
+  }
+  const counts = ebsrcAlignment.counts || {};
+  const noteEntryId = pathEntryIds.get("notes/ebsrc-community-crosswalk.md");
+  const candidateNoteId = pathEntryIds.get("notes/ebsrc-knowns-integration-candidates.md");
+  const statusRows = Object.entries(counts)
+    .sort((a, b) => ebsrcAlignmentStatusRank(a[0]) - ebsrcAlignmentStatusRank(b[0]) || a[0].localeCompare(b[0]))
+    .map(([status, count]) => `- ${ebsrcAlignmentStatusLabel(status)} (\`${status}\`): ${count.toLocaleString("en-US")}`);
+  const sourceReady = (counts.source_alias_integrated || 0) + (counts.source_alias_ready || 0);
+  addEntry({
+    id: "ebsrc-community-crosswalk",
+    title: "ebsrc Community Crosswalk",
+    kind: "source",
+    summary: `Bridge between local semantic names and restored Herringway/ebsrc vocabulary: ${sourceReady.toLocaleString("en-US")} source-compatible aliases and ${(counts.local_primary_stronger || 0).toLocaleString("en-US")} local-primary cases.`,
+    aliases: [
+      "ebsrc crosswalk",
+      "Herringway crosswalk",
+      "community names",
+      "source aliases",
+      "source_alias_integrated",
+      "local_primary_stronger",
+      "docs_crosswalk_only"
+    ],
+    sourceRefs: [sourceRef(ebsrcAlignment.manifestPath, "ebsrc knowns integration candidates")],
+    noteRefs: [
+      noteEntryId ? { entryId: noteEntryId, path: "notes/ebsrc-community-crosswalk.md", label: "ebsrc community crosswalk" } : null,
+      candidateNoteId ? { entryId: candidateNoteId, path: "notes/ebsrc-knowns-integration-candidates.md", label: "ebsrc knowns integration candidates" } : null
+    ].filter(Boolean),
+    related: unique([
+      "source-browser",
+      "reference-source-browser",
+      "topic-source-semantics",
+      noteEntryId,
+      candidateNoteId
+    ]),
+    showInToc: true,
+    body: [
+      "This project keeps behavior-oriented local names as primary, while preserving restored Herringway/`ebsrc` names as exact-address compatibility aliases or crosswalk entries. `ebsrc` names are used for community navigation; local byte-equivalent source and semantic manifests remain authoritative for behavior.",
+      "",
+      "## Status Counts",
+      statusRows.join("\n"),
+      "",
+      "## Display Rules",
+      "- `source_alias_integrated`: show as source-compatible community alias.",
+      "- `local_primary_stronger`: show both names, with the local name primary.",
+      "- `docs_crosswalk_only`: keep as reference vocabulary, constants, structs, macros, or corroborating file layout.",
+      "- `blocked_conflict_or_unproven`: do not promote without review.",
+      "",
+      "## Source Evidence",
+      `- Manifest: \`${ebsrcAlignment.manifestPath}\``,
+      noteEntryId ? `- Community note: [[${noteEntryId}|notes/ebsrc-community-crosswalk.md]]` : "",
+      candidateNoteId ? `- Candidate note: [[${candidateNoteId}|notes/ebsrc-knowns-integration-candidates.md]]` : ""
+    ].filter(Boolean).join("\n")
+  });
+}
+
 addEvidenceNoteEntries();
 addReferenceScriptEntries();
 addTopicEntries();
@@ -4712,6 +4951,7 @@ if (sourceCatalogMode) {
   addReferenceDocumentEntries();
   addReferenceTableEntries();
   addAssetManifestEntries();
+  addEbsrcCommunityCrosswalkEntry();
 } else {
   addAuthoredLocalWorkspacePlaceholders();
 }

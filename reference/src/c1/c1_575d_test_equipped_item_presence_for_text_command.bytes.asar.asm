@@ -414,6 +414,9 @@ C1594C_C1575D_TestEquippedItemPresenceForTextCommand_L594C:
 C1597D_C1575D_TestEquippedItemPresenceForTextCommand_L597D:
     pld
     rts
+
+; ebsrc: SHOW_CHARACTER_INVENTORY (text/ccs/show_character_inventory.asm)
+!SHOW_CHARACTER_INVENTORY = CC_19_19
 CC_19_19:
 !C1597F_ReadCharacterInventorySlotItemTextCommand = CC_19_19
     rep #!ProcessorStatus16BitAIndexCarryClear

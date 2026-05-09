@@ -17,6 +17,9 @@ C0ABC6_StopMusicAndLatchNoTrack = $C0ABC6
 ; C2:16C9
 
 REDIRECT_STOP_MUSIC:
+
+; ebsrc: STOP_MUSIC_REDIRECT (audio/stop_music_redirect.asm)
+STOP_MUSIC_REDIRECT = REDIRECT_STOP_MUSIC
 C216C9_StopMusicRedirect = REDIRECT_STOP_MUSIC
     rep #$31
     jsl C0ABC6_StopMusicAndLatchNoTrack
