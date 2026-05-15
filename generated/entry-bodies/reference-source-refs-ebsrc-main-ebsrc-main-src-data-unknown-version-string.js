@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-unknown-version-string"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/unknown_version_string.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_VERSION_STRING`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_VERSION_STRING:\n\t.BYTE \"NAK1989 S-CG-CADVer1.11 930511 F\"\n```";

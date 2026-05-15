@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-homesickness-probabilities"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/homesickness_probabilities.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `HOMESICKNESS_PROBABILITY`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nHOMESICKNESS_PROBABILITY:\n\t.BYTE 0\n\t.BYTE 100\n\t.BYTE 150\n\t.BYTE 200\n\t.BYTE 250\n\t.BYTE 0\n```";

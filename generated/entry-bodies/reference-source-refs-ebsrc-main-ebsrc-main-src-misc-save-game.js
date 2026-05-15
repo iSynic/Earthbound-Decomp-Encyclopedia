@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-misc-save-game"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/misc/save_game.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SAVE_CURRENT_GAME`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSAVE_CURRENT_GAME:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tLDA CURRENT_SAVE_SLOT\n\tAND #$00FF\n\tDEC\n\tJSL SAVE_GAME_SLOT\n\tRTL\n```";

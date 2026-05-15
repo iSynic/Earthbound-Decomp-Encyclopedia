@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-movement-text-string-palette"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/movement_text_string_palette.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `MOVEMENT_TEXT_STRING_PALETTE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMOVEMENT_TEXT_STRING_PALETTE:\n\tRGB 0,0,0\n\tRGB 17, 18, 17\n\tRGB 17, 18, 17\n\tRGB 31, 31, 27\n```";

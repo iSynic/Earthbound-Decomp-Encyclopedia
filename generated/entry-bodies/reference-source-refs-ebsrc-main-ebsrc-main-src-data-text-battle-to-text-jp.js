@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-text-battle-to-text-jp"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/text/battle_to_text-jp.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `BATTLE_TO_TEXT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\n.FEATURE STRING_ESCAPES\n\nBATTLE_TO_TEXT:\n\tPADDEDASCII \"\\xA7\\xA8\\x96\\x72\\x78\\x29\\x5B\\x20\", 8\n```";

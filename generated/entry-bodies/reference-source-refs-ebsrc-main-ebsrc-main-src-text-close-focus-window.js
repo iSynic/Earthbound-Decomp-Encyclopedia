@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-close-focus-window"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/close_focus_window.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CLOSE_FOCUS_WINDOW`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCLOSE_FOCUS_WINDOW:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tLDA CURRENT_FOCUS_WINDOW\n\tJSR CLOSE_WINDOW\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-text-battle-front-row-text"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/text/battle_front_row_text.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `BATTLE_FRONT_ROW_TEXT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBATTLE_FRONT_ROW_TEXT:\n.IF .DEFINED(JPN)\n\tPADDEDASCII \"\\x95\\x9D\\x9F\\x86\", 4\n.ELSE\n\tPADDEDEBTEXT \"the Front Row\", 13\n.ENDIF\n```";

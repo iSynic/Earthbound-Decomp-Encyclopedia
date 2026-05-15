@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c419b2"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C419B2.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C419B2`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C419B2:\n\tEVENT_SET_X_VELOCITY $FE00\n\tEVENT_SET_Y_VELOCITY $0000\n\tEVENT_UNKNOWN_C0AA6E DIRECTION::DOWN, $00\n\tEVENT_HALT\n```";

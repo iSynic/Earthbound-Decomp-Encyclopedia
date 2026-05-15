@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-scripts-789"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/scripts/789.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `EVENT_789`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nEVENT_789:\n\tEVENT_WRITE_WRAM_TEMPVAR .LOWORD(TITLE_SCREEN_QUICK_MODE)\n\tEVENT_SHORTCALL_CONDITIONAL .LOWORD(UNKNOWN_C42235)\n\tEVENT_UNKNOWN_C0ED5C\n\tEVENT_END\n```";

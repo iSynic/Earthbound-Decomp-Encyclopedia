@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-nmi-vector"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/nmi_vector.asm`.\n## File Role\nebsrc source.\n## Labels\n- `NMI_VECTOR`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nNMI_VECTOR:\n\tJMP f:NMI\n```";

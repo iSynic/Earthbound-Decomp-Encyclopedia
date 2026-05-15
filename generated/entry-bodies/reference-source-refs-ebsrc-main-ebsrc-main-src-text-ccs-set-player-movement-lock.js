@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-ccs-set-player-movement-lock"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/ccs/set_player_movement_lock.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CC_1F_E5`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCC_1F_E5:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tTXA\n\tJSL UNKNOWN_C46594\n\tLDA #NULL\n\tRTS\n```";

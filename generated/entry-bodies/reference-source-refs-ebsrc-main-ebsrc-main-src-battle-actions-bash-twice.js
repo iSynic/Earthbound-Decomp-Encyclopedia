@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-bash-twice"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/bash_twice.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_DOUBLE_BASH`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_DOUBLE_BASH:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_BASH\n\tJSL BTLACT_BASH\n\tEND_C_FUNCTION\n```";

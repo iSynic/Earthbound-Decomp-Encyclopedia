@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-clear-blinking-prompt"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/clear_blinking_prompt.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CLEAR_BLINKING_PROMPT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCLEAR_BLINKING_PROMPT:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tSTZ BLINKING_TRIANGLE_FLAG\n\tEND_C_FUNCTION\n```";

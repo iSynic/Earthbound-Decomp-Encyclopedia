@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-antipiracy-checksum-2"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/antipiracy_checksum_2.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `ANTIPIRACY_CHECKSUM_2`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nANTIPIRACY_CHECKSUM_2:\n\t.WORD $2AD8\n```";

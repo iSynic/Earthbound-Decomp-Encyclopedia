@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-set-direction"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/set_direction.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_DIRECTION`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_DIRECTION:\n\tLDX $88\n\tTAY\n\tLDA ENTITY_PATHFINDING_STATES,X\n\tBMI @UNKNOWN0\n\tTYA\n\tSTA ENTITY_DIRECTIONS,X\n@UNKNOWN0:\n\tTYA\n\tRTL\n```";

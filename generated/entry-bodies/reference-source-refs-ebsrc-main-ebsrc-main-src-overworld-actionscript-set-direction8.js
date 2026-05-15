@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-set-direction8"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/set_direction8.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_DIRECTION8`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_DIRECTION8:\n\tJSL MOVEMENT_DATA_READ8\n\tSTY $94\n\tJSL SET_DIRECTION\n\tSTA ENTITY_MOVING_DIRECTIONS,X\n\tRTL\n```";

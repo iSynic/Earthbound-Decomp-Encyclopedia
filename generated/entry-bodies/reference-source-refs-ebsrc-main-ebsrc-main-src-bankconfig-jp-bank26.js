@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-bankconfig-jp-bank26"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/bankconfig/JP/bank26.asm`.\n## File Role\nebsrc bank configuration.\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n.INCLUDE \"bankconfig/common/bank26.asm\"\n```";

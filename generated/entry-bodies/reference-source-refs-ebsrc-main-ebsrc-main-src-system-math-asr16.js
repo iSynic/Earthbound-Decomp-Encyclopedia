@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-asr16"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/asr16.asm`.\n## File Role\nebsrc source.\n## Labels\n- `ASR16`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nASR16:\n\t.A16\n\tCMP #$0000\n\tBPL ASR8_UNKNOWN1\n\tBMI ASR8_UNKNOWN3\n```";

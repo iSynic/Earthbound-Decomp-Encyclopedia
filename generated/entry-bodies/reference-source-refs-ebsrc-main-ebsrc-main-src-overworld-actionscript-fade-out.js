@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-fade-out"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/fade_out.asm`.\n## File Role\nebsrc source.\n## Labels\n- `ACTIONSCRIPT_FADE_OUT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nACTIONSCRIPT_FADE_OUT:\n\tLDA [$80],Y\n\tINY\n\tINY\n\tSTY $94\n\tXBA\n\tTAX\n\tXBA\n\tJMP f:FADE_OUT\n```";

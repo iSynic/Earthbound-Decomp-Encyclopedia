@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-sram-signature"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/sram_signature.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `SRAM_SIGNATURE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSRAM_SIGNATURE:\n\t.ASCIIZ \"HAL Laboratory, inc.\"\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-pp-cost-text"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/pp_cost_text.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `PP_COST_TEXT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nPP_COST_TEXT:\n.IF .DEFINED(JPN)\n\tASCIIZ \"\\x74\\xAE\\x80\\x79\\x50\\x50\\x5B\" ;しょうひPP:\n.ELSE\n\tEBTEXT \"PP Cost:\"\n.ENDIF\n```";

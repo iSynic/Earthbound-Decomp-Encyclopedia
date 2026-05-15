@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c42232-jp"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C42232-jp.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C42232`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C42232:\n\tEVENT_SET_VELOCITIES_ZERO\n\tEVENT_PAUSE 60\n\tEVENT_SET_Y_VELOCITY $FF00\n\tEVENT_PAUSE 32\n\tEVENT_SET_VELOCITIES_ZERO\n\tEVENT_SHORT_RETURN\n```";

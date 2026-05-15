@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c3c8fd"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C3C8FD.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C3C8FD`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C3C8FD:\n\tEVENT_SHORTCALL .LOWORD(UNKNOWN_C3C94E)\n\tEVENT_PREPARE_NEW_ENTITY_AT_TELEPORT_DESTINATION $C3\n\tEVENT_YIELD_TO_TEXT\n\tEVENT_SHORTJUMP .LOWORD(EVENT_35)\n```";

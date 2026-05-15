@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-level-3-attack-copy"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/level_3_attack_copy.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `REDIRECT_BTLACT_LEVEL_3_ATK`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_BTLACT_LEVEL_3_ATK:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_LEVEL_3_ATK\n\tEND_C_FUNCTION\n```";

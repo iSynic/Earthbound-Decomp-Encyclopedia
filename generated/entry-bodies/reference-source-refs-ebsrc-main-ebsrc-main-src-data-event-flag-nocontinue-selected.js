@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-event-flag-nocontinue-selected"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/event_flag_nocontinue_selected.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `EVENT_FLAG_NOCONTINUE_SELECTED`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nEVENT_FLAG_NOCONTINUE_SELECTED:\n\t.WORD EVENT_FLAG::FLG_SYS_COMEBACK\n```";

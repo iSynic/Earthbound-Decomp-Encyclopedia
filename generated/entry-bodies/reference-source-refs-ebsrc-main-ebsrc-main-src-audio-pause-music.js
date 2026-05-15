@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-audio-pause-music"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/audio/pause_music.asm`.\n## File Role\nebsrc source.\n## Labels\n- `PAUSE_MUSIC`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nPAUSE_MUSIC:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tSEP #PROC_FLAGS::ACCUM8\n\tLDA #$0001\n\tSTA DISABLE_HPPP_ROLLING\n\tREP #PROC_FLAGS::ACCUM8\n\tRTL\n```";

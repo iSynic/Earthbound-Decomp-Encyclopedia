@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-text-phone-call-text"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/text/phone_call_text.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `PHONE_CALL_TEXT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nPHONE_CALL_TEXT:\n.IF .DEFINED(JPN)\n\t.BYTE \"\\x62\\x92\\x64\\x72\"\n.ELSE\n\tEBTEXT \"Call:\"\n.ENDIF\n```";

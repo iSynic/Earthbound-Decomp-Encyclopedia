@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c3d913"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C3D913.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C3D913`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C3D913:\n\tEVENT_QUEUE_TEXT MSG_EVT_BUS_TUNNEL_DSRT_R\n\tEVENT_HALT\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-call-for-help"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/call_for_help.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_CALL_FOR_HELP`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_CALL_FOR_HELP:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #0\n\tJSR CALL_FOR_HELP_COMMON\n\tEND_C_FUNCTION\n```";

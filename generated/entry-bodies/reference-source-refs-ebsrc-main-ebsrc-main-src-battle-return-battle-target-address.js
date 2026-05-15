@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-return-battle-target-address"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/return_battle_target_address.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `RETURN_BATTLE_TARGET_ADDRESS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nRETURN_BATTLE_TARGET_ADDRESS:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tLDA #.LOWORD(BATTLE_TARGET_NAME)\n\tEND_C_FUNCTION\n```";

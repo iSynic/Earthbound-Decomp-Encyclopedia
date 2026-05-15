@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-rust-promoter"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/rust_promoter.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_RUST_PROMOTER`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_RUST_PROMOTER:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #200\n\tJSR RUST_SPRAY_COMMON\n\tEND_C_FUNCTION\n```";

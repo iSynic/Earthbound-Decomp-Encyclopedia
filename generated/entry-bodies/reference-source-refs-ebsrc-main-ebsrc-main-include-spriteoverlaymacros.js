@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-include-spriteoverlaymacros"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/include/spriteoverlaymacros.asm`.\n## File Role\nebsrc include.\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\n.MACRO SHOWFRAME arg\n\t.WORD $0001, arg\n.ENDMACRO\n\n.MACRO DELAYNEXTFRAME arg\n\t.WORD $0002, arg\n.ENDMACRO\n\n.MACRO JUMPTO arg\n\t.WORD $0003, arg\n.ENDMACRO\n```";

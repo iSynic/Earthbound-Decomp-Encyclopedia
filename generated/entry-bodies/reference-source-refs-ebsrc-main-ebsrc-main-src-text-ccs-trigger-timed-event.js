@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-ccs-trigger-timed-event"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/ccs/trigger_timed_event.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CC_1F_D3`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCC_1F_D3:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tTXA\n\tJSL GET_DELIVERY_SPRITE_AND_PLACEHOLDER\n\tLDA #NULL\n\tRTS\n```";

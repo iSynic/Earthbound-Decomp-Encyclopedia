@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-script-read8"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/script/read8.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MOVEMENT_DATA_READ8`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMOVEMENT_DATA_READ8:\n\tLDA [$80],Y\n\tINY\n\tAND #$00FF\n\tRTL\n```";

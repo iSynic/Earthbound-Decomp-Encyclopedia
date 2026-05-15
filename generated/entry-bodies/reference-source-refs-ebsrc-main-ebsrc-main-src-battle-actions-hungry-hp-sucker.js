@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-hungry-hp-sucker"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/hungry_hp_sucker.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_HUNGRY_HP_SUCKER`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_HUNGRY_HP_SUCKER:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_HP_SUCKER\n\tEND_C_FUNCTION\n```";

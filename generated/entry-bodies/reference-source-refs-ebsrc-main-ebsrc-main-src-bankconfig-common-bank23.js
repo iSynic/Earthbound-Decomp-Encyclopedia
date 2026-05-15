@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-bankconfig-common-bank23"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/bankconfig/common/bank23.asm`.\n## File Role\nebsrc bank configuration.\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n.SEGMENT \"BANK23\"\n.INCLUDE \"common.asm\"\n.INCLUDE \"symbols/audiopacks.inc.asm\"\n\nINSERT_AUDIO_PACK 3\nINSERT_AUDIO_PACK 70\nINSERT_AUDIO_PACK 37\nINSERT_AUDIO_PACK 32\n```";

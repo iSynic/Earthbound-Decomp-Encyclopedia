@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-unlock-input"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/unlock_input.asm`.\n## File Role\nebsrc source.\n## Labels\n- `UNLOCK_INPUT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNLOCK_INPUT:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tSTZ TEXT_PROMPT_WAITING_FOR_INPUT\n\tRTS\n```";

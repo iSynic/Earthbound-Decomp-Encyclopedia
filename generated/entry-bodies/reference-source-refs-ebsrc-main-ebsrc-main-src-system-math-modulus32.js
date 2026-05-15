@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-math-modulus32"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/math/modulus32.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MODULUS32`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMODULUS32:\n\tJSL DIVISION32S_DIVISOR_POSITIVE\n\tBRA MODULUS32S_UNKNOWN0\n```";

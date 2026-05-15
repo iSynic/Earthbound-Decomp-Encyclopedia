@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-memcpy24"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/memcpy24.asm`.\n## File Role\nebsrc source.\n## Labels\n- `MEMCPY24`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nMEMCPY24:\n\tTAY\n\tSEP #PROC_FLAGS::ACCUM8\n\tBRA @UNKNOWN1\n@UNKNOWN0:\n\tLDA [$12],Y\n\tSTA [$0E],Y\n@UNKNOWN1:\n\tDEY\n\tBPL @UNKNOWN0\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8\n\tRTL\n```";

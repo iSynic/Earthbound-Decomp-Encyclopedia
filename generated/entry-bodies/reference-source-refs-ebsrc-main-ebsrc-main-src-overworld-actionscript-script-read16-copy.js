@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-script-read16-copy"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/script/read16_copy.asm`.\n## File Role\nebsrc source.\n## Labels\n- `UNKNOWN_C09D99`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C09D99:\n\tLDA [$80],Y\n\tINY\n\tINY\n\tRTS\n```";

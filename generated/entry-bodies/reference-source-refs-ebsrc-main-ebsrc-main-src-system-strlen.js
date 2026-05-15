@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-strlen"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/strlen.asm`.\n## File Role\nebsrc source.\n## Labels\n- `STRLEN`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSTRLEN:\n\tSEP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8\n\tLDY #$00FF\n@LOOP_BODY:\n\tINY\n\tLDA [$0E],Y\n\tBNE @LOOP_BODY\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8\n\tTYA\n\tRTL\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-set-surface-flags"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/set_surface_flags.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_SURFACE_FLAGS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_SURFACE_FLAGS:\n\tJSL MOVEMENT_DATA_READ8\n\tSTY $94\n\tLDX $88\n\tSTA ENTITY_SURFACE_FLAGS,X\n\tRTL\n```";

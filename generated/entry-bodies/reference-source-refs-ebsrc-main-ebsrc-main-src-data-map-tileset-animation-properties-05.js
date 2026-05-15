@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-map-tileset-animation-properties-05"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/map/tileset_animation_properties/05.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `TILESET_ANIMATION_PROPERTIES_5`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nTILESET_ANIMATION_PROPERTIES_5:\n\t.BYTE 1\n\n\t.BYTE $08\n\t.BYTE $0A\n\t.WORD $0100\n\t.WORD $0020\n\t.WORD $0010\n```";

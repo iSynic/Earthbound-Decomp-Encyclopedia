@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-lifeup-gamma"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/lifeup_gamma.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `BTLACT_LIFEUP_G`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nBTLACT_LIFEUP_G:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA #LIFEUP_GAMMA_HEALING\n\tJSR LIFEUP_COMMON\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-system-set-oam-size"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/system/set_oam_size.asm`.\n## File Role\nebsrc source.\n## Labels\n- `SET_OAM_SIZE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nSET_OAM_SIZE:\n\tPHP\n\tSEP #PROC_FLAGS::ACCUM8\n\tSTA OBSEL_MIRROR\n\tSTA f:OBSEL\n\tPLP\n\tRTL\n```";

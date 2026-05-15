@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-change-music-5dd6"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/change_music_5DD6.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CHANGE_MUSIC_5DD6`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCHANGE_MUSIC_5DD6:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tLDA NEXT_MAP_MUSIC_TRACK\n\tJSL CHANGE_MUSIC\n\tEND_C_FUNCTION\n```";

@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-lock-input"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/lock_input.asm`.\n## File Role\nebsrc source.\n## Labels\n- `LOCK_INPUT`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nLOCK_INPUT:\n\tBEGIN_C_FUNCTION\n\tEND_STACK_VARS\n\tLDA #1\n\tSTA TEXT_PROMPT_WAITING_FOR_INPUT\n\tEND_C_FUNCTION\n```";

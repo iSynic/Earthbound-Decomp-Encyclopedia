@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-audio-play-sound-and-unknown"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/audio/play_sound_and_unknown.asm`.\n## File Role\nebsrc source.\n## Labels\n- `PLAY_SOUND_AND_UNKNOWN`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nPLAY_SOUND_AND_UNKNOWN:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tJSL PLAY_SOUND\n\tJSL UNKNOWN_C12E42\n\tRTL\n```";

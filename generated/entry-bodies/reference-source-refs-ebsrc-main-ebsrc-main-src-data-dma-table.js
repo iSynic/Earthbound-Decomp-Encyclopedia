@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-dma-table"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/dma_table.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `DMA_TABLE`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nDMA_TABLE:\n\t.BYTE $01, $18, $80\n\t.BYTE $09, $18, $80\n\t.BYTE $00, $18, $00\n\t.BYTE $08, $18, $00\n\t.BYTE $00, $19, $80\n\t.BYTE $08, $19, $80\n```";

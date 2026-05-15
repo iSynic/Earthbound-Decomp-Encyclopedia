@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-hp-meter-speeds"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/hp_meter_speeds.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `HP_METER_SPEEDS`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nHP_METER_SPEEDS:\n\t.WORD $2000, 1 ;1 + 4/32\n\t.WORD $1800, 1 ;1 + 3/32\n\t.WORD $1000, 1 ;1 + 2/32\n```";

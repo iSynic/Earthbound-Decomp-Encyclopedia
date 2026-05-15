@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-overworld-actionscript-jump-to-loaded-movement-pointer"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/overworld/actionscript/jump_to_loaded_movement_pointer.asm`.\n## File Role\nebsrc source.\n## Labels\n- `JUMP_TO_LOADED_MOVEMENT_PTR`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nJUMP_TO_LOADED_MOVEMENT_PTR:\n\tJML (.LOWORD(CURRENT_ENTITY_TICK_CALLBACK))\n```";

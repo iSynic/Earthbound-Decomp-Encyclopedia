@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-battle-actions-psi-shield-beta-redirect"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/battle/actions/psi_shield_beta_redirect.asm`.\n## File Role\nebsrc battle source.\n## Labels\n- `REDIRECT_BTLACT_PSI_SHIELD_B`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nREDIRECT_BTLACT_PSI_SHIELD_B:\n\tBEGIN_C_FUNCTION_FAR\n\tEND_STACK_VARS\n\tJSL BTLACT_PSI_SHIELD_B\n\tEND_C_FUNCTION\n```";

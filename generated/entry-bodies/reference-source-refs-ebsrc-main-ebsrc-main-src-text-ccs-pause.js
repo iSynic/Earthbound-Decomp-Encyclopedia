@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-text-ccs-pause"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/text/ccs/pause.asm`.\n## File Role\nebsrc source.\n## Labels\n- `CC_10`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nCC_10:\n\tREP #PROC_FLAGS::ACCUM8 | PROC_FLAGS::INDEX8 | PROC_FLAGS::CARRY\n\tTXA\n\tJSR UNKNOWN_C100D6\n\tLDA #NULL\n\tRTS\n```";

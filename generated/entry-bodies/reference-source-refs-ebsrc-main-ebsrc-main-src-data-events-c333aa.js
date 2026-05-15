@@ -1,0 +1,2 @@
+window.ENCYCLOPEDIA_ENTRY_BODIES = window.ENCYCLOPEDIA_ENTRY_BODIES || {};
+window.ENCYCLOPEDIA_ENTRY_BODIES["reference-source-refs-ebsrc-main-ebsrc-main-src-data-events-c333aa"] = "Reference source path: `refs/ebsrc-main/ebsrc-main/src/data/events/C333AA.asm`.\n## File Role\nebsrc data source.\n## Labels\n- `UNKNOWN_C333AA`\n## Source Code\nFull Herringway/ebsrc source file embedded.\n```asm\n\nUNKNOWN_C333AA:\n\tEVENT_UNKNOWN_C0AA6E DIRECTION::UP, $01\n\tEVENT_PAUSE $16*FRAMES\n\tEVENT_UNKNOWN_C0AA6E DIRECTION::UP, $00\n\tEVENT_PAUSE $17*FRAMES\n\tEVENT_SHORT_RETURN\n```";
