@@ -169,6 +169,21 @@ runtime-helpful action helpers:
 - Thunder wrapper and loop-tail labels now keep the common helper, miss path,
   continuation gate, and cleanup return readable without raw local jumps
 
+## Phase 2 Trace-Oracles
+
+The PSI damage commons are Phase 2 damage-spine probes. Rockin, Fire, Freeze,
+Starstorm, and Thunder should be traced at the point they prepare an amount,
+choose the selector byte or default `0xFF`, and cross `C2:8125` /
+`ApplyDamageToSelectedTarget`. The trace should not collapse element gates,
+shield/timed-substate blockers, Franklin Badge reflection, amount shaping, and
+post-hit cleanup into the damage ABI itself.
+
+Diary-backed PSI status and Flash comparisons belong in the adjacent status
+gate lane until locally proven. For this note, the useful closure target is the
+common damage spine: the one-parameter helpers and Thunder's per-strike tail
+should all expose the same selected-target damage boundary while preserving
+their distinct target-mask and presentation behavior.
+
 ## Remaining Soft Spots
 
 - final names for selected-row `+0x38/+0x3A` beyond damage-selector wording

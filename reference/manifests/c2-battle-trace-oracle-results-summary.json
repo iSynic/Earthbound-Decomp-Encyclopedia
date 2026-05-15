@@ -1,0 +1,298 @@
+{
+  "schema": "earthbound-decomp.c2-battle-trace-oracle-results-summary.v1",
+  "status": "c2_battle_trace_oracle_results_collected",
+  "packet": "manifests/c2-battle-trace-oracle-packet.json",
+  "source_policy": {
+    "requires_user_supplied_rom": true,
+    "generated_probe_outputs_are_ignored": true,
+    "generated_outputs_root": "build/c2/battle-trace-oracles",
+    "source_edits_allowed_from_packet_alone": false,
+    "ghidra_role": "hint-only; never source-facing proof"
+  },
+  "summary": {
+    "job_count": 10,
+    "result_count": 10,
+    "valid_result_count": 10,
+    "trace_observed_result_count": 6,
+    "proof_grade_result_count": 2,
+    "stub_result_count": 4,
+    "proof_capable_result_count": 6,
+    "status_counts": {
+      "ok": 6,
+      "unsupported": 4
+    },
+    "validation_counts": {
+      "valid": 10
+    },
+    "contract_classification_counts": {
+      "needs_followup": 4,
+      "refined_contract": 2,
+      "unresolved": 4
+    },
+    "priority_counts": {
+      "1": 4,
+      "2": 5,
+      "3": 1
+    },
+    "remaining_blocker_counts": {
+      "followup_review": 4,
+      "not_first_trace_pass": 4,
+      "oracle_contract_unresolved": 4,
+      "runtime_trace_proof": 4
+    },
+    "trace_observed_oracles": [
+      "c1_c2_target_action_staging",
+      "c2_40a4_current_action_payload",
+      "c2_724a_affliction_writer_matrix",
+      "c2_8125_damage_abi_boundary",
+      "hp_roller_collapse_boundary",
+      "resource_amount_pair_magnet_vs_pp_loss"
+    ],
+    "proof_grade_oracles": [
+      "c2_8125_damage_abi_boundary",
+      "hp_roller_collapse_boundary"
+    ],
+    "source_promotion_allowed": false,
+    "behavior_change_allowed": false,
+    "semantic_status": "c2_battle_trace_outputs_partially_collected"
+  },
+  "result_acceptance_policy": [
+    "Stub unsupported/unresolved results validate runner plumbing only and never count as trace-observed evidence.",
+    "A result counts as trace-observed only when it validates, is non-stub, is status ok, has a non-empty trace, matches packet job/trace paths, includes every packet capture field, and classifies the contract as confirmed_contract, refined_contract, contradicted_plan, or needs_followup.",
+    "A result counts as proof-grade only when it satisfies the trace-observed gate and classifies the contract as confirmed_contract, refined_contract, or contradicted_plan.",
+    "Contradicted results require manual review before any source-facing promotion.",
+    "This summary cannot directly promote source names, source comments, C-port helper contracts, or behavior changes."
+  ],
+  "results": [
+    {
+      "job_id": "c2-battle-oracle-c1_c2_target_action_staging",
+      "oracle_id": "c1_c2_target_action_staging",
+      "priority": 1,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/c1_c2_target_action_staging/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "needs_followup",
+      "errors": [],
+      "remaining_blockers": [
+        "followup_review"
+      ],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": false,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-c2_40a4_current_action_payload",
+      "oracle_id": "c2_40a4_current_action_payload",
+      "priority": 1,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/c2_40a4_current_action_payload/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "needs_followup",
+      "errors": [],
+      "remaining_blockers": [
+        "followup_review"
+      ],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": false,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-c2_724a_affliction_writer_matrix",
+      "oracle_id": "c2_724a_affliction_writer_matrix",
+      "priority": 1,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/c2_724a_affliction_writer_matrix/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "needs_followup",
+      "errors": [],
+      "remaining_blockers": [
+        "followup_review"
+      ],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": false,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-c2_8125_damage_abi_boundary",
+      "oracle_id": "c2_8125_damage_abi_boundary",
+      "priority": 1,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/c2_8125_damage_abi_boundary/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "refined_contract",
+      "errors": [],
+      "remaining_blockers": [],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": true,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-hp_roller_collapse_boundary",
+      "oracle_id": "hp_roller_collapse_boundary",
+      "priority": 2,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/hp_roller_collapse_boundary/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "refined_contract",
+      "errors": [],
+      "remaining_blockers": [],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": true,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-resource_amount_pair_magnet_vs_pp_loss",
+      "oracle_id": "resource_amount_pair_magnet_vs_pp_loss",
+      "priority": 2,
+      "first_trace_pass": true,
+      "result_path": "build/c2/battle-trace-oracles/resource_amount_pair_magnet_vs_pp_loss/result.json",
+      "result_exists": true,
+      "status": "ok",
+      "valid": true,
+      "contract_classification": "needs_followup",
+      "errors": [],
+      "remaining_blockers": [
+        "followup_review"
+      ],
+      "stub_result": false,
+      "proof_capable": true,
+      "proof_result": false,
+      "trace_path_exists": true,
+      "trace_path_nonempty": true,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-battle_text_payload_join",
+      "oracle_id": "battle_text_payload_join",
+      "priority": 2,
+      "first_trace_pass": false,
+      "result_path": "build/c2/battle-trace-oracles/battle_text_payload_join/result.json",
+      "result_exists": true,
+      "status": "unsupported",
+      "valid": true,
+      "contract_classification": "unresolved",
+      "errors": [],
+      "remaining_blockers": [
+        "runtime_trace_proof",
+        "oracle_contract_unresolved",
+        "not_first_trace_pass"
+      ],
+      "stub_result": true,
+      "proof_capable": false,
+      "proof_result": false,
+      "trace_path_exists": false,
+      "trace_path_nonempty": false,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-healing_ladder_gamma_omega",
+      "oracle_id": "healing_ladder_gamma_omega",
+      "priority": 2,
+      "first_trace_pass": false,
+      "result_path": "build/c2/battle-trace-oracles/healing_ladder_gamma_omega/result.json",
+      "result_exists": true,
+      "status": "unsupported",
+      "valid": true,
+      "contract_classification": "unresolved",
+      "errors": [],
+      "remaining_blockers": [
+        "runtime_trace_proof",
+        "oracle_contract_unresolved",
+        "not_first_trace_pass"
+      ],
+      "stub_result": true,
+      "proof_capable": false,
+      "proof_result": false,
+      "trace_path_exists": false,
+      "trace_path_nonempty": false,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-psi_flash_and_status_gate_family",
+      "oracle_id": "psi_flash_and_status_gate_family",
+      "priority": 2,
+      "first_trace_pass": false,
+      "result_path": "build/c2/battle-trace-oracles/psi_flash_and_status_gate_family/result.json",
+      "result_exists": true,
+      "status": "unsupported",
+      "valid": true,
+      "contract_classification": "unresolved",
+      "errors": [],
+      "remaining_blockers": [
+        "runtime_trace_proof",
+        "oracle_contract_unresolved",
+        "not_first_trace_pass"
+      ],
+      "stub_result": true,
+      "proof_capable": false,
+      "proof_result": false,
+      "trace_path_exists": false,
+      "trace_path_nonempty": false,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    },
+    {
+      "job_id": "c2-battle-oracle-numeric_stat_edge_behavior",
+      "oracle_id": "numeric_stat_edge_behavior",
+      "priority": 3,
+      "first_trace_pass": false,
+      "result_path": "build/c2/battle-trace-oracles/numeric_stat_edge_behavior/result.json",
+      "result_exists": true,
+      "status": "unsupported",
+      "valid": true,
+      "contract_classification": "unresolved",
+      "errors": [],
+      "remaining_blockers": [
+        "runtime_trace_proof",
+        "oracle_contract_unresolved",
+        "not_first_trace_pass"
+      ],
+      "stub_result": true,
+      "proof_capable": false,
+      "proof_result": false,
+      "trace_path_exists": false,
+      "trace_path_nonempty": false,
+      "promotion_allowed": false,
+      "behavior_change_allowed": false
+    }
+  ],
+  "next_work": [
+    "replace remaining stub results with real emulator or trace harness captures for the first-pass jobs",
+    "review trace-observed needs_followup results in the owning C2 subsystem notes before touching source comments",
+    "promote a result to proof-grade only after downstream text/collapse/status effects are decoded from trace evidence",
+    "keep non-first-pass oracle jobs queued until the first-pass contracts stop moving"
+  ]
+}

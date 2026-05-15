@@ -1,0 +1,1486 @@
+{
+  "schema": "earthbound-decomp.c2-resource-amount-natural-candidates.v1",
+  "status": "probe_planning_only",
+  "generated_by": "tools/build_c2_resource_amount_natural_candidates.py",
+  "source_inputs": [
+    "refs/eb-decompile-4ef92/enemy_configuration_table.yml",
+    "refs/eb-decompile-4ef92/enemy_groups.yml",
+    "refs/eb-decompile-4ef92/map_enemy_groups.yml",
+    "refs/eb-decompile-4ef92/map_enemy_placement.yml",
+    "manifests/battle-action-row-crosswalk.json",
+    "notes/psi-magnet-drain-amount.md",
+    "notes/c2-late-stat-resource-runtime-polish.md"
+  ],
+  "action_rows": {
+    "54": {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount"
+    },
+    "95": {
+      "lane": "pp_reduction_loss_only",
+      "routine": "C2:8E42",
+      "expected_contract": "target PP decreases without active-row PP recovery"
+    }
+  },
+  "summary": {
+    "candidate_count": 12,
+    "lanes": {
+      "pp_reduction_loss_only": 3,
+      "psi_magnet_transfer": 9
+    },
+    "top_candidates": [
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 38,
+        "enemy_name": "Gigantic Ant",
+        "action_row": 54,
+        "action_slot": "Action 1",
+        "enemy_pp": 81,
+        "probe_rank": 11
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 137,
+        "enemy_name": "Evil Mani-Mani",
+        "action_row": 54,
+        "action_slot": "Action 1",
+        "enemy_pp": 88,
+        "probe_rank": 11
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 67,
+        "enemy_name": "Starman",
+        "action_row": 54,
+        "action_slot": "Action 3",
+        "enemy_pp": 155,
+        "probe_rank": 10
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 9,
+        "enemy_name": "Mobile Sprout",
+        "action_row": 54,
+        "action_slot": "Action 2",
+        "enemy_pp": 9,
+        "probe_rank": 9
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 10,
+        "enemy_name": "Tough Mobile Sprout",
+        "action_row": 54,
+        "action_slot": "Action 3",
+        "enemy_pp": 13,
+        "probe_rank": 9
+      },
+      {
+        "lane": "pp_reduction_loss_only",
+        "enemy_id": 73,
+        "enemy_name": "Guardian General",
+        "action_row": 95,
+        "action_slot": "Action 2",
+        "enemy_pp": 6,
+        "probe_rank": 8
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 37,
+        "enemy_name": "Titanic Ant",
+        "action_row": 54,
+        "action_slot": "Action 4",
+        "enemy_pp": 102,
+        "probe_rank": 8
+      },
+      {
+        "lane": "psi_magnet_transfer",
+        "enemy_id": 82,
+        "enemy_name": "Hostile Elder Oak",
+        "action_row": 54,
+        "action_slot": "Action 4",
+        "enemy_pp": 76,
+        "probe_rank": 8
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 1",
+      "action_slot_index": 1,
+      "action_argument": 45,
+      "enemy_id": 38,
+      "enemy_name": "Gigantic Ant",
+      "enemy_hp": 308,
+      "enemy_pp": 81,
+      "enemy_speed": 17,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 249,
+          "amount": 1,
+          "background_1": 139,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 250,
+          "amount": 2,
+          "background_1": 138,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 251,
+          "amount": 1,
+          "background_1": 139,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 261,
+          "amount": 1,
+          "background_1": 137,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 265,
+          "amount": 1,
+          "background_1": 138,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 5,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 122,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 123,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 125,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 2,
+          "subgroup_rate": 95,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 127,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 125,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 95,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 127,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 123,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 125,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 95,
+          "event_flag": "282"
+        }
+      ],
+      "map_group_ref_count": 10,
+      "placement_sector_samples": [
+        10482,
+        10484,
+        10487,
+        10490,
+        10491,
+        10989,
+        11006,
+        11493,
+        11507,
+        11514,
+        11641,
+        11642,
+        11758,
+        11768,
+        12020,
+        12148
+      ],
+      "placement_sector_count": 22,
+      "probe_rank": 11,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 1",
+      "action_slot_index": 1,
+      "action_argument": 45,
+      "enemy_id": 137,
+      "enemy_name": "Evil Mani-Mani",
+      "enemy_hp": 860,
+      "enemy_pp": 88,
+      "enemy_speed": 15,
+      "enemy_action_order": 3,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 461,
+          "amount": 1,
+          "background_1": 302,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 1,
+      "map_group_refs": [],
+      "map_group_ref_count": 0,
+      "placement_sector_samples": [],
+      "placement_sector_count": 0,
+      "probe_rank": 11,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 3",
+      "action_slot_index": 3,
+      "action_argument": 45,
+      "enemy_id": 67,
+      "enemy_name": "Starman",
+      "enemy_hp": 545,
+      "enemy_pp": 155,
+      "enemy_speed": 24,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 344,
+          "amount": 1,
+          "background_1": 283,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 346,
+          "amount": 1,
+          "background_1": 283,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 348,
+          "amount": 1,
+          "background_1": 151,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 350,
+          "amount": 1,
+          "background_1": 271,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 352,
+          "amount": 1,
+          "background_1": 324,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 353,
+          "amount": 1,
+          "background_1": 324,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 354,
+          "amount": 2,
+          "background_1": 271,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 355,
+          "amount": 1,
+          "background_1": 243,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 14,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 162,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 3,
+          "subgroup_rate": 24,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 163,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 1,
+          "subgroup_rate": 40,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 163,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 5,
+          "subgroup_rate": 40,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 164,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 32,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 164,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 1,
+          "subgroup_rate": 32,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 165,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 60,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 165,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 60,
+          "event_flag": "126"
+        },
+        {
+          "map_enemy_group": 165,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 60,
+          "event_flag": "126"
+        }
+      ],
+      "map_group_ref_count": 13,
+      "placement_sector_samples": [
+        7398,
+        7399,
+        7401,
+        7522,
+        7524,
+        7782,
+        7784,
+        7905,
+        7909,
+        7914,
+        7915,
+        8035,
+        8942,
+        8943,
+        9851,
+        9852
+      ],
+      "placement_sector_count": 46,
+      "probe_rank": 10,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 2",
+      "action_slot_index": 2,
+      "action_argument": 45,
+      "enemy_id": 9,
+      "enemy_name": "Mobile Sprout",
+      "enemy_hp": 79,
+      "enemy_pp": 9,
+      "enemy_speed": 6,
+      "enemy_action_order": 1,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 41,
+          "amount": 1,
+          "background_1": 9,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 43,
+          "amount": 1,
+          "background_1": 11,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 44,
+          "amount": 2,
+          "background_1": 11,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 45,
+          "amount": 2,
+          "background_1": 21,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 46,
+          "amount": 2,
+          "background_1": 21,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 47,
+          "amount": 3,
+          "background_1": 21,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 51,
+          "amount": 1,
+          "background_1": 20,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 413,
+          "amount": 1,
+          "background_1": 212,
+          "background_2": 213
+        }
+      ],
+      "enemy_group_count": 10,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 21,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 12,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 22,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 4,
+          "subgroup_rate": 20,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 26,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 3,
+          "subgroup_rate": 16,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 27,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 2,
+          "subgroup_rate": 12,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 29,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 30,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 16,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 27,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 12,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 29,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        }
+      ],
+      "map_group_ref_count": 19,
+      "placement_sector_samples": [
+        2000,
+        2001,
+        2130,
+        2132,
+        2136,
+        2253,
+        2261,
+        2264,
+        2379,
+        2390,
+        2506,
+        2511,
+        2514,
+        2516,
+        2633,
+        2644
+      ],
+      "placement_sector_count": 68,
+      "probe_rank": 9,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 3",
+      "action_slot_index": 3,
+      "action_argument": 45,
+      "enemy_id": 10,
+      "enemy_name": "Tough Mobile Sprout",
+      "enemy_hp": 179,
+      "enemy_pp": 13,
+      "enemy_speed": 18,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 106,
+          "amount": 2,
+          "background_1": 21,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 107,
+          "amount": 3,
+          "background_1": 21,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 108,
+          "amount": 1,
+          "background_1": 9,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 236,
+          "amount": 2,
+          "background_1": 134,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 237,
+          "amount": 1,
+          "background_1": 134,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 239,
+          "amount": 2,
+          "background_1": 135,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 240,
+          "amount": 2,
+          "background_1": 133,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 241,
+          "amount": 2,
+          "background_1": 135,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 14,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 51,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 1,
+          "subgroup_rate": 100,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 51,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 100,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 51,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 3,
+          "subgroup_rate": 100,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 115,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 8,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 115,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 1,
+          "subgroup_rate": 8,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 115,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 3,
+          "subgroup_rate": 8,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 116,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 1,
+          "subgroup_rate": 100,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 116,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 1,
+          "subgroup_rate": 100,
+          "event_flag": "0"
+        }
+      ],
+      "map_group_ref_count": 15,
+      "placement_sector_samples": [
+        4462,
+        4463,
+        4593,
+        10225,
+        10227,
+        10230,
+        10737,
+        10739,
+        10740,
+        10742,
+        10883,
+        11268,
+        11271,
+        11274,
+        11276,
+        11745
+      ],
+      "placement_sector_count": 33,
+      "probe_rank": 9,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "pp_reduction_loss_only",
+      "routine": "C2:8E42",
+      "action_row": 95,
+      "action_slot": "Action 2",
+      "action_slot_index": 2,
+      "action_argument": 0,
+      "enemy_id": 73,
+      "enemy_name": "Guardian General",
+      "enemy_hp": 831,
+      "enemy_pp": 6,
+      "enemy_speed": 21,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases without active-row PP recovery",
+      "enemy_groups": [
+        {
+          "enemy_group": 468,
+          "amount": 1,
+          "background_1": 208,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 1,
+      "map_group_refs": [],
+      "map_group_ref_count": 0,
+      "placement_sector_samples": [],
+      "placement_sector_count": 0,
+      "probe_rank": 8,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 4",
+      "action_slot_index": 4,
+      "action_argument": 45,
+      "enemy_id": 37,
+      "enemy_name": "Titanic Ant",
+      "enemy_hp": 235,
+      "enemy_pp": 102,
+      "enemy_speed": 6,
+      "enemy_action_order": 1,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 450,
+          "amount": 1,
+          "background_1": 170,
+          "background_2": 169
+        }
+      ],
+      "enemy_group_count": 1,
+      "map_group_refs": [],
+      "map_group_ref_count": 0,
+      "placement_sector_samples": [],
+      "placement_sector_count": 0,
+      "probe_rank": 8,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 4",
+      "action_slot_index": 4,
+      "action_argument": 45,
+      "enemy_id": 82,
+      "enemy_name": "Hostile Elder Oak",
+      "enemy_hp": 609,
+      "enemy_pp": 76,
+      "enemy_speed": 14,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 154,
+          "amount": 1,
+          "background_1": 57,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 159,
+          "amount": 1,
+          "background_1": 57,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 169,
+          "amount": 1,
+          "background_1": 59,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 3,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 68,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 18,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 74,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 7,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 74,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 2,
+          "subgroup_rate": 7,
+          "event_flag": "0"
+        }
+      ],
+      "map_group_ref_count": 3,
+      "placement_sector_samples": [
+        14408,
+        14535,
+        14536,
+        14537,
+        14538,
+        14663,
+        14665,
+        14791,
+        14923,
+        15051,
+        15303,
+        15313,
+        15431,
+        15572,
+        15687,
+        15700
+      ],
+      "placement_sector_count": 16,
+      "probe_rank": 8,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 4",
+      "action_slot_index": 4,
+      "action_argument": 45,
+      "enemy_id": 98,
+      "enemy_name": "Foppy",
+      "enemy_hp": 120,
+      "enemy_pp": 10,
+      "enemy_speed": 1,
+      "enemy_action_order": 1,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 223,
+          "amount": 1,
+          "background_1": 274,
+          "background_2": 275
+        },
+        {
+          "enemy_group": 224,
+          "amount": 2,
+          "background_1": 274,
+          "background_2": 275
+        },
+        {
+          "enemy_group": 225,
+          "amount": 3,
+          "background_1": 274,
+          "background_2": 275
+        },
+        {
+          "enemy_group": 226,
+          "amount": 4,
+          "background_1": 276,
+          "background_2": 277
+        },
+        {
+          "enemy_group": 227,
+          "amount": 6,
+          "background_1": 276,
+          "background_2": 277
+        }
+      ],
+      "enemy_group_count": 5,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 109,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 75,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 110,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 40,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 109,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 75,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 112,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 4,
+          "subgroup_rate": 60,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 109,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 4,
+          "subgroup_rate": 75,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 110,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 40,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 110,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 4,
+          "subgroup_rate": 40,
+          "event_flag": "71"
+        }
+      ],
+      "map_group_ref_count": 7,
+      "placement_sector_samples": [
+        10933,
+        10934,
+        11306,
+        11307,
+        11434,
+        11436,
+        11444,
+        11445,
+        11446,
+        11558,
+        11699
+      ],
+      "placement_sector_count": 11,
+      "probe_rank": 8,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "psi_magnet_transfer",
+      "routine": "C2:9F5E",
+      "action_row": 54,
+      "action_slot": "Action 4",
+      "action_slot_index": 4,
+      "action_argument": 45,
+      "enemy_id": 99,
+      "enemy_name": "Fobby",
+      "enemy_hp": 240,
+      "enemy_pp": 19,
+      "enemy_speed": 5,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases and active row recovers the same capped amount",
+      "enemy_groups": [
+        {
+          "enemy_group": 177,
+          "amount": 0,
+          "background_1": 323,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 369,
+          "amount": 4,
+          "background_1": 290,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 370,
+          "amount": 6,
+          "background_1": 291,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 371,
+          "amount": 1,
+          "background_1": 289,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 372,
+          "amount": 4,
+          "background_1": 312,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 373,
+          "amount": 1,
+          "background_1": 100,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 374,
+          "amount": 4,
+          "background_1": 312,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 375,
+          "amount": 1,
+          "background_1": 102,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 11,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 80,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 3,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 81,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 50,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 171,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 3,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 171,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 171,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 172,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 6,
+          "subgroup_rate": 75,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 172,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 75,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 173,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 6,
+          "subgroup_rate": 60,
+          "event_flag": "0"
+        }
+      ],
+      "map_group_ref_count": 12,
+      "placement_sector_samples": [
+        315,
+        441,
+        567,
+        693,
+        699,
+        702,
+        818,
+        947,
+        954,
+        958,
+        1076,
+        1079,
+        1214,
+        1330,
+        1335,
+        1842
+      ],
+      "placement_sector_count": 31,
+      "probe_rank": 8,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "pp_reduction_loss_only",
+      "routine": "C2:8E42",
+      "action_row": 95,
+      "action_slot": "Action 3",
+      "action_slot_index": 3,
+      "action_argument": 0,
+      "enemy_id": 88,
+      "enemy_name": "Mad Duck",
+      "enemy_hp": 51,
+      "enemy_pp": 0,
+      "enemy_speed": 30,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases without active-row PP recovery",
+      "enemy_groups": [
+        {
+          "enemy_group": 103,
+          "amount": 1,
+          "background_1": 33,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 254,
+          "amount": 1,
+          "background_1": 137,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 255,
+          "amount": 3,
+          "background_1": 139,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 256,
+          "amount": 1,
+          "background_1": 136,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 257,
+          "amount": 2,
+          "background_1": 136,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 258,
+          "amount": 3,
+          "background_1": 136,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 259,
+          "amount": 2,
+          "background_1": 138,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 260,
+          "amount": 1,
+          "background_1": 138,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 11,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 50,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 6,
+          "subgroup_rate": 8,
+          "event_flag": "0"
+        },
+        {
+          "map_enemy_group": 121,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 1,
+          "subgroup_rate": 25,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 124,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 70,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 120,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 30,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 121,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 25,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 124,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 3,
+          "subgroup_rate": 70,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 124,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 70,
+          "event_flag": "282"
+        },
+        {
+          "map_enemy_group": 125,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 95,
+          "event_flag": "282"
+        }
+      ],
+      "map_group_ref_count": 10,
+      "placement_sector_samples": [
+        10721,
+        10722,
+        10723,
+        10726,
+        10989,
+        11493,
+        11507,
+        11758,
+        12022,
+        12286,
+        12525,
+        12663,
+        12794,
+        12795,
+        12799,
+        13037
+      ],
+      "placement_sector_count": 26,
+      "probe_rank": 6,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    },
+    {
+      "lane": "pp_reduction_loss_only",
+      "routine": "C2:8E42",
+      "action_row": 95,
+      "action_slot": "Action 4",
+      "action_slot_index": 4,
+      "action_argument": 0,
+      "enemy_id": 3,
+      "enemy_name": "Armored Frog",
+      "enemy_hp": 202,
+      "enemy_pp": 0,
+      "enemy_speed": 7,
+      "enemy_action_order": 0,
+      "battle_action_direction": "party",
+      "battle_action_target": "one",
+      "expected_contract": "target PP decreases without active-row PP recovery",
+      "enemy_groups": [
+        {
+          "enemy_group": 80,
+          "amount": 1,
+          "background_1": 32,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 81,
+          "amount": 1,
+          "background_1": 32,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 82,
+          "amount": 1,
+          "background_1": 32,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 84,
+          "amount": 1,
+          "background_1": 30,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 85,
+          "amount": 1,
+          "background_1": 316,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 86,
+          "amount": 2,
+          "background_1": 30,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 88,
+          "amount": 1,
+          "background_1": 316,
+          "background_2": 0
+        },
+        {
+          "enemy_group": 91,
+          "amount": 1,
+          "background_1": 32,
+          "background_2": 0
+        }
+      ],
+      "enemy_group_count": 14,
+      "map_group_refs": [
+        {
+          "map_enemy_group": 46,
+          "subgroup": "Sub-Group 1",
+          "entry": 3,
+          "probability": 5,
+          "subgroup_rate": 15,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 47,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 3,
+          "subgroup_rate": 15,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 46,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 1,
+          "subgroup_rate": 15,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 47,
+          "subgroup": "Sub-Group 1",
+          "entry": 2,
+          "probability": 2,
+          "subgroup_rate": 15,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 48,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 2,
+          "subgroup_rate": 40,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 45,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 5,
+          "subgroup_rate": 20,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 45,
+          "subgroup": "Sub-Group 1",
+          "entry": 1,
+          "probability": 3,
+          "subgroup_rate": 20,
+          "event_flag": "71"
+        },
+        {
+          "map_enemy_group": 48,
+          "subgroup": "Sub-Group 1",
+          "entry": 0,
+          "probability": 2,
+          "subgroup_rate": 40,
+          "event_flag": "71"
+        }
+      ],
+      "map_group_ref_count": 17,
+      "placement_sector_samples": [
+        1255,
+        1512,
+        2152,
+        2535,
+        2791,
+        2920,
+        3304,
+        3432,
+        3561,
+        3943,
+        4072,
+        4198
+      ],
+      "placement_sector_count": 12,
+      "probe_rank": 5,
+      "promotion_gate": "natural unpatched trace with nonzero target PP and post-call PP deltas"
+    }
+  ]
+}

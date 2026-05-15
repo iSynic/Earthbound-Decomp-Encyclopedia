@@ -3,7 +3,13 @@
 ; Source-emission status:
 ; - Prototype level: build-candidate
 ; - Assembler contract: pilot-ready
-; - Assembler-ready pilot; not yet linked into a full assembler ROM build.
+; - Assembler-ready pilot; linked into the durable C3 byte-equivalence scaffold
+;   through a generated `.bytes.asar.asm` companion, but not yet part of a
+;   monolithic source ROM build.
+; - Derived from notes/c3-source-emission-plan.md and the source contracts linked
+;   below.
+; - Build-candidate conventions are documented in
+;   notes/c3-build-candidate-source-conventions.md.
 ; - Generated from a state-aware linear ROM decode, then hand-polished to
 ;   name the file-select/intro transition argument, entity-script wait latch,
 ;   screen setup calls, and adjacent C3:F2B1..F3C5 data dependency.
@@ -15,6 +21,10 @@
 ;
 ; Source units covered:
 ; - C3:F3C5..C3:F5F9 RunFileSelectVisualTransition
+;
+; Evidence:
+; - notes/c3-source-emission-plan.md
+; - notes/c3-battle-visual-data-and-file-select-transition-split.md
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module

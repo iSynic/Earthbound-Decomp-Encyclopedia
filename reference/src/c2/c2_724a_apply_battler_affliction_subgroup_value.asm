@@ -19,6 +19,12 @@
 ; - Reads the target slot at `row + X + 0x1D`; writes Y only when the slot is
 ;   clear or currently contains a weaker/lower value than Y.
 ; - Returns `1` on write and `0` on blocked/no-upgrade.
+; - Natural Dread Scorpion poison evidence reaches this writer without
+;   `C2:9917`, captures `X=0/Y=5`, post-return `A=1`, and selected-row slot
+;   `+0x1D` changing `0 -> 5`.
+; - Natural Mighty Bear Seven Flash evidence reaches it from
+;   `C2:98A1 -> C2:9917` with `X=0/Y=3`, captures post-return `A=1`, and
+;   changes selected-row slot `+0x1D` from `0 -> 3`.
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module

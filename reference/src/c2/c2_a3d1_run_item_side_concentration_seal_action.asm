@@ -171,7 +171,8 @@ C2A49E_RunItemSideConcentrationSealAction_LA49E:
     lsr A
     tay
     sty $16
-    ; HP-sucker path transfers a fraction of target HP back to the user.
+    ; Natural HP-Sucker trace reaches C2:8125 and EF:75AB with this drained
+    ; amount before the same value is added back to the user's HP target.
     tyx
     lda $A972
     jsr C271F0_ReduceBattlerHpTarget

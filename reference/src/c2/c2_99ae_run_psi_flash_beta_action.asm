@@ -12,7 +12,7 @@
 ; - Flash Beta tier wrapper.
 ; - Gates through `C2:7CFD`, then the shared Flash gate `C2:98A1`.
 ; - Samples `C0:8E9A & 7`; `0` enters collapse startup, `1` attempts
-;   numb/paralysis, `2` attempts strange, and `3..7` attempt crying.
+;   body-numb, `2` attempts strange, and `3..7` attempt crying.
 ; - Finishes through shared PSI cleanup `C2:94CE`.
 
 ; ---------------------------------------------------------------------------

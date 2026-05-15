@@ -115,6 +115,36 @@ This slice gives the late action table a concrete status layout:
 - `+0x20` has direct and resist-checked strange anchors
 - shared no-effect handling through `EF:766E` is explicit across the cluster
 
+## Phase 2 Caller Matrix Slice
+
+This note owns the late-status portion of the Phase 2 `C2:724A` trace oracle.
+Each row should be captured as caller, selected row source, `X` subgroup slot,
+`Y` value, chance/resistance gate, and EF text result.
+
+Current locally pinned rows:
+
+| Lane | Caller | X slot | Y | Gate before writer | EF text result |
+| --- | --- | --- | --- | --- | --- |
+| persistent status | `C2:8BBE` | `1 -> +0x1E` | `1` | default target blocker | `EF:6B81` / `EF:766E` |
+| persistent status | `C2:8BFD` | `1 -> +0x1E` | `2` | default target blocker plus row `+0x0E` check | `EF:6B98` / `EF:766E` |
+| asleep PSI status | `C2:9F06` | `2 -> +0x1F` | `1` | selected-row `+0x3C` through `C2:6BB8` | `EF:6C55` / `EF:766E` |
+| crying status | `C2:8C69` | `2 -> +0x1F` | `2` | selected-row `+0x39` through `C2:6BB8` | `EF:6BBB` / `EF:766E` |
+| immobilized status | `C2:8CB8` | `2 -> +0x1F` | `3` | default target blocker | `EF:6BD3` / `EF:766E` |
+| solidification | `C2:8CF1` | `2 -> +0x1F` | `4` | `C2:7C96` threshold gate | `EF:6BEF` / `EF:766E` |
+| strange PSI status | `C2:A056` | `3 -> +0x20` | `1` | selected-row `+0x3B` through `C2:6BB8` | `EF:6C3A` / `EF:766E` |
+| paralysis PSI status | `C2:9FFE` | `0 -> +0x1D` | `3` | selected-row `+0x37` through `C2:6BB8` | `EF:6AE0` / `EF:766E` |
+
+The resist-checked PSI status trio is the trace priority inside this slice:
+`C2:9F06`, `C2:9FFE`, and `C2:A056` look like one host-gate shape with distinct
+payload outcomes. That grouping is locally plausible from the gate/helper/text
+shape, while any stronger C-port-facing name should wait for traces that record
+the selected row source and gate result for each caller.
+
+Item-side statuses and concentration seal stay linked to this lane through the
+shared affliction/status contract, but their focused runtime notes own the
+item-side selected-row provenance. In particular, concentration seal writes
+`+0x21 = 4` directly and is not a `724A` caller.
+
 ## Remaining Soft Spots
 
 - final user-facing names for subgroup `+0x1E` values should stay tied to

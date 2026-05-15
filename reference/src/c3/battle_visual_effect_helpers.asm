@@ -3,8 +3,9 @@
 ; Source-emission status:
 ; - Prototype level: build-candidate
 ; - Assembler contract: pilot-ready
-; - Assembler-ready pilot with segmented source/data coverage; not yet linked
-;   into a full assembler ROM build.
+; - Assembler-ready pilot with segmented source/data coverage; linked into the
+;   durable C3 byte-equivalence scaffold through a generated `.bytes.asar.asm`
+;   companion, but not yet part of a monolithic source ROM build.
 ; - Derived from notes/c3-source-emission-plan.md and the source contracts linked
 ;   below.
 ; - Build-candidate conventions are documented in

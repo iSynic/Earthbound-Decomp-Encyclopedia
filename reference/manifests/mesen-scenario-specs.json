@@ -1,0 +1,73 @@
+{
+  "schema": "earthbound-decomp.mesen-scenario-spec-index.v1",
+  "status": "scenario_specs_generated_local_paths_ignored",
+  "generated_by": "tools/build_mesen_scenario_specs.py",
+  "source_inputs": [
+    "manifests/mesen-srm-anchor-catalog.json"
+  ],
+  "summary": {
+    "scenario_count": 2,
+    "evidence_tiers": [
+      "vanilla_save_state",
+      "vanilla_srm_plus_input"
+    ],
+    "source_promotion_allowed": false
+  },
+  "scenarios": [
+    {
+      "schema": "earthbound-decomp.mesen-scenario-spec.v1",
+      "scenario_id": "mss-large-pizza-party-heal-c2-smoke",
+      "title": "Vanilla save-state Large Pizza party heal smoke",
+      "evidence_tier": "vanilla_save_state",
+      "oracle_id": "hp_roller_collapse_boundary",
+      "start": {
+        "type": "load_state",
+        "state_basename": "EarthBound (USA)_5.mss",
+        "state_sha256": "239155e944acc4e13f7b0cb045d4b28872140a84b1a419c3ebdca03ffa697a23"
+      },
+      "input_pattern": "neutral:900",
+      "frame_limit": 1000,
+      "watched_routines": [
+        "C2:8125",
+        "C2:BB18",
+        "C1:DC1C",
+        "C1:DC66"
+      ],
+      "output_dir": "build/mesen-scenarios/runs/mss-large-pizza-party-heal-c2-smoke",
+      "expected_use": "Smoke existing vanilla multi-target heal and HP roller capture.",
+      "source_promotion_allowed": false,
+      "runnable_spec_path": "build/mesen-scenarios/specs/mss-large-pizza-party-heal-c2-smoke.json"
+    },
+    {
+      "schema": "earthbound-decomp.mesen-scenario-spec.v1",
+      "scenario_id": "srm-stonehenge-base-resource-scout",
+      "title": "SRM Stonehenge Base resource scout",
+      "evidence_tier": "vanilla_srm_plus_input",
+      "bootstrap_status": "launch_smoke_only_post_resume_pending",
+      "bootstrap_input_pattern": "not_implemented",
+      "bootstrap_frame_count": 0,
+      "post_resume_snapshot_required": true,
+      "resume_proof_status": "not_proven",
+      "oracle_id": "resource_amount_pair_magnet_vs_pp_loss",
+      "start": {
+        "type": "load_srm_anchor",
+        "anchor_id": "31-StonehBase",
+        "archive_name": "earthbsave31-StonehBase.zip",
+        "srm_sha256": "d391fa0d8cb38865926b78e01627b6d40ebe1b184f2d99261aa70aafc4a5e90e"
+      },
+      "input_pattern": "neutral:600",
+      "frame_limit": 720,
+      "watched_routines": [
+        "C2:9F5E",
+        "C2:8E42",
+        "C2:721D",
+        "C2:7191"
+      ],
+      "output_dir": "build/mesen-scenarios/runs/srm-stonehenge-base-resource-scout",
+      "expected_use": "Smoke SRM-anchor ROM/SRM pairing before adding title-menu Continue/load bootstrap inputs.",
+      "next_step": "Add a fixed resume bootstrap that proves the SRM anchor was loaded before treating this lane as vanilla_srm_plus_input evidence.",
+      "source_promotion_allowed": false,
+      "runnable_spec_path": "build/mesen-scenarios/specs/srm-stonehenge-base-resource-scout.json"
+    }
+  ]
+}

@@ -64,7 +64,7 @@ macros.
   paralysis/status payload split.
 - `EF:6AE0`, `EF:6B18`, `EF:6BEF`, `EF:6C3A`, and `EF:6C55` now mark
   paralysis, poison, solidification, strange, and asleep `StatusResultText`
-  anchors. The EF decode shows `EF:6AE0` as the body-numb/paralysis message
+  anchors. The EF decode shows `EF:6AE0` as the body-numb message
   used by `BTLACT_PARALYSIS_A`, while actual poison remains the separate
   `EF:6B18` script used by the item/status cluster.
 - `EF:6AFB..6C0B` is now split around the adjacent sick/cold/mushroomized,
@@ -190,7 +190,7 @@ macros.
 
 The EF decode corrected one local C2 naming drift: `C2:9FFE` is the
 `BTLACT_PARALYSIS_A` body and its success script at `EF:6AE0` prints the
-body-numb/paralysis result text. The source now names that path as paralysis
+body-numb result text. ebsrc names that path as paralysis
 rather than poison. The actual poison-inflicted text remains the separate
 `EF:6B18` script used by the item/status cluster.
 

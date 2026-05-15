@@ -722,7 +722,8 @@ EF6AC7_EBattle5DiamondizedStatusResultText:
 ; ---------------------------------------------------------------------------
 ; EF:6AE0
 
-; EBATTLE5: paralysis/body-numb status-result text used by BTLACT_PARALYSIS_A.
+; EBATTLE5: body-numb status-result text. ebsrc names the status
+; PARALYZED/SHIBIRE, but the English battle text is numbness-facing.
 EF6AE0_EBattle5ParalysisStatusResultText:
 
 ; ---------------------------------------------------------------------------
@@ -952,7 +953,7 @@ EF6E4A_EBattle5DiamondizedRecoveryResultText:
 ; ---------------------------------------------------------------------------
 ; EF:6E67
 
-; EBATTLE5: paralysis/body-numb recovery direct-result text.
+; EBATTLE5: body-numb recovery direct-result text.
 EF6E67_EBattle5ParalysisRecoveryResultText:
 
 ; ---------------------------------------------------------------------------

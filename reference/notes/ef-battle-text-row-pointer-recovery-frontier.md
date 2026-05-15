@@ -88,6 +88,10 @@ Rows `32..35`, `48`, `49`, `62..94`, `95..98`, `103`, `105..116`,
 and moved into the concrete row-message crosswalk.
 The exact row-backed battle-action label frontier is closed. Continue with
 adjacent status/result islands only when the C1/C2 consumer lane is proved.
+The all-row generated navigation layer is now
+`notes/battle-action-row-crosswalk.md`, which records every D5 row `+4`
+message pointer and row `+8` behavior pointer without promoting source names by
+itself.
 
 | Priority | Rows | Why they matter |
 | ---: | --- | --- |

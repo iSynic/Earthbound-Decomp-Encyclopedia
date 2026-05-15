@@ -909,6 +909,8 @@ C1B3D0_DetermineBattleTargetting_LB3D0:
     tax
     lda $2A
     sta $04
+    ; Natural USE_ITEM route proof: Fresh Egg target confirmation reaches
+    ; this C1:B3DB callsite before C2:B930 exports the battler snapshot.
     jsl C2B930_ExportBattleSelectionSnapshot
     sep #$20
     lda $01
@@ -968,6 +970,7 @@ C1B450_BuildBattleActionTargetChoiceText:
     lda $0000,X
     and.w #$00FF
     ldx $12
+    ; Export the candidate/target snapshot row before item action text setup.
     jsl C2B930_ExportBattleSelectionSnapshot
     lda.w #D57B68_BattleActionTableLo
     sta $0A
@@ -1055,6 +1058,7 @@ C1B501_DetermineBattleTargetting_LB501:
     jmp.w C1B590_DetermineBattleTargetting_LB590
 C1B504_DetermineBattleTargetting_LB504:
     tya
+    ; Export selected target snapshot before second-payload text dispatch.
     jsl C2B930_ExportBattleSelectionSnapshot
     lda $14
     sta $0A

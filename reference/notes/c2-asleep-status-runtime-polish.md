@@ -69,7 +69,7 @@ The same source module also carries the adjacent `C2:9F5E..A04F` tail:
   `C1:DC66`.
 - `C2:9FFE` is the `BTLACT_PARALYSIS_A` body. It writes primary affliction
   byte `+0x1D = 3` and emits `EF:6AE0`, now cross-checked in the EF text
-  payload split as the body-numb/paralysis result text.
+  payload split as the body-numb result text.
 - `C2:A04F` is the far wrapper for that paralysis body.
 
 The earlier local "poison" wording was too broad for this tail. Actual

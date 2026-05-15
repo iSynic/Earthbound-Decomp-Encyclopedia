@@ -7,7 +7,9 @@ before this becomes true human-readable source.
 ## Current Baseline
 
 - First-pass bank notes exist for all `48 / 48` configured banks from `C0`
-  through `EF`.
+  through `EF`; these are now historical inventory notes, not the live semantic
+  work log. The current semantic note package starts at
+  `notes/semantic-notes-package.md` and `notes/phase-2-semantic-status.md`.
 - Byte-equivalent scaffolds exist for all `48 / 48` banks under `src/<bank>/`.
 - Every current bank scaffold is byte-equivalent against the expected ROM:
   `65536` protected bytes, `0` residual bytes, and validation status `OK` for
@@ -25,8 +27,52 @@ before this becomes true human-readable source.
 - `notes/readable-source-bank-closure.md` is the stricter dashboard for the
   completed readable-source closure phase: decoded asm versus preserved
   corridors in the source-heavy banks.
-- `notes/source-readiness-triage.md` is the implementation queue for the next
-  semantic phase.
+- `notes/source-readiness-triage.md` is the generated implementation queue for
+  the next semantic phase.
+- `notes/semantic-notes-package.md` explains how to read the first-pass notes,
+  phase-2 semantic notes, generated dashboards, and ebsrc/community crosswalks.
+- `notes/phase-2-semantic-status.md` is the compact human-written status note
+  for current subsystem understanding and weak zones.
+- `notes/phase-2-semantic-closure-plan.md` is the formal execution roadmap for
+  turning byte-equivalent source and manifests into port-ready behavior
+  contracts.
+- `notes/c2-runtime-proof-promotion-closeout.md` is the compact index for C2
+  runtime evidence that is strong enough to guide source-facing contracts.
+- C-port implementation feedback is now folded back into
+  `notes/c-port-feedback-intake.md`, especially for C1/C2 battle target,
+  payload, affliction, damage, healing, and resource contracts.
+- The C2 battle trace-oracle lane now has Mesen runner plumbing, save-state
+  probes, fixture-ROM steering, a 194-record manual probe matrix, 6
+  trace-observed non-stub results, and 2 proof-grade `refined_contract`
+  promotions. The promoted C2 subcontracts cover
+  the `C2:8125` damage ABI, selected-row HP mutation, C1 amount-text join,
+  HP-to-zero collapse entry, `C2:7550 -> C2:77CA` order, and hard/collapsed row
+  state. Controlled helper-entry probes now cover the optional `C2:7680`
+  descriptor-death-text path and `C2:BC5C` inactive live-slot cleanup snapshot
+  without promoting those as natural damage timing. The controlled resource
+  comparison now separates WRAM-seeded, action-row-steered no-WRAM, seeded
+  natural-table, and startup-only scripted-entry PSI Magnet/PP-reduction
+  evidence. Natural vanilla save-state captures now cover Paula's PSI Magnet
+  against a Stonehenge Mook and Mad Duck's PP-loss action: `notes/psi-magnet-drain-amount.md`
+  records `C2:9F5E -> C2:721D -> C2:7191` for target PP loss/capped caster
+  recovery routing and `C2:8E42 -> C2:721D -> C2:7191` for loss-only PP
+  reduction with no caster-side recovery. The forced-entry `C2:B930`
+  snapshot-export capture is recorded as mechanics evidence, and the natural
+  Fresh Egg Goods Use route now proves the `C1:B3DB -> C2:B930` snapshot-export
+  path. Remaining high-value runtime gaps are narrower: final source-facing
+  promotion/comment polish for the PP lanes, broader optional `C2:B930`
+  item-family coverage, natural paired `C2:724A`/`C2:9917` status-gate review,
+  and optional collapse-tail timing cases.
+- The D5 battle-action table now has a generated all-row crosswalk at
+  `notes/battle-action-row-crosswalk.md`, separating row `+4` presentation text
+  pointers from row `+8` behavior bodies for C1/C2/EF joins without promoting
+  new runtime claims.
+- Ghidra-SNES `v1.0.0-rc1` is installed in the dedicated pilot worktree
+  `F:\EB Decomp WT - Ghidra SNES Pilot` as a bounded visual/decode oracle, not
+  as a source-of-truth label generator. The refreshed import still maps
+  EarthBound as HiROM with `65816:LE:24:snes:default`, but did not materially
+  improve the sampled EarthBound memory blocks, labels, or lane decodes versus
+  `v0.2.0`.
 
 ## What Is Complete
 
@@ -44,8 +90,11 @@ corridors in `notes/readable-source-bank-closure.md`.
 C3's canonical bank scaffold, `src/c3/bank_c3_helpers_asar.asm`, now replaces
 the old opaque event/actionscript corridor with
 `src/c3/bank_c3_event_scripts_source_pilot.asar.asm` and validates
-byte-equivalent over all `11` protected C3 ranges with `0` mismatches in
-`notes/c3-byte-equivalence-validation.md`.
+byte-equivalent over all `12` protected C3 ranges with `0` mismatches in
+`notes/c3-byte-equivalence-validation.md`. The source-pilot corridor now
+includes the C3:0100/C3:0142 anti-piracy and faulty-Game-Pak display helpers as
+supplemental native source, leaving only the surrounding prefix palette/data and
+script-prelude bytes preserved by contract.
 
 The reviewed EB-M2 source-symbol promotion pass has adopted every currently
 ready exact-address, non-`UNKNOWN_*`, role-compatible EB-M2 label. Promoted
@@ -222,9 +271,13 @@ that romhackers need to edit confidently:
    excerpts show `script_var=var4`, `frames=$08`, and named callback fields
    instead of bare byte lists; high-confidence values such as C0 mutation
    operations, `$5D9A`, and signed velocity/delta words are labeled while
-   context-dependent animation/facing literals stay raw. `140` source-form
-   pilots are checked in under `src/c3/event_scripts/` and cover `56518`
-   validated bytes. Recent
+   context-dependent animation/facing literals stay raw. The audit now carries
+   a value-semantics readiness layer that separates runtime-boundary-confirmed
+   direction/`$2B32` movement words from bounded local-unknown visual-state,
+   surface-flag, and pose-descriptor values, with
+   `tools/validate_c3_actionscript_semantics_audit.py` enforcing that contract.
+   `140` source-form pilots are checked in under `src/c3/event_scripts/` and
+   cover `56518` validated bytes. Recent
    additions include Winters battle-BG/Sanctuary display continuations,
    tunnel-ghost teleport routes, photo-scene/window-gfx release paths, early
    turn-bias/visual-countdown halts, traffic-light random-wander paths,
@@ -401,6 +454,16 @@ that romhackers need to edit confidently:
 - `notes/c3-flyover-palette-random-movement-paths-source-pilot.md`
 - `notes/c3-source-pilot-frontier.md`
 - `notes/bank-first-pass-coverage-index.md`
+- `notes/semantic-notes-package.md`
+- `notes/phase-2-semantic-closure-plan.md`
+- `notes/phase-2-semantic-status.md`
+- `notes/c-port-feedback-intake.md`
+- `notes/c2-battle-trace-oracle-plan.md`
+- `notes/c2-battle-trace-oracle-index.md`
+- `notes/c2-battle-trace-oracle-packet.md`
+- `notes/c2-battle-trace-oracle-emulator-handoff.md`
+- `notes/c2-battle-trace-oracle-mesen-runner.md`
+- `notes/c2-battle-trace-oracle-results-summary.md`
 - `notes/data-contracts-c0-c4.md`
 - `notes/reference-first-workflow.md`
 - `notes/earthbound-localization-script-authoring-format.md`

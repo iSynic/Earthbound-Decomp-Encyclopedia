@@ -73,3 +73,47 @@ ROM/SNES addresses to look at in the vanilla routine:
 
 `BTLACT_MAGNET_O` is mostly a wrapper; it calls `BTLACT_MAGNET_A` for each valid
 target, so alpha and omega share the same per-target drain amount.
+
+## Phase 2 Trace-Oracles
+
+PSI Magnet should be treated as a transfer contract, not just PP loss. The
+per-target trace should capture the two `RAND_LIMIT(4)` rolls, the `+2` base,
+the cap against target available PP, the target PP decrease, the user PP
+recovery side, and the amount-bearing battle text.
+
+This is the comparison point for the late PP-reduction action at `C2:8E42`.
+That sibling is loss-only: it should trace amount selection, cap, and PP-loss
+text, but should not inherit Magnet's recovery-side wording unless local source
+evidence proves a transfer.
+
+Current controlled runtime evidence now reaches the middle of that proof lane.
+The `bash-row-psi-magnet-force-reducer` fixture plus the
+`resource-magnet-transfer-pp32` runner profile seeds the selected row with `32`
+PP and the active row with `0/32` PP. The reviewed manual capture observes
+`C2:9F5E -> C2:721D -> C2:7191`: amount payload `5`, selected target PP
+`32 -> 27`, and active row PP `0 -> 5`. This proves the local reducer/recovery
+mechanics under controlled state, but it is still not a natural vanilla PSI
+Magnet promotion because the target PP was seeded by the runner.
+
+The generated comparison note is
+`notes/c2-resource-amount-controlled-comparison.md`.
+
+Natural vanilla evidence now covers the amount-bearing target-loss half of the
+same contract. The Stonehenge Base Mook save-state capture
+`stonehenge-mook-paula-psi-magnet-slot1/resource-neutral` observes Paula's
+queued PSI Magnet with no input after load. The route hits
+`C2:9F5E -> C2:721D -> C2:7191`, carries amount payload `6`, and reduces the
+selected Mook PP target from `0x02BC` to `0x02B6`. The same run calls
+`C2:7191` for Paula with requested PP target `0x00D9`, but Paula's PP is
+already capped at `0x00D3`, so the visible caster-side delta is `0`. This is
+enough to treat natural PSI Magnet as proven for nonzero target PP loss and
+capped caster recovery routing; a non-full caster save remains useful only to
+show a visible positive caster PP delta.
+
+Natural PP-reduction evidence now covers the loss-only comparison. The Desert
+Gold Mine Mad Duck save-state capture `mad-duck-pp-loss-slot1/resource-neutral`
+observes the enemy PP-loss action with no input after load. The route hits
+`C2:8E42 -> C2:721D -> C2:7191`, rolls amount `4`, and reduces the selected
+party row PP target from `0x0043` to `0x003F`. The active enemy row remains
+`0`, and there is no caster-side recovery call after the reducer, which proves
+that row `95` should not inherit PSI Magnet's transfer wording.

@@ -154,6 +154,49 @@ The safest takeaway is:
 - this no longer just clarifies the Flash family; it now locally confirms primary-byte values for diamondized, numbness, nausea, poison, and cold, plus subgroup values for mushroomized, possessed, asleep, crying, could-not-move, solidified, and strange
 - that materially strengthens the battler-affliction field map and the relation between the local row layout and the reference `battler::afflictions` groups
 
+## Phase 2 trace-oracle matrix
+
+The C-port feedback intake keeps this helper in the Phase 2 semantic-closure
+lane, but it should be folded in as a trace oracle rather than as a source-name
+promotion by itself. The useful oracle shape is a caller matrix with these
+columns:
+
+| Column | Meaning |
+| --- | --- |
+| caller | concrete C2 entry or wrapper that reaches `C2:724A` |
+| selected row source | how the target row is selected or staged before the write |
+| X subgroup slot | `X` value and the resulting row byte `+0x1D+X` |
+| Y value | status value offered to the writer |
+| chance/resistance gate | blocker, threshold, damage-side, or resistance gate before the writer |
+| EF text result | success text and no-effect/failure text emitted after the writer |
+
+Representative local rows already backed by notes/source comments:
+
+| Lane | Caller | Selected row source | X slot | Y | Chance/resistance gate | EF text result |
+| --- | --- | --- | --- | --- | --- | --- |
+| Flash body numbness | `C2:9917` | Flash selected target after `C2:98A1` | `0 -> +0x1D` | `3` | Flash gate uses selected-row `+0x39`; tier wrappers choose this branch from their random map | `EF:6AE0` on write, `EF:766E` on no-upgrade |
+| Late asleep PSI status | `C2:9F06` | selected row from late action body/wrapper | `2 -> +0x1F` | `1` | default blocker, then selected-row `+0x3C` through `C2:6BB8` | `EF:6C55` / `EF:766E` |
+| Late paralysis PSI status | `C2:9FFE` | selected row from adjacent late PSI-status tail | `0 -> +0x1D` | `3` | selected-row `+0x37` through `C2:6BB8` | `EF:6AE0` / `EF:766E` |
+| Late strange PSI status | `C2:A056` | selected row from strange wrapper/body | `3 -> +0x20` | `1` | selected-row `+0x3B` through `C2:6BB8` | `EF:6C3A` / `EF:766E` |
+| Enemy solidification | `C2:8CF1` | late status action selected row | `2 -> +0x1F` | `4` | `C2:7C96` / `RollSelectedRowThresholdGate` | `EF:6BEF` / `EF:766E` |
+| Item-side solidification | `C2:A630`, `C2:A82A` | item-side selected row; `A630` follows damage-plus-status setup | `2 -> +0x1F` | `4` | `A630` follows the `A5EC` item damage lane; `A82A` uses `C2:7C96` | `EF:6BEF` / `EF:766E` |
+| Persistent late statuses | `C2:8BBE`, `C2:8BFD` | late action selected row | `1 -> +0x1E` | `1`, `2` | default blocker; `8BFD` also checks row `+0x0E` | `EF:6B81`, `EF:6B98`, or `EF:766E` |
+
+Diary-only pressure should stay marked as trace candidates until local traces
+pin the row source and gate order. The key candidates are:
+
+- solidification as the lowest-noise repeated `X = 2`, `Y = 4` lane across
+  enemy-side and item-side callers
+- late status payloads as a compact coverage set for `+0x1E/+0x1F/+0x20`
+- Flash body numbness as the small Flash-family `X = 0`, `Y = 3` oracle
+- item-side statuses, especially the A89D cluster, as selected-row/action-table
+  trace candidates before broad item names are promoted
+- concentration seal as an adjacent status-writer lane, but not a `724A` row:
+  local evidence has `C2:8D5A/A3D1` directly writing `+0x21 = 4` and emitting
+  `EF:6C0B`
+- the resist-checked PSI status trio (`C2:9F06`, `C2:9FFE`, `C2:A056`) as one
+  host-gate shape candidate with distinct payload rows
+
 ## Source-vocabulary update
 
 The C2 source now names `C2:724A` as
@@ -175,5 +218,6 @@ slot write being performed.
 
 ## Best next target
 
-The best next move is to map more `724A` callers so the remaining subgroup values can be named from local behavior, especially the callers that use `X = 1`, `2`, or `3` outside the current battle-heavy clusters.
-
+The best next move is to turn the Phase 2 matrix above into traces: for each
+caller, capture the selected row source, `X/Y`, chance or resistance gate,
+writer return, and EF result text before promoting any diary-only lane detail.

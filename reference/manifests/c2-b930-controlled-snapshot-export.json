@@ -1,0 +1,82 @@
+{
+  "schema": "earthbound-decomp.c2-b930-controlled-snapshot-export.v1",
+  "generated_by": "tools/build_c2_b930_controlled_snapshot_export.py",
+  "input": "build/c2/battle-trace-oracles/c1_c2_target_action_staging/result.json",
+  "status": "result_loaded",
+  "policy": {
+    "forced_entry_fixture_only": true,
+    "natural_c1_route_proven_in_this_result": false,
+    "source_promotion_allowed": false,
+    "behavior_change_allowed": false
+  },
+  "summary": {
+    "controlled_snapshot_export_observed": true,
+    "source_fields_exported_to_destination": true,
+    "source_slot_base": "0x0099CE",
+    "destination_base": "0x009FFA",
+    "return_address": "C1:ADC3",
+    "natural_c1_route_proven_in_this_result": false,
+    "source_promotion_allowed": false,
+    "behavior_change_allowed": false
+  },
+  "evidence": {
+    "oracle_id": "c1_c2_target_action_staging",
+    "result_status": "ok",
+    "contract_classification": "needs_followup",
+    "observed_addresses": [
+      "C1:ADB4",
+      "C2:B930"
+    ],
+    "promotion_allowed_by_result": false,
+    "behavior_change_allowed": false,
+    "trace_id": "F:/Earthbound Decomp - Codex/build/c2/battle-trace-oracles/c1_c2_target_action_staging/raw-trace.jsonl sha256:2e76c01d15edd6dd812f3a26bdcb2726d24f5ecf53bc609584a442b959a8abfa",
+    "rom_sha1": "fa2a443fc33933111c3c1c522584c8fe902188b8",
+    "save_state_id": "EarthBound (USA)_3.mss sha256:26cd24f40f17a8aa720b9421026a2ee74dfb30922400a6a747a867be883d35fe",
+    "classification_evidence": "Forced-entry fixture ROM rewrites C1:ADB4 to call C2:B930 with A=1 and X/Y=$9FFA. The trace proves C2:B930 copies the $99CE source slot into the $9FFA snapshot row and captures the post-return destination row. It is mechanics evidence only; the vanilla C1 target resolver route still needs a natural pre-export capture."
+  },
+  "snapshot_export": {
+    "input_action_id": "forced_c1_adb4_slot_1_snapshot_export",
+    "routine_label": "C2B930_ExportBattleSelectionSnapshot",
+    "pc": "C2:B930",
+    "return_address": "C1:ADC3",
+    "registers": {
+      "a": "0x000001",
+      "x": "0x009FFA",
+      "y": "0x009FFA",
+      "db": "0x00007E",
+      "dp": "0x001E4D"
+    },
+    "source_slot": {
+      "base": "0x0099CE",
+      "byte_count": 95,
+      "row_hex": "7E 95 A3 A3 00 38 16 D3 0F 00 C2 01 9B 00 00 00 00 00 00 00 00 9C 91 18 29 37 1E 1F 66 1E 18 29 23 1E 1D B1 C4 B5 61 61 62 3C 61 61 16 45 53 B9 9F 0A 07 0B 0C 00 00 00 00 00 00 18 00 8C 00 00 00 00 00 00 00 C2 01 C2 01 00 00 9B 00 9B 00 00 04 01 00 00 03 00 00 00 00 00 02 00 FF FF 00"
+    },
+    "destination_slot": {
+      "base": "0x009FFA",
+      "x_base": "0x009FFA",
+      "x_domain": "battle_selection_snapshot",
+      "y_base": "0x009FFA",
+      "y_domain": "battle_selection_snapshot",
+      "before_byte_count": 78,
+      "after_byte_count": 78,
+      "before_hex": "02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 AA 00 AA 00 AC 00 B9 00 B9 00 B9 00 06 00 00 00 00 00 00 00 00 6C 00 77 00 38 00 1A 00 2F 00 0B 25 6C 77 38 1A 2F 00 FF FF FF 00 FF 00 00 00 00 00 00 00 00 00 25 00 00 00 00 00 00 00",
+      "after_hex": "01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 C2 01 C2 01 C2 01 9B 00 9B 00 9B 00 00 00 00 00 00 00 00 00 00 9C 00 91 00 18 00 29 00 37 00 1E 1F 9C 91 18 29 37 FF FF 00 FF 00 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+    },
+    "observed_target_byte": {
+      "c1_entry_dp00": "0x7E",
+      "exported_row_plus_0": "0x01",
+      "forced_fixture_limit": "C1:ADB4 was patched to call C2:B930 directly."
+    },
+    "selection_record_plus_0": {
+      "byte": "0x01",
+      "offset": "+0x00",
+      "word": "0x0001"
+    }
+  },
+  "controlled_result_limits": [
+    "This forced-entry result still proves only the `$99CE -> destination` copy/derive mechanics.",
+    "Natural Fresh Egg Goods Use evidence now separately proves one unpatched `C1:B3DB -> C2:B930` route.",
+    "Battle Goods `C1:CE85 -> C1:ADB4 -> C2:BAC5` traces remain neighbor routes, not snapshot-export proof.",
+    "Additional item or target families are optional broadening rather than blockers for the first natural route."
+  ]
+}

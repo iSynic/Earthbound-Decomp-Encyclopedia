@@ -20,7 +20,24 @@ Generated from `notes/c3-source-data-map.md` via `tools/build_c3_actionscript_se
 - callback semantic groups: `{'current-slot-state': 13, 'movement': 12, 'visual-profile': 10, 'timed-delivery': 9, 'overworld-runtime': 7, 'presentation-render': 7, 'text-presentation': 5, 'neighbor-cache': 5, 'collision': 5, 'proximity-gate': 3, 'event-flag': 2, 'battle-runtime': 2, 'world-state-restore': 2, 'entity-spawn': 1, 'party-facing': 1, 'intro-integrity': 1, 'other': 1}`
 - installed callback semantic groups: `{'movement': 7, 'presentation-render': 7, 'overworld-runtime': 2, 'current-slot-state': 1}`
 - unknown callback targets: `{}`
+- value semantics statuses: `{'runtime_boundary_confirmed': 2, 'bounded_local_unknown': 2, 'decode_contract_named': 1, 'reader_path_named': 1, 'reference_label_correlated': 1, 'payload_join_named': 1, 'payload_identity_pending': 1}`
 - top C3 script targets: `{'C3:AB59': 19, 'C3:A204': 19, 'C3:A111': 7, 'C3:AA38': 5, 'C3:A262': 5, 'C3:A0FE': 5, 'C3:AA1E': 5, 'C3:AB8A': 4, 'C3:A1F3': 4, 'C3:A11E': 4, 'C3:A3B7': 4, 'C3:A09F': 3, 'C3:AB44': 3, 'C3:0295': 3, 'C3:43DB': 3, 'C3:443E': 3}`
+
+## Value semantics readiness
+
+C3 VM shape is closed at the current decode bounds, so this table separates operand classes that are runtime-boundary confirmed from classes that remain deliberately local-unknown.
+
+| Value class | Status | Observed values | Observations | Evidence | Next action |
+| --- | --- | ---: | ---: | --- | --- |
+| `direction_class_words` | `runtime_boundary_confirmed` | 4 | 156 | C3 tempvar/random-choice producers reach C0:A65F and C0:C83B movement/direction consumers. | Promote additional player-facing movement aliases only when a concrete script family needs them. |
+| `field2b32_movement_words` | `runtime_boundary_confirmed` | 11 | 28 | C0:A685 writes inline words to $2B32 and audited C3 spans reach C0:C83B/C0:CA4E/C0:A6AD/C0:CBD3 consumers. | Keep numeric magnitudes unless runtime traces prove a higher-level speed preset name. |
+| `animation_ids` | `decode_contract_named` | 3 | 104 | EVENT_SET_ANIMATION operands are decoded directly from C3 scripts. | Only rename frame selectors when tied to a specific visual asset contract. |
+| `visual_countdown_seed_bytes` | `reader_path_named` | 2 | 66 | C0:AA6E reads countdown/state bytes and the zero/nonzero write paths are source-backed. | Trace representative visual-profile rows before calling these player-visible animation states. |
+| `sound_effect_ids` | `reference_label_correlated` | 2 | 4 | C0:A841 plays script word ids through C0:ABE0 and names are cross-checked against sound-driver reference labels. | Keep sound-driver reference labels as corroboration; do not infer timing or channel behavior here. |
+| `entity_script_ids` | `payload_join_named` | 2 | 2 | C0:A98B consumes entity-script ids together with sprite-pose descriptor words for script-driven spawns. | Join to entity-script table records before promoting broader actor identity names. |
+| `visual_state_bytes` | `bounded_local_unknown` | 8 | 66 | Values are bounded to $00..$07 and stored to current-slot $2AF6 by C0:AA6E before the visual-profile refresh path. | Needs runtime visual-profile row evidence before assigning exact frame/pose meanings. |
+| `surface_flags_bytes` | `bounded_local_unknown` | 1 | 2 | C0:A679 writes surface flag bytes to current-slot $2BAA; observed values are named by bit shape only. | Trace collision/terrain consumers before splitting bit 0 and bit 1 semantics. |
+| `sprite_pose_descriptor_words` | `payload_identity_pending` | 2 | 2 | C0:A98B consumes pose descriptor words for recovery/cast-style spawn payloads. | Join descriptor words to sprite/pose tables before naming concrete character poses. |
 
 ## Frontier rows
 

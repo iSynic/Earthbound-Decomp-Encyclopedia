@@ -42,6 +42,15 @@ contract notes for C0/C1/C3/C4 consumers.
 - `notes/bank-c2-source-scaffold-handoff.md`
 - `notes/bank-c2-working-name-proposals.md`
 - `notes/bank-c2-progress-audit.md`
+- `notes/c2-battle-trace-oracle-plan.md`
+- `notes/c2-battle-trace-oracle-index.md`
+- `notes/c2-battle-trace-oracle-packet.md`
+- `notes/c2-battle-trace-oracle-emulator-handoff.md`
+- `notes/c2-battle-trace-oracle-results-summary.md`
+- `manifests/c2-battle-trace-oracle-plan.json`
+- `manifests/c2-battle-trace-oracle-packet.json`
+- `manifests/c2-battle-trace-oracle-emulator-handoff.json`
+- `manifests/c2-battle-trace-oracle-results-summary.json`
 - `notes/c2-battle-contract-workahead.md`
 - `notes/c2-ef-battle-text-contract-workahead.md`
 - `notes/battle-visual-asset-contracts.md`
@@ -861,6 +870,106 @@ contract notes for C0/C1/C3/C4 consumers.
   `notes/c2-final-prayer-runtime-polish.md`,
   `notes/class2-prayer-common-helpers-c2c37a-c2c3e2-c2c41f.md`, and
   `notes/class2-final-prayer-family-c2c572-c2c6f0.md`.
+- 2026-05-13 one hundred and twelfth slice: started Phase 2 C-port-feedback
+  closure by adding `notes/c2-battle-trace-oracle-plan.md`. The new queue
+  splits diary findings into proof lanes for target/action staging, `C2:40A4`
+  payloads, `C2:724A` affliction writes, `C2:8125` damage ABI, HP roller /
+  collapse timing, resource amounts, healing ladder behavior, numeric/stat edge
+  cases, PSI Flash/status gates, and battle-text payload joins.
+- 2026-05-13 one hundred and thirteenth slice: added the generated C2 battle
+  trace-oracle manifest and compact index. The builder/validator pair keeps the
+  ten oracle lanes source-path checked and explicitly blocks source-facing
+  promotion until a local trace or source proof exists.
+- 2026-05-13 one hundred and fourteenth slice: added the C2 battle trace-oracle
+  execution packet and schema-only stub runner. The packet turns the ten oracle
+  lanes into ignored `build/c2/battle-trace-oracles/` jobs, validates dry-run
+  result plumbing, and keeps every behavior/source-promotion gate closed until a
+  real emulator harness writes proof-grade results.
+- 2026-05-13 one hundred and fifteenth slice: added C2 battle trace-oracle
+  result collection. Stub results now validate as runner plumbing while the
+  committed summary reports zero trace-observed and zero proof-grade results,
+  preserving the runtime-proof blocker until a non-stub harness emits real
+  captures.
+- 2026-05-13 one hundred and sixteenth slice: strengthened the single-result
+  validator so weak `ok` results cannot pass. An `ok` result must now be
+  non-stub, path-exact against the packet, backed by a non-empty raw trace, and
+  carry the required proof capture fields before the collector can treat it as
+  trace-observed.
+- 2026-05-13 one hundred and seventeenth slice: tightened the same `ok` gate
+  around full capture coverage. Proof-capable C2 oracle results must now carry
+  every packet job capture field, typed non-empty observed addresses, and
+  non-empty evidence strings before a real harness output can validate.
+- 2026-05-13 one hundred and eighteenth slice: added the first-pass emulator
+  handoff for C2 oracle execution. The handoff packages the five first-pass jobs
+  into SNES CPU-bus breakpoint targets, scenario setup guidance, Mesen address
+  caveats, exact ignored output paths, and result-validator commands without
+  treating the handoff itself as proof.
+- 2026-05-13 one hundred and nineteenth slice: added ignored Mesen runner asset
+  generation for the first-pass C2 oracle jobs. The asset pack writes per-job
+  Lua trace skeletons, operator checklists, unresolved result templates, command
+  snippets, and a machine-readable index under
+  `build/c2/battle-trace-oracles/mesen-runner-assets/`; these assets are
+  execution plumbing only and still require reviewed non-stub trace results
+  before source-facing promotion.
+- 2026-05-13 one hundred and twentieth slice: added a reviewed-result assembler
+  for C2 trace-oracle outputs. The assembler turns a selected packet job,
+  reviewed captured-field JSON, observed addresses, harness provenance, and a
+  classification rationale into the standard result schema, then runs the same
+  validator that blocks weak or stub `ok` results.
+- 2026-05-13 one hundred and twenty-first slice: added the local Mesen runner
+  wrapper and run-summary validator for C2 trace-oracle jobs. The wrapper
+  resolves local Mesen and ROM fixtures, executes a generated Lua skeleton, and
+  writes ignored raw traces/run summaries while preserving the rule that source
+  promotion requires a reviewed non-stub result. A boot-only smoke run validates
+  wrapper execution and trace output, but records no C2 proof hits; the next
+  runtime blocker is a local ordinary-battle save state.
+- 2026-05-13 one hundred and twenty-second slice: added ignored local fixture
+  config support for the C2 Mesen wrapper. The wrapper can now initialize
+  `build/c2/battle-trace-oracles/local-fixtures.json`, validate fixture ids
+  against packet oracle ids, and run by fixture id once a local ordinary-battle
+  save state exists.
+- 2026-05-13 one hundred and twenty-third slice: added Mesen input-pattern
+  support and raw-trace summarization for C2 oracle runs. Generated Lua
+  skeletons now accept the proven local `atom:frames` input grammar, and
+  `tools/summarize_c2_battle_trace_oracle_raw_trace.py` reports breakpoint hit
+  counts plus whether the first-pass minimum hits were satisfied, with a paired
+  validator for the ignored raw-trace summary artifact.
+- 2026-05-13 one hundred and twenty-fourth slice: added local Mesen save-state
+  probe tooling for the first C2 battle oracle. The probe runner scans existing
+  `.mss` files into ignored per-candidate output directories, records state
+  sizes/hashes, raw-summary hit counts, and promotion-deny flags, and validates
+  the aggregate candidate report. The first local sweep tested seven existing
+  states; all executed, but none hit the minimum C1/C2 target/action staging
+  breakpoints, so the runtime blocker remains a true ordinary-battle fixture.
+- 2026-05-13 one hundred and twenty-fifth slice: added a broader C2 battle
+  fixture scout. The scout probes existing Mesen save states against ordinary
+  encounter prep, enemy-list build, battle-flag set, shared battle entry, debug
+  seed avoidance, battle menu, and first target/action command PCs under neutral,
+  confirm, and movement-loop input patterns. The first 21-run sweep completed
+  without failures and found zero battle-entry or command candidates, narrowing
+  the next step to capturing a fresh ordinary overworld battle prompt state.
+- 2026-05-13 one hundred and twenty-sixth slice: folded the numbered
+  multi-enemy fixture set into the C2 trace-oracle matrix. The Mesen runner now
+  records useful target/action staging, damage ABI, HP roller, and payload-route
+  neighbor traces while keeping save-state paths and raw traces ignored.
+- 2026-05-13 one hundred and twenty-seventh slice: classified the current
+  `C2:40A4` route hints by dispatch lane. The observed `C0:9279` hits return
+  through `C2:5D3D`, so they are direct battle-start/action dispatches rather
+  than the `C2:40A4` loop returns near `C2:4104` or `C2:4159`.
+- 2026-05-13 one hundred and twenty-eighth slice: added the save-8 Paula
+  Freeze fixture. A neutral 1800-frame run proves a queued offensive-PSI damage
+  path reaches `C2:941D`, `C2:8125`, `C2:7EAF`, HP/text display joins, and HP
+  roller/collapse neighbors, but still does not reach `C2:40A4`; treat it as
+  PSI damage evidence, not second-pointer wrapper proof.
+- 2026-05-13 one hundred and twenty-ninth slice: made C2 Mesen run summaries
+  persist the save-state SHA-256 at capture time. The manual probe matrix now
+  uses the stored hash instead of re-hashing live save slots, which keeps
+  replaced local fixtures from rewriting historical evidence provenance.
+- 2026-05-13 one hundred and thirtieth slice: added replaced-slot probes for
+  highest-level Healing on Paula, Dread Scorpion poison on Jeff, and Large
+  Pizza party recovery. Healing and Large Pizza add more `C2:8125` amount/text
+  evidence; Dread Scorpion reaches the `C2:724A` poison writer through
+  `C2:8B2C`, while the paired `C2:9917` status-gate minimum remains unobserved.
 
 ## Validation
 
@@ -871,6 +980,23 @@ python tools\build_source_bank_scaffold.py --bank C2
 python tools\validate_source_bank_byte_equivalence.py --bank C2 --module all --combined --scaffold src\c2\bank_c2_helpers_asar.asm --strict
 python tools\build_source_bank_candidate_ranges_doc.py --bank C2
 python tools\build_source_bank_residual_map.py --bank C2
+python tools\build_c2_battle_trace_oracle_manifest.py
+python tools\validate_c2_battle_trace_oracle_manifest.py
+python tools\build_c2_battle_trace_oracle_packet.py
+python tools\validate_c2_battle_trace_oracle_packet.py
+python tools\build_c2_battle_trace_oracle_emulator_handoff.py
+python tools\validate_c2_battle_trace_oracle_emulator_handoff.py
+python tools\build_c2_battle_trace_oracle_runner_assets.py
+python tools\validate_c2_battle_trace_oracle_runner_assets.py
+python tools\run_c2_battle_trace_oracle_mesen.py --oracle-id c1_c2_target_action_staging --dry-run
+python tools\probe_c2_battle_trace_save_states.py
+python tools\validate_c2_battle_trace_save_state_probes.py
+python tools\probe_c2_battle_fixture_scout.py
+python tools\validate_c2_battle_fixture_scout.py
+python tools\run_c2_battle_trace_oracle_batch.py --mode dry-run-stub --force
+python tools\validate_c2_battle_trace_oracle_batch_summary.py
+python tools\collect_c2_battle_trace_oracle_results.py
+python tools\validate_c2_battle_trace_oracle_results_summary.py
 ```
 
-This planning pass does not alter C2 source or generated manifests.
+This oracle manifest/packet pass does not alter C2 source or ROM bytes.

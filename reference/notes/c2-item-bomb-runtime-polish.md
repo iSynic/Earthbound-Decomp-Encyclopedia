@@ -104,6 +104,14 @@ The wrapper sources now call `C2:A658` as `RunBombCommonSplashDamage`, keeping
 the base-damage leaves tied to the same named splash worker used by the
 full-body bomb-common source.
 
+Phase 2 trace-oracle need: bombs should remain the damage-family example that
+ties C2 amount gates to battle sprite geometry. Traces should capture the
+primary target, base damage, shaped primary amount, up to two secondary-target
+selections, half-damage preparation, sprite width buckets, x-position overlap
+checks, and restoration of `$A972` before return. The geometry dependency is a
+presentation/asset-facing contract candidate, but only the locally visible C2
+overlap and `GetBattleSpriteWidthBucket` calls are promoted here.
+
 ## Random-Damage And Status Item Cluster
 
 `C2:A89D..AF1F` now has source-promoted text contracts for the stable item-side
@@ -133,6 +141,19 @@ leaves in the cluster:
 - the insecticide and rust-promoter common paths now call `C2:69A8` as
   `GetEnemyConfigSprayVulnerabilityType`, reading enemy config byte `+0x1B`
   before accepting spray type `1` or rust type `2`.
+
+## Phase 2 Trace-Oracles
+
+Random-damage item leaves are low-noise probes for `C2:8125` as the damage ABI:
+they should trace the chance gate, amount roll, selected target, X selector, and
+result text without treating the random item leaf as a separate damage engine.
+
+HP-Sucker is the multi-contract resource/damage candidate in this unit. Phase 2
+should trace it as three connected contracts: target HP loss through the
+selected-row damage/reduction helpers, user HP recovery through the recovery
+worker, and amount-bearing text through the C1 substitution payload. Collapse
+follow-up should stay distinct from the drain amount until post-roller timing is
+locally proven.
 
 ## Decomp Value
 

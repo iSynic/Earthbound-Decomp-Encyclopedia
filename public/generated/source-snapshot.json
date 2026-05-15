@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T21:54:03.003Z",
+  "generatedAt": "2026-05-15T02:37:38.621Z",
   "buildMode": "private",
   "sourceRoot": "bundled-private-reference",
   "appRoot": "F:\\Earthbound Decomp - Encyclopedia",
@@ -8,41 +8,173 @@
   },
   "counts": {
     "asset-manifests": 38,
-    "manifests": 74,
-    "notes": 1096,
+    "manifests": 88,
+    "notes": 1118,
     "README.md": 1,
     "refs": 423,
-    "src": 7033
+    "src": 7035
   },
-  "fileCount": 8665,
+  "fileCount": 8703,
   "changesSinceLastBuild": {
     "hasPreviousSnapshot": true,
-    "added": [],
-    "modified": [],
+    "added": [
+      "manifests/battle-action-row-crosswalk.json",
+      "manifests/c2-b930-controlled-snapshot-export.json",
+      "manifests/c2-battle-trace-manual-probe-matrix.json",
+      "manifests/c2-battle-trace-oracle-emulator-handoff.json",
+      "manifests/c2-battle-trace-oracle-packet.json",
+      "manifests/c2-battle-trace-oracle-plan.json",
+      "manifests/c2-battle-trace-oracle-results-summary.json",
+      "manifests/c2-natural-evidence-audit.json",
+      "manifests/c2-resource-amount-controlled-comparison.json",
+      "manifests/c2-resource-amount-natural-candidates.json",
+      "manifests/c2-save-state-battler-scout.json",
+      "manifests/c2-snapshot-export-natural-scout.json",
+      "manifests/mesen-scenario-specs.json",
+      "manifests/mesen-srm-anchor-catalog.json",
+      "notes/battle-action-row-crosswalk.md",
+      "notes/c-port-feedback-intake.md",
+      "notes/c2-b930-controlled-snapshot-export.md",
+      "notes/c2-battle-trace-manual-probe-matrix.md",
+      "notes/c2-battle-trace-oracle-emulator-handoff.md",
+      "notes/c2-battle-trace-oracle-index.md",
+      "notes/c2-battle-trace-oracle-mesen-runner.md",
+      "notes/c2-battle-trace-oracle-packet.md",
+      "notes/c2-battle-trace-oracle-plan.md",
+      "notes/c2-battle-trace-oracle-results-summary.md",
+      "notes/c2-natural-evidence-audit.md",
+      "notes/c2-resource-amount-controlled-comparison.md",
+      "notes/c2-resource-amount-natural-candidates.md",
+      "notes/c2-runtime-proof-promotion-closeout.md",
+      "notes/c2-save-state-battler-scout.md",
+      "notes/c2-scripted-battle-fixture-workahead.md",
+      "notes/c2-snapshot-export-natural-scout.md",
+      "notes/mesen-scenario-specs.md",
+      "notes/mesen-srm-anchor-catalog.md",
+      "notes/phase-2-semantic-closure-plan.md",
+      "notes/phase-2-semantic-status.md",
+      "notes/semantic-notes-package.md",
+      "src/c3/file_select_visual_transition_helper.bytes.asar.asm",
+      "src/c3/system_screen_helpers.asar.asm"
+    ],
+    "modified": [
+      "notes/bank-c3-closure.md",
+      "notes/bank-first-pass-coverage-index.md",
+      "notes/battle-item-action-selection-c1ce85-c1cfc6.md",
+      "notes/battle-selection-snapshot-export-c2b930.md",
+      "notes/battle-targetting-resolver-c1adb4-af50.md",
+      "notes/c1-byte-equivalence-validation.md",
+      "notes/c2-affliction-recovery-runtime-polish.md",
+      "notes/c2-asleep-status-runtime-polish.md",
+      "notes/c2-battle-contract-workahead.md",
+      "notes/c2-bottle-rocket-runtime-polish.md",
+      "notes/c2-byte-equivalence-validation.md",
+      "notes/c2-concentration-seal-runtime-polish.md",
+      "notes/c2-ef-battle-text-contract-workahead.md",
+      "notes/c2-hit-resolution-status-runtime-polish.md",
+      "notes/c2-item-bomb-runtime-polish.md",
+      "notes/c2-late-stat-resource-runtime-polish.md",
+      "notes/c2-late-status-runtime-polish.md",
+      "notes/c2-lifeup-healing-runtime-polish.md",
+      "notes/c2-psi-common-runtime-polish.md",
+      "notes/c2-psi-flash-runtime-polish.md",
+      "notes/c2-runtime-semantic-polish-plan.md",
+      "notes/c2-target-selection-runtime-polish.md",
+      "notes/c3-actionscript-semantics-audit.md",
+      "notes/c3-actionscript-semantics-roadmap.md",
+      "notes/c3-assembler-contract-validation.md",
+      "notes/c3-build-candidate-range-validation.md",
+      "notes/c3-build-candidate-ranges.md",
+      "notes/c3-byte-equivalence-validation.md",
+      "notes/c3-event-script-source-scaffold-validation.md",
+      "notes/c3-event-script-source-scaffold.md",
+      "notes/c3-mixed-source-split-plan.md",
+      "notes/c3-preserved-gap-contracts.md",
+      "notes/c3-source-data-map.md",
+      "notes/c3-source-emission-plan.md",
+      "notes/c3-source-extraction-candidates.md",
+      "notes/c3-source-prototype-validation.md",
+      "notes/c3-source-signature-validation.md",
+      "notes/class2-affliction-apply-helper-724a.md",
+      "notes/class2-battler-affliction-crosswalk.md",
+      "notes/class2-second-pointer-consumer-40a4.md",
+      "notes/ef-battle-text-consumer-lane-contracts.md",
+      "notes/ef-battle-text-payload-runtime-polish.md",
+      "notes/ef-battle-text-row-pointer-recovery-frontier.md",
+      "notes/ef-byte-equivalence-validation.md",
+      "notes/ef-runtime-semantic-polish-plan.md",
+      "notes/project-status.md",
+      "notes/psi-magnet-drain-amount.md",
+      "notes/readable-source-bank-closure.md",
+      "notes/source-readiness-triage.md",
+      "src/c1/c1_adb4_determine_battle_targetting.asm",
+      "src/c2/c2_40a4_apply_battle_action_second_pointer_payload.asm",
+      "src/c2/c2_70e4_mask_set_prune_flagged_candidates.asm",
+      "src/c2/c2_724a_apply_battler_affliction_subgroup_value.asm",
+      "src/c2/c2_7550_start_selected_battler_collapse_affliction_path.asm",
+      "src/c2/c2_7eaf_run_hit_resolution_and_status_action_cluster.asm",
+      "src/c2/c2_8e42_run_pp_reduction_action.asm",
+      "src/c2/c2_90c6_run_battler_normalization_action_wrapper.asm",
+      "src/c2/c2_9917_try_apply_numb_status_to_selected_battler.asm",
+      "src/c2/c2_9950_try_apply_crying_status_to_selected_battler.asm",
+      "src/c2/c2_99ae_run_psi_flash_beta_action.asm",
+      "src/c2/c2_99ef_run_psi_flash_gamma_action.asm",
+      "src/c2/c2_9a35_run_psi_flash_omega_action.asm",
+      "src/c2/c2_9c2c_try_recover_selected_battler_broad_afflictions.asm",
+      "src/c2/c2_9f57_run_asleep_status_wrapper_action.asm",
+      "src/c2/c2_a3d1_run_item_side_concentration_seal_action.asm",
+      "src/c2/c2_b930_export_battle_selection_snapshot.asm",
+      "src/c3/bank_c3_event_scripts_source_pilot.asar.asm",
+      "src/c3/bank_c3_helpers_asar.asm",
+      "src/c3/battle_visual_effect_helpers.asm",
+      "src/c3/battle_visual_effect_helpers.bytes.asar.asm",
+      "src/c3/data_battle_menu_tables_ef23_f1ec.asm",
+      "src/c3/data_battle_menu_tables_ef23_f1ec.bytes.asar.asm",
+      "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.asm",
+      "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.bytes.asar.asm",
+      "src/c3/data_battle_visual_tables_f2b1_f5f9.asm",
+      "src/c3/data_battle_visual_tables_f2b1_f5f9.bytes.asar.asm",
+      "src/c3/data_debug_menu_mixed_inventory_prefix.asm",
+      "src/c3/data_debug_menu_mixed_inventory_prefix.bytes.asar.asm",
+      "src/c3/equipment_battle_selector_helpers.asm",
+      "src/c3/equipment_battle_selector_helpers.bytes.asar.asm",
+      "src/c3/file_select_visual_transition_helper.asm",
+      "src/c3/hp_pp_adjustment_helpers.asm",
+      "src/c3/hp_pp_adjustment_helpers.bytes.asar.asm",
+      "src/c3/inventory_equipment_tracked_items.asm",
+      "src/c3/inventory_equipment_tracked_items.bytes.asar.asm",
+      "src/c3/jeff_repair_psi_helpers.asm",
+      "src/c3/jeff_repair_psi_helpers.bytes.asar.asm",
+      "src/c3/script_event_payloads_0000_e450.asm",
+      "src/c3/script_event_payloads_0000_e450.bytes.asar.asm",
+      "src/c3/window_text_helpers.asm",
+      "src/c3/window_text_helpers.bytes.asar.asm",
+      "src/ef/ef_4e20_c51b_text_payload_data.asm"
+    ],
     "removed": [],
-    "total": 0
+    "total": 130
   },
   "latest": [
-    "notes/ef-byte-equivalence-validation.md",
-    "notes/c1-byte-equivalence-validation.md",
-    "notes/c0-byte-equivalence-validation.md",
-    "notes/c2-byte-equivalence-validation.md",
-    "notes/c4-byte-equivalence-validation.md",
     "notes/readable-source-bank-closure.md",
-    "notes/ebsrc-restored-reference-drift-audit.md",
-    "manifests/ebsrc-restored-reference-drift-audit.json",
     "notes/source-readiness-triage.md",
-    "notes/ebsrc-community-crosswalk.md",
-    "notes/ebsrc-knowns-integration-candidates.md",
-    "manifests/ebsrc-knowns-integration-candidates.json",
-    "src/ef/asset_debug_menu_font.bytes.asar.asm",
-    "src/ef/asset_debug_menu_font.asm",
-    "src/c4/coffee_tea_and_flyover_scene_interpreters.bytes.asar.asm",
-    "src/c4/coffee_tea_and_flyover_scene_interpreters.asm",
-    "src/c2/c2_2f38_init_battle_scripted.bytes.asar.asm",
-    "src/c2/c2_2f38_init_battle_scripted.asm",
-    "src/c2/c2_2a2c_save_current_game.bytes.asar.asm",
-    "src/c2/c2_2a2c_save_current_game.asm"
+    "notes/c2-byte-equivalence-validation.md",
+    "notes/c2-natural-evidence-audit.md",
+    "manifests/c2-natural-evidence-audit.json",
+    "notes/c2-battle-trace-manual-probe-matrix.md",
+    "manifests/c2-battle-trace-manual-probe-matrix.json",
+    "notes/c2-battle-trace-oracle-results-summary.md",
+    "manifests/c2-battle-trace-oracle-results-summary.json",
+    "src/c2/c2_a3d1_run_item_side_concentration_seal_action.asm",
+    "notes/c2-runtime-proof-promotion-closeout.md",
+    "notes/c1-byte-equivalence-validation.md",
+    "manifests/c2-b930-controlled-snapshot-export.json",
+    "notes/c2-b930-controlled-snapshot-export.md",
+    "notes/phase-2-semantic-status.md",
+    "notes/c2-battle-trace-oracle-mesen-runner.md",
+    "manifests/c2-resource-amount-controlled-comparison.json",
+    "notes/c2-resource-amount-controlled-comparison.md",
+    "notes/c2-snapshot-export-natural-scout.md",
+    "manifests/c2-snapshot-export-natural-scout.json"
   ],
   "files": [
     {
@@ -526,6 +658,66 @@
       "mtimeMs": 1778280115345
     },
     {
+      "path": "manifests/battle-action-row-crosswalk.json",
+      "size": 353704,
+      "mtimeMs": 1778694752233
+    },
+    {
+      "path": "manifests/c2-b930-controlled-snapshot-export.json",
+      "size": 4175,
+      "mtimeMs": 1778788217597
+    },
+    {
+      "path": "manifests/c2-battle-trace-manual-probe-matrix.json",
+      "size": 529707,
+      "mtimeMs": 1778793259955
+    },
+    {
+      "path": "manifests/c2-battle-trace-oracle-emulator-handoff.json",
+      "size": 78716,
+      "mtimeMs": 1778783769720
+    },
+    {
+      "path": "manifests/c2-battle-trace-oracle-packet.json",
+      "size": 53673,
+      "mtimeMs": 1778783778141
+    },
+    {
+      "path": "manifests/c2-battle-trace-oracle-plan.json",
+      "size": 39000,
+      "mtimeMs": 1778783763733
+    },
+    {
+      "path": "manifests/c2-battle-trace-oracle-results-summary.json",
+      "size": 10751,
+      "mtimeMs": 1778793170505
+    },
+    {
+      "path": "manifests/c2-natural-evidence-audit.json",
+      "size": 104664,
+      "mtimeMs": 1778793276221
+    },
+    {
+      "path": "manifests/c2-resource-amount-controlled-comparison.json",
+      "size": 31017,
+      "mtimeMs": 1778788134584
+    },
+    {
+      "path": "manifests/c2-resource-amount-natural-candidates.json",
+      "size": 38393,
+      "mtimeMs": 1778741714228
+    },
+    {
+      "path": "manifests/c2-save-state-battler-scout.json",
+      "size": 26148,
+      "mtimeMs": 1778731446417
+    },
+    {
+      "path": "manifests/c2-snapshot-export-natural-scout.json",
+      "size": 36673,
+      "mtimeMs": 1778788134512
+    },
+    {
       "path": "manifests/coilsnake-ccscript-experiments.json",
       "size": 2153,
       "mtimeMs": 1777644020001
@@ -599,6 +791,16 @@
       "path": "manifests/ebsrc-restored-reference-drift-audit.json",
       "size": 156710,
       "mtimeMs": 1778359500351
+    },
+    {
+      "path": "manifests/mesen-scenario-specs.json",
+      "size": 2951,
+      "mtimeMs": 1778777209869
+    },
+    {
+      "path": "manifests/mesen-srm-anchor-catalog.json",
+      "size": 28967,
+      "mtimeMs": 1778769463106
     },
     {
       "path": "manifests/symbol-aliases.json",
@@ -1093,7 +1295,7 @@
     {
       "path": "notes/bank-c3-closure.md",
       "size": 13847,
-      "mtimeMs": 1777398861805
+      "mtimeMs": 1778695446908
     },
     {
       "path": "notes/bank-c3-first-pass.md",
@@ -1887,13 +2089,18 @@
     },
     {
       "path": "notes/bank-first-pass-coverage-index.md",
-      "size": 2251,
-      "mtimeMs": 1777078745526
+      "size": 2292,
+      "mtimeMs": 1778641345077
     },
     {
       "path": "notes/bank01-text-command-map-00-1f.md",
       "size": 10204,
       "mtimeMs": 1778118388175
+    },
+    {
+      "path": "notes/battle-action-row-crosswalk.md",
+      "size": 50145,
+      "mtimeMs": 1778694752235
     },
     {
       "path": "notes/battle-action-stat-change-family-c2b2e0-b5d7.md",
@@ -1922,8 +2129,8 @@
     },
     {
       "path": "notes/battle-item-action-selection-c1ce85-c1cfc6.md",
-      "size": 4741,
-      "mtimeMs": 1778041286056
+      "size": 5696,
+      "mtimeMs": 1778689002447
     },
     {
       "path": "notes/battle-overlay-script-state-c4a67e-c4a7b0.md",
@@ -1972,8 +2179,8 @@
     },
     {
       "path": "notes/battle-selection-snapshot-export-c2b930.md",
-      "size": 4330,
-      "mtimeMs": 1778041949285
+      "size": 5094,
+      "mtimeMs": 1778706576007
     },
     {
       "path": "notes/battle-sprite-bundle-contracts.md",
@@ -1982,8 +2189,8 @@
     },
     {
       "path": "notes/battle-targetting-resolver-c1adb4-af50.md",
-      "size": 6422,
-      "mtimeMs": 1778078281639
+      "size": 7355,
+      "mtimeMs": 1778689002444
     },
     {
       "path": "notes/battle-text-context-buffer-family-c1ac4a-ad42.md",
@@ -2014,6 +2221,11 @@
       "path": "notes/bicycle-transition-and-party-registry-c03c25-c03f1e.md",
       "size": 11279,
       "mtimeMs": 1778084388777
+    },
+    {
+      "path": "notes/c-port-feedback-intake.md",
+      "size": 15049,
+      "mtimeMs": 1778783796111
     },
     {
       "path": "notes/c0-build-candidate-ranges.md",
@@ -2108,7 +2320,7 @@
     {
       "path": "notes/c1-byte-equivalence-validation.md",
       "size": 23845,
-      "mtimeMs": 1778359557763
+      "mtimeMs": 1778788233805
     },
     {
       "path": "notes/c1-display-helper-runtime-polish.md",
@@ -2162,13 +2374,18 @@
     },
     {
       "path": "notes/c2-affliction-recovery-runtime-polish.md",
-      "size": 4847,
-      "mtimeMs": 1778118388188
+      "size": 4837,
+      "mtimeMs": 1778783756791
     },
     {
       "path": "notes/c2-asleep-status-runtime-polish.md",
-      "size": 3814,
-      "mtimeMs": 1778098124235
+      "size": 3804,
+      "mtimeMs": 1778783756793
+    },
+    {
+      "path": "notes/c2-b930-controlled-snapshot-export.md",
+      "size": 2512,
+      "mtimeMs": 1778788217597
     },
     {
       "path": "notes/c2-battle-bg-load-update-runtime-polish.md",
@@ -2182,8 +2399,8 @@
     },
     {
       "path": "notes/c2-battle-contract-workahead.md",
-      "size": 14964,
-      "mtimeMs": 1777603965533
+      "size": 15321,
+      "mtimeMs": 1778689073043
     },
     {
       "path": "notes/c2-battle-overlay-runtime-polish.md",
@@ -2206,14 +2423,49 @@
       "mtimeMs": 1778118388192
     },
     {
+      "path": "notes/c2-battle-trace-manual-probe-matrix.md",
+      "size": 36633,
+      "mtimeMs": 1778793259956
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-emulator-handoff.md",
+      "size": 10541,
+      "mtimeMs": 1778783769721
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-index.md",
+      "size": 3932,
+      "mtimeMs": 1778783763734
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-mesen-runner.md",
+      "size": 34569,
+      "mtimeMs": 1778788153900
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-packet.md",
+      "size": 3559,
+      "mtimeMs": 1778783778143
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-plan.md",
+      "size": 8602,
+      "mtimeMs": 1778783796115
+    },
+    {
+      "path": "notes/c2-battle-trace-oracle-results-summary.md",
+      "size": 4468,
+      "mtimeMs": 1778793170507
+    },
+    {
       "path": "notes/c2-battlebg-load-and-palette-effect-corridor-c2cfe5-c2e0e7.md",
       "size": 11102,
       "mtimeMs": 1778043890418
     },
     {
       "path": "notes/c2-bottle-rocket-runtime-polish.md",
-      "size": 2101,
-      "mtimeMs": 1778098124239
+      "size": 2658,
+      "mtimeMs": 1778689224281
     },
     {
       "path": "notes/c2-build-candidate-ranges.md",
@@ -2223,7 +2475,7 @@
     {
       "path": "notes/c2-byte-equivalence-validation.md",
       "size": 32046,
-      "mtimeMs": 1778359557750
+      "mtimeMs": 1778793342636
     },
     {
       "path": "notes/c2-call-for-help-runtime-polish.md",
@@ -2232,8 +2484,8 @@
     },
     {
       "path": "notes/c2-concentration-seal-runtime-polish.md",
-      "size": 2130,
-      "mtimeMs": 1778098124242
+      "size": 3128,
+      "mtimeMs": 1778689072542
     },
     {
       "path": "notes/c2-direct-strange-embedded-status-runtime-polish.md",
@@ -2242,8 +2494,8 @@
     },
     {
       "path": "notes/c2-ef-battle-text-contract-workahead.md",
-      "size": 49182,
-      "mtimeMs": 1778118388194
+      "size": 50194,
+      "mtimeMs": 1778783756795
     },
     {
       "path": "notes/c2-final-prayer-runtime-polish.md",
@@ -2252,8 +2504,8 @@
     },
     {
       "path": "notes/c2-hit-resolution-status-runtime-polish.md",
-      "size": 7311,
-      "mtimeMs": 1778118388196
+      "size": 10621,
+      "mtimeMs": 1778729205415
     },
     {
       "path": "notes/c2-instant-win-and-magic-butterfly-helpers-c26189-c2654c.md",
@@ -2262,8 +2514,8 @@
     },
     {
       "path": "notes/c2-item-bomb-runtime-polish.md",
-      "size": 9041,
-      "mtimeMs": 1778118388198
+      "size": 10247,
+      "mtimeMs": 1778689224282
     },
     {
       "path": "notes/c2-late-normalization-odor-runtime-polish.md",
@@ -2277,23 +2529,28 @@
     },
     {
       "path": "notes/c2-late-stat-resource-runtime-polish.md",
-      "size": 2503,
-      "mtimeMs": 1778098124251
+      "size": 3970,
+      "mtimeMs": 1778737215845
     },
     {
       "path": "notes/c2-late-status-runtime-polish.md",
-      "size": 5200,
-      "mtimeMs": 1778098124252
+      "size": 7155,
+      "mtimeMs": 1778689062555
     },
     {
       "path": "notes/c2-lifeup-healing-runtime-polish.md",
-      "size": 3115,
-      "mtimeMs": 1778098124252
+      "size": 3718,
+      "mtimeMs": 1778689224285
     },
     {
       "path": "notes/c2-loaded-bg-frame-generator-runtime-polish.md",
       "size": 3534,
       "mtimeMs": 1777570873226
+    },
+    {
+      "path": "notes/c2-natural-evidence-audit.md",
+      "size": 3188,
+      "mtimeMs": 1778793276222
     },
     {
       "path": "notes/c2-offense-defense-stat-actions-runtime-polish.md",
@@ -2317,13 +2574,13 @@
     },
     {
       "path": "notes/c2-psi-common-runtime-polish.md",
-      "size": 8056,
-      "mtimeMs": 1778118388203
+      "size": 8868,
+      "mtimeMs": 1778689224278
     },
     {
       "path": "notes/c2-psi-flash-runtime-polish.md",
-      "size": 4316,
-      "mtimeMs": 1778098124257
+      "size": 6482,
+      "mtimeMs": 1778783811387
     },
     {
       "path": "notes/c2-psi-swirl-overlay-tail-c2e6b3-c2ea74.md",
@@ -2331,9 +2588,34 @@
       "mtimeMs": 1777044449990
     },
     {
+      "path": "notes/c2-resource-amount-controlled-comparison.md",
+      "size": 9058,
+      "mtimeMs": 1778788134584
+    },
+    {
+      "path": "notes/c2-resource-amount-natural-candidates.md",
+      "size": 6236,
+      "mtimeMs": 1778741714229
+    },
+    {
+      "path": "notes/c2-runtime-proof-promotion-closeout.md",
+      "size": 4531,
+      "mtimeMs": 1778793151449
+    },
+    {
       "path": "notes/c2-runtime-semantic-polish-plan.md",
-      "size": 57714,
-      "mtimeMs": 1778118388204
+      "size": 66458,
+      "mtimeMs": 1778723229044
+    },
+    {
+      "path": "notes/c2-save-state-battler-scout.md",
+      "size": 2697,
+      "mtimeMs": 1778731446419
+    },
+    {
+      "path": "notes/c2-scripted-battle-fixture-workahead.md",
+      "size": 5876,
+      "mtimeMs": 1778736518932
     },
     {
       "path": "notes/c2-selected-row-controller-runtime-polish.md",
@@ -2344,6 +2626,11 @@
       "path": "notes/c2-show-psi-animation-runtime-polish.md",
       "size": 2907,
       "mtimeMs": 1777570763200
+    },
+    {
+      "path": "notes/c2-snapshot-export-natural-scout.md",
+      "size": 6471,
+      "mtimeMs": 1778788134513
     },
     {
       "path": "notes/c2-source-promotion-candidates-workahead.md",
@@ -2377,8 +2664,8 @@
     },
     {
       "path": "notes/c2-target-selection-runtime-polish.md",
-      "size": 4909,
-      "mtimeMs": 1778098124265
+      "size": 6018,
+      "mtimeMs": 1778689002448
     },
     {
       "path": "notes/c2-window-hppp-and-menu-selection-helpers-c20266-c2108c.md",
@@ -2397,13 +2684,13 @@
     },
     {
       "path": "notes/c3-actionscript-semantics-audit.md",
-      "size": 139071,
-      "mtimeMs": 1778118388211
+      "size": 143745,
+      "mtimeMs": 1778696339781
     },
     {
       "path": "notes/c3-actionscript-semantics-roadmap.md",
-      "size": 47708,
-      "mtimeMs": 1777507401878
+      "size": 48476,
+      "mtimeMs": 1778696286815
     },
     {
       "path": "notes/c3-anim-port-direction-tasks-source-pilot.md",
@@ -2428,7 +2715,7 @@
     {
       "path": "notes/c3-assembler-contract-validation.md",
       "size": 1450,
-      "mtimeMs": 1778098124273
+      "mtimeMs": 1778695412638
     },
     {
       "path": "notes/c3-battle-psi-menu-data-contracts.md",
@@ -2493,12 +2780,12 @@
     {
       "path": "notes/c3-build-candidate-range-validation.md",
       "size": 107,
-      "mtimeMs": 1778098124276
+      "mtimeMs": 1778695412640
     },
     {
       "path": "notes/c3-build-candidate-ranges.md",
-      "size": 7310,
-      "mtimeMs": 1778098124280
+      "size": 7458,
+      "mtimeMs": 1778695203326
     },
     {
       "path": "notes/c3-build-candidate-source-conventions.md",
@@ -2562,8 +2849,8 @@
     },
     {
       "path": "notes/c3-byte-equivalence-validation.md",
-      "size": 1776,
-      "mtimeMs": 1778280115625
+      "size": 1930,
+      "mtimeMs": 1778696412383
     },
     {
       "path": "notes/c3-byte-equivalence-window.md",
@@ -2658,12 +2945,12 @@
     {
       "path": "notes/c3-event-script-source-scaffold-validation.md",
       "size": 578,
-      "mtimeMs": 1777394215205
+      "mtimeMs": 1778696411738
     },
     {
       "path": "notes/c3-event-script-source-scaffold.md",
-      "size": 1607,
-      "mtimeMs": 1778118388241
+      "size": 1714,
+      "mtimeMs": 1778696379112
     },
     {
       "path": "notes/c3-event353-message-tile-reveal-source-pilot.md",
@@ -2787,8 +3074,8 @@
     },
     {
       "path": "notes/c3-mixed-source-split-plan.md",
-      "size": 1105,
-      "mtimeMs": 1777086165109
+      "size": 1627,
+      "mtimeMs": 1778695050541
     },
     {
       "path": "notes/c3-monotoly-coordinate-text-paths-source-pilot.md",
@@ -2962,8 +3249,8 @@
     },
     {
       "path": "notes/c3-preserved-gap-contracts.md",
-      "size": 17998,
-      "mtimeMs": 1777401772509
+      "size": 18170,
+      "mtimeMs": 1778696280017
     },
     {
       "path": "notes/c3-rightward-live-area-bounce-yield-source-pilot.md",
@@ -3023,17 +3310,17 @@
     {
       "path": "notes/c3-source-data-map.md",
       "size": 36431,
-      "mtimeMs": 1777401768172
+      "mtimeMs": 1778695050530
     },
     {
       "path": "notes/c3-source-emission-plan.md",
-      "size": 15987,
-      "mtimeMs": 1778098124286
+      "size": 16209,
+      "mtimeMs": 1778695203210
     },
     {
       "path": "notes/c3-source-extraction-candidates.md",
       "size": 15051,
-      "mtimeMs": 1778098124287
+      "mtimeMs": 1778695412642
     },
     {
       "path": "notes/c3-source-pilot-frontier.md",
@@ -3043,7 +3330,7 @@
     {
       "path": "notes/c3-source-prototype-validation.md",
       "size": 84,
-      "mtimeMs": 1777398729600
+      "mtimeMs": 1778695351458
     },
     {
       "path": "notes/c3-source-residual-map.md",
@@ -3053,7 +3340,7 @@
     {
       "path": "notes/c3-source-signature-validation.md",
       "size": 1007,
-      "mtimeMs": 1778098124289
+      "mtimeMs": 1778695412643
     },
     {
       "path": "notes/c3-space-tunnel-crash-paths-source-pilot.md",
@@ -3617,8 +3904,8 @@
     },
     {
       "path": "notes/class2-affliction-apply-helper-724a.md",
-      "size": 8393,
-      "mtimeMs": 1778098124311
+      "size": 11571,
+      "mtimeMs": 1778783756796
     },
     {
       "path": "notes/class2-asleep-family-c29f06-c29f57.md",
@@ -3652,8 +3939,8 @@
     },
     {
       "path": "notes/class2-battler-affliction-crosswalk.md",
-      "size": 10480,
-      "mtimeMs": 1777507402580
+      "size": 11551,
+      "mtimeMs": 1778783756797
     },
     {
       "path": "notes/class2-battler-core-field-crosswalk.md",
@@ -3897,8 +4184,8 @@
     },
     {
       "path": "notes/class2-second-pointer-consumer-40a4.md",
-      "size": 8654,
-      "mtimeMs": 1778042878601
+      "size": 9820,
+      "mtimeMs": 1778707114080
     },
     {
       "path": "notes/class2-second-stage-selector-a970.md",
@@ -4712,13 +4999,13 @@
     },
     {
       "path": "notes/ef-battle-text-consumer-lane-contracts.md",
-      "size": 10957,
-      "mtimeMs": 1778118388453
+      "size": 11484,
+      "mtimeMs": 1778702773694
     },
     {
       "path": "notes/ef-battle-text-payload-runtime-polish.md",
-      "size": 35693,
-      "mtimeMs": 1778118388454
+      "size": 35664,
+      "mtimeMs": 1778783756799
     },
     {
       "path": "notes/ef-battle-text-row-message-crosswalk.md",
@@ -4727,8 +5014,8 @@
     },
     {
       "path": "notes/ef-battle-text-row-pointer-recovery-frontier.md",
-      "size": 8629,
-      "mtimeMs": 1778118388457
+      "size": 8835,
+      "mtimeMs": 1778694704231
     },
     {
       "path": "notes/ef-build-candidate-ranges.md",
@@ -4738,7 +5025,7 @@
     {
       "path": "notes/ef-byte-equivalence-validation.md",
       "size": 4100,
-      "mtimeMs": 1778359561194
+      "mtimeMs": 1778783949212
     },
     {
       "path": "notes/ef-debug-menu-controller-and-loader-d6d4-dabd.md",
@@ -4767,8 +5054,8 @@
     },
     {
       "path": "notes/ef-runtime-semantic-polish-plan.md",
-      "size": 24192,
-      "mtimeMs": 1778118388458
+      "size": 24585,
+      "mtimeMs": 1778694711880
     },
     {
       "path": "notes/ef-save-sram-runtime-polish.md",
@@ -5261,6 +5548,16 @@
       "mtimeMs": 1777644756972
     },
     {
+      "path": "notes/mesen-scenario-specs.md",
+      "size": 2685,
+      "mtimeMs": 1778777209870
+    },
+    {
+      "path": "notes/mesen-srm-anchor-catalog.md",
+      "size": 6631,
+      "mtimeMs": 1778769463108
+    },
+    {
       "path": "notes/movement-target-bounds-and-vector-refresh-c46ef8-c47369.md",
       "size": 8748,
       "mtimeMs": 1778118388463
@@ -5476,6 +5773,16 @@
       "mtimeMs": 1778118388465
     },
     {
+      "path": "notes/phase-2-semantic-closure-plan.md",
+      "size": 8900,
+      "mtimeMs": 1778763574009
+    },
+    {
+      "path": "notes/phase-2-semantic-status.md",
+      "size": 7939,
+      "mtimeMs": 1778788168647
+    },
+    {
       "path": "notes/phase-4-asset-data-closeout.md",
       "size": 3315,
       "mtimeMs": 1777422464040
@@ -5507,8 +5814,8 @@
     },
     {
       "path": "notes/project-status.md",
-      "size": 24017,
-      "mtimeMs": 1778352764728
+      "size": 28251,
+      "mtimeMs": 1778788092805
     },
     {
       "path": "notes/psi-animation-bundle-contracts.md",
@@ -5517,8 +5824,8 @@
     },
     {
       "path": "notes/psi-magnet-drain-amount.md",
-      "size": 1748,
-      "mtimeMs": 1777656196582
+      "size": 4280,
+      "mtimeMs": 1778779789425
     },
     {
       "path": "notes/public-release-checklist.md",
@@ -5538,7 +5845,7 @@
     {
       "path": "notes/readable-source-bank-closure.md",
       "size": 1783,
-      "mtimeMs": 1778359500431
+      "mtimeMs": 1778793351040
     },
     {
       "path": "notes/reference-community-earthbound-docs.md",
@@ -5616,6 +5923,11 @@
       "mtimeMs": 1777507404348
     },
     {
+      "path": "notes/semantic-notes-package.md",
+      "size": 5517,
+      "mtimeMs": 1778788087275
+    },
+    {
       "path": "notes/service-script-pointer-table-c58cf4.md",
       "size": 2923,
       "mtimeMs": 1774469421922
@@ -5643,7 +5955,7 @@
     {
       "path": "notes/source-readiness-triage.md",
       "size": 16690,
-      "mtimeMs": 1778359500031
+      "mtimeMs": 1778793350566
     },
     {
       "path": "notes/source-scaffold-status.md",
@@ -14497,8 +14809,8 @@
     },
     {
       "path": "src/c1/c1_adb4_determine_battle_targetting.asm",
-      "size": 28057,
-      "mtimeMs": 1778359447982
+      "size": 28344,
+      "mtimeMs": 1778787363371
     },
     {
       "path": "src/c1/c1_adb4_determine_battle_targetting.bytes.asar.asm",
@@ -15717,8 +16029,8 @@
     },
     {
       "path": "src/c2/c2_40a4_apply_battle_action_second_pointer_payload.asm",
-      "size": 7583,
-      "mtimeMs": 1778098124454
+      "size": 7860,
+      "mtimeMs": 1778727323919
     },
     {
       "path": "src/c2/c2_40a4_apply_battle_action_second_pointer_payload.bytes.asar.asm",
@@ -15957,8 +16269,8 @@
     },
     {
       "path": "src/c2/c2_70e4_mask_set_prune_flagged_candidates.asm",
-      "size": 5239,
-      "mtimeMs": 1778098124469
+      "size": 5690,
+      "mtimeMs": 1778788037978
     },
     {
       "path": "src/c2/c2_70e4_mask_set_prune_flagged_candidates.bytes.asar.asm",
@@ -15967,8 +16279,8 @@
     },
     {
       "path": "src/c2/c2_724a_apply_battler_affliction_subgroup_value.asm",
-      "size": 2683,
-      "mtimeMs": 1778098124470
+      "size": 3048,
+      "mtimeMs": 1778788009664
     },
     {
       "path": "src/c2/c2_724a_apply_battler_affliction_subgroup_value.bytes.asar.asm",
@@ -16007,8 +16319,8 @@
     },
     {
       "path": "src/c2/c2_7550_start_selected_battler_collapse_affliction_path.asm",
-      "size": 7118,
-      "mtimeMs": 1778118388564
+      "size": 7279,
+      "mtimeMs": 1778729122174
     },
     {
       "path": "src/c2/c2_7550_start_selected_battler_collapse_affliction_path.bytes.asar.asm",
@@ -16097,8 +16409,8 @@
     },
     {
       "path": "src/c2/c2_7eaf_run_hit_resolution_and_status_action_cluster.asm",
-      "size": 47308,
-      "mtimeMs": 1778118388568
+      "size": 48020,
+      "mtimeMs": 1778732518487
     },
     {
       "path": "src/c2/c2_7eaf_run_hit_resolution_and_status_action_cluster.bytes.asar.asm",
@@ -16187,8 +16499,8 @@
     },
     {
       "path": "src/c2/c2_8e42_run_pp_reduction_action.asm",
-      "size": 2677,
-      "mtimeMs": 1777603125463
+      "size": 2806,
+      "mtimeMs": 1778779789423
     },
     {
       "path": "src/c2/c2_8e42_run_pp_reduction_action.bytes.asar.asm",
@@ -16287,8 +16599,8 @@
     },
     {
       "path": "src/c2/c2_90c6_run_battler_normalization_action_wrapper.asm",
-      "size": 2531,
-      "mtimeMs": 1778098124490
+      "size": 2817,
+      "mtimeMs": 1778727329805
     },
     {
       "path": "src/c2/c2_90c6_run_battler_normalization_action_wrapper.bytes.asar.asm",
@@ -16427,8 +16739,8 @@
     },
     {
       "path": "src/c2/c2_9917_try_apply_numb_status_to_selected_battler.asm",
-      "size": 1676,
-      "mtimeMs": 1778098124503
+      "size": 2327,
+      "mtimeMs": 1778783703243
     },
     {
       "path": "src/c2/c2_9917_try_apply_numb_status_to_selected_battler.bytes.asar.asm",
@@ -16437,8 +16749,8 @@
     },
     {
       "path": "src/c2/c2_9950_try_apply_crying_status_to_selected_battler.asm",
-      "size": 1660,
-      "mtimeMs": 1778098124504
+      "size": 1824,
+      "mtimeMs": 1778782787634
     },
     {
       "path": "src/c2/c2_9950_try_apply_crying_status_to_selected_battler.bytes.asar.asm",
@@ -16457,8 +16769,8 @@
     },
     {
       "path": "src/c2/c2_99ae_run_psi_flash_beta_action.asm",
-      "size": 2408,
-      "mtimeMs": 1778098124506
+      "size": 2403,
+      "mtimeMs": 1778783703245
     },
     {
       "path": "src/c2/c2_99ae_run_psi_flash_beta_action.bytes.asar.asm",
@@ -16467,8 +16779,8 @@
     },
     {
       "path": "src/c2/c2_99ef_run_psi_flash_gamma_action.asm",
-      "size": 2494,
-      "mtimeMs": 1778098124507
+      "size": 2489,
+      "mtimeMs": 1778783703247
     },
     {
       "path": "src/c2/c2_99ef_run_psi_flash_gamma_action.bytes.asar.asm",
@@ -16477,8 +16789,8 @@
     },
     {
       "path": "src/c2/c2_9a35_run_psi_flash_omega_action.asm",
-      "size": 2555,
-      "mtimeMs": 1778098124508
+      "size": 2550,
+      "mtimeMs": 1778783703248
     },
     {
       "path": "src/c2/c2_9a35_run_psi_flash_omega_action.bytes.asar.asm",
@@ -16547,8 +16859,8 @@
     },
     {
       "path": "src/c2/c2_9c2c_try_recover_selected_battler_broad_afflictions.asm",
-      "size": 3214,
-      "mtimeMs": 1778098124511
+      "size": 3202,
+      "mtimeMs": 1778783703249
     },
     {
       "path": "src/c2/c2_9c2c_try_recover_selected_battler_broad_afflictions.bytes.asar.asm",
@@ -16597,8 +16909,8 @@
     },
     {
       "path": "src/c2/c2_9f57_run_asleep_status_wrapper_action.asm",
-      "size": 5303,
-      "mtimeMs": 1778098124517
+      "size": 5461,
+      "mtimeMs": 1778778969376
     },
     {
       "path": "src/c2/c2_9f57_run_asleep_status_wrapper_action.bytes.asar.asm",
@@ -16627,8 +16939,8 @@
     },
     {
       "path": "src/c2/c2_a3d1_run_item_side_concentration_seal_action.asm",
-      "size": 10595,
-      "mtimeMs": 1778098124518
+      "size": 10672,
+      "mtimeMs": 1778793157344
     },
     {
       "path": "src/c2/c2_a3d1_run_item_side_concentration_seal_action.bytes.asar.asm",
@@ -16832,8 +17144,8 @@
     },
     {
       "path": "src/c2/c2_b930_export_battle_selection_snapshot.asm",
-      "size": 4125,
-      "mtimeMs": 1778118388586
+      "size": 4523,
+      "mtimeMs": 1778788003212
     },
     {
       "path": "src/c2/c2_b930_export_battle_selection_snapshot.bytes.asar.asm",
@@ -17377,73 +17689,73 @@
     },
     {
       "path": "src/c3/bank_c3_event_scripts_source_pilot.asar.asm",
-      "size": 1392170,
-      "mtimeMs": 1778118388611
+      "size": 1418858,
+      "mtimeMs": 1778696379109
     },
     {
       "path": "src/c3/bank_c3_helpers_asar.asm",
-      "size": 1522,
-      "mtimeMs": 1778280117982
+      "size": 1894,
+      "mtimeMs": 1778696379245
     },
     {
       "path": "src/c3/battle_visual_effect_helpers.asm",
-      "size": 17004,
-      "mtimeMs": 1778098124561
+      "size": 17113,
+      "mtimeMs": 1778695165144
     },
     {
       "path": "src/c3/battle_visual_effect_helpers.bytes.asar.asm",
-      "size": 13108,
-      "mtimeMs": 1778280117987
+      "size": 13652,
+      "mtimeMs": 1778696379240
     },
     {
       "path": "src/c3/data_battle_menu_tables_ef23_f1ec.asm",
       "size": 6430,
-      "mtimeMs": 1778098124563
+      "mtimeMs": 1778695396001
     },
     {
       "path": "src/c3/data_battle_menu_tables_ef23_f1ec.bytes.asar.asm",
-      "size": 3683,
-      "mtimeMs": 1778280117991
+      "size": 3755,
+      "mtimeMs": 1778696379196
     },
     {
       "path": "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.asm",
-      "size": 6761,
-      "mtimeMs": 1778357247536
+      "size": 6768,
+      "mtimeMs": 1778695396003
     },
     {
       "path": "src/c3/data_battle_tail_and_delivery_payloads_fb1f_10000.bytes.asar.asm",
-      "size": 5822,
-      "mtimeMs": 1778357247538
+      "size": 5920,
+      "mtimeMs": 1778696379243
     },
     {
       "path": "src/c3/data_battle_visual_tables_f2b1_f5f9.asm",
       "size": 2442,
-      "mtimeMs": 1778098124565
+      "mtimeMs": 1778695396002
     },
     {
       "path": "src/c3/data_battle_visual_tables_f2b1_f5f9.bytes.asar.asm",
-      "size": 1491,
-      "mtimeMs": 1778280117999
+      "size": 1527,
+      "mtimeMs": 1778696379202
     },
     {
       "path": "src/c3/data_debug_menu_mixed_inventory_prefix.asm",
       "size": 2099,
-      "mtimeMs": 1778098124566
+      "mtimeMs": 1778695396000
     },
     {
       "path": "src/c3/data_debug_menu_mixed_inventory_prefix.bytes.asar.asm",
-      "size": 1528,
-      "mtimeMs": 1778280118005
+      "size": 1564,
+      "mtimeMs": 1778696379169
     },
     {
       "path": "src/c3/equipment_battle_selector_helpers.asm",
-      "size": 7599,
-      "mtimeMs": 1777092672889
+      "size": 7712,
+      "mtimeMs": 1778695155263
     },
     {
       "path": "src/c3/equipment_battle_selector_helpers.bytes.asar.asm",
-      "size": 3981,
-      "mtimeMs": 1778280118008
+      "size": 4165,
+      "mtimeMs": 1778696379194
     },
     {
       "path": "src/c3/event_scripts/anim_port_direction_tasks.asar.asm",
@@ -18147,58 +18459,68 @@
     },
     {
       "path": "src/c3/file_select_visual_transition_helper.asm",
-      "size": 11375,
-      "mtimeMs": 1778098124573
+      "size": 11802,
+      "mtimeMs": 1778695133317
+    },
+    {
+      "path": "src/c3/file_select_visual_transition_helper.bytes.asar.asm",
+      "size": 9871,
+      "mtimeMs": 1778696379220
     },
     {
       "path": "src/c3/hp_pp_adjustment_helpers.asm",
-      "size": 9127,
-      "mtimeMs": 1777093001328
+      "size": 9240,
+      "mtimeMs": 1778695150363
     },
     {
       "path": "src/c3/hp_pp_adjustment_helpers.bytes.asar.asm",
-      "size": 5244,
-      "mtimeMs": 1778280118014
+      "size": 5522,
+      "mtimeMs": 1778696379187
     },
     {
       "path": "src/c3/inventory_equipment_tracked_items.asm",
-      "size": 15453,
-      "mtimeMs": 1777525880634
+      "size": 15562,
+      "mtimeMs": 1778695138109
     },
     {
       "path": "src/c3/inventory_equipment_tracked_items.bytes.asar.asm",
-      "size": 9579,
-      "mtimeMs": 1778280118015
+      "size": 9986,
+      "mtimeMs": 1778696379181
     },
     {
       "path": "src/c3/jeff_repair_psi_helpers.asm",
-      "size": 6111,
-      "mtimeMs": 1777092325308
+      "size": 6224,
+      "mtimeMs": 1778695160118
     },
     {
       "path": "src/c3/jeff_repair_psi_helpers.bytes.asar.asm",
-      "size": 3481,
-      "mtimeMs": 1778280118022
+      "size": 3619,
+      "mtimeMs": 1778696379201
     },
     {
       "path": "src/c3/script_event_payloads_0000_e450.asm",
       "size": 332343,
-      "mtimeMs": 1778098124575
+      "mtimeMs": 1778695395997
     },
     {
       "path": "src/c3/script_event_payloads_0000_e450.bytes.asar.asm",
       "size": 268297,
-      "mtimeMs": 1778280118026
+      "mtimeMs": 1778695412657
+    },
+    {
+      "path": "src/c3/system_screen_helpers.asar.asm",
+      "size": 3675,
+      "mtimeMs": 1778696160991
     },
     {
       "path": "src/c3/window_text_helpers.asm",
-      "size": 20272,
-      "mtimeMs": 1777525880654
+      "size": 20381,
+      "mtimeMs": 1778695143031
     },
     {
       "path": "src/c3/window_text_helpers.bytes.asar.asm",
-      "size": 14773,
-      "mtimeMs": 1778280118035
+      "size": 15377,
+      "mtimeMs": 1778696379166
     },
     {
       "path": "src/c4/actionscript_camera_and_screen_position_callbacks.asm",
@@ -43217,8 +43539,8 @@
     },
     {
       "path": "src/ef/ef_4e20_c51b_text_payload_data.asm",
-      "size": 112063,
-      "mtimeMs": 1778118388855
+      "size": 112108,
+      "mtimeMs": 1778783703253
     },
     {
       "path": "src/ef/ef_4e20_c51b_text_payload_data.bytes.asar.asm",

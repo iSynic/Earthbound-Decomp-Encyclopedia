@@ -1,6 +1,6 @@
 # C3 build-candidate byte ranges
 
-This manifest records ROM byte ranges for C3 helper modules that are being prepared for build-candidate promotion. It is a byte-equivalence precursor: it pins source-emission metadata to a concrete ROM slice before assembler integration.
+This manifest records ROM byte ranges for C3 helper modules at build-candidate level. It pins source-emission metadata to concrete ROM slices for generated Asar companions, durable scaffold integration, and byte-equivalence validation.
 
 ## Summary
 

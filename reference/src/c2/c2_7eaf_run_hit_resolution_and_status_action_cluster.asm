@@ -384,6 +384,12 @@ C28123_HitResolutionStatusActionReturn:
     rts
 CALC_RESIST_DAMAGE:
 C28125_ApplyDamageToSelectedTarget = CALC_RESIST_DAMAGE
+    ; ABI: A is staged damage, X is the damage/resistance selector.
+    ; The entry Y value is not semantic; TXY copies X over it immediately.
+    ; $A972 supplies the selected battler row, and caller DP is restored
+    ; after this routine allocates its local frame.
+    ; Natural C2:8125 traces prove the amount/text boundary: row HP words
+    ; mutate after this call, then C1:DC66/C1:AD0A/C1:7EED consume $12/$14.
     rep #$31
     phd
     pha
@@ -478,6 +484,8 @@ C281D6_RunHitResolutionAndStatusActionCluster_L81D6:
     lda $0011,X
     bne C281F4_RunHitResolutionAndStatusActionCluster_L81F4
     lda $A972
+    ; Natural state-7 collapse trace observes +0x11/+0x13 at zero here,
+    ; then C2:7550 -> C2:77CA; optional C2:7680/BC5C paths are separate.
     jsl C27550_StartSelectedBattlerCollapseAfflictionPath
 C281F4_RunHitResolutionAndStatusActionCluster_L81F4:
     lda $02
@@ -1607,6 +1615,8 @@ C28B2C_RunPoisonStatusAction = BTLACT_POISON
     bne C28B6B_RunHitResolutionAndStatusActionCluster_L8B6B
     ldy.w #BattleStatusPoisoned
     ldx.w #BattleStatusGroupPrimary
+    ; Dread Skelpion fixture trace reaches this writer path with X=0/Y=5;
+    ; keep as route evidence until post-return status capture is reviewed.
     lda $A972
     jsr C2724A_ApplySelectedRowAfflictionSlotValue
     cmp.w #$0000

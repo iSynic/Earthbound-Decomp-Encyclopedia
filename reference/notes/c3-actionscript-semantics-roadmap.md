@@ -18,15 +18,18 @@ eventually reassemblable without guessing.
 - Current promoted script payload labels: `84`
 - Current promoted complete event-bytecode decodes: `75`
 - Current non-event script-adjacent payloads: `8`
-- Current source-form event/actionscript pilots: `140` families, `56518` validated
-  bytes
+- Current source-form event/actionscript pilots: `141` source files, `183` spans,
+  `56650` validated bytes, including the supplemental C3:0100/C3:0142
+  system-screen helper source
 - Current source-pilot labels harvested into the reference index: `1262`
 - Source-pilot frontier: `notes/c3-source-pilot-frontier.md` (`0` remaining
   candidate bytes)
 - Event/actionscript integration scaffold:
   `src/c3/bank_c3_event_scripts_source_pilot.asar.asm`
 - Whole-bank C3 scaffold:
-  `src/c3/bank_c3_helpers_asar.asm` (`11` protected ranges, `0` mismatches)
+  `src/c3/bank_c3_helpers_asar.asm` now includes the event/actionscript
+  source-pilot scaffold for `C3:0000..E450` (`12` protected ranges,
+  `0` mismatches)
 
 This means the byte layer is stable. The open work is semantic: opcode
 contracts, operand meanings, script family roles, and reassembly-friendly source
@@ -64,6 +67,15 @@ Current audit result:
   and first-pass contracts for high-value timed-delivery, visual-profile,
   current-slot-state, movement, collision, text/presentation, render, tick, and
   restore callbacks
+- value semantics readiness is now generated as a separate audit layer:
+  direction-class words and `$2B32` movement words are runtime-boundary
+  confirmed, animation/countdown/sound/entity ids have source or reference
+  contracts, and visual-state/surface-flag/pose-descriptor values remain
+  explicitly bounded until runtime or table-join evidence proves their exact
+  player-visible meaning
+- `tools/validate_c3_actionscript_semantics_audit.py` now enforces that the
+  audit remains syntactically complete, callback-target complete, and explicit
+  about bounded local-unknown operand classes
 
 This shifts the next pass away from opcode discovery and basic operand labeling.
 Remaining value semantics should be promoted only when the evidence is local and

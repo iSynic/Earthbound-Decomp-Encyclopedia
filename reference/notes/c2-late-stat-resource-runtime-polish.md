@@ -71,6 +71,33 @@ cluster a cleaner runtime map:
 That is a useful bridge from action-table entries into concrete selected-row
 fields and amount-bearing battle text.
 
+## Phase 2 Trace-Oracles
+
+PP reduction should stay the loss-only sibling of PSI Magnet. Phase 2 traces
+should compare its max-PP-derived amount roll, current-PP cap, `C2:721D`
+reducer, and PP-loss text against PSI Magnet's transfer behavior, without
+borrowing recovery wording from the Magnet path.
+
+Current controlled runtime evidence covers the reducer half of this comparison.
+The `bash-row-pp-reduction` fixture plus the `resource-target-pp32` runner
+profile seeds the selected row with `32/32` PP. The manual capture observes
+`C2:8E42 -> C2:721D -> C2:7191`: rolled amount `2`, target PP `32 -> 30`, and no
+active-row PP recovery. This is controlled fixture evidence only; natural
+PP-bearing target evidence is still required before this lane can become a
+proof-grade resource contract.
+
+The generated PSI Magnet versus PP-reduction controlled comparison lives at
+`notes/c2-resource-amount-controlled-comparison.md`.
+
+Late numeric reducers need small 16-bit edge tests before the C port relies on
+normalized integer widths. Target cases should include zero current values,
+small max-resource nibbles, clamp floors for guts, bounded offense/defense
+decreases, and amount text deltas near `0`, `1`, and word-boundary values.
+
+Fixed PP recovery is a resource-lane trace candidate from the feedback intake:
+document it as a mirror of fixed HP recovery only after the local source path
+proves the target row, target resource, clamp behavior, and EF/C1 text payload.
+
 ## Remaining Soft Spots
 
 - The final player-facing names for later action-table reuses should wait for a

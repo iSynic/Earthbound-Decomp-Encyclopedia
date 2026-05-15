@@ -45,7 +45,7 @@ The ladder operates on the active selected row pointer `$A972`.
 
 | Field/value | Action |
 | --- | --- |
-| `+0x1D == 3` | clear numb/paralysis state, emit `EF:6E67` |
+| `+0x1D == 3` | clear body-numb state, emit `EF:6E67` |
 | `+0x1D == 2` | clear diamondized/body-state value, emit `EF:6E4A` |
 | `+0x1D == 1` | hard recovery branch through mask phase and `C2:7397`, or `EF:6F8E` |
 
@@ -73,7 +73,7 @@ the main ailment byte:
 | --- | --- |
 | `1` | hard/unconscious recovery path |
 | `2` | diamondized/body-state recovery |
-| `3` | numb/paralysis recovery |
+| `3` | body-numb recovery |
 | `4` | nausea/sickness recovery |
 | `5` | poison recovery |
 | `6` | sunstroke recovery |

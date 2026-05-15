@@ -7,6 +7,12 @@
 ;
 ; Source units covered:
 ; - C2:90C6..C2:916E RunBattlerNormalizationActionWrapper
+;
+; Runtime evidence note:
+; - The `bash-row-neutralize-c240a4` fixture ROM patched battle action row 4
+;   to enter this wrapper. The trace observed the wrapper staging `C2:9051`
+;   and calling `C2:40A4`; the fixture is steering evidence only, not a
+;   vanilla Bash semantics claim.
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module

@@ -13,6 +13,9 @@
 ; - Calls the generic affliction writer with `Y = 2`, `X = 2`, which targets
 ;   selected-row byte `+0x1F`.
 ; - Emits `EF:6BBB` on success and shared no-effect text `EF:766E` on failure.
+; - Natural Mook Senior Flash Beta evidence observes
+;   `C2:98A1 -> C2:9950 -> C2:724A`, with the selected-row `+0x1F`
+;   subgroup byte changing from `0` to `2`.
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module

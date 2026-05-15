@@ -10,6 +10,10 @@ Scope: scout the strongest cross-bank runtime contracts connected to:
 
 The goal is to tighten "who calls whom, with what data" between the C1 battle UI/text layer and the C2 battle engine/controller layer, with concrete `C2:XXXX` entrypoints, caller chains, evidence paths, and the best next source-promotion seams.
 
+Phase 2 trace follow-up now lives in `notes/c2-battle-trace-oracle-plan.md`.
+Use this workahead for pinned static contracts; use the trace-oracle plan for
+C-port diary claims that still need runtime proof.
+
 ## Pinned cross-bank contracts (C1 -> C2)
 
 ### Targetting and selection snapshots: `C1:ADB4` -> `C2:BAC5` / `C2:B930`
@@ -227,3 +231,4 @@ Completed source-promotion seams:
 - `$A97D..` record follow-through: local source naming now treats it as a shared battle action-selection record; remaining value is to confirm any branch-specific scratch meaning beyond `+0/+1/+2/+4/+5` before promoting a global struct/macro.
 - `C1:DC66` payload ABI: tighten the "number substitution" case using `C2:7294`/`C2:7318`, then confirm how that relates to the more general far-pointer substitution staging through `C1:AD0A` (`$9D12/$9D14`) and which text commands consume it.
 - `C2:0293` naming: decide whether battle text keeps a documented alias or converges on the global "title upload tiles" meaning.
+- C-port diary target-byte shapes: trace `0x11`, `0x01`, and `0x12` through the local `C1:ADB4 -> C2` bridge before promoting them into source-facing enums.

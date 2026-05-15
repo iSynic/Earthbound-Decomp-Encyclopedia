@@ -9,10 +9,18 @@
 ; - C2:9917..C2:9950 TryApplyNumbStatusToSelectedBattler
 ;
 ; Runtime contract:
-; - Flash-family numb/paralysis branch.
+; - Flash-family body-numb branch. ebsrc names this helper
+;   `FLASH_INFLICT_PARALYSIS`; the English battle text is numbness-facing.
 ; - Calls the generic affliction writer with `Y = 3`, `X = 0`, which targets
 ;   selected-row byte `+0x1D`.
 ; - Emits `EF:6AE0` on success and shared no-effect text `EF:766E` on failure.
+; - Fixture-steered trace evidence from `bash-row-flash-beta-force-numb`
+;   observed this helper entering `C2:724A` with `X=0/Y=3`, then returning
+;   with `A=1` after writing value `3` to selected-row slot `+0x1D`. That
+;   fixture forces the Flash gate/result and does not prove natural
+;   `C2:98A1` odds. Natural Mighty Bear Seven Flash evidence now covers the
+;   same `C2:98A1 -> C2:9917 -> C2:724A` branch and records selected-row
+;   slot `+0x1D` changing from `0` to `3`.
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module
@@ -24,6 +32,7 @@ C1DC1C_DisplayBattleTextFromPointer        = $C1DC1C
 ; C2:9917
 
 FLASH_INFLICT_PARALYSIS:
+; ebsrc compatibility label; local/user-facing contract is Flash numbness.
 C29917_TryApplyNumbStatusToSelectedBattler = FLASH_INFLICT_PARALYSIS
     rep #$31
     phd

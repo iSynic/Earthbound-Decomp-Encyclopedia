@@ -110,9 +110,33 @@ The safest takeaway is:
 - that makes the `$A972`-anchored row look battler-backed or battler-layout-compatible at least for the status-related portion of the struct
 - the newer lower-field comparison in [class2-battler-core-field-crosswalk.md](notes/class2-battler-core-field-crosswalk.md) now strengthens that broader battler-layout reading
 
+## Phase 2 status-writer lanes
+
+The C-port intake adds pressure for a Phase 2 trace-oracle pass, but the local
+crosswalk should keep behavior claims tied to pinned readers, writers, and EF
+texts. The caller-matrix columns belong in
+[class2-affliction-apply-helper-724a.md](notes/class2-affliction-apply-helper-724a.md):
+caller, selected row source, `X` subgroup slot, `Y` value,
+chance/resistance gate, and EF text result.
+
+Current lane split for that matrix:
+
+- `C2:724A` lanes cover solidification, late status payloads, Flash body numbness,
+  item-side status leaves that reach the slot writer, and the resist-checked
+  PSI status trio.
+- concentration seal is adjacent but distinct: local evidence has
+  `C2:8D5A/A3D1` writing row `+0x21 = 4` directly and emitting `EF:6C0B`,
+  so it should be traced in the same affliction/status lane without being
+  counted as a `724A` caller.
+- diary-only details from the C port are trace candidates, especially selected
+  row provenance and gate ordering for item-side statuses and the
+  resist-checked PSI trio.
+
 ## Best next target
 
-The best next move is to map more `724A` callers so the remaining subgroup values can be named from local behavior, especially the callers that use `X = 1`, `2`, or `3` outside the current battle-heavy clusters.
+The best next move is to map more `724A` callers using the Phase 2 matrix so
+the remaining subgroup values can be named from local behavior, especially the
+callers that use `X = 1`, `2`, or `3` outside the current battle-heavy clusters.
 
 
 

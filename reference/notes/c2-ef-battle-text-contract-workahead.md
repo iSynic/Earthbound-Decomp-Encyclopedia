@@ -77,7 +77,7 @@ This is a **workahead contract note** (no source/manifest edits). It consolidate
   prints it through `C1:0DF6`.
 - 2026-05-01: EF text-payload split follow-up added source anchors for the
   C2-proven battle scripts and corrected the local `C2:9FFE` naming drift:
-  `EF:6AE0` is the body-numb/paralysis result used by `BTLACT_PARALYSIS_A`,
+  `EF:6AE0` is the body-numb result used by `BTLACT_PARALYSIS_A`,
   while poison-inflicted text remains the separate `EF:6B18` script.
 - 2026-05-01: EF status-infliction payload follow-up split the neighboring
   EBATTLE5 status text around `EF:6B18` poison and `EF:6BEF` solidification,
@@ -385,6 +385,14 @@ Concrete C2 caller examples:
 - `C2:7294` (`src/c2/c2_7294_apply_battler_hp_recovery_feedback.asm`): success path chooses `EF:69BA`, stages `{delta}` as the secondary payload, then `JSL C1:DC66`.
 - `C2:7318` (`src/c2/c2_7318_apply_battler_pp_recovery_feedback.asm`): chooses `EF:69D2`, stages `{delta}`, then `JSL C1:DC66`.
 - Late action-table numeric effects (`notes/class2-late-stat-and-resource-family-c28e42-c29e38.md`) repeatedly “mutate stat/resource → print `{delta}` via `DC66`”.
+- Phase 2 Mesen trace evidence for `c2_8125_damage_abi_boundary` now observes
+  the same amount lane in hit resolution: `C2:8125` reaches `C1:DC66` with
+  EBATTLE4 scripts including `EF:75C2`, `EF:75D9`, and `EF:7607`, stages the
+  damage amount in caller `$12`, commits it through `C1:AD0A` to
+  `$9D12/$9D14`, then consumes it through `C1:7EED -> C1:AD26 -> C1:0DF6`.
+  Adjacent direct text in the same fixture reaches `C1:DC1C` with scripts such
+  as `EF:7630` and `EF:7655`, keeping direct result text separate from the
+  amount-bearing lane.
 
 ### `C1:DD9F` — `DisplayCurrentActionTableTextMode1` (mode-1 wrapper)
 
@@ -421,6 +429,10 @@ Action-island handoff: `notes/ef-battle-text-action-island-consumer-frontier.md`
 keeps the row `+4` message pointer lane distinct from row `+8` behavior
 payloads and from the direct-result `DC1C` scripts emitted by those behavior
 bodies.
+Generated row-table handoff: `notes/battle-action-row-crosswalk.md` records
+all `318` D5 rows with row `+4` message pointers, row `+8` behavior pointers,
+source-label joins, and lane classifications. Use it as navigation evidence,
+not as source-promotion or runtime-behavior proof.
 
 ## Substitution-slot contracts that appear inside EF battle scripts
 
@@ -505,7 +517,7 @@ These are core “amount/status result” scripts used by C2 feedback helpers.
   - same structure as `EF:69BA`, but prints `" PP!"`
   - **C2 caller**: `C2:7318` (`src/c2/c2_7318_apply_battler_pp_recovery_feedback.asm`) uses `DC66` here.
 
-- `EF:6AE0` (paralysis/body-numb inflicted message)
+- `EF:6AE0` (body-numb inflicted message; ebsrc status vocabulary: paralysis)
   - starts `01 70 1C 0E` = `START_NEW_LINE`, `"@"`, `PRINT_ACTION_TARGET_NAME`
   - **C2 caller**: `C2:9FFE` (in `src/c2/c2_9f57_run_asleep_status_wrapper_action.asm`, `RunResistCheckedParalysisStatusAction`) chooses `EF:6AE0` vs `EF:766E`.
 - `EF:6C55` (asleep inflicted message)
@@ -770,3 +782,4 @@ When promoting additional C2 corridors that call into the battle-text cluster:
 2. If you see `JSL C1:DC66`, verify the EF script(s) contain `PRINT_ACTION_AMOUNT` (`1C 0F`) or another `$9D12/$9D14` consumer; name the staged value accordingly.
 3. If you see `JSL C1:DD7C` shortly before a `DC1C` dispatch, decode the EF script and look for `LOAD_BYTE_SUBSTITUTION` (`19 1F`) + downstream printers (`PRINT_ITEM_NAME`, `PRINT_PSI_NAME`, etc.).
 4. Treat `DD9F` call sites as a distinct lane (mode forcing + “no prompt” behavior); don’t collapse into the main `DC1C` wrapper without evidence.
+5. For any D5 row claim, join the row through `notes/battle-action-row-crosswalk.md` first so row `+4` presentation text and row `+8` behavior payloads stay separate.

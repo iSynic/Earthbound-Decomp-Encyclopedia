@@ -127,6 +127,29 @@ Still open:
 - whether `C0:9279` is being used here as a generic effect dispatcher, target dispatcher, or scripted action trampoline in battle-specific form
 - how widely the direction or target metadata are consumed locally outside the late selected-row path, even though the byte layout now strongly matches battle-action attributes
 
+## Runtime proof lane
+
+The Phase 2 Mesen runner now treats `C2:40A4` as the missing wrapper, not as
+the same thing as downstream `C0:9279` payload dispatch. The three static
+callsites are:
+
+- `C2:79D1`, from the late selected-row controller after it derives the
+  selected row's second action pointer
+- `C2:915C`, from the battler-normalization wrapper after it builds and prunes
+  the active battler mask
+- `C2:AF0D`, from the random-damage/status item tail after it builds its
+  selected payload pointer and target mask
+
+Current save 5 and save 7 probes reach target-mask and text-context neighbors
+(`C2:4703`, `C2:3E32`, `C2:416F`, `C2:3D05`) plus direct `C0:9279` payload
+dispatches to targets such as `C2:859F`, `C2:8651`, `C2:8740`, and `C2:9033`.
+Those `C0:9279` hits return through `C2:5D3D`, so the runner classifies them
+as `c2_battle_start_candidate_direct_dispatch`, not `C2:40A4` loop dispatch.
+They do not hit `C2:40A4` or those three static pre-call sites. The runner now
+captures `$A970/$A972` active row pointers, `$A96C/$A96E` target masks,
+`$00BC/$00BE` payload dispatch pointers, and the `$1B9E/$AEC2/$AECC/$AECE`
+busy gate when the right fixture lands.
+
 ## Current safest takeaway
 
 The safest current takeaway is:

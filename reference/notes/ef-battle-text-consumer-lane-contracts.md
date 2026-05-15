@@ -127,6 +127,14 @@ Examples:
   amount payloads. EBATTLE4 examples include damage `EF:75AB..7607`,
   HP-sucker `EF:7729`, PP drain `EF:773F/7755`, and periodic damage
   `EF:7768..77DB`.
+- Phase 2 Mesen trace evidence now observes the ordinary damage lane locally:
+  `C2:8125` damage entries reach `C1:DC66` with primary EF pointers
+  `EF:75C2`, `EF:75D9`, and `EF:7607`; the amount word is staged in caller
+  `$12`, committed through `C1:AD0A` to `$9D12/$9D14`, consumed by the
+  `C1:7EED` `1C 0F` handler, read through `C1:AD26`, and printed via
+  `C1:0DF6`. This proves the amount-consumer lane for the current fixture,
+  while collapse ordering and non-default damage families remain separate
+  C2 proof work.
 - EF periodic damage and PP-loss scripts such as `EF:7755`, `EF:7768`,
   `EF:7787`, `EF:77B1`, and `EF:77DB` are `ActionAmount` result scripts when
   emitted through `DC66`.

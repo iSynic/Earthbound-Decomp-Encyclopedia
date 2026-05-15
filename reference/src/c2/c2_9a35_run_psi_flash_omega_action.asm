@@ -12,7 +12,7 @@
 ; - Flash Omega tier wrapper.
 ; - Gates through `C2:7CFD`, then the shared Flash gate `C2:98A1`.
 ; - Samples `C0:8E9A & 7`; `0..2` enter collapse startup, `3` attempts
-;   numb/paralysis, `4` attempts strange, and `5..7` attempt crying.
+;   body-numb, `4` attempts strange, and `5..7` attempt crying.
 ; - Finishes through shared PSI cleanup `C2:94CE`.
 
 ; ---------------------------------------------------------------------------

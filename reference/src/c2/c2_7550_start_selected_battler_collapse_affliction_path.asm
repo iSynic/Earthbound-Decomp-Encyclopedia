@@ -54,6 +54,8 @@ NeighborAfflictionValueTwo                = $0002
 
 KO_TARGET:
 C27550_StartSelectedBattlerCollapseAfflictionPath = KO_TARGET
+    ; Natural state-7 trace enters with A/X = selected row after HP live/target
+    ; reach zero, then routes through C2:77CA and C1:DC1C for the observed tail.
     rep #$31
     phd
     pha

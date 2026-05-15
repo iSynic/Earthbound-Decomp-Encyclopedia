@@ -10,7 +10,7 @@
 ;
 ; Runtime contract:
 ; - Broader recovery helper above `C2:9B7A`.
-; - Handles row `+0x1D == 3` numb/paralysis recovery and `+0x1D == 2`
+; - Handles row `+0x1D == 3` numbness recovery and `+0x1D == 2`
 ;   diamondized/body-state recovery.
 ; - Row `+0x1D == 1` is the hard recovery branch: it tests a status chance
 ;   gate and either routes through the heavy recovery/reset helper or emits
@@ -41,7 +41,7 @@ C29C2C_TryRecoverSelectedBattlerBroadAfflictions = BTLACT_HEALING_G
     tax
     lda $0000,X
     and.w #$00FF
-    ; Main affliction byte `+0x1D`: 3 = numb/paralysis, 2 = diamondized,
+    ; Main affliction byte `+0x1D`: 3 = numbness, 2 = diamondized,
     ; 1 = hard/unconscious recovery path.
     cmp.w #$0003
     beq C29C53_TryRecoverSelectedBattlerBroadAfflictions_L9C53

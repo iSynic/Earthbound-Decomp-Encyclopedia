@@ -26,7 +26,7 @@ Source scaffold status:
 
 - durable scaffold: `src/c3/bank_c3_helpers_asar.asm`
 - manifest: `build/c3-build-candidate-ranges.json`
-- modules: `11`
+- modules: `12`
 - source-backed bytes: `65536 / 65536`
 - preserved data-gap bytes: `0`
 - byte-equivalence: `OK`, `0` mismatches

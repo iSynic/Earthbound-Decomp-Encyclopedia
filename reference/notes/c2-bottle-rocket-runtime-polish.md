@@ -48,6 +48,18 @@ The reference source gives direct names for the three adjacent far wrappers:
 The local source now exports matching wrapper aliases while preserving the
 existing `BOTTLE_ROCKET_COMMON` entry.
 
+## Phase 2 Trace-Oracles
+
+Bottle rockets are a compact counted damage-family oracle for the Phase 2
+damage lane. The useful trace points are the wrapper attempt count, each
+speed/offset gate result, the final successful-hit count, `successful_hits *
+120`, the 25-percent variance call, and the final `C2:8125` selected-target
+damage ABI crossing.
+
+Keep the counted gate separate from shared damage application in downstream
+contracts. A zero-hit result is a no-effect text path; a nonzero result is an
+amount-preparation path into the common damage spine.
+
 ## Remaining Soft Spots
 
 - The surrounding `A3D1..A5EC` unit still contains neighboring item-side

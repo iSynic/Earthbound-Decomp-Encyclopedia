@@ -47,9 +47,9 @@ The remaining work is no longer "which banks have no first pass?" It is now:
 
 ## Best next move
 
-The highest-value next pass is a source-readiness triage: rank all first-pass
-notes by whether their contents are already source-ready, data-contract-ready,
-script/bytecode-ready, or still blocked by missing includes. That would turn the
-documentation corpus into an implementation queue.
+The highest-value next pass has moved beyond first-pass triage. Use this note as
+the historical coverage index, then switch to the semantic package for live work:
 
-Companion artifact: `notes/source-readiness-triage.md`.
+- `notes/source-readiness-triage.md`: generated implementation queue.
+- `notes/semantic-notes-package.md`: documentation ownership and naming policy.
+- `notes/phase-2-semantic-status.md`: current subsystem semantic status.

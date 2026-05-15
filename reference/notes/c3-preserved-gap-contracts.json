@@ -9,7 +9,9 @@
   },
   "summary": {
     "preserved_groups": 3,
-    "preserved_bytes": 1930,
+    "contract_region_bytes": 1930,
+    "source_helper_bytes": 132,
+    "raw_preserved_bytes": 1798,
     "segments": 41,
     "status": "closed-by-contract"
   },
@@ -49,7 +51,7 @@
           "end": "C3:0142",
           "name": "DisplayAntiPiracyScreen",
           "classification": "source-helper",
-          "source_expectation": "ordinary 65816 helper; already named, but outside the event/actionscript source-pilot corpus",
+          "source_expectation": "ordinary 65816 helper; promoted into the event/actionscript source-pilot scaffold as supplemental native source",
           "evidence": [
             "notes/c4-system-error-screen-render-0b51-0b75.md:55",
             "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44459"
@@ -66,7 +68,7 @@
           "end": "C3:0184",
           "name": "DisplayFaultyGamePakScreen",
           "classification": "source-helper",
-          "source_expectation": "ordinary 65816 helper; already named, but outside the event/actionscript source-pilot corpus",
+          "source_expectation": "ordinary 65816 helper; promoted into the event/actionscript source-pilot scaffold as supplemental native source",
           "evidence": [
             "notes/c4-system-error-screen-render-0b51-0b75.md:56",
             "refs/earthbound-disasm-legacy/Earthbound Decomp/EB/Routine_Macros_EB.asm:44492"

@@ -74,6 +74,26 @@ On the ordinary target-resolution path:
 
 If the `0x30` path fails the item mask check, the helper writes record word `+2 = 3`, marking a different fallback or failure action class.
 
+## C-Port Feedback Trace-Oracles
+
+`notes/c-port-feedback-intake.md` reinforces this as a C1-to-C2 bridge, but the
+diary claims should remain candidate evidence until locally traced here.
+
+Trace fields to carry into the next local pass:
+
+- keep the `C1:CFC6` / `C1:CE85` split explicit: `C1:CFC6` owns the battle
+  inventory-selection loop, and `C1:CE85` owns selected-item action/target
+  resolution
+- capture the selected item action word from item config `+0x1D`, the
+  `C1:ADB4` staged target/action bytes, and the result byte returned to the
+  selection record before C2 consumes the action
+- where the selected item path exposes the associated `D5:7B68` row, trace
+  candidate row fields `+0x07`, `+0x08`, and `+0x0A` alongside the selected
+  target/action byte
+- treat target byte shapes `0x11`, `0x01`, and `0x12` as observed C-port diary
+  shapes only; do not promote them to stable source names until this repo has
+  local ASM or trace evidence
+
 ## Interpretation
 
 This pair is the missing battle-item counterpart to the PSI menu targeting path:

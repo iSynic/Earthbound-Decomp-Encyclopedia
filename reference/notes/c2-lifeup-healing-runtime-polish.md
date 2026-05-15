@@ -66,6 +66,18 @@ That makes the decomp more useful than a name-only action table: a contributor
 can now follow a Lifeup table entry from editor-visible action metadata through
 the fixed literal wrapper to the selected-row HP recovery feedback worker.
 
+## Phase 2 Trace-Oracles
+
+Fixed HP recovery is the healing-side sibling of the damage/resource amount
+lane. Phase 2 should trace the literal wrapper, `C2:6AFD` amount shaping,
+selected row `$A972`, the `C2:7294` HP recovery worker, clamp/maxed behavior,
+and amount/no-effect text selection.
+
+The C-port feedback pairs this with fixed PP recovery as a structural mirror,
+but this note only locally promotes the HP wrapper family. Fixed PP recovery
+should be kept as a trace candidate in resource-lane notes until its C2 source
+path is pinned with the same target-resource and text-contract specificity.
+
 ## Remaining Soft Spots
 
 - Later item/other reuses of these wrappers should eventually get their own

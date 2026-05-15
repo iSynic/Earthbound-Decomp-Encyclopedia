@@ -93,6 +93,26 @@ Pinned callers now include:
 
 So this helper is not PSI-only. It is a reusable battle-side exporter that multiple menu and event-result lanes rely on.
 
+## Runtime proof lane
+
+The Phase 2 Mesen runner now treats `C2:B930` as the remaining
+`c1_c2_target_action_staging` fixture gap rather than another target-count
+neighbor. Static source review pins the C1 pre-export callsites as:
+
+- `C1:B3DB`
+- `C1:B462`
+- `C1:B505`
+- `C1:B859`
+- `C1:B9A9`
+- `C1:BA60`
+
+The current numbered battle saves reach C1 selection/menu neighbors and
+`C2:BAC5`, but not those pre-export callsites or `C2:B930`. The next useful
+runtime fixture is therefore after a target/action choice has been committed
+but before C1 choice/action text dispatch. When that fixture lands, the runner
+captures C1 direct-page fields `$00..$2C`, the `$99CE` source slot row selected
+by `A`, destination `X/Y` rows, and a post-return snapshot after `C2:B930`.
+
 ## Safest current interpretation
 
 The safest current summary is:

@@ -117,6 +117,28 @@ It clears live row bytes:
 This should be read as inactive/transient-field cleanup, not a full
 target/candidate-pool reset.
 
+## C-Port Feedback Trace-Oracles
+
+`notes/c-port-feedback-intake.md` frames the C2 side of this work as the
+consumer of C1-staged battle-action and target bytes. The diary observations
+are useful oracle candidates, but they should stay below contract status until
+local C2 traces pin the same fields.
+
+Useful trace probes for this note:
+
+- capture the staged target/action bytes produced through `C1:ADB4` at the
+  handoff into C2 target-selection and selected-row consumers
+- record candidate/source-entry bytes `+0x07`, `+0x08`, and `+0x0A` where they
+  are visible during candidate promotion, row counting, or selected-row
+  dispatch; treat them as diagnostic metadata until their C2-local meaning is
+  proven
+- use target byte shapes `0x11`, `0x01`, and `0x12` as observed C-port diary
+  probes, not promoted enum names; the `0x12` row-selector shape is a good
+  trace target for checking row `0` / row `1` behavior
+- keep item-originated actions tied back to the C1 separation: `C1:CFC6`
+  selects an inventory slot, while `C1:CE85` resolves the item into the
+  action/target path that C2 later consumes
+
 ## Decomp Value
 
 This slice closes the strongest C1-to-C2 target-selection dependency:

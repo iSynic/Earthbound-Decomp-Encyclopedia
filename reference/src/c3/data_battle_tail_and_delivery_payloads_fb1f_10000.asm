@@ -7,7 +7,7 @@
 ;   C3 source-data-map boundaries for later event/actionscript decoding.
 ;
 ; Source units covered:
-; - C3:FB1F..C3:FDBD HP_METER_SPEEDS [ebsrc-known]
+; - C3:FB1F..C3:FDBD HP_METER_SPEEDS [ebsrc-known table]
 ; - C3:FDBD..C3:10000 DeliveryPlaceholderSpriteTable [movement-pattern-data]
 
 ; ---------------------------------------------------------------------------
@@ -18,6 +18,7 @@
 
 HP_METER_SPEEDS:
 C3FB1F_DATA_C3FB1F = HP_METER_SPEEDS
+
 C3FDBD_DATA_C3FB1FEnd:
     ; data bytes: C3:FB1F..C3:FDBD
     db $00,$20,$01,$00,$00,$18,$01,$00,$00,$10,$01,$00,$82,$95,$97,$99

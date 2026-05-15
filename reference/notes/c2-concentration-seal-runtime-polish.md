@@ -52,6 +52,22 @@ This completes the source-side picture for the local concentration/seal family:
 - `C2:8D41` is the shared luck-threshold gate.
 - row `+0x21 = 4` remains the strongest local concentration/PSI-seal state.
 
+## Phase 2 Adjacent Status Lane
+
+The C-port intake groups concentration seal with the affliction/status writer
+work, but the local contract is adjacent to `C2:724A`, not a caller of it. The
+Phase 2 matrix row for this lane should record:
+
+| Caller | Selected row source | Slot/value | Chance/resistance gate | EF text result |
+| --- | --- | --- | --- | --- |
+| `C2:8D5A` | enemy-side selected row from the action body | direct `+0x21 = 4` write | default blocker, `C2:8D41`, selected-row `+0x37` through `C2:6BB8` | `EF:6C0B` / `EF:766E` |
+| `C2:A3D1` | item-side selected row from the item action body | direct `+0x21 = 4` write | item-side sibling gates documented in the A3D1 item note | `EF:6C0B` / `EF:766E` |
+
+The solid local claim is the direct `+0x21 = 4` write and shared text pair.
+Any diary-only claim about broader item-side status grouping should remain a
+trace candidate until the selected-row source and gate order are captured
+beside the `C2:724A` solidification/item-status rows.
+
 ## Remaining Soft Spots
 
 - The exact semantic name for selected-row byte `+0x37` should wait for the

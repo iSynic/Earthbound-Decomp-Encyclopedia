@@ -108,6 +108,24 @@ So the safest current read is:
 
 That fits the reference return path exactly enough for the helper identity to be considered stable even though the exact bit names still rest partly on the reference constants.
 
+## C-Port Feedback Trace-Oracles
+
+`notes/c-port-feedback-intake.md` adds useful pressure from the C-port diary,
+but the diary fields should stay evidence candidates until this workspace has
+local traces for the same paths.
+
+High-value local trace fields for this resolver:
+
+- capture the `C1:ADB4` input action id and the resulting staged target/action
+  bytes before any C2 consumer treats them as committed contract state
+- record the associated `D5:7B68` candidate/action row fields around `+0x07`,
+  `+0x08`, and `+0x0A` where the selected path exposes them
+- keep target byte shapes `0x11`, `0x01`, and `0x12` as observed C-port diary
+  shapes, not promoted local enum names; `0x12` is especially useful as a row
+  selector probe until local traces confirm the row mapping
+- preserve the model that `C1:CFC6` owns the battle inventory-selection loop
+  while `C1:CE85` resolves the selected item into the action/targetting path
+
 ## Why this matters for the PSI menu notes
 
 This helper is the bridge that keeps the PSI menu notes honest.

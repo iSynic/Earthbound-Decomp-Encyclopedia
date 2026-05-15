@@ -17,6 +17,10 @@
 ; - For each targeted bit, rebuilds target text context and dispatches the same
 ;   fixed second-pointer payload through `C0:9279`.
 ; - The sibling `C2:416F` helper prunes the current target mask by row state.
+; - Fixture-steered trace evidence from `bash-row-neutralize-c240a4` observed
+;   `C2:90C6 -> C2:915C -> C2:40A4`, target-loop returns at `C2:4104` and
+;   `C2:4159`, and payload `C2:9051`. That proves this wrapper path shape
+;   only; it is not a vanilla Bash behavior claim.
 
 ; ---------------------------------------------------------------------------
 ; External contracts used by this module
