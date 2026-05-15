@@ -1053,7 +1053,8 @@ function compactSearchText(entry, fullBody) {
     ? (entry.sourceFile ? 120 : 1600)
     : searchTextLimit;
   const bodyTerms = uniqueSearchTerms(fullBody, bodyLimit);
-  return `${metadata} ${bodyTerms}`.replace(/\s+/g, " ").trim();
+  const importantTerms = importantSearchTerms(fullBody, entry.sourceFile ? 1600 : 5000);
+  return `${metadata} ${bodyTerms} ${importantTerms}`.replace(/\s+/g, " ").trim();
 }
 
 function searchIndexDocument(entry) {
@@ -1063,6 +1064,7 @@ function searchIndexDocument(entry) {
     .map((match) => match[1])
     .slice(0, 600)
     .join(" ");
+  const sourceSymbols = (entry.sourceFile?.searchSymbols || []).join(" ");
   const paths = [
     ...(entry.sourceRefs || []).map((ref) => ref.path),
     ...(entry.noteRefs || []).map((ref) => ref.path)
@@ -1079,6 +1081,7 @@ function searchIndexDocument(entry) {
   const bodyLimit = privateMode
     ? (entry.sourceFile ? 120 : 1600)
     : searchTextLimit;
+  const importantTerms = importantSearchTerms(fullBody, entry.sourceFile ? 1600 : 5000);
   return {
     id: entry.id,
     kind: entry.kind,
@@ -1091,12 +1094,13 @@ function searchIndexDocument(entry) {
       entry.summary,
       paths,
       entry.compareSearchTerms,
+      sourceSymbols,
       headings,
       labels,
       ...(entry.addresses || []),
       ...(entry.banks || [])
     ].filter(Boolean).join(" ").toLowerCase(),
-    bodyText: uniqueSearchTerms(fullBody, bodyLimit)
+    bodyText: `${uniqueSearchTerms(fullBody, bodyLimit)} ${importantTerms}`.trim()
   };
 }
 
@@ -1176,6 +1180,36 @@ function uniqueSearchTerms(markdown, maxChars) {
     }
   }
 
+  return terms.join(" ");
+}
+
+function importantSearchTerms(markdown, maxChars) {
+  const text = String(markdown || "")
+    .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, "$1 $2")
+    .replace(/\[\[([^\]]+)\]\]/g, "$1");
+  const seen = new Set();
+  const terms = [];
+  let charCount = 0;
+  const patterns = [
+    /\b[a-z0-9]+(?:[-_./:][a-z0-9]+){1,}\b/gi,
+    /\b[A-Z][A-Za-z0-9]*_[A-Za-z0-9_]+\b/g,
+    /\b[A-Z]{1,2}[0-9A-F]:[0-9A-F]{4}(?:\.\.[A-Z]{1,2}[0-9A-F]:[0-9A-F]{4})?\b/g,
+    /\$[0-9A-Fa-f]{4,6}\b/g
+  ];
+  for (const pattern of patterns) {
+    for (const match of text.matchAll(pattern)) {
+      const term = match[0].toLowerCase().replace(/^[._:]+|[._:]+$/g, "");
+      if (!term || term.length < 4 || seen.has(term)) {
+        continue;
+      }
+      seen.add(term);
+      terms.push(term);
+      charCount += term.length + 1;
+      if (charCount >= maxChars) {
+        return terms.join(" ");
+      }
+    }
+  }
   return terms.join(" ");
 }
 
@@ -3246,6 +3280,7 @@ function parseSourceModule(filePath) {
   const fileName = path.basename(filePath);
   const bank = inferBankFromRelativePath(relativePath);
   const labels = [...text.matchAll(/^([A-Za-z0-9_]+):/gm)].map((match) => match[1]);
+  const symbolNames = asmSymbolNames(text);
   const primaryLabel = labels.find((label) => !/_L[0-9A-F]{4}$/i.test(label)) || labels[0] || "";
   const address = addressFromLabel(primaryLabel) || addressFromFileName(fileName);
   const sourceUnits = [...text.matchAll(/; - ([C-E][0-9A-F]:[0-9A-F]{4}\.\.[C-E][0-9A-F]:[0-9A-F]{4})\s+(.+)/g)]
@@ -3253,13 +3288,14 @@ function parseSourceModule(filePath) {
   const title = sourceUnits[0]?.name || titleFromSlug(fileName.replace(/^[c-e][0-9a-f]_[0-9a-f]{4}(?:_[0-9a-f]{4})?_?/i, ""));
   const externalContracts = [...text.matchAll(/^([A-Za-z0-9_]+)\s*=\s*\$([A-F0-9]{6})/gmi)]
     .map((match) => `${match[1]} = $${match[2].toUpperCase()}`)
-    .slice(0, 12);
+    .slice(0, 32);
 
   return {
     relativePath,
     fileName,
     bank,
     labels,
+    symbolNames,
     primaryLabel,
     address,
     sourceUnits,
@@ -3270,6 +3306,13 @@ function parseSourceModule(filePath) {
     ebsrcAlignment: ebsrcAlignmentForPath(relativePath),
     sourceEmbed: sourceEmbed(text)
   };
+}
+
+function asmSymbolNames(text) {
+  const names = [
+    ...String(text || "").matchAll(/^([A-Za-z_][A-Za-z0-9_]*)\s*[:=]/gm)
+  ].map((match) => match[1]);
+  return unique(names).filter((name) => !/^L[0-9A-F]{4}$/i.test(name));
 }
 
 function addSourceModuleEntries() {
@@ -3339,7 +3382,7 @@ function addSourceModuleEntries() {
         module.relativePath,
         module.fileName,
         module.primaryLabel,
-        ...module.labels.slice(0, 10),
+        ...module.symbolNames.slice(0, 80),
         ...ebsrcAlignmentAliases(module.ebsrcAlignment)
       ].filter(Boolean),
       addresses: [
@@ -3683,6 +3726,7 @@ function parseSourceFile(filePath) {
   const fileName = path.basename(filePath);
   const bank = inferBankFromRelativePath(relativePath);
   const labels = [...text.matchAll(/^([A-Za-z0-9_]+):/gm)].map((match) => match[1]);
+  const symbolNames = asmSymbolNames(text);
   const address = addressFromLabel(labels[0] || "") || addressFromFileName(fileName);
   const sourceUnits = [...text.matchAll(/; - ([C-E][0-9A-F]:[0-9A-F]{4}\.\.[C-E][0-9A-F]:[0-9A-F]{4})\s+(.+)/g)]
     .map((match) => ({ range: match[1], name: match[2].trim() }));
@@ -3697,6 +3741,7 @@ function parseSourceFile(filePath) {
     fileName,
     bank,
     labels,
+    symbolNames,
     address,
     sourceUnits,
     title,
@@ -3778,6 +3823,7 @@ function addSourceFileEntries() {
           lineCount: file.lineCount,
           labelCount: file.labels.length,
           labels: file.labels.slice(0, 120),
+          searchSymbols: file.symbolNames.slice(0, 240),
           firstAddress: file.address,
           sourceUnits: file.sourceUnits.slice(0, 80),
           backingSource: file.backingSource,
@@ -3841,7 +3887,7 @@ function addSourceFileEntries() {
           file.title,
           file.backingSource?.path,
           file.semanticSource?.path,
-          ...file.labels.slice(0, 8),
+          ...file.symbolNames.slice(0, 80),
           ...ebsrcAlignmentAliases(file.ebsrcAlignment)
         ].filter(Boolean),
       addresses: [
@@ -3857,6 +3903,7 @@ function addSourceFileEntries() {
         lineCount: file.lineCount,
         labelCount: file.labels.length,
         labels: file.labels.slice(0, 120),
+        searchSymbols: file.symbolNames.slice(0, 240),
         firstAddress: file.address,
         sourceUnits: file.sourceUnits.slice(0, 80),
         backingSource: file.backingSource,

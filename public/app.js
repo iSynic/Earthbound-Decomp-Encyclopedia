@@ -3264,10 +3264,12 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
   if (isGuideMetaQuery(query)) {
     return [];
   }
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const terms = searchTermsForQuery(query);
   if (!terms.length) {
     return [];
   }
+  const phrase = normalizedSearchPhrase(terms);
+  const wantsNotes = /\bnotes?\b/i.test(String(query || ""));
   const facet = SEARCH_FACETS.find((candidate) => candidate.id === facetId) || SEARCH_FACETS[0];
   const exactSourceQuery = /^(src\/[a-z0-9/_-]+|[c-e][0-9]:[0-9a-f]{4}|\$[0-9a-f]{4,6}|[a-z_.$][a-z0-9_.$]{4,}|[a-z0-9_.-]+\.asm)$/i.test(query.trim());
 
@@ -3279,9 +3281,18 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
       const haystack = document
         ? `${document.exact || ""} ${document.titleText || ""} ${document.metaText || ""} ${document.bodyText || ""}`
         : compactEntrySearchText(entry);
+      const normalizedHaystack = normalizedSearchPhrase([haystack]);
       const allTermsMatch = terms.every((term) => haystack.includes(term));
       let score = 0;
       const reasons = [];
+      if (phrase && normalizedHaystack.includes(phrase)) {
+        score += entry.kind === "note" ? 42 : ["source", "source-file", "routine", "symbol", "reference-source"].includes(entry.kind) ? 34 : 24;
+        reasons.push("phrase");
+      }
+      if (wantsNotes && entry.kind === "note") {
+        score += 35;
+        reasons.push("note");
+      }
       for (const term of terms) {
         if ((document?.exact || "").split(/\s+/).includes(term)) { score += 45; reasons.push("exact"); }
         if ((document?.titleText || entry.title.toLowerCase()).includes(term)) { score += 18; reasons.push("title"); }
@@ -3302,6 +3313,25 @@ function search(query, limit = 9, facetId = state.searchFacet || "all") {
     .slice(0, limit === Infinity ? undefined : limit);
 }
 
+function searchTermsForQuery(query) {
+  const rawTerms = String(query || "").toLowerCase().split(/\s+/).filter(Boolean);
+  if (rawTerms.length <= 1) {
+    return rawTerms;
+  }
+  const stopTerms = new Set(["latest", "recent", "new", "current", "notes", "note", "page", "entry", "info", "about", "the", "a", "an", "for", "of", "on"]);
+  const filtered = rawTerms.filter((term) => !stopTerms.has(term));
+  return filtered.length ? filtered : rawTerms;
+}
+
+function normalizedSearchPhrase(parts) {
+  return String((parts || []).join(" "))
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .toLowerCase()
+    .replace(/[_./:-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function compactEntrySearchText(entry) {
   return [
     entry.id,
@@ -3314,6 +3344,7 @@ function compactEntrySearchText(entry) {
     entry.sourceFile?.path,
     entry.sourceFile?.role,
     ...(entry.sourceFile?.labels || []),
+    ...(entry.sourceFile?.searchSymbols || []),
     ...(entry.sourceFile?.sourceUnits || []).map((unit) => `${unit.label || ""} ${unit.address || ""} ${unit.range || ""}`),
     ...(entry.sourceRefs || []).map((ref) => `${ref.label || ""} ${ref.path || ""}`),
     ...(entry.noteRefs || []).map((ref) => `${ref.label || ""} ${ref.path || ""}`)
